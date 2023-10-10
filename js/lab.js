@@ -445,13 +445,13 @@ for (var calc of calcElements) {
     }
 	
 	}
-	if($('score') && loaded) {$('score').click}
+	if($('score') && loaded) {$('score').click()}
   });
   });
   calc.addEventListener("input", function(e) {
     const savebutton = $('savebutton');
 	savebutton.click();
-	if($('score') && loaded) {$('score').click}
+	if($('score') && loaded) {$('score').click()}
   });
   
 }
@@ -512,7 +512,7 @@ for (var num of numElements) {
 	}
 	const savebutton = $('savebutton');
 	savebutton.click();
-	if($('score') && loaded) {$('score').click}
+	if($('score') && loaded) {$('score').click()}
   });
 }
 
@@ -534,7 +534,7 @@ for (var textElement of textElements) {
 	textElement.addEventListener("change", function(e) {
 		const savebutton = $('savebutton');
 		savebutton.click();
-		if($('score') && loaded) {$('score').click}
+		if($('score') && loaded) {$('score').click()}
 	});
 }
 
@@ -543,7 +543,7 @@ for (var essayElement of essayElements) {
 	essayElement.addEventListener("change", function(e) {
 		const savebutton = $('savebutton');
 		savebutton.click();
-		if($('score') && loaded) {$('score').click}
+		if($('score') && loaded) {$('score').click()}
 	});
 }
 
