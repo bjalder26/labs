@@ -47,6 +47,7 @@ app.post("*", require("body-parser").urlencoded({extended: true}));
 
 
 app.post("/module_1", (req, res) => {
+	console.log('in');
 	
 	var lmsData = new lti.Provider("top", "secret");
 	lmsData.valid_request(req, (err, isValid) => {
@@ -67,6 +68,7 @@ app.post("/module_1", (req, res) => {
 
 
 app.post("/", (req, res) => {	
+    console.log('in2');
 	var lmsData = new lti.Provider("top", "secret");
 	lmsData.valid_request(req, (err, isValid) => {
 		if (!isValid) {
@@ -196,7 +198,11 @@ app.get("/grade/:sessionID/:grade", (req, res) => {
 */
 
 app.get("/score/:sessionID/:score", (req, res) => {
+
 	var session = sessions[req.params.sessionID];
+	console.log('req');
+	console.log(JSON.stringify(req.params));
+	console.log(JSON.stringify(req.session));
 	console.log('session');
 	console.log(JSON.stringify(session));
 	console.log('sessions');
@@ -204,8 +210,8 @@ app.get("/score/:sessionID/:score", (req, res) => {
 	console.log('sessionID');
 	console.log(req.params.sessionID);
 	var score = req.params.score;
-	console.log(score);
-	var resp = `Your score of ${score}% has been recorded`;
+	console.log(score/100);
+	var resp = `Your score of ${score} has been recorded`;
 	
 	session.outcome_service.send_replace_result(score/100, (err, isValid) => {
 		if (!isValid)
@@ -221,10 +227,10 @@ app.get("/score/:sessionID/:score", (req, res) => {
 
 // start server on the specified port and binding host
 //app.listen(appEnv.port, '0.0.0.0', function() {
-	app.listen(3200, '0.0.0.0', function() {
+	app.listen(3000, '0.0.0.0', function() {
   // print a message when the server starts listening
   //console.log("server starting on " + appEnv.url);
-  console.log("server starting on port " + 3200);
+  console.log("server starting on port " + 3000);
 });
 
 app.post('/save', async (req, res) => {
@@ -247,7 +253,7 @@ app.post('/save', async (req, res) => {
   res.json({ success: true });
 });
 
-
+console.log('out');
 
 /*
 const app = express();
