@@ -445,11 +445,13 @@ for (var calc of calcElements) {
     }
 	
 	}
+	if($('score') && loaded) {$('score').click}
   });
   });
   calc.addEventListener("input", function(e) {
     const savebutton = $('savebutton');
 	savebutton.click();
+	if($('score') && loaded) {$('score').click}
   });
   
 }
@@ -510,6 +512,7 @@ for (var num of numElements) {
 	}
 	const savebutton = $('savebutton');
 	savebutton.click();
+	if($('score') && loaded) {$('score').click}
   });
 }
 
@@ -531,6 +534,7 @@ for (var textElement of textElements) {
 	textElement.addEventListener("change", function(e) {
 		const savebutton = $('savebutton');
 		savebutton.click();
+		if($('score') && loaded) {$('score').click}
 	});
 }
 
@@ -539,6 +543,7 @@ for (var essayElement of essayElements) {
 	essayElement.addEventListener("change", function(e) {
 		const savebutton = $('savebutton');
 		savebutton.click();
+		if($('score') && loaded) {$('score').click}
 	});
 }
 
@@ -551,7 +556,7 @@ for (var feedbackElement of feedbackElements) {
 	
 }
 
-const scoreElement = document.getElementById('score');
+const scoreElement = $('score');
 
 if(scoreElement) {
 scoreElement.addEventListener("click", function(e) {
@@ -587,7 +592,7 @@ fbElements.forEach((element) => {
 });
 	const calcScore = (countCorrectElements/fbElements.length)*50;
 	const totalScore = dataScore + calcScore;
-    document.getElementById('score').innerHTML = totalScore.toFixed(1);
+    $('score').innerHTML = totalScore.toFixed(1);
   }
 });
 }
