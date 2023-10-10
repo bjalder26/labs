@@ -211,7 +211,7 @@ app.get("/score/:sessionID/:score", (req, res) => {
 	console.log(req.params.sessionID);
 	var score = req.params.score;
 	console.log(score/100);
-	var resp = `Your score of ${score} has been recorded`;
+	var resp = `Your score of ${score}% has been recorded`;
 	
 	session.outcome_service.send_replace_result(score/100, (err, isValid) => {
 		if (!isValid)
