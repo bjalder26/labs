@@ -1,119 +1,258 @@
-/**
- * This is the main Node.js server script for your project
- * Check out the two endpoints this back-end API provides in fastify.get and fastify.post below
- */
 
-const path = require("path");
+// This application uses express as its web server
+// for more info, see: http://expressjs.com
+var express = require('express');
+const http = require('http');
 
-// Require the fastify framework and instantiate it
-const fastify = require("fastify")({
-  // Set this to true for detailed logging:
-  logger: false,
+// cfenv provides access to your Cloud Foundry environment
+// for more info, see: https://www.npmjs.com/package/cfenv
+var cfenv = require('cfenv');
+var uuid = require("uuid4");
+var lti = require("ims-lti");
+var fs = require('fs');
+
+//var ExploringDensityPropertiesFile = fs.readFileSync("Exploring Density Properties.html", "utf8");
+//var mod3File = fs.readFileSync("mod3.html", "utf8");
+//var mod4File = fs.readFileSync("mod4.html", "utf8");
+
+// create a new express server
+var app = express();
+
+app.use(express.urlencoded({ // increases the limit on what is sent via url not sure if this is needed anymore
+  limit: '50mb',
+  extended: true, // not sure about
+  parameterLimit: 50000
+}));
+app.use(express.json({limit: '50mb'})); // increases the limit on what is sent
+
+app.use('/html', express.static(__dirname + '/html/'));
+app.use('/images', express.static(__dirname + '/images/'));
+app.use('/users', express.static(__dirname + '/users/'));
+app.use('/submissions', express.static(__dirname + '/submissions/'));
+app.use('/js', express.static(__dirname + '/js/'));
+app.use('/css', express.static(__dirname + '/css/'));
+
+// I believe this allows for http vs https only
+app.enable('trust proxy');
+
+
+var sessions = {};
+
+
+
+// serve the files out of ./public as our main files
+app.use(express.static(__dirname + '/public'));
+
+app.post("*", require("body-parser").urlencoded({extended: true}));
+
+
+app.post("/module_1", (req, res) => {
+	
+	var lmsData = new lti.Provider("top", "secret");
+	lmsData.valid_request(req, (err, isValid) => {
+		if (!isValid) {
+			res.send("Invalid request: " + err);
+			return ;
+		}
+		
+		var sessionID = uuid();
+		sessions[sessionID] = lmsData;
+		
+		
+		res.send(lmsData.body);
+	});   // lmsDate.valid_request
+	
+});       // app.post("/module_1");
+
+
+
+app.post("/", (req, res) => {	
+	var lmsData = new lti.Provider("top", "secret");
+	lmsData.valid_request(req, (err, isValid) => {
+		if (!isValid) {
+			res.send("Invalid request: " + err);
+			return ;
+		}
+		
+		var sessionID = uuid();
+		sessions[sessionID] = lmsData;
+		
+		const name = lmsData.body.lis_person_name_full;
+		console.log('name: ' + name);
+		let labHtml = '';
+		let dataFile = {};
+		let labName = '';
+		let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
+		if(lmsData.body.resource_link_title.toLowerCase() == 'exploring density properties') {
+		labName = 'Exploring Density Properties';
+		// creates user data file if it doesn't exist *** make this a function? ***
+		if (!fs.existsSync(__dirname + '/submissions/' + 'Exploring Density Properties' + '_' + name  +  '.txt')){
+			fs.writeFileSync(__dirname + '/submissions/' + 'Exploring Density Properties' + '_' + name  +  '.txt', '{}', 'utf8');
+			}	
+			
+		labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
+		dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
+		console.log('dataFile');
+		console.log(dataFile);
+
+		} else {
+		labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower;
+		}
+		
+		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
+				`
+						var userName = '${name}';
+						var dataFile = ${dataFile};
+						var labName = '${labName}';
+						var params = {
+						sessionID: "${sessionID}",
+						user: "${lmsData.body.ext_user_username}"
+					};
+				`);
+
+        
+
+		res.setHeader("Content-Type", "text/html");
+		res.send(sendMe);
+	});   // lmsDate.valid_request
+	
+});       // app.post("/");
+
+/*
+
+app.post("/module_3", (req, res) => {	
+	var lmsData = new lti.Provider("top", "secret");
+	lmsData.valid_request(req, (err, isValid) => {
+		if (!isValid) {
+			res.send("Invalid request: " + err);
+			return ;
+		}
+		
+		var sessionID = uuid();
+		sessions[sessionID] = lmsData;
+	
+		var sendMe = mod3File.toString().replace("//PARAMS**GO**HERE",
+				`
+					var params = {
+						sessionID: "${sessionID}",
+						user: "${lmsData.body.ext_user_username}"
+					};
+				`);
+
+		res.setHeader("Content-Type", "text/html");
+		res.send(sendMe);
+	});   // lmsDate.valid_request
+	
+});       // app.post("/module_3");
+
+app.post("/module_4", (req, res) => {	
+	var lmsData = new lti.Provider("top", "secret");
+	lmsData.valid_request(req, (err, isValid) => {
+		if (!isValid) {
+			res.send("Invalid request: " + err);
+			return ;
+		}
+		
+		var sessionID = uuid();
+		sessions[sessionID] = lmsData;
+	
+		var sendMe = mod4File.toString().replace("//PARAMS**GO**HERE",
+				`
+					var params = {
+						sessionID: "${sessionID}",
+						user: "${lmsData.body.ext_user_username}"
+					};
+				`);
+
+		res.setHeader("Content-Type", "text/html");
+		res.send(sendMe);
+	});   // lmsDate.valid_request
+	
+});       // app.post("/module_4");
+
+app.get("/grade/:sessionID/:grade", (req, res) => {
+	const session = sessions[req.params.sessionID];
+	var grade = req.params.grade;
+	var resp;
+	
+	if (grade < 60) {
+		resp = `${grade} is too low. How about sixty instead?`;
+		grade = 60;
+	} else if (grade > 90) {
+		resp = `${grade} is too high. How about ninety instead?`;
+		grade = 90;		
+ 	} else {
+ 		resp = `${grade} sounds reasonable, sure.`;
+ 	}
+	
+	session.outcome_service.send_replace_result(grade/100, (err, isValid) => {
+		if (!isValid)
+			resp += `<br/>Update failed ${err}`;
+
+		res.send(resp);
+	});
+
+});    // app.get("/grade...")
+*/
+
+app.get("/score/:sessionID/:score", (req, res) => {
+	var session = sessions[req.params.sessionID];
+	console.log('session');
+	console.log(JSON.stringify(session));
+	console.log('sessions');
+	console.log(JSON.stringify(sessions));
+	console.log('sessionID');
+	console.log(req.params.sessionID);
+	var score = req.params.score;
+	console.log(score);
+	var resp = `Your score of ${score}% has been recorded`;
+	
+	session.outcome_service.send_replace_result(score/100, (err, isValid) => {
+		if (!isValid)
+			resp += `<br/>Update failed ${err}`;
+
+		res.send(resp);
+	});
+
+});    // app.get("/score...")
+
+// get the app environment from Cloud Foundry
+//var appEnv = cfenv.getAppEnv();
+
+// start server on the specified port and binding host
+//app.listen(appEnv.port, '0.0.0.0', function() {
+	app.listen(3200, '0.0.0.0', function() {
+  // print a message when the server starts listening
+  //console.log("server starting on " + appEnv.url);
+  console.log("server starting on port " + 3200);
 });
 
-// ADD FAVORITES ARRAY VARIABLE FROM TODO HERE
-
-// Setup our static files
-fastify.register(require("@fastify/static"), {
-  root: path.join(__dirname, "public"),
-  prefix: "/", // optional: default '/'
-});
-
-// Formbody lets us parse incoming forms
-fastify.register(require("@fastify/formbody"));
-
-// View is a templating manager for fastify
-fastify.register(require("@fastify/view"), {
-  engine: {
-    handlebars: require("handlebars"),
-  },
-});
-
-// Load and parse SEO data
-const seo = require("./src/seo.json");
-if (seo.url === "glitch-default") {
-  seo.url = `https://${process.env.PROJECT_DOMAIN}.glitch.me`;
-}
-
-/**
- * Our home page route
- *
- * Returns src/pages/index.hbs with data built into it
- */
-fastify.get("/", function (request, reply) {
-  // params is an object we'll pass to our handlebars template
-  let params = { seo: seo };
-
-  // If someone clicked the option for a random color it'll be passed in the querystring
-  if (request.query.randomize) {
-    // We need to load our color data file, pick one at random, and add it to the params
-    const colors = require("./src/colors.json");
-    const allColors = Object.keys(colors);
-    let currentColor = allColors[(allColors.length * Math.random()) << 0];
-
-    // Add the color properties to the params object
-    params = {
-      color: colors[currentColor],
-      colorError: null,
-      seo: seo,
-    };
+app.post('/save', async (req, res) => {
+  console.log('obj:');
+  const obj = JSON.parse(JSON.stringify(req.body));
+  console.log(JSON.stringify(obj));
+  let userName = obj.userName;
+  let labName = obj.labName;
+  console.log(userName)
+  console.log(labName)
+    try {
+		console.log(labName)
+    fs.writeFileSync(__dirname + "/submissions/" + labName + "_" + userName + ".txt", JSON.stringify(obj), {
+      flag: 'w+'
+    });
+    console.log("File written successfully");
+  } catch (err) {
+    console.error('qbank write: ' + err);
   }
-
-  // The Handlebars code will be able to access the parameter values and build them into the page
-  return reply.view("/src/pages/index.hbs", params);
+  res.json({ success: true });
 });
 
-/**
- * Our POST route to handle and react to form submissions
- *
- * Accepts body data indicating the user choice
- */
-fastify.post("/", function (request, reply) {
-  // Build the params object to pass to the template
-  let params = { seo: seo };
 
-  // If the user submitted a color through the form it'll be passed here in the request body
-  let color = request.body.color;
 
-  // If it's not empty, let's try to find the color
-  if (color) {
-    // ADD CODE FROM TODO HERE TO SAVE SUBMITTED FAVORITES
-
-    // Load our color data file
-    const colors = require("./src/colors.json");
-
-    // Take our form submission, remove whitespace, and convert to lowercase
-    color = color.toLowerCase().replace(/\s/g, "");
-
-    // Now we see if that color is a key in our colors object
-    if (colors[color]) {
-      // Found one!
-      params = {
-        color: colors[color],
-        colorError: null,
-        seo: seo,
-      };
-    } else {
-      // No luck! Return the user value as the error property
-      params = {
-        colorError: request.body.color,
-        seo: seo,
-      };
-    }
-  }
-
-  // The Handlebars template will use the parameter values to update the page with the chosen color
-  return reply.view("/src/pages/index.hbs", params);
+/*
+const app = express();
+const server = http.createServer(app); // not sure if this is important
+const listener = server.listen(3200, () => {
+  console.log("Your server is listening on port " + listener.address().port);
 });
-
-// Run the server and report out to the logs
-fastify.listen(
-  { port: process.env.PORT, host: "0.0.0.0" },
-  function (err, address) {
-    if (err) {
-      console.error(err);
-      process.exit(1);
-    }
-    console.log(`Your app is listening on ${address}`);
-  }
-);
+*/
