@@ -704,4 +704,5 @@ window.addEventListener("afterprint", (event) => {
   document.title= labName;
 });
 loaded = true;
+  if($('score')) {$('score').click()}
 }// end onLoad
