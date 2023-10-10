@@ -222,18 +222,8 @@ app.get("/score/:sessionID/:score", (req, res) => {
 
 });    // app.get("/score...")
 
-// get the app environment from Cloud Foundry
-//var appEnv = cfenv.getAppEnv();
 
-// start server on the specified port and binding host
-//app.listen(appEnv.port, '0.0.0.0', function() {
-	app.listen(3000, '0.0.0.0', function() {
-  // print a message when the server starts listening
-  //console.log("server starting on " + appEnv.url);
-  console.log("server starting on port " + 3000);
-});
-
-app.post('/save', async (req, res) => {
+app.post('/save', (req, res) => {
   console.log('obj:');
   const obj = JSON.parse(JSON.stringify(req.body));
   console.log(JSON.stringify(obj));
@@ -253,12 +243,15 @@ app.post('/save', async (req, res) => {
   res.json({ success: true });
 });
 
-console.log('out');
 
-/*
-const app = express();
-const server = http.createServer(app); // not sure if this is important
-const listener = server.listen(3200, () => {
-  console.log("Your server is listening on port " + listener.address().port);
+// get the app environment from Cloud Foundry
+// seems to be getting the app environment to know which port
+var appEnv = cfenv.getAppEnv();
+
+// start server on the specified port and binding host
+// app.listen([port[, host[, backlog]]][, callback])
+// not sure why 0.0.0.0 needed
+app.listen(appEnv.port, '0.0.0.0', function() {
+  // print a message when the server starts listening
+  console.log("server starting on " + appEnv.url);
 });
-*/
