@@ -1,6 +1,7 @@
 const ln = x => Math.log(x);
 const log10 = x => Math.log10(x);
 const log = log10; // Use the same function name for log() as log10()
+
 const filter = function (...args) {
     const filteredValues = args[0].filter(item => item.value !== 'null' && item.value !== '0' && item.value.trim() !== '');
     const filteredNumericValues = filteredValues.map(item => parseFloat(item.value));
