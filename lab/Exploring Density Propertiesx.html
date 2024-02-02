@@ -31,7 +31,8 @@
       while exploring density, identifying unknown solids/liquids, and verifying
       the percent composition of a penny based on density. Be certain to follow
       all instructions. Always properly dispose of broken glass and chemical
-      waste according to your instructor. Information on US Coins:<br />
+      waste according to your instructor.
+      <p>Information on US Coins:</p>
       <img src="../images/informationOnUsCoins.jpg" />
 
       <div class="noBreak">
@@ -41,8 +42,7 @@
           <li>Unknown liquid</li>
           <li>Unknown solid</li>
           <li>Pennies minted after 1983</li>
-          <li>50 mL graduated cylinder</li>
-          <li>100 mL graduated cylinder</li>
+          <li>50 mL graduated cylinder (3)</li>
           <li>100 mL beaker</li>
           <li>Ruler/Caliper</li>
           <li>Distilled or deionized water</li>
@@ -63,6 +63,14 @@
             Percent composition of a penny: x (copper density) + (1 - x) (zinc
             density) = average density
           </li>
+          <ul>
+            <li>
+              Where x = the gram fraction of copper in the penny (e.g. 20%
+              copper would be 0.20)
+            </li>
+            <li>1-x = gram fraction of zing</li>
+            <li>Gram fraction x 100 = percent by mass</li>
+          </ul>
           <li>
             percent error =
             $\frac{|measured\;value\;-\;known\;value|}{known\;value}$ x 100%
@@ -87,13 +95,15 @@
           </li>
           <li>
             Measure 50 mL of distilled water, and record your actual volume to
-            0.1 mL.
+            the nearest <b>estimated</b> 0.1 mL.
           </li>
           <li>
             Weigh the mass of the 50 mL graduated cylindar and water. Record the
             mass in the table below.
           </li>
-          <li>Calculate the density of the distilled water.</li>
+          <li>
+            Calculate the density of the distilled water (formula shown above).
+          </li>
           <li>Repeat steps 1-4 for the second trial.</li>
           <li>
             Calculate the average density from your first and second trials.
@@ -797,13 +807,16 @@
           width, and height for a cube, or diameter and height for a cylinder -
           use the volume formula above to calculate volume). Record the volume.
         </li>
+        <ul>
+          <li>Note: you may need to convert from mm to cm</li>
+        </ul>
         <li>
           Calculate the density using the ruler (or caliper) method for volume
           and the displacement method for volume.
         </li>
         <li>
           Use a graduated cylinder to determine volume by water displacement.
-          Record the volume to 0.1 mL.
+          Record the volume to the nearest <b>estimated</b> 0.1 mL.
         </li>
         <li>Repeat steps 2-5 for the second trial.</li>
         <li>
@@ -1074,18 +1087,23 @@
           Roll the pennies into the graduated cylinder to minimize splashing and
           bubbles getting trapped under the pennies.
         </li>
+        <img src="../images/rollPennies.png" width="150px" />
         <li>
           Periodically tap the side of the graduated cylinder to loosen up any
-          trapped bubbles.
+          trapped bubbles (bubbles will alter your volume measurement).
         </li>
         <li>
           Determine volume by water displacement (subtract the ending volume
-          from the beginning volume of 40.0 mL). Record the volume to 0.1 mL.
+          from the beginning volume of 40.0 mL). Record the volume to the
+          nearest <b>estimated</b> 0.1 mL.
         </li>
         <li>Calculate the density of the pennies.</li>
         <li>Completely dry your pennies, then repeat steps 2-7 for trial 2.</li>
         <li>Calculate the average density from your two trials.</li>
-        <li>Calculate percent composition of copper and zinc.</li>
+        <li>
+          Calculate percent composition of copper and zinc (using the formula at
+          the beginning).
+        </li>
       </ol>
       <table>
         <tr>
@@ -1266,18 +1284,14 @@
         <button onclick="toPrint()" title="print" class="large material-icons">
           print
         </button>
-        <button type="button" onclick="submitScore()" style="height: 83%">
-          Submit</button
-        >&nbsp;
-        <div class="vcenter">
-          <label for="score">Score: </label>
-          <div id="score" style="display: inline">0</div>
-          %
-        </div>
+        <!--
+		   <button type="button" onclick="submitScore()" style="height:83%">Submit</button>&nbsp;
+          <div class="vcenter"><label for="score">Score: </label><div id="score" style="display: inline">0</div></div>
+		  -->
       </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      <script src="../js/lab.js"></script>
     </form>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../js/lab.js"></script>
   </body>
 </html>
