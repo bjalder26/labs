@@ -439,10 +439,10 @@ for (var calc of calcElements) {
 	}
 	    if (closeOrCorrect) {
 	  elementFB.title = 'correct';
-	  elementFB.innerHTML = '<img src="../images/correct.svg">';
+	  elementFB.innerHTML = '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
     } else {
       elementFB.title = this.getAttribute('help');
-	  elementFB.innerHTML = '<img src="../images/incorrect.svg">';
+	  elementFB.innerHTML = '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
     }
 	
 	}
