@@ -486,7 +486,7 @@ function onLoad() {
         var answer = evaluateWithCustomFunctions(formula);
         var elementFB = $(this.id + "FB");
         const value = isNaN(this.value) ? this.value : this.value * 1;
-        const haveSigFigs = getSigFigs(value);
+        const haveSigFigs = getSigFigs(elementValue);
         const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
         let closeOrCorrect = false;
         if (value !== "") {
@@ -495,13 +495,13 @@ function onLoad() {
           } else {
             closeOrCorrect = value.inRange(answer, range) ? true : false;
           }
-          if (!closeOrCorrect && correctSigFigs) {
+          if (!closeOrCorrect) {
             elementFB.title = this.getAttribute("help");
             elementFB.innerHTML =
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
           } else if (requiredSigFigs && !correctSigFigs) {
             elementFB.title =
-              "Incorrect number of significant figures: " +
+              "Incorrect number of significant figures: " + element.value + " " +
               haveSigFigs +
               " " +
               requiredSigFigs +
@@ -510,7 +510,7 @@ function onLoad() {
             elementFB.innerHTML =
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrectSF.svg?v=1707138148381">';
           } else {
-            elementFB.title = "correct" +
+            elementFB.title = "correct " + value + "" +
               haveSigFigs +
               " " +
               requiredSigFigs +
