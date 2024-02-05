@@ -416,6 +416,7 @@ for (var calc of calcElements) {
   ['click', 'change'].forEach(function(event){
   calc.addEventListener(event, function(e) {
     var formula = this.getAttribute('formula');
+    const requiredSigFigs = this.getAttribute('formula') ? this.getAttribute('formula') : '';
 	const range = this.getAttribute('range') ? this.getAttribute('range') : '5%';
     const regex = /\${(.*?)}/g;
     const matches = formula.match(regex);
@@ -430,6 +431,7 @@ for (var calc of calcElements) {
     var answer = evaluateWithCustomFunctions(formula);
     var elementFB = $(this.id + 'FB');
 	const value = isNaN(this.value) ? this.value : this.value*1;
+    const haveSigFigs = value;
 	let closeOrCorrect = false;
 	if(value !== '') {
 	if(isNaN(value)) {
