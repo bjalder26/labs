@@ -510,7 +510,12 @@ function onLoad() {
             elementFB.innerHTML =
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrectSF.svg?v=1707138148381">';
           } else {
-            elementFB.title = "correct";
+            elementFB.title = "correct" +
+              haveSigFigs +
+              " " +
+              requiredSigFigs +
+              " " +
+              correctSigFigs;
             elementFB.innerHTML =
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
           }
