@@ -331,6 +331,25 @@ function isFilledOut(element) {
   // Assuming these are form elements like input fields
   return element.value !== undefined && element.value.trim() !== '';
 }
+
+function reverseString(string) {
+  //new
+  let stringArray = string.split('');
+  //new
+  let reverseArray = stringArray.reverse();
+  return reverseArray.join("");
+}
+
+function getSigFigs(number) {
+  number = number.toString(); // unsure about this
+  if (number.includes('.')) {
+    number = number.replace('.', '');
+    return number.length - number.search(/[123456789]/);
+  } else {
+    number = reverseString(number);
+    return number.length - number.search(/[123456789]/);
+  }
+}
  
  /*
  function lookupValueInTable(tableID, searchColumn, searchValue, returnColumn) {
@@ -431,7 +450,8 @@ for (var calc of calcElements) {
     var answer = evaluateWithCustomFunctions(formula);
     var elementFB = $(this.id + 'FB');
 	const value = isNaN(this.value) ? this.value : this.value*1;
-    const haveSigFigs = value;
+    const haveSigFigs = getSigFigs(value);
+    const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
 	let closeOrCorrect = false;
 	if(value !== '') {
 	if(isNaN(value)) {
@@ -439,12 +459,17 @@ for (var calc of calcElements) {
 	} else {	
 	  closeOrCorrect = value.inRange(answer, range) ? true : false;
 	}
-	    if (closeOrCorrect) {
+	    if (closeOrCorrect && correctSigFigs) {
 	  elementFB.title = 'correct';
 	  elementFB.innerHTML = '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
     } else {
+      if (closeOrCorrect){
       elementFB.title = this.getAttribute('help');
 	  elementFB.innerHTML = '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
+      } else {
+        elementFB.title = 'Incorrect number of significant figures';
+	  elementFB.innerHTML = '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">'
+      }
     }
 	
 	}
