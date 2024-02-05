@@ -155,7 +155,7 @@
             <td>
               <input
                 type="number"
-                step="0.001"
+                step="any"
                 class="num"
                 id="massCylinderT1"
                 name="massCylinderT1"
@@ -164,7 +164,7 @@
             <td>
               <input
                 type="number"
-                step="0.001"
+                step="any"
                 class="num"
                 id="massCylinderT2"
                 name="massCylinderT2"
@@ -176,7 +176,7 @@
             <td>
               <input
                 type="number"
-                step="0.001"
+                step="any"
                 class="num"
                 id="massCylinder&WaterT1"
                 name="massCylinder&WaterT1"
@@ -185,7 +185,7 @@
             <td>
               <input
                 type="number"
-                step="0.001"
+                step="any"
                 class="num"
                 id="massCylinder&WaterT2"
                 name="massCylinder&WaterT2"
@@ -197,11 +197,12 @@
             <td>
               <input
                 type="number"
-                step="0.001"
+                step="any"
                 class="calc num"
                 id="massWaterT1"
                 name="massWaterT1"
                 formula="${massCylinder&WaterT1}-${massCylinderT1}"
+                sigfigs="2"
                 help="Mass of cylinder and water minus mass of cylinder for trial 1"
               />
               <div class="feedback" id="massWaterT1FB"></div>
@@ -209,7 +210,7 @@
             <td>
               <input
                 type="number"
-                step="0.001"
+                step="any"
                 class="calc num"
                 id="massWaterT2"
                 name="massWaterT2"
