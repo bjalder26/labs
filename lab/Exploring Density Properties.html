@@ -202,7 +202,7 @@
                 id="massWaterT1"
                 name="massWaterT1"
                 formula="${massCylinder&WaterT1}-${massCylinderT1}"
-                sigfigs="2"
+                sigfigs="5"
                 help="Mass of cylinder and water minus mass of cylinder for trial 1"
               />
               <div class="feedback" id="massWaterT1FB"></div>
@@ -215,6 +215,7 @@
                 id="massWaterT2"
                 name="massWaterT2"
                 formula="${massCylinder&WaterT2}-${massCylinderT2}"
+                sigfigs="5"
                 help="Mass of cylinder and water minus mass of cylinder for trial 2"
               />
               <div class="feedback" id="massWaterT2FB"></div>
@@ -230,6 +231,7 @@
                 id="densityWaterT1"
                 name="densityWaterT1"
                 formula="${massWaterT1}/${volumeWaterT1}"
+                sigfigs="3"
                 help="Mass of water for trial 1 divided by the volume"
               />
               <div
@@ -246,6 +248,7 @@
                 id="densityWaterT2"
                 name="densityWaterT2"
                 formula="${massWaterT2}/${volumeWaterT2}"
+                sigfigs="3"
                 help="Mass of water for trial 2 divided by the volume"
               />
               <div
@@ -265,6 +268,7 @@
                 id="densityWaterAve"
                 name="densityWaterAve"
                 formula="(${densityWaterT1}+${densityWaterT2})/2"
+                sigfigs="3"
                 help="Add the density of trial 1 and trial 2, then divide by 2"
               />
               <div
@@ -306,6 +310,7 @@
               id="knownDensityWater"
               name="knownDensityWater"
               formula="${labTempLV}"
+              sigfigs="6"
               help="Look at the chart below, and find the known density at your lab temperature."
               range="0.02%"
             />
@@ -327,6 +332,7 @@
               id="waterPercentError"
               name="waterPercentError"
               formula="abs((${densityWaterAve}-${knownDensityWater})/${knownDensityWater}*100)"
+              sigfigs="3"
               help="Calculate the absolute value of the average density of water minus known water density, then divide by the known water density and multiply by 100"
             />
             <div
@@ -474,6 +480,7 @@
               id="massSeaWaterT1"
               name="massSeaWaterT1"
               formula="${massCylinder&SeaWaterT1}-${massSeaWaterCylinderT1}"
+                   sigfigs="5"
               help="Mass of cylinder and sea water minus the mass of the cylinder for trial 1"
             />
             <div
@@ -490,6 +497,7 @@
               id="massSeaWaterT2"
               name="massSeaWaterT2"
               formula="${massCylinder&SeaWaterT2}-${massSeaWaterCylinderT2}"
+                   sigfigs="5"
               help="Mass of cylinder and sea water minus the mass of the cylinder for trial 2"
             />
             <div
@@ -509,6 +517,7 @@
               id="densitySeaWaterT1"
               name="densitySeaWaterT1"
               formula="${massSeaWaterT1}/${volumeSeawaterT1}"
+                   sigfigs="3"
               help="Mass of sea water for trial 1 divided by the volume"
             />
             <div
@@ -525,6 +534,7 @@
               id="densitySeaWaterT2"
               name="densitySeaWaterT2"
               formula="${massSeaWaterT2}/${volumeSeawaterT2}"
+                   sigfigs="3"
               help="Mass of sea water for trial 2 divided by the volume"
             />
             <div
@@ -544,6 +554,7 @@
               id="densitySeaWaterAve"
               name="densitySeaWaterAve"
               formula="(${densitySeaWaterT1}+${densitySeaWaterT2})/2"
+                   sigfigs="3"
               help="Add the density of sea water for trial 1 and trial 2, then divide by two."
             />
             <div
@@ -648,6 +659,7 @@
                 id="massUnknownLiquidT1"
                 name="massUnknownLiquidT1"
                 formula="${massCylinder&UnknownLiquidT1}-${massUnknownLiquidCylinderT1}"
+                     sigfigs="5"
                 help="Mass of cylinder and unknown liquid minus the mass of the cylinder for trial 1"
               />
               <div
@@ -664,6 +676,7 @@
                 id="massUnknownLiquidT2"
                 name="massUnknownLiquidT2"
                 formula="${massCylinder&UnknownLiquidT2}-${massUnknownLiquidCylinderT2}"
+                     sigfigs="5"
                 help="Mass of cylinder and unknown liquid minus the mass of the cylinder for trial 2"
               />
               <div
@@ -683,6 +696,7 @@
                 id="densityUnknownLiquidT1"
                 name="densityUnknownLiquidT1"
                 formula="${massUnknownLiquidT1}/${volumeUnknownLiquidT1}"
+                     sigfigs="3"
                 help="Mass of unknown liquid for trial 1 divided by the volume"
               />
               <div
@@ -699,6 +713,7 @@
                 id="densityUnknownLiquidT2"
                 name="densityUnknownLiquidT2"
                 formula="${massUnknownLiquidT2}/${volumeUnknownLiquidT2}"
+                     sigfigs="3"
                 help="Mass of unknown liquid for trial 2 divided by the volume"
               />
               <div
@@ -718,6 +733,7 @@
                 id="densityUnknownLiquidAve"
                 name="densityUnknownLiquidAve"
                 formula="(${densityUnknownLiquidT1}+${densityUnknownLiquidT2})/2"
+                     sigfigs="3"
                 help="Add the density of the unknown liquid for trial 1 and trial 2, then divide by two."
               />
               <div
@@ -913,6 +929,7 @@
               id="densityRulerSolidT1"
               name="densityRulerSolidT1"
               formula="${massSolidT1}/${rulerVolumeSolidT1}"
+                   sigfigs="4"
               help="Mass of solid divided by the volume by ruler (or caliper) for trial 1"
             />
             <div
@@ -929,6 +946,7 @@
               id="densityRulerSolidT2"
               name="densityRulerSolidT2"
               formula="${massSolidT2}/${rulerVolumeSolidT2}"
+                   sigfigs="4"
               help="Mass of solid divided by the volume by ruler (or caliper) for trial 2"
             />
             <div
@@ -948,6 +966,7 @@
               id="densityDisplacementSolidT1"
               name="densityDisplacementSolidT1"
               formula="${massSolidT1}/${displacementVolumeSolidT1}"
+                   sigfigs="3"
               help="Mass of solid divided by the volume by displacement for trial 1"
             />
             <div
@@ -964,6 +983,7 @@
               id="densityDisplacementSolidT2"
               name="densityDisplacementSolidT2"
               formula="${massSolidT2}/${displacementVolumeSolidT2}"
+                   sigfigs="3"
               help="Mass of solid divided by the volume by displacement for trial 2"
             />
             <div
@@ -982,6 +1002,7 @@
             id="densityDisplacementSolidAve"
             name="densityDisplacementSolidAve"
             formula="(${densityDisplacementSolidT1}+${densityDisplacementSolidT2})/2"
+                 sigfigs="3"
             help="Add the densities from the two trials using the displacement method, then divide by two."
           />
           <div
@@ -1189,6 +1210,7 @@
               id="densityDisplacementPenniesT1"
               name="densityDisplacementPenniesT1"
               formula="${massPenniesT1}/${displacementVolumePenniesT1}"
+                   sigfigs="3"
               help="Mass of pennies divided by the volume by displacement for trial 1"
             />
             <div
@@ -1205,6 +1227,7 @@
               id="densityDisplacementPenniesT2"
               name="densityDisplacementPenniesT2"
               formula="${massPenniesT2}/${displacementVolumePenniesT2}"
+                   sigfigs="3"
               help="Mass of pennies divided by the volume by displacement for trial 2"
             />
             <div
@@ -1224,6 +1247,7 @@
               id="densityDisplacementPenniesAve"
               name="densityDisplacementPenniesAve"
               formula="(${densityDisplacementPenniesT1}+${densityDisplacementPenniesT2})/2"
+                   sigfigs="3"
               help="Add the densities from your two trials, then divide by two."
             />
             <div
@@ -1243,6 +1267,7 @@
               id="percentCopper"
               name="percentCopper"
               formula="100*(${densityDisplacementPenniesAve}-7.14)/(8.94-7.14)"
+                   sigfigs="3"
               help="x(copper density) + (1-x)(zinc density) = density by displacement"
             />
             <div
@@ -1262,6 +1287,7 @@
               id="percentZinc"
               name="percentZinc"
               formula="100*(1-(${densityDisplacementPenniesAve}-7.14)/(8.94-7.14))"
+                   sigfigs="3"
               help="x(copper density) + (1-x)(zinc density) = density by displacement"
             />
             <div class="feedback" id="percentZincFB" name="percentZincFB"></div>

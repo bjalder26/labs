@@ -501,12 +501,7 @@ function onLoad() {
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
           } else if (requiredSigFigs && !correctSigFigs) {
             elementFB.title =
-              "Incorrect number of significant figures: " + this.value + " " +
-              haveSigFigs +
-              " " +
-              requiredSigFigs +
-              " " +
-              correctSigFigs;
+              "Incorrect number of significant figures";
             elementFB.innerHTML =
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrectSF.svg?v=1707138148381">';
           } else {
