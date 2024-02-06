@@ -332,7 +332,7 @@
               id="waterPercentError"
               name="waterPercentError"
               formula="abs((${densityWaterAve}-${knownDensityWater})/${knownDensityWater}*100)"
-              sigfigs="3"
+            
               help="Calculate the absolute value of the average density of water minus known water density, then divide by the known water density and multiply by 100"
             />
             <div
@@ -1267,7 +1267,7 @@
               id="percentCopper"
               name="percentCopper"
               formula="100*(${densityDisplacementPenniesAve}-7.14)/(8.94-7.14)"
-                   sigfigs="3"
+                  
               help="x(copper density) + (1-x)(zinc density) = density by displacement"
             />
             <div
@@ -1287,7 +1287,7 @@
               id="percentZinc"
               name="percentZinc"
               formula="100*(1-(${densityDisplacementPenniesAve}-7.14)/(8.94-7.14))"
-                   sigfigs="3"
+                   
               help="x(copper density) + (1-x)(zinc density) = density by displacement"
             />
             <div class="feedback" id="percentZincFB" name="percentZincFB"></div>
