@@ -36,7 +36,7 @@ canvas {
   text-align: center;
 }
 
-#name {
+#name, .inline-block {
   display: inline-block;
 }
 
@@ -86,12 +86,20 @@ img,
   display: none;
 }
 
-table.fraction {
-  border-collapse: collapse;
+td.noborder {
   border: none;
 }
 
 tr.noborder td {
+  border: none;
+}
+
+table.noborder tr td {
+  border: none;
+}
+
+table.fraction {
+  border-collapse: collapse;
   border: none;
 }
 
