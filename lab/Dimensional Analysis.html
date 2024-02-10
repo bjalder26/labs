@@ -47,8 +47,7 @@
       </p>
       <div class="noBreak">
         <h3>Conversion Factors:</h3>
-        <div class="inline-block">
-          <table>
+          <table class="inline-block">
             <tr>
               <th colspan="4">Metric Prefixes</th>
             </tr>
@@ -78,7 +77,7 @@
               <td>0.001</td>
             </tr>
           </table>
-          <table class="noborder">
+          <table class="noborder inline-block">
             <tr>
               <td>1 inch (in) = 2.54 centimeters (cm)</td>
               <td>&nbsp;&nbsp;&nbsp;</td>
@@ -104,8 +103,31 @@
               <td>&nbsp;&nbsp;&nbsp;</td>
               <td>2 slug = 32.17 pounds (lbs)</td>
             </tr>
+            <tr>
+              <td>12 inches (in) = 1 foot (ft)</td>
+              <td>&nbsp;&nbsp;&nbsp;</td>
+              <td>2 slug = 32.17 pounds (lbs)</td>
+            </tr>
           </table>
-        </div>
+      </div>
+      <div class="noBreak">
+        Measure the height of a lab bench in centimeters and convert to feet.<br>
+        <input
+                type="number"
+                step="any"
+                class="num"
+                id="firstNum"
+                name="firstNum"
+              />
+                      <input
+                type="number"
+                step="any"
+                class="calc"
+                id="firstCalc"
+                name="firstCalc"
+                formula="${firstNum}/2.54/12"
+                help="Use the conversion factors for converting cm to in, and in to ft"
+              />
       </div>
       <p></p>
       <div class="footer">Dimensional Analysiss</div>
