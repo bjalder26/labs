@@ -29,29 +29,33 @@
       Use proper measurement techniques to make the measurements requested below.  
       Then use the equalities provided to correctly convert the units to the desired units.  
       Utilize the manipulatibles provided in lab to set up the dimensional analysis problems correctly.
+      <p>
       Example video: <a href ="https://youtu.be/7voNNBbMcxE">Dimensional Analysis: Converting Units with 1 or 2 Conversion Factors</a>
       Example video: <a href ="https://youtu.be/eKDePGWNAHo">Dimensional Analysis: Converting Units with 3 Conversion Factors</a>
-      Example video: <a href ="https://youtu.be/7voNNBbMcxE">Dimensional Analysis: Converting Units with 1 or 2 Conversion Factors</a>
-      <p>
-        Information on US Coins:<br />
-        <img
-          src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/informationOnUsCoins.jpg?v=1706927109769"
-        />
+      Example video: <a href ="https://youtu.be/t6fYYPrzhOU">Unit Conversion with Multiple Conversion Factors</a>
       </p>
-
       <div class="noBreak">
-        <h3>Materials:</h3>
-        <ul>
-          <li>Seawater</li>
-          <li>Unknown liquid</li>
-          <li>Unknown solid</li>
-          <li>Pennies minted after 1983</li>
-          <li>50 mL graduated cylinder (3)</li>
-          <li>100 mL beaker</li>
-          <li>Ruler/Caliper</li>
-          <li>Distilled or deionized water</li>
-          <li>Balance</li>
-        </ul>
+          
+        <h3>Conversion Factors:</h3>
+        
+        <table>
+        <tr>
+        <th colspan=4>Metric Prefixes</th>
+        </tr>
+          <tr>
+            <th>Prefix</th>
+            <th>Symbol</th>
+            <th colspan="2">Multiplier</th>
+          </tr>
+          <tr>
+            <td>kilo</td>
+            <td>K</td>
+            <td>10</td>
+            <td></td>
+          </tr>
+        
+        </table>
+        
       </div>
       <div class="noBreak">
         <h3>Equations and Calculations:</h3>
