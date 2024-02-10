@@ -10,6 +10,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
+    
+    <style>
+      input {width: 80px;}
+    </style>
+    
   </head>
 
   <body onload="onLoad()">
@@ -118,7 +123,7 @@
                 class="num"
                 id="firstNum"
                 name="firstNum"
-              />
+              /> cm → 
                       <input
                 type="number"
                 step="any"
@@ -127,7 +132,8 @@
                 name="firstCalc"
                 formula="${firstNum}/2.54/12"
                 help="Use the conversion factors for converting cm to in, and in to ft"
-              />
+              /> ft
+        <div class="feedback" id="firstCalcFB"></div>
       </div>
       <p></p>
       <div class="footer">Dimensional Analysiss</div>
