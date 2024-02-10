@@ -1,1 +1,1 @@
-{"labName":"Dimensional Analysis","userName":"Brady Alder","firstNum":"","firstCalc":"","secondNum":"1000","secondCalc":"0.000621371","thirdNum":"100","thirdCalc":"0.220462"}
+{"labName":"Dimensional Analysis","userName":"Brady Alder","firstNum":"","firstCalc":"","secondNum":"100","secondCalc":"6.21e-5","thirdNum":"100","thirdCalc":"0.220462","fourthNum":"100","fourthCalc":"0.0264172","fifthNum":"100","fifthCalc":"0.00685218"}

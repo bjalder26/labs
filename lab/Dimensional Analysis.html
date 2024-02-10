@@ -34,7 +34,9 @@
       Use proper measurement techniques to make the measurements requested
       below. Then use the equalities provided to correctly convert the units to
       the desired units. Utilize the manipulatibles provided in lab to set up
-      the dimensional analysis problems correctly.
+      the dimensional analysis problems correctly.  To enter numbers using 
+      scientific notation use a small letter e (6.022 x 10<sup>-23</sup> should 
+      be entered as 6.022e-23). 
       <p>
         Example video:
         <a href="https://youtu.be/7voNNBbMcxE"
@@ -179,45 +181,45 @@
       </div>
       <p></p>
       <div class="noBreak">
-        4) Measure the volume of water that can fit in a fit a cup using a graduated cylinder (mL) and convert to gallons (gal).<br>
+        4) Measure the volume of water that can fit in a cup using a graduated cylinder (mL) and convert to gallons (gal).<br>
         <input
                 type="number"
                 step="any"
                 class="num"
-                id="firstNum"
-                name="firstNum"
+                id="fourthNum"
+                name="fourthNum"
               /> mL → 
                       <input
                 type="number"
                 step="any"
                 class="calc"
-                id="firstCalc"
-                name="firstCalc"
-                formula="${firstNum}/2.54/12"
-                help="Use the conversion factors for converting cm to in, and in to ft"
-              /> ft
-        <div class="feedback" id="firstCalcFB"></div>
+                id="fourthCalc"
+                name="fourthCalc"
+                formula="${fourthNum}/1000/3.785"
+                help="Use the conversion factors for converting mL to L and L to gal"
+              /> gal
+        <div class="feedback" id="fourthCalcFB"></div>
       </div>
       <p></p>
       <div class="noBreak">
-        Measure the height of a lab bench in centimeters (cm) and convert to feet (ft).<br>
+        5) Measure the mass of a penny in grams (g) and convert to slugs.<br>
         <input
                 type="number"
                 step="any"
                 class="num"
-                id="firstNum"
-                name="firstNum"
-              /> cm → 
+                id="fifthNum"
+                name="fifthNum"
+              /> g → 
                       <input
                 type="number"
                 step="any"
                 class="calc"
-                id="firstCalc"
-                name="firstCalc"
-                formula="${firstNum}/2.54/12"
-                help="Use the conversion factors for converting cm to in, and in to ft"
-              /> ft
-        <div class="feedback" id="firstCalcFB"></div>
+                id="fifthCalc"
+                name="fifthCalc"
+                formula="${fifthNum}/1000*2.2/32.17"
+                help="Use the conversion factors for converting g to kg, kg to lbs, and lbs to slugs"
+              /> slugs
+        <div class="feedback" id="fifthCalcFB"></div>
       </div>
       <p></p>
       <div class="noBreak">
