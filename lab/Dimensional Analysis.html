@@ -131,7 +131,7 @@
                 id="firstCalc"
                 name="firstCalc"
                 formula="${firstNum}/2.54/12"
-                help="Use the conversion factors for converting cm to in, and in to ft"
+                help="Use the conversion factors for converting cm to in and in to ft"
               /> ft
         <div class="feedback" id="firstCalcFB"></div>
       </div>
@@ -144,49 +144,49 @@
                 class="num"
                 id="secondNum"
                 name="secondNum"
-              /> cm → 
+              /> mm → 
                       <input
                 type="number"
                 step="any"
                 class="calc"
                 id="secondCalc"
                 name="secondCalc"
-                formula="${secondNum}/1000/12"
-                help="Use the conversion factors for converting cm to in, and in to ft"
-              /> ft
-        <div class="feedback" id="firstCalcFB"></div>
+                formula="${secondNum}/1000/1000*0.621"
+                help="Use the conversion factors for converting mm to m, m to km, and km to mi"
+              /> mi
+        <div class="feedback" id="secondCalcFB"></div>
       </div>
       <p></p>
       <div class="noBreak">
-        Measure the height of a lab bench in centimeters (cm) and convert to feet (ft).<br>
+        3) Measure the mass of a pen or pencil in grams (g) and convert it to pounds (lbs).<br>
         <input
                 type="number"
                 step="any"
                 class="num"
-                id="firstNum"
-                name="firstNum"
-              /> cm → 
+                id="thirdNum"
+                name="thirdNum"
+              /> g → 
                       <input
                 type="number"
                 step="any"
                 class="calc"
-                id="firstCalc"
-                name="firstCalc"
-                formula="${firstNum}/2.54/12"
-                help="Use the conversion factors for converting cm to in, and in to ft"
-              /> ft
-        <div class="feedback" id="firstCalcFB"></div>
+                id="thirdCalc"
+                name="thirdCalc"
+                formula="${thirdNum}/1000*2.2"
+                help="Use the conversion factors for converting g to kg and kg to lbs"
+              /> lbs
+        <div class="feedback" id="thirdCalcFB"></div>
       </div>
       <p></p>
       <div class="noBreak">
-        Measure the height of a lab bench in centimeters (cm) and convert to feet (ft).<br>
+        4) Measure the volume of water that can fit in a fit a cup using a graduated cylinder (mL) and convert to gallons (gal).<br>
         <input
                 type="number"
                 step="any"
                 class="num"
                 id="firstNum"
                 name="firstNum"
-              /> cm → 
+              /> mL → 
                       <input
                 type="number"
                 step="any"
