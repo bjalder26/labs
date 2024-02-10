@@ -34,7 +34,11 @@ app.enable('trust proxy');
 
 var sessions = {};
 
-
+function capitalizeEveryWord(str) {
+    return str.replace(/\b\w/g, function(char) {
+        return char.toUpperCase();
+    });
+}
 
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
@@ -81,11 +85,14 @@ app.post("/", (req, res) => {
 		let dataFile = {};
 		let labName = '';
 		let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
-		if(lmsData.body.resource_link_title.toLowerCase() == 'exploring density properties') {
-		labName = 'Exploring Density Properties';
+    
+    let labList = ['exploring denisty properties', 'dimensional analysis'];
+    
+		if(labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
+		labName = capitalizeEveryWord(lmsData.body.resource_link_title);
 		// creates user data file if it doesn't exist *** make this a function? ***
-		if (!fs.existsSync(__dirname + '/submissions/' + 'Exploring Density Properties' + '_' + name  +  '.txt')){
-			fs.writeFileSync(__dirname + '/submissions/' + 'Exploring Density Properties' + '_' + name  +  '.txt', '{}', 'utf8');
+		if (!fs.existsSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt')){
+			fs.writeFileSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt', '{}', 'utf8');
 			}	
 			
 		labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
