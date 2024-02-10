@@ -101,6 +101,10 @@ td.underline {
   border-bottom: 1px solid black !important;
 }
 
+td.noborder tr {
+  border: none;
+}
+
 @media screen {
   div.footer {
     display: none;
