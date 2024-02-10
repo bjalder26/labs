@@ -11,10 +11,6 @@ var uuid = require("uuid4");
 var lti = require("ims-lti");
 var fs = require('fs');
 
-//var ExploringDensityPropertiesFile = fs.readFileSync("Exploring Density Properties.html", "utf8");
-//var mod3File = fs.readFileSync("mod3.html", "utf8");
-//var mod4File = fs.readFileSync("mod4.html", "utf8");
-
 // create a new express server
 var app = express();
 
