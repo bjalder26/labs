@@ -91,6 +91,10 @@ table.fraction {
   border: none;
 }
 
+tr.noborder td {
+  border: none;
+}
+
 table.fraction > tbody > tr > td {
   border-collapse: collapse;
   border: none;
@@ -99,10 +103,6 @@ table.fraction > tbody > tr > td {
 
 td.underline {
   border-bottom: 1px solid black !important;
-}
-
-td.noborder tr {
-  border: none;
 }
 
 @media screen {
