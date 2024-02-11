@@ -279,8 +279,8 @@
                 class="calc"
                 id="eighthCalc"
                 name="eighthCalc"
-                formula="${eighthNum}/60/60/24/365"
-                help="Use the conversion factors for converting s to min, min to hrs, hrs to days, and days to years"
+                formula="${eighthNum}/60/60/24/7"
+                help="Use the conversion factors for converting s to min, min to hrs, hrs to days, and days to weeks"
               /> weeks
         <div class="feedback" id="eighthCalcFB"></div>
       </div>
@@ -300,8 +300,8 @@
                 class="calc"
                 id="ninthCalc"
                 name="ninthCalc"
-                formula="${ninthNum}/2.54*10"
-                help="Use the conversion factors for converting cm to in and cm to mm"
+                formula="${ninthNum}*2.54*10"
+                help="Use the conversion factors for converting in to cm and cm to mm"
               /> mm
         <div class="feedback" id="ninthCalcFB"></div>
       </div>
@@ -343,7 +343,7 @@
                 id="eleventhCalc"
                 name="eleventhCalc"
                 formula="${eleventhNum}/1000"
-                help="Use the conversion factors for converting cubic centimeters (cm\u00B3) to mL and mL to L"
+                help="Use the conversion factors for converting cubic centimeters (cm³) to mL and mL to L"
               /> L
         <div class="feedback" id="eleventhCalcFB"></div>
       </div>
@@ -363,13 +363,12 @@
                 class="calc"
                 id="twelthCalc"
                 name="twelthCalc"
-                formula="${twelthNum}/2.54/12"
-                help="Use the conversion factors for converting years to days, days to "
+                formula="${twelthNum}*365*24"
+                help="Use the conversion factors for converting years to days, and days to hours"
               /> hr
         <div class="feedback" id="twelthCalcFB"></div>
       </div>
       <p></p>
-      
       
       <div class="footer">Dimensional Analysiss</div>
       <!-- title -->
