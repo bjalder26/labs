@@ -82,36 +82,57 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
           type="number"
           step="any"
           class="num"
-          id="EvapDishMass"
-          name="EvapDishMass"
-        /></li>
+          id="evapDishMass"
+          name="evapDishMass"
+        /> g</li>
         <li>Mass of evaporating dish + Magnesium <input
           type="number"
           step="any"
           class="num"
-          id="EvapDish&MagMass"
-          name="EvapDish&MagMass"
-        /></li>
+          id="evapDish&MagMass"
+          name="evapDish&MagMass"
+        /> g</li>
         <li>Mass of Magnesium (2 – 1 )</li>
-        <li>Mass of evaporating dish and Magnesium Chloride	First weighing <input
+        <li>Mass of evaporating dish and Magnesium Chloride (after heating and cooling)
+          <ul>
+            <li>First weighing <input
           type="number"
           step="any"
           class="num"
           id="firstWeighing"
           name="firstWeighing"
-        /></li>
-        <li></li>
+        /> g</li>
+            <li>Second weighing <input
+          type="number"
+          step="any"
+          class="num"
+          id="secondWeighing"
+          name="secondWeighing"
+        /> g</li>
+            <li>First weighing <input
+          type="number"
+          step="any"
+          class="num"
+          id="finalWeighing"
+          name="finalWeighing"
+        /> g</li>
+          </ul></li>
+        <li>Mass of Magnesium Chloride
+          <input
+          type="number"
+          step="any"
+          class="calc"
+          id="MgClMass"
+          name="MgClMass"
+          formula="${finalWeighing}-${evapDishMass}"
+          help="Take the final weight of the evaporating dish and Magnesium Chloride (after heating and cooling) and subtract the mass of the evaporating dish"
+        /> g
+          </li>
+          <li></li>
         </ol>
       </table>
       
-1)							-------------- g
-2)						-------------- g
-3)							-------------- g
-4)			-------------- g
-After heating and cooling				Second weighing 		-------------- g	
-					(if necessary)		Third weighing 		-------------- g
-					(if necessary)		fourth weighing 		-------------- g
-5)Mass of Magnesium Chloride (4 – 1 ) 						-------------- g
+5)						-------------- g
 6)Mass of Chlorine in Magnesium Chloride (5 – 3 )					-------------- g
 7)Moles of Magnesium (show your calculation)					-------------- mol
 8)Moles of Chlorine (show your calculation)						-------------- mol
