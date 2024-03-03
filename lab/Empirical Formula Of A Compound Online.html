@@ -62,7 +62,7 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
         <li>Place a small piece of magnesium ribbon into the evaporating dish and record the mass on the report form. From the difference in masses, record the mass of magnesium used. Note: The mass of magnesium should not exceed 0.15 grams, or the product may be difficult to dry</li>
         <li>Measure 3 mL of 6 M HCl* in a 10 mL graduated cylinder (or you may use a pipet) and carefully add the HCl solution to the evaporating dish containing the Mg ribbon (Caution: Vigorous reaction!). Allow the reaction to proceed until the reaction is complete, giving a clear solution with no magnesium particles remaining.</li>
         <li>Place the evaporating dish on an electric hot plate and heat to nearly boiling. Avoid excessive heat that can cause dangerous splattering of hot HCl!</li>
-        <li>Heat the solution until evaporation of the water is complete. The white, solid product that remains is magnesium chloride. It is difficult to tell by appearance when the product is completely dry, so we will use a method called heating to constant weight. When the product appears thoroughly dry, carefully remove the hot evaporating dish from the hot plate (you may use crucible tongs to handle the hot dish), allow it to cool, and record the weight on the report sheet under “first weighing.” Then, place the dish back on the hot plate and heat for 10 additional minutes. Allow the dish to cool and record the weight under “second weighing.” If the second weighing agrees with the first weighing, you may reasonably assume that drying is complete. If the second weighing is less than the first weighing, place the dish back on the hot plate and heat for 10 more minutes and obtain a third weighing. Repeat this process until successive weighings agree to within 0.01 g.<br>
+        <li>Heat the solution until evaporation of the water is complete. The white, solid product that remains is magnesium chloride. It is difficult to tell by appearance when the product is completely dry, so we will use a method called heating to constant weight. When the product appears thoroughly dry, carefully remove the hot evaporating dish from the hot plate (you may use crucible tongs to handle the hot dish), allow it to cool, and record the mass on the report sheet under “first weighing.” Then, place the dish back on the hot plate and heat for 10 additional minutes. Allow the dish to cool and record the mass under “second weighing.” If the second weighing agrees with the first weighing, you may reasonably assume that drying is complete. If the second weighing is less than the first weighing, place the dish back on the hot plate and heat for 10 more minutes and obtain a third weighing. Repeat this process until successive weighings agree to within 0.01 g.<br>
             An evaporating dish is much better container than a beaker for this process for two reasons:
           <ol type="a">
             <li>The solid product spreads out more in the evaporating dish as the liquid evaporates,  facilitating drying.</li>
@@ -100,7 +100,7 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
           id="MgMass"
           name="MgMass"
           formula="${evapDish&MagMass}-${evapDishMass}"
-          help="Take the weight of the evaporating dish and magnesium and subtract the mass of the evaporating dish"
+          help="Take the mass of the evaporating dish and magnesium and subtract the mass of the evaporating dish"
         /> g <div class="feedback" id="MgMassFB"></div>
           </li>
         <li>Mass of evaporating dish and Magnesium Chloride (after heating and cooling)
@@ -119,7 +119,7 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
           id="secondWeighing"
           name="secondWeighing"
         /> g</li>
-            <li>First weighing <input
+            <li>Third (final) weighing <input
           type="number"
           step="any"
           class="num"
@@ -135,10 +135,20 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
           id="MgClMass"
           name="MgClMass"
           formula="${finalWeighing}-${evapDishMass}"
-          help="Take the final weight of the evaporating dish and Magnesium Chloride (after heating and cooling) and subtract the mass of the evaporating dish"
+          help="Take the final mass of the evaporating dish and Magnesium Chloride (after heating and cooling) and subtract the mass of the evaporating dish"
         /> g <div class="feedback" id="MgClMassFB"></div>
           </li>
-          <li>Mass of Chlorine in Magnesium Chloride</li>
+          <li>Mass of Chlorine in Magnesium Chloride
+          <input
+          type="number"
+          step="any"
+          class="calc"
+          id="ClMass"
+          name="ClMass"
+          formula="${MgClmass}-${MgMass}"
+          help="Take the mass of the magnesium chloride and subtract the mass of the magnesium"
+        /> g <div class="feedback" id="ClMassFB"></div>
+          </li>
           <li>Moles of Magnesium</li>
           <li>Moles of Chlorine</li>
           <li>Moles of magnesium divided by the smallest moles # (3 sig fig)</li>
