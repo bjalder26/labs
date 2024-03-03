@@ -195,16 +195,30 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
           help="Divide the mass of chlorine by the lower of the mass of magnesium and the mass of chlorine"
                    /> mol <div class="feedback" id="ClMolDividedFB"></div>
           </li>
-          <li>Your experimental empirical formula of magnesium chloride (with whole numbers as subscripts)
-          <input
+          <li>Your experimental empirical formula of magnesium chloride (with whole numbers as subscripts) 
+            Mg<input
           type="number"
           step="any"
           class="calc"
           id="MgSub"
           name="MgSub"
+                 width="32px"
           formula="round(${MgMolDivided})"
           help="Round the moles of magnesium after dividing by the lower number of moles to the nearest whole number"
-                   /> mol <div class="feedback" id="MgSubFB"></div>
+                   />CL
+            <input
+          type="number"
+          step="any"
+          class="calc"
+          id="ClSub"
+          name="ClSub"
+                 width="32px"
+          formula="round(${ClMolDivided})"
+          help="Round the moles of chlorine after dividing by the lower number of moles to the nearest whole number"
+                   /> <div class="feedback" id="MgSubFB"></div> <div class="feedback" id="MgSubFB"></div>
+            
+            
+            
           </li>
           <li>True known empirical formula of magnesium chloride</li>
         </ol>
