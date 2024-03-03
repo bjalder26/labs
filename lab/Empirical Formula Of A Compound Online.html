@@ -145,7 +145,7 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
           class="calc"
           id="ClMass"
           name="ClMass"
-          formula="${MgClmass}-${MgMass}"
+          formula="${MgClMass}-${MgMass}"
           help="Take the mass of the magnesium chloride and subtract the mass of the magnesium"
         /> g <div class="feedback" id="ClMassFB"></div>
           </li>
@@ -178,13 +178,35 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
           class="calc"
           id="MgMolDivided"
           name="MgMolDivided"
-          formula="${MgMol}/min(${MgMol}, ${ClMol}"
+          formula="${MgMol}/min(${MgMol}, ${ClMol})"
+                 sigfigs="3"
           help="Divide the mass of magnesium by the lower of the mass of magnesium and the mass of chlorine"
                    /> mol <div class="feedback" id="MgMolDividedFB"></div>
           </li>
-          <li>Moles of Chlorine divided by the smallest moles # (3 sig fig)</li>
-          <li>Your experimental empirical formula of Magnesium Chloride (with whole numbers as subscripts)</li>
-          <li>True known empirical formula of Magnesium Chloride</li>
+          <li>Moles of Chlorine divided by the smallest moles # (3 sig fig)
+          <input
+          type="number"
+          step="any"
+          class="calc"
+          id="ClMolDivided"
+          name="ClMolDivided"
+          formula="${ClMol}/min(${MgMol}, ${ClMol})"
+                 sigfigs="3"
+          help="Divide the mass of chlorine by the lower of the mass of magnesium and the mass of chlorine"
+                   /> mol <div class="feedback" id="ClMolDividedFB"></div>
+          </li>
+          <li>Your experimental empirical formula of magnesium chloride (with whole numbers as subscripts)
+          <input
+          type="number"
+          step="any"
+          class="calc"
+          id="MgSub"
+          name="MgSub"
+          formula="round(${MgMolDivided})"
+          help="Round the moles of magnesium after dividing by the lower number of moles to the nearest whole number"
+                   /> mol <div class="feedback" id="MgSubFB"></div>
+          </li>
+          <li>True known empirical formula of magnesium chloride</li>
         </ol>
       </table>
       <p></p>
