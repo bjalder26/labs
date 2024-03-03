@@ -1,0 +1,1 @@
+{"labName":"Empirical Formula Of A Compound Online","userName":"Jesseca Mae Daquioag","evapDishMass":"48.08","evapDish&MagMass":"48.2","MgMass":"0.11","firstWeighing":"","secondWeighing":"","finalWeighing":"","MgClMass":"","ClMass":"","MgMol":"","ClMol":"","MgMolDivided":"","ClMolDivided":"","MgSub":"","ClSub":"","MgSubKnown":"","ClSubKnown":""}
