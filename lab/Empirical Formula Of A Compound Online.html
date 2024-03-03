@@ -196,31 +196,47 @@ Hydrochloric acid is a strong acid that is harmful to the skin and especially to
                    /> mol <div class="feedback" id="ClMolDividedFB"></div>
           </li>
           <li>Your experimental empirical formula of magnesium chloride (with whole numbers as subscripts) 
-            Mg<input
+            Mg<sub><input
           type="number"
           step="any"
           class="calc"
           id="MgSub"
           name="MgSub"
-                 width="32px"
+                 style="width: 32px;"
           formula="round(${MgMolDivided})"
           help="Round the moles of magnesium after dividing by the lower number of moles to the nearest whole number"
-                   />CL
-            <input
+                          /></sub>Cl<sub><input
           type="number"
           step="any"
           class="calc"
           id="ClSub"
           name="ClSub"
-                 width="32px"
+                 style="width: 32px;"
           formula="round(${ClMolDivided})"
           help="Round the moles of chlorine after dividing by the lower number of moles to the nearest whole number"
-                   /> <div class="feedback" id="MgSubFB"></div> <div class="feedback" id="MgSubFB"></div>
-            
-            
-            
+                                                /></sub><div class="feedback" id="MgSubFB"></div> <div class="feedback" id="ClSubFB"></div>
           </li>
-          <li>True known empirical formula of magnesium chloride</li>
+          <li>True known empirical formula of magnesium chloride
+          Mg<sub><input
+          type="number"
+          step="any"
+          class="calc"
+          id="MgSubKnown"
+          name="MgSubKnown"
+                 style="width: 32px;"
+          formula="1"
+          help="Balance the charges on magnesium chloride"
+                          /></sub>Cl<sub><input
+          type="number"
+          step="any"
+          class="calc"
+          id="ClSubKnown"
+          name="ClSubKnown"
+                 style="width: 32px;"
+          formula="2"
+          help="Balance the charges on magnesium chloride"
+                                                /></sub><div class="feedback" id="MgSubKnownFB"></div> <div class="feedback" id="ClSubKnownFB"></div>
+          </li>
         </ol>
       </table>
       <p></p>
