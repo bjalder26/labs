@@ -70,7 +70,8 @@ function readLabList() {
     try {
         const labListText = fs.readFileSync('labList.txt', 'utf8');
         const labList = JSON.parse(labListText);
-        return labList;
+        const capitalizedLabList = labList.map(capitalizeEveryWord);
+        return capitalizedLabList;
     } catch (error) {
         console.error('Error reading lab list:', error);
         return [];

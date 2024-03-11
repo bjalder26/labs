@@ -12,10 +12,13 @@
     <br>
     <label for="studentSelect">Select Student:</label>
     <select id="studentSelect"></select>
+    <br>
+    <button id="submitButton">Submit</button>
 
     <script>
         const labSelect = document.getElementById('labSelect');
         const studentSelect = document.getElementById('studentSelect');
+        const submitButton = document.getElementById('submitButton');
 
         // Fetch lab list
         fetch('/labList')
@@ -42,6 +45,25 @@
                         option.text = student;
                         studentSelect.add(option);
                     });
+                });
+        });
+
+        // Event listener for submit button
+        submitButton.addEventListener('click', () => {
+            const selectedLab = labSelect.value;
+            const selectedStudent = studentSelect.value;
+            const url = `${window.location.origin}/${selectedLab}/${selectedStudent}`;
+            console.log('Submitting to:', url);
+            // Perform a GET request to the constructed URL
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Response:', data);
+                    // Handle the response as needed
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Handle errors
                 });
         });
     </script>
