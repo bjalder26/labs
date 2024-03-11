@@ -65,9 +65,11 @@ app.post("/module_1", (req, res) => {
 	
 });       // app.post("/module_1");
 
+// Function to read the lab list from the text file
 function readLabList() {
     try {
-        const labList = fs.readFileSync(__dirname + "/labList.txt", 'utf8').split('\n').filter(Boolean);
+        const labListText = fs.readFileSync('labList.txt', 'utf8');
+        const labList = JSON.parse(labListText);
         return labList;
     } catch (error) {
         console.error('Error reading lab list:', error);
@@ -79,7 +81,7 @@ function readLabList() {
 function findStudents(labName) {
     try {
         const labPrefix = labName + '_';
-        const submissionsFolder = path.join(__dirname, 'submissions');
+        const submissionsFolder = __dirname + '/submissions';
         const files = fs.readdirSync(submissionsFolder);
         const students = files
             .filter(file => file.startsWith(labPrefix))
@@ -146,6 +148,19 @@ app.post("/", (req, res) => {
 	});   // lmsDate.valid_request
 	
 });       // app.post("/");
+
+// Route to get lab list
+app.get('/labList', (req, res) => {
+    const labList = readLabList();
+    res.json(labList);
+});
+
+// Route to get students based on selected lab
+app.get('/students/:labName', (req, res) => {
+    const labName = req.params.labName;
+    const students = findStudents(labName);
+    res.json(students);
+});
 
 app.get("/instructor", (req, res) => {	
 		let instructorHtml = fs.readFileSync(__dirname + "/html/instructor.html", "utf8");
