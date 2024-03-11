@@ -125,16 +125,17 @@ app.post("/", (req, res) => {
 
 app.get("/instructor/:lab/:name", (req, res) => {	
 		//const name = lmsData.body.lis_person_name_full;
+    let name =  decodeURIComponent(req.params.name);
 		console.log('name: ' + name);
 		let labHtml = '';
 		let dataFile = {};
-		let labName = '';
-		//let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
+		let labName =  decodeURIComponent(req.params.lab);
+		let lower = labName.body.custom_canvas_assignment_title.toLowerCase();
     
     let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'empirical formula of a compound online'];
     
-		if(labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
-		labName = capitalizeEveryWord(lmsData.body.resource_link_title);
+		if(labList.includes(lower)) {
+		labName = capitalizeEveryWord(labName);
 		// creates user data file if it doesn't exist *** make this a function? ***
 		if (!fs.existsSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt')){
 			fs.writeFileSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt', '{}', 'utf8');
@@ -146,7 +147,8 @@ app.get("/instructor/:lab/:name", (req, res) => {
 		console.log(dataFile);
 
 		} else {
-		labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower;
+      labHtml = 'Invalid title or student';
+		//labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower;
 		}
 		
 		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
@@ -155,8 +157,7 @@ app.get("/instructor/:lab/:name", (req, res) => {
 						var dataFile = ${dataFile};
 						var labName = '${labName}';
 						var params = {
-						sessionID: "${sessionID}",
-						user: "${lmsData.body.ext_user_username}"
+						user: "${name}"
 					};
 				`);
 
@@ -164,7 +165,7 @@ app.get("/instructor/:lab/:name", (req, res) => {
 
 		res.setHeader("Content-Type", "text/html");
 		res.send(sendMe);
-	});   // lmsDate.valid_request
+	   // lmsDate.valid_request
 	
 });       // app.post("/");
 
