@@ -123,82 +123,50 @@ app.post("/", (req, res) => {
 	
 });       // app.post("/");
 
-/*
+app.get("/instructor/:lab/:name", (req, res) => {	
+		//const name = lmsData.body.lis_person_name_full;
+		console.log('name: ' + name);
+		let labHtml = '';
+		let dataFile = {};
+		let labName = '';
+		//let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
+    
+    let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'empirical formula of a compound online'];
+    
+		if(labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
+		labName = capitalizeEveryWord(lmsData.body.resource_link_title);
+		// creates user data file if it doesn't exist *** make this a function? ***
+		if (!fs.existsSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt')){
+			fs.writeFileSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt', '{}', 'utf8');
+			}	
+			
+		labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
+		dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
+		console.log('dataFile');
+		console.log(dataFile);
 
-app.post("/module_3", (req, res) => {	
-	var lmsData = new lti.Provider("top", "secret");
-	lmsData.valid_request(req, (err, isValid) => {
-		if (!isValid) {
-			res.send("Invalid request: " + err);
-			return ;
+		} else {
+		labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower;
 		}
 		
-		var sessionID = uuid();
-		sessions[sessionID] = lmsData;
-	
-		var sendMe = mod3File.toString().replace("//PARAMS**GO**HERE",
+		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
 				`
-					var params = {
+						var userName = '${name}';
+						var dataFile = ${dataFile};
+						var labName = '${labName}';
+						var params = {
 						sessionID: "${sessionID}",
 						user: "${lmsData.body.ext_user_username}"
 					};
 				`);
 
-		res.setHeader("Content-Type", "text/html");
-		res.send(sendMe);
-	});   // lmsDate.valid_request
-	
-});       // app.post("/module_3");
-
-app.post("/module_4", (req, res) => {	
-	var lmsData = new lti.Provider("top", "secret");
-	lmsData.valid_request(req, (err, isValid) => {
-		if (!isValid) {
-			res.send("Invalid request: " + err);
-			return ;
-		}
-		
-		var sessionID = uuid();
-		sessions[sessionID] = lmsData;
-	
-		var sendMe = mod4File.toString().replace("//PARAMS**GO**HERE",
-				`
-					var params = {
-						sessionID: "${sessionID}",
-						user: "${lmsData.body.ext_user_username}"
-					};
-				`);
+        
 
 		res.setHeader("Content-Type", "text/html");
 		res.send(sendMe);
 	});   // lmsDate.valid_request
 	
-});       // app.post("/module_4");
-
-app.get("/grade/:sessionID/:grade", (req, res) => {
-	const session = sessions[req.params.sessionID];
-	var grade = req.params.grade;
-	var resp;
-	
-	if (grade < 60) {
-		resp = `${grade} is too low. How about sixty instead?`;
-		grade = 60;
-	} else if (grade > 90) {
-		resp = `${grade} is too high. How about ninety instead?`;
-		grade = 90;		
- 	} else {
- 		resp = `${grade} sounds reasonable, sure.`;
- 	}
-	
-	session.outcome_service.send_replace_result(grade/100, (err, isValid) => {
-		if (!isValid)
-			resp += `<br/>Update failed ${err}`;
-
-		res.send(resp);
-	});
-
-});    // app.get("/grade...")
-*/
+});       // app.post("/");
 
 app.get("/score/:sessionID/:score", (req, res) => {
 
