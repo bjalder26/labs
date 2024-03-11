@@ -124,13 +124,14 @@ app.post("/", (req, res) => {
 });       // app.post("/");
 
 app.get("/instructor/:lab/:name", (req, res) => {	
+  console.log('lab: ' + req.params.lab + " name: " + req.params.name);
 		//const name = lmsData.body.lis_person_name_full;
     let name =  decodeURIComponent(req.params.name);
 		console.log('name: ' + name);
 		let labHtml = '';
 		let dataFile = {};
 		let labName =  decodeURIComponent(req.params.lab);
-		let lower = labName.body.custom_canvas_assignment_title.toLowerCase();
+		let lower = labName.toLowerCase();
     
     let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'empirical formula of a compound online'];
     
