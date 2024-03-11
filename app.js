@@ -65,7 +65,15 @@ app.post("/module_1", (req, res) => {
 	
 });       // app.post("/module_1");
 
-
+function readLabList() {
+    try {
+        const labList = fs.readFileSync('labList.txt', 'utf8').split('\n').filter(Boolean);
+        return labList;
+    } catch (error) {
+        console.error('Error reading lab list:', error);
+        return [];
+    }
+}
 
 app.post("/", (req, res) => {	
     console.log('in2');
