@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructor Lab Portal</title>
+</head>
+<body>
+    <h1>Instructor Lab Portal</h1>
+    <label for="labSelect">Select Lab:</label>
+    <select id="labSelect"></select>
+    <br>
+    <label for="studentSelect">Select Student:</label>
+    <select id="studentSelect"></select>
+
+    <script>
+        const labSelect = document.getElementById('labSelect');
+        const studentSelect = document.getElementById('studentSelect');
+
+        // Fetch lab list
+        fetch('/labList')
+            .then(response => response.json())
+            .then(labList => {
+                labList.forEach(lab => {
+                    const option = document.createElement('option');
+                    option.text = lab;
+                    labSelect.add(option);
+                });
+            });
+
+        // Event listener for lab selection
+        labSelect.addEventListener('change', () => {
+            const selectedLab = labSelect.value;
+            // Fetch students based on selected lab
+            fetch(`/students/${selectedLab}`)
+                .then(response => response.json())
+                .then(students => {
+                    // Clear previous options
+                    studentSelect.innerHTML = '';
+                    students.forEach(student => {
+                        const option = document.createElement('option');
+                        option.text = student;
+                        studentSelect.add(option);
+                    });
+                });
+        });
+    </script>
+</body>
+</html>

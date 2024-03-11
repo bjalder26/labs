@@ -67,10 +67,26 @@ app.post("/module_1", (req, res) => {
 
 function readLabList() {
     try {
-        const labList = fs.readFileSync('labList.txt', 'utf8').split('\n').filter(Boolean);
+        const labList = fs.readFileSync(__dirname + "/labList.txt", 'utf8').split('\n').filter(Boolean);
         return labList;
     } catch (error) {
         console.error('Error reading lab list:', error);
+        return [];
+    }
+}
+
+// Function to find student names based on selected lab
+function findStudents(labName) {
+    try {
+        const labPrefix = labName + '_';
+        const submissionsFolder = path.join(__dirname, 'submissions');
+        const files = fs.readdirSync(submissionsFolder);
+        const students = files
+            .filter(file => file.startsWith(labPrefix))
+            .map(file => file.split('_')[1].split('.')[0]);
+        return students;
+    } catch (error) {
+        console.error('Error finding students:', error);
         return [];
     }
 }
@@ -130,6 +146,15 @@ app.post("/", (req, res) => {
 	});   // lmsDate.valid_request
 	
 });       // app.post("/");
+
+app.get("/instructor", (req, res) => {	
+		let instructorHtml = fs.readFileSync(__dirname + "/html/instructor.html", "utf8");
+		res.setHeader("Content-Type", "text/html");
+		res.send(instructorHtml);
+	
+});       // app.post("/");
+
+
 
 app.get("/:lab/:name", (req, res) => {	
   console.log('lab: ' + req.params.lab + " name: " + req.params.name);
