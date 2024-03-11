@@ -141,7 +141,9 @@ app.get("/:lab/:name", (req, res) => {
 		let labName =  decodeURIComponent(req.params.lab);
 		let lower = labName.toLowerCase();
     
-    let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'empirical formula of a compound online'];
+    let labList = fs.readFileSync(__dirname + "/labList.txt", "utf8");
+  
+    //let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'empirical formula of a compound online'];
     
 		if(labList.includes(lower)) {
 		labName = capitalizeEveryWord(labName);
