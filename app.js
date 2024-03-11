@@ -123,7 +123,7 @@ app.post("/", (req, res) => {
 	
 });       // app.post("/");
 
-app.get("/instructor/:lab/:name", (req, res) => {	
+app.get("/:lab/:name", (req, res) => {	
   console.log('lab: ' + req.params.lab + " name: " + req.params.name);
 		//const name = lmsData.body.lis_person_name_full;
     let name =  decodeURIComponent(req.params.name);
