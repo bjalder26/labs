@@ -513,9 +513,8 @@
                     class="calc num"
                     id="B1PercentYield"
                     name="B1PercentYield"
-                    formula="(${B1MassCuActual}-${B1MassCu})*100"
-                    s
-                    help="The mass of copper is the difference between the mass of beaker 1 &amp contents and the mass of beaker 1 alone."
+                    formula="abs(${B1MassCuActual}/${B1MassCu}*100)"
+                    help="The percent yield is the actual yield divided by the theoretical yield times 100%"
                   />
                   %
                   <div
