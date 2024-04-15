@@ -331,6 +331,7 @@
                   class="num"
                   id="beaker1ContentsMass"
                   name="beaker1ContentsMass"
+                       step="any"
                 />
                 g&nbsp;
               </td>
@@ -343,6 +344,7 @@
                   class="num"
                   id="beaker3CuSaltMass"
                   name="beaker3CuSaltMass"
+                       step="any"
                 />
                 g
               </td>
@@ -355,6 +357,7 @@
                   class="num"
                   id="beaker3AlMass"
                   name="beaker3AlMass"
+                       step="any"
                 />
                 g
               </td>
@@ -521,6 +524,7 @@
                   ></div>
                 </td>
               </tr>
+              <tr><td colspan="2">&nbsp;</td></tr>
               
               <tr>
                 <td colspan="2">Beaker 2 calculations</td>
@@ -584,17 +588,88 @@
                     type="number"
                     step="any"
                     class="calc num"
-                    id="B2MassCu"
-                    name="B2MassCu"
-                    formula="${B1MolCuSalt}*63.55"
+                    id="B2MolCuTheor"
+                    name="B2MolCuTheor"
+                    formula="${B2MolAl}"
                     help="Based on which reactant is the limiting reactant either 1) Use a mole-to-mole ratio to convert from moles of copper(II) chloride dihydrate to moles of AlCl3  or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of AlCl3"
                   />
                   mol
-                  <div class="feedback" id="B1MassCuFB" name="B1MassCuFB"></div>
+                  <div class="feedback" id="B2MassCuFB" name="B2MassCuFB"></div>
                 </td>
               </tr>
+              <tr><td colspan="2">&nbsp;</td></tr>
               
-              
+                            <tr>
+                <td colspan="2">Beaker 3 calculations</td>
+              </tr>
+              <tr>
+                <td>Moles of CuCl<sub>2</sub>·2H<sub>2</sub>O</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B3MolCuSalt"
+                    name="B3MolCuSalt"
+                    formula="${beaker3CuSaltMass}/170.48"
+                    help="Divide your measured mass of copper(II) chloride dihydrate in beaker 3 by the molar mass of copper(II) chloride dihydrate (170.48 g/mol)"
+                  />
+                  mol
+                  <div
+                    class="feedback"
+                    id="B3MolCuSaltFB"
+                    name="B3MolCuSaltFB"
+                  ></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of Al(s)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc"
+                    id="B3MolAl"
+                    name="B3MolAl"
+                    formula="${beaker3AlMass}/26.98"
+                    help="Divide your measured mass of aluminium in beaker 3 by the molar mass of aluminum (26.98 g/mol)"
+                  />
+                  mol
+                  <div class="feedback" id="B3MolAlFB" name="B3MolAlFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of Cu(s) produced (theoretical)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B3MolCu"
+                    name="B3MolCu"
+                    formula="${B3MolAl*3/2}"
+                    help="Either 1) Multiply the moles of copper(II) chloride dihydrate by the moles of copper in each mole of copper(II) chloride dihydrate or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of Cu(s)"
+                  />
+                  mol
+                  <div class="feedback" id="B3MolCuFB" name="B3MolCuFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of of AlCl<sub>3</sub>(aq) produced (theoretical)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B3MolCuTheor"
+                    name="B3MolCuTheor"
+                    formula="${B3MolAl}"
+                    help="Either 1) Use a mole-to-mole ratio to convert from moles of copper(II) chloride dihydrate to moles of AlCl3  or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of AlCl3"
+                  />
+                  mol
+                  <div class="feedback" id="B3MassCuFB" name="B3MassCuFB"></div>
+                </td>
+              </tr>
               
               
               
@@ -602,7 +677,7 @@
           </div>
         </div>
       </div>
-
+<p></p>
       <div class="footer">Limiting Reactants</div>
       <!-- title -->
       <div id="button_bar">
