@@ -340,7 +340,22 @@
           </tr>
           <tr>
           <td>Mass of Cu(s) produced (theoretical)</td>
-            <td></td>
+            <td>
+            <input
+              type="number"
+              step="any"
+              class="calc num"
+              id="B1MolCu"
+              name="B1MolCu"
+              formula="${B1MolCuSalt}"
+              help="Based on which reactant is the limiting reactant either 1) Multiply the moles of copper(II) chloride dihydrate by the moles of copper in each mole of copper(II) chloride dihydrate or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of Cu(s)"
+            /> mol
+            <div
+              class="feedback"
+              id="B1MolCuFB"
+              name="B1MolCuFB"
+            ></div>
+            </td>
           </tr>
           <tr>
           <td>Mass of Cu(s) produced (actual)</td>
