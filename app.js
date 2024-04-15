@@ -113,7 +113,7 @@ app.post("/", (req, res) => {
 		let labName = '';
 		let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
     
-    let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'empirical formula of a compound online'];
+    let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'limiting reactant', 'empirical formula of a compound online'];
     
 		if(labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
 		labName = capitalizeEveryWord(lmsData.body.resource_link_title);
@@ -128,7 +128,7 @@ app.post("/", (req, res) => {
 		console.log(dataFile);
 
 		} else {
-		labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower + '' + labList.toString();
+		labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower + ' ' + labList.toString();
 		}
 		
 		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
