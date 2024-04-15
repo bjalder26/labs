@@ -43,7 +43,6 @@
         <h3>Per each group:</h3>
         <ul>
           <li>250 mL beakers (3)</li>
-          <li>250 mL Erlenmeyer flask</li>
           <li>Glass stirring rod</li>
           <li>20-50 mL graduated cylinder</li>
           <li>10 mL graduated cylinders (2)</li>
@@ -122,6 +121,76 @@
 
       <div class="noBreak">
         Table 1:
+ <table>
+        <tr>
+          <td>Mass of beaker 1:</td>
+          <td style="text-align: center">
+            <input
+              type="number"
+              class="num"
+              id="beaker1Mass"
+              name="beaker1Mass"
+            /> g
+          </td>
+          
+        </tr>
+        <tr>
+          <td>Mass of CuCl<sub>2</sub>·2H<sub>2</sub>O in Beaker 1</td>
+          <td style="text-align: center">
+            <input
+              type="number"
+              class="num"
+              id="beaker1CuSaltMass"
+              name="beaker1CuSaltMass"
+            /> g
+          </td>
+        </tr>
+        <tr>
+          <td>Mass of CuCl<sub>2</sub>·2H<sub>2</sub>O in Beaker 2</td>
+          <td style="text-align: center">
+            <input
+              type="number"
+              step="any"
+              class="num"
+              id="beaker2CuSaltMass"
+              name="beaker2CuSaltMass"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Mass of Al(s) in Beaker 1</td>
+          <td style="text-align: center">
+            <input
+              type="number"
+              class="num"
+              id="beaker1AlMass"
+              name="beaker1AlMass"
+            /> g
+          </td>
+        </tr>
+        <tr>
+          <td>Mass of Al(s) in Beaker 2</td>
+          <td style="text-align: center">
+            <input
+              type="number"
+              step="any"
+              class="num"
+              id="beaker2AlMass"
+              name="beaker2AlMass"
+            />
+          </td>
+        </tr>        
+      </table>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         <table>
           <tr>
             <th>Data Table: Water</th>
@@ -279,68 +348,7 @@
           </tr>
         </table>
       </div>
-      <table>
-        <tr>
-          <td>Lab temperature (°C)</td>
-          <td colspan="2" style="text-align: center">
-            <input
-              type="number"
-              class="lookup num"
-              id="labTemp"
-              name="labTemp"
-            />
-            <input
-              type="number"
-              step="any"
-              class="lookupValue"
-              id="labTempLV"
-              name="labTempLV"
-              tableID="Density of Water Table"
-            />
-          </td>
-        </tr>
-        <tr>
-          <td>Known Density at Lab Temp (see table 2) (g/mL)</td>
-          <td colspan="2" style="text-align: center">
-            <input
-              type="number"
-              step="any"
-              class="calc num"
-              id="knownDensityWater"
-              name="knownDensityWater"
-              formula="${labTempLV}"
-              sigfigs="6"
-              help="Look at the chart below, and find the known density at your lab temperature."
-              range="0.02%"
-            />
-            <div
-              class="feedback"
-              id="knownDensityWaterFB"
-              name="knownDensityWaterFB"
-            ></div>
-          </td>
-        </tr>
-        <tr></tr>
-        <tr>
-          <td>Percent error (%)</td>
-          <td colspan="2" style="text-align: center">
-            <input
-              type="number"
-              step="any"
-              class="calc"
-              id="waterPercentError"
-              name="waterPercentError"
-              formula="abs((${densityWaterAve}-${knownDensityWater})/${knownDensityWater}*100)"
-              help="Calculate the absolute value of the average density of water minus known water density, then divide by the known water density and multiply by 100"
-            />
-            <div
-              class="feedback"
-              id="waterPercentErrorFB"
-              name="waterPercentErrorFB"
-            ></div>
-          </td>
-        </tr>
-      </table>
+     
       <div class="noBreak">
         <h2>Density of Water at Different Temperatures</h2>
         Table 2:
