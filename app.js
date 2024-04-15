@@ -128,7 +128,7 @@ app.post("/", (req, res) => {
 		console.log(dataFile);
 
 		} else {
-		labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower;
+		labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower + '' + labList.toString();
 		}
 		
 		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
