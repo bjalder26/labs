@@ -22,33 +22,19 @@
         const studentSelect = document.getElementById('studentSelect');
         const labSubmissionForm = document.getElementById('labSubmissionForm');
 
-// Fetch lab list
-fetch('/labList')
-    .then(response => response.json())
-    .then(labList => {
-        // Get the select element
-        const labSelect = document.getElementById('dropdown');
-
-        // Create and append the placeholder option
-        const placeholderOption = document.createElement('option');
-        placeholderOption.text = 'Select your option';
-        placeholderOption.value = '';
-        placeholderOption.disabled = true;
-        placeholderOption.selected = true;
-        labSelect.add(placeholderOption);
-
-        // Populate the select element with fetched lab options
-        labList.forEach(lab => {
-            const option = document.createElement('option');
-            option.text = lab;
-            option.value = lab; // Assuming the lab value should be the same as the text
-            labSelect.add(option);
-        });
-    })
-    .catch(error => {
-        console.error('Error fetching lab list:', error);
-    });
-
+        // Fetch lab list
+        fetch('/labList')
+            .then(response => response.json())
+            .then(labList => {
+                const emptyOption = document.createElement('option');
+                emptyOption.text = 'Select a Lab';
+                labSelect.add(emptyOption);
+                labList.forEach(lab => {
+                    const option = document.createElement('option');
+                    option.text = lab;
+                    labSelect.add(option);
+                });
+            });
 
         // Event listener for lab selection
         labSelect.addEventListener('change', () => {
