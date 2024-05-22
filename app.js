@@ -97,6 +97,11 @@ function findStudents(labName) {
 app.post("/", (req, res) => {	
     console.log('in2');
 	var lmsData = new lti.Provider("top", "secret");
+  
+  if(req.body.roles.includes('Instructor')) {
+    res.redirect("/instructor");
+  }
+  
 	lmsData.valid_request(req, (err, isValid) => {
 		if (!isValid) {
 			res.send("Invalid request: " + err);
