@@ -81,11 +81,16 @@ We are making the assumption that at the instance the ice melts the mixture of i
  <li>In your further calculations, use the lowest recorded temperature as the freezing point of water. The temperature probes are not calibrated, but are very good at measuring temperature differences. Don't be worried if the reading on your temperature probe is different from that of your neighbor, and don't swap temperature probes.</li>
      </ol> 
       
-      Lowest temperature
-      Temperature as last bits of ice melt
+      Lowest temperature:             <input type="number" class="num" id="lowestTemp" name="lowestTemp" step="any"/> °C<br>
+      Temperature as last bits of ice melt:  <input type="number" class="num" id="lastTemp" name="lastTemp" step="any"/> °C<br>
            
       Do you expect the temperatures to be the same or different?
-      Why did you expect that?
+      <select id="expect" name="expect">
+            <option value="" selected disabled hidden></option>
+            <option value="option1">same</option>
+            <option value="option2">different</option>
+        </select><br>
+      Why did you expect that? <textarea class="text essay" id="whyExpect" name="whyExpect"></textarea>
       
       
       <div class="noBreak">
