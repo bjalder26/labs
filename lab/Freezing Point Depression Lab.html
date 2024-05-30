@@ -116,11 +116,6 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       Temperature as last bits of ice melt:  <input type="number" class="num" id="lastTemp2" name="lastTemp2" step="any"/> °C<br>
       Mass of beaker and water (with melted ice): <input type="number" class="num" id="beakerAndWaterMass2" name="beakerAndWaterMass2" step="any"/> g<br>
       Mass of clean dry beaker: <input type="number" class="num" id="beakerMass2" name="beakerMass2" step="any"/> g<br>
-      Mass of water in g: <input type="number" class="num calc" id="massWater2" name="massWater2" step="any" 
-    formula="${beakerAndWaterMass2}-${beakerMass2}-${massGluMeasured2}" help="Take the mass of the beaker and water and subtract the mass of the beaker."/> g<div class="feedback" id="massWater2FB" name="massWater2FB"></div>
-      <li>Convert the grams of water to Kg.</li>
-      Mass of water in Kg: <input type="number" class="num calc" id="kgWater2" name="kgWater2" step="any" 
-    formula="${massWater2}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater2FB" name="kgWater2FB"></div>
       
       <li>Input your measured grams of sucrose below, then calculate the moles of sucrose you actually measured.</li>
       <input type="number" class="num calc" id="massGluMeasured2Repeat" name="massGluMeasured2Repeat" step="any" 
@@ -128,7 +123,14 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       <div class="feedback" id="massGluMeasured2RepeatFB" name="massGluMeasured2RepeatFB"></div>
       $x\;\frac{1\;mol\;sucrose}{342.3\;g\;sucrose} = $ <input type="number" class="num calc" id="molGlu2" name="molGlu2" step="any" 
     formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
-      <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
+     <br>
+    Mass of water in g (remember to subtract out the mass of sucrose): <input type="number" class="num calc" id="massWater2" name="massWater2" step="any" 
+    formula="${beakerAndWaterMass2}-${beakerMass2}-${massGluMeasured2}" help="Take the mass of the beaker and water and subtract the mass of the beaker."/> g<div class="feedback" id="massWater2FB" name="massWater2FB"></div>
+      <li>Convert the grams of water to Kg.</li>
+      Mass of water in Kg: <input type="number" class="num calc" id="kgWater2" name="kgWater2" step="any" 
+    formula="${massWater2}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater2FB" name="kgWater2FB"></div> 
+  
+  <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
       van't Hoff factor for sucrose: 
       <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" formula="(${lastTemp1}-${lastTemp2})*${kgWater2}/1.86/${molGlu2}" help="Use the formula in the Background section, and solve for i"/>
       <div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
@@ -165,11 +167,7 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       Temperature as last bits of ice melt:  <input type="number" class="num" id="lastTemp3" name="lastTemp3" step="any"/> °C<br>
       Mass of beaker and water (with melted ice): <input type="number" class="num" id="beakerAndWaterMass3" name="beakerAndWaterMass3" step="any"/> g<br>
       Mass of clean dry beaker: <input type="number" class="num" id="beakerMass3" name="beakerMass3" step="any"/> g<br>
-      Mass of water in g: <input type="number" class="num calc" id="massWater3" name="massWater3" step="any" 
-    formula="${beakerAndWaterMass3}-${beakerMass3}-${massNaClMeasured3}" help="Take the mass of the beaker and water and subtract the mass of the beaker."/> g<div class="feedback" id="massWater3FB" name="massWater3FB"></div>
-      <li>Convert the grams of water to Kg.</li>
-      Mass of water in Kg: <input type="number" class="num calc" id="kgWater3" name="kgWater3" step="any" 
-    formula="${massWater3}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater3FB" name="kgWater3FB"></div>
+      
       
       <li>Input your measured grams of sodium chloride below, then calculate the moles of sodium chloride you actually measured.</li>
       <input type="number" class="num calc" id="massNaClMeasured3Repeat" name="massNaClMeasured3Repeat" step="any" 
@@ -177,7 +175,14 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       <div class="feedback" id="massNaClMeasured3RepeatFB" name="massNaClMeasured3RepeatFB"></div>
       $x\;\frac{1\;mol\;sodium\;chloride}{58.44\;g\;sodium\;chloride} = $ <input type="number" class="num calc" id="molNaCl3" name="molNaCl3" step="any" 
     formula="${massNaClMeasured3}/58.44" help="Divide the grams of sodium chloride by the molar mass of sodium chloride"/> mol<div class="feedback" id="molNaCl3FB" name="molNaCl3FB"></div>
-      <li>Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary</li>
+      <br>
+        Mass of water in g (remember to subtract out the mass of NaCl): <input type="number" class="num calc" id="massWater3" name="massWater3" step="any" 
+    formula="${beakerAndWaterMass3}-${beakerMass3}-${massNaClMeasured3}" help="Take the mass of the beaker and water and subtract the mass of the beaker."/> g<div class="feedback" id="massWater3FB" name="massWater3FB"></div>
+      <li>Convert the grams of water to Kg.</li>
+      Mass of water in Kg: <input type="number" class="num calc" id="kgWater3" name="kgWater3" step="any" 
+    formula="${massWater3}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater3FB" name="kgWater3FB"></div>
+        
+        <li>Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary</li>
       van't Hoff factor for sodium chloride: <input type="number" class="num calc" id="vhfNaCl" name="vhfNaCl" step="any" 
     formula="(${lastTemp1}-${lastTemp3})*${kgWater3}/1.86/${molNaCl3}" help="Use the formula in the Background section, and solve for i"/>
         <div class="feedback" id="vhfNaClFB" name="vhfNaClFB"></div>
