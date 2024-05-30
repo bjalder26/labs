@@ -1,1 +1,1 @@
-{}
+{"labName":"Freezing Point Depression Lab","userName":"Sabria Jackson","lowestTemp1":"","lastTemp1":"","whyExpect":"","massGlu":"17.1","massGluMeasured2":"17","lowestTemp2":"","lastTemp2":"","beakerAndWaterMass2":"","beakerMass2":"","massGluMeasured2Repeat":"17","molGlu2":"0.0497","massWater2":"","kgWater2":"","vhfSucrose":"","massNaCl":"","massNaClMeasured3":"","lowestTemp3":"","lastTemp3":"","beakerAndWaterMass3":"","beakerMass3":"","massNaClMeasured3Repeat":"","molNaCl3":"","massWater3":"","kgWater3":"","vhfNaCl":""}
