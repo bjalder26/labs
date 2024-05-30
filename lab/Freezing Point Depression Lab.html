@@ -96,7 +96,7 @@ We are making the assumption that at the instance the ice melts the mixture of i
 You can do part 2 and part 3 in any order, depending which balance is available.<br>
 <ol>
   <li>calculate the mass of 0.05 mol of sucrose (molar mass is 342.3 g/mol).</li>
-  $0.05 mol sucrose x \frac{342.3 g sucrose}{1 mol sucrose} = $ <input type="number" class="num calc" id="massGlu" name="MassGlu" step="any" 
+  $0.05\;mol\;sucrose\;x\;\frac{342.3\;g\;sucrose}{1\;mol\;sucrose} = $ <input type="number" class="num calc" id="massGlu" name="MassGlu" step="any" 
     formula="0.05*342.3" help="Multiply the moles of sucrose times the molar mass of sucrose"/> g<br><div class="feedback" id="MassGluFB" name="MassGluFB"></div>
   <li>weigh out approximately the mass of sucrose you calculated above, then record the exact mass you measured, and transfer to the clean and dry 100 mL
 beaker.</li>
@@ -111,7 +111,7 @@ precision of the instrument. Clean and dry the 100 mL beaker and record the empt
 Then, calculate the mass of water (solvent) from the available data.</li>
 
       
-      </ol>
+      
       Lowest temperature:             <input type="number" class="num" id="lowestTemp2" name="lowestTemp2" step="any"/> °C<br>
       Temperature as last bits of ice melt:  <input type="number" class="num" id="lastTemp2" name="lastTemp2" step="any"/> °C<br>
       Mass of beaker and water (with melted ice): <input type="number" class="num" id="beakerAndWaterMass2" name="beakerAndWaterMass2" step="any"/> g<br>
@@ -124,14 +124,14 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       
       <li>Input your measured grams of Sucrose below, then calculate the moles of sucrose you actually measured.</li>
       <input type="number" class="num calc" id="massGluMeasured2Repeat" name="massGluMeasured2Repeat" step="any" 
-    formula="${massGluMeasured2}" help="Same as the mass of glucose you measured above."/> g <br>
+    formula="${massGluMeasured2}" help="Same as the mass of glucose you measured above."/> g sucrose 
       <div class="feedback" id="massGluMeasured2RepeatFB" name="massGluMeasured2RepeatFB"></div>
-      
-      $sucrose x \frac{1 mol sucrose}{342.3 g sucrose} = $ <input type="number" class="num calc" id="molGlu2" name="molGlu2" step="any" 
-    formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> g<br><div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
-      <li></li>
-      <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>   
-      
+      $x\;\frac{1\;mol\;sucrose}{342.3\;g\;sucrose} = $ <input type="number" class="num calc" id="molGlu2" name="molGlu2" step="any" 
+    formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<br><div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
+      <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
+      van't Hoff factor for sucrose: <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" 
+    formula="${}" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<br><div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
+      </ol>
       <div class="noBreak">
         <h3>Chemicals and lab equipment:</h3>
         <ul>
