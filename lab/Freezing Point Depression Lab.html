@@ -78,7 +78,7 @@ We are making the assumption that at the instance the ice melts the mixture of i
 <li>Quickly add the ice to the 100 mL beaker, gently swirl the temperature probe. Record the lowest temperature, and the temperature just as the last bit of ice melts.</li>
 <li>Weigh the mass of the beaker with the water and melted ice (so now just water). Record to the precision of the instrument. Clean and dry the 100 mL beaker. <!--and record the empty mass to the precision of the instrument.--></li>
 <li>Discard the water in the sink.</li>
- <li>In your further calculations, use the lowest recorded temperature as the freezing point of water. The temperature probes are not calibrated, but are very good at measuring temperature differences. Don't be worried if the reading on your temperature probe is different from that of your neighbor, and don't swap temperature probes.</li>
+ <li>In your further calculations, use the last recorded temperature (when you scoop out the last bits of ice) as the freezing point of water. The temperature probes are not calibrated, but are very good at measuring temperature differences. Don't be worried if the reading on your temperature probe is different from that of your neighbor, and don't swap temperature probes.</li>
      </ol> 
       
       Lowest temperature:             <input type="number" class="num" id="lowestTemp1" name="lowestTemp1" step="any"/> °C<br>
@@ -96,8 +96,8 @@ We are making the assumption that at the instance the ice melts the mixture of i
 You can do part 2 and part 3 in any order, depending which balance is available.<br>
 <ol>
   <li>calculate the mass of 0.05 mol of sucrose (molar mass is 342.3 g/mol).</li>
-  $0.05\;mol\;sucrose\;x\;\frac{342.3\;g\;sucrose}{1\;mol\;sucrose} = $ <input type="number" class="num calc" id="massGlu" name="MassGlu" step="any" 
-    formula="0.05*342.3" help="Multiply the moles of sucrose times the molar mass of sucrose"/> g<br><div class="feedback" id="MassGluFB" name="MassGluFB"></div>
+  $0.05\;mol\;sucrose\;x\;\frac{342.3\;g\;sucrose}{1\;mol\;sucrose} = $ <input type="number" class="num calc" id="massGlu" name="massGlu" step="any" 
+    formula="0.05*342.3" help="Multiply the moles of sucrose times the molar mass of sucrose"/> g<div class="feedback" id="massGluFB" name="massGluFB"></div>
   <li>Weigh out approximately the mass of sucrose you calculated above, then record the exact mass you measured, and transfer to the clean and dry 100 mL
 beaker.</li>
   Actual mass of sucrose measured: <input type="number" class="num" id="massGluMeasured2" name="MassGluMeasured2" step="any"> g<br>
@@ -130,7 +130,7 @@ Then, calculate the mass of water (solvent) from the available data.</li>
     formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
       <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
       van't Hoff factor for sucrose: <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" 
-    formula="(${lowestTemp1}-${lowestTemp2})*${kgWater2}/${1.86}/${molGlu2}" help="Use the formula in the Background section, and solve for i"/><div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
+    formula="(${lastTemp1}-${lastTemp2})*${kgWater2}/${1.86}/${molGlu2}" help="Use the formula in the Background section, and solve for i"/><div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
       </ol>
       
 <h3>Part 3: Freezing point determination, sodium chloride solution</h3>
@@ -178,7 +178,7 @@ Then, calculate the mass of water (solvent) from the available data.</li>
     formula="${massNaClMeasured3}/58.44" help="Divide the grams of sodium chloride by the molar mass of sodium chloride"/> mol<div class="feedback" id="molNaCl2FB" name="molNaCl2FB"></div>
       <li>Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary</li>
       van't Hoff factor for sodium chloride: <input type="number" class="num calc" id="vhfNaCl" name="vhfNaCl" step="any" 
-    formula="(${lowestTemp1}-${lowestTemp3})*${kgWater3}/${1.86}/${molNaCl3}" help="Use the formula in the Background section, and solve for i"/>
+    formula="(${lastTemp1}-${lastTemp3})*${kgWater3}/${1.86}/${molNaCl3}" help="Use the formula in the Background section, and solve for i"/>
         <div class="feedback" id="vhfNaClFB" name="vhfNaClFB"></div>
         
 </ol>      
