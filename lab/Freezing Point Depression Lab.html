@@ -100,7 +100,7 @@ You can do part 2 and part 3 in any order, depending which balance is available.
     formula="0.05*342.3" help="Multiply the moles of sucrose times the molar mass of sucrose"/> g<div class="feedback" id="massGluFB" name="massGluFB"></div>
   <li>Weigh out approximately the mass of sucrose you calculated above, then record the exact mass you measured, and transfer to the clean and dry 100 mL
 beaker.</li>
-  Actual mass of sucrose measured: <input type="number" class="num" id="massGluMeasured2" name="MassGluMeasured2" step="any"> g<br>
+  Actual mass of sucrose measured: <input type="number" class="num" id="massGluMeasured2" name="massGluMeasured2" step="any"> g<br>
 <li>Add approximately 25 mL water.</li>
 <li>Place temperature probe into the solution in the beaker and swirl and stir to dissolve the sucrose completely.</li>
 <li>Add around 20 mL of fresh crushed ice to the 50 mL beaker.</li>
@@ -129,8 +129,9 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       $x\;\frac{1\;mol\;sucrose}{342.3\;g\;sucrose} = $ <input type="number" class="num calc" id="molGlu2" name="molGlu2" step="any" 
     formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
       <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
-      van't Hoff factor for sucrose: <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" 
-    formula="(${lastTemp1}-${lastTemp2})*${kgWater2}/${1.86}/${molGlu2}" help="Use the formula in the Background section, and solve for i"/><div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
+      van't Hoff factor for sucrose: 
+      <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" formula="(${lastTemp1}-${lastTemp2})*${kgWater2}/${1.86}/${molGlu2}" help="Use the formula in the Background section, and solve for i"/>
+      <div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
       </ol>
       
 <h3>Part 3: Freezing point determination, sodium chloride solution</h3>
