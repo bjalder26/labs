@@ -122,7 +122,7 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       Mass of water in Kg: <input type="number" class="num calc" id="kgWater2" name="kgWater2" step="any" 
     formula="${massWater2}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater2FB" name="kgWater2FB"></div>
       
-      <li>Input your measured grams of Sucrose below, then calculate the moles of sucrose you actually measured.</li>
+      <li>Input your measured grams of sucrose below, then calculate the moles of sucrose you actually measured.</li>
       <input type="number" class="num calc" id="massGluMeasured2Repeat" name="massGluMeasured2Repeat" step="any" 
     formula="${massGluMeasured2}" help="Same as the mass of glucose you measured above."/> g sucrose 
       <div class="feedback" id="massGluMeasured2RepeatFB" name="massGluMeasured2RepeatFB"></div>
@@ -130,7 +130,7 @@ Then, calculate the mass of water (solvent) from the available data.</li>
     formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
       <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
       van't Hoff factor for sucrose: <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" 
-    formula="(${lowestTemp1}-${lowestTemp2})*${kgWater2}/${1.86}/${molGlu2}" help="Use the formula in the Background section, and solve for Kf"/><div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
+    formula="(${lowestTemp1}-${lowestTemp2})*${kgWater2}/${1.86}/${molGlu2}" help="Use the formula in the Background section, and solve for i"/><div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
       </ol>
       
 <h3>Part 3: Freezing point determination, sodium chloride solution</h3>
@@ -167,19 +167,19 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       Mass of water in g: <input type="number" class="num calc" id="massWater3" name="massWater3" step="any" 
     formula="${beakerAndWaterMass3}-${beakerMass3}" help="Take the mass of the beaker and water and subtract the mass of the beaker."/> g<div class="feedback" id="massWater3FB" name="massWater3FB"></div>
       <li>Convert the grams of water to Kg.</li>
-      Mass of water in Kg: <input type="number" class="num calc" id="kgWater2" name="kgWater2" step="any" 
+      Mass of water in Kg: <input type="number" class="num calc" id="kgWater3" name="kgWater3" step="any" 
     formula="${massWater3}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater3FB" name="kgWater3FB"></div>
       
-      <li>Input your measured grams of Sucrose below, then calculate the moles of sucrose you actually measured.</li>
-      <input type="number" class="num calc" id="massGluMeasured2Repeat" name="massGluMeasured2Repeat" step="any" 
-    formula="${massGluMeasured2}" help="Same as the mass of glucose you measured above."/> g sucrose 
-      <div class="feedback" id="massGluMeasured2RepeatFB" name="massGluMeasured2RepeatFB"></div>
-      $x\;\frac{1\;mol\;sucrose}{342.3\;g\;sucrose} = $ <input type="number" class="num calc" id="molGlu2" name="molGlu2" step="any" 
-    formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
-      <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
-      van't Hoff factor for sucrose: <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" 
-    formula="(${lowestTemp1}-${lowestTemp2})*${kgWater2}/${1.86}/${molGlu2}" help="Use the formula in the Background section, and solve for Kf"/><div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
-             
+      <li>Input your measured grams of sodium chloride below, then calculate the moles of sodium chloride you actually measured.</li>
+      <input type="number" class="num calc" id="massNaClMeasured3Repeat" name="massNaClMeasured3Repeat" step="any" 
+    formula="${massNaClMeasured3}" help="Same as the mass of sodium chloride you measured above."/> g sodium chloride 
+      <div class="feedback" id="massNaClMeasured3RepeatFB" name="massNaClMeasured3RepeatFB"></div>
+      $x\;\frac{1\;mol\;sodium\;chloride}{58.44\;g\;sodium\;chloride} = $ <input type="number" class="num calc" id="molNaCl3" name="molNaCl3" step="any" 
+    formula="${massNaClMeasured3}/58.44" help="Divide the grams of sodium chloride by the molar mass of sodium chloride"/> mol<div class="feedback" id="molNaCl2FB" name="molNaCl2FB"></div>
+      <li>Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary</li>
+      van't Hoff factor for sodium chloride: <input type="number" class="num calc" id="vhfNaCl" name="vhfNaCl" step="any" 
+    formula="(${lowestTemp1}-${lowestTemp3})*${kgWater3}/${1.86}/${molNaCl3}" help="Use the formula in the Background section, and solve for i"/>
+        <div class="feedback" id="vhfNaClFB" name="vhfNaClFB"></div>
         
 </ol>      
       
