@@ -475,14 +475,18 @@ function onLoad() {
           : "5%";
         const regex = /\${(.*?)}/g;
         const matches = formula.match(regex);
-        if (matches) {
-          for (var match of matches) {
-            var elementId = match.replaceAll("${", "").replaceAll("}", "");
-            var element = $(elementId);
-            var elementValue = element.value;
-            formula = formula.replaceAll(match, elementValue);
-          }
-        }
+if (matches) {
+  for (var match of matches) {
+    var elementId = match.replaceAll("${", "").replaceAll("}", "");
+    try {
+      var element = $(elementId);
+      var elementValue = element.value;
+      formula = formula.replaceAll(match, elementValue);
+    } catch (error) {
+      console.error("Error accessing value for elementId:", elementId);
+    }
+  }
+}
         var answer = evaluateWithCustomFunctions(formula);
         var elementFB = $(this.id + "FB");
         const value = isNaN(this.value) ? this.value : this.value * 1;
