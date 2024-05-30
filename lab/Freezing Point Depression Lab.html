@@ -53,14 +53,14 @@ A colligative property is when a solute affects a solution property like its fre
       
       You should observe that as the solute concentration increases the freezing point  T<sub>f</sub>(solution)
   decreases (the freezing point depression ΔT increases), and this can be described by the following equation:<br>
-       $\huge{ΔT = i⋅k_f⋅\frac{n_{solute}}{m_{solvent}}}$<br>
+       $\huge{ΔT = -i⋅k_f⋅\frac{n_{solute}}{m_{solvent}}}$<br>
       $\large{where}$<br>
       $\large{i=Van't\;Hoff\;Factor}$<br>
       $\large{k_f=freezing\;point\;depression\;constant}$<br>
       $\large{n=moles\;solute}$<br>
       $\large{m=Kg\;solvent}$<br>
       $\large{and}$<br>
-      $\large{ΔT=T_f(pure\;solvent)−T_f(solution)}$<br>
+      $\large{ΔT=T_f(solution)}-T_f(pure\;solvent)$<br>
       The value of k<sub>f</sub> for the solvent water is 1860 °C g/mol, or 1.86 °C kg/mol. Check your units to decide which format is more convenient in this case.<br>
       
       <h3>Experimental Design Considerations</h3>
@@ -117,575 +117,48 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       Mass of beaker and water (with melted ice): <input type="number" class="num" id="beakerAndWaterMass2" name="beakerAndWaterMass2" step="any"/> g<br>
       Mass of clean dry beaker: <input type="number" class="num" id="beakerMass2" name="beakerMass2" step="any"/> g<br>
       Mass of water in g: <input type="number" class="num calc" id="massWater2" name="massWater2" step="any" 
-    formula="${beakerAndWaterMass2}-${beakerMass2}" help="Take the mass of the beaker and water and subtract the mass of the beaker."/> g<br><div class="feedback" id="massWater2FB" name="massWater2FB"></div>
+    formula="${beakerAndWaterMass2}-${beakerMass2}" help="Take the mass of the beaker and water and subtract the mass of the beaker."/> g<div class="feedback" id="massWater2FB" name="massWater2FB"></div>
       <li>Convert the grams of water to Kg.</li>
       Mass of water in Kg: <input type="number" class="num calc" id="kgWater2" name="kgWater2" step="any" 
-    formula="${massWater2}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<br><div class="feedback" id="kgWater2FB" name="kgWater2FB"></div>
+    formula="${massWater2}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater2FB" name="kgWater2FB"></div>
       
       <li>Input your measured grams of Sucrose below, then calculate the moles of sucrose you actually measured.</li>
       <input type="number" class="num calc" id="massGluMeasured2Repeat" name="massGluMeasured2Repeat" step="any" 
     formula="${massGluMeasured2}" help="Same as the mass of glucose you measured above."/> g sucrose 
       <div class="feedback" id="massGluMeasured2RepeatFB" name="massGluMeasured2RepeatFB"></div>
       $x\;\frac{1\;mol\;sucrose}{342.3\;g\;sucrose} = $ <input type="number" class="num calc" id="molGlu2" name="molGlu2" step="any" 
-    formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<br><div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
+    formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
       <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
       van't Hoff factor for sucrose: <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" 
-    formula="${}" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<br><div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
+    formula="(${lowestTemp1}-${lowestTemp2})*${kgWater2}/${1.86}/${molGlu2}" help="Use the formula in the Background section, and solve for Kf"/><div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
       </ol>
-      <div class="noBreak">
-        <h3>Chemicals and lab equipment:</h3>
-        <ul>
-          <li>Solid magnesium strips</li>
-          <li>Scissors</li>
-          <li>Scale</li>
-          <li>Weighing boats</li>
-        </ul>
-      </div>
+      
+      Part 2: Freezing point determination, sucrose solution
+You can do part 2 and part 3 in any order, depending which balance is available.
+1. Weigh approx 0.05 mol of sucrose (molar mass is 342.3 g/mol), record the exact mass, and transfer to the clean and dry 100 mL
+beaker.
+2. Add approximately 25 mL water.
+3. Place temperature probe into the solution in the beaker and swirl and stir to dissolve the sucrose completely.
+4. Add around 20 mL of fresh crushed ice to the 50 mL beaker.
+5. Quickly add the ice to the 100 mL beaker, gently swirl the temperature probe. Record the lowest temperature, and the
+temperature just as the last bit of ice melts.
+6. Weigh the mass of the beaker with the sucrose solution and melted ice (so now a diluted sucrose solution). Record to the
+precision of the instrument. Clean and dry the 100 mL beaker and record the empty mass to the precision of the instrument.
+Then, calculate the mass of water (solvent) from the available data.
+7. Calculate the van't Hoff factor for sucrose and record your work in the lab summary.
+Part 3: Freezing point determination, sodium chloride solution
+1. Weigh approx 0.05 mol of sodium chloride (molar mass is 58.44 g/mol), record the exact mass, and transfer to the clean and dry
+100 mL beaker.
+2. Add approximately 25 mL water.
+3. Place temperature probe into the solution in the beaker and swirl and stir to dissolve the sodium chloride completely.
+4. Add around 20 mL of fresh crushed ice to the 50 mL beaker.
+5. Quickly add the ice to the 100 mL beaker, gently swirl the temperature probe. Record the lowest temperature, and the
+temperature just as the last bit of ice melts.
+6. Weigh the mass of the beaker with the sodium chloride solution and melted ice (so now a diluted sodium chloride solution).
+Record to the precision of the instrument. Clean and dry the 100 mL beaker and record the empty mass to the precision of the
+instrument. Then, calculate the mass of water (solvent) from the available data.
+7. Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary.
 
-      <div class="noBreak">
-        <h3>Each lab group:</h3>
-        <ul>
-          <li>Crucible with lid</li>
-          <li>Crucible tongs</li>
-          <li>Ring stand</li>
-          <li>Iron ring</li>
-          <li>Clay triangle</li>
-          <li>Lighter or matches</li>
-          <li>Bunsen burner</li>
-          <li>Wash bottle with deionized water</li>
-          <li>Plastic (Pasteur) pipet</li>
-        </ul>
-      </div>
-
-      <div class="noBreak">
-        <h3>Equations and calculations:</h3>
-        Molar mass = $\frac{grams}{moles}$<br />
-        For aA → bB, mol A x $\frac{b\;mol\;B}{a\;mol\;A}$ = mol B<br />
-      </div>
-      <div class="noBreak">
-        <h3>Background:</h3>
-        Magnesium oxide is an ionic compound composed of magnesium (Mg) and
-        oxygen (O) atoms. The empirical formula represents the simplest
-        whole-number ratio of elements in a compound. In this experiment,
-        students will determine the empirical formula of magnesium oxide by
-        burning magnesium in the presence of oxygen.
-        <p></p>
-        When magnesium is heated and exposed to oxygen, it undergoes a chemical
-        reaction known as combustion. The magnesium reacts with oxygen to form
-        magnesium oxide. The product will have a larger mass than the magnesium
-        because oxygen will bond to the magnesium producing magnesium oxide.
-        <p></p>
-        ? Mg + ? O<sub>2</sub> → ? Mg<sub>?</sub>O<sub>?</sub>
-        <p></p>
-        By measuring the masses of magnesium and magnesium oxide, students can
-        determine the empirical formula of magnesium oxide.
-        <p></p>
-      </div>
-
-      <div class="noBreak">
-        <h3>Safety:</h3>
-        <ul>
-          <li>
-            Handle the crucible and heated materials with tongs or crucible
-            tongs to avoid burns.
-          </li>
-          <!-- <li>Perform the experiment in a fume hood to prevent the accumulation of fumes.</li> -->
-          <li>Wear safety goggles or glasses and lab gloves at all times.</li>
-          <li>Do not look at the magnesium as it is burning.</li>
-        </ul>
-      </div>
-
-      <h3>Procedure:</h3>
-      <h4>Part A: Prepare to burn magnesium.</h4>
-      You will measure out your magnesium and set up your Bunsen burner, ring
-      stand, iron ring, clay triangle, and crucible.
-      <ol>
-        <li>
-          Inspect your crucible for cracks. If it has cracks, then discard it
-          and get another crucible.
-        </li>
-        <li>
-          Rinse your crucible and lid with deionized water, and dry it off with
-          paper towels. You will probably not be able to get the crucible
-          completely clean, nor is that your goal.
-        </li>
-        <li>
-          Attach an iron ring to a ring stand, place a clay triangle on the
-          ring, then place your crucible and lid on the clay triangle (see
-          figure 1).
-        </li>
-        <li>
-          Check the Bunsen burner hose for cracks, and get another hose if yours
-          has cracks.
-        </li>
-        <li>Attach the Bunsen burner to the gas line and the Bunsen burner.</li>
-        <li>Turn on the gas and light your Bunsen burner.</li>
-        <li>
-          Adjust the air vent on your Bunsen burner to produce a blue flame with
-          an inner blue cone. The tip of this inner blue cone is the hottest
-          part of the flame (see figure 1).
-        </li>
-        <li>
-          Being careful not to burn yourself, adjust your iron ring to place the
-          crucible right on top of the inner blue cone and use the crucible
-          tongs to tilt the lid (see figure 1).
-        </li>
-        <li>
-          Heat the crucible for a minimum of 5 minutes (if you can still see
-          smoke, then heat it longer).
-        </li>
-        <li>
-          Turn off the gas to the Bunsen burner and use crucible tongs to remove
-          the crucible and place it on a ceramic tile (if available).
-        </li>
-        <li>
-          Allow the crucible to cool for 15 minutes, then weigh it and record
-          the mass in table 1.
-        </li>
-      </ol>
-
-      <div class="noBreak">
-        Figure 1. Bunsen burner flame and crucible over flame<br />
-        <img
-          height="200px"
-          src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/bunsenburner.png?v=1708895110101"
-        />
-        <p></p>
-      </div>
-
-      <div class="noBreak">
-        <h4>Part B: Burning the magnesium.</h4>
-        You will carefully burn a magnesium strip, and make sure it has burned
-        completely.
-      </div>
-      <ol start="12">
-        <li>
-          Weigh out approximately 0.3 grams of magnesium ribbon and record the
-          actual mass in table 1.
-        </li>
-        <li>
-          Fold up the magnesium ribbon and place it in the bottom of the
-          crucible. Then place the crucible back on the clay triangle and begin
-          heating the crucible again with the lid tilted (see figure 1).
-        </li>
-        <li>
-          Make sure the bottom of the crucible is right on top of the tip of the
-          inner blue cone of the flame - otherwise it may not get hot enough to
-          burn.
-        </li>
-        <li>
-          If the magnesium begins to burn brightly, then do not look at the
-          light, and cover the crucible for a few minutes releasing the smoke
-          periodically. You do not want to let the smoke escape.
-        </li>
-        <li>
-          When it seems like no more smoke is being given off, then cover the
-          crucible for a few minutes and see if any smoke comes out when you
-          uncover it again. More smoke would indicate that it is not done
-          burning.
-        </li>
-        <li>The product should also appear as a white powdery substance.</li>
-        <li>
-          Heat the crucible for an additional 5 minutes with the cover
-          completely off after it appears to not smoke anymore. The product
-          should appear white.
-        </li>
-        <li>
-          Turn off the gas, and remove the crucible from the clay triangle with
-          the crucible tongs.
-        </li>
-        <li>
-          Place it on a ceramic tile (if available) to cool for 15 minutes.
-        </li>
-      </ol>
-
-      <div class="noBreak">
-        <h4>Part C: Removing nitrogen.</h4>
-        Since nitrogen is the major component of air, some nitrogen oxides will
-        be formed. You will wet the magnesium oxide product and heat it again to
-        remove the nitrogen.
-      </div>
-      <ol start="21">
-        <li>
-          Using a plastic (Pasteur) pipet, add about 6-8 drops of water to your
-          magnesium oxide. This will react with the nitrogen producing ammonia
-          gas.
-        </li>
-        <li>
-          Heat the crucible over the Bunsen burner again with the lid removed
-          for another 5 minutes.
-        </li>
-        <li>
-          Turn off the gas, and remove the crucible from the clay triangle with
-          the crucible tongs.
-        </li>
-        <li>
-          Place it on a ceramic tile (if available) to cool for 15 minutes.
-        </li>
-        <li>
-          Do not try to remove your magnesium oxide product at this point.
-        </li>
-        <li>
-          Measure the mass of the magnesium oxide, crucible and lid together,
-          and record the mass in table 1.
-        </li>
-        <li>
-          Calculate the mass of the magnesium oxide product (mass of crucible,
-          lid, and magnesium oxide minus mass of crucible and lid) and write it
-          in table 1.
-        </li>
-        <li>
-          Calculate the mass of oxygen in the magnesium oxide (magnesium oxide
-          mass minus magnesium mass) and write it in table 1.
-        </li>
-      </ol>
-      <div class="noBreak">
-        Table 1:
-        <h4>Masses</h4>
-        <table>
-          <tr>
-            <td>Mass of crucible and lid (after heating empty) (g)</td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="num"
-                id="crucibleAndLidMass"
-                name="crucibleAndLidMass"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Mass of magnesium (g)</td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="num"
-                id="magnesiumMass"
-                name="magnesiumMass"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              Mass of crucible, lid, and magnesium oxide (after heating and
-              boiling off water drops) (g)
-            </td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="num"
-                id="crucibleLidAndMgOMass"
-                name="crucibleLidAndMgOMass"
-              />
-            </td>
-          </tr>
-          <tr>
-            <td>Mass of magnesium oxide product (g)</td>
-            <td>
-              <input
-                type="number"
-                class="calc"
-                step="any"
-                id="MgOMass"
-                name="MgOMass"
-                formula="${crucibleLidAndMgOMass}-${crucibleAndLidMass}"
-                help="Mass of crucible, lid, and magnesium oxide minus mass of crucible and lid"
-              />
-              <div class="feedback" id="MgOMassFB" name="MgOMassFB"></div>
-            </td>
-          </tr>
-          <tr>
-            <td>Mass of oxygen (g)</td>
-            <td>
-              <input
-                type="number"
-                class="calc"
-                step="any"
-                id="oxygenMass"
-                name="oxygenMass"
-                formula="${MgOMass}-${magnesiumMass}"
-                help="Mass of magnesium oxide minus mass of magnesium"
-              />
-              <div class="feedback" id="oxygenMassFB" name="oxygenMassFB"></div>
-            </td>
-          </tr>
-        </table>
-      </div>
-
-      <ol start="29">
-        <li>Calculate the moles of magnesium in the magnesium oxide.</li>
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="magnesiumMass2"
-          name="magnesiumMass2"
-          formula="${magnesiumMass}"
-          help="Same as in table 1"
-        />
-        g Mg
-        <div
-          class="feedback"
-          id="magnesiumMass2FB"
-          name="magnesiumMass2FB"
-        ></div>
-        x $\frac{1\;mol\;Mg}{24.305\;g\;Mg}$ =
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="magnesiumMol"
-          name="magnesiumMol"
-          formula="${magnesiumMass}/24.305"
-          help="Divide the grams of Mg by 24.305"
-        />
-        mol Mg
-        <div class="feedback" id="magnesiumMolFB" name="magnesiumMolFB"></div>
-        <li>Calculate the moles of oxygen in the magnesium oxide.</li>
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="oxygenMass2"
-          name="oxygenMass2"
-          formula="${oxygenMass}"
-          help="Same as in table 1"
-        />
-        g O
-        <div class="feedback" id="oxygenMass2FB" name="oxygenMass2FB"></div>
-        x $\frac{1\;mol\;O}{15.999\;g\;O}$ =
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="oxygenMol"
-          name="oxygenMol"
-          formula="${oxygenMass}/15.999"
-          help="Divide the grams of O by 15.999"
-        />
-        mol O
-        <div class="feedback" id="oxygenMolFB" name="oxygenMolFB"></div>
-        <li>
-          Divide the moles of magnesium and oxygen by the lower of the two
-          numbers.
-        </li>
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="magnesiumMol2"
-          name="magnesiumMol2"
-          formula="${magnesiumMol}"
-          help="Same as above"
-        />
-        mol Mg
-        <div class="feedback" id="magnesiumMol2FB" name="magnesiumMol2FB"></div>
-        /
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="lowestMol"
-          name="lowestMol"
-          formula="min(${magnesiumMol}, ${oxygenMol})"
-          help="Same as the lower of mol of Mg and mol of O"
-        />
-        <div class="feedback" id="lowestMolFB" name="lowestMolFB"></div>
-        =
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="magnesiumMol3"
-          name="magnesiumMol3"
-          formula="${magnesiumMol}/${lowestMol}"
-          help="Divide mol of Mg by the lower of the mol of Mg and mol of O"
-        />
-        mol Mg
-        <div class="feedback" id="magnesiumMol3FB" name="magnesiumMol3FB"></div>
-        <br />
-
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="oxygenMol2"
-          name="oxygenMol2"
-          formula="${oxygenMol}"
-          help="Same as above"
-        />
-        mol O
-        <div class="feedback" id="oxygenMol2FB" name="oxygenMol2FB"></div>
-        /
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="lowestMol2"
-          name="lowestMol2"
-          formula="min(${magnesiumMol}, ${oxygenMol})"
-          help="Same as the lower of mol of Mg and mol of O"
-        />
-        <div class="feedback" id="lowestMol2FB" name="lowestMol2FB"></div>
-        =
-        <input
-          type="number"
-          class="calc"
-          step="any"
-          id="oxygenMol3"
-          name="oxygenMol3"
-          formula="${oxygenMol}/${lowestMol}"
-          help="Divide mol of O by the lower of the mol of Mg and mol of O"
-        />
-        mol O
-        <div class="feedback" id="oxygenMol3FB" name="oxygenMol3FB"></div>
-        <br />
-        If the higher of the two mol numbers has a decimal less than 0.125, then
-        round down to the nearest whole number. If it is over 0.875, then round
-        up to the nearest whole number. Otherwise, check chart 2 for the nearest
-        fraction, and multiply both mole amounts by the corresponding number in
-        the chart, then round to the nearest whole number. Decimal of higher of
-        the two mol numbers:
-        <input
-          type="number"
-          class="calc lookup"
-          step="any"
-          id="decimal"
-          name="decimal"
-          formula="max(${oxygenMol3}, ${magnesiumMol3}) - floor(max(${oxygenMol3}, ${magnesiumMol3}))"
-          help="The decimal of the higher of the two mol numbers above"
-        />
-        <div class="feedback" id="decimalFB" name="decimalFB"></div>
-
-        <input
-          type="number"
-          step="any"
-          class="lookupValue"
-          id="decimalLV"
-          name="decimalLV"
-          tableID="decimalsAndFractionsTable"
-          searchColumn="0"
-          returnColumn="2"
-        />
-
-        <div class="noBreak">
-          Table 2:
-          <h4>Decimals and fractions</h4>
-          <table
-            id="decimalsAndFractionsTable"
-            name="decimalsAndFractionsTable"
-          >
-            <tr>
-              <th>Nearest decimal</th>
-              <th>Fraction</th>
-              <th>Multiply both numbers of moles by:</th>
-            </tr>
-            <tr style="display: none">
-              <td>0</td>
-              <td></td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>.25</td>
-              <td>$\frac{1}{4}$</td>
-              <td>4</td>
-            </tr>
-            <tr>
-              <td>.33</td>
-              <td>$\frac{1}{3}$</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>.5</td>
-              <td>$\frac{1}{2}$</td>
-              <td>2</td>
-            </tr>
-            <tr>
-              <td>.67</td>
-              <td>$\frac{2}{3}$</td>
-              <td>3</td>
-            </tr>
-            <tr>
-              <td>.75</td>
-              <td>$\frac{3}{4}$</td>
-              <td>4</td>
-            </tr>
-            <tr style="display: none">
-              <td>1</td>
-              <td></td>
-              <td>1</td>
-            </tr>
-          </table>
-        </div>
-
-        <li>
-          Write in the subscripts for the empirical formal for magnesium oxide
-          below.
-        </li>
-        Mg<sub
-          ><input
-            type="number"
-            class="calc"
-            step="1"
-            style="width: 40px"
-            id="MgSubscript"
-            name="MgSubscript"
-            formula="round(${magnesiumMol3}*${decimalLV})"
-            help="Round the moles of magnesium in 31 if your fraction is below 0.125 or above 0.875, or by the number found in the 3rd column of Table 2" /></sub
-        >O<sub
-          ><input
-            type="number"
-            class="calc"
-            step="1"
-            style="width: 40px"
-            id="OSubscript"
-            name="OSubscript"
-            formula="round(${oxygenMol3}*${decimalLV})"
-            help="Round the moles of oxygen in 31 if your fraction is below 0.125 or above 0.875, or by the number found in the 3rd column of Table 2"
-        /></sub>
-        <div class="feedback" id="MgSubscriptFB" name="MgSubscriptFB"></div>
-        <div class="feedback" id="OSubscriptFB" name="OSubscriptFB"></div>
-        <li>Throw the magnesium oxide product in the trash can.</li>
-        <li>
-          Clean your crucible using soap and brushes, then rinse them 3-7 times
-          and leave it on paper towels to dry. Put everything else back where
-          you found it. Double check to make sure the gas is off.
-        </li>
-        <li>
-          Clean up any messes, and make sure the solution bottles are capped
-          before you leave.
-        </li>
-      </ol>
-
-      <!-- End -->
-      <div class="footer">Empirical Formula of Magnesium Oxide</div>
-      <!-- title -->
-      <!-- title -->
-      <div id="button_bar">
-        <button
-          type="submit"
-          title="save"
-          class="large material-icons"
-          id="savebutton"
-          onclick="saveData()"
-        >
-          save
-        </button>
-        <button onclick="toPrint()" title="print" class="large material-icons">
-          print
-        </button>
-        <button type="button" onclick="submitScore()" style="height: 83%">
-          Submit</button
-        >&nbsp;
-        <div class="vcenter">
-          <label for="score">Score: </label>
-          <div id="score" style="display: inline">0</div>
-          %
-        </div>
-      </div>
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
