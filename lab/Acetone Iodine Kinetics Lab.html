@@ -192,15 +192,7 @@ $c_{mix} = c_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\rig
       The change in iodine concentration is equal to the concentraiton after mixing.  Enter your calculated rates in table 2<br>
       
 $rate = \frac{Δ[I_2]}{Δt}$<br>
-The rate with respect to acetone and HCl are calculated using the formulas below.<br>
-$\huge{\left(\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}\right)^x = \frac{rate_{experiment\;1}}{rate_{experiment\;2}}}$<br>
-The formula above can be rearranted to the following:<br>      
-$Order\;of\;reaction\;with\;respect\;to\;acetone = \huge{ x = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;2}}}{\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}}}$<br>
 
-$\huge{\left(\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}\right)^y = \frac{rate_{experiment\;1}}{rate_{experiment\;3}}}$<br>
-The formula above can be rearranted to the following:<br>      
-$Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br>
- 
       
   <div class="noBreak">  
       <h3>Table 2: Concentrations and rates</h3>     
@@ -211,7 +203,6 @@ $Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{e
     <th>c in M<br>HCl(aq)</th>
     <th>c in M<br>Iodine(aq)</th>
     <th>rate<br>in M/s</th>
-    <th>rate constant<br>in ?</th>
   </tr>
   <tr>
   <td>1</td>
@@ -261,16 +252,28 @@ $Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{e
       <div class="feedback" id="rate3FB" name="rate3FB"></div></td>
   </tr>
       </table>
-      </div>
+      </div><br>
+      
+      
+The rate with respect to acetone and HCl are calculated using the formulas below.<br>
+$\huge{\left(\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}\right)^x = \frac{rate_{experiment\;1}}{rate_{experiment\;2}}}$<br>
+The formula above can be rearranted to the following:<br>      
+$Order\;of\;reaction\;with\;respect\;to\;acetone = \huge{ x = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;2}}}{\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}}}$<br><br>
+
+$\huge{\left(\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}\right)^y = \frac{rate_{experiment\;1}}{rate_{experiment\;3}}}$<br>
+The formula above can be rearranted to the following:<br>      
+$Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br>
+ 
+      
       
       What is the order of reaction with respect to acetone?
       <input type="number" class="num calc" id="acetoneOrder" name="acetoneOrder" step="any" 
-    formula="log((${}/${})/(${}/${}))" help="Use the dilution formula above."/>
+    formula="log((${rate1}/${rate2})/(${acetoneConc1}/${acetoneConc2}))" help="Use the dilution formula above."/>
       <div class="feedback" id="acetoneOrderFB" name="acetoneOrderFB"></div>
       
 What is the order of reaction with respect to HCl?
       <input type="number" class="num calc" id="HClOrder" name="HClOrder" step="any" 
-    formula="log(5)" help="Use the dilution formula above."/>
+    formula="log((${rate1}/${rate3})/(${HClConc1}/${HClConc3}))" help="Use the dilution formula above."/>
       <div class="feedback" id="HClOrderFB" name="HClOrderFB"></div>
       
   <div class="noBreak">  
@@ -301,7 +304,7 @@ What is the order of reaction with respect to HCl?
       <div class="feedback" id="rateConstant3FB" name="rateConstant3FB"></div></td>
   </tr>
       </table>
-      
+<!--     
 Predicting the rate of reaction
 Once you know the form of the rate law (i.e. all the orders of reaction), you can plug in all the concentrations and the measured rate
 to calculate the rate constant. It should be the same for all of your trials (if the temperature is constant), so you can average it to
@@ -313,7 +316,7 @@ their reaction mixture (minus the iodine), you can ask for the contest to start.
 the iodine to the flask when the timer starts. Then, you will transfer your reaction mixture to a large test tube and place it in a test
 tube rack in the front. A doc camera will project the image of the tubes on the screen, so everyone in the room can see. Whenever a
 test tube turns colorless, we will record the time. The reaction completing closest to 120 s wins our appreciation for good
-calculations and good experimental technique (with a bit of luck).
+calculations and good experimental technique (with a bit of luck). -->
 Acetone Iodine kinetics is shared under a CC BY-NC-SA 4.0 license and was authored, remixed, and/or curated by LibreTexts.
 
       
