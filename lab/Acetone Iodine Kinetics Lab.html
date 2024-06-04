@@ -35,7 +35,7 @@
       <h3>Introduction</h3>
 In this lab, we will apply the concepts of reaction rate, order of reaction and catalyst. Our example reaction is the iodination of
 acetone catalyzed by hydrochloric acid.<br><br>
-      $\ce{CH3C(=O)CH3 + I2 ->[HCl] CH3C(=O)CH2I + I- + H+}$<br><br>
+      $\LARGE{\ce{CH3C(=O)CH3 + I2 ->[HCl] CH3C(=O)CH2I + I- + H+}}$<br><br>
       
       The reaction is <b>zero order with respect to iodine</b>. You will figure out the <b>order with respect to acetone and the order with respect to HCl, and the rate constant</b>.
       <!-- Then, you will predict which initial concentrations are necessary to make the reaction run for <b>exactly 3 minutes (180 s)</b>.--><br><br>
@@ -63,20 +63,20 @@ reasons for this:<br>
 To calculate the rate, we consider the time it took for the iodine to "fade", and the initial concentration of the iodine. For example,
 if the initial iodine concentration is 0.001 mol /L, and it takes 180 s for the reaction mixture to become clear, the rate would be:<br><br>
       
-      $rate = \frac{Δ[I_2]}{Δt} = \frac{1.0\;x\;10^{-2}M}{180s} = 5.6\;x\;10^{-5}M$<br><br>
+      $\LARGE{rate = \frac{Δ[I_2]}{Δt} = \frac{1.0\;x\;10^{-2}M}{180s} = 5.6\;x\;10^{-5}M}$<br><br>
       
       <h3>Varying concentrations to find the order</h3>
 You will set up multiple reactions, varying the concentrations in the reaction mix. To quickly figure out the concentrations, it makes
 sense to always keep the final volume the same (25 mL), and use the dilution law to figure out concentrations (or volumes you need
       to add to get the desired concentration). Here is the dilution law:<br>
-      $c_{mix}V_{mix} = c_{stock}V_{stock}$<br><br>
+      $\LARGE{c_{mix}V_{mix} = c_{stock}V_{stock}}$<br><br>
 If you want to know the (initial) concentration of a component in the reaction mixture, plug in the volume and concentration of the
 stock solution. For example, if our 25 mL reaction mixture contains 5 mL iodine stock with an original concentration of 0.005 M,
 we get:<br><br>
-      $c_{mix} = c_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\right)$<br><br>
+      $\LARGE{c_{mix} = c_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\right)}$<br><br>
 If you want to know how much of the 4-M acetone stock solution you need to get 0.8 M in the reaction mixture, you solve for the
 volume of stock solution:<br><br>
-      $V_{stock} = V_{mix}\frac{c_{mix}}{c_{stock}} = 25mL\left(\frac{0.8M}{4M}\right)$<br><br>
+      $\LARGE{V_{stock} = V_{mix}\frac{c_{mix}}{c_{stock}} = 25mL\left(\frac{0.8M}{4M}\right)}$<br><br>
 
       <h3>Procedure</h3>
 This is the procedure for measuring a single rate. You will run this procedure twice for each different reaction mixture. You can
@@ -186,12 +186,12 @@ Calculate the concentration of the acetone, HCl, and Iodine <b>after mixing</b> 
       The stock solution volumes are in table 1.
       Enter your calculated concentrations in table 2.<br><br>
       
-$c_{mix} = c_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\right)$<br><br>
+$\LARGE{c_{mix} = c_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\right)}$<br><br>
       
       Calculate the rates of each experiment from your average times in table 1 using the formula below.  
       The change in iodine concentration is equal to the concentraiton after mixing.  Enter your calculated rates in table 2<br><br>
       
-$rate = \frac{Δ[I_2]}{Δt}$<br><br>
+$\LARGE{ rate = \frac{Δ[I_2]}{Δt} }$<br><br>
 
       
   <div class="noBreak">  
@@ -216,7 +216,7 @@ $rate = \frac{Δ[I_2]}{Δt}$<br><br>
     formula="0.005*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="iodineConc1FB" name="iodineConc1FB"></div></td>
     <td><input type="number" class="num calc" id="rate1" name="rate1" step="any" 
-    formula="0.005/${t1AveSec}" help="Use the rate formula above."/>
+    formula="${iodineConc1}/${t1AveSec}" help="Use the rate formula above."/>
       <div class="feedback" id="rate1FB" name="rate1FB"></div></td>
   </tr>
   
@@ -232,7 +232,7 @@ $rate = \frac{Δ[I_2]}{Δt}$<br><br>
     formula="0.005*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="iodineConc2FB" name="iodineConc2FB"></div></td>
     <td><input type="number" class="num calc" id="rate2" name="rate2" step="any" 
-    formula="0.005/${t2AveSec}" help="Use the rate formula above."/>
+    formula="${iodineConc2}/${t2AveSec}" help="Use the rate formula above."/>
       <div class="feedback" id="rate2FB" name="rate2FB"></div></td>
   </tr>
   
@@ -248,21 +248,21 @@ $rate = \frac{Δ[I_2]}{Δt}$<br><br>
     formula="0.005*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="iodineConc3FB" name="iodineConc3FB"></div></td>
     <td><input type="number" class="num calc" id="rate3" name="rate3" step="any" 
-    formula="0.005/${t2AveSec}" help="Use the rate formula above."/>
+    formula="${iodineConc3}/${t2AveSec}" help="Use the rate formula above."/>
       <div class="feedback" id="rate3FB" name="rate3FB"></div></td>
   </tr>
       </table>
       </div><br>
       
       
-The rate with respect to acetone and HCl are calculated using the formulas below.<br>
-$\huge{\left(\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}\right)^x = \frac{rate_{experiment\;1}}{rate_{experiment\;2}}}$<br>
-The formula above can be rearranted to the following:<br>      
-$Order\;of\;reaction\;with\;respect\;to\;acetone = \huge{ x = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;2}}}{\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}}}$<br><br>
+The rate with respect to acetone and HCl are calculated using the formulas below.<br><br>
+$\LARGE{\left(\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}\right)^x = \frac{rate_{experiment\;1}}{rate_{experiment\;2}}}$<br><br>
+The formula above can be rearranted to the following:<br><br>      
+$Order\;of\;reaction\;with\;respect\;to\;acetone = \LARGE{ x = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;2}}}{\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}}}$<br><br>
 
-$\huge{\left(\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}\right)^y = \frac{rate_{experiment\;1}}{rate_{experiment\;3}}}$<br>
-The formula above can be rearranted to the following:<br>      
-$Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br><br>
+$\LARGE{\left(\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}\right)^y = \frac{rate_{experiment\;1}}{rate_{experiment\;3}}}$<br><br>
+The formula above can be rearranted to the following:<br><br>
+$Order\;of\;reaction\;with\;respect\;to\;HCl = \LARGE{ y = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br><br>
  
       
       
@@ -276,9 +276,9 @@ What is the order of reaction with respect to HCl (round to the nearest whole nu
     formula=" round(log((${rate1}/${rate3})/(${HClConc1}/${HClConc3})))" help="Use the rate formula above, and round to the nearest whole number."/>
       <div class="feedback" id="HClOrderFB" name="HClOrderFB"></div><br>
 Calculate the rate constants for each experiment using the orders of reaction you calculated above.
-      $rate = k[acetone]^x[HCl]^y$<br>
+      $rate = k[acetone]^x[HCl]^y$<br><br>
       Solving for k:<br>
-      $k = \frac{[acetone]^x[HCl]^y}{rate}$<br>
+      $\LARGE{k = \frac{[acetone]^x[HCl]^y}{rate}}$<br><br>
   <div class="noBreak">  
       <h3>Table 3: Rate Constants</h3>     
  <table>
