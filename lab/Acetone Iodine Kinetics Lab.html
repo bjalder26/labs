@@ -248,7 +248,7 @@ $\LARGE{ rate = \frac{Δ[I_2]}{Δt} }$<br><br>
     formula="0.005*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="iodineConc3FB" name="iodineConc3FB"></div></td>
     <td><input type="number" class="num calc" id="rate3" name="rate3" step="any" 
-    formula="${iodineConc3}/${t2AveSec}" help="Use the rate formula above."/>
+    formula="${iodineConc3}/${t3AveSec}" help="Use the rate formula above."/>
       <div class="feedback" id="rate3FB" name="rate3FB"></div></td>
   </tr>
       </table>
@@ -258,25 +258,24 @@ $\LARGE{ rate = \frac{Δ[I_2]}{Δt} }$<br><br>
 The rate with respect to acetone and HCl are calculated using the formulas below.<br><br>
 $\LARGE{\left(\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}\right)^x = \frac{rate_{experiment\;1}}{rate_{experiment\;2}}}$<br><br>
 The formula above can be rearranted to the following:<br><br>      
-$Order\;of\;reaction\;with\;respect\;to\;acetone = \LARGE{ x = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;2}}}{\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}}}$<br><br>
+$Order\;of\;reaction\;with\;respect\;to\;acetone = \LARGE{ x = \frac{log\frac{rate_{experiment\;1}}{rate_{experiment\;2}}}{log\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}}}$<br><br>
 
 $\LARGE{\left(\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}\right)^y = \frac{rate_{experiment\;1}}{rate_{experiment\;3}}}$<br><br>
 The formula above can be rearranted to the following:<br><br>
-$Order\;of\;reaction\;with\;respect\;to\;HCl = \LARGE{ y = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br><br>
- 
+$Order\;of\;reaction\;with\;respect\;to\;HCl = \LARGE{ y = \frac{log\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{log\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br><br>
       
       
       What is the order of reaction with respect to acetone (round to the nearest whole number)?
       <input type="number" class="num calc" id="acetoneOrder" name="acetoneOrder" step="any" 
-    formula=" round(log((${rate1}/${rate2})/(${acetoneConc1}/${acetoneConc2})))" help="Use the rate formula above, and round to the nearest whole number."/>
+    formula="round(log(${rate1}/${rate2})/log(${acetoneConc1}/${acetoneConc2}))" help="Use the rate formula above, and round to the nearest whole number."/>
       <div class="feedback" id="acetoneOrderFB" name="acetoneOrderFB"></div><br>
       
 What is the order of reaction with respect to HCl (round to the nearest whole number)?
       <input type="number" class="num calc" id="HClOrder" name="HClOrder" step="any" 
-    formula=" round(log((${rate1}/${rate3})/(${HClConc1}/${HClConc3})))" help="Use the rate formula above, and round to the nearest whole number."/>
+    formula="round(log(${rate1}/${rate3})/log(${HClConc1}/${HClConc3}))" help="Use the rate formula above, and round to the nearest whole number."/>
       <div class="feedback" id="HClOrderFB" name="HClOrderFB"></div><br>
-Calculate the rate constants for each experiment using the orders of reaction you calculated above.
-      $rate = k[acetone]^x[HCl]^y$<br><br>
+Calculate the rate constants for each experiment using the orders of reaction you calculated above.<br><br>
+      $\LARGE{rate = k[acetone]^x[HCl]^y}$<br><br>
       Solving for k:<br>
       $\LARGE{k = \frac{[acetone]^x[HCl]^y}{rate}}$<br><br>
   <div class="noBreak">  
@@ -321,6 +320,7 @@ the iodine to the flask when the timer starts. Then, you will transfer your reac
 tube rack in the front. A doc camera will project the image of the tubes on the screen, so everyone in the room can see. Whenever a
 test tube turns colorless, we will record the time. The reaction completing closest to 120 s wins our appreciation for good
 calculations and good experimental technique (with a bit of luck). -->
+<br>
 Acetone Iodine kinetics is shared under a CC BY-NC-SA 4.0 license and was authored, remixed, and/or curated by LibreTexts.
 
       
