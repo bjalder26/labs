@@ -266,16 +266,19 @@ $Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{e
  
       
       
-      What is the order of reaction with respect to acetone?
+      What is the order of reaction with respect to acetone (round to the nearest whole number)?
       <input type="number" class="num calc" id="acetoneOrder" name="acetoneOrder" step="any" 
-    formula="log((${rate1}/${rate2})/(${acetoneConc1}/${acetoneConc2}))" help="Use the dilution formula above."/>
-      <div class="feedback" id="acetoneOrderFB" name="acetoneOrderFB"></div>
+    formula=" round(log((${rate1}/${rate2})/(${acetoneConc1}/${acetoneConc2})))" help="Use the rate formula above, and round to the nearest whole number."/>
+      <div class="feedback" id="acetoneOrderFB" name="acetoneOrderFB"></div><br>
       
-What is the order of reaction with respect to HCl?
+What is the order of reaction with respect to HCl (round to the nearest whole number)?
       <input type="number" class="num calc" id="HClOrder" name="HClOrder" step="any" 
-    formula="log((${rate1}/${rate3})/(${HClConc1}/${HClConc3}))" help="Use the dilution formula above."/>
-      <div class="feedback" id="HClOrderFB" name="HClOrderFB"></div>
-      
+    formula=" round(log((${rate1}/${rate3})/(${HClConc1}/${HClConc3})))" help="Use the rate formula above, and round to the nearest whole number."/>
+      <div class="feedback" id="HClOrderFB" name="HClOrderFB"></div><br>
+Calculate the rate constants for each experiment using the orders of reaction you calculated above.
+      $rate = k[acetone]^x[HCl]^y[iodine]$<br>
+      Solving for k:<br>
+      $k = \frac{[acetone]^x[HCl]^y[iodine]}{rate}$<br>
   <div class="noBreak">  
       <h3>Table 3: Rate Constants</h3>     
  <table>
@@ -286,21 +289,21 @@ What is the order of reaction with respect to HCl?
   <tr>
   <td>1</td>
     <td><input type="number" class="num calc" id="rateConstant1" name="rateConstant1" step="any" 
-    formula="5" help="Use the rate constant formula above."/>
+    formula="${acetoneConc1}^${acetoneOrder}*${HClConc1}^${HClOrder}*0.005" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant1FB" name="rateConstant1FB"></div></td>
   </tr>
   
     <tr>
   <td>2</td>
     <td><input type="number" class="num calc" id="rateConstant2" name="rateConstant2" step="any" 
-    formula="5" help="Use the rate constant formula above."/>
+    formula="${acetoneConc2}^${acetoneOrder}*${HClConc2}^${HClOrder}*0.005" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant2FB" name="rateConstant2FB"></div></td>
   </tr>
   
     <tr>
   <td>3</td>
     <td><input type="number" class="num calc" id="rateConstant3" name="rateConstant3" step="any" 
-    formula="5" help="Use the rate constant formula above."/>
+    formula="${acetoneConc3}^${acetoneOrder}*${HClConc3}^${HClOrder}*0.005" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant3FB" name="rateConstant3FB"></div></td>
   </tr>
     </table>
