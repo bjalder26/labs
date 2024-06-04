@@ -207,26 +207,28 @@ $Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{e
   <tr>
   <th>#</th>
     <th>c in M<br>Acetone(aq)</th>
-    <th>c in M<br>Acetone(aq)</th>
-    <th>V in mL<br>HCl(aq)</th>
-    <th>V in mL<br>Iodine(aq)</th>
-    <th>t<sub>1</sub> (sec)</th>
-    <th>t<sub>2</sub> (sec)</th>
-    <th>t<sub>ave</sub> (sec)</th>
+    <th>c in M<br>HCl(aq)</th>
+    <th>c in M<br>Iodine(aq)</th>
+    <th>rate<br>in M/s</th>
+    <th>rate constant<br>in ?</th>
   </tr>
   <tr>
   <td>1</td>
-    <td>10.0</td>
-    <td><input type="number" class="num calc" id="t1mLWater" name="t1mLWater1" step="any" 
-    formula="5" help="Subtract the mL of aceton, HCl, and Iodine solution from 25 mL"/>
-      <div class="feedback" id="t1mLWaterFB" name="t1mLWaterFB"></div></td>
-    <td>5.0</td>
-    <td>5.0</td>
-    <td><input type="number" class="num" id="t1Sec1" name="t1Sec1" step="any"/></td>
-    <td><input type="number" class="num" id="t1Sec2" name="t1Sec2" step="any"/></td>
-    <td><input type="number" class="num calc" id="t1AveSec" name="t1AveSec" step="any" 
-    formula="(${t1Sec1}+${t1Sec2})/2" help="Add the times for the two trials, and divide by 2"/>
-      <div class="feedback" id="t1AveSecFB" name="t1AveSecFB"></div></td>
+    <td><input type="number" class="num calc" id="acetoneConc1" name="acetoneConc1" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="acetoneConc1FB" name="acetoneConc1FB"></div></td>
+    <td><input type="number" class="num calc" id="HClConc1" name="HClConc1" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="HClConc1FB" name="HClConc1FB"></div></td>
+    <td><input type="number" class="num calc" id="iodineConc1" name="iodineConc1" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="iodineConc1FB" name="iodineConc1FB"></div></td>
+    <td><input type="number" class="num calc" id="rate1" name="rate1" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="rate1FB" name="rate1FB"></div></td>
+    <td><input type="number" class="num calc" id="rateConstant1" name="rateConstant1" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="rateConstantFB" name="rateConstantFB"></div></td>
   </tr>
   
     <tr>
