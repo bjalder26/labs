@@ -116,7 +116,7 @@ Calculate the mL of water you need to add to each experiment to ensure a volume 
   </tr>
   
     <tr>
-  <td>1</td>
+  <td>2</td>
     <td>5.0</td>
     <td><input type="number" class="num calc" id="t2mLWater" name="t2mLWater" step="any" 
     formula="10" help="Subtract the mL of aceton, HCl, and Iodine solution from 25 mL"/>
@@ -131,7 +131,7 @@ Calculate the mL of water you need to add to each experiment to ensure a volume 
   </tr>
   
     <tr>
-  <td>1</td>
+  <td>3</td>
     <td>10.0</td>
     <td><input type="number" class="num calc" id="t3mLWater" name="t3mLWater" step="any" 
     formula="7.5" help="Subtract the mL of aceton, HCl, and Iodine solution from 25 mL"/>
@@ -201,6 +201,16 @@ $\huge{\left(\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}\right
 The formula above can be rearranted to the following:<br>      
 $Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br>
  
+What is the order of reaction with respect to acetone?
+      <input type="number" class="num calc" id="acetoneOrder" name="acetoneOrder" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="acetoneOrderFB" name="acetoneConc1FB"></div>
+      
+What is the order of reaction with respect to HCl?
+      <input type="number" class="num calc" id="acetoneConc1" name="acetoneConc1" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="acetoneConc1FB" name="acetoneConc1FB"></div>
+      
   <div class="noBreak">  
       <h3>Table 1: Solution Volumes and Experiment Times</h3>     
   <table>
@@ -224,41 +234,49 @@ $Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{e
     formula="5" help="Use the dilution formula above."/>
       <div class="feedback" id="iodineConc1FB" name="iodineConc1FB"></div></td>
     <td><input type="number" class="num calc" id="rate1" name="rate1" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="5" help="Use the rate formula above."/>
       <div class="feedback" id="rate1FB" name="rate1FB"></div></td>
     <td><input type="number" class="num calc" id="rateConstant1" name="rateConstant1" step="any" 
+    formula="5" help="Use the rate constant formula above."/>
+      <div class="feedback" id="rateConstant1FB" name="rateConstant1FB"></div></td>
+  </tr>
+  
+    <tr>
+  <td>2</td>
+    <td><input type="number" class="num calc" id="acetoneConc2" name="acetoneConc2" step="any" 
     formula="5" help="Use the dilution formula above."/>
-      <div class="feedback" id="rateConstantFB" name="rateConstantFB"></div></td>
+      <div class="feedback" id="acetoneConc2FB" name="acetoneConc2FB"></div></td>
+    <td><input type="number" class="num calc" id="HClConc2" name="HClConc2" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="HClConc2FB" name="HClConc2FB"></div></td>
+    <td><input type="number" class="num calc" id="iodineConc2" name="iodineConc2" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="iodineConc2FB" name="iodineConc2FB"></div></td>
+    <td><input type="number" class="num calc" id="rate2" name="rate2" step="any" 
+    formula="5" help="Use the rate formula above."/>
+      <div class="feedback" id="rate2FB" name="rate2FB"></div></td>
+    <td><input type="number" class="num calc" id="rateConstant2" name="rateConstant2" step="any" 
+    formula="5" help="Use the rate constant formula above."/>
+      <div class="feedback" id="rateConstant2FB" name="rateConstant2FB"></div></td>
   </tr>
   
     <tr>
-  <td>1</td>
-    <td>5.0</td>
-    <td><input type="number" class="num calc" id="t2mLWater" name="t2mLWater" step="any" 
-    formula="10" help="Subtract the mL of aceton, HCl, and Iodine solution from 25 mL"/>
-      <div class="feedback" id="t2mLWaterFB" name="t2mLWaterFB"></div></td>
-    <td>5.0</td>
-    <td>5.0</td>
-    <td><input type="number" class="num" id="t2Sec1" name="t2Sec1" step="any"/></td>
-    <td><input type="number" class="num" id="t2Sec2" name="t2Sec2" step="any"/></td>
-    <td><input type="number" class="num calc" id="t2AveSec" name="t2AveSec" step="any" 
-    formula="(${t2Sec1}+${t2Sec2})/2" help="Add the times for the two trials, and divide by 2"/>
-      <div class="feedback" id="t2AveSecFB" name="t2AveSec1FB"></div></td>
-  </tr>
-  
-    <tr>
-  <td>1</td>
-    <td>10.0</td>
-    <td><input type="number" class="num calc" id="t3mLWater" name="t3mLWater" step="any" 
-    formula="7.5" help="Subtract the mL of aceton, HCl, and Iodine solution from 25 mL"/>
-      <div class="feedback" id="t3mLWaterFB" name="t3mLWaterFB"></div></td>
-    <td>2,5</td>
-    <td>5.0</td>
-    <td><input type="number" class="num" id="t3Sec1" name="t3Sec1" step="any"/></td>
-    <td><input type="number" class="num" id="t3Sec2" name="t3Sec2" step="any"/></td>
-    <td><input type="number" class="num calc" id="t3AveSec" name="t3AveSec" step="any" 
-    formula="(${t3Sec1}+${t3Sec2})/2" help="Add the times for the two trials, and divide by 2"/>
-      <div class="feedback" id="t3AveSecFB" name="t3AveSecFB"></div></td>
+  <td>3</td>
+    <td><input type="number" class="num calc" id="acetoneConc3" name="acetoneConc3" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="acetoneConc3FB" name="acetoneConc3FB"></div></td>
+    <td><input type="number" class="num calc" id="HClConc3" name="HClConc3" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="HClConc3FB" name="HClConc3FB"></div></td>
+    <td><input type="number" class="num calc" id="iodineConc3" name="iodineConc3" step="any" 
+    formula="5" help="Use the dilution formula above."/>
+      <div class="feedback" id="iodineConc3FB" name="iodineConc3FB"></div></td>
+    <td><input type="number" class="num calc" id="rate3" name="rate3" step="any" 
+    formula="5" help="Use the rate formula above."/>
+      <div class="feedback" id="rate3FB" name="rate3FB"></div></td>
+    <td><input type="number" class="num calc" id="rateConstant3" name="rateConstant3" step="any" 
+    formula="5" help="Use the rate constant formula above."/>
+      <div class="feedback" id="rateConstant3FB" name="rateConstant3FB"></div></td>
   </tr>
       </table>
       </div>
