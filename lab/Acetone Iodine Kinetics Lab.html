@@ -277,7 +277,7 @@ What is the order of reaction with respect to HCl (round to the nearest whole nu
 Calculate the rate constants for each experiment using the orders of reaction you calculated above.<br><br>
       $\LARGE{rate = k[acetone]^x[HCl]^y}$<br><br>
       Solving for k:<br>
-      $\LARGE{k = \frac{[acetone]^x[HCl]^y}{rate}}$<br><br>
+      $\LARGE{k = \frac{rate}{[acetone]^x[HCl]^y}}$<br><br>
   <div class="noBreak">  
       <h3>Table 3: Rate Constants</h3>     
  <table>
@@ -288,21 +288,21 @@ Calculate the rate constants for each experiment using the orders of reaction yo
   <tr>
   <td>1</td>
     <td><input type="number" class="num calc" id="rateConstant1" name="rateConstant1" step="any" 
-    formula="${acetoneConc1}^${acetoneOrder}*${HClConc1}^${HClOrder}" help="Use the rate constant formula above."/>
+    formula="${rate1}/(${acetoneConc1}^${acetoneOrder}*${HClConc1}^${HClOrder})" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant1FB" name="rateConstant1FB"></div></td>
   </tr>
   
     <tr>
   <td>2</td>
     <td><input type="number" class="num calc" id="rateConstant2" name="rateConstant2" step="any" 
-    formula="${acetoneConc2}^${acetoneOrder}*${HClConc2}^${HClOrder}" help="Use the rate constant formula above."/>
+    formula="${rate2}/(${acetoneConc2}^${acetoneOrder}*${HClConc2}^${HClOrder})" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant2FB" name="rateConstant2FB"></div></td>
   </tr>
   
     <tr>
   <td>3</td>
     <td><input type="number" class="num calc" id="rateConstant3" name="rateConstant3" step="any" 
-    formula="${acetoneConc3}^${acetoneOrder}*${HClConc3}^${HClOrder}" help="Use the rate constant formula above."/>
+    formula="${rate3}/(${acetoneConc3}^${acetoneOrder}*${HClConc3}^${HClOrder})" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant3FB" name="rateConstant3FB"></div></td>
   </tr>
     </table>
