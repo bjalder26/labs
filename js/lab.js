@@ -36,13 +36,16 @@ const filter = (...args) => {
 const chartInstances = [];
 
 MathJax.Hub.Config({
-  tex2jax: {
-    inlineMath: [
-      ["$", "$"],
-      ["\\(", "\\)"],
-    ],
-  },
-});
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
 
 function $(x) {
   return document.getElementById(x);
