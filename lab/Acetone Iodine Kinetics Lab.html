@@ -1,0 +1,245 @@
+<html>
+  <head>
+    <title>Freezing Point Depression</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title">Freezing Point Depression</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
+      <input type="text" id="userName" name="userName" style="display: none" />
+      <!-- Beginning -->
+    <div class="noBreak">  
+      <h3>Goals</h3>
+      <ul><li>Measure freezing point depression.</li>
+        <li>Determine the Van't Hoff factor for two different solutes</li></ul>
+      </div>
+      
+      <div class="noBreak">  
+      <h3>Safety</h3>
+      <ul><li>The substances we are using today are household chemicals (table salt and sugar). However, the usual lab precautions apply.</li></ul>
+      </div>
+      
+    <div class="noBreak">  
+      <h3>Equipment and materials</h3>
+<ul><li>From your drawer: 50 mL beaker, 100 mL beaker</li> 
+<li>On your bench: temperature probe</li>
+<li>At the balances: sucrose (s), sodium chloride (s)</li>
+<li>For task 4: sieve, calorimeter</li>
+  <li>At a station: ice</li></ul></div>
+       
+    <h3>Background</h3>
+A colligative property is when a solute affects a solution property like its freezing or boiling point, and the effect depends only on the amount of particles dissolved, 
+  no matter which substance you use. In this lab we will investigate the effect of the different solutes on the freezing point of aqueous solutions.<br><br>
+      
+      You should observe that as the solute concentration increases the freezing point  T<sub>f</sub>(solution)
+  decreases (the freezing point depression ΔT increases), and this can be described by the following equation:<br>
+       $\huge{ΔT = -i⋅k_f⋅\frac{n_{solute}}{m_{solvent}}}$<br>
+      $\large{where}$<br>
+      $\large{i=Van't\;Hoff\;Factor}$<br>
+      $\large{k_f=freezing\;point\;depression\;constant}$<br>
+      $\large{n=moles\;solute}$<br>
+      $\large{m=Kg\;solvent}$<br>
+      $\large{and}$<br>
+      $\large{ΔT=T_f(solution)}-T_f(pure\;solvent)$<br>
+      The value of k<sub>f</sub> for the solvent water is 1860 °C g/mol, or 1.86 °C kg/mol. Check your units to decide which format is more convenient in this case.<br>
+      
+      <h3>Experimental Design Considerations</h3>
+We are making the assumption that at the instance the ice melts the mixture of ice and water is at the freezing point. 
+      There can be multiple reasons why this is wrong, and we will discuss this in our pre-lab discussion.<br>
+      
+      <h3>Part 1: Freezing point determination, pure water</h3>
+      <ol>
+        
+      
+<li>Obtain a temperature probe and turn it on. <!--Measure the mass of a clean, dry 100 mL beaker.--></li>
+<li>Pour approximately 25 mL of DI water into the 100 mL beaker</li>
+<li>Place temperature probe into pure water in beaker</li>
+<li>Add around 20 mL of fresh crushed ice to a 50 mL beaker.</li>
+<li>Quickly add the ice to the 100 mL beaker, gently swirl the temperature probe. Record the lowest temperature, and the temperature just as the last bit of ice melts.</li>
+<li>Weigh the mass of the beaker with the water and melted ice (so now just water). Record to the precision of the instrument. Clean and dry the 100 mL beaker. <!--and record the empty mass to the precision of the instrument.--></li>
+<li>Discard the water in the sink.</li>
+ <li>In your further calculations, use the last recorded temperature (when you scoop out the last bits of ice) as the freezing point of water. The temperature probes are not calibrated, but are very good at measuring temperature differences. Don't be worried if the reading on your temperature probe is different from that of your neighbor, and don't swap temperature probes.</li>
+     </ol> 
+      
+      Lowest temperature:             <input type="number" class="num" id="lowestTemp1" name="lowestTemp1" step="any"/> °C<br>
+      Temperature as last bits of ice melt:  <input type="number" class="num" id="lastTemp1" name="lastTemp1" step="any"/> °C<br>
+           
+      Do you expect the temperatures to be the same or different?
+      <select id="expect" name="expect">
+            <option value="" selected disabled hidden></option>
+            <option value="option1">same</option>
+            <option value="option2">different</option>
+        </select><br>
+      Why did you expect that? <textarea class="text essay num" id="whyExpect" name="whyExpect"></textarea>
+      
+<h3>Part 2: Freezing point determination, sucrose solution</h3>
+You can do part 2 and part 3 in any order, depending which balance is available.<br>
+<ol>
+  <li>calculate the mass of 0.05 mol of sucrose (molar mass is 342.3 g/mol).</li>
+  $0.05\;mol\;sucrose\;x\;\frac{342.3\;g\;sucrose}{1\;mol\;sucrose} = $ <input type="number" class="num calc" id="massGlu" name="massGlu" step="any" 
+    formula="0.05*342.3" help="Multiply the moles of sucrose times the molar mass of sucrose"/> g<div class="feedback" id="massGluFB" name="massGluFB"></div>
+  <li>Weigh out approximately the mass of sucrose you calculated above, then record the exact mass you measured, and transfer to the clean and dry 100 mL
+beaker.</li>
+  Actual mass of sucrose measured: <input type="number" class="num" id="massGluMeasured2" name="massGluMeasured2" step="any"> g<br>
+<li>Add approximately 25 mL water.</li>
+<li>Place temperature probe into the solution in the beaker and swirl and stir to dissolve the sucrose completely.</li>
+<li>Add around 20 mL of fresh crushed ice to the 50 mL beaker.</li>
+<li>Quickly add the ice to the 100 mL beaker, gently swirl the temperature probe. Record the lowest temperature, and the
+temperature just as the last bit of ice melts.</li>
+<li>Weigh the mass of the beaker with the sucrose solution and melted ice (so now a diluted sucrose solution). Record to the
+precision of the instrument. Clean and dry the 100 mL beaker and record the empty mass to the precision of the instrument.
+Then, calculate the mass of water (solvent) from the available data.</li>
+
+      
+      
+      Lowest temperature:             <input type="number" class="num" id="lowestTemp2" name="lowestTemp2" step="any"/> °C<br>
+      Temperature as last bits of ice melt:  <input type="number" class="num" id="lastTemp2" name="lastTemp2" step="any"/> °C<br>
+      Mass of beaker and water (with melted ice): <input type="number" class="num" id="beakerAndWaterMass2" name="beakerAndWaterMass2" step="any"/> g<br>
+      Mass of clean dry beaker: <input type="number" class="num" id="beakerMass2" name="beakerMass2" step="any"/> g<br>
+      
+      <li>Input your measured grams of sucrose below, then calculate the moles of sucrose you actually measured.</li>
+      <input type="number" class="num calc" id="massGluMeasured2Repeat" name="massGluMeasured2Repeat" step="any" 
+    formula="${massGluMeasured2}" help="Same as the mass of glucose you measured above."/> g sucrose 
+      <div class="feedback" id="massGluMeasured2RepeatFB" name="massGluMeasured2RepeatFB"></div>
+      $x\;\frac{1\;mol\;sucrose}{342.3\;g\;sucrose} = $ <input type="number" class="num calc" id="molGlu2" name="molGlu2" step="any" 
+    formula="${massGluMeasured2}/342.3" help="Divide the grams of sucrose by the molar mass of sucrose"/> mol<div class="feedback" id="molGlu2FB" name="molGlu2FB"></div>
+     <br>
+    Mass of water in g (remember to subtract out the mass of sucrose): <input type="number" class="num calc" id="massWater2" name="massWater2" step="any" 
+    formula="${beakerAndWaterMass2}-${beakerMass2}-${massGluMeasured2}" help="Take the mass of the beaker and water and subtract the mass of the beaker and the mass of the sucrose."/> g<div class="feedback" id="massWater2FB" name="massWater2FB"></div>
+      <li>Convert the grams of water to Kg.</li>
+      Mass of water in Kg: <input type="number" class="num calc" id="kgWater2" name="kgWater2" step="any" 
+    formula="${massWater2}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater2FB" name="kgWater2FB"></div> 
+  
+  <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
+      van't Hoff factor for sucrose: 
+      <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" formula="(${lastTemp1}-${lastTemp2})*${kgWater2}/1.86/${molGlu2}" help="Use the formula in the Background section, and solve for i"/>
+      <div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
+      </ol>
+      
+<h3>Part 3: Freezing point determination, sodium chloride solution</h3>
+      <ol>
+        
+      
+<li>calculate the mass of 0.05 mol of sodium chloride (molar mass is 58.44 g/mol).</li>
+  $0.05\;mol\;sodium\;chloride\;x\;\frac{58.44\;g\;sodium\;chloride}{1\;mol\;sodium\;chloride} = $ <input type="number" class="num calc" id="massNaCl" name="massNaCl" step="any" 
+    formula="0.05*58.44" help="Multiply the moles of sodium chloride times the molar mass of sodium chloride"/> g<div class="feedback" id="massNaClFB" name="massNaClFB"></div>
+<li>Weigh out approximately the mass of sodium chloride you calculated above, record the exact mass, and transfer to the clean and dry
+100 mL beaker.</li>
+      Actual mass of sodium chloride measured: <input type="number" class="num" id="massNaClMeasured3" name="massNaClMeasured3" step="any"> g<br>
+<li>Add approximately 25 mL water.</li>
+<li>Place temperature probe into the solution in the beaker and swirl and stir (with a stiring rod, not the probe) to dissolve the sodium chloride completely.</li>
+<li>Add around 20 mL of fresh crushed ice to the 50 mL beaker.</li>
+<li>Quickly add the ice to the 100 mL beaker, gently swirl the temperature probe. Record the lowest temperature, and the
+temperature just as the last bit of ice melts.</li>
+      
+<li>Weigh the mass of the beaker with the sodium chloride solution and melted ice (so now a diluted sodium chloride solution).
+Record to the precision of the instrument. Clean and dry the 100 mL beaker and record the empty mass to the precision of the
+instrument. Then, calculate the mass of water (solvent) from the available data.</li>
+      
+<li>Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary.</li>
+ 
+ <li>Weigh the mass of the beaker with the sodium chloride solution and melted ice (so now a diluted sodium chloride solution). Record to the
+precision of the instrument. Clean and dry the 100 mL beaker and record the empty mass to the precision of the instrument.
+Then, calculate the mass of water (solvent) from the available data.</li>
+
+    
+      Lowest temperature:             <input type="number" class="num" id="lowestTemp3" name="lowestTemp3" step="any"/> °C<br>
+      Temperature as last bits of ice melt:  <input type="number" class="num" id="lastTemp3" name="lastTemp3" step="any"/> °C<br>
+      Mass of beaker and water (with melted ice): <input type="number" class="num" id="beakerAndWaterMass3" name="beakerAndWaterMass3" step="any"/> g<br>
+      Mass of clean dry beaker: <input type="number" class="num" id="beakerMass3" name="beakerMass3" step="any"/> g<br>
+      
+      
+      <li>Input your measured grams of sodium chloride below, then calculate the moles of sodium chloride you actually measured.</li>
+      <input type="number" class="num calc" id="massNaClMeasured3Repeat" name="massNaClMeasured3Repeat" step="any" 
+    formula="${massNaClMeasured3}" help="Same as the mass of sodium chloride you measured above."/> g sodium chloride 
+      <div class="feedback" id="massNaClMeasured3RepeatFB" name="massNaClMeasured3RepeatFB"></div>
+      $x\;\frac{1\;mol\;sodium\;chloride}{58.44\;g\;sodium\;chloride} = $ <input type="number" class="num calc" id="molNaCl3" name="molNaCl3" step="any" 
+    formula="${massNaClMeasured3}/58.44" help="Divide the grams of sodium chloride by the molar mass of sodium chloride"/> mol<div class="feedback" id="molNaCl3FB" name="molNaCl3FB"></div>
+      <br>
+        Mass of water in g (remember to subtract out the mass of NaCl): <input type="number" class="num calc" id="massWater3" name="massWater3" step="any" 
+    formula="${beakerAndWaterMass3}-${beakerMass3}-${massNaClMeasured3}" help="Take the mass of the beaker and water and subtract the mass of the beaker and the mass of the sodium chloride."/> g<div class="feedback" id="massWater3FB" name="massWater3FB"></div>
+      <li>Convert the grams of water to Kg.</li>
+      Mass of water in Kg: <input type="number" class="num calc" id="kgWater3" name="kgWater3" step="any" 
+    formula="${massWater3}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater3FB" name="kgWater3FB"></div>
+        
+        <li>Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary</li>
+      van't Hoff factor for sodium chloride: <input type="number" class="num calc" id="vhfNaCl" name="vhfNaCl" step="any" 
+    formula="(${lastTemp1}-${lastTemp3})*${kgWater3}/1.86/${molNaCl3}" help="Use the formula in the Background section, and solve for i"/>
+        <div class="feedback" id="vhfNaClFB" name="vhfNaClFB"></div>
+        
+</ol>      
+      
+<!-- Not sure if there will be time for this, so I'm leaving it out for the summer
+
+Part 4: Try a different experimental strategy
+With a partner, measure the freezing point of a solution of sodium chloride again, using a different experimental strategy based on
+the calorimeters we built last semester. This method is a bit faster but requires more equipment (work with a calorimeter instead of
+a beaker to minimize heat transfer, or use the minimum temperature in the calculation, quickly removing the remaining ice by
+pouring the slush through a sieve). As you are going through the steps, reflect on the pros and cons of this and the orginal method.
+1. Weigh approx 0.05 mol of sodium chloride (molar mass is 58.44 g/mol), record the exact mass, and transfer to calorimeter cup.
+2. Add approximately 25 mL water from a 100 mL beaker.
+3. Place temperature probe into the solution in the beaker and swirl and stir to dissolve the sodium chloride completely. Place the
+calorimeter cup into the calorimeter.
+4. Add around 20 mL of fresh crushed ice to the 50 mL beaker.
+5. Quickly add the ice to the calorimeter cup, and gently stir with the temperature probe. Once the temperature stops decreasing
+(make sure there is still ice present), record the temperature, remove the temperature probe, and pour the mixture through a
+sieve into a dry 100 mL beaker. Discard the ice in the sieve.
+6. Weigh the mass of the beaker with the sodium chloride solution. Record to the precision of the instrument. Clean and dry the
+100 mL beaker and record the empty mass to the precision of the instrument. Then, calculate the mass of water (solvent) from
+the available data.
+7. Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary.
+
+-->
+      <p></p>
+
+      <div class="footer">Dimensional Analysis</div>
+      <!-- title -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
