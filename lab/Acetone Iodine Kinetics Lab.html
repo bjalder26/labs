@@ -103,7 +103,7 @@ Calculate the mL of water you need to add to each experiment to ensure a volume 
   <tr>
   <td>1</td>
     <td>10.0</td>
-    <td><input type="number" class="num calc" id="t1mLWater" name="t1mLWater1" step="any" 
+    <td><input type="number" class="num calc" id="t1mLWater1" name="t1mLWater1" step="any" 
     formula="5" help="Subtract the mL of aceton, HCl, and Iodine solution from 25 mL"/>
       <div class="feedback" id="t1mLWaterFB" name="t1mLWaterFB"></div></td>
     <td>5.0</td>
@@ -207,48 +207,48 @@ $rate = \frac{Δ[I_2]}{Δt}$<br>
   <tr>
   <td>1</td>
     <td><input type="number" class="num calc" id="acetoneConc1" name="acetoneConc1" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="4*10/25" help="Use the dilution formula above."/>
       <div class="feedback" id="acetoneConc1FB" name="acetoneConc1FB"></div></td>
     <td><input type="number" class="num calc" id="HClConc1" name="HClConc1" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="1*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="HClConc1FB" name="HClConc1FB"></div></td>
     <td><input type="number" class="num calc" id="iodineConc1" name="iodineConc1" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="0.005*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="iodineConc1FB" name="iodineConc1FB"></div></td>
     <td><input type="number" class="num calc" id="rate1" name="rate1" step="any" 
-    formula="5" help="Use the rate formula above."/>
+    formula="0.005/${t1AveSec}" help="Use the rate formula above."/>
       <div class="feedback" id="rate1FB" name="rate1FB"></div></td>
   </tr>
   
     <tr>
   <td>2</td>
     <td><input type="number" class="num calc" id="acetoneConc2" name="acetoneConc2" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="4*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="acetoneConc2FB" name="acetoneConc2FB"></div></td>
     <td><input type="number" class="num calc" id="HClConc2" name="HClConc2" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="1*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="HClConc2FB" name="HClConc2FB"></div></td>
     <td><input type="number" class="num calc" id="iodineConc2" name="iodineConc2" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="0.005*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="iodineConc2FB" name="iodineConc2FB"></div></td>
     <td><input type="number" class="num calc" id="rate2" name="rate2" step="any" 
-    formula="5" help="Use the rate formula above."/>
+    formula="0.005/${t2AveSec}" help="Use the rate formula above."/>
       <div class="feedback" id="rate2FB" name="rate2FB"></div></td>
   </tr>
   
     <tr>
   <td>3</td>
     <td><input type="number" class="num calc" id="acetoneConc3" name="acetoneConc3" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="4*10/25" help="Use the dilution formula above."/>
       <div class="feedback" id="acetoneConc3FB" name="acetoneConc3FB"></div></td>
     <td><input type="number" class="num calc" id="HClConc3" name="HClConc3" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="1*2.5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="HClConc3FB" name="HClConc3FB"></div></td>
     <td><input type="number" class="num calc" id="iodineConc3" name="iodineConc3" step="any" 
-    formula="5" help="Use the dilution formula above."/>
+    formula="0.005*5/25" help="Use the dilution formula above."/>
       <div class="feedback" id="iodineConc3FB" name="iodineConc3FB"></div></td>
     <td><input type="number" class="num calc" id="rate3" name="rate3" step="any" 
-    formula="5" help="Use the rate formula above."/>
+    formula="0.005/${t2AveSec}" help="Use the rate formula above."/>
       <div class="feedback" id="rate3FB" name="rate3FB"></div></td>
   </tr>
       </table>
