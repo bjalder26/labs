@@ -34,11 +34,11 @@
     
       <h3>Introduction</h3>
 In this lab, we will apply the concepts of reaction rate, order of reaction and catalyst. Our example reaction is the iodination of
-acetone catalyzed by hydrochloric acid.<br>
-      $\ce{CH3C(=O)CH3 + I2 ->[HCl] CH3C(=O)CH2I + I- + H+}$<br>
+acetone catalyzed by hydrochloric acid.<br><br>
+      $\ce{CH3C(=O)CH3 + I2 ->[HCl] CH3C(=O)CH2I + I- + H+}$<br><br>
       
-      The reaction is <b>zero order with respect to iodine</b>. You will figure out the <b>order with respect to acetone and the order with respect to HCl, and the rate constant</b>. Then, you
-      will predict which initial concentrations are necessary to make the reaction run for <b>exactly 3 minutes (180 s)</b>.<br><br>
+      The reaction is <b>zero order with respect to iodine</b>. You will figure out the <b>order with respect to acetone and the order with respect to HCl, and the rate constant</b>.
+      <!-- Then, you will predict which initial concentrations are necessary to make the reaction run for <b>exactly 3 minutes (180 s)</b>.--><br><br>
 We will figure out the reaction rate by visual observation of the iodine. Iodine in water is brownish-yellow, and all other species are
 colorless. In the experiments, you will start a timer once iodine is added to the other substances in the reaction mixture, and
 measure the time until the solution appear colorless. We will run the reaction at room temperature. Try not to warm up any of the
@@ -48,7 +48,7 @@ reactants or the reaction mixture with your hands or other sources of heat (e.g.
 <h4>Finding the rate</h4>
 Usually, the reaction rate of a reaction changes over time as reactants are depleted. Also, the concentrations change over time. To
 be able to "plug in" the rate and the concentrations into the rate law and determine the order of reactions, you would measure an
-initial rate.<br>
+initial rate.<br><br>
 <div class="noBreak">       
 Today, we are measuring an average rate, but it turns out the rate stays constant over the course of the experiment. There are three
 reasons for this:<br>
@@ -276,9 +276,9 @@ What is the order of reaction with respect to HCl (round to the nearest whole nu
     formula=" round(log((${rate1}/${rate3})/(${HClConc1}/${HClConc3})))" help="Use the rate formula above, and round to the nearest whole number."/>
       <div class="feedback" id="HClOrderFB" name="HClOrderFB"></div><br>
 Calculate the rate constants for each experiment using the orders of reaction you calculated above.
-      $rate = k[acetone]^x[HCl]^y[iodine]$<br>
+      $rate = k[acetone]^x[HCl]^y$<br>
       Solving for k:<br>
-      $k = \frac{[acetone]^x[HCl]^y[iodine]}{rate}$<br>
+      $k = \frac{[acetone]^x[HCl]^y}{rate}$<br>
   <div class="noBreak">  
       <h3>Table 3: Rate Constants</h3>     
  <table>
@@ -289,21 +289,21 @@ Calculate the rate constants for each experiment using the orders of reaction yo
   <tr>
   <td>1</td>
     <td><input type="number" class="num calc" id="rateConstant1" name="rateConstant1" step="any" 
-    formula="${acetoneConc1}^${acetoneOrder}*${HClConc1}^${HClOrder}*0.005" help="Use the rate constant formula above."/>
+    formula="${acetoneConc1}^${acetoneOrder}*${HClConc1}^${HClOrder}" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant1FB" name="rateConstant1FB"></div></td>
   </tr>
   
     <tr>
   <td>2</td>
     <td><input type="number" class="num calc" id="rateConstant2" name="rateConstant2" step="any" 
-    formula="${acetoneConc2}^${acetoneOrder}*${HClConc2}^${HClOrder}*0.005" help="Use the rate constant formula above."/>
+    formula="${acetoneConc2}^${acetoneOrder}*${HClConc2}^${HClOrder}" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant2FB" name="rateConstant2FB"></div></td>
   </tr>
   
     <tr>
   <td>3</td>
     <td><input type="number" class="num calc" id="rateConstant3" name="rateConstant3" step="any" 
-    formula="${acetoneConc3}^${acetoneOrder}*${HClConc3}^${HClOrder}*0.005" help="Use the rate constant formula above."/>
+    formula="${acetoneConc3}^${acetoneOrder}*${HClConc3}^${HClOrder}" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant3FB" name="rateConstant3FB"></div></td>
   </tr>
     </table>
