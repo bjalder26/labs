@@ -201,18 +201,9 @@ $\huge{\left(\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}\right
 The formula above can be rearranted to the following:<br>      
 $Order\;of\;reaction\;with\;respect\;to\;HCl = \huge{ y = log\frac{\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br>
  
-What is the order of reaction with respect to acetone?
-      <input type="number" class="num calc" id="acetoneOrder" name="acetoneOrder" step="any" 
-    formula="5" help="Use the dilution formula above."/>
-      <div class="feedback" id="acetoneOrderFB" name="acetoneConc1FB"></div>
-      
-What is the order of reaction with respect to HCl?
-      <input type="number" class="num calc" id="acetoneConc1" name="acetoneConc1" step="any" 
-    formula="5" help="Use the dilution formula above."/>
-      <div class="feedback" id="acetoneConc1FB" name="acetoneConc1FB"></div>
       
   <div class="noBreak">  
-      <h3>Table 1: Solution Volumes and Experiment Times</h3>     
+      <h3>Table 2: Concentrations and rates</h3>     
   <table>
   <tr>
   <th>#</th>
@@ -236,9 +227,6 @@ What is the order of reaction with respect to HCl?
     <td><input type="number" class="num calc" id="rate1" name="rate1" step="any" 
     formula="5" help="Use the rate formula above."/>
       <div class="feedback" id="rate1FB" name="rate1FB"></div></td>
-    <td><input type="number" class="num calc" id="rateConstant1" name="rateConstant1" step="any" 
-    formula="5" help="Use the rate constant formula above."/>
-      <div class="feedback" id="rateConstant1FB" name="rateConstant1FB"></div></td>
   </tr>
   
     <tr>
@@ -255,9 +243,6 @@ What is the order of reaction with respect to HCl?
     <td><input type="number" class="num calc" id="rate2" name="rate2" step="any" 
     formula="5" help="Use the rate formula above."/>
       <div class="feedback" id="rate2FB" name="rate2FB"></div></td>
-    <td><input type="number" class="num calc" id="rateConstant2" name="rateConstant2" step="any" 
-    formula="5" help="Use the rate constant formula above."/>
-      <div class="feedback" id="rateConstant2FB" name="rateConstant2FB"></div></td>
   </tr>
   
     <tr>
@@ -274,12 +259,48 @@ What is the order of reaction with respect to HCl?
     <td><input type="number" class="num calc" id="rate3" name="rate3" step="any" 
     formula="5" help="Use the rate formula above."/>
       <div class="feedback" id="rate3FB" name="rate3FB"></div></td>
+  </tr>
+      </table>
+      </div>
+      
+      What is the order of reaction with respect to acetone?
+      <input type="number" class="num calc" id="acetoneOrder" name="acetoneOrder" step="any" 
+    formula="log((${}/${})/(${}/${}))" help="Use the dilution formula above."/>
+      <div class="feedback" id="acetoneOrderFB" name="acetoneOrderFB"></div>
+      
+What is the order of reaction with respect to HCl?
+      <input type="number" class="num calc" id="HClOrder" name="HClOrder" step="any" 
+    formula="log(5)" help="Use the dilution formula above."/>
+      <div class="feedback" id="HClOrderFB" name="HClOrderFB"></div>
+      
+  <div class="noBreak">  
+      <h3>Table 3: Rate Constants</h3>     
+ <table>
+  <tr>
+  <th>#</th>
+    <th>rate constant<br>in ?</th>
+  </tr>
+  <tr>
+  <td>1</td>
+    <td><input type="number" class="num calc" id="rateConstant1" name="rateConstant1" step="any" 
+    formula="5" help="Use the rate constant formula above."/>
+      <div class="feedback" id="rateConstant1FB" name="rateConstant1FB"></div></td>
+  </tr>
+  
+    <tr>
+  <td>2</td>
+    <td><input type="number" class="num calc" id="rateConstant2" name="rateConstant2" step="any" 
+    formula="5" help="Use the rate constant formula above."/>
+      <div class="feedback" id="rateConstant2FB" name="rateConstant2FB"></div></td>
+  </tr>
+  
+    <tr>
+  <td>3</td>
     <td><input type="number" class="num calc" id="rateConstant3" name="rateConstant3" step="any" 
     formula="5" help="Use the rate constant formula above."/>
       <div class="feedback" id="rateConstant3FB" name="rateConstant3FB"></div></td>
   </tr>
       </table>
-      </div>
       
 Predicting the rate of reaction
 Once you know the form of the rate law (i.e. all the orders of reaction), you can plug in all the concentrations and the measured rate
