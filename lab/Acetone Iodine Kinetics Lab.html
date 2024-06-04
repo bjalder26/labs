@@ -83,12 +83,26 @@ This is the procedure for measuring a single rate. You will run this procedure t
 figure out the concentrations of the mixture from the recipe (the volumes mixed) using equation 4 or this spreadsheet. Make sure the volumes in your recipe always add up to 25 mL.<br>
 <table>
   <tr>
-  <th>#</th><th>V in mL<br>Acetone(aq)</th><th>V in mL<br>Water</th><th>V in mL<br>HCl(aq)</th>
-    <th>V in mL<br>Iodine(aq)</th><th>t<sub>1</sub> (sec)</th><th>t<sub>2</sub> (sec)</th><th>t<sub>ave</sub> (sec)</th>
+  <th>#</th>
+    <th>V in mL<br>Acetone(aq)</th>
+    <th>V in mL<br>Water</th>
+    <th>V in mL<br>HCl(aq)</th>
+    <th>V in mL<br>Iodine(aq)</th>
+    <th>t<sub>1</sub> (sec)</th>
+    <th>t<sub>2</sub> (sec)</th>
+    <th>t<sub>ave</sub> (sec)</th>
   </tr>
   <tr>
-  <td>1</td><td>10</td><td>xxx</td><td>5<br>5</td>
-    <td></td><td></td><td></td><td></td>
+  <td>1</td>
+    <td>10</td>
+    <td><input type="number" class="num calc" id="mLWater1" name="mLWater1" step="any" 
+    formula="5" help="Subtract the mL of aceton, HCl, and Iodine solution from 25 mL"/>
+      <div class="feedback" id="mLWater1FB" name="mLWater1FB"></div></td>
+    <td>5</td>
+    <td>5</td>
+    <td></td>
+    <td></td>
+    <td></td>
   </tr>
       </table>
 

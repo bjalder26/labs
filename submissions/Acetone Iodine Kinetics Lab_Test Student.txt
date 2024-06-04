@@ -1,1 +1,1 @@
-{}
+{"labName":"Acetone Iodine Kinetics Lab","userName":"Test Student","mLWater1":"5","lowestTemp1":"","lastTemp1":"","whyExpect":"","massGlu":"","massGluMeasured2":"","lowestTemp2":"","lastTemp2":"","beakerAndWaterMass2":"","beakerMass2":"","massGluMeasured2Repeat":"","molGlu2":"","massWater2":"","kgWater2":"","vhfSucrose":"","massNaCl":"","massNaClMeasured3":"","lowestTemp3":"","lastTemp3":"","beakerAndWaterMass3":"","beakerMass3":"","massNaClMeasured3Repeat":"","molNaCl3":"","massWater3":"","kgWater3":"","vhfNaCl":""}
