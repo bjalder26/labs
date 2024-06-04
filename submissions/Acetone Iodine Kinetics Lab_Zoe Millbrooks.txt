@@ -1,1 +1,1 @@
-{}
+{"labName":"Acetone Iodine Kinetics Lab","userName":"Zoe Millbrooks","t1mLWater1":"5.0","t1Sec1":"","t1Sec2":"","t1AveSec":"","t2mLWater":"","t2Sec1":"","t2Sec2":"","t2AveSec":"","t3mLWater":"","t3Sec1":"","t3Sec2":"","t3AveSec":"","acetoneConc1":"","HClConc1":"","iodineConc1":"","rate1":"","acetoneConc2":"","HClConc2":"","iodineConc2":"","rate2":"","acetoneConc3":"","HClConc3":"","iodineConc3":"","rate3":"","acetoneOrder":"","HClOrder":"","rateConstant1":"","rateConstant2":"","rateConstant3":""}
