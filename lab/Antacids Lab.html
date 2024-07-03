@@ -159,16 +159,24 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
 <table>
   <th><td></td><td>First antacid</td><td>Second antacid</td></th>
   <tr>
-  <td>Acid Name</td><td></td><td></td>
+  <td>Acid Name</td><td><input type="text" class="text" id="antacidName1" name="antacidName1"/></td><td><input type="text" class="text" id="antacidName2" name="antacidName2"/></td>
   </tr>
   <tr>
-  <td>Mass of empty flask</td><td></td><td></td>
+  <td>Mass of empty flask</td><td><input type="number" class="num" id="flaskMass1" name="flaskMass1" step="any"/></td><td><input type="number" class="num" id="flaskMass2" name="flaskMass2" step="any"/></td>
   </tr>
   <tr>
-  <td>Mass of flask &amp;	antacid</td><td></td><td></td>
+  <td>Mass of flask &amp;	antacid</td><td><input type="number" class="num" id="flaskMass&Antacid1" name="flaskMass&Antacid1" step="any"/></td><td><input type="number" class="num" id="flaskMass&Antacid2" name="flaskMass&Antacid2" step="any"/></td>
   </tr>
   <tr>
-  <td>Mass of antacid</td><td></td><td></td>
+  <td>Mass of antacid</td>
+    <input type="number" class="num calc" id="antacidMass1" name="antacidMass1" step="any" 
+    formula="${flaskMass&Antacid1}-${flaskMass1}" help="Subtract the mass of the flask from the mass of the flask & antacid"/>
+      <div class="feedback" id="antacidMass1FB" name="antacidMass1FB"></div>
+    <td></td><td>
+    <input type="number" class="num calc" id="antacidMass2" name="antacidMass2" step="any" 
+    formula="${flaskMass&Antacid2}-${flaskMass2}" help="Subtract the mass of the flask from the mass of the flask & antacid"/>
+      <div class="feedback" id="antacidMass2FB" name="antacidMass2FB"></div>
+    </td>
   </tr>
       </table>
       
