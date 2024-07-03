@@ -113,6 +113,10 @@ td.underline {
   border-bottom: 1px solid black !important;
 }
 
+.center {
+  text-align: center;
+}
+
 @media screen {
   div.footer {
     display: none;
