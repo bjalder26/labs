@@ -118,7 +118,7 @@ app.post("/", (req, res) => {
 		let labName = '';
 		let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
     
-    let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'limiting reactant', 'empirical formula of a compound online', 'freezing point depression lab', 'acetone iodine kinetics lab'];
+    let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'limiting reactant', 'empirical formula of a compound online', 'freezing point depression lab', 'acetone iodine kinetics lab', 'antacids lab'];
     
 		if(labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
 		labName = capitalizeEveryWord(lmsData.body.resource_link_title);
