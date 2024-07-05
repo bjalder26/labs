@@ -219,7 +219,40 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
   </tr>
       </table>
       
-      
+<h4>Table 3: Addition of more  HCl – only if needed (i.e. if solution is blue after addition of bromophenol blue)</h4>
+<table>
+  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
+  <tr>
+  <td>Initial buret reading (mL)</td><td><input type="number" class="num" id="initialMlAdditionalHCl1" name="initialMlAdditionalHCl1" step="any"/></td><td><input type="number" class="num" id="initialMlAdditionalHCl2" name="initialMlAdditionalHCl2" step="any"/></td>
+  </tr>
+  <tr>
+  <td>Final buret reading (mL)</td><td><input type="number" class="num" id="finalMlAdditionalHCl1" name="finalMlAdditionalHCl1" step="any"/></td><td><input type="number" class="num" id="finalMlAdditionalHCl2" name="finalMlAdditionalHCl2" step="any"/></td>
+  </tr>
+  <tr>
+  <td>Volume of HCl added (mL)</td>
+    <td><input type="number" class="num calc" id="volAdditionalHCl1" name="volAdditionalHCl1" step="any" 
+    formula="${finalMlAdditionalHCl1}-${initialMlAdditionalHCl1}" help="Subtract the initial buret reading from the final buret reading"/>
+      <div class="feedback" id="volAdditionalHCl1FB" name="volAdditionalHCl1FB"></div>
+    </td>
+    <td>
+    <input type="number" class="num calc" id="volHCl2" name="volHCl2" step="any" 
+    formula="${finalMl2}-${initialMl2}" help="Subtract the initial buret reading from the final buret reading"/>
+      <div class="feedback" id="volHCl2FB" name="volHCl2FB"></div>
+    </td>
+  </tr>
+    <tr>
+  <td>Moles of HCl added (mL)</td>
+    <td><input type="number" class="num calc" id="molHCl1" name="molHCl1" step="any" 
+    formula="(${volHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+      <div class="feedback" id="molHCl1FB" name="molHCl1FB"></div>
+    </td>
+    <td>
+    <input type="number" class="num calc" id="molHCl2" name="molHCl2" step="any" 
+    formula="(${volHCl2FB}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+      <div class="feedback" id="molHCl2FB" name="molHCl2FB"></div>
+    </td>
+  </tr>
+      </table>      
       
       
    
