@@ -291,7 +291,44 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
   </tr>
       </table>      
       
-   
+<h4>Table 5: Titration with  NaOH</h4>
+<table>
+  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
+  <tr>
+  <td>Molarity of NaOH (M)</td><td><input type="number" class="num" id="MolarityNaOH1" name="MolarityNaOH1" step="any"/></td><td><input type="number" class="num" id="MolarityNaOH2" name="MolarityNaOH2" step="any"/></td>
+  </tr>
+    <tr>
+  <td>Initial buret reading (mL)</td><td><input type="number" class="num" id="initialMlNaOH1" name="initialMlNaOH1" step="any"/></td><td><input type="number" class="num" id="initialMlNaOH2" name="initialMlNaOH2" step="any"/></td>
+  </tr>
+  <tr>
+  <td>Final buret reading (mL)</td><td><input type="number" class="num" id="finalMlBackHCl1" name="finalMlBackHCl1" step="any"/></td><td><input type="number" class="num" id="finalMlBackHCl2" name="finalMlBackHCl2" step="any"/></td>
+  </tr>
+  <tr>
+  <td>Volume of HCl added (mL)</td>
+    <td><input type="number" class="num calc" id="volBackHCl1" name="volBackHCl1" step="any" 
+    formula="${finalMlBackHCl1}-${initialMlBackHCl1}" help="Subtract the initial buret reading from the final buret reading"/>
+      <div class="feedback" id="volBackHCl1FB" name="volBackHCl1FB"></div>
+    </td>
+    <td>
+    <input type="number" class="num calc" id="volBackHCl2" name="volBackHCl2" step="any" 
+    formula="${finalMlBackHCl2}-${initialMlBackHCl2}" help="Subtract the initial buret reading from the final buret reading"/>
+      <div class="feedback" id="volBackHCl2FB" name="volBackHCl2FB"></div>
+    </td>
+  </tr>
+    <tr>
+  <td>Moles of HCl added (mL)</td>
+    <td><input type="number" class="num calc" id="molBackHCl1" name="molBackHCl1" step="any" 
+    formula="(${volBackHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+      <div class="feedback" id="molBackHCl1FB" name="molBackHCl1FB"></div>
+    </td>
+    <td>
+    <input type="number" class="num calc" id="molBackHCl2" name="molBackHCl2" step="any" 
+    formula="(${volBackHCl2FB}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+      <div class="feedback" id="molBackHCl2FB" name="molBackHCl2FB"></div>
+    </td>
+  </tr>
+      </table> 
+      
 <a href="https://chem.libretexts.org/Ancillary_Materials/Laboratory_Experiments/Wet_Lab_Experiments/General_Chemistry_Labs/Online_Chemistry_Lab_Manual/Chem_11_Experiments/09%3A_Evaluating_the_Cost-Effectiveness_of_Antacids_(Experiment)">9: Evaluating the Cost-Effectiveness of Antacids (Experiment)</a> is shared under a CC BY-NC license and was authored, remixed, and/or curated by Santa Monica College.
       
  
