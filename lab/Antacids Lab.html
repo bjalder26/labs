@@ -384,12 +384,24 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
   <tr>
   <td>Equivalents of antacid in sample analyzed</td>
     <td><input type="number" class="num calc" id="equivalents1" name="equivalents1" step="any" 
-    formula="${finalMolHCl1}" help="Total mol of HCl minus total mol of NaOH"/>
-      <div class="feedback" id="finalMolHCl1FB" name="finalMolHCl1FB"></div>
+    formula="${finalMolHCl1}" help="Total equivalent of antacid = total mole of H+ neutralized"/>
+      <div class="feedback" id="equivalents1FB" name="equivalents1FB"></div>
     </td>
-    <td><input type="number" class="num calc" id="finalMolHCl2" name="finalMolHCl2" step="any" 
-    formula="${totalMolHCl2}-${molNaOH2}" help="Total mol of HCl minus total mol of NaOH"/>
-      <div class="feedback" id="finalMolHCl2FB" name="finalMolHCl2FB"></div>
+     <td><input type="number" class="num calc" id="equivalents2" name="equivalents2" step="any" 
+    formula="${finalMolHCl2}" help="Total equivalent of antacid = total mole of H+ neutralized"/>
+      <div class="feedback" id="equivalents2FB" name="equivalents2FB"></div>
+    </td>
+  </tr>
+  
+  <tr>
+  <td>Equivalents per gram of antacid (in eq/gram)</td>
+    <td><input type="number" class="num calc" id="eqPerGram1" name="eqPerGram1" step="any" 
+    formula="${equivalents1}/${antacidMass1}" help="Divide the equivalents (table 7) by the mass of your sample (table 2)"/>
+      <div class="feedback" id="eqPerGram1FB" name="eqPerGram1FB"></div>
+    </td>
+     <td><input type="number" class="num calc" id="eqPerGram2" name="eqPerGram2" step="any" 
+    formula="${equivalents2}/${antacidMass2}" help="Divide the equivalents (table 7) by the mass of your sample (table 2)"/>
+      <div class="feedback" id="eqPerGram2FB" name="eqPerGram2FB"></div>
     </td>
   </tr>
   
