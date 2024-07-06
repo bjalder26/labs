@@ -208,12 +208,12 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     <tr>
   <td>Moles of HCl added</td>
     <td><input type="number" class="num calc" id="molHCl1" name="molHCl1" step="any" 
-    formula="(${volHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+    formula="(${volHCl1}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molHCl1FB" name="molHCl1FB"></div>
     </td>
     <td>
     <input type="number" class="num calc" id="molHCl2" name="molHCl2" step="any" 
-    formula="(${volHCl2FB}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+    formula="(${volHCl2}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molHCl2FB" name="molHCl2FB"></div>
     </td>
   </tr>
@@ -243,12 +243,12 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     <tr>
   <td>Moles of HCl added</td>
     <td><input type="number" class="num calc" id="molAdditionalHCl1" name="molAdditionalHCl1" step="any" 
-    formula="(${volAdditionalHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+    formula="(${volAdditionalHCl1}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molAdditionalHCl1FB" name="molAdditionalHCl1FB"></div>
     </td>
     <td>
     <input type="number" class="num calc" id="molAdditionalHCl2" name="molAdditionalHCl2" step="any" 
-    formula="(${volAdditionalHCl2FB}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+    formula="(${volAdditionalHCl2}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molAdditionalHCl2FB" name="molAdditionalHCl2FB"></div>
     </td>
   </tr>
@@ -280,18 +280,18 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     <tr>
   <td>Moles of HCl added</td>
     <td><input type="number" class="num calc" id="molBackHCl1" name="molBackHCl1" step="any" 
-    formula="(${volBackHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+    formula="(${volBackHCl1}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molBackHCl1FB" name="molBackHCl1FB"></div>
     </td>
     <td>
     <input type="number" class="num calc" id="molBackHCl2" name="molBackHCl2" step="any" 
-    formula="(${volBackHCl2FB}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+    formula="(${volBackHCl2}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molBackHCl2FB" name="molBackHCl2FB"></div>
     </td>
   </tr>
       </table>      
       
-<h4>Table 5: Titration with  NaOH</h4>
+<h4>Table 5: Titration with NaOH</h4>
 <table>
   <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
   <tr>
@@ -318,16 +318,30 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     <tr>
   <td>Total moles of  NaOH added to neutralize excess  HCl</td>
     <td><input type="number" class="num calc" id="molNaOH1" name="molNaOH1" step="any" 
-    formula="(${volNaOH1FB}/1000)*${NaOHMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molBackHCl1FB" name="molBackHCl1FB"></div>
+    formula="(${volNaOH1}/1000)*${NaOHMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+      <div class="feedback" id="molNaOH1FB" name="molNaOH1FB"></div>
     </td>
-    <td>
-    <input type="number" class="num calc" id="molBackHCl2" name="molBackHCl2" step="any" 
-    formula="(${volBackHCl2FB}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molBackHCl2FB" name="molBackHCl2FB"></div>
+    <td><input type="number" class="num calc" id="molNaOH2" name="molNaOH2" step="any" 
+    formula="(${volNaOH2}/1000)*${NaOHMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+      <div class="feedback" id="molNaOH2FB" name="molNaOH2FB"></div>
     </td>
   </tr>
       </table> 
+      
+<h4>Table 6: Additional Data (provided by instructor)</h4>
+<table>
+  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
+  <tr>
+  <td>Cost of antacid per package ($)</td><td><input type="number" class="num" id="costAntacid1" name="costAntacid1" step="any"/></td><td><input type="number" class="num" id="costAntacid2" name="costAntacid2" step="any"/></td>
+  </tr>
+    <tr>
+  <td>Mass of antacid per package (g)</td><td><input type="number" class="num" id="massPackage1" name="massPackage1" step="any"/></td><td><input type="number" class="num" id="massPackage2" name="massPackage2" step="any"/></td>
+  </tr>
+    <tr>
+  <td>Cost of antacid per gram ($/g)</td><td><input type="number" class="num" id="costPerGram1" name="costPerGram1" step="any"/></td><td><input type="number" class="num" id="costPerGram2" name="costPerGram2" step="any"/></td>
+  </tr>
+</table>
+      
       
 <a href="https://chem.libretexts.org/Ancillary_Materials/Laboratory_Experiments/Wet_Lab_Experiments/General_Chemistry_Labs/Online_Chemistry_Lab_Manual/Chem_11_Experiments/09%3A_Evaluating_the_Cost-Effectiveness_of_Antacids_(Experiment)">9: Evaluating the Cost-Effectiveness of Antacids (Experiment)</a> is shared under a CC BY-NC license and was authored, remixed, and/or curated by Santa Monica College.
       
