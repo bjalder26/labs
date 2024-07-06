@@ -405,10 +405,18 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     </td>
   </tr>
   
-  
-  
-  
-      </table>       
+  <tr>
+  <td>Cost of antacid per equivalent (in $/eq)</td>
+    <td><input type="number" class="num calc" id="costPerEq1" name="costPerEq1" step="any" 
+    formula="${costPerGram1}/${eqPerGram1}" help="Divide the cost per gram (table 7) by the equivalents per gram (table 8)"/>
+      <div class="feedback" id="costPerEq1FB" name="costPerEq1FB"></div>
+    </td>
+    <td><input type="number" class="num calc" id="costPerEq2" name="costPerEq2" step="any" 
+    formula="${costPerGram2}/${eqPerGram2}" help="Divide the cost per gram (table 7) by the equivalents per gram (table 8)"/>
+      <div class="feedback" id="costPerEq2FB" name="costPerEq2FB"></div>
+    </td>
+  </tr>  
+</table>       
       
       
 <br><br>
