@@ -419,8 +419,7 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
 </table>
       
 Which antacid is the most cost effective? 
-<input type="number" class="num calc" id="best" name="best" step="any" 
-    formula="(${costPerEq1} <= ${costPerEq2}) ? ${antacidName1} : ${antacidName2}" help="Type in the name of the antacid that had a lower cost per equivalent.  If they are equal, then type in the name of the first antacid."/>
+<input type="text" class="num calc" id="best" name="best" formula="(${costPerEq1} <= ${costPerEq2}) ? '${antacidName1}' : '${antacidName2}'" help="Type in the name of the antacid that had a lower cost per equivalent.  If they are equal, then type in the name of the first antacid."/>
       <div class="feedback" id="bestFB" name="bestFB"></div>
       
       
