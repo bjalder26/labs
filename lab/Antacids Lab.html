@@ -318,11 +318,11 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     <tr>
   <td>Total moles of  NaOH added to neutralize excess  HCl</td>
     <td><input type="number" class="num calc" id="molNaOH1" name="molNaOH1" step="any" 
-    formula="(${volNaOH1}/1000)*${NaOHMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+    formula="(${volNaOH1}/1000)*${NaOHMolarity1}" help="Convert the volume of NaOH to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molNaOH1FB" name="molNaOH1FB"></div>
     </td>
     <td><input type="number" class="num calc" id="molNaOH2" name="molNaOH2" step="any" 
-    formula="(${volNaOH2}/1000)*${NaOHMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+    formula="(${volNaOH2}/1000)*${NaOHMolarity2}" help="Convert the volume of NaOH to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molNaOH2FB" name="molNaOH2FB"></div>
     </td>
   </tr>
@@ -338,7 +338,15 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
   <td>Mass of antacid per package (g)</td><td><input type="number" class="num" id="massPackage1" name="massPackage1" step="any"/></td><td><input type="number" class="num" id="massPackage2" name="massPackage2" step="any"/></td>
   </tr>
     <tr>
-  <td>Cost of antacid per gram ($/g)</td><td><input type="number" class="num" id="costPerGram1" name="costPerGram1" step="any"/></td><td><input type="number" class="num" id="costPerGram2" name="costPerGram2" step="any"/></td>
+  <td>Cost of antacid per gram ($/g)</td>
+<td><input type="number" class="num calc" id="costPerGram1" name="costPerGram1" step="any" 
+    formula="${costAntacid1}/${massPackage1}" help="Divide the cost of antacid per pacage by the mass of antacid per package"/>
+      <div class="feedback" id="costPerGram1FB" name="costPerGram1FB"></div>
+    </td>
+    <td><input type="number" class="num calc" id="costPerGram2" name="costPerGram2" step="any" 
+    formula="${costAntacid2}/${massPackage2}" help="Divide the cost of antacid per pacage by the mass of antacid per package"/>
+      <div class="feedback" id="costPerGram2FB" name="costPerGram2FB"></div>
+    </td>     
   </tr>
 </table>
       
