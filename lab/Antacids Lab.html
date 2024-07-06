@@ -206,7 +206,7 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     </td>
   </tr>
     <tr>
-  <td>Moles of HCl added (mL)</td>
+  <td>Moles of HCl added</td>
     <td><input type="number" class="num calc" id="molHCl1" name="molHCl1" step="any" 
     formula="(${volHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molHCl1FB" name="molHCl1FB"></div>
@@ -241,7 +241,7 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     </td>
   </tr>
     <tr>
-  <td>Moles of HCl added (mL)</td>
+  <td>Moles of HCl added</td>
     <td><input type="number" class="num calc" id="molAdditionalHCl1" name="molAdditionalHCl1" step="any" 
     formula="(${volAdditionalHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molAdditionalHCl1FB" name="molAdditionalHCl1FB"></div>
@@ -278,7 +278,7 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
     </td>
   </tr>
     <tr>
-  <td>Moles of HCl added (mL)</td>
+  <td>Moles of HCl added</td>
     <td><input type="number" class="num calc" id="molBackHCl1" name="molBackHCl1" step="any" 
     formula="(${volBackHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molBackHCl1FB" name="molBackHCl1FB"></div>
@@ -295,30 +295,30 @@ Repeat the procedure with another brand of antacid. Make every effort to reach a
 <table>
   <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
   <tr>
-  <td>Molarity of NaOH (M)</td><td><input type="number" class="num" id="MolarityNaOH1" name="MolarityNaOH1" step="any"/></td><td><input type="number" class="num" id="MolarityNaOH2" name="MolarityNaOH2" step="any"/></td>
+  <td>Molarity of NaOH (M)</td><td><input type="number" class="num" id="NaOHMolarity1" name="NaOHMolarity1" step="any"/></td><td><input type="number" class="num" id="NaOHMolarity2" name="NaOHMolarity2" step="any"/></td>
   </tr>
     <tr>
   <td>Initial buret reading (mL)</td><td><input type="number" class="num" id="initialMlNaOH1" name="initialMlNaOH1" step="any"/></td><td><input type="number" class="num" id="initialMlNaOH2" name="initialMlNaOH2" step="any"/></td>
   </tr>
   <tr>
-  <td>Final buret reading (mL)</td><td><input type="number" class="num" id="finalMlBackHCl1" name="finalMlBackHCl1" step="any"/></td><td><input type="number" class="num" id="finalMlBackHCl2" name="finalMlBackHCl2" step="any"/></td>
+  <td>Final buret reading (mL)</td><td><input type="number" class="num" id="finalMlNaOH1" name="finalMlNaOH1" step="any"/></td><td><input type="number" class="num" id="finalMlNaOH2" name="finalMlNaOH2" step="any"/></td>
   </tr>
   <tr>
-  <td>Volume of HCl added (mL)</td>
-    <td><input type="number" class="num calc" id="volBackHCl1" name="volBackHCl1" step="any" 
-    formula="${finalMlBackHCl1}-${initialMlBackHCl1}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volBackHCl1FB" name="volBackHCl1FB"></div>
+  <td>Volume of NaOH added (mL)</td>
+    <td><input type="number" class="num calc" id="volNaOH1" name="volNaOH1" step="any" 
+    formula="${finalMlNaOH1}-${initialMlNaOH1}" help="Subtract the initial buret reading from the final buret reading"/>
+      <div class="feedback" id="volNaOH1FB" name="volNaOH1FB"></div>
     </td>
     <td>
-    <input type="number" class="num calc" id="volBackHCl2" name="volBackHCl2" step="any" 
-    formula="${finalMlBackHCl2}-${initialMlBackHCl2}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volBackHCl2FB" name="volBackHCl2FB"></div>
+    <input type="number" class="num calc" id="volNaOH2" name="volNaOH2" step="any" 
+    formula="${finalMlNaOH2}-${initialMlNaOH2}" help="Subtract the initial buret reading from the final buret reading"/>
+      <div class="feedback" id="volNaOH2FB" name="volNaOH2FB"></div>
     </td>
   </tr>
     <tr>
-  <td>Moles of HCl added (mL)</td>
-    <td><input type="number" class="num calc" id="molBackHCl1" name="molBackHCl1" step="any" 
-    formula="(${volBackHCl1FB}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
+  <td>Total moles of  NaOH added to neutralize excess  HCl</td>
+    <td><input type="number" class="num calc" id="molNaOH1" name="molNaOH1" step="any" 
+    formula="(${volNaOH1FB}/1000)*${NaOHMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
       <div class="feedback" id="molBackHCl1FB" name="molBackHCl1FB"></div>
     </td>
     <td>
