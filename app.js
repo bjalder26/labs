@@ -232,15 +232,24 @@ app.get("/score/:sessionID/:score", (req, res) => {
 		res.send(resp);
 	});
   */
-  	session.outcome_service.send_replace_result_with_url(0.99, 'https://www.thegatewaypundit.com', (err, isValid) => {
-		if (!isValid)
-			resp += `<br/>Update failed ${err}`;
-
-		res.send(resp);
-	});
+  
+session.outcome_service.send_replace_result_with_url(0.10, 'https://www.google.com', (err, isValid) => {
+    if (err) {
+        console.error('Error:', err);
+        resp += `<br/>Update failed: ${err.message || err}`;
+    } else if (!isValid) {
+        console.warn('Invalid response');
+        resp += `<br/>Update failed: Invalid response`;
+    } else {
+        resp += '<br/>Update successful';
+    }
+    
+    res.send(resp);
+});
   
     	session.outcome_service.send_delete_result((err, result) => {
 		console.log(result);
+        res.send('score deleted');
 	});
   
 
