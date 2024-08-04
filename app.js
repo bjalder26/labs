@@ -249,7 +249,7 @@ console.log('session');
   'ext_content_return_types': 'url,iframe,oembed',
   'ext_content_return_url':"https://northwestms.instructure.com/courses/630147/assignments"
 };
-*/
+
   
   session.ext_content = {
   "return_type": "iframe",
@@ -257,6 +257,11 @@ console.log('session');
   "title": "Google",
   "width": "800",
   "height": "600"
+}*/
+  session.ext_content = {
+  "ext_content_return_types": "url,image_url,iframe,lti_launch_url,file,oembed",
+  "ext_content_intended_use": "embed"
+  "ext_content_file_extensions": "pdf,docx,pptx"
 }
   
   console.log('ext_content');
