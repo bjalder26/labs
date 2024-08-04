@@ -259,9 +259,9 @@ console.log('session');
   "height": "600"
 }*/
   session.ext_content = {
-  "ext_content_return_types": "url,image_url,iframe,lti_launch_url,file,oembed",
-  "ext_content_intended_use": "embed"
-  "ext_content_file_extensions": "pdf,docx,pptx"
+  "ext_content_return_types": "iframe",
+  "ext_content_intended_use": "homework"
+  //, "ext_content_file_extensions": "pdf,docx,pptx"
 }
   
   console.log('ext_content');
@@ -270,7 +270,15 @@ console.log('session');
   console.log('session');
 	console.log(JSON.stringify(session));
   
-  session.ext_content.send_iframe(res, 'www.google.com', 'Google', '800', '600');
+    var resp = `I hope this works: `;
+  session.ext_content.send_iframe(res, 'www.google.com', 'Google', '800', '600', (err, isValid) => {
+		if (!isValid)
+			resp += `<br/>Update failed ${err}`;
+
+		res.send(resp);
+	});
+  
+  // session.ext_content.send_iframe(res, 'www.google.com', 'Google', '800', '600');
 
 });
 
