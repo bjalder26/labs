@@ -207,7 +207,7 @@ app.get("/:lab/:name", (req, res) => {
 	
 });       // app.post("/");
 
-
+/*
 app.get("/score/:sessionID/:score", (req, res) => {
 
 	var session = sessions[req.params.sessionID];
@@ -223,7 +223,7 @@ app.get("/score/:sessionID/:score", (req, res) => {
 	var score = req.params.score;
 	console.log(score/100);
 	var resp = `Your score of ${score}% has been recorded`;
-	
+	*/
   /*
 	session.outcome_service.send_replace_result(score/100, (err, isValid) => {
 		if (!isValid)
@@ -232,8 +232,9 @@ app.get("/score/:sessionID/:score", (req, res) => {
 		res.send(resp);
 	});
   */
+/*
   
-session.outcome_service.send_replace_result_with_url(0.10, 'https://www.google.com', (err, isValid) => {
+session.outcome_service.send_replace_result_with_url(0.13, 'https://www.google.com', (err, isValid) => {
     if (err) {
         console.error('Error:', err);
         resp += `<br/>Update failed: ${err.message || err}`;
@@ -244,16 +245,73 @@ session.outcome_service.send_replace_result_with_url(0.10, 'https://www.google.c
         resp += '<br/>Update successful';
     }
     
-    res.send(resp);
+    //res.send(resp);
 });
+
   
     	session.outcome_service.send_delete_result((err, result) => {
+        
+    if (err) {
+        console.error('Error:', err);
+        resp += `<br/>Update failed: ${err.message || err}`;
+    } else {
+        resp += '<br/>Update successful';
+    }
+        
 		console.log(result);
         res.send('score deleted');
 	});
   
 
 });    // app.get("/score...")
+*/
+
+
+
+
+
+
+app.get("/score/:sessionID/:score", (req, res) => {
+    var session = sessions[req.params.sessionID];
+    var score = req.params.score;
+    var resp = `Your score of ${score}% has been recorded`;
+    
+    session.outcome_service.send_replace_result_with_url(0.2, 'https://www.google.com', (err, isValid) => {
+        if (err) {
+            console.error('Error:', err);
+            resp += `<br/>Update failed: ${err.message || err}`;
+            return res.send(resp);
+        } else if (!isValid) {
+            console.warn('Invalid response');
+            resp += `<br/>Update failed: Invalid response`;
+            return res.send(resp);
+        } else {
+            resp += '<br/>Update successful';
+            
+            // Now delete the score
+            session.outcome_service.send_delete_result((err, result) => {
+                if (err) {
+                    console.error('Error:', err);
+                    resp += `<br/>Delete failed: ${err.message || err}`;
+                } else {
+                    resp += '<br/>Score deleted successfully';
+                }
+                
+                console.log(result);
+                res.send(resp);
+            });
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
 
 
 app.post('/save', (req, res) => {
