@@ -226,6 +226,7 @@ app.get("/:lab/:name", (req, res) => {
 	
 });       // app.post("/");
 
+/*
 app.get("/score/:sessionID/:score", (req, res) => {
 
 	var session = sessions[req.params.sessionID];
@@ -250,6 +251,12 @@ app.get("/score/:sessionID/:score", (req, res) => {
 	});
 
 });    // app.get("/score...")
+*/
+app.get("/score/:sessionID/:score", (req, res) => {
+var session = sessions[req.params.sessionID];  
+session.ext_content.send_iframe(res.send('worked'), 'www.google.com', 'Assignment Submission', '800', '600');
+
+});
 
 
 app.post('/save', (req, res) => {
