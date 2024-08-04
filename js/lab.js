@@ -317,6 +317,11 @@ function submitScore() {
   document.location = path;
 }
 
+function submitAssignment() {
+  var path = `/noscore/${params.sessionID}/0`;
+  document.location = path;
+}
+
 function lookupValueInTable(tableID, searchColumn, searchValue, returnColumn) {
   const table = $(tableID);
   if (!table) {

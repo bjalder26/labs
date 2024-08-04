@@ -76,7 +76,6 @@ function findStudents(labName) {
 }
 
 app.post("/", (req, res) => {	
-    console.log('in2');
 	var lmsData = new lti.Provider("top", "secret");
   
   if(req.body.roles.includes('Instructor')) {
@@ -99,7 +98,7 @@ app.post("/", (req, res) => {
 		let labName = '';
 		let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
     
-    let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'limiting reactant', 'empirical formula of a compound online', 'freezing point depression lab', 'acetone iodine kinetics lab', 'antacids lab'];
+    let labList = ['exploring density properties', 'exploring density properties 2', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'limiting reactant', 'empirical formula of a compound online', 'freezing point depression lab', 'acetone iodine kinetics lab', 'antacids lab'];
     
 		if(labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
 		labName = capitalizeEveryWord(lmsData.body.resource_link_title);
@@ -244,10 +243,10 @@ app.get("/score/:sessionID/:score", (req, res) => {
 
 app.get("/noscore/:sessionID/:noscore", (req, res) => {
     var session = sessions[req.params.sessionID];
-    var score = req.params.score;
-    var resp = `Your score of ${score}% has been recorded`;
+    var noscore = req.params.noscore;
+    var resp = `Your score of ${noscore}% has been recorded`;
     
-    session.outcome_service.send_replace_result_with_url(0.2, 'https://www.google.com', (err, isValid) => {
+    session.outcome_service.send_replace_result_with_url(noscore, 'https://www.google.com', (err, isValid) => {
         if (err) {
             console.error('Error:', err);
             resp += `<br/>Update failed: ${err.message || err}`;
