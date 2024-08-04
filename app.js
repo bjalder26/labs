@@ -48,6 +48,24 @@ app.post("*", require("body-parser").urlencoded({extended: true}));
 
 // Function to read the lab list from the text file
 function readLabList() {
+  
+  const labFolder = './lab';
+let labList = [];
+// Read the directory
+fs.readdir(labFolder, (err, files) => {
+    if (err) {
+        console.error(`Error reading the lab folder: ${err}`);
+        return;
+    }
+
+    // Convert file names to lowercase and store them in an array
+    labList = files.map(file => file.toLowerCase());
+    console.log('labList');
+    console.log(labList);
+});
+  
+  
+  
     try {
         const labListText = fs.readFileSync('labList.txt', 'utf8');
         const labList = JSON.parse(labListText);
@@ -57,6 +75,9 @@ function readLabList() {
         console.error('Error reading lab list:', error);
         return [];
     }
+  
+  
+  
 }
 
 // Function to find student names based on selected lab
@@ -98,7 +119,24 @@ app.post("/", (req, res) => {
 		let labName = '';
 		let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
     
-    let labList = ['exploring density properties', 'exploring density properties 2', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'limiting reactant', 'empirical formula of a compound online', 'freezing point depression lab', 'acetone iodine kinetics lab', 'antacids lab'];
+    //let labList = ['exploring density properties', 'exploring density properties 2', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'limiting reactant', 'empirical formula of a compound online', 'freezing point depression lab', 'acetone iodine kinetics lab', 'antacids lab'];
+    
+// Specify the directory
+const labFolder = './lab';
+let labList = [];
+// Read the directory
+fs.readdir(labFolder, (err, files) => {
+    if (err) {
+        console.error(`Error reading the lab folder: ${err}`);
+        return;
+    }
+
+    // Convert file names to lowercase and store them in an array
+    labList = files.map(file => file.toLowerCase());
+    console.log('labList');
+    console.log(labList);
+});
+    
     
 		if(labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
 		labName = capitalizeEveryWord(lmsData.body.resource_link_title);
