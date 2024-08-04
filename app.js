@@ -3,6 +3,7 @@
 // for more info, see: http://expressjs.com
 var express = require('express');
 const http = require('http');
+const path = require('path');
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
@@ -51,7 +52,11 @@ function readLabList() {
 
     try {
         const files = fs.readdirSync(labFolder);
-        return files;
+
+        // Remove the .html extension from each file name
+        const labList = files.map(file => path.basename(file, '.html'));
+
+        return labList;
     } catch (error) {
         console.error(`Error reading the lab folder: ${error}`);
         return [];
