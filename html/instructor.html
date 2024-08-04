@@ -22,19 +22,22 @@
         const studentSelect = document.getElementById('studentSelect');
         const labSubmissionForm = document.getElementById('labSubmissionForm');
 
-        // Fetch lab list
-        fetch('/labList')
-            .then(response => response.json())
-            .then(labList => {
-                const emptyOption = document.createElement('option');
-                emptyOption.text = 'Select a Lab';
-                labSelect.add(emptyOption);
-                labList.forEach(lab => {
-                    const option = document.createElement('option');
-                    option.text = lab;
-                    labSelect.add(option);
-                });
-            });
+// Fetch lab list
+fetch('/labList')
+    .then(response => response.json())
+    .then(labList => {
+        const emptyOption = document.createElement('option');
+        emptyOption.text = 'Select a Lab';
+        labSelect.add(emptyOption);
+        labList.forEach(lab => {
+            const option = document.createElement('option');
+            option.text = lab;
+            labSelect.add(option);
+        });
+    })
+    .catch(error => {
+        console.error('Error fetching lab list:', error);
+    });
 
         // Event listener for lab selection
         labSelect.addEventListener('change', () => {

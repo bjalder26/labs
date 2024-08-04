@@ -49,19 +49,15 @@ app.post("*", require("body-parser").urlencoded({extended: true}));
 function readLabList() {
     const labFolder = './lab';
 
-    return new Promise((resolve, reject) => {
-        fs.readdir(labFolder, (err, files) => {
-            if (err) {
-                console.error(`Error reading the lab folder: ${err}`);
-                reject([]);
-                return;
-            }
-
-            // Resolve with the list of file names
-            resolve(files);
-        });
-    });
+    try {
+        const files = fs.readdirSync(labFolder);
+        return files;
+    } catch (error) {
+        console.error(`Error reading the lab folder: ${error}`);
+        return [];
+    }
 }
+
 /*
 // Function to read the lab list from the text file
 function readLabList() {
