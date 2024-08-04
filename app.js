@@ -46,25 +46,25 @@ app.use(express.static(__dirname + '/public'));
 app.post("*", require("body-parser").urlencoded({extended: true}));
 
 
+function readLabList() {
+    const labFolder = './lab';
+
+    return new Promise((resolve, reject) => {
+        fs.readdir(labFolder, (err, files) => {
+            if (err) {
+                console.error(`Error reading the lab folder: ${err}`);
+                reject([]);
+                return;
+            }
+
+            // Resolve with the list of file names
+            resolve(files);
+        });
+    });
+}
+/*
 // Function to read the lab list from the text file
 function readLabList() {
-  
-  const labFolder = './lab';
-let labList = [];
-// Read the directory
-fs.readdir(labFolder, (err, files) => {
-    if (err) {
-        console.error(`Error reading the lab folder: ${err}`);
-        return;
-    }
-
-    // Convert file names to lowercase and store them in an array
-    labList = files.map(file => file.toLowerCase());
-    console.log('labList');
-    console.log(labList);
-});
-  
-  
   
     try {
         const labListText = fs.readFileSync('labList.txt', 'utf8');
@@ -74,11 +74,9 @@ fs.readdir(labFolder, (err, files) => {
     } catch (error) {
         console.error('Error reading lab list:', error);
         return [];
-    }
-  
-  
-  
+    } 
 }
+*/
 
 // Function to find student names based on selected lab
 function findStudents(labName) {
