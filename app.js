@@ -46,25 +46,6 @@ app.use(express.static(__dirname + '/public'));
 app.post("*", require("body-parser").urlencoded({extended: true}));
 
 
-app.post("/module_1", (req, res) => {
-	console.log('in');
-	
-	var lmsData = new lti.Provider("top", "secret");
-	lmsData.valid_request(req, (err, isValid) => {
-		if (!isValid) {
-			res.send("Invalid request: " + err);
-			return ;
-		}
-		
-		var sessionID = uuid();
-		sessions[sessionID] = lmsData;
-		
-		
-		res.send(lmsData.body);
-	});   // lmsDate.valid_request
-	
-});       // app.post("/module_1");
-
 // Function to read the lab list from the text file
 function readLabList() {
     try {
