@@ -253,8 +253,14 @@ app.get("/score/:sessionID/:score", (req, res) => {
 });    // app.get("/score...")
 */
 app.get("/score/:sessionID/:score", (req, res) => {
-var session = sessions[req.params.sessionID];  
-console.log(session.ext_content.has_return_type, 'file');
+var session = sessions[req.params.sessionID];
+console.log('session');
+	console.log(JSON.stringify(session));
+  console.log('sessions');
+	console.log(JSON.stringify(sessions));
+  console.log(JSON.stringify(req.session));
+	
+	
 //session.ext_content.send_iframe(res.send('worked'), 'www.google.com', 'Assignment Submission', '800', '600');
 session.ext_content.send_iframe(res.send('worked2'), 'www.google.com', 'title', '800', '600');
 
