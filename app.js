@@ -207,7 +207,7 @@ app.get("/:lab/:name", (req, res) => {
 	
 });       // app.post("/");
 
-/*
+
 app.get("/score/:sessionID/:score", (req, res) => {
 
 	var session = sessions[req.params.sessionID];
@@ -224,7 +224,15 @@ app.get("/score/:sessionID/:score", (req, res) => {
 	console.log(score/100);
 	var resp = `Your score of ${score}% has been recorded`;
 	
+  /*
 	session.outcome_service.send_replace_result(score/100, (err, isValid) => {
+		if (!isValid)
+			resp += `<br/>Update failed ${err}`;
+
+		res.send(resp);
+	});
+  */
+  	session.outcome_service.send_replace_result_with_url(0.55, 'https://www.google.com', (err, isValid) => {
 		if (!isValid)
 			resp += `<br/>Update failed ${err}`;
 
@@ -232,55 +240,6 @@ app.get("/score/:sessionID/:score", (req, res) => {
 	});
 
 });    // app.get("/score...")
-*/
-app.get("/score/:sessionID/:score", (req, res) => {
-var session = sessions[req.params.sessionID];
-console.log('session');
-	console.log(JSON.stringify(session));
-  console.log('sessions');
-	console.log(JSON.stringify(sessions));
-  console.log(JSON.stringify(req.session));
-	
-	
-//session.ext_content.send_iframe(res.send('worked'), 'www.google.com', 'Assignment Submission', '800', '600');
-//session.ext_content.send_iframe(res.send('worked2'), 'www.google.com', 'title', '800', '600');
-/*  
-  session.ext_content = {
-  'ext_content_return_types': 'url,iframe,oembed',
-  'ext_content_return_url':"https://northwestms.instructure.com/courses/630147/assignments"
-};
-
-  
-  session.ext_content = {
-  "return_type": "iframe",
-  "url": "https://www.google.com",
-  "title": "Google",
-  "width": "800",
-  "height": "600"
-}*/
-  session.ext_content = {
-  "ext_content_return_types": "iframe",
-  "ext_content_intended_use": "homework"
-  //, "ext_content_file_extensions": "pdf,docx,pptx"
-}
-  
-  console.log('ext_content');
-  console.log(session.ext_content);
-  
-  console.log('session');
-	console.log(JSON.stringify(session));
-  
-    var resp = `I hope this works: `;
-  session.ext_content.send_iframe(res, 'www.google.com', 'Google', '800', '600', (err, isValid) => {
-		if (!isValid)
-			resp += `<br/>Update failed ${err}`;
-
-		res.send(resp);
-	});
-  
-  // session.ext_content.send_iframe(res, 'www.google.com', 'Google', '800', '600');
-
-});
 
 
 app.post('/save', (req, res) => {
