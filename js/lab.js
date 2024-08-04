@@ -317,8 +317,9 @@ function submitScore() {
   document.location = path;
 }
 
-function submitAssignment() {
-  var path = `/noscore/${params.sessionID}/0`;
+function submitAssignment(labName, name) {
+  const passed = [labName, name]; 
+  var path = `/noscore/${params.sessionID}/passed`;
   document.location = path;
 }
 
