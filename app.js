@@ -232,7 +232,7 @@ app.get("/score/:sessionID/:score", (req, res) => {
 		res.send(resp);
 	});
   */
-  	session.outcome_service.send_replace_result_with_url(0.55, 'https://www.google.com', (err, isValid) => {
+  	session.outcome_service.send_replace_result_with_url(null, 'https://www.google.com', (err, isValid) => {
 		if (!isValid)
 			resp += `<br/>Update failed ${err}`;
 
