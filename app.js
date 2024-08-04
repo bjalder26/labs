@@ -246,10 +246,12 @@ console.log('session');
 //session.ext_content.send_iframe(res.send('worked2'), 'www.google.com', 'title', '800', '600');
   
   session.ext_content = {
-  ext_content_return_types: 'url,iframe,oembed'
+  ext_content_return_types: 'url,iframe,oembed',
+  ext_content_return_url:"https://northwestms.instructure.com/courses/630147/assignments"
 };
-  
-  session.ext_content.send_iframe(res.send('worked2'), 'www.google.com', 'title', '800', '600');
+  console.log('ext_content');
+  console.log(session.ext_content);
+  session.ext_content.send_iframe(res, 'www.google.com', 'Google', '800', '600');
 
 });
 
