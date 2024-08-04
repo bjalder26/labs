@@ -244,34 +244,27 @@ console.log('session');
 	
 //session.ext_content.send_iframe(res.send('worked'), 'www.google.com', 'Assignment Submission', '800', '600');
 //session.ext_content.send_iframe(res.send('worked2'), 'www.google.com', 'title', '800', '600');
-  
+/*  
   session.ext_content = {
   'ext_content_return_types': 'url,iframe,oembed',
-  'ext_content_return_url':"https://northwestms.instructure.com/courses/630147/assignments",
-    "consumer_key":"top",
-    "consumer_secret":"secret",
-    "service_url":"https://northwestms.instructure.com/api/lti/v1/tools/920673/grade_passback",
-    "source_did":"920673-630147-13183696-1845470-83292c8892e10ae70fb24affff7bfa34ef188835",
-    "result_data_types":["url","text"],
-    "signer":{},"cert_authority":null,
-    "language":"en",
-    "service_url_parts":{
-      "protocol":"https:",
-      "slashes":true,
-      "auth":null,
-      "host":"northwestms.instructure.com",
-      "port":null,
-      "hostname":"northwestms.instructure.com",
-      "hash":null,
-      "search":null,
-      "query":{},
-      "pathname":"/api/lti/v1/tools/920673/grade_passback",
-      "path":"/api/lti/v1/tools/920673/grade_passback",
-      "href":"https://northwestms.instructure.com/api/lti/v1/tools/920673/grade_passback"},
-    "service_url_oauth":"https://northwestms.instructure.com/api/lti/v1/tools/920673/grade_passback"
+  'ext_content_return_url':"https://northwestms.instructure.com/courses/630147/assignments"
 };
+*/
+  
+  session.ext_content = {
+  "return_type": "iframe",
+  "url": "https://www.google.com",
+  "title": "Google",
+  "width": "800",
+  "height": "600"
+}
+  
   console.log('ext_content');
   console.log(session.ext_content);
+  
+  console.log('session');
+	console.log(JSON.stringify(session));
+  
   session.ext_content.send_iframe(res, 'www.google.com', 'Google', '800', '600');
 
 });
