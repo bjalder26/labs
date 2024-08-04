@@ -123,7 +123,7 @@ app.post("/", (req, res) => {
 						var labName = '${labName}';
 						var params = {
 						sessionID: "${sessionID}",
-						user: "${lmsData.body.ext_user_username}"
+						user: "${name}"
 					};
 				`);
 
