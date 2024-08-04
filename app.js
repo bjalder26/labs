@@ -254,6 +254,7 @@ app.get("/score/:sessionID/:score", (req, res) => {
 */
 app.get("/score/:sessionID/:score", (req, res) => {
 var session = sessions[req.params.sessionID];  
+console.log();
 session.ext_content.send_iframe(res.send('worked'), 'www.google.com', 'Assignment Submission', '800', '600');
 
 });
