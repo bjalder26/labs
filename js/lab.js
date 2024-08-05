@@ -318,12 +318,14 @@ function submitScore() {
 }
 
 function submitAssignment(labName, name, sessionID) {
+  alert(labName, name, sessionID)
   let passed = {};
   passed.labName = labName;
   passed.name = name;
   passed.sessionID = sessionID;
   console.log(labName, name, sessionID);
-  
+  passed = encodeURI(JSON.stringify(passed));
+  alert(passed);
   var path = `/noscore/${passed}`;
   document.location = path;
 }

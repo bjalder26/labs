@@ -208,11 +208,14 @@ app.get("/instructor", (req, res) => {
 
 app.get('/noscore/:passed', (req, res) => { // working here
     
-   console.log('req.passed');
-   console.log(req.passed);
-  
-    const { labName, name, sessionID } = req.passed;
-    var session = sessions[req.params.sessionID];
+   console.log('req.params.passed');
+  console.log(decodeURI(req.params.passed));
+    let passed = decodeURI(req.params.passed);
+    const labName = passed.labName
+    const name = passed.name;
+    const sessionID = passed.sessionID;
+    //const { labName, name, sessionID } = decodeURI(req.params.passed);
+    var session = sessions[sessionID];
     console.log(labName, name, sessionID, session);
     let resp = 'Assignment submitted.  Close this window and check your submission in Canvas.';
   
