@@ -278,10 +278,8 @@ app.get("/score/:sessionID/:score", (req, res) => {
 });    // app.get("/score...")
 
 
-app.get("/noscore/:sessionID/:names", (req, res) => { // working here
-    const sessionID = req.params.sessionID;
-    var session = sessions[req.params.sessionID];
-    const { labName, name } = req.params.names;
+app.get("/noscore/:sessionID/:passed", (req, res) => { // working here
+    const { labName, name, sessionID } = passed.names;
     let resp = '';
     //var resp = `Your score of ${noscore}% has been recorded`;
   
