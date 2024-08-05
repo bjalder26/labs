@@ -323,6 +323,7 @@ function submitAssignment(labName, name, sessionID) {
   passed.name = name;
   passed.sessionID = sessionID;
   console.log(labName, name, sessionID);
+  
   var path = `/noscore/${passed}`;
   document.location = path;
 }

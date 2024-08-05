@@ -206,6 +206,77 @@ app.get("/instructor", (req, res) => {
 });       // app.post("/");
 
 
+app.get('/noscore/:passed', (req, res) => { // working here
+    
+   console.log('req.passed');
+   console.log(req.passed);
+  
+    const { labName, name, sessionID } = req.passed;
+    var session = sessions[req.params.sessionID];
+    console.log(labName, name, sessionID, session);
+    let resp = 'Assignment submitted.  Close this window and check your submission in Canvas.';
+  
+    const dynamicUrl = `__dirname/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
+    session.outcome_service.send_replace_result_with_url('0', dynamicUrl, (err, isValid) => {
+        if (err) {
+            console.error('Error:', err);
+            resp += `<br/>Update failed: ${err.message || err}`;
+            return res.send(resp);
+        } else if (!isValid) {
+            console.warn('Invalid response');
+            resp += `<br/>Update failed: Invalid response`;
+            return res.send(resp);
+        } else {
+            resp += '<br/>Update successful';
+            
+            // Now delete the score
+            session.outcome_service.send_delete_result((err, result) => {
+                if (err) {
+                    console.error('Error:', err);
+                    resp += `<br/>Delete failed: ${err.message || err}`;
+                } else {
+                    resp += '<br/>Score deleted successfully';
+                }
+                
+                console.log(result);
+                res.send(resp);
+            });
+        }
+    });
+});
+
+app.get('/dynamic-content/:passed', (req, res) => {
+  
+   console.log('req.passed2');
+   console.log(req.passed);
+  
+    const { labName, name, sessionID } = req.passed;  
+  //var session = sessions[req.params.sessionID];
+  
+  
+   // Read the static HTML file
+    const labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
+
+    // Read the dynamic data file based on the student's name and lab name
+    const dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
+
+    // Insert the dynamic data into the HTML
+    const sendMe = labHtml.replace("//PARAMS**GO**HERE",
+        `
+            var userName = '${name}';
+            var dataFile = ${JSON.stringify(dataFile)};
+            var labName = '${labName}';
+            var params = {
+                sessionID: "${sessionID}",
+                user: "${name}"
+            };
+        `);
+
+    // Serve the generated HTML
+    res.setHeader("Content-Type", "text/html");
+    res.send(sendMe);
+});
+
 
 app.get("/:lab/:name", (req, res) => {	
   console.log('lab: ' + req.params.lab + " name: " + req.params.name);
@@ -235,7 +306,8 @@ app.get("/:lab/:name", (req, res) => {
 
 		} else {
       labHtml = 'Invalid title or student';
-		  labHtml += 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower;
+		  labHtml += 'Invalid title: ' + labName + "<br>" + lower + "<br>labList: " + labList;
+      labHtml += '<br>name: ' + name;
 		}
 		
 		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
@@ -291,79 +363,12 @@ app.get("/score/:sessionID/:score", (req, res) => {
 });    // app.get("/score...")
 
 
-app.get("/noscore/:passed", (req, res) => { // working here
-    
-   console.log('req.passed');
-   console.log(req.passed);
-  
-    const { labName, name, sessionID } = req.passed;
-    var session = sessions[req.params.sessionID];
-    console.log(labName, name, sessionID, session);
-    let resp = 'Assignment submitted.  Close this window and check your submission in Canvas.';
-  
-    const dynamicUrl = `__dirname/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
-    session.outcome_service.send_replace_result_with_url('0', dynamicUrl, (err, isValid) => {
-        if (err) {
-            console.error('Error:', err);
-            resp += `<br/>Update failed: ${err.message || err}`;
-            return res.send(resp);
-        } else if (!isValid) {
-            console.warn('Invalid response');
-            resp += `<br/>Update failed: Invalid response`;
-            return res.send(resp);
-        } else {
-            resp += '<br/>Update successful';
-            
-            // Now delete the score
-            session.outcome_service.send_delete_result((err, result) => {
-                if (err) {
-                    console.error('Error:', err);
-                    resp += `<br/>Delete failed: ${err.message || err}`;
-                } else {
-                    resp += '<br/>Score deleted successfully';
-                }
-                
-                console.log(result);
-                res.send(resp);
-            });
-        }
-    });
-});
 
 
 
 
-app.get('/dynamic-content/:passed', (req, res) => {
-  
-   console.log('req.passed2');
-   console.log(req.passed);
-  
-    const { labName, name, sessionID } = req.passed;  
-  //var session = sessions[req.params.sessionID];
-  
-  
-   // Read the static HTML file
-    const labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
 
-    // Read the dynamic data file based on the student's name and lab name
-    const dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
 
-    // Insert the dynamic data into the HTML
-    const sendMe = labHtml.replace("//PARAMS**GO**HERE",
-        `
-            var userName = '${name}';
-            var dataFile = ${JSON.stringify(dataFile)};
-            var labName = '${labName}';
-            var params = {
-                sessionID: "${sessionID}",
-                user: "${name}"
-            };
-        `);
-
-    // Serve the generated HTML
-    res.setHeader("Content-Type", "text/html");
-    res.send(sendMe);
-});
 
 
 
