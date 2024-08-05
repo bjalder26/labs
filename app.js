@@ -285,6 +285,21 @@ app.get("/noscore/:sessionID/:names", (req, res) => {
     let resp = '';
     //var resp = `Your score of ${noscore}% has been recorded`;
   
+  const labHtml = fs.readFileSync(path.join(__dirname, 'lab', `${labName}.html`), 'utf8');
+    const dataFile = fs.readFileSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`), 'utf8');
+  
+  const sendMe = labHtml.replace("//PARAMS**GO**HERE",
+        `
+            var userName = '${name}';
+            var dataFile = ${JSON.stringify(dataFile)};
+            var labName = '${labName}';
+            var params = {
+                sessionID: "${sessionID}",
+                user: "${name}"
+            };
+        `);
+  
+  
     const dynamicUrl = `http://yourserver.com/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
     session.outcome_service.send_replace_result_with_url('0', 'https://www.google.com', (err, isValid) => {
         if (err) {
