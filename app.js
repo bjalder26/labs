@@ -133,7 +133,7 @@ app.post("/", async (req, res) => {
         sessions[sessionID] = lmsData;
 
         const name = lmsData.body.lis_person_name_full;
-        console.log('name: ' + name);
+        //console.log('name: ' + name);
         let labHtml = '';
         let dataFile = {};
         let labName = '';
@@ -143,8 +143,8 @@ app.post("/", async (req, res) => {
         let labList;
         try {
             labList = await readLabList(labFolder);
-            console.log('labList1');
-            console.log(labList);
+            //console.log('labList1');
+            //console.log(labList);
         } catch (error) {
             console.error(error);
             res.send("Error reading lab list.");
@@ -159,12 +159,12 @@ app.post("/", async (req, res) => {
 
             labHtml = fs.readFileSync(path.join(__dirname, "lab", `${labName}.html`), "utf8");
             dataFile = fs.readFileSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`), "utf8");
-            console.log('dataFile');
-            console.log(dataFile);
+            //console.log('dataFile');
+            //console.log(dataFile);
         } else {
-            console.log('labList2');
-            console.log(labList);
-            console.log(typeof labList);
+           //console.log('labList2');
+           // console.log(labList);
+            //console.log(typeof labList);
             labHtml = 'Invalid title' + '<br>lmsData.body.resource_link_title.toLowerCase(): ' + lmsData.body.resource_link_title.toLowerCase() + '<br>labList.toString(): ' + labList.toString();
         }
 
@@ -206,10 +206,10 @@ app.get("/instructor", (req, res) => {
 });       // app.post("/");
 
 
-app.get('/noscore/:passed', (req, res) => { // working here
+app.get('/noscore/:passed', (req, res) => {
     
-   console.log('req.params.passed');
-  console.log(decodeURI(req.params.passed));
+   //console.log('req.params.passed');
+  //console.log(decodeURI(req.params.passed));
     let passed = decodeURI(req.params.passed);
     passed = JSON.parse(passed);
     const labName = passed.labName
@@ -218,10 +218,10 @@ app.get('/noscore/:passed', (req, res) => { // working here
     //const { labName, name, sessionID } = decodeURI(req.params.passed);
     var session = sessions[sessionID];
     console.log(labName, name, sessionID, session);
-    let resp = 'Assignment submitted.  Close this window and check your submission in Canvas.';
+    let resp = 'Assignment submitted2.  Close this window and check your submission in Canvas.';
   
     const dynamicUrl = `__dirname/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
-    session.outcome_service.send_replace_result_with_url('0', dynamicUrl, (err, isValid) => {
+    session.outcome_service.send_replace_result_with_url(0, dynamicUrl, (err, isValid) => {
         if (err) {
             console.error('Error:', err);
             resp += `<br/>Update failed: ${err.message || err}`;
@@ -242,7 +242,7 @@ app.get('/noscore/:passed', (req, res) => { // working here
                     resp += '<br/>Score deleted successfully';
                 }
                 
-                console.log(result);
+                //console.log(result);
                 res.send(resp);
             });
         }
@@ -283,10 +283,10 @@ app.get('/dynamic-content/:passed', (req, res) => {
 
 
 app.get("/:lab/:name", (req, res) => {	
-  console.log('lab: ' + req.params.lab + " name: " + req.params.name);
+  //console.log('lab: ' + req.params.lab + " name: " + req.params.name);
 		//const name = lmsData.body.lis_person_name_full;
     let name =  decodeURIComponent(req.params.name);
-		console.log('name: ' + name);
+		//console.log('name: ' + name);
 		let labHtml = '';
 		let dataFile = {};
 		let labName =  decodeURIComponent(req.params.lab);
@@ -305,8 +305,8 @@ app.get("/:lab/:name", (req, res) => {
 			
 		labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
 		dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
-		console.log('dataFile');
-		console.log(dataFile);
+		//console.log('dataFile');
+		//console.log(dataFile);
 
 		} else {
       labHtml = 'Invalid title or student';
