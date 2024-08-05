@@ -278,12 +278,15 @@ app.get("/score/:sessionID/:score", (req, res) => {
 });    // app.get("/score...")
 
 
-app.get("/noscore/:sessionID/:noscore", (req, res) => {
+app.get("/noscore/:sessionID/:names", (req, res) => {
+    const sessionID = req.params.sessionID;
     var session = sessions[req.params.sessionID];
-    var noscore = req.params.noscore;
-    var resp = `Your score of ${noscore}% has been recorded`;
-    
-    session.outcome_service.send_replace_result_with_url(noscore, 'https://www.google.com', (err, isValid) => {
+    const { labName, name } = req.params.names;
+    let resp = '';
+    //var resp = `Your score of ${noscore}% has been recorded`;
+  
+    const dynamicUrl = `http://yourserver.com/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
+    session.outcome_service.send_replace_result_with_url('0', 'https://www.google.com', (err, isValid) => {
         if (err) {
             console.error('Error:', err);
             resp += `<br/>Update failed: ${err.message || err}`;
