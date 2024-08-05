@@ -217,10 +217,19 @@ app.get('/noscore/:passed', (req, res) => {
     const sessionID = passed.sessionID;
     //const { labName, name, sessionID } = decodeURI(req.params.passed);
     var session = sessions[sessionID];
-    console.log(labName, name, sessionID, session);
+    console.log(labName, name, sessionID);
     let resp = 'Assignment submitted2.  Close this window and check your submission in Canvas.';
   
-    const dynamicUrl = `__dirname/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
+    const encodedLabName = encodeURIComponent(labName);
+let passedInfo = {};
+  passedInfo.labName = labName;
+  passedInfo.name = name;
+  passedInfo.sessionID = sessionID;
+    
+    passedInfo = encodeURIComponent(JSON.stringify(passedInfo));
+
+const dynamicUrl = `${__dirname}/dynamic-content/${passedInfo}`;
+  console.log(dynamicUrl);
     session.outcome_service.send_replace_result_with_url(0, dynamicUrl, (err, isValid) => {
         if (err) {
             console.error('Error:', err);
@@ -251,10 +260,12 @@ app.get('/noscore/:passed', (req, res) => {
 
 app.get('/dynamic-content/:passed', (req, res) => {
   
-   console.log('req.passed2');
-   console.log(req.passed);
+   let passed = decodeURI(req.params.passed);
+    passed = JSON.parse(passed);
+    const labName = passed.labName;
+    const name = passed.course.replaceAll("_", " ");
+    const userName = passed.userName;
   
-    const { labName, name, sessionID } = req.passed;  
   //var session = sessions[req.params.sessionID];
   
   
