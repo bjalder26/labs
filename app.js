@@ -95,6 +95,10 @@ function findStudents(labName) {
     }
 }
 
+function filesToLowerCase(files) {
+ return files.map(file => file.toLowerCase());
+}
+
 app.post("/", (req, res) => {	
 	var lmsData = new lti.Provider("top", "secret");
   
@@ -122,7 +126,7 @@ app.post("/", (req, res) => {
     
 // Specify the directory
 const labFolder = './lab';
-let labList = [];
+let labList = readLabList();
 // Read the directory
 fs.readdir(labFolder, (err, files) => {
     if (err) {
@@ -131,8 +135,8 @@ fs.readdir(labFolder, (err, files) => {
     }
 
     // Convert file names to lowercase and store them in an array
-    labList = files.map(file => file.toLowerCase());
-    console.log('labList');
+    labList = filesToLowerCase(files);
+    console.log('labList1');
     console.log(labList);
 });
     
@@ -150,6 +154,7 @@ fs.readdir(labFolder, (err, files) => {
 		console.log(dataFile);
 
 		} else {
+      console.log('labList2');
     console.log(labList);
     console.log(typeof labList);
 		labHtml = 'Invalid title' + '<br>lmsData.body.resource_link_title.toLowerCase(): ' + lmsData.body.resource_link_title.toLowerCase() + '<br>labList.toString(): '  + labList.toString(); // list just above => should get from lab file
