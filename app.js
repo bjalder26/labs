@@ -235,7 +235,7 @@ app.get("/:lab/:name", (req, res) => {
 
 		} else {
       labHtml = 'Invalid title or student';
-		//labHtml = 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower;
+		  labHtml += 'Invalid title: ' + JSON.stringify(lmsData.body) + ' ' + lmsData.body.resource_link_title + ' ' + typeof lmsData.body.custom_canvas_assignment_title + ' x ' + lower;
 		}
 		
 		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
@@ -296,7 +296,9 @@ app.get("/noscore/:passed", (req, res) => { // working here
    console.log('req.passed');
    console.log(req.passed);
   
-    const { labName, name, sessionID, session } = req.passed;
+    const { labName, name, sessionID } = req.passed;
+    var session = sessions[req.params.sessionID];
+    console.log(labName, name, sessionID, session);
     let resp = 'Assignment submitted.  Close this window and check your submission in Canvas.';
   
     const dynamicUrl = `__dirname/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
@@ -336,7 +338,8 @@ app.get('/dynamic-content/:passed', (req, res) => {
    console.log('req.passed2');
    console.log(req.passed);
   
-    const { labName, name, sessionID, session } = req.passed;  
+    const { labName, name, sessionID } = req.passed;  
+  //var session = sessions[req.params.sessionID];
   
   
    // Read the static HTML file

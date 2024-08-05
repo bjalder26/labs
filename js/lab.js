@@ -317,13 +317,12 @@ function submitScore() {
   document.location = path;
 }
 
-function submitAssignment(labName, name, sessionID, session) {
+function submitAssignment(labName, name, sessionID) {
   let passed = {};
   passed.labName = labName;
   passed.name = name;
   passed.sessionID = sessionID;
-  passed.session = session;
-  console.log(labName, name, sessionID, session);
+  console.log(labName, name, sessionID);
   var path = `/noscore/${passed}`;
   document.location = path;
 }
