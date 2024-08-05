@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
   <head>
     <title>Acetic Acid Concentration Determination of Vinegar (Titration)</title><!-- Title -->
@@ -47,7 +48,7 @@
 <li>LabQuest</li>
 <li>pH probe</li>
 <li>50 mL buret</li>
-<li>Ring stand & buret clamp</li>
+<li>Ring stand &amp; buret clamp</li>
 <li>Funnel</li>
 <li>Phenopthalene</li>
 <li>(2) 250 mL Erlenmeyer flasks</li>
@@ -89,8 +90,8 @@ For aA → bB, Mole A x $\frac{b\;mol\;B}{a\;mol\;A}$ = Mol B<br>
 You will set up your titration apparatus and rinse your buret with water and 15 mL of NaOH.
 </div>
 <ol>
-<li>Set up your titration apparatus (see figure 1).</li>
-Figure 1: Titration apparatus<br>
+<li>Set up your titration apparatus (see figure 1).<br>
+Figure 1: Titration apparatus<br></li>
 <img height="300px" src="../images/titrationapparatus.png"><p>
 
 <li>Rinse your buret by filling your buret with deionized water, then let all of it run into your waste beaker.</li>
@@ -107,7 +108,7 @@ Part A: Standardization of a NaOH solution with KHP.</li>
 <li>Add 2-3 drops of phenolphthalein to the solution.</li>
 <li>Add the magnetic stirring rod to the solution of KHP and place the beaker under the buret.</li>
 <li>Calculate the estimated amount of approximately 0.25 M NaOH needed to neutralize the amount of KHP you measured.</li>
-<input type="number" step="any" class="num" id="massKHP" name="massKHP"> g KHP x $\frac{1\;mol\;KHP}{204.22\;g\;KHP}$ x $\frac{1\;mol\;NaOH}{1\;mol\;KHP}$ x $\frac{1\;L\;NaOH}{0.25\;mol\;NaOH}$ x $\frac{1000\;mL}{1\;L}$ = <td><input type="number" class="calc" step="any" id="estVolNaOH" name="estVolNaOH" formula="${massKHP}/204.22/0.25*1000" help="Follow the calculation to the left"><div class="feedback" id="estVolNaOHFB" name="estVolNaOHFB"></div> mL NaOH
+<input type="number" step="any" class="num" id="massKHP" name="massKHP"> g KHP x $\frac{1\;mol\;KHP}{204.22\;g\;KHP}$ x $\frac{1\;mol\;NaOH}{1\;mol\;KHP}$ x $\frac{1\;L\;NaOH}{0.25\;mol\;NaOH}$ x $\frac{1000\;mL}{1\;L}$ = <input type="number" class="calc" step="any" id="estVolNaOH" name="estVolNaOH" formula="${massKHP}/204.22/0.25*1000" help="Follow the calculation to the left"><div class="feedback" id="estVolNaOHFB" name="estVolNaOHFB"></div> mL NaOH
 <li>Record this volume in table 1.</li>
 <li>Turn the stirring plate on to a rotation slow enough to prevent splashing.</li>
 <li>Since you have an estimate of the approximate amount of NaOH needed to neutralize your amount of KHP, you can quickly add about 75% of that value, but then slow down after that point.</li>
@@ -128,12 +129,12 @@ Table 1:
 <tr><td>Volume NaOH - end (mL)</td><td><input type="number" step="any" class="num" id="endVolNaOH" name="endVolNaOH"></td></tr>
 <tr><td>Volume NaOH used (end - beginning) (mL)</td><td><input type="number" class="calc" step="any" id="volNaOH" name="volNaOH" formula="${endVolNaOH}-${begVolNaOH}" help="Ending volume of NaOH minus beginning volume of NaOH."><div class="feedback" id="volNaOHFB" name="volNaOHFB"></div></td></tr>
 </table>
-</div>
+  </div>
 
 <li>Calculate the molarity of your NaOH solution based on your results.</li>
 <input type="number" class="calc" step="any" id="massKHP3" name="massKHP3" formula="${massKHP}" help="Mass of KHP should match your mass in #13 above."> g KHP x $\frac{1 mol KHP}{204.22 g KHP}$ x $\frac{1 mol NaOH}{1 mol KHP}$ = <input type="number" class="calc" step="any" id="molNaOH" name="molNaOH" formula="${massKHP3}/204.22" help="Follow the calculation to the left."> mol NaOH <div class="feedback" id="massKHP3FB" name="massKHP3FB"></div><div class="feedback" id="molNaOHFB" name="molNaOHFB"></div><br>
-<input type="number" class="calc" step="any" id="volNaOH2" name="volNaOH2" formula="${volNaOH}" help="Should match your volume of NaOH used in table 1."><div class="feedback" id="volNaOH2FB" name="volNaOH2FB"></div> mL NaOH solution x $\frac{1 L}{1000 mL}$ =  <input type="number" class="calc" step="any" id="volNaOH3" name="volNaOH3" formula="${volNaOH2}/1000" help="Divide the volume of NaOH in mL by 1000"><div class="feedback" id="volNaOH3FB" name="volNaOH3FB"></div> L NaOH solution</br>
-Molarity (M) = $\frac{mol_{solute}}{L_{solution}}$ = <input type="number" class="calc" step="any" id="MNaOH" name="MNaOH" formula="${molNaOH}/${volNaOH3}" help="mol NaoH divided by L of NaOH solution"><div class="feedback" id="MNaOHFB" name="MNaOHFB"></div> M</br>
+<input type="number" class="calc" step="any" id="volNaOH2" name="volNaOH2" formula="${volNaOH}" help="Should match your volume of NaOH used in table 1."><div class="feedback" id="volNaOH2FB" name="volNaOH2FB"></div> mL NaOH solution x $\frac{1 L}{1000 mL}$ =  <input type="number" class="calc" step="any" id="volNaOH3" name="volNaOH3" formula="${volNaOH2}/1000" help="Divide the volume of NaOH in mL by 1000"><div class="feedback" id="volNaOH3FB" name="volNaOH3FB"></div> L NaOH solution<br>
+Molarity (M) = $\frac{mol_{solute}}{L_{solution}}$ = <input type="number" class="calc" step="any" id="MNaOH" name="MNaOH" formula="${molNaOH}/${volNaOH3}" help="mol NaoH divided by L of NaOH solution"><div class="feedback" id="MNaOHFB" name="MNaOHFB"></div> M<br>
 <li>Create a table like table 2 below on the board, to collect every group’s data, then take an average of your molarities.</li>
 
 <div class="noBreak">
@@ -206,10 +207,11 @@ Molarity (M) of acetic acid in vinegar  = $\frac{mol_{solute}}{L_{solution}}$ = 
 <td><input type="number" step="any" class="num" id="MAAG7" name="MAAG7"></td>
 <td><input type="number" step="any" class="num" id="MAAG8" name="MAAG8"></td>
 <td><input type="number" class="calc" step="any" id="MAAAve" name="MAAAve" formula="mean(filter('${MAAG1}', '${MAAG2}', '${MAAG3}', '${MAAG4}', '${MAAG5}', '${MAAG6}', '${MAAG7}', '${MAAG8}'))" help="Add the molarities from each group, then divide by the number of groups"><div class="feedback" id="MAAAveFB" name="MAAAveFB"></div></td>
-</tr>
+  </tr>
 </table>
-</div>
+  </div>
 
+  
 <li>Collect all your waste in your 400 mL waste beaker.  If the solution appears light pink, then you can pour it down the drain with the water running, if it turns clear again, then slowly add more NaOH until it turns light pink, then dispose of it down the drain.</li>
 <li>Clean your funnel, graduated cylinder, flasks, and beaker using the soap and brushes, then rinse them 3-7 times and leave them on paper towels to dry. Rinse your pipet, rubber stopper, and stir bar and leave them to dry.  Put everything else back where you found it.</li>
 <li>Clean up any messes, and make sure the solution bottles are capped before you leave.</li>
