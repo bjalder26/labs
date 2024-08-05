@@ -318,8 +318,8 @@ function submitScore() {
 }
 
 function submitAssignment(labName, name) {
-  const passed = [labName, name]; 
-  var path = `/noscore/${params.sessionID}/passed`;
+  const passed = {labName, name}; 
+  var path = `/noscore/${passed}`;
   document.location = path;
 }
 

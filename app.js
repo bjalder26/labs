@@ -47,6 +47,19 @@ app.use(express.static(__dirname + '/public'));
 app.post("*", require("body-parser").urlencoded({extended: true}));
 
 
+function readLabList(labFolder) {
+    return new Promise((resolve, reject) => {
+        fs.readdir(labFolder, (err, files) => {
+            if (err) {
+                return reject(`Error reading the lab folder: ${err}`);
+            }
+            const lowerCaseFiles = filesToLowerCase(files);
+            resolve(lowerCaseFiles);
+        });
+    });
+}
+
+/*
 function readLabList() {
     const labFolder = './lab';
 
@@ -62,6 +75,7 @@ function readLabList() {
         return [];
     }
 }
+*/
 
 /*
 // Function to read the lab list from the text file
@@ -96,88 +110,80 @@ function findStudents(labName) {
 }
 
 function filesToLowerCase(files) {
- return files.map(file => file.toLowerCase());
+    return files
+        .map(file => file.toLowerCase())
+        .map(file => file.replace('.html', ''));
 }
 
-app.post("/", (req, res) => {	
-	var lmsData = new lti.Provider("top", "secret");
-  
-  if(req.body.roles.includes('Instructor')) {
-    res.redirect("/instructor");
-  }
-  
-	lmsData.valid_request(req, (err, isValid) => {
-		if (!isValid) {
-			res.send("Invalid request: " + err);
-			return ;
-		}
-		
-		var sessionID = uuid();
-		sessions[sessionID] = lmsData;
-		
-		const name = lmsData.body.lis_person_name_full;
-		console.log('name: ' + name);
-		let labHtml = '';
-		let dataFile = {};
-		let labName = '';
-		let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
-    
-    //let labList = ['exploring density properties', 'exploring density properties 2', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'limiting reactant', 'empirical formula of a compound online', 'freezing point depression lab', 'acetone iodine kinetics lab', 'antacids lab'];
-    
-// Specify the directory
-const labFolder = './lab';
-let labList = readLabList();
-// Read the directory
-fs.readdir(labFolder, (err, files) => {
-    if (err) {
-        console.error(`Error reading the lab folder: ${err}`);
+app.post("/", async (req, res) => {
+    var lmsData = new lti.Provider("top", "secret");
+
+    if (req.body.roles.includes('Instructor')) {
+        res.redirect("/instructor");
         return;
     }
 
-    // Convert file names to lowercase and store them in an array
-    labList = filesToLowerCase(files);
-    console.log('labList1');
-    console.log(labList);
+    lmsData.valid_request(req, async (err, isValid) => {
+        if (!isValid) {
+            res.send("Invalid request: " + err);
+            return;
+        }
+
+        var sessionID = uuid();
+        sessions[sessionID] = lmsData;
+
+        const name = lmsData.body.lis_person_name_full;
+        console.log('name: ' + name);
+        let labHtml = '';
+        let dataFile = {};
+        let labName = '';
+        let lower = lmsData.body.custom_canvas_assignment_title.toLowerCase();
+
+        const labFolder = './lab';
+        let labList;
+        try {
+            labList = await readLabList(labFolder);
+            console.log('labList1');
+            console.log(labList);
+        } catch (error) {
+            console.error(error);
+            res.send("Error reading lab list.");
+            return;
+        }
+
+        if (labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
+            labName = capitalizeEveryWord(lmsData.body.resource_link_title);
+            if (!fs.existsSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`))) {
+                fs.writeFileSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`), '{}', 'utf8');
+            }
+
+            labHtml = fs.readFileSync(path.join(__dirname, "lab", `${labName}.html`), "utf8");
+            dataFile = fs.readFileSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`), "utf8");
+            console.log('dataFile');
+            console.log(dataFile);
+        } else {
+            console.log('labList2');
+            console.log(labList);
+            console.log(typeof labList);
+            labHtml = 'Invalid title' + '<br>lmsData.body.resource_link_title.toLowerCase(): ' + lmsData.body.resource_link_title.toLowerCase() + '<br>labList.toString(): ' + labList.toString();
+        }
+
+        var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
+            `
+                var userName = '${name}';
+                var dataFile = ${dataFile};
+                var labName = '${labName}';
+                var params = {
+                    sessionID: "${sessionID}",
+                    user: "${name}"
+                };
+            `);
+
+        res.setHeader("Content-Type", "text/html");
+        res.send(sendMe);
+    });
 });
-    
-    
-		if(labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
-		labName = capitalizeEveryWord(lmsData.body.resource_link_title);
-		// creates user data file if it doesn't exist *** make this a function? ***
-		if (!fs.existsSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt')){
-			fs.writeFileSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt', '{}', 'utf8');
-			}	
-			
-		labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
-		dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
-		console.log('dataFile');
-		console.log(dataFile);
-
-		} else {
-      console.log('labList2');
-    console.log(labList);
-    console.log(typeof labList);
-		labHtml = 'Invalid title' + '<br>lmsData.body.resource_link_title.toLowerCase(): ' + lmsData.body.resource_link_title.toLowerCase() + '<br>labList.toString(): '  + labList.toString(); // list just above => should get from lab file
-		}
-		
-		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
-				`
-						var userName = '${name}';
-						var dataFile = ${dataFile};
-						var labName = '${labName}';
-						var params = {
-						sessionID: "${sessionID}",
-						user: "${name}"
-					};
-				`);
-
-        
-
-		res.setHeader("Content-Type", "text/html");
-		res.send(sendMe);
-	});   // lmsDate.valid_request
-	
-});       // app.post("/");
+       // app.post("/");
 
 // Route to get lab list
 app.get('/labList', (req, res) => {
