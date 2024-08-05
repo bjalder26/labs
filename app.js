@@ -57,6 +57,8 @@ function readLabList(labFolder) {
           console.log('files');
             console.log(files);
             const lowerCaseFiles = filesToLowerCase(files);
+          console.log('lowerCaseFiles');
+            console.log(lowerCaseFiles);
             resolve(lowerCaseFiles);
         });
     });
@@ -99,12 +101,18 @@ function readLabList() {
 // Function to find student names based on selected lab
 function findStudents(labName) {
     try {
-        const labPrefix = labName + '_';
+        const labPrefix = capitalizeEveryWord(labName) + '_';
+      console.log('labPrefix')
+      console.log(labPrefix)
         const submissionsFolder = __dirname + '/submissions';
+      console.log('submissionsFolder')
+        console.log(submissionsFolder)
         const files = fs.readdirSync(submissionsFolder);
         const students = files
             .filter(file => file.startsWith(labPrefix))
             .map(file => file.split('_')[1].split('.')[0]);
+      console.log('students2');  
+      console.log(students);
         return students;
     } catch (error) {
         console.error('Error finding students:', error);
@@ -189,17 +197,21 @@ app.post("/", async (req, res) => {
        // app.post("/");
 
 // Route to get lab list
-app.get('/labList', (req, res) => {
-    const labList = readLabList(__dirname + '/lab');
-    console.log(labList)
-  console.log(JSON.stringify(labList))
+app.get('/labList', async (req, res) => {
+  const labList = await readLabList(__dirname + '/lab');
+  //console.log('labList')
+    //console.log(labList)
     res.json(labList);
 });
 
 // Route to get students based on selected lab
 app.get('/students/:labName', (req, res) => {
     const labName = req.params.labName;
+  console.log('labName');
+    console.log(labName);
     const students = findStudents(labName);
+  console.log('students');
+    console.log(students);
     res.json(students);
 });
 
