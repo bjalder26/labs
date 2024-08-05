@@ -278,28 +278,16 @@ app.get("/score/:sessionID/:score", (req, res) => {
 });    // app.get("/score...")
 
 
-app.get("/noscore/:sessionID/:passed", (req, res) => { // working here
-    const { labName, name, sessionID } = passed.names;
-    let resp = '';
-    //var resp = `Your score of ${noscore}% has been recorded`;
+app.get("/noscore/:passed", (req, res) => { // working here
+    
+   console.log('req.passed');
+   console.log(req.passed);
   
-  const labHtml = fs.readFileSync(path.join(__dirname, 'lab', `${labName}.html`), 'utf8');
-    const dataFile = fs.readFileSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`), 'utf8');
+    const { labName, name, sessionID, session } = req.passed;
+    let resp = 'Assignment submitted.  Close this window and check your submission in Canvas.';
   
-  const sendMe = labHtml.replace("//PARAMS**GO**HERE",
-        `
-            var userName = '${name}';
-            var dataFile = ${JSON.stringify(dataFile)};
-            var labName = '${labName}';
-            var params = {
-                sessionID: "${sessionID}",
-                user: "${name}"
-            };
-        `);
-  
-  
-    const dynamicUrl = `http://yourserver.com/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
-    session.outcome_service.send_replace_result_with_url('0', 'https://www.google.com', (err, isValid) => {
+    const dynamicUrl = `__dirname/dynamic-content/${labName}/${name}?sessionID=${sessionID}`;
+    session.outcome_service.send_replace_result_with_url('0', dynamicUrl, (err, isValid) => {
         if (err) {
             console.error('Error:', err);
             resp += `<br/>Update failed: ${err.message || err}`;
@@ -330,7 +318,37 @@ app.get("/noscore/:sessionID/:passed", (req, res) => { // working here
 
 
 
+app.get('/dynamic-content/:passed', (req, res) => {
+  
+   console.log('req.passed2');
+   console.log(req.passed);
+  
+    const { labName, name, sessionID, session, dataFile } = req.passed;  
+  
+  
+   // Read the static HTML file
+    const labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
 
+    // Read the dynamic data file based on the student's name and lab name
+    const dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
+
+    // Insert the dynamic data into the HTML
+    const sendMe = labHtml.replace("//PARAMS**GO**HERE",
+        `
+            var userName = '${name}';
+            var dataFile = ${JSON.stringify(dataFile)};
+            var labName = '${labName}';
+            var params = {
+                sessionID: "${sessionID}",
+                user: "${name}"
+            };
+        `);
+
+    // Serve the generated HTML
+    res.setHeader("Content-Type", "text/html");
+    res.send(sendMe);
+  
+});
 
 
 
