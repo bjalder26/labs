@@ -51,8 +51,11 @@ function readLabList(labFolder) {
     return new Promise((resolve, reject) => {
         fs.readdir(labFolder, (err, files) => {
             if (err) {
+                console.log(`Error reading the lab folder: ${err}`);
                 return reject(`Error reading the lab folder: ${err}`);
             }
+          console.log('files');
+            console.log(files);
             const lowerCaseFiles = filesToLowerCase(files);
             resolve(lowerCaseFiles);
         });
@@ -187,7 +190,9 @@ app.post("/", async (req, res) => {
 
 // Route to get lab list
 app.get('/labList', (req, res) => {
-    const labList = readLabList();
+    const labList = readLabList(__dirname + '/lab');
+    console.log(labList)
+  console.log(JSON.stringify(labList))
     res.json(labList);
 });
 
@@ -218,7 +223,7 @@ app.get('/noscore/:passed', (req, res) => {
     //const { labName, name, sessionID } = decodeURI(req.params.passed);
     var session = sessions[sessionID];
     console.log(labName, name, sessionID);
-    let resp = 'Assignment submitted2.  Close this window and check your submission in Canvas.';
+    let resp = '';
   
     const encodedLabName = encodeURIComponent(labName);
 let passedInfo = {};
@@ -239,18 +244,18 @@ const dynamicUrl = `${baseUrl}/dynamic-content/${passedInfo}`;
             return res.send(resp);
         } else if (!isValid) {
             console.warn('Invalid response');
-            resp += `<br/>Update failed: Invalid response`;
+            resp += `Update failed: Close this window, return to Canvas, and resubmit assignment.`;
             return res.send(resp);
         } else {
-            resp += '<br/>Update successful';
+            resp += 'Assignment submitted.  Close this window and check your submission in Canvas.';
             
             // Now delete the score
             session.outcome_service.send_delete_result((err, result) => {
                 if (err) {
                     console.error('Error:', err);
-                    resp += `<br/>Delete failed. Score erroneously entered.  Instructor will manually correct grade. <br> ${err.message || err}`;
+                    resp += `<br/>Delete failed. Score erroneously entered.  Instructor will manually correct assignment grade. <br> ${err.message || err}`;
                 } else {
-                    resp += '<br/>Instructor will manually grade.';
+                    resp += '<br/>Instructor will manually grade assignment.';
                 }
                 
                 //console.log(result);
