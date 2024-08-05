@@ -150,7 +150,9 @@ fs.readdir(labFolder, (err, files) => {
 		console.log(dataFile);
 
 		} else {
-		labHtml = 'Invalid title: ' + '<br>lmsData.body.resource_link_title: ' + lmsData.body.resource_link_title + '<br>labList.toString(): '  + labList.toString(); // list just above => should get from lab file
+    console.log(labList);
+    console.log(typeof labList);
+		labHtml = 'Invalid title' + '<br>lmsData.body.resource_link_title.toLowerCase(): ' + lmsData.body.resource_link_title.toLowerCase() + '<br>labList.toString(): '  + labList.toString(); // list just above => should get from lab file
 		}
 		
 		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
@@ -323,7 +325,7 @@ app.get('/dynamic-content/:passed', (req, res) => {
    console.log('req.passed2');
    console.log(req.passed);
   
-    const { labName, name, sessionID, session, dataFile } = req.passed;  
+    const { labName, name, sessionID, session } = req.passed;  
   
   
    // Read the static HTML file
@@ -347,7 +349,6 @@ app.get('/dynamic-content/:passed', (req, res) => {
     // Serve the generated HTML
     res.setHeader("Content-Type", "text/html");
     res.send(sendMe);
-  
 });
 
 
