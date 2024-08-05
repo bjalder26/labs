@@ -232,7 +232,7 @@ const baseUrl = 'https://elfin-ten-marble.glitch.me'; // fix this later
 
 const dynamicUrl = `${baseUrl}/dynamic-content/${passedInfo}`;
   console.log(dynamicUrl);
-    session.outcome_service.send_replace_result_with_url(0, dynamicUrl, (err, isValid) => {
+    session.outcome_service.send_replace_result_with_url(1, dynamicUrl, (err, isValid) => {
         if (err) {
             console.error('Error:', err);
             resp += `<br/>Update failed: ${err.message || err}`;
@@ -248,9 +248,9 @@ const dynamicUrl = `${baseUrl}/dynamic-content/${passedInfo}`;
             session.outcome_service.send_delete_result((err, result) => {
                 if (err) {
                     console.error('Error:', err);
-                    resp += `<br/>Delete failed: ${err.message || err}`;
+                    resp += `<br/>Delete failed. Score erroneously entered.  Instructor will manually correct grade. <br> ${err.message || err}`;
                 } else {
-                    resp += '<br/>Score deleted successfully';
+                    resp += '<br/>Instructor will manually grade.';
                 }
                 
                 //console.log(result);
