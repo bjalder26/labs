@@ -208,8 +208,8 @@ app.get("/instructor", (req, res) => {
 
 app.get('/noscore/:passed', (req, res) => {
     
-   //console.log('req.params.passed');
-  //console.log(decodeURI(req.params.passed));
+   console.log('req.params.passed');
+  console.log(decodeURI(req.params.passed));
     let passed = decodeURI(req.params.passed);
     passed = JSON.parse(passed);
     const labName = passed.labName
@@ -228,7 +228,9 @@ let passedInfo = {};
     
     passedInfo = encodeURIComponent(JSON.stringify(passedInfo));
 
-const dynamicUrl = `${__dirname}/dynamic-content/${passedInfo}`;
+const baseUrl = 'https://elfin-ten-marble.glitch.me'; // fix this later
+
+const dynamicUrl = `${baseUrl}/dynamic-content/${passedInfo}`;
   console.log(dynamicUrl);
     session.outcome_service.send_replace_result_with_url(0, dynamicUrl, (err, isValid) => {
         if (err) {
@@ -263,12 +265,9 @@ app.get('/dynamic-content/:passed', (req, res) => {
    let passed = decodeURI(req.params.passed);
     passed = JSON.parse(passed);
     const labName = passed.labName;
-    const name = passed.course.replaceAll("_", " ");
-    const userName = passed.userName;
-  
-  //var session = sessions[req.params.sessionID];
-  
-  
+    const name = passed.name;
+    const sessionID = passed.sessionID;
+    
    // Read the static HTML file
     const labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
 
