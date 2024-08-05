@@ -278,7 +278,7 @@ app.get('/dynamic-content/:passed', (req, res) => {
     const sendMe = labHtml.replace("//PARAMS**GO**HERE",
         `
             var userName = '${name}';
-            var dataFile = ${JSON.stringify(dataFile)};
+            var dataFile = ${dataFile};
             var labName = '${labName}';
             var params = {
                 sessionID: "${sessionID}",
