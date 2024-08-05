@@ -309,7 +309,7 @@ app.get('/dynamic-content/:passed', (req, res) => {
 });
 
 
-app.get("/:lab/:name", (req, res) => {	
+app.get("/:lab/:name", async (req, res) => {	
   //console.log('lab: ' + req.params.lab + " name: " + req.params.name);
 		//const name = lmsData.body.lis_person_name_full;
     let name =  decodeURIComponent(req.params.name);
@@ -319,7 +319,7 @@ app.get("/:lab/:name", (req, res) => {
 		let labName =  decodeURIComponent(req.params.lab);
 		let lower = labName.toLowerCase();
     
-    let labList = fs.readFileSync(__dirname + "/labList.txt", "utf8");
+    const labList = await readLabList(__dirname + '/lab'); //here
   
     //let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'empirical formula of a compound online'];
     
