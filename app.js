@@ -211,6 +211,7 @@ app.get('/noscore/:passed', (req, res) => { // working here
    console.log('req.params.passed');
   console.log(decodeURI(req.params.passed));
     let passed = decodeURI(req.params.passed);
+    passed = JSON.parse(passed);
     const labName = passed.labName
     const name = passed.name;
     const sessionID = passed.sessionID;
