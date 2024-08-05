@@ -278,7 +278,7 @@ app.get("/score/:sessionID/:score", (req, res) => {
 });    // app.get("/score...")
 
 
-app.get("/noscore/:sessionID/:names", (req, res) => {
+app.get("/noscore/:sessionID/:names", (req, res) => { // working here
     const sessionID = req.params.sessionID;
     var session = sessions[req.params.sessionID];
     const { labName, name } = req.params.names;
