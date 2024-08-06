@@ -153,10 +153,6 @@ Table 2:
 <td><input type="number" class="temp graph" step="any" id="y6" name="y6"></td>
 </tr>
 <tr>
-<td><input type="number" class="temp graph" step="any" id="x2" name="x2"></td>
-<td><input type="number" class="temp graph" step="any" id="y2" name="y2"></td>
-</tr>
-<tr>
 <td><input type="number" class="temp graph" step="any" id="x7" name="x7"></td>
 <td><input type="number" class="temp graph" step="any" id="y7" name="y7"></td>
 </tr>
@@ -342,7 +338,7 @@ Table 2:
 
 <li>Set up your titration apparatus (see figure 1).</li>
 Figure 1: Titration apparatus<br>
-<img height="300px" src="../images/titrationapparatus.png"><p>
+<img height="300px" src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/titrationapparatus.png?v=1722891133145"><p>
 
 
 
@@ -361,8 +357,8 @@ Figure 1: Titration apparatus<br>
 
 <li>Calculate the molarity of your NaOH solution based on your results.</li>
 <input type="number" class="calc" step="any" id="massKHP3" name="massKHP3" formula="${massKHP}" help="Mass of KHP should match your mass in #13 above."> g KHP x $\frac{1 mol KHP}{204.22 g KHP}$ x $\frac{1 mol NaOH}{1 mol KHP}$ = <input type="number" class="calc" step="any" id="molNaOH" name="molNaOH" formula="${massKHP3}/204.22" help="Follow the calculation to the left."> mol NaOH <div class="feedback" id="massKHP3FB" name="massKHP3FB"></div><div class="feedback" id="molNaOHFB" name="molNaOHFB"></div><br>
-<input type="number" class="calc" step="any" id="volNaOH2" name="volNaOH2" formula="${volNaOH}" help="Should match your volume of NaOH used in table 1."><div class="feedback" id="volNaOH2FB" name="volNaOH2FB"></div> mL NaOH solution x $\frac{1 L}{1000 mL}$ =  <input type="number" class="calc" step="any" id="volNaOH3" name="volNaOH3" formula="${volNaOH2}/1000" help="Divide the volume of NaOH in mL by 1000"><div class="feedback" id="volNaOH3FB" name="volNaOH3FB"></div> L NaOH solution</br>
-Molarity (M) = $\frac{mol_{solute}}{L_{solution}}$ = <input type="number" class="calc" step="any" id="MNaOH" name="MNaOH" formula="${molNaOH}/${volNaOH3}" help="mol NaoH divided by L of NaOH solution"><div class="feedback" id="MNaOHFB" name="MNaOHFB"></div> M</br>
+<input type="number" class="calc" step="any" id="volNaOH2" name="volNaOH2" formula="${volNaOH}" help="Should match your volume of NaOH used in table 1."><div class="feedback" id="volNaOH2FB" name="volNaOH2FB"></div> mL NaOH solution x $\frac{1 L}{1000 mL}$ =  <input type="number" class="calc" step="any" id="volNaOH3" name="volNaOH3" formula="${volNaOH2}/1000" help="Divide the volume of NaOH in mL by 1000"><div class="feedback" id="volNaOH3FB" name="volNaOH3FB"></div> L NaOH solution<br>
+Molarity (M) = $\frac{mol_{solute}}{L_{solution}}$ = <input type="number" class="calc" step="any" id="MNaOH" name="MNaOH" formula="${molNaOH}/${volNaOH3}" help="mol NaoH divided by L of NaOH solution"><div class="feedback" id="MNaOHFB" name="MNaOHFB"></div> M<br>
 <li>Create a table like table 2 below on the board, to collect every group’s data, then take an average of your molarities.</li>
 
 <div class="noBreak">
@@ -370,7 +366,7 @@ Table 2:
 <h4>Standardized molarity of NaOH</h4>
 <table>
 <tr><td></td><td>Group 1</td><td>Group 2</td><td>Group 3</td><td>Group 4</td><td>Group 5</td><td>Group 6</td><td>Group 7</td><td>Group 8</td><td>Average</td></tr>
-<tr><td>Molarity (M)</td></td>
+<tr><td>Molarity (M)</td>
 <td><input type="number" step="any" class="num" id="MNaOHG1" name="MNaOHG1"></td>
 <td><input type="number" step="any" class="num" id="MNaOHG2" name="MNaOHG2"></td>
 <td><input type="number" step="any" class="num" id="MNaOHG3" name="MNaOHG3"></td>
