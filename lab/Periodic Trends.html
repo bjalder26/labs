@@ -1,0 +1,331 @@
+<html>
+  <head>
+    <title>Periodic Trends (Activity Series and Solubility)</title><!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  </head>
+
+  <body onload="onLoad()">
+  <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<!-- ===================== custom style ===================== -->
+<style>
+  body {
+
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 55px);
+    grid-template-rows: repeat(3, 56px);
+    grid-gap: 4px;
+    width: 500px;
+    height: 300px;
+    background-image: url('../images/24wellplateresults.png');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 128px; /* Adjust as needed */
+    box-sizing: border-box;
+    background-size: contain; /* Change this to 'cover' if needed */
+    background-repeat: no-repeat;
+  }
+
+  .grid-item {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 62px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+   /*background-color: yellow;*/
+  }
+</style>	
+	
+	<!-- ===================== custom style ===================== -->
+    <h1 id="title" >Periodic Trends (Activity Series and Solubility)</h1> <!-- Title -->
+    Name: <div id="name"></div><br></br>
+   
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none">
+      <input type="text" id="userName" name="userName" style="display:none">
+	<!-- Beginning -->
+	
+<div class="noBreak">
+<h3>Chemicals and lab equipment:</h3>
+<ul>
+<li>Aluminum foil</li>
+<li>Calcium turnings</li>
+<li>Magnesium turnings</li>
+<li>0.5 M hydrochloric acid - HCl</li>
+<li>(3) Evaporation dishes or watch glasses for solids</li>
+<li>(3) Forceps</li>
+<li>0.1 M magnesium chloride - MgCl<sub>2</sub>
+<li>0.1 M calcium chloride - CaCl<sub>2</sub>
+<li>0.1 M strontium chloride - SrCl<sub>2</sub></li>
+<li>0.1 M barium chloride - BaCl<sub>2</sub></li>
+<li>Unknown metal chloride solution</li>
+<li>1.0 M ammonium carbonate - (NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub</li>
+<li>1.0 M sodium sulfate - Na<sub>2</sub>SO<sub>4</sub></li>
+<li>0.2 M potassium iodate - KIO<sub>3</sub></li>
+<li>Waste bin</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Each lab group:</h3>
+<ul>
+<li>Forceps</li>
+<li>Red litmus paper</li>
+<li>Matches or lighter</li>
+<li>White sheet of paper</li>
+<li>Black sheet of paper</li>
+<li>(10) plastic (Pasteur) pipets</li>
+<li>24-well reaction plate</li>
+<li>Wash bottle of deionized water</li>
+<li>Thermometer</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Background:</h3>
+In part A of the lab, you will be performing a activity series experiments to investigate the reactivity of metals with water and hydrochloric acid. The activity series is a list of metals arranged in order of their reactivity, with the most reactive metal at the top and the least reactive at the bottom. Highly reactive metals will react vigorously with room temperature water. Less reactive metals may require concentrated acid to react, or may not react at all. By observing the reactions of different metals with water and acid, you will be able to determine their relative positions in the activity series.
+</div>
+
+Litmus paper is an indicator that changes color in the presence of acids or bases. You will also test whether the water becomes more basic when you add metals.  By noting the color change, you can assess the acidity or basicity of the water.  Red litmus paper will turn blue in the presence of a basic solution.
+
+In part B of the lab, you will be investigating the solubility of alkaline earth metals (Group II metals) by observing the formation of precipitates when their chloride salts are mixed with various reagents. The solubility of these salts will provide insights into the trend of solubility among the alkaline Earth metals.
+
+Chloride salts of magnesium, calcium, strontium, and barium are typically soluble in water.  You will attempt to react them with ammonium carbonate, sodium sulfate, and potassium iodate, and will look for a precipitate (solid) to form to indicate a reaction occurred. Precipitation of an insoluble compound indicates low solubility, while no precipitation suggests higher solubility.
+
+By observing the formation or absence of precipitates in the wells and referring to Figure 2, you will determine the solubility of the alkaline earth metal salts and analyze the trend in solubility among the group.
+
+<div class="noBreak">
+<h3>Safety:</h3>
+<ul>
+<li>Proper Disposal: Dispose of used litmus paper, metals, and solutions according to your institution's guidelines for chemical waste disposal.</li>
+<li>Caution with Temperature: Be cautious when handling the wells containing solutions, as hydrochloric acid can cause temperature changes. Use a thermometer to measure the temperature of the wells before touching them.</li>
+<li>Good Ventilation: Ensure you are working in a well-ventilated area or under a fume hood to prevent the build-up of any potentially harmful gases.</li>
+<li>Prevent Cross-Contamination: Use separate pipets for different solutions to avoid cross-contamination and ensure accurate results.</li>
+<li>Wear safety goggles or glasses at all times.</li>
+<li>Wear nitrile gloves at all times.</li>
+</ul>
+</div>
+
+<h3>Procedure:</h3>
+<div class="noBreak">
+Figure 1
+<h4>24-well plate</h4>
+<img height="300px" src="../images/24wellplate.png"><p>
+</div>
+<h4>Part A: Activity Series</h4>
+<ol>
+<li>Place your 24 well plate on top of a white piece of paper.</li>
+<li>Using a plastic (Pasteur) pipet, put 20 drops of deionized water in wells D1-D3.</li>
+<li>Using forceps, test the water in wells D1-D3 with red litmus paper, and write the color of the litmus paper in table 1.</li>
+<li>Using a different plastic (Pasteur) pipet, put 20 drops of 0.5 M HCl in wells D4-D6.</li>
+<li>Using forceps, add a small ball (~1 cm) of aluminum foil to well D1, and observe it for any reaction.  Record your observations in table 1.</li>
+<li>Using forceps, add a small ball (~1 cm) of aluminum foil to well D4, and observe it for any reaction.  Record your observations in table 1.</li>
+<li>Using forceps, add a piece of magnesium turnings to well D2, and observe it for any reaction.  Record your observations in table 1.</li>
+<li>Using forceps, add a piece of magnesium turnings to well D5, and observe it for any reaction.  Record your observations in table 1.</li>
+<li>Using forceps, add one piece of calcium turnings to well D3, and observe it for any reaction.  Record your observations in table 1.</li>
+<li>Using forceps, add one piece of calcium turnings to well D6, and observe it for any reaction.  Record your observations in table 1.</li>
+<li>Using a thermometer, check the temperature of wells D4-D6, and record their temperature in table D1.</li>
+<li>Using forceps, retest the water in wells D1-D3 with red litmus paper, and write the color of the litmus paper in table 1.</li>
+<li>Recheck wells D1-D6, for bubble formation.  Some of the reactions can occur slowly.  Record your observations in table 1, and write NR for “no reaction” if there is no evidence of a reaction.</li>
+</ol>
+
+<div class="noBreak">
+Table 1:
+<h4>Activity series results</h4>
+<table>
+<tr>
+<th></th><th colspan="3">Deionized water</th>
+</tr>
+<tr>
+<th></th><th>Aluminum</th><th>Magnesium</th><th>Calcium</th>			
+</tr>
+<tr>
+<td>Litmus color before</td>
+<td><input type="text" class="num" id="AlLitmusColorBefore" name="AlLitmusColorBefore"></td>
+<td><input type="text" class="num" id="MgLitmusColorBefore" name="MgLitmusColorBefore"></td>
+<td><input type="text" class="num" id="CaLitmusColorBefore" name="CaLitmusColorBefore"></td>
+</tr>
+<tr>
+<td>Litmus color after</td>
+<td><input type="text" class="num" id="AlLitmusColorAfter" name="AlLitmusColorAfter"></td>
+<td><input type="text" class="num" id="MgLitmusColorAfter" name="MgLitmusColorAfter"></td>
+<td><input type="text" class="num" id="CaLitmusColorAfter" name="CaLitmusColorAfter"></td>
+</tr>
+<tr>
+<td>Fast reaction, slow reaction or NR</td>
+<td>
+<select name="AlDIReaction" id="AlDIReaction">
+			<option value ="">Choose an option</option>
+			<option value="Fast reaction">Fast reaction</option>
+			<option value="Slow reaction">Slow reaction</option>
+			<option value="Slow reaction">Very slow reaction</option>
+			<option value="NR">NR</option>
+</select>
+</td>
+<td>
+<select name="MgDIReaction" id="MgDIReaction">
+			<option value ="">Choose an option</option>
+			<option value="Fast reaction">Fast reaction</option>
+			<option value="Slow reaction">Slow reaction</option>
+			<option value="Slow reaction">Very slow reaction</option>
+			<option value="NR">NR</option>
+</select>
+</td>
+<td>
+<select name="CaDIReaction" id="CaDIReaction">
+			<option value ="">Choose an option</option>
+			<option value="Fast reaction">Fast reaction</option>
+			<option value="Slow reaction">Slow reaction</option>
+			<option value="Slow reaction">Very slow reaction</option>
+			<option value="NR">NR</option>
+</select>
+</td>
+</tr>	
+</table>
+</div>				
+<br>
+<div class="noBreak">
+<table>
+<tr>
+<th></th><th colspan="3">HCl</th>
+</tr>
+<th></th><th>Aluminum</th><th>Magnesium</th><th>Calcium</th>
+</tr>
+<tr>
+<td>Temperature</td>
+<td><input type="text" class="num" id="AlTemp" name="AlTemp"></td>
+<td><input type="text" class="num" id="MgTemp" name="MgTemp"></td>
+<td><input type="text" class="num" id="MgTemp" name="MgTemp"></td>
+</tr>
+<tr>
+<td>Fast reaction, slow reaction or NR</td>
+<td>
+<select name="AlHClReaction" id="AlHClReaction">
+			<option value ="">Choose an option</option>
+			<option value="Fast reaction">Fast reaction</option>
+			<option value="Slow reaction">Slow reaction</option>
+			<option value="Slow reaction">Very slow reaction</option>
+			<option value="NR">NR</option>
+</select>
+</td>
+<td>
+<select name="MgHClReaction" id="MgHClReaction">
+			<option value ="">Choose an option</option>
+			<option value="Fast reaction">Fast reaction</option>
+			<option value="Slow reaction">Slow reaction</option>
+			<option value="Slow reaction">Very slow reaction</option>
+			<option value="NR">NR</option>
+</select>
+</td>
+<td>
+<select name="CaHClReaction" id="CaHClReaction">
+			<option value ="">Choose an option</option>
+			<option value="Fast reaction">Fast reaction</option>
+			<option value="Slow reaction">Slow reaction</option>
+			<option value="Slow reaction">Very slow reaction</option>
+			<option value="NR">NR</option>
+</select>
+</td>
+</tr>	
+</table>	
+</div>
+<br>
+Based on how vigorously each metal reacted with water and HCl, rank them from least reactive to most reactive.<br>
+<select name="leastReactive" id="leastReactive" class="calc" formula="Aluminum" help="Recheck your results, and compare how vigorously each metal reacted in water and HCl.">
+			<option value ="">Choose an option</option>
+			<option value="Aluminum">Aluminum</option>
+			<option value="Magnesium">Magnesium</option>
+			<option value="Calcium">Calcium</option>
+</select> &lt; <select name="midReactive" id="midReactive" class="calc" formula="Magnesium" help="Recheck your results, and compare how vigorously each metal reacted in water and HCl.">
+			<option value ="">Choose an option</option>
+			<option value="Aluminum">Aluminum</option>
+			<option value="Magnesium">Magnesium</option>
+			<option value="Calcium">Calcium</option>
+</select> &lt; <select name="mostReactive" id="mostReactive" class="calc" formula="Calcium" help="Recheck your results, and compare how vigorously each metal reacted in water and HCl.">
+			<option value ="">Choose an option</option>
+			<option value="Aluminum">Aluminum</option>
+			<option value="Magnesium">Magnesium</option>
+			<option value="Calcium">Calcium</option>
+</select><div class="feedback" id="leastReactiveFB" name="leastReactiveFB"></div>
+<div class="feedback" id="midReactiveFB" name="midReactiveFB"></div>
+<div class="feedback" id="mostReactiveFB" name="mostReactiveFB"></div>
+<br>
+Comparing your trend to their positions on the periodic table, does reactivity (activity) of metals increase going from left to right on the periodic table, or from right to left?  <select name="periodTrend" id="periodTrend" class="calc" formula="Right to left" help="Look at the trend above">
+			<option value ="">Choose an option</option>
+			<option value="Left to right">Left to Right</option>
+			<option value="Right to left">Right to left</option>
+</select><div class="feedback" id="periodTrendFB" name="periodTrendFB"></div><br>
+Comparing your trend to their positions on the periodic table, does reactivity (activity) of metals increase going up or down on the periodic table?  <select name="groupTrend" id="groupTrend" class="calc" formula="Down" help="Look at the trend above">
+			<option value ="">Choose an option</option>
+			<option value="Up">Up</option>
+			<option value="Down">Down</option>
+</select><div class="feedback" id="groupTrendFB" name="groupTrendFB"></div><br>
+<h4>Part B: Solubility of alkaline Earth metals (group II metals).</h4>  
+<ol start="14">
+<li>Move the white piece of paper from under your well plate, and place it on your lab bench if it is dark (otherwise on top of a black piece of paper).</li>
+<li>Using a new plastic (Pasteur) pipet put 20 drops of magnesium chloride in wells A1-C1.</li>
+<li>Using a new plastic (Pasteur) pipet put 20 drops of calcium chloride in wells A2-C2.</li>
+<li>Using a new plastic (Pasteur) pipet put 20 drops of strontium chloride in wells A3-C3.</li>
+<li>Using a new plastic (Pasteur) pipet put 20 drops of barium chloride in wells A4-C4.</li>
+<li>Using a new plastic (Pasteur) pipet put 20 drops of the unknown alkaline Earth metal solution in wells A5-C5.</li>
+<li>Using a new plastic (Pasteur) pipet put 20 drops of ammonium carbonate in wells A1-A5.</li>
+<li>Using a new plastic (Pasteur) pipet put 20 drops of sodium sulfate in wells B1-B5.</li>
+<li>Using a new plastic (Pasteur) pipet put 20 drops of potassium iodate in wells C1-C5.</li>
+<li>In figure 2 below, write PPT if a precipitate formed, and NR (for “no reaction”) if no precipitate formed.</li>
+</ol>
+<div class="noBreak">
+Figure 2:
+<h4>Results of solubility of alkaline Earth metals</h4>
+<input type="hidden" id="gridObjInput" name="gridObjInput">
+<div class="grid-container">
+    <div class="grid-item" id="gi1" name="gi1" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi2" name="gi2" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi3" name="gi3" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi4" name="gi4" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi5" name="gi5" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi6" name="gi6" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi7" name="gi7" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi8" name="gi8" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi9" name="gi9" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi10" name="gi10" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi11" name="gi11" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi12" name="gi12" states="?,NR,PPT">?</div>
+   <div class="grid-item" id="gi13" name="gi13" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi14" name="gi14" states="?,NR,PPT">?</div>
+    <div class="grid-item" id="gi15" name="gi15" states="?,NR,PPT">?</div>
+  </div>
+ </div>
+Since a precipitate forming indicates LOW solubility.  What it the trend in solubility among the alkaline Earth metals?  Does solubility increase as you go up or down the period? <select name="solTrend" id="solTrend" class="calc" formula="Up" help="Look at which metal was the most and least soluble">
+			<option value ="">Choose an option</option>
+			<option value="Up">Up</option>
+			<option value="Down">Down</option>
+</select><div class="feedback" id="solTrendFB" name="solTrendFB"></div><br>
+<ol start="24">
+<li>Based on your results, which alkaline Earth metal do you think was your unknown?</li>
+Unknown metal: <input type="text" class="num" id="unknownIdentity" name="unknownIdentity">
+<li>Carefully pour the contents of your well plate into the waste bin, then wash out your well plate with soap and brushes, then rinse it 3-7 times and leave it on paper towels to dry.   Put everything else back where you found it.</li>
+<li>Clean up any messes and make sure the solution bottles are capped before you leave.</li>
+</ol>
+
+	<!-- End -->
+	<div class="footer">Periodic Trends (Activity Series and Solubility)</div> <!-- Title -->
+	<div id="button_bar">
+          <button type="submit" title="save" class="large material-icons" id="savebutton" onclick="saveData()">save</button>
+		  
+		  <button onclick="toPrint()" title="print" class="large material-icons">print</button>
+        </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
