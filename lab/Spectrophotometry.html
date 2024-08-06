@@ -1,0 +1,219 @@
+<html>
+  <head>
+    <title>Spectrophotometry (Concentration Determination)</title><!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  </head>
+
+  <body onload="onLoad()">
+  <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title" >Spectrophotometry (Concentration Determination)</h1> <!-- Title -->
+    Name: <div id="name"></div><br>
+   
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none">
+      <input type="text" id="userName" name="userName" style="display:none">
+	<!-- Beginning -->
+	
+<div class="noBreak">
+<h3>Chemicals and lab equipment:</h3>
+<ul>
+<li>Spectrophotometer</li>
+<li>Kimwipes</li>
+<li>1x10<sup>-3</sup> M potassium permanganate solution (~50 mL per group)<br>
+Desired L x $\frac{1x10^{-3} M}{1 L}$ x $\frac{158.03 g}{1 mol}$ = needed g</li>
+<li>unknown concentration potassium permanganate solution (1x10<sup>-4</sup> M to 4x10<sup>-4</sup> M) (~5 mL per group)</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Each lab group:</h3>
+<ul>
+<li>(6) cuvettes or small test tubes (13 x 100mm)</li>
+<li>(4) Large test tubes (16 x 100mm)</li>
+<li>(2) Test tube racks</li>
+<li>Wash bottle of deionized water</li>
+<li>(2) - 10 mL graduated cylinders</li>
+<li>100 mL beaker</li>
+<li>600 mL waste beaker</li>
+<li>(4) squares of Parafilm or test tube stoppers</li>
+<li>(6) plastic (Pasteur) pipets</li>
+<li>Permanent marker</li>
+<li>Labeling tape</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Equations and Calculations:</h3>
+<ul>
+<li>Y = mX + b</li>
+<ul><li>m = slope, b = y-intercept</li></ul>
+<li>A = εbC</li>
+<ul><li>A = absorbance, ε = molar absorptivity (molar extinction coefficient), b = path length, C = concentration (molarity)</li></ul>
+<li>c = λν</li>
+<ul><li>c = 3.00 x 10<sup>8</sup>m/s, λ = wavelength, ν = frequency</li></ul>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Safety:</h3>
+<ul>
+<li>Potassium permanganate is a strong oxidizing agent and can cause skin and eye irritation. Avoid direct contact with the skin or eyes. If contact occurs, rinse the affected area immediately with water.</li>
+<li>Wear safety goggles or glasses at all times.</li>
+<li>Wear nitrile gloves at all times.</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Disposal:</h3>
+<ul>
+<li>Dilute to a very light pink color before disposing down the drain.</li>
+</ul>
+</div>
+
+
+<div class="noBreak">
+<h3>Procedure:</h3>
+<h4>Part A: Creating standard solutions through dilution.</h4>
+You will prepare a series of standard solutions. You will be provided with a 1x10<sup>-3</sup> M standard solution of potassium permanganate. You will prepare standard solutions with a range of concentrations (4x10<sup>-4</sup> M, 3x10<sup>-4</sup> M, 2x10<sup>-4</sup> M, and 1x10<sup>-4</sup> M).
+<ol>
+<li>Make sure the spectrophotometer is on – it can take 15 minutes to warm up.  Make sure the mode is set to display absorbance rather than transmittance (if that is an option).</li>
+<li>Obtain approximately 50 mL of the 1x10<sup>-3</sup> M potassium permanganate solution in your 100 mL beaker and label it “1x10<sup>-3</sup> M”.</li>
+<li>Label 4 large test tubes “4x10<sup>-4</sup> M”, “3x10<sup>-4</sup> M”, “2x10<sup>-4</sup> M” and “1x10<sup>-4</sup> M”.</li>
+<li>Using the 10 mL graduated cylinders add volumes of the 1x10<sup>-3</sup> M potassium permanganate solution and deionized water (from your wash bottle) you obtained into each of the 4 labeled test tubes following  the table below.  Use one graduated cylinder for the the 1x10<sup>-3</sup> M potassium permanganate exclusively, and the other for the deionized water exclusively to prevent contamination.</li>
+</ol>
+</div>
+
+<div class="noBreak">
+Table 1:
+<h3>Milliliters of potassium permanganate solution and deionized water</h3>
+<table>
+<tr>
+<td></td>
+<td>“4x10<sup>-4</sup> M”<br>test tube</td>	
+<td>“3x10<sup>-4</sup> M”<br>test tube</td>
+<td>“2 x10<sup>-4</sup> M”<br>test tube</td>
+<td>“1x10<sup>-4</sup> M”<br>test tube</td>
+</tr>
+<tr>
+<td>mL of 1x10<sup>-3</sup> M potassium permanganate solution</td><td>4</td><td>3</td><td>2</td><td>1</td>
+</tr>
+<tr>
+<td>mL of deionized water</td><td>6</td><td>7</td><td>8</td><td>9</td>
+</tr>
+</table>
+</div>
+
+<ol start="5">
+<li>Place Parafilm or test tube stopper on each of the 4 test tubes and shake them to mix the solutions.
+<h4>Part B: Creating a calibration curve (absorbance vs. concentration graph)</h4>
+You will measure the absorbance of each of your samples using the spectrophotometer.  Then you will create a calibration curve from your absorbance and concentration data.</li>
+<li>Use labeling tape and your permanent marker to create labels with “4x10<sup>-4</sup> M”, “3x10<sup>-4</sup> M”, “2x10<sup>-4</sup> M”, “1x10<sup>-4</sup> M”, and “blank”.  Place these labels on your lab bench, or small test tube rack in order to keep track of each of your cuvettes or small test tubes.</li>
+<li>Using a plastic (Pasteur) pipet, pipet enough deionized water into a cuvette or small test tube to fill it 3/4 full and place it by the “blank” label.</li>
+<li>Using different (Pasteur) pipets, pipet enough of the “4x10<sup>-4</sup> M”, “3x10<sup>-4</sup> M”, “2x10<sup>-4</sup> M”, and “1x10<sup>-4</sup> M” solutions from your large test tubes into a cuvette or small test tube to fill it 3/4 full and place it by the matching label.</li>
+<li>Go to the spectrophotometer, clean the sides of the cuvette or small test tube of your blank solution (deionized water) with a Kimwipe.</li>
+<li>Place your “blank” solution in your cuvette or small test tube into the spectrophotometer, make sure the wavelength is set to 525 nm and calibrate the spectrophotometer (typically by pressing the” 0A/100%T” button).</li>
+<li>In turn, after cleaning each cuvette or small test tube with a Kimwipe, place each of your “4x10<sup>-4</sup> M”, “3x10<sup>-4</sup> M”, “2x10<sup>-4</sup> M”, “1x10<sup>-4</sup> M” concentration cuvettes or small test tubes into the spectrophotometer and record their absorbance in the table below (note: none of these values should be negative – measure again if you get a negative number).</li>
+</ol>
+
+<div class="noBreak">
+Table 2: 
+<h3>Absorbances of known concentration samples</h3>
+<table>
+<tr>
+<td><label id="absorbance x-axis">Concentration</label></td>
+<td>“4x10<sup>-4</sup> M”<br>test tube<input type="hidden" class="absorbance graph" id="x4" name="x4" value="0.0004"></td>
+<td>“3x10<sup>-4</sup> M”<br>test tube<input type="hidden" class="absorbance graph" id="x3" name="x3" value="0.0003"></td>
+<td>“2x10<sup>-4</sup> M”<br>test tube<input type="hidden" class="absorbance graph" id="x2" name="x2" value="0.0002"></td>
+<td>“1x10<sup>-4</sup> M”<br>test tube<input type="hidden" class="absorbance graph" id="x1" name="x1" value="0.0001"></td>
+<td>“blank” 0.0 M<br>test tube<input type="hidden" class="absorbance graph" id="x0" name="x0" value="0"></td>
+</tr>
+<tr>
+<td><label id="absorbance y-axis">Absorbance</label></td>
+<td><input type="number" step="any" class="absorbance graph" id="y4" name="y4"></td>
+<td><input type="number" step="any" class="absorbance graph" id="y3" name="y3"></td>
+<td><input type="number" step="any" class="absorbance graph" id="y2" name="y2"></td>
+<td><input type="number" step="any" class="absorbance graph" id="y1" name="y1"></td>
+<td><input type="hidden" step="any" class="absorbance graph" id="y0" name="y0" value="0">0</td>
+</tr>
+</table>
+</div>
+<div class="canvas">
+	<canvas id="absorbance graph" onclick="updateGraph('absorbance graph')" ></canvas>
+	</div>
+	Y = <input type="text" class="num" id="absorbance slope" readonly>x <label class="absorbance plus">+</label><input type="text" class="num" id="absorbance intercept" readonly>
+
+<ol start="12">
+<li>Create an Absorbance vs. Concentration graph with a trend line that displays a slope-intercept formula for the trend line.  To create a graph you can use Excel, or the graph paper at the end of this lab.</li>
+<li>Record the slope-intercept formula below.</li>
+Equation (1): Equation y = <input type="number" step="any" class="calc" id="recorded absorbance slope" name="recorded absorbance slope" formula="${absorbance slope}" help="Record the slope from the y = mx + b formula above">x <label class="absorbance plus">+</label><input type="number" step="any" class="calc" id="recorded absorbance intercept" name="recorded absorbance intercept" formula="${absorbance intercept}" help="Record the y-intercept from the y = mx + b formula above"><div class="feedback" id="recorded absorbance slopeFB" name="recorded absorbance slopeFB"></div><div class="feedback" id="recorded absorbance interceptFB" name="recorded absorbance interceptFB"></div> 
+
+<li>Solve your slope-intercept formula for X, which represents concentration and record it below.  You will use this equation to solve for the concentration of your unknowns.</li>
+<div style="display: inline-flex">Equation (2): x = &nbsp; <table class="fraction"><tr><td class="underline">y &nbsp;<label class="absorbance minus"> + </label>&nbsp;<input type="number" step="any" class="calc" id="recorded absorbance intercept2" name="recorded absorbance intercept2" formula="-${absorbance intercept}" help="Record the y-intercept from the y = mx + b formula above"><div class="feedback" id="recorded absorbance intercept2FB" name="recorded absorbance intercept2FB"></div></td></tr><tr><td><input type="number" step="any" class="calc" id="recorded absorbance slope2" name="recorded absorbance slope2" formula="${absorbance slope}" help="Record the slope from the y = mx + b formula above"><div class="feedback" id="recorded absorbance slope2FB" name="recorded absorbance slope2FB"></div></td></tr></table></div>
+</ol> 
+
+<ol start="15">
+<h4>Part C: Determining the concentration of an unknown concentration potassium permanganate solution.</h4>
+You will measure the absorbance of your unknown concentration potassium permanganate solution, then determine its concentration using equation 2.
+<li>Use a plastic (Pasteur) pipet to pipet in enough of unknown concentration potassium permanganate solution into a cuvette or small test tube to fill it 3/4 full and create a label for it using tape and a permanent marker.</li>
+<li>Go to the spectrophotometer, place your “blank” solution in your  cuvette or small test tube into the spectrophotometer, make sure the wavelength is set to 525 nm and calibrate the spectrophotometer (typically by pressing the” 0A/100%T” button).</li>
+<li>Place your unknown concentration cuvette or small test tube into the spectrophotometer and record their absorbance below</li>
+Absorbance for unknown concentration potassium permanganate solution <input type="number" step="any" class="num" id="PPConc" name="PPConc">
+<li>Calculate the molarity (concentration) of your unknown concentration potassium permanganate solution by plugging in the absorbance as Y, and solving for X in equation (2), then record the molarity below.</li>
+Molarity of unknown concentration potassium permanganate solution: <input type="number" class="calc" step="any" id="PPMolarity" name="PPMolarity" formula="(${PPConc}-${absorbance intercept})/${absorbance slope}" help="See 14"><div class="feedback" id="PPMolarityFB" name="PPMolarityFB"></div> M
+<li>Ask your lab instructor for the molarity of the concentration they prepared, record the given molarity, and calculate a percent difference using the equation below.</li>
+Given molarity: <input type="number" step="any" class="num" id="givenMolarity" name="givenMolarity"><br>
+% difference =  $\frac{2\;x\;|Experimental\;concentration\;-\;Given\;concentration|}{Experimental\;concentration\;+\;Given\;concentration}$ x 100
+<li>Record your percent difference below.</li>
+Percent difference: <input type="number" class="calc" step="any" id="PDiffMolarity" name="PDiffMolarity" formula="2*abs(${PPMolarity}-${givenMolarity})/(${givenMolarity}+${PPMolarity})*100" help="See 19">%<div class="feedback" id="PDiffMolarityFB" name="PDiffMolarityFB"></div>
+<li>Determine the molar absorptivity of potassium permanganate using Beer’s law.</li>
+A = εbC<br>
+$\frac{A/C}{b}$= ε<br>
+A/C is the slope of your line from part 13, and the path length is typically 1 cm.<br>
+Molar absorptivity: <input type="number" class="calc" step="any" id="molarAbsorptivity" name="molarAbsorptivity" formula="${absorbance slope}" help="See 21">L/mol·cm<div class="feedback" id="molarAbsorptivityFB" name="molarAbsorptivityFB"></div>
+<li>Compare your molar absorptivity to the literature value of 2340 L mol<sup>-1</sup> cm<sup>-1</sup>, by calculating the percent error.</li>
+% error =  $\frac{|experimental\;value - known\;value|}{known\;value}$ x 100%<br>Percent error <input type="number" class="calc" step="any" id="PErrorMolarAbsorptivity" name="PErrorMolarAbsorptivity" formula="abs(2340-${absorbance slope})/2340*100" help="See 21">%<div class="feedback" id="PErrorMolarAbsorptivityFB" name="PErrorMolarAbsorptivityFB"></div>
+<li>If your percent difference was above 20%,then list 2 likely causes (related to the procedure) of why your experimental data would deviate from the concentration that was prepared.  If your percent difference was below 20%, then list 2 reasons (related to the procedure) why you think you got accurate results.</li>
+<textarea class="text essay" id="conclusion" name="conclusion"></textarea>
+<li>Using c = λν, calculate the frequency for a wavelength of 525 nm (note: type the frequency using e, e.g. 1.23 x 10<sup>14</sup> would be typed as 1.23e14).</li>
+<input type="number" class="calc" step="any" id="frequency" name="frequency" formula="3*10^8/(525*10^-9)" help="c = λν"> Hz<div class="feedback" id="frequencyFB" name="frequencyFB"></div>
+<li>Dilute your samples to a very light pink color in the 600 mL waste beaker then dispose of them down the drain with running water.</li>
+<li>Clean your cuvettes, test tubes, graduated cylinders, and beakers using the soap and brushes, then rinse them 3-7 times and leave them on paper towels to dry.  If you used Parafilm, then throw it away.  Also throw away the plastic (Pasteur) pipets.  Put everything else back where you found it.</li>
+<li>Clean up any messes, and make sure the solution bottles are capped before you leave.</li>
+</ol>
+
+
+	<!-- End -->
+	<div class="footer">Spectrophotometry (Concentration Determination)</div> <!-- title -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter" style="display: none;">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
