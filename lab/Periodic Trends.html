@@ -24,7 +24,7 @@
     grid-gap: 4px;
     width: 500px;
     height: 300px;
-    background-image: url('../images/24wellplateresults.png');
+    background-image: url('https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/24wellplateresults.png?v=1722891145343');
     background-size: cover;
     background-position: center;
     padding: 40px 128px; /* Adjust as needed */
@@ -47,7 +47,7 @@
 	
 	<!-- ===================== custom style ===================== -->
     <h1 id="title" >Periodic Trends (Activity Series and Solubility)</h1> <!-- Title -->
-    Name: <div id="name"></div><br></br>
+    Name: <div id="name"></div><br>
    
     <form id="labdataform" action="/save" method="post" target="_self">
       <input type="text" id="labName" name="labName" style="display:none">
@@ -63,12 +63,12 @@
 <li>0.5 M hydrochloric acid - HCl</li>
 <li>(3) Evaporation dishes or watch glasses for solids</li>
 <li>(3) Forceps</li>
-<li>0.1 M magnesium chloride - MgCl<sub>2</sub>
-<li>0.1 M calcium chloride - CaCl<sub>2</sub>
+  <li>0.1 M magnesium chloride - MgCl<sub>2</sub></li>
+  <li>0.1 M calcium chloride - CaCl<sub>2</sub></li>
 <li>0.1 M strontium chloride - SrCl<sub>2</sub></li>
 <li>0.1 M barium chloride - BaCl<sub>2</sub></li>
 <li>Unknown metal chloride solution</li>
-<li>1.0 M ammonium carbonate - (NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub</li>
+  <li>1.0 M ammonium carbonate - (NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub></li>
 <li>1.0 M sodium sulfate - Na<sub>2</sub>SO<sub>4</sub></li>
 <li>0.2 M potassium iodate - KIO<sub>3</sub></li>
 <li>Waste bin</li>
@@ -119,7 +119,7 @@ By observing the formation or absence of precipitates in the wells and referring
 <div class="noBreak">
 Figure 1
 <h4>24-well plate</h4>
-<img height="300px" src="../images/24wellplate.png"><p>
+  <p><img height="300px" src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/24wellplate.png?v=1722891140255"></p>
 </div>
 <h4>Part A: Activity Series</h4>
 <ol>
@@ -198,13 +198,14 @@ Table 1:
 <tr>
 <th></th><th colspan="3">HCl</th>
 </tr>
+  <tr>
 <th></th><th>Aluminum</th><th>Magnesium</th><th>Calcium</th>
 </tr>
 <tr>
 <td>Temperature</td>
 <td><input type="text" class="num" id="AlTemp" name="AlTemp"></td>
 <td><input type="text" class="num" id="MgTemp" name="MgTemp"></td>
-<td><input type="text" class="num" id="MgTemp" name="MgTemp"></td>
+<td><input type="text" class="num" id="CaTemp" name="CaTemp"></td>
 </tr>
 <tr>
 <td>Fast reaction, slow reaction or NR</td>
@@ -318,11 +319,28 @@ Unknown metal: <input type="text" class="num" id="unknownIdentity" name="unknown
 
 	<!-- End -->
 	<div class="footer">Periodic Trends (Activity Series and Solubility)</div> <!-- Title -->
-	<div id="button_bar">
-          <button type="submit" title="save" class="large material-icons" id="savebutton" onclick="saveData()">save</button>
-		  
-		  <button onclick="toPrint()" title="print" class="large material-icons">print</button>
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter" style="display: none;">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
         </div>
+      </div>
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
