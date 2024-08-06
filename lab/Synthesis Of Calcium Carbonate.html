@@ -1,0 +1,199 @@
+<html>
+  <head>
+    <title>Synthesis of Calcium Carbonate (Percent Yield)</title><!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  </head>
+
+  <body onload="onLoad()">
+  <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <h1 id="title" >Synthesis of Calcium Carbonate (Percent Yield)</h1> <!-- Title -->
+    Name: <div id="name"></div><br>
+   
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none">
+      <input type="text" id="userName" name="userName" style="display:none">
+	<!-- Beginning -->
+	
+<div class="noBreak">
+<h3>Chemicals and lab equipment:</h3>
+<ul>
+<li>0.2000 M Na<sub>2</sub>CO<sub>3</sub> (100 mL per group)</li>
+<li>0.1000 M CaCl<sub>2</sub> (100 mL per group)</li>
+<li>(2) 100 mL beakers</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Each lab group:</h3>
+<ul>
+<li>Glass stirring rod with a rubber policeman</li>
+<li>(2) 100 mL graduated cylinders</li>
+<li>400 mL beaker</li>
+<li>Forceps</li>
+<li>Suction filtration apparatus</li>
+<ul>
+<li>Büchner funnel</li>
+<li>Rubber filter adapter cone/conic seal</li>
+<li>Filter flask</li>
+<li>Rubber or plastic hose</li>
+</ul>
+<li>Filter paper</li>
+<li>Watch glass</li>
+<li>Permanent marker</li>
+<li>Beaker tongs and/or heat resistant gloves</li>
+<li>Wash bottle with deionized water</li>
+<li>Hot plate</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Equations and calculations:</h3>
+<ul>
+<li>Molarity (M) = $\frac{mol_{solute}}{L{solution}}$</li>
+<li>Molar mass = $\frac{grams}{mol}$</li>
+<li>For aA → bB, Mole A x $\frac{b\;mol\;B}{a\;mol\;A}$ = Mol B</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Safety:</h3>
+<ul>
+<li>Wear safety goggles or glasses at all times.</li>
+<li>Wear nitrile gloves at all times.</li>
+<li>Use beaker tongs and/or heat resistant gloves to move hot items</li>
+<li>Turn off and unplug the hot plate when it is not in use.</li>
+</ul>
+</div>
+
+<div class="noBreak">
+<h3>Procedure:</h3>
+<h4>Part A: Synthesize Calcium carbonate</h4>
+You mix solutions of sodium carbonate and calcium chloride to produce calcium carbonate.
+</div>
+<ol>
+<li>Make sure the oven in the lab is set at 140°C, and turned on.  It can take several minutes for the oven to heat to 140°C.</li>
+<li>Calculate what volume of 0.100 M calcium chloride needed to produce 1.00 g of calcium carbonate (100.09 g/mol) assuming an excess of sodium carbonate and record that amount below.</li>
+Equation 1: Na<sub>2</sub>CO<sub>3</sub> (aq) + CaCl<sub>2</sub> (aq) → 2 NaCl (aq)  + CaCO<sub>3</sub> (s)<br><br><br>
+
+1.00 g CaCO<sub>3</sub> x $\frac{1\;mol\;CaCO_3}{100.09\;g\;CaCO_3}$ x $\frac{1\;mol\;CaCl_2}{1\;mol\;CaCO_3}$ x $\frac{1\;L\;CaCl_2}{0.100\;mol\;CaCl_2}$ x $\frac{1000\;mL}{1\;L}$ = <input type="number" class="calc" step="any" id="neededVolCaCl2" name="neededVolCaCl2" formula="99.91" help="Follow the calculation to the left"> mL CaCl<sub>2</sub><div class="feedback" id="neededVolCaCl2FB" name="neededVolCaCl2FB"></div>
+<li>Using your two 100 mL graduated cylinders, measure approximately 100 mL of 0.10 M calcium chloride, and 100 mL of 0.20 M sodium carbonate and record your actual volumes to the 10th’s place value and the molarities in table 1.</li>
+<li>Pour the calcium chloride  and sodium carbonate that you measured into your 400 mL beaker.</li>
+<li>Plug in your hot plate and place the 400 mL beaker on the hot plate, then turn the hot plate up to a high setting.</li>
+<li>Observe the beaker string occasionally with the glass stirring rod.  As a good practice, do not observe the beaker from above, and make sure your goggles are on.  Record your observations below.</li>
+<li>Once the solution starts to boil (not a full boil), turn off the hot plate, unplug it, and move the solution to your lab bench using beaker tongs or heat resistant gloves.</li>
+<li>Allow the solution to cool for 15 minutes.</li>
+
+<div class="noBreak">
+Table 1:
+<h4>Reactants and observations</h4>
+<table>
+<tr><th></th><th>Calcium chloride</th><th>Sodium carbonate</th></tr>
+<tr><td>Volume (mL)</td><td><input type="number" step="any" class="num" id="volCaCl2" name="volCaCl2"></td><td><input type="number" step="any" class="num" id="volNa2CO3" name="volNa2CO3"></td></tr>
+<tr><td>Molarity (M)</td><td><input type="number" step="any" class="num" id="MCaCl2" name="MCaCl2"></td><td><input type="number" step="any" class="num" id="MNa2CO3" name="MNa2CO3"></td></tr>
+<tr><td>Observations</td ><td colspan="2"><textarea class="essay" id="observations" name="observations"></textarea></td></tr>
+</table>
+</div>
+
+<div class="noBreak">
+<h4>Part B: Preparing suction filtration apparatus</h4>
+While you are waiting for your solution to cool, you can prepare your suction filtration apparatus as shown in figure 1.
+</div>
+<div class="noBreak">
+Figure 1: Suction filtration apparatus
+<p><img height="300px" src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/suctionfiltration.png?v=1722891200671"></p>
+</div>
+
+<li>Attach a rubber or plastic hose to the suction.</li>
+<li>Attach the rubber or plastic hose to the filter flask.</li>
+<li>Place the rubber filter adapter (conic seal) on top of the filter flask.</li>
+<li>Place the Büchner funnel on top of the rubber filter adapter (conic seal).</li>
+<li>Using forceps, weigh the combined mass of your filter paper and your watch glass then record the mass in table 2 below.</li>
+<li>Using forceps, place the filter paper on top of the Büchner funnel and wet it with some deionized water.</li>
+
+<div class="noBreak">
+<h4>Part C: Collecting calcium carbonate through suction filtration</h4>
+Once your solution has been allowed to cool, you will use suction filtration to separate it form the aqueous solution, being careful to collect as much of your solid product as possible.
+</div>
+
+<li>After waiting 15 minutes for your product to cool, turn on the suction to your filtration  apparatus.</li>
+<li><i>Slowly pour the contents</i> of your 400 mL beaker into the filtration apparatus making sure not to overflow the Büchner funnel.</li>
+<li>Use a glass stirring rod with a rubber policeman to scrape the calcium carbonate remaining in the beaker into the funnel.</li>
+<li>Rinse the beaker with deionized water to gather small amounts of calcium carbonate and pour it into the funnel.</li>
+  <li>Rinse the precipitate in the Büchner funnel with deionized water to remove unreacted ions.</li>  
+<li>Once water stops dripping from the funnel, turn off the vacuum.</li>
+<li>Observe the filtrate in the filter flask.  If you can see a white solid, or if it appears cloudy, then pour the filtrate back into the 400 mL beaker, and suction filter it again (i.e. return to the step that begins with "<i>Slowly pour the contents</i>...").</li>
+<li>Using your stiring rod and rubber policeman, scrape any solid from the sides of your Büchner funnel onto your filter paper</li> 
+<li>Use forceps to carefully remove the filter paper and precipitate from the Büchner funnel, and place it on the watch glass.</li>
+<li>Using heat resistant gloves, place the watch glass in the oven for 20 minutes.</li>
+<li>Use this time to clean up and dispose of chemicals (steps 28 - 31)</li>
+<li>Remove the watch glass from the oven using heat resistant gloves, and allow it to cool for 10 minutes.</li>
+<li>Repeat heating, cooling, and weighing your sample (steps 22 &amp; 24) until your mass no longer changes (your actual yield should be lower than 1.1 grams).</li>
+<li>Calculate and record your actual yield (mass of filter paper, watch glass, and dried calcium carbonate minus the mass of the filter paper and watch glass), and record it in table 2.</li>
+
+<div class="noBreak">
+Table 2:
+<h4>Mass of product</h4>
+<table>
+<tr><th></th><th>Mass (g)</th></tr>
+<tr><td>Filter paper and watch glass</td><td><input type="number" step="any" class="num" id="massFilter" name="massFilter"></td></tr>
+<tr><td>Filter paper, watch glass and calcium carbonate (dried)</td><td><input type="number" step="any" class="num" id="massFilter&CaCO3" name="massFilter&CaCO3"></td></tr>
+<tr><td>Actual yield of calcium carbonate</td><td><input type="number" class="calc" step="any" id="massCaCO3" name="massCaCO3" formula="${massFilter&CaCO3}-${massFilter}" help="Mass of filter paper and calcium carbonate (dried) minus mass of filter paper"><div class="feedback" id="massCaCO3FB" name="massCaCO3FB"></div></td></tr>
+</table>
+</div><br>
+
+<li>Calculate your theoretical yield of calcium carbonate using  the volume of 0.10 M sodium carbonate you recorded in table 1.</li><br>
+Theoretical yield:<br>
+<input type="number" class="calc" step="any" id="volCaCl2-2" name="volCaCl2-2" formula="${volCaCl2}" help="Use your volume of calcium chloride from above.">mL CaCl<sub>2</sub> x $\frac{1\;L}{1000\;mL}$ x $\frac{0.100\;mol\;CaCl_2}{1\;L\;CaCO_3}$ x $\frac{1\;mol CaCO_3}{1\;mol CaCl_2}$ x $\frac{100.09\;g\;CaCO_3}{1\;mol \;CaCO_3}$ = <input type="number" class="calc" step="any" id="theoreticalMassCaCO3" name="theoreticalMassCaCO3" formula="${volCaCl2-2}/1000*.1*100.09" help="Follow the calculation to the left"> g CaCO<sub>3</sub><div class="feedback" id="volCaCl2-2FB" name="volCaCl2-2FB"></div><div class="feedback" id="theoreticalMassCaCO3FB" name="theoreticalMassCaCO3FB"></div>
+<br>
+<li>Calculate your percent yield, based on your actual and theoretical yield.</li><br>
+
+Percent yield = $\frac{Actual\;yield}{Theoretical\;yield}$ x 100%<br><br>
+
+Percent yield:  <input type="number" class="calc" step="any" id="theoreticalYieldCaCO3" name="theoreticalYieldCaCO3" formula="${massCaCO3}/${theoreticalMassCaCO3}*100" help="Use the percent yield formula above.  Plug in your actual yield and theoretical yield."> % <div class="feedback" id="theoreticalYieldCaCO3FB" name="theoreticalYieldCaCO3FB"></div><br>
+<li>Was your percent yield close to 100%?  List 2 reasons, based on the procedure you performed, why you think your percent yield was or wasn’t close to 100%.</li><br>
+
+<textarea class="text essay" id="conclusion" name="conclusion"></textarea><br>
+
+<li>Pour your aqueous waste down the drain while running water.</li>
+<li>Throw your solid product and filter paper into the trash.</li>
+<li>Clean your beakers, watch glass, funnel, flask, stirring rod, graduated cylinders, and forceps using the soap and brushes, then rinse them 3-7 times and leave them on paper towels to dry.  Put everything else back where you found it.</li>
+<li>Clean up any messes, and make sure the solution bottles are capped before you leave.</li>
+<li>If you are the last group, make sure the over is turned off.</li>
+</ol>
+
+	<!-- End -->
+	<div class="footer">Synthesis of Calcium Carbonate (Percent Yield)</div> <!-- Title -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter" style="display: none;">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
