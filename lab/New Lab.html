@@ -1,0 +1,111 @@
+<!DOCTYPE html> 
+
+<html> 
+
+  <head> 
+
+    <title>New Lab</title><!-- Title --> 
+
+    <link rel="stylesheet" href="../css/lab.css"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"> 
+
+  </head> 
+
+ 
+
+  <body onload="onLoad()"> 
+
+  <script type="text/javascript"> 
+
+      //PARAMS**GO**HERE 
+
+    </script> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
+
+ 
+
+    <h1 id="title" > New Lab </h1> <!-- Title --> 
+
+    Name: <div id="name"></div><br> 
+
+    
+
+    <form id="labdataform" action="/save" method="post" target="_self"> 
+
+      <input type="text" id="labName" name="labName" style="display:none"> 
+
+      <input type="text" id="userName" name="userName" style="display:none"> 
+
+<!-- Beginning --> 
+      
+
+      
+      
+      
+      
+      
+<!—End --> 
+
+      <div class="footer">New Lab</div> 
+
+      <!-- title --> 
+
+      <div id="button_bar"> 
+
+        <button 
+
+          type="submit" 
+
+          title="save" 
+
+          class="large material-icons" 
+
+          id="savebutton" 
+
+          onclick="saveData()" 
+
+        > 
+
+          save 
+
+        </button> 
+
+        <button onclick="toPrint()" title="print" class="large material-icons"> 
+
+          print 
+
+        </button> 
+
+        <button type="button" onclick="submitScore()" style="height: 83%"> 
+
+          Submit</button 
+
+        >&nbsp; 
+
+        <div class="vcenter"> 
+
+          <label for="score">Score: </label> 
+
+          <div id="score" style="display: inline">0</div> 
+
+          % 
+
+        </div> 
+
+      </div> 
+
+    </form> 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+
+    <script src="../js/lab.js"></script> 
+
+  </body> 
+
+</html> 
