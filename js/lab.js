@@ -501,7 +501,7 @@ if (matches) {
     }
   }
 }
-        var answer = evaluateWithCustomFunctions(formula);
+        var answer = evaluateWithCustomFunctions(formula).toString();
         var elementFB = $(this.id + "FB");
         const value = isNaN(this.value) ? this.value : this.value * 1;
         const haveSigFigs = getSigFigs(this.value);
