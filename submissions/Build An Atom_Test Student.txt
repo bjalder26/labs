@@ -1,1 +1,1 @@
-{"labName":"Build An Atom","userName":"Test Student","n2":"","an2":"","mn2":"","nn2":"","ne2":"","c2":"","an3":"","mn3":"","nn3":"","ne3":"","c3":"","s4":"24Na","xan3":"","xmn3":"","xnn3":"","xne3":"","xc3":""}
+{"labName":"Build An Atom","userName":"Test Student","n2":"hydrogen-3","an2":"1","mn2":"3","nn2":"2","ne2":"1","c2":"0","an3":"11","mn3":"22","nn3":"11","ne3":"10","c3":"+1","n4":"sodium-24","s4":"24Na","xan3":"11","xmn3":"24","xnn3":"","xne3":"","xc3":""}
