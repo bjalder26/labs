@@ -508,9 +508,11 @@ if (matches) {
         const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
         let closeOrCorrect = false;
         if (value !== "") {
+          console.log("value: " + value + " isNaN: " + isNaN(value))
           if (isNaN(value)) {
             // allows the use of || for multiple correct text answers
             const possibleAnswers = answer.split("||").map(ans => ans.trim());
+            console.log(possibleAnswers);
             closeOrCorrect = possibleAnswers.includes(value);
             
             // closeOrCorrect = value == answer ? true : false;
