@@ -617,6 +617,15 @@ if (matches) {
       }
     });
   }
+  
+  const symbolElements = document.getElementsByClassName("symbol");
+    for (var symbolElement of symbolElements) {
+    symbolElement.addEventListener("change", function (e) {
+      const savebutton = $("savebutton");
+      savebutton.click();
+ 
+    });
+  }
 
   const graphElements = document.getElementsByClassName("graph");
 
