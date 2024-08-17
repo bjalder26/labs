@@ -236,6 +236,7 @@ function getData(graphName) {
   return [data, xAxisLabel, yAxisLabel];
 }
 
+/*
 function evaluateWithCustomFunctions(equation) {
   const scope = {
     ln,
@@ -245,6 +246,38 @@ function evaluateWithCustomFunctions(equation) {
   };
   try {
     console.log(equation);
+    console.log("variable2");
+    const variable2 = math.evaluate(equation, scope)
+      ? math.evaluate(equation, scope)
+      : equation;
+    console.log(variable2);
+    const variable = math.evaluate(equation, scope);
+    console.log("variable");
+    console.log(variable);
+    return math.evaluate(equation, scope);
+  } catch (e) {
+    console.log(e);
+    return equation;
+  }
+}
+*/
+
+// new function checks to see if there is actually an equation
+function evaluateWithCustomFunctions(equation) {
+  const scope = {
+    ln,
+    log10,
+    log,
+    filter,
+  };
+
+  try {
+    console.log(equation);
+    // Check if the equation contains only numbers and letters without any mathematical operators
+    if (/^[a-zA-Z0-9]+$/.test(equation)) {
+      return equation; // Return as-is if it's a simple alphanumeric string
+    }
+
     console.log("variable2");
     const variable2 = math.evaluate(equation, scope)
       ? math.evaluate(equation, scope)
