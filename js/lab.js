@@ -542,12 +542,13 @@ if (matches) {
         let closeOrCorrect = false;
         if (value !== "") {
           console.log("value: " + value + " isNaN: " + isNaN(value))
-          if (isNaN(value)) {
+          if (isNaN(answer)) {
+          //if (isNaN(value)) {
             // allows the use of || for multiple correct text answers
             console.log("answer: "+answer)
             const possibleAnswers = answer.split("||").map(ans => ans.trim());
             console.log(possibleAnswers);
-            closeOrCorrect = possibleAnswers.includes(value);
+            closeOrCorrect = possibleAnswers.includes(value.toString());
             console.log('closeOrCorrect' + closeOrCorrect);
             
             // closeOrCorrect = value == answer ? true : false;
