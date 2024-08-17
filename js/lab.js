@@ -618,14 +618,53 @@ if (matches) {
     });
   }
   
-  const symbolElements = document.getElementsByClassName("symbol");
-    for (var symbolElement of symbolElements) {
-    symbolElement.addEventListener("change", function (e) {
+  const symbolInputs = document.getElementsByClassName("symbol");
+  
+    for (var symbolInput of symbolInputs) {
+    const symbolDiv = $(this.id + "DIV");
+    
+    // Function to format the input text
+    function formatText(text) {
+        return text.replace(/(\d*)([a-zA-Z]+)([\d+-]*)/g, function(match, p1, p2, p3) {
+            // p1: Optional number before letters
+            // p2: Letters
+            // p3: Numbers, +, or - after the letters
+
+            let formatted = "";
+            if (p1) {
+                formatted += `<sup>${p1}</sup>`;
+            }
+            formatted += p2;
+            if (p3) {
+                formatted += `<sup>${p3}</sup>`;
+            }
+            return formatted;
+        });
+    }
+    symbolInput.addEventListener("change", function (e) {
       const savebutton = $("savebutton");
       savebutton.click();
+      
+       const formattedText = formatText(symbolInput.value);
+        symbolDiv.innerHTML = formattedText;
+        symbolInput.style.display = "none";
+        symbolDiv.style.display = "block";
+      
+      if ($("score") && loaded) {
+        $("score").click();
+      }
  
     });
+      
+      // When the user clicks on the div
+    symbolDiv.addEventListener("click", function() {
+        symbolDiv.style.display = "none";
+        symbolInput.style.display = "block";
+        symbolInput.focus();
+    });
+      
   }
+    
 
   const graphElements = document.getElementsByClassName("graph");
 
