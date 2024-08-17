@@ -330,11 +330,11 @@
           </td>
         </tr>
 
-        <!-- carbon-12 ion row 12 -->
+        <!-- carbon-12 anion row 12 -->
         <tr>
           <td>carbon-12</td>
           <td>
-          <input type="text" class="calc num symbol" id="s12" name="s12" formula="12C1-||12C-1" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+          <input type="text" class="calc num symbol" id="s12" name="s12" formula="12C1-||12C-1||12C-" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
           <div id="s12DIV">
           </div>
           <div class="feedback" id="s12FB" name="s12FB"></div>
@@ -353,15 +353,129 @@
           </td>
           <td>7</td>
           <td>
-            <input type="text" class="calc num" id="c12" name="c12" formula="" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <input type="text" class="calc num" id="c12" name="c12" formula="-1||1-" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
             <div class="feedback" id="c12FB" name="c12FB"></div>
           </td>
         </tr>
 
+        
+        <!-- carbon-12 cation row 13 -->
+        <tr>
+          <td>carbon-12</td>
+          <td>
+          <input type="text" class="calc num symbol" id="s13" name="s13" formula="12C1+||12C+||12C+1" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+          <div id="s13DIV">
+          </div>
+          <div class="feedback" id="s13FB" name="s13FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an13" name="an13" formula="6" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an13FB" name="an13FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn13" name="mn13" formula="12" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic cymbols on the upper left." />
+            <div class="feedback" id="mn13FB" name="mn13FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn13" name="nn13" formula="6" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic cymbols on the upper left." />
+            <div class="feedback" id="nn13FB" name="nn13FB"></div>
+          </td>
+          <td>5</td>
+          <td>
+            <input type="text" class="calc num" id="c13" name="c13" formula="+1||1+" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c13FB" name="c13FB"></div>
+          </td>
+        </tr>
+
+        <!-- Helium-4 row 14 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n14" name="n14" formula="helium-4" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n14FB" name="n14FB"></div>
+          </td>
+          <td><sup>4</sup>HE</td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an14" name="an14" formula="2" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an14FB" name="an14FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn14" name="mn14" formula="4" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic cymbols on the upper left." />
+            <div class="feedback" id="mn14FB" name="mn14FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn14" name="nn14" formula="2" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic cymbols on the upper left." />
+            <div class="feedback" id="nn14FB" name="nn14FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne14" name="ne14" formula="2" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="ne14FB" name="ne14FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c14" name="c14" formula="0" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c14FB" name="c14FB"></div>
+          </td>
+        </tr>
 
 
-
-
+        <!-- oxygen-16 row 15 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n15" name="n15" formula="oxygen-16" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n15FB" name="n15FB"></div>
+          </td>
+          <td>
+          <input type="text" class="calc num symbol" id="s15" name="s15" formula="16O" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+          <div id="s15DIV">
+          </div>
+          <div class="feedback" id="s15FB" name="s15FB"></div>
+          </td>
+          <td>8</td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn15" name="mn15" formula="16" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic cymbols on the upper left." />
+            <div class="feedback" id="mn15FB" name="mn15FB"></div>
+          </td>
+          <td>8</td>
+          <td>10</td>
+          <td>
+            <input type="text" class="calc num" id="c15" name="c15" formula="-2||2-" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c15FB" name="c15FB"></div>
+          </td>
+        </tr>  
+        
+        
+        <!-- argon-40 row 16 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n16" name="n16" formula="" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n16FB" name="n16FB"></div>
+          </td>
+          <td>
+          <input type="text" class="calc num symbol" id="s16" name="s16" formula="" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+          <div id="s16DIV">
+          </div>
+          <div class="feedback" id="s16FB" name="s16FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an16" name="an16" formula="" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an16FB" name="an16FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn16" name="mn16" formula="" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic cymbols on the upper left." />
+            <div class="feedback" id="mn16FB" name="mn16FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn16" name="nn16" formula="" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic cymbols on the upper left." />
+            <div class="feedback" id="nn16FB" name="nn16FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne16" name="ne16" formula="" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="ne16FB" name="ne16FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c16" name="c16" formula="" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c16FB" name="c16FB"></div>
+          </td>
+        </tr>        
 
 
 
