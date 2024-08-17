@@ -548,6 +548,7 @@ if (matches) {
             const possibleAnswers = answer.split("||").map(ans => ans.trim());
             console.log(possibleAnswers);
             closeOrCorrect = possibleAnswers.includes(value);
+            console.log('closeOrCorrect' + closeOrCorrect);
             
             // closeOrCorrect = value == answer ? true : false;
           } else {
