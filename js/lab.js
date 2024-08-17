@@ -641,6 +641,7 @@ if (matches) {
             return formatted;
         });
     }
+      
     symbolInput.addEventListener("change", function (e) {
       const savebutton = $("savebutton");
       savebutton.click();
