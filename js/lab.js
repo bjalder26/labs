@@ -687,11 +687,13 @@ if (matches) {
     symbolInput.addEventListener("blur", function (e) {
       const savebutton = $("savebutton");
       savebutton.click();
-      
-       const formattedText = formatText(symbolInput.value);
-        symbolDiv.innerHTML = formattedText;
-        symbolInput.style.display = "none";
-        symbolDiv.style.display = "block";
+      const thisSymbolDiv = $(this.id+'DIV')
+       //const formattedText = formatText(symbolInput.value);
+        const formattedText = formatText(this.value);
+        thisSymbolDiv.innerHTML = formattedText;
+        //symbolInput.style.display = "none";
+      this.style.display = "none";
+        //symbolDiv.style.display = "block";
       
       if ($("score") && loaded) {
         $("score").click();
