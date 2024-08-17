@@ -1,1 +1,1 @@
-{"labName":"Build An Atom","userName":"Test Student","n2":"hydrogen-3","an2":"1","mn2":"3","nn2":"2","ne2":"1","c2":"0","an3":"11","mn3":"22","nn3":"11","c3":"+1","n4":"magnesium-24","s4":"24Mg","nn4":"12","c4":"0","n5":"magnesium-25","s5":"25Mg-","nn5":"13","c5":"-1"}
+{"labName":"Build An Atom","userName":"Test Student","n2":"hydrogen-3","an2":"1","mn2":"3","nn2":"2","ne2":"1","c2":"0","an3":"11","mn3":"22","nn3":"11","c3":"1+","n4":"magnesium-24","s4":"24Mg","nn4":"12","c4":"0","n5":"magnesium-25","s5":"25Mg-","nn5":"13","c5":"-1"}
