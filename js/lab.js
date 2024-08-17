@@ -621,7 +621,7 @@ if (matches) {
   const symbolInputs = document.getElementsByClassName("symbol");
   
     for (var symbolInput of symbolInputs) {
-    const symbolDiv = $(this.id + "DIV");
+    const symbolDiv = $(symbolInput.id + "DIV");
     
     // Function to format the input text
     function formatText(text) {
@@ -642,7 +642,7 @@ if (matches) {
         });
     }
       
-    symbolInput.addEventListener("change", function (e) {
+    symbolInput.addEventListener("blur", function (e) {
       const savebutton = $("savebutton");
       savebutton.click();
       
