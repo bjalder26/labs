@@ -509,7 +509,11 @@ if (matches) {
         let closeOrCorrect = false;
         if (value !== "") {
           if (isNaN(value)) {
-            closeOrCorrect = value == answer ? true : false;
+            // allows the use of || for multiple correct text answers
+            const possibleAnswers = answer.split("||").map(ans => ans.trim());
+            closeOrCorrect = possibleAnswers.includes(value);
+            
+            // closeOrCorrect = value == answer ? true : false;
           } else {
             closeOrCorrect = value.inRange(answer, range) ? true : false;
           }
