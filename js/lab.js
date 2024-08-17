@@ -691,6 +691,7 @@ if (matches) {
       savebutton.click();
       const thisSymbolDiv = $(this.id+'DIV')
        //const formattedText = formatText(symbolInput.value);
+        if
         const formattedText = formatText(this.value);
        //symbolDiv.innerHTML = formattedText;
         thisSymbolDiv.innerHTML = formattedText;
@@ -710,6 +711,8 @@ if (matches) {
         const thisSymbolInput = $(this.id.replace(/DIV$/, ""));
         this.style.display = "none";
         thisSymbolInput.style.display = "block";
+        
+        if(this.innerHTML == "&nbsp;") {this.innerHTML == ""}
         thisSymbolInput.focus();
     });
       
