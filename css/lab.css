@@ -140,3 +140,7 @@ td.underline {
     display: none;
   }
 }
+
+.symbol {
+  width: 50px;
+}
