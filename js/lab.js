@@ -536,7 +536,9 @@ if (matches) {
 }
         var answer = evaluateWithCustomFunctions(formula).toString();
         var elementFB = $(this.id + "FB");
-        const value = isNaN(this.value) ? this.value : this.value * 1;
+        //const value = isNaN(this.value) ? this.value : this.value * 1;
+        const value = isNaN(answer) ? this.value : this.value * 1;
+        
         const haveSigFigs = getSigFigs(this.value);
         const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
         let closeOrCorrect = false;
