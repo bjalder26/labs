@@ -690,10 +690,12 @@ if (matches) {
       const thisSymbolDiv = $(this.id+'DIV')
        //const formattedText = formatText(symbolInput.value);
         const formattedText = formatText(this.value);
+       //symbolDiv.innerHTML = formattedText;
         thisSymbolDiv.innerHTML = formattedText;
         //symbolInput.style.display = "none";
-      this.style.display = "none";
+        this.style.display = "none";
         //symbolDiv.style.display = "block";
+       thisSymbolDiv.style.display = "block";
       
       if ($("score") && loaded) {
         $("score").click();
@@ -703,9 +705,10 @@ if (matches) {
       
       // When the user clicks on the div
     symbolDiv.addEventListener("click", function() {
-        symbolDiv.style.display = "none";
-        symbolInput.style.display = "block";
-        symbolInput.focus();
+        const thisSymbolInput = $(this.id.replace(/DIV$/, ""));
+        this.style.display = "none";
+        thisSymbolInput.style.display = "block";
+        thisSymbolInput.focus();
     });
       
   }
