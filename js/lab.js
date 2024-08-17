@@ -511,6 +511,7 @@ if (matches) {
           console.log("value: " + value + " isNaN: " + isNaN(value))
           if (isNaN(value)) {
             // allows the use of || for multiple correct text answers
+            console.log("answer: "+answer)
             const possibleAnswers = answer.split("||").map(ans => ans.trim());
             console.log(possibleAnswers);
             closeOrCorrect = possibleAnswers.includes(value);
