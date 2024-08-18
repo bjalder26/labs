@@ -38,11 +38,42 @@
         <li>List two things you observed in the simulation.</li>
       <textarea class="text essay" id="list2things" name="list2things"></textarea>
         <li>What particle(s) are found in the center of the atom?</li>
+        
+        <select name="particles" id="particles" class="calc" formula="Protons & Neutrons" help=""> 
+
+        <option value="">Choose the particles</option> 
+
+        <option value="Protons">Protons</option> 
+
+        <option value="Neutrons">Neutrons</option> 
+
+        <option value="Electrons">Electrons</option> 
+
+        <option value="Protons & Neutrons">Protons &amp; Neutrons</option>	
+          <option value="Protons & Electrons">Protons &amp; Electrons</option>
+          <option value="Neutrons & Electrons">Protons &amp; Electrons</option>	
+
+        </select><div class="feedback" id="particlesFB" name="particlesFB"></div> 
+        
       </ol>
 
       <ol>
         <li>Play until you discover which <b>particle(s)</b> determine(s) the name of the <b>element</b> you build.  What did you discover?</li>
         <textarea class="text essay" id="discover" name="discover"></textarea>
+        <li>What is the <b>name</b> of the following atoms?</li>
+        <ol type="a">
+          <li>An atom with 3 protons and 4 neutrons:</li> 
+          <input type="text" class="calc num" id="namea" name="namea" formula="lithium-7" help="The name of the element (based on the number of protons) followed by a dash and the mass number" />
+            <div class="feedback" id="nameaFB" name="nameaFB"></div>
+          <li>An atom with 2 protons and 4 neutrons:</li>
+          <input type="text" class="calc num" id="nameb" name="nameb" formula="helium-6" help="The name of the element (based on the number of protons) followed by a dash and the mass number" />
+            <div class="feedback" id="namebFB" name="namebFB"></div>
+          <li>An atom with 4 protons and 4 neutrons:</li>
+          <input type="text" class="calc num" id="namec" name="namec" formula="beryllium-8" help="The name of the element (based on the number of protons) followed by a dash and the mass number" />
+            <div class="feedback" id="namecFB" name="namecFB"></div>
+    
+          <li>Play with the simulation to discover which particles affect the <b>charge</b> of an atom or ion.</li>
+        </ol>
       </ol>
       
       
