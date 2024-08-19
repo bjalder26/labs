@@ -466,6 +466,8 @@ function onLoad() {
   MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
   $("name").innerHTML = userName;
   Number.prototype.inRange = function (value, range) {
+    // Ensure that value is treated as a number
+  value = Number(value);
     let max = 0;
     let min = 0;
     if (value >= 0) {
