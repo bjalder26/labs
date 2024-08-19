@@ -1,4 +1,4 @@
-const ln = (x) => Math.log(x);
+let ln = (x) => Math.log(x);
 const log10 = (x) => Math.log10(x);
 const log = log10; // Use the same function name for log() as log10()
 
