@@ -55,8 +55,14 @@
 
       <ol>
         <li>Play until you discover which <b>particle(s)</b> determine(s) the name of the <b>element</b> you build.  What did you discover?</li>
-        <textarea class="text essay" id="discover" name="discover"></textarea>
-       // should this be a drop-down?
+        
+        <select name="particles2" id="particles2" class="calc" formula="Protons" help=""> 
+        <option value="">Choose the particles</option> 
+        <option value="Protons">Protons</option> 
+        <option value="Neutrons">Neutrons</option> 
+        <option value="Electrons">Electrons</option>	
+        </select><div class="feedback" id="particles2FB" name="particles2FB"></div> 
+        
         <li>What is the <b>name</b> of the following atoms?</li>
         <ol type="a">
           <li>An atom with 3 protons and 4 neutrons:</li> 
@@ -72,30 +78,27 @@
           <li>Play with the simulation to discover which particles affect the <b>charge</b> of an atom or ion.</li>
          <ol type="a">
          <li>Fill in the blanks below to show your results:</li>
-          <p>Neutral atoms have 
-           <select name="charge1" id="charge1" class="calc" formula="same number of" help=""> 
+          Neutral atoms have 
+           <select name="charge1" id="charge1" class="calc" formula="the same number of" help=""> 
         <option value="">Choose the answer</option> 
-        <option value ="same number of">same number of</option>
+        <option value ="the same number of">the same number of</option>
         <option value="more">more</option> 
         <option value="fewer">fewer</option>	
-        </select><div class="feedback" id="charge1FB" name="charge1FB"></div> 
-            protons and electrons</p>
+        </select> protons and electrons <div class="feedback" id="charge1FB" name="charge1FB"></div></p>
           <p>Positive ions have 
             <select name="charge2" id="charge2" class="calc" formula="more" help=""> 
         <option value="">Choose the answer</option> 
-        <option value ="same number of">same number of</option>
+        <option value ="the same number of">the same number of</option>
         <option value="more">more</option> 
         <option value="fewer">fewer</option>	
-        </select><div class="feedback" id="charge2FB" name="charge2FB"></div> 
-            protons and electrons</p>
+        </select> protons and electrons <div class="feedback" id="charge2FB" name="charge2FB"></div></p>
           <p>Negative ions have 
             <select name="charge3" id="charge3" class="calc" formula="fewer" help=""> 
         <option value="">Choose the answer</option> 
-        <option value ="same number of">same number of</option>
+        <option value ="the same number of">the same number of</option>
         <option value="more">more</option> 
         <option value="fewer">fewer</option>	
-        </select><div class="feedback" id="charge3FB" name="charge3FB"></div> 
-        protons than electrons</p>
+        </select> protons than electrons <div class="feedback" id="charge3FB" name="charge3FB"></div></p>
          <li>Develop a relationship (in the form of an equation) that can predict the charge based on the number and types of subatomic particles (protons, neutrons, and electrons).</li>
         <select name="formula1" id="formula1" class="calc" formula="charge = # protons - # electrons" help=""> 
         <option value="">Choose the answer</option> 
