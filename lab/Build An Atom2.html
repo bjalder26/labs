@@ -74,6 +74,7 @@
           <li>An atom with 4 protons and 4 neutrons:</li>
           <input type="text" class="calc num" id="namec" name="namec" formula="beryllium-8" help="The name of the element (based on the number of protons) followed by a dash and the mass number" />
             <div class="feedback" id="namecFB" name="namecFB"></div>
+        </ol>
     
           <li>Play with the simulation to discover which particles affect the <b>charge</b> of an atom or ion.</li>
          <ol type="a">
@@ -141,7 +142,7 @@
           <option value="mass number = # electrons">mass number = # electrons</option>
         </select><div class="feedback" id="formula2FB" name="formula2FB"></div> 
     <li> Practice applying your understanding by playing the 1<sup>st</sup> and 2<sup>nd</sup> levels on the game screen.  Play until you reach five stars <!-- and then insert your screenshot below.  Here is an example:--></li>
-        </ol>
+<!-- Now insert yours -->
       </ol>
 
       
@@ -669,24 +670,24 @@
         <!-- nitrogen-15 row 20 -->
         <tr>
           <td>
-            <input type="text" class="calc num" id="n20" name="n20" formula="nitrogen-15" help="The name of the element followed by a dash and the mass number" />
+            <input type="text" class="calc num" id="n20" name="n20" formula="nitrogen-15" range="1%" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n20FB" name="n20FB"></div>
           </td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s20" name="s20" formula="15N1-||15N-1||15N-" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+          <input type="text" class="calc num symbol" id="s20" name="s20" formula="15N1-||15N-1||15N-" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
           <div id="s20DIV">
           </div>
           <div class="feedback" id="s20FB" name="s20FB"></div>
           </td>
           <td>7</td>
           <td>
-            <input type="number" step="any" class="calc num" id="mn20" name="mn20" formula="15" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic cymbols on the upper left." />
+            <input type="number" step="any" class="calc num" id="mn20" name="mn20" formula="15" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic cymbols on the upper left." />
             <div class="feedback" id="mn20FB" name="mn20FB"></div>
           </td>
           <td>8</td>
           <td>8</td>
           <td>
-            <input type="text" class="calc num" id="c20" name="c20" formula="-1||1-" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <input type="text" class="calc num" id="c20" name="c20" formula="-1||1-" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
             <div class="feedback" id="c20FB" name="c20FB"></div>
           </td>
         </tr>
@@ -705,23 +706,23 @@
           <div class="feedback" id="sFB" name="sFB"></div>
           </td>
           <td>
-            <input type="number" step="any" class="calc num" id="an" name="an" formula="" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <input type="number" step="any" class="calc num" id="an" name="an" formula="" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
             <div class="feedback" id="anFB" name="anFB"></div>
           </td>
           <td>
-            <input type="number" step="any" class="calc num" id="mn" name="mn" formula="" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic cymbols on the upper left." />
+            <input type="number" step="any" class="calc num" id="mn" name="mn" formula="" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic cymbols on the upper left." />
             <div class="feedback" id="mnFB" name="mnFB"></div>
           </td>
           <td>
-            <input type="number" step="any" class="calc num" id="nn" name="nn" formula="" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic cymbols on the upper left." />
+            <input type="number" step="any" class="calc num" id="nn" name="nn" formula="" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic cymbols on the upper left." />
             <div class="feedback" id="nnFB" name="nnFB"></div>
           </td>
           <td>
-            <input type="number" step="any" class="calc num" id="ne" name="ne" formula="" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <input type="number" step="any" class="calc num" id="ne" name="ne" formula="" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
             <div class="feedback" id="neFB" name="neFB"></div>
           </td>
           <td>
-            <input type="text" class="calc num" id="c" name="c" formula="" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <input type="text" class="calc num" id="c" name="c" formula="" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
             <div class="feedback" id="cFB" name="cFB"></div>
           </td>
         </tr>
