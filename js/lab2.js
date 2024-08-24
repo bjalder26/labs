@@ -539,7 +539,13 @@ if (matches) {
         var answer = evaluateWithCustomFunctions(formula).toString();
         var elementFB = $(this.id + "FB");
         //const value = isNaN(this.value) ? this.value : this.value * 1;
-        const value = isNaN(answer) ? this.value : this.value * 1;
+        console.log("type: "+this.type) 
+        let value;
+        if (this.type=="checkbox") {
+        value = this.checked.toString();
+      } else {
+        value = isNaN(answer) ? this.value : this.value * 1;
+    }
         
         const haveSigFigs = getSigFigs(this.value);
         const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
@@ -825,7 +831,7 @@ if (matches) {
   // click calc elements if not empty
   var calcElements = document.getElementsByClassName("calc");
   for (var calcElement of calcElements) {
-    if (calcElement.value != "" && calcElement.value != "on" ) {
+    if (calcElement.value != "" && calcElement.value != "on" ) { // change
       calcElement.click();
     }
   }
