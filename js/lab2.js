@@ -352,7 +352,6 @@ function submitScore() {
 }
 
 function submitAssignment(labName, name, sessionID) {
-  $('button_bar').style.display = 'none';
   let passed = {};
   passed.labName = labName;
   passed.name = name;
@@ -857,9 +856,7 @@ if (matches) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent the default form submission
-    alert($("button_bar").id)
-    $("button_bar").style.display = 'none';
-
+alert('here')
     // Convert the FormData object to a JavaScript object
     const formData = {};
     for (const pair of new FormData(form)) {
