@@ -351,6 +351,7 @@ function submitScore() {
   document.location = path;
 }
 
+
 function submitAssignment(labName, name, sessionID) {
   let passed = {};
   passed.labName = labName;
@@ -922,4 +923,22 @@ alert('here')
   if ($("score")) {
     $("score").click();
   }
+  
+  function submitAssignment(labName, name, sessionID) {
+  // Hide the button_bar div
+  $("button_bar").style.display = 'none';
+  
+  // Wait for the UI to update before navigating
+  setTimeout(() => {
+    let passed = {};
+    passed.labName = labName;
+    passed.name = name;
+    passed.sessionID = sessionID;
+    console.log(labName, name, sessionID);
+    passed = encodeURI(JSON.stringify(passed));
+    var path = `/noscore/${passed}`;
+    document.location = path;
+  }, 100); // Adjust the delay as necessary
+}
+  
 } // end onLoad
