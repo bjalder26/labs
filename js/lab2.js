@@ -14,25 +14,6 @@ const filter = function (...args) {
 };
 let loaded = false;
 
-/*
-const filter = function (...args) {
-	const filteredValues = args[0].filter(item => item.value !== 'null' && item.value !== '0' && item.value.trim() !== '');
-	let filtered;
-	//let filteredString = "";
-	for(filteredValue of filteredValues) {
-		filtered = filtered.append(filteredValue.value + ", ";
-	}
-	filteredString = filteredString.slice(0, filteredString.length-2)
-	alert(filteredString);
-    return filteredString;
-}*/
-/*
-const filter = (...args) => {
-	const filteredValues = args.filter(value => value !== 'null' && value !== '0' && value.trim() !== '');
-    const filteredString = filtered.join(', ');
-    return filteredString;
-};*/
-
 const chartInstances = [];
 
 MathJax.Hub.Config({
@@ -432,36 +413,7 @@ function getSigFigs(number) {
   }
 }
 
-/*
- function lookupValueInTable(tableID, searchColumn, searchValue, returnColumn) {
-  const table = $(tableID);
-  if (!table) {
-    console.error(`Table with ID "${tableID}" not found.`);
-    return null;
-  }
 
-  const rows = table.getElementsByTagName('tr');
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
-    const cells = row.getElementsByTagName('td');
-
-    if (cells.length > searchColumn) {
-      const cellValue = cells[searchColumn].innerText.trim();
-      if (cellValue === searchValue) {
-        if (cells.length > returnColumn) {
-          return cells[returnColumn].innerText.trim();
-        } else {
-          console.error(`Return column "${returnColumn}" not found in table.`);
-          return null;
-        }
-      }
-    }
-  }
-
-  console.error(`Value "${searchValue}" not found in column "${searchColumn}" of the table.`);
-  return null;
-}
-*/
 // ==========================================
 
 function onLoad() {
@@ -511,6 +463,12 @@ function onLoad() {
 
   $("userName").value = `${userName}`;
   $("labName").value = `${labName}`;
+  
+  var checkBoxes = document.getElementsByTagName('checkbox');
+  for(var checkBox of checkBoxes) {
+    const checkBoxChecked = checkBox.checked;
+    const checkBox
+  }
 
   var calcElements = document.getElementsByClassName("calc");
 
