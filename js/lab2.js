@@ -466,8 +466,18 @@ function onLoad() {
   
   var checkBoxes = document.getElementsByTagName('checkbox');
   for(var checkBox of checkBoxes) {
-    const checkBoxChecked = checkBox.checked;
-    const checkBox
+    const checkBoxChecked = checkBox.checked.toString();
+    const checkBoxAnswer = $(checkBox.formula);
+    const elementFB = $(checkBox.id + 'FB');
+    if(checkBoxChecked == checkBoxAnswer) {
+      elementFB.innerHTML =
+              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
+      elementFB.title = "correct";
+    } else {
+      elementFB.title = checkBox.getAttribute("help");
+      elementFB.innerHTML =
+              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
+    }
   }
 
   var calcElements = document.getElementsByClassName("calc");
