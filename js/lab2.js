@@ -857,7 +857,6 @@ if (matches) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent the default form submission
-alert('here')
     // Convert the FormData object to a JavaScript object
     const formData = {};
     for (const pair of new FormData(form)) {
@@ -925,7 +924,7 @@ alert('here')
   }
   
   setTimeout(function() {
-    $("button_bar").style.display = 'block';
-  }, 5000); // 5000 milliseconds = 5 seconds  
+    $("button_bar").style.display = 'flex';
+  }, 1000);  
   
 } // end onLoad
