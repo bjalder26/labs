@@ -58,6 +58,7 @@ function toPrint() {
   const userName = $("userName").value; // Retrieve userName from input field
 
   $("button_bar").style.display = "none";
+  
   //alert('Remember to change the destination to "Save as PDF"');
   window.print();
   // This callback will be executed when the PDF generation is complete
@@ -351,6 +352,7 @@ function submitScore() {
 }
 
 function submitAssignment(labName, name, sessionID) {
+  $('button_bar').style.display = 'none';
   let passed = {};
   passed.labName = labName;
   passed.name = name;
@@ -855,8 +857,8 @@ if (matches) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent the default form submission
-    
-    $()
+    alert($("button_bar").id)
+    $("button_bar").style.display = 'none';
 
     // Convert the FormData object to a JavaScript object
     const formData = {};
