@@ -539,7 +539,6 @@ if (matches) {
         var answer = evaluateWithCustomFunctions(formula).toString();
         var elementFB = $(this.id + "FB");
         //const value = isNaN(this.value) ? this.value : this.value * 1;
-        console.log("type: "+this.type) 
         let value;
         if (this.type=="checkbox") {
         value = this.checked.toString();

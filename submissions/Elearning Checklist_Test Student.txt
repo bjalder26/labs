@@ -1,1 +1,1 @@
-{"labName":"Elearning Checklist","userName":"Test Student","rsi-standards":"","course":""}
+{"labName":"Elearning Checklist","userName":"Test Student","check20":"on","check21":"on","check22":"on","check23":"on","rsi-standards":"","course":""}
