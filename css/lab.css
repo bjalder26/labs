@@ -130,9 +130,6 @@ td.underline {
     }
   }
 
-  #button_bar {
-    display: none;
-  }
   div.footer {
     position: fixed;
     bottom: 0px;
@@ -144,3 +141,4 @@ td.underline {
 .symbol {
   width: 50px;
 }
+

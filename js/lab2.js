@@ -922,9 +922,9 @@ if (matches) {
   if ($("score")) {
     $("score").click();
   }
-  
+/*  
   setTimeout(function() {
     $("button_bar").style.display = 'flex';
-  }, 1000);  
-  
+  }, 3000);  
+  */
 } // end onLoad

@@ -178,7 +178,7 @@ app.post("/", async (req, res) => {
             //console.log(typeof labList);
             labHtml = 'Invalid title' + '<br>lmsData.body.resource_link_title.toLowerCase(): ' + lmsData.body.resource_link_title.toLowerCase() + '<br>labList.toString(): ' + labList.toString();
         }
-
+        labHtml = labHtml.replace('</head>', '<style>#button_bar{display:flex;}</style></head>');
         var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
             `
                 var userName = '${name}';
