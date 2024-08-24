@@ -254,23 +254,23 @@ function evaluateWithCustomFunctions(equation) {
   };
 
   try {
-    console.log(equation);
+    //console.log(equation);
     // Check if the equation contains only numbers and letters without any mathematical operators
     if (/^[a-zA-Z0-9]+$/.test(equation)) {
       return equation; // Return as-is if it's a simple alphanumeric string
     }
 
-    console.log("variable2");
+    //console.log("variable2");
     const variable2 = math.evaluate(equation, scope)
       ? math.evaluate(equation, scope)
       : equation;
-    console.log(variable2);
+    //console.log(variable2);
     const variable = math.evaluate(equation, scope);
-    console.log("variable");
-    console.log(variable);
+    //console.log("variable");
+    //console.log(variable);
     return math.evaluate(equation, scope);
   } catch (e) {
-    console.log(e);
+    //console.log(e);
     return equation;
   }
 }
@@ -462,9 +462,10 @@ function onLoad() {
   };
 
   $("userName").value = `${userName}`;
-  $("labName").value = `${labName}`;
+  if(labName && $("labName")) {$("labName").value = `${labName}`;}
   
   var checkBoxes = document.getElementsByTagName('checkbox');
+  alert(JSON.stringify(checkBoxes));
   for(var checkBox of checkBoxes) {
     const checkBoxChecked = checkBox.checked.toString();
     const checkBoxAnswer = $(checkBox.formula);
@@ -520,15 +521,15 @@ if (matches) {
         const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
         let closeOrCorrect = false;
         if (value !== "") {
-          console.log("value: " + value + " isNaN: " + isNaN(value))
+          //console.log("value: " + value + " isNaN: " + isNaN(value))
           if (isNaN(answer)) {
           //if (isNaN(value)) {
             // allows the use of || for multiple correct text answers
-            console.log("answer: "+answer)
+            //console.log("answer: "+answer)
             const possibleAnswers = answer.split("||").map(ans => ans.trim());
-            console.log(possibleAnswers);
+            //console.log(possibleAnswers);
             closeOrCorrect = possibleAnswers.includes(value.toString());
-            console.log('closeOrCorrect' + closeOrCorrect);
+            //console.log('closeOrCorrect' + closeOrCorrect);
             
             // closeOrCorrect = value == answer ? true : false;
           } else {
