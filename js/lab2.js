@@ -464,23 +464,6 @@ function onLoad() {
   $("userName").value = `${userName}`;
   if(labName && $("labName")) {$("labName").value = `${labName}`;}
   
-  var checkBoxes = document.getElementsByTagName('checkbox');
-  alert(JSON.stringify(checkBoxes));
-  for(var checkBox of checkBoxes) {
-    const checkBoxChecked = checkBox.checked.toString();
-    const checkBoxAnswer = $(checkBox.formula);
-    const elementFB = $(checkBox.id + 'FB');
-    if(checkBoxChecked == checkBoxAnswer) {
-      elementFB.innerHTML =
-              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
-      elementFB.title = "correct";
-    } else {
-      elementFB.title = checkBox.getAttribute("help");
-      elementFB.innerHTML =
-              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
-    }
-  }
-
   var calcElements = document.getElementsByClassName("calc");
 
   for (var calc of calcElements) {
@@ -793,6 +776,25 @@ if (matches) {
       } else {
         console.log(index + " was not found");
       }
+    }
+  }
+  
+  // check values of checkboxes
+  
+    var checkBoxes = document.querySelectorAll('input[type=checkbox]')
+  for(var checkBox of checkBoxes) {
+    const checkBoxChecked = checkBox.checked.toString();
+    const checkBoxAnswer = checkBox.getAttribute('formula');
+    const elementFB = $(checkBox.id + 'FB');
+    console.log(checkBoxChecked, checkBoxAnswer, checkBox.id, checkBoxChecked == checkBoxAnswer);
+    if(checkBoxChecked == checkBoxAnswer) {
+      elementFB.innerHTML =
+              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
+      elementFB.title = "correct";
+    } else {
+      elementFB.title = checkBox.getAttribute("help");
+      elementFB.innerHTML =
+              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
     }
   }
 
