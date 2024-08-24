@@ -58,7 +58,7 @@ function toPrint() {
   const userName = $("userName").value; // Retrieve userName from input field
 
   $("button_bar").style.display = "none";
-  alert('Remember to change the destination to "Save as PDF"');
+  //alert('Remember to change the destination to "Save as PDF"');
   window.print();
   // This callback will be executed when the PDF generation is complete
   $("button_bar").style.display = "flex";
@@ -514,7 +514,6 @@ function onLoad() {
 
   for (var calc of calcElements) {
     ["click", "change"].forEach(function (event) {
-      
       calc.addEventListener(event, function (e) {
         var formula = this.getAttribute("formula");
         const requiredSigFigs = this.getAttribute("sigfigs")
@@ -647,7 +646,6 @@ if (matches) {
   */
 
     num.addEventListener("input", function (e) {
-      alert('input');
       var calcElements = document.getElementsByClassName("calc");
       const numbIdText = "${" + this.id + "}";
       for (var calcElement of calcElements) {
@@ -827,7 +825,6 @@ if (matches) {
   // click calc elements if not empty
   var calcElements = document.getElementsByClassName("calc");
   for (var calcElement of calcElements) {
-    alert('if not empty');
     if (calcElement.value != "" && calcElement.value != "on" ) {
       calcElement.click();
     }
