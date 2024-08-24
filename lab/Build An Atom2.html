@@ -292,10 +292,33 @@
         <li>What are the names of the stable forms of oxygen?</li>
         <ol type="a">
           <li>Oxygen-16</li>
+          
           <li>Oxygen-<input type="number" step="any" class="calc num" id="stablemass1" name="stablemass1" formula="17" range="1%" help="" />
             <div class="feedback" id="stablemass1FB" name="stablemass1FB"></div></li>
+          
           <li>Oxygen-<input type="number" step="any" class="calc num" id="stablemass2" name="stablemass2" formula="18" range="1%" help="" />
             <div class="feedback" id="stablemass2FB" name="stablemass2FB"></div></li>
+          
+          <li>What is the same about these atoms (ignore electrons)?
+          <select name="isotopes1" id="isotopes1" class="calc" formula="Atomic number & number of protons" help=""> 
+        <option value="">Choose the correct answer</option> 
+        <option value="Number of neutrons">Number of neutrons</option> 
+        <option value="Atomic number & number of protons">Atomic number &amp; number of protons</option> 
+        <option value="Mass number">Mass number</option>
+        <option value="Mass number and number of neutrons">Mass number and number of neutrons</option> 
+        </select><div class="feedback" id="isotopes1FB" name="isotopes1FB"></div> 
+            
+          </li>
+          <li>What is the different about these atoms (ignore electrons)?
+            <select name="isotopes2" id="isotopes2" class="calc" formula="Mass number and number of neutrons" help=""> 
+        <option value="">Choose the correct answer</option> 
+        <option value="Number of protons">Number of protons</option> 
+        <option value="Atomic number & number of protons">Atomic number &amp; number of protons</option> 
+        <option value="Mass number">Atomic number</option>
+        <option value="Mass number and number of neutrons">Mass number and number of neutrons</option> 
+        </select><div class="feedback" id="isotopes2FB" name="isotopes2FB"></div>
+          
+          </li>
         </ol>
       </ol>
 
