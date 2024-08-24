@@ -1,0 +1,144 @@
+body {
+  font-size: 18px;
+}
+
+textarea {
+  width: 100px;
+  height: 20px;
+  resize: none;
+}
+
+#button_bar {
+  height: 40px;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+  display: none;
+  align-content: center;
+  gap: 2px;
+  padding: 2px;
+  box-sizing: border-box;
+  background: lightgrey;
+  align-items: center; /* Vertical centering */
+}
+
+.canvas {
+  max-height: 300px;
+}
+canvas {
+  border-radius: 10px;
+  background-color: #e6ebfb;
+}
+
+#title {
+  text-align: center;
+}
+
+#name, .inline-block {
+  display: inline-block;
+}
+
+.feedback {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+}
+
+.feedback[title="correct"] {
+  height: 15px;
+  width: 15px;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+.essay {
+  width: 100%;
+  display: block;
+  height: 200px;
+  overflow: visible;
+  resize: none;
+}
+
+.shortanswer {
+  width: 100%;
+  display: block;
+  height: 60px;
+  overflow: visible;
+  resize: none;
+}
+
+img,
+.noBreak {
+  break-inside: avoid-page;
+}
+
+.break {
+  break-inside: auto;
+}
+
+.lookupValue {
+  display: none;
+}
+
+td.noborder {
+  border: none;
+}
+
+tr.noborder td {
+  border: none;
+}
+
+table.noborder tr td {
+  border: none;
+}
+
+table.fraction {
+  border-collapse: collapse;
+  border: none;
+}
+
+table.fraction > tbody > tr > td {
+  border-collapse: collapse;
+  border: none;
+  display: inline-flex;
+}
+
+td.underline {
+  border-bottom: 1px solid black !important;
+}
+
+.center {
+  text-align: center;
+}
+
+@media screen {
+  div.footer {
+    display: none;
+  }
+}
+
+@media print {
+  @page {
+    body {
+      bottom: 5cm;
+    }
+  }
+
+  div.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    display: none;
+  }
+}
+
+.symbol {
+  width: 50px;
+}
+
