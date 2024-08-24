@@ -814,7 +814,11 @@ if (matches) {
     for (var index in dataFile) {
       const element = $(index);
       if (element) {
-        element.value = dataFile[index];
+        if(element.type == "checkbox") {
+        element.checked = dataFile[index];
+        } else {
+        element.value = dataFile[index];  
+        }
       } else {
         console.log(index + " was not found");
       }
@@ -851,6 +855,8 @@ if (matches) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent the default form submission
+    
+    $()
 
     // Convert the FormData object to a JavaScript object
     const formData = {};
