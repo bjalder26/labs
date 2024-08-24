@@ -409,13 +409,19 @@
         <li>The periodic table has a great deal of information about every atom.  Using your periodic table, answer the following questions:</li>
         <ol type="a">
           <li>What is the atomic number of chlorine (Cl)? <input type="num" class="calc num" id="ptable1" name="ptable1" formula="17" help="Look at the number above Cl in the periodic table." />
-            <div class="feedback" id="n2FB" name="n2FB"></div>
-          
-          </li>
-          <li>What is the atomic number of tungsten (W)?</li>
-          <li>How many protons are there in any Cl atom?</li>
-          <li>How many protons are there in any Te atom?</li>
-          <li>Can you tell from the periodic table exactly how many neutrons are in an atom?</li>
+            <div class="feedback" id="ptable1FB" name="ptable1FB"></div></li>
+          <li>What is the atomic number of tungsten (W)? <input type="num" class="calc num" id="ptable2" name="ptable2" formula="74" help="Look at the number above W in the periodic table." />
+            <div class="feedback" id="ptable2FB" name="ptable2FB"></div></li>
+          <li>How many protons are there in any Cl atom? <input type="num" class="calc num" id="ptable3" name="ptable3" formula="17" help="Look at the number above Cl in the periodic table." />
+            <div class="feedback" id="ptable3FB" name="ptable3FB"></div></li>
+          <li>How many protons are there in any Te atom? <input type="num" class="calc num" id="ptable4" name="ptable4" formula="52" help="Look at the number above Te in the periodic table." />
+            <div class="feedback" id="ptable4FB" name="ptable4FB"></div></li> 
+          <li>Can you tell from the periodic table exactly how many neutrons are in an atom? 
+            <select name="ptable5" id="ptable5" class="calc" formula="No" help="Remember that there are isotopes of an element."> 
+        <option value="">Choose the correct answer</option> 
+        <option value="Yes">Yes</option> 
+        <option value="No">No</option> 
+        </select><div class="feedback" id="rptable5FB" name="ptable5FB"></div></li>
         </ol>
         
       </ol>
@@ -425,6 +431,7 @@
       <table>
         <!-- header-->
         <tr>
+          <th>Isotope?</th>
           <th>Name</th>
           <th>Symbol</th>
           <th>Atomic Number</th>
@@ -435,6 +442,7 @@
         </tr>
         <!-- hydrogen-2 row 1-->
         <tr>
+          
           <td>hydrogen-2</td>
           <td>$\ce{^{2}H}$</td>
           <td>1</td>
