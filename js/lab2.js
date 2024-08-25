@@ -16,6 +16,7 @@ let loaded = false;
 
 const chartInstances = [];
 
+
 MathJax.Hub.Config({
         tex2jax: {
           inlineMath: [
@@ -31,6 +32,7 @@ MathJax.Hub.Config({
 function $(x) {
   return document.getElementById(x);
 }
+
 
 function toPrint() {
   event.preventDefault(); // Prevent default form submission or button click behavior
