@@ -781,8 +781,36 @@ if (matches) {
     }
   }
   
-  // check values of checkboxes
+  // Get all checkbox inputs
+var checkBoxes = document.querySelectorAll('input[type=checkbox]');
+
+// Check if at least one checkbox is checked
+var isAnyChecked = Array.from(checkBoxes).some(checkBox => checkBox.checked);
+
+if (isAnyChecked) {
+  // Iterate through each checkbox
+  for (var checkBox of checkBoxes) {
+    const checkBoxChecked = checkBox.checked.toString();
+    const checkBoxAnswer = checkBox.getAttribute('formula');
+    const elementFB = document.getElementById(checkBox.id + 'FB');
+    
+    // console.log(checkBoxChecked, checkBoxAnswer, checkBox.id, checkBoxChecked == checkBoxAnswer);
+    
+    // Update the feedback based on whether the checkbox's value matches the expected answer
+    if (checkBoxChecked === checkBoxAnswer) {
+      elementFB.innerHTML =
+        '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
+      elementFB.title = "correct";
+    } else {
+      elementFB.title = checkBox.getAttribute("help");
+      elementFB.innerHTML =
+        '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
+    }
+  }
+} 
   
+  // check values of checkboxes
+ /* 
     var checkBoxes = document.querySelectorAll('input[type=checkbox]')
   for(var checkBox of checkBoxes) {
     const checkBoxChecked = checkBox.checked.toString();
@@ -799,6 +827,7 @@ if (matches) {
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
     }
   }
+  */
 
   // load graphs
   const graphs = document.querySelectorAll("[id*='graph']");
