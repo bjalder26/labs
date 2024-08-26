@@ -34,110 +34,439 @@
       <input type="text" id="userName" name="userName" style="display: none" />
 
       <!-- Beginning -->
-      
-    <!-- 
-<p>Open the <a href="https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_all.html">Build an Atom simulation</a> and click on the atom screen.</p>
-<p>Explore the Build an Atom simulation.  Click around to become familiar with what the buttons do.</p>   
-   <ol type="a">
+
+      <p>Open the <a target="_blank" href="https://phet.colorado.edu/sims/html/build-an-atom/latest/build-an-atom_all.html">Build an Atom simulation</a> and click on the atom screen.</p>
+      <p>Explore the Build an Atom simulation. Click around to become familiar with what the buttons do.</p>
+      <ol type="a">
         <li>List two things you observed in the simulation.</li>
-      <textarea class="text essay" id="list2things" name="list2things"></textarea>
+        <textarea class="text essay" id="list2things" name="list2things"></textarea>
 
         <li>What particle(s) are found in the center of the atom?</li>
-        <select name="particles" id="particles" class="calc" formula="Protons & Neutrons" help=""> 
-        <option value="">Choose the particles</option> 
-        <option value="Protons">Protons</option> 
-        <option value="Neutrons">Neutrons</option> 
-        <option value="Electrons">Electrons</option> 
-        <option value="Protons & Neutrons">Protons &amp; Neutrons</option>	
+        <select name="particles" id="particles" class="calc" formula="Protons & Neutrons" help="">
+          <option value="">Choose the particles</option>
+          <option value="Protons">Protons</option>
+          <option value="Neutrons">Neutrons</option>
+          <option value="Electrons">Electrons</option>
+          <option value="Protons & Neutrons">Protons &amp; Neutrons</option>
           <option value="Protons & Electrons">Protons &amp; Electrons</option>
-          <option value="Neutrons & Electrons">Protons &amp; Electrons</option>	
-        </select><div class="feedback" id="particlesFB" name="particlesFB"></div> 
+          <option value="Neutrons & Electrons">Protons &amp; Electrons</option>
+        </select>
+        <div class="feedback" id="particlesFB" name="particlesFB"></div>
       </ol>
 
       <ol>
-        <li>Play until you discover which <b>particle(s)</b> determine(s) the name of the <b>element</b> you build.  What did you discover?</li>
-        <textarea class="text essay" id="discover" name="discover"></textarea>
-       // should this be a drop-down?
+        <li>Play until you discover which <b>particle(s)</b> determine(s) the name of the <b>element</b> you build. What did you discover?</li>
+
+        <select name="particles2" id="particles2" class="calc" formula="Protons" help="">
+          <option value="">Choose the particles</option>
+          <option value="Protons">Protons</option>
+          <option value="Neutrons">Neutrons</option>
+          <option value="Electrons">Electrons</option>
+        </select>
+        <div class="feedback" id="particles2FB" name="particles2FB"></div>
+
         <li>What is the <b>name</b> of the following atoms?</li>
         <ol type="a">
-          <li>An atom with 3 protons and 4 neutrons:</li> 
+          <li>An atom with 3 protons and 4 neutrons:</li>
           <input type="text" class="calc num" id="namea" name="namea" formula="lithium-7" help="The name of the element (based on the number of protons) followed by a dash and the mass number" />
-            <div class="feedback" id="nameaFB" name="nameaFB"></div>
+          <div class="feedback" id="nameaFB" name="nameaFB"></div>
           <li>An atom with 2 protons and 4 neutrons:</li>
           <input type="text" class="calc num" id="nameb" name="nameb" formula="helium-6" help="The name of the element (based on the number of protons) followed by a dash and the mass number" />
-            <div class="feedback" id="namebFB" name="namebFB"></div>
+          <div class="feedback" id="namebFB" name="namebFB"></div>
           <li>An atom with 4 protons and 4 neutrons:</li>
           <input type="text" class="calc num" id="namec" name="namec" formula="beryllium-8" help="The name of the element (based on the number of protons) followed by a dash and the mass number" />
-            <div class="feedback" id="namecFB" name="namecFB"></div>
-    
-          <li>Play with the simulation to discover which particles affect the <b>charge</b> of an atom or ion.</li>
-         <ol type="a">
-         <li>Fill in the blanks below to show your results:</li>
-          <p>Neutral atoms have 
-           <select name="charge1" id="charge1" class="calc" formula="same number of" help=""> 
-        <option value="">Choose the answer</option> 
-        <option value ="same number of">same number of</option>
-        <option value="more">more</option> 
-        <option value="fewer">fewer</option>	
-        </select><div class="feedback" id="charge1FB" name="charge1FB"></div> 
-            protons and electrons</p>
-          <p>Positive ions have 
-            <select name="charge2" id="charge2" class="calc" formula="more" help=""> 
-        <option value="">Choose the answer</option> 
-        <option value ="same number of">same number of</option>
-        <option value="more">more</option> 
-        <option value="fewer">fewer</option>	
-        </select><div class="feedback" id="charge2FB" name="charge2FB"></div> 
-            protons and electrons</p>
-          <p>Negative ions have 
-            <select name="charge3" id="charge3" class="calc" formula="fewer" help=""> 
-        <option value="">Choose the answer</option> 
-        <option value ="same number of">same number of</option>
-        <option value="more">more</option> 
-        <option value="fewer">fewer</option>	
-        </select><div class="feedback" id="charge3FB" name="charge3FB"></div> 
-        protons than electrons</p>
-         <li>Develop a relationship (in the form of an equation) that can predict the charge based on the number and types of subatomic particles (protons, neutrons, and electrons).</li>
-        <select name="formula1" id="formula1" class="calc" formula="charge = # protons - # electrons" help=""> 
-        <option value="">Choose the answer</option> 
-        <option value ="charge = # protons + # neutrons + # electrons">charge = # protons + # neutrons + # electrons</option>
-        <option value="charge = # protons + # neutrons">charge = # protons + # neutrons</option> 
-          <option value="charge = # protons + # electrons">charge = # protons + # electrons</option>
-        <option value="charge = # protons - # electrons">charge = # protons - # electrons</option>
-        <option value="charge = # protons - # neutrons">charge = # protons - # neutrons</option>
-          <option value="charge = # electrons - # protons">charge = # electrons - # protons</option>
-        <option value="charge = # neutrons - # protons">charge = # neutrons - # protons</option>
-          <option value="charge = # protons">charge = # protons</option>
-          <option value="charge = # neutrons">charge = # neutrons</option>
-          <option value="charge = # electrons">charge = # electrons</option>
-        </select><div class="feedback" id="formula1FB" name="formula1FB"></div> 
+          <div class="feedback" id="namecFB" name="namecFB"></div>
         </ol>
-    <li>Play with the simulation to discover what affects the <b>mass number</b> of your atom or ion.</li>
-    <p>What is the formula for determing the mass number of an atom or ion?</p>
-            <select name="formula2" id="formula2" class="calc" formula="mass number = # protons + # neutrons" help=""> 
-        <option value="">Choose the answer</option> 
-        <option value ="mass number = # protons + # neutrons + # electrons">mass number = # protons + # neutrons + # electrons</option>
-        <option value="mass number = # protons + # neutrons">mass number = # protons + # neutrons</option> 
+
+        <li>Play with the simulation to discover which particles affect the <b>charge</b> of an atom or ion.</li>
+        <ol type="a">
+          <li>Fill in the blanks below to show your results:</li>
+          Neutral atoms have
+          <select name="charge1" id="charge1" class="calc" formula="the same number of" help="">
+            <option value="">Choose the answer</option>
+            <option value="the same number of">the same number of</option>
+            <option value="more">more</option>
+            <option value="fewer">fewer</option>
+          </select> protons and electrons <div class="feedback" id="charge1FB" name="charge1FB"></div><br>
+          Positive ions have
+          <select name="charge2" id="charge2" class="calc" formula="more" help="">
+            <option value="">Choose the answer</option>
+            <option value="the same number of">the same number of</option>
+            <option value="more">more</option>
+            <option value="fewer">fewer</option>
+          </select> protons and electrons <div class="feedback" id="charge2FB" name="charge2FB"></div><br>
+          Negative ions have
+          <select name="charge3" id="charge3" class="calc" formula="fewer" help="">
+            <option value="">Choose the answer</option>
+            <option value="the same number of">the same number of</option>
+            <option value="more">more</option>
+            <option value="fewer">fewer</option>
+          </select> protons than electrons <div class="feedback" id="charge3FB" name="charge3FB"></div><br>
+          <li>Develop a relationship (in the form of an equation) that can predict the charge based on the number and types of subatomic particles (protons, neutrons, and electrons).</li>
+          <select name="formula1" id="formula1" class="calc" formula="charge = # protons - # electrons" help="">
+            <option value="">Choose the answer</option>
+            <option value="charge = # protons + # neutrons + # electrons">charge = # protons + # neutrons + # electrons</option>
+            <option value="charge = # protons + # neutrons">charge = # protons + # neutrons</option>
+            <option value="charge = # protons + # electrons">charge = # protons + # electrons</option>
+            <option value="charge = # protons - # electrons">charge = # protons - # electrons</option>
+            <option value="charge = # protons - # neutrons">charge = # protons - # neutrons</option>
+            <option value="charge = # electrons - # protons">charge = # electrons - # protons</option>
+            <option value="charge = # neutrons - # protons">charge = # neutrons - # protons</option>
+            <option value="charge = # protons">charge = # protons</option>
+            <option value="charge = # neutrons">charge = # neutrons</option>
+            <option value="charge = # electrons">charge = # electrons</option>
+          </select>
+          <div class="feedback" id="formula1FB" name="formula1FB"></div>
+        </ol>
+        <li>Play with the simulation to discover what affects the <b>mass number</b> of your atom or ion.</li>
+
+        <select name="particles3" id="particles3" class="calc" formula="Protons & Neutrons" help="">
+          <option value="">Choose the particles</option>
+          <option value="Protons">Protons</option>
+          <option value="Neutrons">Neutrons</option>
+          <option value="Electrons">Electrons</option>
+          <option value="Protons & Neutrons">Protons &amp; Neutrons</option>
+          <option value="Protons & Electrons">Protons &amp; Electrons</option>
+          <option value="Neutrons & Electrons">Protons &amp; Electrons</option>
+        </select>
+        <div class="feedback" id="particles3FB" name="particles3FB"></div>
+
+        What is the formula for determing the mass number of an atom or ion?<br>
+        <select name="formula2" id="formula2" class="calc" formula="mass number = # protons + # neutrons" help="">
+          <option value="">Choose the answer</option>
+          <option value="mass number = # protons + # neutrons + # electrons">mass number = # protons + # neutrons + # electrons</option>
+          <option value="mass number = # protons + # neutrons">mass number = # protons + # neutrons</option>
           <option value="mass number = # protons + # electrons">mass number = # protons + # electrons</option>
-        <option value="mass number = # protons - # electrons">mass number = # protons - # electrons</option>
-        <option value="mass number = # protons - # neutrons">mass number = # protons - # neutrons</option>
+          <option value="mass number = # protons - # electrons">mass number = # protons - # electrons</option>
+          <option value="mass number = # protons - # neutrons">mass number = # protons - # neutrons</option>
           <option value="mass number = # electrons - # protons">mass number = # electrons - # protons</option>
-        <option value="mass number = # neutrons - # protons">mass number = # neutrons - # protons</option>
+          <option value="mass number = # neutrons - # protons">mass number = # neutrons - # protons</option>
           <option value="mass number = # protons">mass number = # protons</option>
           <option value="mass number = # neutrons">mass number = # neutrons</option>
           <option value="mass number = # electrons">mass number = # electrons</option>
-        </select><div class="feedback" id="formula2FB" name="formula2FB"></div> 
-    <li> Practice applying your understanding by playing the 1<sup>st</sup> and 2<sup>nd</sup> levels on the game screen.  Play until you reach five stars and then insert your screenshot below.  Here is an example:</li>
+        </select>
+        <div class="feedback" id="formula2FB" name="formula2FB"></div>
+        <li> Practice applying your understanding by playing the 1<sup>st</sup> and 2<sup>nd</sup> levels on the game screen. Play until you reach five stars
+          <!-- and then insert your screenshot below.  Here is an example:-->
+        </li>
+        <!-- Now insert yours -->
+        <li>Using the <i>Symbol</i> readout box, figure out <b>which particles</b> affect each component of the atomic symbol</li>
+        In the following set of questions (1-8) indicate which term or description matches each letter in the atomic (or ionic) symbol below.
+        <p class="center">
+          <span class="center">$\Huge{\ce{^{d}_{c}a^{b}}}$</span>
+        </p>
+        <ol>
+          <li>a
+            <select name="symbol1" id="symbol1" class="calc" formula="Element symbol" help="">
+              <option value="">Choose the answer</option>
+              <option value="Atomic number">Atomic number</option>
+              <option value="Charge">Charge</option>
+              <option value="Element symbol">Element symbol</option>
+              <option value="Mass number">Mass number</option>
+            </select>
+            <div class="feedback" id="symbol1FB" name="symbol1FB"></div>
+          </li>
+
+          <li>b
+            <select name="symbol2" id="symbol2" class="calc" formula="Charge" help="">
+              <option value="">Choose the answer</option>
+              <option value="Atomic number">Atomic number</option>
+              <option value="Charge">Charge</option>
+              <option value="Element symbol">Element symbol</option>
+              <option value="Mass number">Mass number</option>
+            </select>
+            <div class="feedback" id="symbol2FB" name="symbol2FB"></div>
+          </li>
+
+          <li>c
+            <select name="symbol3" id="symbol3" class="calc" formula="Atomic number" help="">
+              <option value="">Choose the answer</option>
+              <option value="Atomic number">Atomic number</option>
+              <option value="Charge">Charge</option>
+              <option value="Element symbol">Element symbol</option>
+              <option value="Mass number">Mass number</option>
+            </select>
+            <div class="feedback" id="symbol3FB" name="symbol3FB"></div>
+          </li>
+
+          <li>d
+            <select name="symbol4" id="symbol4" class="calc" formula="Mass number" help="">
+              <option value="">Choose the answer</option>
+              <option value="Atomic number">Atomic number</option>
+              <option value="Charge">Charge</option>
+              <option value="Element symbol">Element symbol</option>
+              <option value="Mass number">Mass number</option>
+            </select>
+            <div class="feedback" id="symbol4FB" name="symbol4FB"></div>
+          </li>
+
+          <li>a
+            <select name="symbol5" id="symbol5" class="calc" formula="Determined by the number of protons" help="">
+              <option value="">Choose the answer</option>
+              <option value="Determined by the number of protons and electrons">Determined by the number of protons and electrons</option>
+              <option value="Determined by the number of protons and neutrons">Determined by the number of protons and neutrons</option>
+              <option value="Determined by the number of protons">Determined by the number of protons</option>
+              <option value="Determined by the number of neutrons and electrons">Determined by the number of neutrons and electrons</option>
+            </select>
+            <div class="feedback" id="symbol5FB" name="symbol5FB"></div>
+          </li>
+
+          <li>b
+            <select name="symbol6" id="symbol6" class="calc" formula="Determined by the number of protons and electrons" help="">
+              <option value="">Choose the answer</option>
+              <option value="Determined by the number of protons and electrons">Determined by the number of protons and electrons</option>
+              <option value="Determined by the number of protons and neutrons">Determined by the number of protons and neutrons</option>
+              <option value="Determined by the number of protons">Determined by the number of protons</option>
+              <option value="Determined by the number of neutrons and electrons">Determined by the number of neutrons and electrons</option>
+            </select>
+            <div class="feedback" id="symbol6FB" name="symbol6FB"></div>
+          </li>
+
+          <li>c
+            <select name="symbol7" id="symbol7" class="calc" formula="Determined by the number of protons" help="">
+              <option value="">Choose the answer</option>
+              <option value="Determined by the number of protons and electrons">Determined by the number of protons and electrons</option>
+              <option value="Determined by the number of protons and neutrons">Determined by the number of protons and neutrons</option>
+              <option value="Determined by the number of protons">Determined by the number of protons</option>
+              <option value="Determined by the number of neutrons and electrons">Determined by the number of neutrons and electrons</option>
+            </select>
+            <div class="feedback" id="symbol7FB" name="symbol7FB"></div>
+          </li>
+
+          <li>d
+            <select name="symbol8" id="symbol8" class="calc" formula="Determined by the number of protons and neutrons" help="">
+              <option value="">Choose the answer</option>
+              <option value="Determined by the number of protons and electrons">Determined by the number of protons and electrons</option>
+              <option value="Determined by the number of protons and neutrons">Determined by the number of protons and neutrons</option>
+              <option value="Determined by the number of protons">Determined by the number of protons</option>
+              <option value="Determined by the number of neutrons and electrons">Determined by the number of neutrons and electrons</option>
+            </select>
+            <div class="feedback" id="symbol8FB" name="symbol8FB"></div>
+          </li>
         </ol>
+        Practice applying your understanding by playing the 3<sup>rd</sup> and 4<sup>th</sup> game levels. Play until you can get all the
+        questions correct on the 4<sup>th</sup> level.
+        <!--Insert a screen shot of your 3<sup>rd</sup> and 4<sup>th</sup> levels here: -->
+
+        In addition to atomic symbol, we can represent atoms by name hyphen mass number (e.g. carbon-12).
+        <ol type="a">
+          <li>Complete the table below:</li>
+          <div class="center">
+            <table>
+              <tr>
+                <th>Symbol notation</th>
+                <th>Hyphen notation</th>
+              </tr>
+              <tr>
+                <td>$\ce{^{12}_{6}C^{+}}$</td>
+                <td>carbon-12</td>
+              </tr>
+              <tr>
+                <td>$\ce{^{18}_{9}}F$</td>
+                <td>
+                  <input type="text" class="calc num" id="hyphen1" name="hyphen1" formula="fluorine-18" help="name hyphen mass number" />
+                  <div class="feedback" id="hyphen1FB" name="hyphen1FB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>$\ce{^{11}_{5}}B$</td>
+                <td><input type="text" class="calc num" id="hyphen2" name="hyphen2" formula="boron-11" help="name hyphen mass number" />
+                  <div class="feedback" id="hyphen2FB" name="hyphen2FB"></div>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+        </ol>
+
+        <h3>
+          PART III: ISOTOPES
+        </h3>
+        <li>Play with the simulation to determine:</li>
+        <ol type="a">
+          <li>Which particles affect the stability of the atom?</li>
+          <select name="stability1" id="stability1" class="calc" formula="Protons & Neutrons" help="">
+            <option value="">Choose the particles</option>
+            <option value="Protons">Protons</option>
+            <option value="Neutrons">Neutrons</option>
+            <option value="Electrons">Electrons</option>
+            <option value="Protons & Neutrons">Protons &amp; Neutrons</option>
+            <option value="Protons & Electrons">Protons &amp; Electrons</option>
+            <option value="Neutrons & Electrons">Protons &amp; Electrons</option>
+          </select>
+          <div class="feedback" id="stability1FB" name="stability1FB"></div>
+
+          <li>Which particles do not affect the stability of the atom?</li>
+          <select name="stability2" id="stability2" class="calc" formula="Electrons" help="">
+            <option value="">Choose the particles</option>
+            <option value="Protons">Protons</option>
+            <option value="Neutrons">Neutrons</option>
+            <option value="Electrons">Electrons</option>
+            <option value="Protons & Neutrons">Protons &amp; Neutrons</option>
+            <option value="Protons & Electrons">Protons &amp; Electrons</option>
+            <option value="Neutrons & Electrons">Protons &amp; Electrons</option>
+          </select>
+          <div class="feedback" id="stability2FB" name="stability2FB"></div>
+        </ol>
+        <li>What are the names of the stable forms of oxygen (in ascending or descending order from Oxygen-16)?</li>
+        <ol type="a">
+          <li>Oxygen-16</li>
+
+          <li>Oxygen-<input type="number" step="any" class="calc num" id="stablemass1" name="stablemass1" formula="17" range="1%" help="" />
+            <div class="feedback" id="stablemass1FB" name="stablemass1FB"></div>
+          </li>
+
+          <li>Oxygen-<input type="number" step="any" class="calc num" id="stablemass2" name="stablemass2" formula="18" range="1%" help="" />
+            <div class="feedback" id="stablemass2FB" name="stablemass2FB"></div>
+          </li>
+
+          <li>What is the same about these atoms (ignore electrons)?
+            <select name="isotopes1" id="isotopes1" class="calc" formula="Atomic number & number of protons" help="">
+              <option value="">Choose the correct answer</option>
+              <option value="Number of neutrons">Number of neutrons</option>
+              <option value="Atomic number & number of protons">Atomic number &amp; number of protons</option>
+              <option value="Mass number">Mass number</option>
+              <option value="Mass number and number of neutrons">Mass number and number of neutrons</option>
+            </select>
+            <div class="feedback" id="isotopes1FB" name="isotopes1FB"></div>
+
+          </li>
+          <li>What is the different about these atoms (ignore electrons)?
+            <select name="isotopes2" id="isotopes2" class="calc" formula="Mass number and number of neutrons" help="">
+              <option value="">Choose the correct answer</option>
+              <option value="Number of protons">Number of protons</option>
+              <option value="Atomic number & number of protons">Atomic number &amp; number of protons</option>
+              <option value="Mass number">Atomic number</option>
+              <option value="Mass number and number of neutrons">Mass number and number of neutrons</option>
+            </select>
+            <div class="feedback" id="isotopes2FB" name="isotopes2FB"></div>
+
+          </li>
+        </ol>
+
+        <li>The atoms in the previous question are <b>isotopes</b> of each other. Based on this information,
+          what are the requirements for two atoms to be isotopes of each other?
+          <select name="isotoperequirements" id="isotoperequirements" class="calc" formula="Same number of protons but a different number of neutrons" help="">
+            <option value="">Choose the correct answer</option>
+            <option value="Same number of protons but a different number of neutrons">Same number of protons but a different number of neutrons</option>
+            <option value="Same number of protons and neutrons">Same number of protons and neutrons</option>
+            <option value="Same atomic number and mass number">Same atomic number and mass number</option>
+            <option value="Same number of neutrons but a different number of protons">Same number of neutrons but a different number of protons</option>
+          </select>
+          <div class="feedback" id="isotoperequirementsFB" name="isotoperequirementsFB"></div>
+
+        </li>
+
+        <li>Test your understanding of isotopes by examining the relationships between the pairs of atoms listed below:</li>
+        <table>
+          <tr>
+            <th>Atom 1</th>
+            <th>Atom 2</th>
+            <th>Relationship between atom 1 and atom 2</th>
+          </tr>
+          <tr>
+            <td>$\ce{^{12}_{6}C}$</td>
+            <td>$\ce{^{13}_{6}C}$</td>
+            <td>
+              <select name="relationship1" id="relationship1" class="calc" formula="Isotopes" help="">
+                <option value="">Choose the correct answer</option>
+                <option value="Isotopes">Isotopes</option>
+                <option value="Same atom, not isotopes of each other">Same atom, not isotopes of each other</option>
+                <option value="Different element">Different element</option>
+              </select>
+              <div class="feedback" id="relationship1FB" name="relationship1FB"></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Carbon-12</td>
+            <td>$\ce{^{12}_{6}C}$</td>
+            <td>
+              <select name="relationship2" id="relationship2" class="calc" formula="Same atom, not isotopes of each other" help="">
+                <option value="">Choose the correct answer</option>
+                <option value="Isotopes">Isotopes</option>
+                <option value="Same atom, not isotopes of each other">Same atom, not isotopes of each other</option>
+                <option value="Different element">Different element</option>
+              </select>
+              <div class="feedback" id="relationship2FB" name="relationship2FB"></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Argon-40</td>
+            <td>Argon-41</td>
+            <td>
+              <select name="relationship3" id="relationship3" class="calc" formula="Isotopes" help="">
+                <option value="">Choose the correct answer</option>
+                <option value="Isotopes">Isotopes</option>
+                <option value="Same atom, not isotopes of each other">Same atom, not isotopes of each other</option>
+                <option value="Different element">Different element</option>
+              </select>
+              <div class="feedback" id="relationship3FB" name="relationship3FB"></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>$\ce{^{11}_{5}B}$</td>
+            <td>Boron-10</td>
+            <td>
+              <select name="relationship4" id="relationship4" class="calc" formula="Isotopes" help="">
+                <option value="">Choose the correct answer</option>
+                <option value="Isotopes">Isotopes</option>
+                <option value="Same atom, not isotopes of each other">Same atom, not isotopes of each other</option>
+                <option value="Different element">Different element</option>
+              </select>
+              <div class="feedback" id="relationship4FB" name="relationship4FB"></div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>An atom with 13 protons and 13 neutrons</td>
+            <td>An atom with 14 protons and 13 neutrons</td>
+            <td>
+              <select name="relationship5" id="relationship5" class="calc" formula="Different element" help="">
+                <option value="">Choose the correct answer</option>
+                <option value="Isotopes">Isotopes</option>
+                <option value="Same atom, not isotopes of each other">Same atom, not isotopes of each other</option>
+                <option value="Different element">Different element</option>
+              </select>
+              <div class="feedback" id="relationship5FB" name="relationship5FB"></div>
+            </td>
+          </tr>
+        </table>
+
+        <li>The periodic table has a great deal of information about every atom. Using your periodic table, answer the following questions:</li>
+        <ol type="a">
+          <li>What is the atomic number of chlorine (Cl)? <input type="num" class="calc num" id="ptable1" name="ptable1" formula="17" help="Look at the number above Cl in the periodic table." />
+            <div class="feedback" id="ptable1FB" name="ptable1FB"></div>
+          </li>
+          <li>What is the atomic number of tungsten (W)? <input type="num" class="calc num" id="ptable2" name="ptable2" formula="74" help="Look at the number above W in the periodic table." />
+            <div class="feedback" id="ptable2FB" name="ptable2FB"></div>
+          </li>
+          <li>How many protons are there in any Cl atom? <input type="num" class="calc num" id="ptable3" name="ptable3" formula="17" help="Look at the number above Cl in the periodic table." />
+            <div class="feedback" id="ptable3FB" name="ptable3FB"></div>
+          </li>
+          <li>How many protons are there in any Te atom? <input type="num" class="calc num" id="ptable4" name="ptable4" formula="52" help="Look at the number above Te in the periodic table." />
+            <div class="feedback" id="ptable4FB" name="ptable4FB"></div>
+          </li>
+          <li>Can you tell from the periodic table exactly how many neutrons are in an atom?
+            <select name="ptable5" id="ptable5" class="calc" formula="No" help="Remember that there are isotopes of an element.">
+              <option value="">Choose the correct answer</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="ptable5FB" name="ptable5FB"></div>
+          </li>
+        </ol>
+
       </ol>
 
 
-      -->
-      
-     Note: Symbols should be input without superscripts and without a "0" charge for neutral atoms. E.g. <sup>25</sup>Mg<sup>2+</sup> should be entered as 25Mg2+.
+      Note: Symbols should be input without superscripts and without a "0" charge for neutral atoms. E.g. <sup>25</sup>Mg<sup>2+</sup> should be entered as 25Mg2+.
       <table>
         <!-- header-->
         <tr>
+          <th>Isotope?</th>
           <th>Name</th>
           <th>Symbol</th>
           <th>Atomic Number</th>
@@ -148,6 +477,9 @@
         </tr>
         <!-- hydrogen-2 row 1-->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check1" name="check1">
+            <div class="feedback" id="check1FB" name="check1FB"></div>
+          </td>
           <td>hydrogen-2</td>
           <td>$\ce{^{2}H}$</td>
           <td>1</td>
@@ -158,6 +490,9 @@
         </tr>
         <!-- hydrogen-3 row 2-->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check2" name="check2">
+            <div class="feedback" id="check2FB" name="check2FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n2" name="n2" formula="hydrogen-3" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n2FB" name="n2FB"></div>
@@ -186,6 +521,9 @@
         </tr>
         <!-- sodium-22 row 3-->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check3" name="check3">
+            <div class="feedback" id="check3FB" name="check3FB"></div>
+          </td>
           <td>sodium-22</td>
           <td>$\ce{^{22}Na^+}$</td>
           <td>
@@ -209,6 +547,9 @@
 
         <!-- magnesium-24 row 4 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check4" name="check4">
+            <div class="feedback" id="check4FB" name="check4FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n4" name="n4" formula="magnesium-24" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n4FB" name="n4FB"></div>
@@ -233,6 +574,9 @@
 
         <!-- magnesium-25 row 5 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check5" name="check5">
+            <div class="feedback" id="check5FB" name="check5FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n5" name="n5" formula="magnesium-25" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n5FB" name="n5FB"></div>
@@ -255,15 +599,18 @@
             <div class="feedback" id="c5FB" name="c5FB"></div>
           </td>
         </tr>
-        
-                <!-- titanium-46 row 6 -->
+
+        <!-- titanium-46 row 6 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check6" name="check6">
+            <div class="feedback" id="check6FB" name="check6FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n6" name="n6" formula="titanium-46" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n6FB" name="n6FB"></div>
           </td>
           <td>
-          <sup>46</sup>Ti<sup>2-</sup>
+            <sup>46</sup>Ti<sup>2-</sup>
           </td>
           <td>
             <input type="number" step="any" class="calc num" id="an6" name="an6" formula="22" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
@@ -289,6 +636,9 @@
 
         <!-- silver-107 row 7 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check7" name="check7">
+            <div class="feedback" id="check7FB" name="check7FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n7" name="n7" formula="silver-107" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n7FB" name="n7FB"></div>
@@ -317,8 +667,11 @@
           </td>
         </tr>
 
-                <!-- fluorine-19 row 8 -->
+        <!-- fluorine-19 row 8 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check8" name="check8">
+            <div class="feedback" id="check8FB" name="check8FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n8" name="n8" formula="fluorine-19" range="1%" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n8FB" name="n8FB"></div>
@@ -347,14 +700,17 @@
           </td>
         </tr>
 
-                <!-- carbon-12 row 9 -->
+        <!-- carbon-12 row 9 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check9" name="check9">
+            <div class="feedback" id="check9FB" name="check9FB"></div>
+          </td>
           <td>carbon-12</td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s9" name="s9" formula="12C" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s9DIV">
-          </div>
-          <div class="feedback" id="s9FB" name="s9FB"></div>
+            <input type="text" class="calc num symbol" id="s9" name="s9" formula="12C" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s9DIV">
+            </div>
+            <div class="feedback" id="s9FB" name="s9FB"></div>
           </td>
           <td>
             <input type="number" step="any" class="calc num" id="an9" name="an9" formula="6" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
@@ -374,14 +730,17 @@
             <div class="feedback" id="c9FB" name="c9FB"></div>
           </td>
         </tr>
-        
-                <!-- carbon-13 row 10 -->
+
+        <!-- carbon-13 row 10 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check10" name="check10">
+            <div class="feedback" id="check10FB" name="check10FB"></div>
+          </td>
           <td>carbon-13</td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s10" name="s10" formula="13C" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s10DIV"></div>
-          <div class="feedback" id="s10FB" name="s10FB"></div>
+            <input type="text" class="calc num symbol" id="s10" name="s10" formula="13C" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s10DIV"></div>
+            <div class="feedback" id="s10FB" name="s10FB"></div>
           </td>
           <td>
             <input type="number" step="any" class="calc num" id="an10" name="an10" formula="6" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
@@ -404,12 +763,15 @@
 
         <!-- carbon-14 row 11 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check11" name="check11">
+            <div class="feedback" id="check11FB" name="check11FB"></div>
+          </td>
           <td>carbon-14</td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s11" name="s11" formula="14C" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s11DIV">
-          </div>
-          <div class="feedback" id="s11FB" name="s11FB"></div>
+            <input type="text" class="calc num symbol" id="s11" name="s11" formula="14C" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s11DIV">
+            </div>
+            <div class="feedback" id="s11FB" name="s11FB"></div>
           </td>
           <td>
             <input type="number" step="any" class="calc num" id="an11" name="an11" formula="6" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
@@ -432,12 +794,15 @@
 
         <!-- carbon-12 anion row 12 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check12" name="check12">
+            <div class="feedback" id="check12FB" name="check12FB"></div>
+          </td>
           <td>carbon-12</td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s12" name="s12" formula="12C1-||12C-1||12C-" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s12DIV">
-          </div>
-          <div class="feedback" id="s12FB" name="s12FB"></div>
+            <input type="text" class="calc num symbol" id="s12" name="s12" formula="12C1-||12C-1||12C-" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s12DIV">
+            </div>
+            <div class="feedback" id="s12FB" name="s12FB"></div>
           </td>
           <td>
             <input type="number" step="any" class="calc num" id="an12" name="an12" formula="6" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
@@ -458,15 +823,18 @@
           </td>
         </tr>
 
-        
+
         <!-- carbon-12 cation row 13 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check13" name="check13">
+            <div class="feedback" id="check13FB" name="check13FB"></div>
+          </td>
           <td>carbon-12</td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s13" name="s13" formula="12C1+||12C+||12C+1" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s13DIV">
-          </div>
-          <div class="feedback" id="s13FB" name="s13FB"></div>
+            <input type="text" class="calc num symbol" id="s13" name="s13" formula="12C1+||12C+||12C+1" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s13DIV">
+            </div>
+            <div class="feedback" id="s13FB" name="s13FB"></div>
           </td>
           <td>
             <input type="number" step="any" class="calc num" id="an13" name="an13" formula="6" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
@@ -489,6 +857,9 @@
 
         <!-- Helium-4 row 14 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check14" name="check14">
+            <div class="feedback" id="check14FB" name="check14FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n14" name="n14" formula="helium-4" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n14FB" name="n14FB"></div>
@@ -519,15 +890,18 @@
 
         <!-- oxygen-16 row 15 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check15" name="check15">
+            <div class="feedback" id="check15FB" name="check15FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n15" name="n15" formula="oxygen-16" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n15FB" name="n15FB"></div>
           </td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s15" name="s15" formula="16O" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s15DIV">
-          </div>
-          <div class="feedback" id="s15FB" name="s15FB"></div>
+            <input type="text" class="calc num symbol" id="s15" name="s15" formula="16O" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s15DIV">
+            </div>
+            <div class="feedback" id="s15FB" name="s15FB"></div>
           </td>
           <td>8</td>
           <td>
@@ -540,17 +914,20 @@
             <input type="text" class="calc num" id="c15" name="c15" formula="-2||2-" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
             <div class="feedback" id="c15FB" name="c15FB"></div>
           </td>
-        </tr>  
-        
-        
+        </tr>
+
+
         <!-- argon-40 row 16 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check16" name="check16">
+            <div class="feedback" id="check16FB" name="check16FB"></div>
+          </td>
           <td>argon-40</td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s16" name="s16" formula="40Ar" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s16DIV">
-          </div>
-          <div class="feedback" id="s16FB" name="s16FB"></div>
+            <input type="text" class="calc num symbol" id="s16" name="s16" formula="40Ar" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s16DIV">
+            </div>
+            <div class="feedback" id="s16FB" name="s16FB"></div>
           </td>
           <td>18</td>
           <td>
@@ -566,11 +943,14 @@
             <input type="text" class="calc num" id="c16" name="c16" formula="0" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
             <div class="feedback" id="c16FB" name="c16FB"></div>
           </td>
-        </tr>        
+        </tr>
 
-        
-        <!-- Gallium-70 row 17 -->
+
+        <!-- gallium-70 row 17 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check17" name="check17">
+            <div class="feedback" id="check17FB" name="check17FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n17" name="n17" formula="gallium-70" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n17FB" name="n17FB"></div>
@@ -602,6 +982,9 @@
 
         <!-- galium-70 cation row 18 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="true" id="check18" name="check18">
+            <div class="feedback" id="check18FB" name="check18FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n18" name="n18" formula="gallium-70" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n18FB" name="n18FB"></div>
@@ -632,15 +1015,18 @@
 
         <!-- beryllium-9 row 19 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check19" name="check19">
+            <div class="feedback" id="check19FB" name="check19FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n19" name="n19" formula="beryllium-9" range="1%" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n19FB" name="n19FB"></div>
           </td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s19" name="s19" formula="9Be2+||9Be+2" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s19DIV">
-          </div>
-          <div class="feedback" id="s19FB" name="s19FB"></div>
+            <input type="text" class="calc num symbol" id="s19" name="s19" formula="9Be2+||9Be+2" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s19DIV">
+            </div>
+            <div class="feedback" id="s19FB" name="s19FB"></div>
           </td>
           <td>4</td>
           <td>9</td>
@@ -657,15 +1043,18 @@
 
         <!-- nitrogen-15 row 20 -->
         <tr>
+          <td><input type="checkbox" class="calc num" formula="false" id="check20" name="check20">
+            <div class="feedback" id="check20FB" name="check20FB"></div>
+          </td>
           <td>
             <input type="text" class="calc num" id="n20" name="n20" formula="nitrogen-15" range="1%" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="n20FB" name="n20FB"></div>
           </td>
           <td style="display: flex;">
-          <input type="text" class="calc num symbol" id="s20" name="s20" formula="15N1-||15N-1||15N-" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
-          <div id="s20DIV">
-          </div>
-          <div class="feedback" id="s20FB" name="s20FB"></div>
+            <input type="text" class="calc num symbol" id="s20" name="s20" formula="15N1-||15N-1||15N-" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s20DIV">
+            </div>
+            <div class="feedback" id="s20FB" name="s20FB"></div>
           </td>
           <td>7</td>
           <td>
@@ -679,10 +1068,11 @@
             <div class="feedback" id="c20FB" name="c20FB"></div>
           </td>
         </tr>
-        
+
         <!-- row -->
         <!-- for adding more rows 
         <tr>
+        <td><input type="checkbox" class="calc num" formula="false" id="check" name="check">
           <td>
             <input type="text" class="calc num" id="n" name="n" formula="" help="The name of the element followed by a dash and the mass number" />
             <div class="feedback" id="nFB" name="nFB"></div>
@@ -748,12 +1138,26 @@
         </div>
       </div>
     </form>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="../js/lab.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="../js/lab.js"></script>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
   </body>
 
 </html>
