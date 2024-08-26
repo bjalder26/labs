@@ -220,32 +220,6 @@ function getData(graphName) {
   return [data, xAxisLabel, yAxisLabel];
 }
 
-/*
-function evaluateWithCustomFunctions(equation) {
-  const scope = {
-    ln,
-    log10,
-    log,
-    filter,
-  };
-  try {
-    console.log(equation);
-    console.log("variable2");
-    const variable2 = math.evaluate(equation, scope)
-      ? math.evaluate(equation, scope)
-      : equation;
-    console.log(variable2);
-    const variable = math.evaluate(equation, scope);
-    console.log("variable");
-    console.log(variable);
-    return math.evaluate(equation, scope);
-  } catch (e) {
-    console.log(e);
-    return equation;
-  }
-}
-*/
-
 // new function checks to see if there is actually an equation
 function evaluateWithCustomFunctions(equation) {
   const scope = {
@@ -289,17 +263,6 @@ function saveData() {
   if (gridObjElement) {
     gridObjElement.value = JSON.stringify(gridObj);
   }
-
-  /* I think this was my first idea, and I decided to do it another way.
-	const textareas = document.getElementsByTagName('textarea');
-	let dataObj = {};
-	for(var textarea of textareas) {
-		const id = textarea.id;
-		const value = textarea.value
-		dataObj[id] = value;
-	} 
-	*/
-  //alert(JSON.stringify(dataObj));
 }
 
 function slopeIntercept(xyValues, name) {
@@ -808,26 +771,6 @@ if (isAnyChecked) {
     }
   }
 } 
-  
-  // check values of checkboxes
- /* 
-    var checkBoxes = document.querySelectorAll('input[type=checkbox]')
-  for(var checkBox of checkBoxes) {
-    const checkBoxChecked = checkBox.checked.toString();
-    const checkBoxAnswer = checkBox.getAttribute('formula');
-    const elementFB = $(checkBox.id + 'FB');
-    console.log(checkBoxChecked, checkBoxAnswer, checkBox.id, checkBoxChecked == checkBoxAnswer);
-    if(checkBoxChecked == checkBoxAnswer) {
-      elementFB.innerHTML =
-              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
-      elementFB.title = "correct";
-    } else {
-      elementFB.title = checkBox.getAttribute("help");
-      elementFB.innerHTML =
-              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
-    }
-  }
-  */
 
   // load graphs
   const graphs = document.querySelectorAll("[id*='graph']");
@@ -924,9 +867,4 @@ if (isAnyChecked) {
   if ($("score")) {
     $("score").click();
   }
-/*  
-  setTimeout(function() {
-    $("button_bar").style.display = 'flex';
-  }, 3000);  
-  */
 } // end onLoad

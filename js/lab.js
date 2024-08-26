@@ -14,26 +14,8 @@ const filter = function (...args) {
 };
 let loaded = false;
 
-/*
-const filter = function (...args) {
-	const filteredValues = args[0].filter(item => item.value !== 'null' && item.value !== '0' && item.value.trim() !== '');
-	let filtered;
-	//let filteredString = "";
-	for(filteredValue of filteredValues) {
-		filtered = filtered.append(filteredValue.value + ", ";
-	}
-	filteredString = filteredString.slice(0, filteredString.length-2)
-	alert(filteredString);
-    return filteredString;
-}*/
-/*
-const filter = (...args) => {
-	const filteredValues = args.filter(value => value !== 'null' && value !== '0' && value.trim() !== '');
-    const filteredString = filtered.join(', ');
-    return filteredString;
-};*/
-
 const chartInstances = [];
+
 
 MathJax.Hub.Config({
         tex2jax: {
@@ -51,6 +33,7 @@ function $(x) {
   return document.getElementById(x);
 }
 
+
 function toPrint() {
   event.preventDefault(); // Prevent default form submission or button click behavior
 
@@ -58,7 +41,8 @@ function toPrint() {
   const userName = $("userName").value; // Retrieve userName from input field
 
   $("button_bar").style.display = "none";
-  alert('Remember to change the destination to "Save as PDF"');
+  
+  //alert('Remember to change the destination to "Save as PDF"');
   window.print();
   // This callback will be executed when the PDF generation is complete
   $("button_bar").style.display = "flex";
@@ -236,32 +220,6 @@ function getData(graphName) {
   return [data, xAxisLabel, yAxisLabel];
 }
 
-/*
-function evaluateWithCustomFunctions(equation) {
-  const scope = {
-    ln,
-    log10,
-    log,
-    filter,
-  };
-  try {
-    console.log(equation);
-    console.log("variable2");
-    const variable2 = math.evaluate(equation, scope)
-      ? math.evaluate(equation, scope)
-      : equation;
-    console.log(variable2);
-    const variable = math.evaluate(equation, scope);
-    console.log("variable");
-    console.log(variable);
-    return math.evaluate(equation, scope);
-  } catch (e) {
-    console.log(e);
-    return equation;
-  }
-}
-*/
-
 // new function checks to see if there is actually an equation
 function evaluateWithCustomFunctions(equation) {
   const scope = {
@@ -272,23 +230,23 @@ function evaluateWithCustomFunctions(equation) {
   };
 
   try {
-    console.log(equation);
+    //console.log(equation);
     // Check if the equation contains only numbers and letters without any mathematical operators
     if (/^[a-zA-Z0-9]+$/.test(equation)) {
       return equation; // Return as-is if it's a simple alphanumeric string
     }
 
-    console.log("variable2");
+    //console.log("variable2");
     const variable2 = math.evaluate(equation, scope)
       ? math.evaluate(equation, scope)
       : equation;
-    console.log(variable2);
+    //console.log(variable2);
     const variable = math.evaluate(equation, scope);
-    console.log("variable");
-    console.log(variable);
+    //console.log("variable");
+    //console.log(variable);
     return math.evaluate(equation, scope);
   } catch (e) {
-    console.log(e);
+    //console.log(e);
     return equation;
   }
 }
@@ -305,17 +263,6 @@ function saveData() {
   if (gridObjElement) {
     gridObjElement.value = JSON.stringify(gridObj);
   }
-
-  /* I think this was my first idea, and I decided to do it another way.
-	const textareas = document.getElementsByTagName('textarea');
-	let dataObj = {};
-	for(var textarea of textareas) {
-		const id = textarea.id;
-		const value = textarea.value
-		dataObj[id] = value;
-	} 
-	*/
-  //alert(JSON.stringify(dataObj));
 }
 
 function slopeIntercept(xyValues, name) {
@@ -349,6 +296,7 @@ function submitScore() {
   var path = `/score/${params.sessionID}/${score.innerHTML}`;
   document.location = path;
 }
+
 
 function submitAssignment(labName, name, sessionID) {
   let passed = {};
@@ -430,36 +378,7 @@ function getSigFigs(number) {
   }
 }
 
-/*
- function lookupValueInTable(tableID, searchColumn, searchValue, returnColumn) {
-  const table = $(tableID);
-  if (!table) {
-    console.error(`Table with ID "${tableID}" not found.`);
-    return null;
-  }
 
-  const rows = table.getElementsByTagName('tr');
-  for (let i = 0; i < rows.length; i++) {
-    const row = rows[i];
-    const cells = row.getElementsByTagName('td');
-
-    if (cells.length > searchColumn) {
-      const cellValue = cells[searchColumn].innerText.trim();
-      if (cellValue === searchValue) {
-        if (cells.length > returnColumn) {
-          return cells[returnColumn].innerText.trim();
-        } else {
-          console.error(`Return column "${returnColumn}" not found in table.`);
-          return null;
-        }
-      }
-    }
-  }
-
-  console.error(`Value "${searchValue}" not found in column "${searchColumn}" of the table.`);
-  return null;
-}
-*/
 // ==========================================
 
 function onLoad() {
@@ -508,8 +427,8 @@ function onLoad() {
   };
 
   $("userName").value = `${userName}`;
-  $("labName").value = `${labName}`;
-
+  if(labName && $("labName")) {$("labName").value = `${labName}`;}
+  
   var calcElements = document.getElementsByClassName("calc");
 
   for (var calc of calcElements) {
@@ -539,21 +458,26 @@ if (matches) {
         var answer = evaluateWithCustomFunctions(formula).toString();
         var elementFB = $(this.id + "FB");
         //const value = isNaN(this.value) ? this.value : this.value * 1;
-        const value = isNaN(answer) ? this.value : this.value * 1;
+        let value;
+        if (this.type=="checkbox") {
+        value = this.checked.toString();
+      } else {
+        value = isNaN(answer) ? this.value : this.value * 1;
+    }
         
         const haveSigFigs = getSigFigs(this.value);
         const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
         let closeOrCorrect = false;
         if (value !== "") {
-          console.log("value: " + value + " isNaN: " + isNaN(value))
+          //console.log("value: " + value + " isNaN: " + isNaN(value))
           if (isNaN(answer)) {
           //if (isNaN(value)) {
             // allows the use of || for multiple correct text answers
-            console.log("answer: "+answer)
+            //console.log("answer: "+answer)
             const possibleAnswers = answer.split("||").map(ans => ans.trim());
-            console.log(possibleAnswers);
+            //console.log(possibleAnswers);
             closeOrCorrect = possibleAnswers.includes(value.toString());
-            console.log('closeOrCorrect' + closeOrCorrect);
+            //console.log('closeOrCorrect' + closeOrCorrect);
             
             // closeOrCorrect = value == answer ? true : false;
           } else {
@@ -809,12 +733,44 @@ if (matches) {
     for (var index in dataFile) {
       const element = $(index);
       if (element) {
-        element.value = dataFile[index];
+        if(element.type == "checkbox") {
+        element.checked = dataFile[index];
+        } else {
+        element.value = dataFile[index];  
+        }
       } else {
         console.log(index + " was not found");
       }
     }
   }
+  
+  // Get all checkbox inputs
+var checkBoxes = document.querySelectorAll('input[type=checkbox]');
+
+// Check if at least one checkbox is checked
+var isAnyChecked = Array.from(checkBoxes).some(checkBox => checkBox.checked);
+
+if (isAnyChecked) {
+  // Iterate through each checkbox
+  for (var checkBox of checkBoxes) {
+    const checkBoxChecked = checkBox.checked.toString();
+    const checkBoxAnswer = checkBox.getAttribute('formula');
+    const elementFB = document.getElementById(checkBox.id + 'FB');
+    
+    // console.log(checkBoxChecked, checkBoxAnswer, checkBox.id, checkBoxChecked == checkBoxAnswer);
+    
+    // Update the feedback based on whether the checkbox's value matches the expected answer
+    if (checkBoxChecked === checkBoxAnswer) {
+      elementFB.innerHTML =
+        '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
+      elementFB.title = "correct";
+    } else {
+      elementFB.title = checkBox.getAttribute("help");
+      elementFB.innerHTML =
+        '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
+    }
+  }
+} 
 
   // load graphs
   const graphs = document.querySelectorAll("[id*='graph']");
@@ -825,7 +781,7 @@ if (matches) {
   // click calc elements if not empty
   var calcElements = document.getElementsByClassName("calc");
   for (var calcElement of calcElements) {
-    if (calcElement.value != "") {
+    if (calcElement.value != "" && calcElement.value != "on" ) { // change
       calcElement.click();
     }
   }
@@ -846,7 +802,6 @@ if (matches) {
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent the default form submission
-
     // Convert the FormData object to a JavaScript object
     const formData = {};
     for (const pair of new FormData(form)) {
