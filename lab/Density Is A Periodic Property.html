@@ -254,7 +254,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
 </head>
 <body>
+  <h3>
+    Data Analysis
+  </h3>
+<p>Using the mass and volume data, calculate the density of each sample 1–3 for all three elements. Enter the results on the following data table. Note: The density of a solid is usually reported in units of g/cm<sup>3</sup>. Recall that 1 mL = 1 cm<sup>3</sup>. 
 
+Calculate the average value (mean) of the density calculations 1–3 for each element: silicon, tin and lead. Record all results in the data table. Determine the period number each element is in and include on the data table.
+  
+  </p>
     <h1 style="text-align: center;">Density Data Table</h1>
 
     <table>
@@ -292,7 +299,9 @@
                 <td>Lead</td>
                 <td><input type="number" step="0.01" class="density" id="pbTrial1"></td>
                 <td><input type="number" step="0.01" class="density" id="pbTrial2"></td>
-                <td><input type="number" step="0.01" class="density" id="pbTrial3"></td>
+                <td><input type="number" step="any" class="calc num" id="densityPbsolid3" name=" densityPbsolid3" formula="${massPbsolid3}/${volPbsolid3}"  help="Mass of solid Lead divided by volume of Lead for Sample 3">
+    <div class="feedback" id=" densityPbsolid3FB" name=" densityPbsolid3FB"></div>
+</td>
                 <td><input type="number" step="0.01" id="pbAverage"></td>
                 <td><input type="number" id="pbPeriod"></td>
             </tr>
