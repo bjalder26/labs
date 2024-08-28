@@ -227,6 +227,92 @@
         </tr>
     </tbody>
 </table>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Data Graph</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h2>Graph of Average Density vs. Period Number</h2>
+    
+    <table id="dataTable" border="1">
+        <thead>
+            <tr>
+                <th>Period Number</th>
+                <th>Data Point</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" class="labelInput"></td>
+                <td><input type="number" class="dataInput"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="labelInput"></td>
+                <td><input type="number" class="dataInput"></td>
+            </tr>
+            <tr>
+                <td><input type="text" class="labelInput"></td>
+                <td><input type="number" class="dataInput"></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <button onclick="generateGraph()">Generate Graph</button>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script>
+        function generateGraph() {
+            const labels = [];
+            const dataPoints = [];
+
+            // Get all label inputs and data inputs
+            const labelInputs = document.querySelectorAll('.labelInput');
+            const dataInputs = document.querySelectorAll('.dataInput');
+
+            // Loop through the inputs and push the values into the arrays
+            for (let i = 0; i < labelInputs.length; i++) {
+                const label = labelInputs[i].value.trim();
+                const dataPoint = parseFloat(dataInputs[i].value.trim());
+                
+                if (label && !isNaN(dataPoint)) {
+                    labels.push(label);
+                    dataPoints.push(dataPoint);
+                }
+            }
+
+            // Generate chart
+            const ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar', // You can change this to 'line', 'pie', etc.
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Student Data',
+                        data: dataPoints,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+
+</body>
+
       
 Ordered list (numbered list) 
 
