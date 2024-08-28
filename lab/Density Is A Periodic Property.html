@@ -130,7 +130,7 @@
             <td>1</td>
             <td><input type="number" step="any" class="num" id="initmassSi1" name="initmassSi1"></td>
             <td><input type="number" step="any" class="num" id="finalmassSi1" name="finalmassSi1"></td>
-            <td>    <input type="number" step="any" class="calc num" id="massSisolid1" name="massSisolid1" formula="${finalmassSi1}-${initmassSi1}"  help="Final mas of Silicon minus initial mas of Silicon for Sample 1">
+            <td>    <input type="number" step="any" class="calc num" id="massSisolid1" name="massSisolid1" formula="${finalmassSi1}-${initmassSi1}"  help="Final mass of Silicon minus initial mass of Silicon for Sample 1">
     <div class="feedback" id="massSisolid1FB" name="massSisolid1FB"></div>
 </td>
             <td><input type="number" step="any" class="num" id="initvolSi1" name="initvolSi1"></td>
@@ -141,7 +141,7 @@
             <td>2</td>
             <td><input type="number" step="any" class="num" id="initmassSi2" name="initmassSi2"></td>
             <td><input type="number" step="any" class="num" id="finalmassSi2" name="finalmassSi2"></td>
-            <td> <input type="number" step="any" class="calc num" id="massSisolid2" name="massSisolid2" formula="${finalmassSi2}-${initmassSi2}"  help="Final mas of Silicon minus initial mas of Silicon for Sample 2">
+            <td> <input type="number" step="any" class="calc num" id="massSisolid2" name="massSisolid2" formula="${finalmassSi2}-${initmassSi2}"  help="Final mass of Silicon minus initial mass of Silicon for Sample 2">
     <div class="feedback" id="massSisolid2FB" name="massSisolid2FB"></div></td>
             <td><input type="number" step="any" class="num" id="initvolSi2" name="initvolSi2"></td>
             <td><input type="number" step="any" class="num" id="finalvolSi2" name="finalvolSi2"></td>
@@ -152,22 +152,44 @@
             <td>3</td>
             <td><input type="number" step="any" class="num" id="initmassSi3" name="initmassSi3"></td>
             <td><input type="number" step="any" class="num" id="finalmassSi3" name="finalmassSi3"></td>
-            <td><input type="number" step="any" class="num" id="finalmassSi1" name="finalmassSi1"></td>
-            <td>    <input type="number" step="any" class="calc num" id="massSisolid3" name="massSisolid3" formula="${finalmassSi3}-${initmassSi3}"  help="Final mas of Silicon minus initial mas of Silicon for Sample 3">
+            <td><input type="number" step="any" class="calc num" id="massSisolid3" name="massSisolid3" formula="${finalmassSi3}-${initmassSi3}"  help="Final mass of Silicon minus initial mass of Silicon for Sample 3">
     <div class="feedback" id="massSisolid3FB" name="massSisolid3FB"></div></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><input type="number" step="any" class="num" id="initvolSi3" name="initvolSi3"></td>
+            <td><input type="number" step="any" class="num" id="finalvolSi3" name="finalvolSi3"></td>
+            <td><input  type="number" step="any" class="calc num" id="volSisolid3"  name="volSisolid3" formula="${finalvolSi3}-${initvolSi3}"  help="Final volume of Silicon minus initial volume of Silicon for Sample 3"><div class="feedback" id="volSisolid3FB" name="volSisolid3FB "></div></td>
         </tr>
         <tr>
             <td rowspan="3">Tin</td>
             <td>1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><input type="number" step="any" class="num" id="initmassSn1" name="initmassSn1"></td>
+            <td><input type="number" step="any" class="num" id="finalmassSn1" name="finalmassSn1"></td>
+            <td>    <input type="number" step="any" class="calc num" id="massSnsolid1" name="massSnsolid1" formula="${finalmassSn1}-${initmassSn1}"  help="Final mass of Tin minus initial mass of Tin for Sample 1">
+    <div class="feedback" id="massSnsolid1FB" name="massSnsolid1FB"></div>
+</td>
+            <td><input type="number" step="any" class="num" id="initvolSn1" name="initvolSn1"></td>
+            <td><input type="number" step="any" class="num" id="finalvolSn1" name="finalvolSn1"></td>
+            <td><input  type="number" step="any" class="calc num" id="volSnsolid1"  name="volSnsolid1" formula="${finalvolSn1}-${initvolSn1}"  help="Final volume of Tin minus initial volume of Tin for Sample 1"><div class="feedback" id="volSisolid1FB" name="volSisolid1FB "></div></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td><input type="number" step="any" class="num" id="initmassSn2" name="initmassSn2"></td>
+            <td><input type="number" step="any" class="num" id="finalmassSn2" name="finalmassSn2"></td>
+            <td> <input type="number" step="any" class="calc num" id="massSnsolid2" name="massSnsolid2" formula="${finalmassSn2}-${initmassSn2}"  help="Final mass of Tin minus initial mass of Tin for Sample 2">
+    <div class="feedback" id="massSnsolid2FB" name="massSnsolid2FB"></div></td>
+            <td><input type="number" step="any" class="num" id="initvolSn2" name="initvolSn2"></td>
+            <td><input type="number" step="any" class="num" id="finalvolSn2" name="finalvolSn2"></td>
+            <td><input  type="number" step="any" class="calc num" id="volSnsolid2"  name="volSnsolid2" formula="${finalvolSn2}-${initvolSn2}"  help="Final volume of Tin minus initial volume of Tin for Sample 2"><div class="feedback" id="volSnsolid2FB" name="volSisolid2FB "></div></td>
+        
+        </tr>
+        <tr>
+            <td>3</td>
+            <td><input type="number" step="any" class="num" id="initmassSn3" name="initmassSn3"></td>
+            <td><input type="number" step="any" class="num" id="finalmassSn3" name="finalmassSn3"></td>
+            <td><input type="number" step="any" class="calc num" id="massSisolid3" name="massSnsolid3" formula="${finalmassSn3}-${initmassSn3}"  help="Final mass of Tin minus initial mass of Tin for Sample 3">
+    <div class="feedback" id="massSnsolid3FB" name="massSnsolid3FB"></div></td>
+            <td><input type="number" step="any" class="num" id="initvolSn3" name="initvolSn3"></td>
+            <td><input type="number" step="any" class="num" id="finalvolSn3" name="finalvolSn3"></td>
+            <td><input  type="number" step="any" class="calc num" id="volSnsolid3"  name="volSnsolid3" formula="${finalvolSn3}-${initvolSn3}"  help="Final volume of Tin minus initial volume of Tin for Sample 3"><div class="feedback" id="volSnsolid3FB" name="volSnsolid3FB "></div></td>
         </tr>
         <tr>
             <td>2</td>
