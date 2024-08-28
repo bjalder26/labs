@@ -130,18 +130,20 @@
             <td>1</td>
             <td><input type="number" step="any" class="num" id="initmassSi1" name="initmassSi1"></td>
             <td><input type="number" step="any" class="num" id="finalmassSi1" name="finalmassSi1"></td>
-            <td><input  type="number" step="any" class="calc num" id="massSisolid1"  name="massSisolid1" formula="${finalmassSi1}-${initmassSi1})"  help="Final mass of Silicon minus initial mass of Silicon for Sample 1"><div class="feedback" id="massSisolid1FB" name="massSisolid1FB"></div> </td>
-            <td><input type="number" step="any" class="num" id="initvol1" name="initvol1"></td>
-            <td><input type="number" step="any" class="num" id="finalvol1" name="finalvol1"></td>
-            <td><input  type="number" step="any" class="calc num" id="volSisolid1"  name="volSisolid1" formula="${finalvol1}-${initvol1})"  help="Final volume of Silicon minus initial volume of Silicon for Sample 1"><div class="feedback" id="volSisolid1FB" name="volSisolid1FB "></div></td>
+            <td>    <input type="number" step="any" class="calc num" id="massSisolid1" name="massSisolid1" formula="${finalvolSi1}-${initmassSi1}"  help="Final volume of Silicon minus initial volume of Silicon for Sample 1">
+    <div class="feedback" id="massSisolid1FB" name="massSisolid1FB"></div>
+</td>
+            <td><input type="number" step="any" class="num" id="initvolSi1" name="initvolSi1"></td>
+            <td><input type="number" step="any" class="num" id="finalvolSi1" name="finalvolSi1"></td>
+            <td><input  type="number" step="any" class="calc num" id="volSisolid1"  name="volSisolid1" formula="${finalvolSi1}-${initvolSi1}"  help="Final volume of Silicon minus initial volume of Silicon for Sample 1"><div class="feedback" id="volSisolid1FB" name="volSisolid1FB "></div></td>
         </tr>
         <tr>
             <td>2</td>
+            <td><input type="number" step="any" class="num" id="initmassSi2" name="initmassSi2"></td>
+            <td><input type="number" step="any" class="num" id="finalmassSi2" name="finalmassSi2"></td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><input type="number" step="any" class="num" id="initvolSi2" name="initvolSi2"></td>
+            <td><input type="number" step="any" class="num" id="finalvolSi2" name="finalvolSi2"></td>
             <td></td>
         </tr>
         <tr>
@@ -335,7 +337,7 @@ $\ce{H2O}$
           extensions: ["mhchem.js"]
         }
       });
-
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
