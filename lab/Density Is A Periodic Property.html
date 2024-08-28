@@ -232,21 +232,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Data Line Chart with Trendline</title>
-    <!-- Include Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Include the trendline plugin for Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
-</head>
-<body>
-
-
-
-    
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Density Data Table</title>
+    <title>Density Data Table and Graph</title>
     <style>
         table {
             width: 50%;
@@ -262,6 +248,10 @@
             background-color: #f2f2f2;
         }
     </style>
+    <!-- Include Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Include the trendline plugin for Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-trendline"></script>
 </head>
 <body>
 
@@ -309,51 +299,70 @@
         </tbody>
     </table>
 
-</body>
+    <button onclick="generateGraph()" style="display: block; margin: 20px auto;">Generate Graph</button>
 
-
-    <button onclick="generateGraph()">Generate Graph</button>
-
-    <canvas id="myChart" width="400" height="400"></canvas>
+    <canvas id="myChart" width="400" height="400" style="display: block; margin: 0 auto;"></canvas>
 
     <script>
         function generateGraph() {
-            const labels = [];
-            const dataPoints = [];
+            const periods = [];
+            const averageDensities = [];
 
-            // Get all label inputs and data inputs
-            const labelInputs = document.querySelectorAll('.labelInput');
-            const dataInputs = document.querySelectorAll('.dataInput');
+            // Get period numbers and average densities
+            const periodInputs = [
+                document.getElementById('siPeriod'),
+                document.getElementById('snPeriod'),
+                document.getElementById('pbPeriod')
+            ];
+            const averageInputs = [
+                document.getElementById('siAverage'),
+                document.getElementById('snAverage'),
+                document.getElementById('pbAverage')
+            ];
 
             // Loop through the inputs and push the values into the arrays
-            for (let i = 0; i < labelInputs.length; i++) {
-                const label = labelInputs[i].value.trim();
-                const dataPoint = parseFloat(dataInputs[i].value.trim());
-                
-                if (label && !isNaN(dataPoint)) {
-                    labels.push(label);
-                    dataPoints.push(dataPoint);
+            for (let i = 0; i < periodInputs.length; i++) {
+                const period = parseInt(periodInputs[i].value.trim());
+                const averageDensity = parseFloat(averageInputs[i].value.trim());
+
+                if (!isNaN(period) && !isNaN(averageDensity)) {
+                    periods.push(period);
+                    averageDensities.push(averageDensity);
                 }
             }
 
             // Generate chart
             const ctx = document.getElementById('myChart').getContext('2d');
             new Chart(ctx, {
-                type: 'line', // You can change this to 'line', 'pie', etc.
+                type: 'line',
                 data: {
-                    labels: labels,
+                    labels: periods,
                     datasets: [{
-                        label: 'Student Data',
-                        data: dataPoints,
-                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        label: 'Average Density (g/cm³)',
+                        data: averageDensities,
                         borderColor: 'rgba(75, 192, 192, 1)',
-                        borderWidth: 1
+                        fill: false,
+                        trendlineLinear: {
+                            style: "rgba(255,105,180, .8)",
+                            lineStyle: "solid",
+                            width: 2
+                        }
                     }]
                 },
                 options: {
                     scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Period Number'
+                            }
+                        },
                         y: {
-                            beginAtZero: true
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Average Density (g/cm³)'
+                            }
                         }
                     }
                 }
@@ -363,7 +372,6 @@
 
 </body>
 
-      
 Ordered list (numbered list) 
 
 <ol> 
