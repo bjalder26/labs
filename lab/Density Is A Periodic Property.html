@@ -281,10 +281,10 @@ Calculate the average value (mean) of the density calculations 1–3 for each el
         <tbody>
             <tr>
                 <td>Silicon</td>
-                <td><input type="number" step="any"  class="density" id="siTrial1"formula="${massSisolid1}/${volSisolid1}"  help="Mass of solid Silicon divided by volume of solid Siliconfor Trial 1"><div class="feedback" id="siTrial1FB" name=" siTrial1FB "></div></td>
-                <td><input type="number" step="any"  class="density" id="siTrial2"></td>
-                <td><input type="number" step="any"  class="density" id="siTrial3"></td>
-                <td><input type="number" step="any"  id="siAverage"></td>
+                <td><input type="number" step="any"  class="density" id="siTrial1" formula="${massSisolid1}/${volSisolid1}"  help="Mass of solid Silicon divided by volume of solid Silicon for Trial 1"><div class="feedback" id="siTrial1FB" name="siTrial1FB"></div></td>
+                <td><input type="number" step="any"  class="density" id="siTrial2" formula="${massSisolid2}/${volSisolid2}"  help="Mass of solid Silicon divided by volume of solid Silicon for Trial 2"><div class="feedback" id="siTrial2FB" name="siTrial2FB"></div></td>
+                <td><input type="number" step="any"  class="density" id="siTrial3" formula="${massSisolid3}/${volSisolid3}"  help="Mass of solid Silicon divided by volume of solid Silicon for Trial 3"><div class="feedback" id="siTrial3FB" name="siTrial3FB"></div></td>
+                <td><input type="number" step="any"  id="siAverage" formula= "(${siTrial1}+${siTrial2}+${siTrial3})/3" help="Add the densities for all three trials for Silicon and divide by three to find the average density"><div class="feedback" id="siAverageFB" name="siAverageFB"></div></td>
                 <td><input type="number" id="siPeriod"></td>
             </tr>
             <tr>

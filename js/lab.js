@@ -451,7 +451,9 @@ elements.forEach(element => {
           ? this.getAttribute("range")
           : "5%";
         const regex = /\${(.*?)}/g;
-        const matches = formula.match(regex);
+        let matches = null;
+        if(formula) {matches = formula.match(regex);}
+        
 if (matches) {
   for (var match of matches) {
     var elementId = match.replaceAll("${", "").replaceAll("}", "");
@@ -464,7 +466,9 @@ if (matches) {
     }
   }
 }
-        var answer = evaluateWithCustomFunctions(formula).toString();
+        let answer = null;
+        if (formula) {answer = evaluateWithCustomFunctions(formula).toString();}
+        
         var elementFB = $(this.id + "FB");
         //const value = isNaN(this.value) ? this.value : this.value * 1;
         let value;
@@ -493,7 +497,7 @@ if (matches) {
             closeOrCorrect = value.inRange(answer, range) ? true : false;
           }
           if (!closeOrCorrect) {
-            elementFB.title = this.getAttribute("help");
+            if(this.getAttribute("help")) {elementFB.title = this.getAttribute("help");} else {elementFB.title = null}
             elementFB.innerHTML =
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
           } else if (requiredSigFigs && !correctSigFigs) {
