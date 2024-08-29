@@ -496,8 +496,9 @@ if (matches) {
           } else {
             closeOrCorrect = value.inRange(answer, range) ? true : false;
           }
+          if(elementFB){
           if (!closeOrCorrect) {
-            if(this.getAttribute("help")) {elementFB.title = this.getAttribute("help");} else {elementFB.title = null}
+            elementFB.title = this.getAttribute("help");
             elementFB.innerHTML =
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
           } else if (requiredSigFigs && !correctSigFigs) {
@@ -510,6 +511,7 @@ if (matches) {
             elementFB.innerHTML =
               '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
           }
+        }
         }
         if ($("score") && loaded) {
           $("score").click();
