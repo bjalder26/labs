@@ -174,6 +174,7 @@ chartInstances.push({ graphName, instance: myChart });
 
 function getData(graphName) {
   const graphNameArray = graphName.split(" ");
+  const title = $(graphName).title;
   const name = graphNameArray[0];
   const xAxisLabelName = name + " x-axis";
   const yAxisLabelName = name + " y-axis";
@@ -206,8 +207,14 @@ function getData(graphName) {
   const slopeintercept = slopeIntercept(xyValues, name);
   const slope = slopeintercept[0].toPrecisionRound(4);
   const intercept = slopeintercept[1].toPrecisionRound(4);
-  if($(name + " " + "slope")) {$(name + " " + "slope").value = slope;}
-  if($(name + " " + "intercept")){$(name + " " + "intercept").value = intercept;}
+  if($(name + " " + "slope")) {
+    $(name + " " + "slope").innerHTML = slope;
+    $(name + " " + "slope").value = slope;
+  }
+  if($(name + " " + "intercept")){
+    $(name + " " + "intercept").innerHTML = intercept;
+    $(name + " " + "intercept").value = intercept;
+  }
   
   const plusElements = document.getElementsByClassName(name + " plus");
   for (var plusElement of plusElements) {
@@ -261,7 +268,7 @@ function getData(graphName) {
       },
     ],
   };
-  return [data, xAxisLabel, yAxisLabel];
+  return [data, xAxisLabel, yAxisLabel, title];
 }
 
 // new function checks to see if there is actually an equation
