@@ -34,6 +34,7 @@ function $(x) {
 }
 
 
+
 function toPrint() {
   event.preventDefault(); // Prevent default form submission or button click behavior
 
@@ -425,6 +426,14 @@ function onLoad() {
       return false;
     }
   };
+  
+  // Get all elements with an id attribute
+const elements = document.querySelectorAll('[id]');
+
+// Loop through each element and set the name attribute
+elements.forEach(element => {
+  element.name = element.id;
+});
 
   $("userName").value = `${userName}`;
   if(labName && $("labName")) {$("labName").value = `${labName}`;}
