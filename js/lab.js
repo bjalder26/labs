@@ -33,6 +33,37 @@ function $(x) {
   return document.getElementById(x);
 }
 
+Number.prototype.toPrecisionRound = function(sf) {
+    // Convert the number to a string
+    let numStr = this.toString();
+    
+    // Convert the string to a number
+    let num = parseFloat(numStr);
+    
+    // Handle the case where the number is zero
+    if (num === 0) {
+        return (0).toPrecision(sf);
+    }
+
+    // Calculate the factor to shift the decimal point
+    const factor = Math.pow(10, sf - Math.ceil(Math.log10(Math.abs(num))));
+    
+    // Shift the number, round it, and shift it back
+    const shifted = Math.round(num * factor);
+    const result = shifted / factor;
+    
+    // Convert the result to string with the required precision
+    return result.toPrecision(sf);
+};
+
+// Convert string to number and use toPrecisionRound
+String.prototype.toPrecisionRound = function(sf) {
+    // Convert the string to a number
+    let num = parseFloat(this);
+    
+    // Use the Number prototype method
+    return num.toPrecisionRound(sf);
+};
 
 
 function toPrint() {
@@ -161,7 +192,7 @@ function getData(graphName) {
   }
 
   const slopeintercept = slopeIntercept(xyValues, name);
-  const slope = slopeintercept[0].toPrecision(6);
+  const slope = slopeintercept[0]..toPrecisionRound(6);
   const intercept = slopeintercept[1].toPrecision(6);
   if($(name + " " + "slope")) {$(name + " " + "slope").value = slope;}
   if($(name + " " + "intercept")){$(name + " " + "intercept").value = intercept;}

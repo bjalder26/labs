@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutherford Scattering and Isotopes Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        .correct {
+            color: green;
+        }
+        .incorrect {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rutherford Scattering and Isotopes Lab</h1>
+
+    <!-- Question 1 -->
+    <div class="question">
+        <p><strong>Question 1:</strong> What do you notice about the paths of most of the alpha particles when the number of protons is set to 20?</p>
+        <input type="text" id="q1" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q1', 'straight line', 'feedback1')">Check Answer</button>
+        <div id="feedback1" class="feedback"></div>
+    </div>
+
+    <!-- Question 2 -->
+    <div class="question">
+        <p><strong>Question 2:</strong> Does increasing the number of protons to 60 change how the alpha particles move? If so, how?</p>
+        <input type="text" id="q2" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q2', 'deflection increases', 'feedback2')">Check Answer</button>
+        <div id="feedback2" class="feedback"></div>
+    </div>
+
+    <!-- Additional Questions -->
+    <!-- Repeat the above pattern for more questions -->
+
+    <script>
+        function checkAnswer(questionId, correctAnswer, feedbackId) {
+            var userAnswer = document.getElementById(questionId).value.toLowerCase().trim();
+            var feedback = document.getElementById(feedbackId);
+            if (userAnswer === correctAnswer.toLowerCase()) {
+                feedback.textContent = "Correct!";
+                feedback.className = "feedback correct";
+            } else {
+                feedback.textContent = "Incorrect. Try again!";
+                feedback.className = "feedback incorrect";
+            }
+        }
+    </script>
+
+</body>
+</html>
