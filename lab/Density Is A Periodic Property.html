@@ -1104,16 +1104,16 @@
         Calculate the percent error between the predicted and actual values. The equation for percent error is  percent error =
             $\frac{|measured\;value\;-\;known\;value|}{known\;value}$ x 100%
       </p>
-      <p<input
+      <label>Predicted density of germanium:</label>
+        <input
         type="number"
         step="any"
         class="calc num"
         id="preGeden"
         name="preGeden"
         formula="${density slope}*4+${density intercept}"
-        help="Plug in the period number for Germanium in for x and solve for y."
-      />
-      <div class="feedback" id="preGedenFB" name=" preGedenFB "></div>
+        help="Substitute the period number for germanium in for x and solve for y in the best fit line equation from your graph."
+               <label>g/cm<sup>3</sup></label> class="feedback" id="preGedenFB" name=" preGedenFB "></div>
       <!--
     <button onclick="generateGraph()" style="display: block; margin: 20px auto;">Generate Graph</button>
 
