@@ -162,9 +162,9 @@ function getData(graphName) {
   const slopeintercept = slopeIntercept(xyValues, name);
   const slope = slopeintercept[0].toPrecision(6);
   const intercept = slopeintercept[1].toPrecision(6);
-  $(name + " " + "slope").value = slope;
-  $(name + " " + "intercept").value = intercept;
-
+  if($(name + " " + "slope")) {$(name + " " + "slope").value = slope;}
+  if($(name + " " + "intercept")){$(name + " " + "intercept").value = intercept;}
+  
   const plusElements = document.getElementsByClassName(name + " plus");
   for (var plusElement of plusElements) {
     if (intercept < 0) {
