@@ -117,6 +117,10 @@ td.underline {
   text-align: center;
 }
 
+.centered {
+  display: flex;           /* Use Flexbox to center the canvas */
+  justify-content: center; /* Center horizontally */
+}
 @media screen {
   div.footer {
     display: none;
