@@ -104,60 +104,72 @@ function plotNewGraph(graphName) {
   const data = dataArray[0];
   const xAxisLabel = dataArray[1];
   const yAxisLabel = dataArray[2];
+  const title = dataArray[3] ? dataArray[3] : 'y vs x';
 
   const ctx = $(graphName);
   // Create the chart
 
   var myChart = new Chart(ctx, {
-    type: "scatter",
-    data: data,
-    options: {
-      plugins: {
-        legend: {
-          labels: {
-            color: "black", // Set the font color here
-          },
+  type: "scatter",
+  data: data,
+  options: {
+    plugins: {
+      legend: {
+        display: false, // Hide the legend
+      },
+      title: {
+        display: true, // Show the title
+        text: title, // Set the title text
+        color: 'black', // Set the title color
+        font: {
+          size: 18, // Set the title font size
+          weight: 'bold' // Set the title font weight
+        },
+        padding: {
+          top: 10,
+          bottom: 30
+        }
+      },
+    },
+    animation: false,
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true,
+          text: xAxisLabel,
+          color: "black",
+        },
+        type: "linear",
+        position: "bottom",
+        ticks: {
+          color: "black",
+        },
+        grid: {
+          color: "lightgrey",
         },
       },
-      animation: false,
-      scales: {
-        x: {
-          display: true, // Set this to true to display the x-axis labels
-          title: {
-            display: true,
-            text: xAxisLabel, // Set the x-axis label here
-            color: "black", // Set the color of the x-axis label here
-          },
-          type: "linear",
-          position: "bottom",
-          ticks: {
-            color: "black", // Set the font color for the x-axis ticks here
-          },
-          grid: {
-            color: "lightgrey", // Set the color for the x-axis grid lines here
-          },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: yAxisLabel,
+          color: "black",
         },
-        y: {
-          display: true, // Set this to true to display the x-axis labels
-          title: {
-            display: true,
-            text: yAxisLabel, // Set the x-axis label here
-            color: "black", // Set the color of the x-axis label here
-          },
-          type: "linear",
-          position: "left",
-          ticks: {
-            color: "black", // Set the font color for the y-axis ticks here
-          },
-          grid: {
-            color: "lightgrey", // Set the color for the y-axis grid lines here
-          },
+        type: "linear",
+        position: "left",
+        ticks: {
+          color: "black",
+        },
+        grid: {
+          color: "lightgrey",
         },
       },
     },
-  });
+  },
+});
 
-  chartInstances.push({ graphName, instance: myChart });
+chartInstances.push({ graphName, instance: myChart });
 }
 
 function getData(graphName) {
@@ -192,8 +204,8 @@ function getData(graphName) {
   }
 
   const slopeintercept = slopeIntercept(xyValues, name);
-  const slope = slopeintercept[0]..toPrecisionRound(6);
-  const intercept = slopeintercept[1].toPrecision(6);
+  const slope = slopeintercept[0].toPrecisionRound(4);
+  const intercept = slopeintercept[1].toPrecisionRound(4);
   if($(name + " " + "slope")) {$(name + " " + "slope").value = slope;}
   if($(name + " " + "intercept")){$(name + " " + "intercept").value = intercept;}
   

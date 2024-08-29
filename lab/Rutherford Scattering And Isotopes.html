@@ -22,30 +22,146 @@
         .incorrect {
             color: red;
         }
+    textarea {
+            width: 100%;
+            height: 100px;
+            font-size: 16px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
 
     <h1>Rutherford Scattering and Isotopes Lab</h1>
 
+    <h2>PART 1: Rutherford Atom</h2>
+
     <!-- Question 1 -->
     <div class="question">
         <p><strong>Question 1:</strong> What do you notice about the paths of most of the alpha particles when the number of protons is set to 20?</p>
         <input type="text" id="q1" placeholder="Type your answer here...">
-        <button onclick="checkAnswer('q1', 'straight line', 'feedback1')">Check Answer</button>
-        <div id="feedback1" class="feedback"></div>
-    </div>
+        </div>
 
     <!-- Question 2 -->
     <div class="question">
-        <p><strong>Question 2:</strong> Does increasing the number of protons to 60 change how the alpha particles move? If so, how?</p>
+        <p><strong>Question 2:</strong> Increase the number of protons to 60. Does it change how the alpha particles move? If so, how?</p>
         <input type="text" id="q2" placeholder="Type your answer here...">
         <button onclick="checkAnswer('q2', 'deflection increases', 'feedback2')">Check Answer</button>
         <div id="feedback2" class="feedback"></div>
     </div>
 
-    <!-- Additional Questions -->
-    <!-- Repeat the above pattern for more questions -->
+    <!-- Question 3 -->
+    <div class="question">
+        <p><strong>Question 3:</strong> Now increase the number of protons to 100. How does this increase change how the alpha particles move through the gold foil as compared to when you started? Why do you think this change occurred?</p>
+        <input type="text" id="q3" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q3', 'deflection increases significantly', 'feedback3')">Check Answer</button>
+        <div id="feedback3" class="feedback"></div>
+    </div>
+
+    <!-- Question 4 -->
+    <div class="question">
+        <p><strong>Question 4:</strong> Repeat the above steps but vary how many neutrons are present with the protons. Does this change how the Alpha particles travel? Why or why not?</p>
+        <input type="text" id="q4" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q4', 'no significant change', 'feedback4')">Check Answer</button>
+        <div id="feedback4" class="feedback"></div>
+    </div>
+
+    <!-- Question 5 -->
+    <div class="question">
+        <p><strong>Question 5:</strong> Set the number of protons to 20. Watch and describe how the alpha particles move in relationship to the nucleus.</p>
+        <input type="text" id="q5" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q5', 'mostly straight with slight deflections', 'feedback5')">Check Answer</button>
+        <div id="feedback5" class="feedback"></div>
+    </div>
+
+    <!-- Question 6 -->
+    <div class="question">
+        <p><strong>Question 6:</strong> Set the number of protons to 60. Watch and describe how the alpha particles move in relationship to the nucleus.</p>
+        <input type="text" id="q6" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q6', 'increased deflections', 'feedback6')">Check Answer</button>
+        <div id="feedback6" class="feedback"></div>
+    </div>
+
+    <!-- Question 7 -->
+    <div class="question">
+        <p><strong>Question 7:</strong> Set the number of protons to 100. Watch and describe how the alpha particles move in relationship to the nucleus.</p>
+        <input type="text" id="q7" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q7', 'significant deflections and some bounce back', 'feedback7')">Check Answer</button>
+        <div id="feedback7" class="feedback"></div>
+    </div>
+
+    <!-- Question 8 -->
+    <div class="question">
+        <p><strong>Question 8:</strong> How are the situations in #5 (only 20 protons) and #7 (100 protons) different? Why do you think this is?</p>
+        <input type="text" id="q8" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q8', 'higher proton number increases deflection', 'feedback8')">Check Answer</button>
+        <div id="feedback8" class="feedback"></div>
+    </div>
+
+    <h2>PART 2: Plum-Pudding Atom</h2>
+
+    <!-- Question 9 -->
+    <div class="question">
+        <p><strong>Question 9:</strong> What type of path do the Alpha particles take in the Plum-Pudding model?</p>
+        <input type="text" id="q9" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q9', 'most particles pass through with little deflection', 'feedback9')">Check Answer</button>
+        <div id="feedback9" class="feedback"></div>
+    </div>
+
+    <!-- Question 10 -->
+    <div class="question">
+        <p><strong>Question 10:</strong> How is this different from the Rutherford model?</p>
+        <input type="text" id="q10" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q10', 'rutherford model shows significant deflections', 'feedback10')">Check Answer</button>
+        <div id="feedback10" class="feedback"></div>
+    </div>
+
+    <!-- Question 11 -->
+    <div class="question">
+        <p><strong>Question 11:</strong> Why do you think our model of the atom changed after Rutherford’s experiment?</p>
+        <input type="text" id="q11" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q11', 'discovered nucleus which altered atomic model', 'feedback11')">Check Answer</button>
+        <div id="feedback11" class="feedback"></div>
+    </div>
+
+    <!-- Question 12 -->
+    <div class="question">
+        <p><strong>Question 12:</strong> Why were the Alpha particles deflected by the nucleus and not attracted to it?</p>
+        <input type="text" id="q12" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q12', 'nucleus is positively charged and repels alpha particles', 'feedback12')">Check Answer</button>
+        <div id="feedback12" class="feedback"></div>
+    </div>
+
+    <h2>PART 3: ISOTOPES</h2>
+
+    <!-- Question 13 -->
+    <div class="question">
+        <p><strong>Question 13:</strong> Define “isotope” using the following words in your definition: mass number, atomic number, number of protons, neutrons, and electrons.</p>
+        <input type="text" id="q13" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q13', 'atoms with the same number of protons but different numbers of neutrons', 'feedback13')">Check Answer</button>
+        <div id="feedback13" class="feedback"></div>
+    </div>
+
+    <!-- Question 14 -->
+    <div class="question">
+        <p><strong>Question 14:</strong> Compare and contrast an element, an atom, and an isotope.</p>
+        <input type="text" id="q14" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q14', 'element is defined by protons, atom is a single particle, isotope is a variant', 'feedback14')">Check Answer</button>
+        <div id="feedback14" class="feedback"></div>
+    </div>
+
+    <!-- Question 15 -->
+    <div class="question">
+        <p><strong>Question 15:</strong> Given the number of protons, neutrons, and electrons, explain how you would find the mass and name of an isotope.</p>
+        <input type="text" id="q15" placeholder="Type your answer here...">
+        <button onclick="checkAnswer('q15', 'mass is sum of protons and neutrons, name is based on element', 'feedback15')">Check Answer</button>
+        <div id="feedback15" class="feedback"></div>
+    </div>
+
+    <!-- Additional Isotopes and Atomic Mass questions -->
+    <!-- Repeat similar structure for remaining questions on isotopes and atomic mass -->
 
     <script>
         function checkAnswer(questionId, correctAnswer, feedbackId) {
@@ -63,3 +179,5 @@
 
 </body>
 </html>
+
+
