@@ -1118,17 +1118,14 @@
       <div class="feedback" id="preDenGeFB" name=" preDenGeFB ">
         &nbsp;&nbsp;g/cm<sup>3</sup>
       </div>
-      <label>Percent error:</label>&nbsp;&nbsp;<input
-        type="number"
-        step="any"
-        class="calc num"
-        id="pererr"
-        name="pererr"
-        formula="abs(${preDenGe}-${})${density slope}*4-${density intercept}"
-        help="Substitute the period number of germanium in for x in the best fit line from your density graph and solve for y."
-      />
-      <div class="feedback" id="preDenGeFB" name=" preDenGeFB ">
-        &nbsp;&nbsp;g/cm<sup>3</sup>
+      <div>
+        <label>Percent error:</label>&nbsp;&nbsp;
+        <input type="number" step="any"
+        class="calc num" id="pererr" name="pererr"
+        formula="((abs(${preDenGe}-5.32))/5.32)*100 help="Substitute your
+        predicted density of germanium in for the measured value in the percent
+        error equation and 5.32 for the actual value."<div class="feedback" id="pererrFB" name=" pererrFB " &nbsp;&nbsp;% />
+      </div>
       <br />
 
       <!--
