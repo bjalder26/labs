@@ -320,8 +320,8 @@ Calculate the average value (mean) of the density calculations 1–3 for each el
             <tr>
                 <th rowspan="2">Element</th>
                 <th colspan="3">Density (g/cm³)</th>
-              <th rowspan="2"><label id="absorbance y-axis">Average Density (g/cm³)</label></th>
-              <th rowspan="2"><label id="absorbance x-axis">Period Number</label></th>
+              <th rowspan="2"><label id="density y-axis">Average Density (g/cm³)</label></th>
+              <th rowspan="2"><label id="density x-axis">Period Number</label></th>
             </tr>
             <tr>
                 <th>Trial 1</th>
@@ -336,29 +336,29 @@ Calculate the average value (mean) of the density calculations 1–3 for each el
                 <td><input type="number" step="any" class="calc num" id="siTrial2" name="siTrial2"></td>
                 <td><input type="number" step="any" class="calc num" id="siTrial3" name="siTrial3"></td>
                 <td><input type="number" step="any" class="calc num density graph" id="y1" name="y1" formula="(${siTrial1}+${siTrial2}+${siTrial3})/3"  help="Add the densities and divide by 3"><div class="feedback" id="y1FB" name="y1FB"></div></td>
-                <td><input type="number" class="calc num density graph" id="x1"></td>
+                <td><input type="number" class="calc num density graph" id="x1" name="x1"></td>
             </tr>
             <tr>
                 <td>Tin</td>
                 <td><input type="number" step="any" class="calc num" id="snTrial1" name="snTrial1"></td>
                 <td><input type="number" step="any" class="calc num" id="snTrial2" name="snTrial2"></td>
-                <td><input type="number" step="any" class="calc num" id="snTrial3" name="snTrial2"></td>
+                <td><input type="number" step="any" class="calc num" id="snTrial3" name="snTrial3"></td>
                 <td><input type="number" step="any" class="calc num density graph" id="y2" name="y2"></td>
                 <td><input type="number" class="calc num density graph" id="x2"></td>
             </tr>
             <tr>
                 <td>Lead</td>
                 <td><input type="number" step="any" class="calc num" id="pbTrial1" name="pbTrial1"></td>
-                <td><input type="number" step="any" class="density" id="pbTrial2" name="pbTrial1"></td>
+                <td><input type="number" step="any" class="density" id="pbTrial2" name="pbTrial2"></td>
                 <td><input type="number" step="any" class="calc num" id="pbTrial3" name="pbTrial3" formula="${massPbsolid3}/${volPbsolid3}"  help="Mass of solid Lead divided by volume of Lead for Sample 3">
-    <div class="feedback" id=" densityPbsolid3FB" name=" densityPbsolid3FB"></div>
+    <div class="feedback" id="densityPbsolid3FB" name=" densityPbsolid3FB"></div>
 </td>
-                <td><input type="number" step="any" id="y3" class="calc num density graph"></td>
-                <td><input type="number" class="calc num density graph" id="x3"></td>
+                <td><input type="number" step="any" id="y3" name="y3" class="calc num density graph"></td>
+                <td><input type="number" class="calc num density graph" id="x3" name="x3"></td>
             </tr>
         </tbody>
     </table>
-  
+ 
   <div class="canvas">
 	<canvas id="density graph" onclick="updateGraph('density graph')" ></canvas>
 	</div>
