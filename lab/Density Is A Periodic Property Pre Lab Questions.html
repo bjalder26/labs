@@ -236,56 +236,18 @@
         <thead>
           <tr>
             <th rowspan="1">Element</th>
-            <th colspan="3">Density (g/cm³)</th>
-            <th rowspan="2">
+            <th rowspan="1">
               <label id="density y-axis">Average Density (g/cm³)</label>
             </th>
-            <th rowspan="2">
+            <th rowspan="1">
               <label id="density x-axis">Period Number</label>
             </th>
-          </tr>
-          <tr>
-            <th>Trial 1</th>
-            <th>Trial 2</th>
-            <th>Trial 3</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Silicon</td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="siTrial1"
-                formula="${massSisolid1}/${volSisolid1}"
-                help="Mass of solid Silicon divided by volume of solid Silicon for Trial 1"
-              />
-              <div class="feedback" id="siTrial1FB" name="siTrial1FB"></div>
-            </td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="siTrial2"
-                formula="${massSisolid2}/${volSisolid2}"
-                help="Mass of solid Silicon divided by volume of solid Silicon for Trial 2"
-              />
-              <div class="feedback" id="siTrial2FB" name="siTrial2FB"></div>
-            </td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="siTrial3"
-                formula="${massSisolid3}/${volSisolid3}"
-                help="Mass of solid Silicon divided by volume of solid Silicon for Trial 3"
-              />
-              <div class="feedback" id="siTrial3FB" name="siTrial3FB"></div>
-            </td>
+            <td>Aluminum</td>
+      
             <td>
               <input
                 type="number"
@@ -293,8 +255,8 @@
                 class="calc num density graph"
                 id="y1"
                 name="y1"
-                formula="(${siTrial1}+${siTrial2}+${siTrial3})/3"
-                help="Add the densities for all three trials for Silicon and divide by three to find the average density"
+                formula="2.70"
+                help="Type in the given density for aluminium"
               />
               <div class="feedback" id="y1FB" name="y1FB"></div>
             </td>
@@ -308,40 +270,8 @@
             </td>
           </tr>
           <tr>
-            <td>Tin</td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="snTrial1"
-                formula="${massSnsolid1}/${volSnsolid1}"
-                help="Mass of solid Tin divided by volume of solid Tin for Trial 1"
-              />
-              <div class="feedback" id="snTrial1FB" name="snTrial1FB"></div>
-            </td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="snTrial2"
-                formula="${massSnsolid2}/${volSnsolid2}"
-                help="Mass of solid Tin divided by volume of solid Tin for Trial 2"
-              />
-              <div class="feedback" id="snTrial2FB" name="snTrial2FB"></div>
-            </td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="snTrial3"
-                formula="${massSnsolid3}/${volSnsolid3}"
-                help="Mass of solid Tin divided by volume of solid Tin for Trial 3"
-              />
-              <div class="feedback" id="snTrial3FB" name="snTrial3FB"></div>
-            </td>
+            <td>Indium</td>
+        
             <td>
               <input
                 type="number"
@@ -349,12 +279,12 @@
                 class="calc num density graph"
                 id="y2"
                 name="y2"
-                formula="(${snTrial1}+${snTrial2}+${snTrial3})/3"
-                help="Add the densities for all three trials for Tin and divide by three to find the average density"
+                formula="7.31"
+                help="Type in the given density for indium"
               />
               <div class="feedback" id="y2FB" name="y2FB"></div>
             </td>
-            <td>
+             <td>
               <input
                 type="number"
                 class="calc num density graph"
@@ -362,42 +292,8 @@
                 name="x2"
               />
             </td>
-          </tr>
           <tr>
-            <td>Lead</td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="pbTrial1"
-                formula="${massPbsolid1}/${volPbsolid1}"
-                help="Mass of solid Lead divided by volume of solid Lead for Trial 1"
-              />
-              <div class="feedback" id="pbTrial1FB" name="pbTrial1FB"></div>
-            </td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="pbTrial2"
-                formula="${massPbsolid2}/${volPbsolid2}"
-                help="Mass of solid Lead divided by volume of solid Lead for Trial 2"
-              />
-              <div class="feedback" id="pbTrial2FB" name="pbTrial2FB"></div>
-            </td>
-            <td>
-              <input
-                type="number"
-                step="any"
-                class="calc num"
-                id="pbTrial3"
-                formula="${massPbsolid3}/${volPbsolid3}"
-                help="Mass of solid Lead divided by volume of solid Lead for Trial 3"
-              />
-              <div class="feedback" id="pbTrial3FB" name="pbTrial3FB"></div>
-            </td>
+            <td>Thallium</td>
             <td>
               <input
                 type="number"
@@ -405,8 +301,8 @@
                 id="y3"
                 name="y3"
                 class="calc num density graph"
-                formula="(${pbTrial1}+${pbTrial2}+${pbTrial3})/3"
-                help="Add the densities for all three trials for Lead and divide by three to find the average density"
+                formula="11.85"
+                help="Type in the given density for thalliumy"
               />
               <div class="feedback" id="y3FB" name="y3FB"></div>
             </td>
