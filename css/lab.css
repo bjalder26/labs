@@ -146,3 +146,6 @@ td.underline {
   width: 50px;
 }
 
+.hidden {
+  color: red;
+}
