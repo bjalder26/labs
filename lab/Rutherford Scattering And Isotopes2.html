@@ -68,6 +68,7 @@
     <p><strong>Question 1:</strong> What do you notice about the paths of most of the alpha particles when the number of protons is set to 20?</p> 
         <textarea class="num text essay" id="q1" name="q1" placeholder="Type your answer here..."></textarea>
         </div>
+      <div style="display: hidden;">Put your answer in here.</div>
 
   <p>
      Increase the number of protons to 60.
@@ -279,7 +280,7 @@
 
       <!-- title --> 
 
-      <div id="button_bar"> 
+       <div id="button_bar"> 
 
         <button 
 
@@ -305,13 +306,13 @@
 
         </button> 
 
-        <button type="button" onclick="submitScore()" style="height: 83%"> 
+        <button type="button" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%"> 
 
           Submit</button 
 
         >&nbsp; 
 
-        <div class="vcenter"> 
+        <div class="vcenter" style="display: none;"> 
 
           <label for="score">Score: </label> 
 
@@ -321,8 +322,24 @@
 
         </div> 
 
-      </div>    
+      </div> 
+
     </form> 
+  
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
 

@@ -477,6 +477,23 @@ function onLoad() {
     }
   };
   
+  document.addEventListener('keydown', function(event) {
+    // Check if Shift, Alt, and D keys are pressed together
+    if (event.shiftKey && event.altKey && event.code === 'KeyD') {
+        // Get all elements with the class 'hidden'
+        const hiddenElements = document.querySelectorAll('.hidden');
+        
+        hiddenElements.forEach(element => {
+            // Toggle between 'none' and 'block' for display property
+            if (element.style.display === 'none' || element.style.display === '') {
+                element.style.display = 'block';
+            } else {
+                element.style.display = 'none';
+            }
+        });
+    }
+});
+  
   // Get all elements with an id attribute
 const elements = document.querySelectorAll('[id]');
 
