@@ -292,6 +292,7 @@
                 name="x2"
               />
             </td>
+             </tr>
           <tr>
             <td>Thallium</td>
             <td>
@@ -336,33 +337,45 @@
       <br />
       <p>
         Using the equation for the best fit line above, predict the density of
-        germanium. The actual density of germanium is 5.32 g/cm<sup>3</sup>.
+        eka-aluminum. The actual density of this element is 5.91 g/cm<sup>3</sup>.
         Calculate the percent error between the predicted and actual values. The
         equation for percent error is: percent error =
         $\frac{|measured\;value\;-\;known\;value|}{known\;value}$ x 100%
       </p>
-      <label>Predicted density of germanium:</label>&nbsp;&nbsp;<input
+      <label>Predicted density of eka-aluminum:</label>&nbsp;&nbsp;<input
         type="number"
         step="any"
         class="calc num"
-        id="preDenGe"
-        name="preDenGe"
+        id="preDenGa"
+        name="preDenGa"
         formula="${density slope}*4+${density intercept}"
-        help="Substitute the period number of germanium in for x in the best fit line from your density graph and solve for y."
+        help="Substitute the period number of the element in the group between aluminum and indium in for x in the best fit line from your density graph and solve for y."
       />
-      <div class="feedback" id="preDenGeFB" name=" preDenGeFB ">
+      <div class="feedback" id="preDenGaFB" name=" preDenGaFB ">
         
       </div>&nbsp;&nbsp;g/cm<sup>3</sup>
       <div>
         <label>Percent error:</label>&nbsp;&nbsp;
         <input type="number" step="any"
         class="calc num" id="pererr" name="pererr"
-        formula="((abs(${preDenGe}-5.32))/5.32)*100" help="Substitute your
-        predicted density of germanium in for the measured value in the percent
-        error equation and 5.32 for the actual value."><div class="feedback" id="pererrFB" name=" pererrFB "> 
+        formula="((abs(${preDenGa}-5.91))/5.91)*100" help="Substitute your
+        predicted density of eka-aluminum in for the measured value in the percent
+        error equation and 5.92 for the actual value."><div class="feedback" id="pererrFB" name=" pererrFB "> 
       </div>&nbsp;&nbsp;%
       <br />
-
+      <p>
+        What known element in the modern Periodic Table corresponds to eka-aluminum? 
+        </p>  
+<label>Name of the known element that corresponds to eka-aluminum:</label>&nbsp;&nbsp;<textarea
+      
+        class="textessay"
+        id="elementname"
+        name="elementname"
+        formula="gallium"
+        ></textarea>
+        
+      </div>
+      <br><br>
       <!--
     <button onclick="generateGraph()" style="display: block; margin: 20px auto;">Generate Graph</button>
 
