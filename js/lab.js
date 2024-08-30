@@ -757,6 +757,10 @@ if (matches) {
     scoreElement.addEventListener("click", function (e) {
       // Check if 'loaded' is true
       if (loaded) {
+        let dataScore = 0;
+        let calcScore = 0;
+        let dataFactor = 1;
+        let calcFactor = 1;
         // Get elements with the 'num' class
         let numElements = document.getElementsByClassName("num");
 
@@ -767,15 +771,20 @@ if (matches) {
         let numElementsArrayFiltered =
           numElementsArray.filter(isNotCalcElement);
 
+        if (numElementsArrayFiltered.length > 0) {
         // Filter out elements that are not filled out (assuming these are form elements)
         let filledOutNumElements = numElementsArrayFiltered.filter(isFilledOut);
 
-        //const dataScore = ((filledOutNumElements.length - (numElementsArrayFiltered.length - filledOutNumElements.length)) / numElementsArrayFiltered.length) * 50;
-        const dataScore =
+        dataScore =
           (filledOutNumElements.length / numElementsArrayFiltered.length) * 50;
+        } else {
+          calcFactor = 2;
+        }
 
         // Get all elements with IDs ending in "FB"
         const fbElements = document.querySelectorAll('[id$="FB"]');
+        
+        if (fbElements.length > 0) {
 
         // Initialize a count for elements with the title "correct"
         let countCorrectElements = 0;
@@ -787,8 +796,12 @@ if (matches) {
             countCorrectElements++;
           }
         });
-        const calcScore = (countCorrectElements / fbElements.length) * 50;
-        const totalScore = dataScore + calcScore;
+        
+        calcScore = (countCorrectElements / fbElements.length) * 50;
+        } else {
+          dataFactor = 2;
+        }
+        const totalScore = dataScore*dataFactor + calcScore*calcFactor;
         $("score").innerHTML = totalScore.toFixed(1);
       }
     });
