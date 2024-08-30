@@ -247,15 +247,23 @@
       </p>
       <p>
         <label>Density of aluminum</label> <input type="number" step="any" class="calc num" id="calalden" name="calalden" 
-                                                  formula="${37.42}/${13.9}" help="Mass of the aluminum piece divided by the displaced water volume">
-                                                 &nbsp;&nbsp;g/cm<sup>3</sup> </p>
-      <p>
-        Use a calculator to find the density of a rock whose mass is 50.0 g and which, when submerged, increases the water level in a graduated cylinder by 13.9 mL.
+                                                  formula="37.42/13.9" help="Mass of the aluminum piece divided by the displaced water volume">
+                                                 &nbsp;&nbsp;g/cm<sup>3</sup> 
+        <div class="feedback" id="calaldenFB" name="calaldenFB">
+          
+      </div>
       </p>
       <p>
-        <label>Density of aluminum</label> <input type="number" step="any" class="calc num" id="calalden" name="calalden" 
-                                                  formula="${37.42}/${13.9}" help="Mass of the aluminum piece divided by the displaced water volume">
-                                                 &nbsp;&nbsp;g/cm<sup>3</sup> </p>
+        A 50.0 gram piece of irregularly shaped rock is placed into a graduated cylinder containing 20.0 mL of water, causing the water level to rise to 35.0 mL. What is the density of the rock?
+      </p>
+      <p>
+        <label>Density of the rock</label> <input type="number" step="any" class="calc num" id="calrockden" name="calrockden" 
+                                                  formula="50.0/(35.0-20.0)" help="First determine the volume of the water that the rock displaced and then divide the mass by that volume">
+                                                 &nbsp;&nbsp;g/cm<sup>3</sup> 
+    <div class="feedback" id="calrockdenFB" name="calrockdenFB">
+          
+      </div>
+    </p>
       
       <p>
         One of the elements Mendeleev predicted was eka-aluminum, corresponding 
