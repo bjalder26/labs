@@ -124,6 +124,81 @@
             document.getElementById("result").style.backgroundColor = "#ffcdd2"; // Red background
         }
     }
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matching Exercise</title>
+</head>
+<body>
+    <h2>Match the items the Atomic Model with the Scientist</h2>
+    
+    <table>
+        <tr>
+            <th>Atomic Model</th>
+            <th>Scientist</th>
+        </tr>
+        <tr>
+            <td>Element</td>
+            <td>
+                <select>
+                    <option value="">Select...</option>
+                    <option value="A">Proton</option>
+                    <option value="B">Neutron</option>
+                    <option value="C">Electron</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Charge</td>
+            <td>
+                <select>
+                    <option value="">Select...</option>
+                    <option value="A">Positive</option>
+                    <option value="B">Neutral</option>
+                    <option value="C">Negative</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Mass</td>
+            <td>
+                <select>
+                    <option value="">Select...</option>
+                    <option value="A">1 amu</option>
+                    <option value="B">0 amu</option>
+                    <option value="C">1/1836 amu</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    
+    <br>
+
+    <button onclick="checkAnswers()">Check Answers</button>
+
+    <script>
+        function checkAnswers() {
+            const answers = document.querySelectorAll('select');
+            const correctAnswers = ["C", "A", "A"];
+            let score = 0;
+            
+            answers.forEach((answer, index) => {
+                if (answer.value === correctAnswers[index]) {
+                    score++;
+                    answer.style.borderColor = "green";
+                } else {
+                    answer.style.borderColor = "red";
+                }
+            });
+
+            alert("You got " + score + " out of " + correctAnswers.length + " correct!");
+        }
+    </script>
+</body>
+</html>
+
 </script>
 
 </body>    
