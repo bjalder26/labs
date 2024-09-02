@@ -482,6 +482,12 @@ function onLoad() {
     if (event.shiftKey && event.altKey && event.code === 'KeyD') {
       if($("button_bar").style.display != 'flex') {
         $("button_bar").style.display = 'flex';
+        $("score").style.color ='black';
+        document.getElementsByClassName("vcenter").style.color ='black';
+        const buttons = document.querySelectorAll('button.hidden');
+        for(let button of buttons) {
+          button.style.color = 'black';
+        }
       } else {
         $("button_bar").style.display = 'none';
       }
@@ -491,8 +497,7 @@ function onLoad() {
         hiddenElements.forEach(element => {
             // Toggle between 'none' and 'block' for display property
             if (element.style.display === 'none' || element.style.display === '') {
-                element.style.display = 'block';
-                $("score").style.color ='black';
+                element.style.display = 'block';               
             } else {
                 element.style.display = 'none';
             }
