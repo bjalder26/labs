@@ -143,7 +143,7 @@ app.post("/", async (req, res) => {
         var sessionID = uuid();
         sessions[sessionID] = lmsData;
 
-        const name = lmsData.body.lis_person_name_full;
+        const name = lmsData.body.lis_person_name_full.replaceAll("'", "").replaceAll("-", "");
         //console.log('name: ' + name);
         let labHtml = '';
         let dataFile = {};
