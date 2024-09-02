@@ -149,3 +149,7 @@ td.underline {
 .hidden {
   color: red;
 }
+
+button .hidden {
+  color: black
+}
