@@ -483,7 +483,14 @@ function onLoad() {
       if($("button_bar").style.display != 'flex') {
         $("button_bar").style.display = 'flex';
         $("score").style.color ='black';
-        document.getElementsByClassName("vcenter").style.color ='black';
+        const vcenters = document.getElementsByClassName("vcenter");
+        
+        if(vcenters) {
+          for(let vcenter of vcenters) {
+          vcenter.style.color ='black';
+          }
+        }
+        
         const buttons = document.querySelectorAll('button.hidden');
         for(let button of buttons) {
           button.style.color = 'black';
