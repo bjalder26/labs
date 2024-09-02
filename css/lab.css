@@ -150,6 +150,6 @@ td.underline {
   color: red;
 }
 
-button .hidden {
+button.hidden, .vcenter {
   color: black
 }
