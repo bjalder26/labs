@@ -730,6 +730,49 @@ if (matches) {
     });
       
   }
+  
+    const subInputs = document.getElementsByClassName("sub");
+  
+    for (var subInput of subInputs) {
+    const subDiv = $(subInput.id + "DIV");
+    
+    // Function to format the input text
+   function formatText(text) {
+    return text.replace(/\d+/g, function(match) {
+        return '<sub>' + match + '</sub>';
+    });
+}
+      
+    subInput.addEventListener("blur", function (e) {
+      const savebutton = $("savebutton");
+      savebutton.click();
+      const thisSubDiv = $(this.id+'DIV')
+       let formattedText = formatText(this.value);
+       if(formattedText == "") {formattedText = "&nbsp;"}
+       
+        thisSubDiv.innerHTML = formattedText;
+    
+        this.style.display = "none";
+        
+       thisSubDiv.style.display = "block";
+      
+      if ($("score") && loaded) {
+        $("score").click();
+      }
+ 
+    });
+      
+      // When the user clicks on the div
+      subDiv.addEventListener("click", function() {
+        const thisSubInput = $(this.id.replace(/DIV$/, ""));
+        this.style.display = "none";
+        thisSubInput.style.display = "block";
+        
+        //if(this.innerHTML == "&nbsp;") {this.innerHTML == ""}
+        thisSubInput.focus();
+    });
+      
+  }
     
 
   const graphElements = document.getElementsByClassName("graph");
