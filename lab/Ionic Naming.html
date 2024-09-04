@@ -18,8 +18,21 @@
     />
     
     <style>
-    
-    </style>
+      table {
+        width: 75%;
+        margin: 20px auto;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        border: 1px solid #000;
+        padding: 8px;
+        text-align: center;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style> 
   </head>
 
   <body onload="onLoad()">
@@ -53,7 +66,6 @@
             <th>Total - Charge</th>
             <th>Formula</th>
             <th>Name of Compound</th>
-        >/bgcolor>
           </tr>
         </thead>
         <tbody>
@@ -143,12 +155,78 @@
           </tr>
           <tr>
             <td>Iron(II) and Sulfide</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r3c1"
+                name="r3c1"
+                formula="1"
+                help="The number of iron(II) ions that balance the charge of sulfide ions"
+              />
+              <div class="feedback" id="r3c1FB" name="r3c1FB"></div>            
+            </td>
+            <td>
+             <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r3c2"
+                name="r3c2"
+                formula="1"
+                help="The number of sulfide ions that balance the charge of iron(II) ions"
+              />
+              <div class="feedback" id="r3c2FB" name="r3c2FB"></div>            
+            </td>
+            <td>
+             <input
+                type="text"
+                step="any"
+                class="calc num"
+                id="r3c3"
+                name="r3c3"
+                formula="2+||+2"
+                help="Add the charges of all the iron(II) ions and include the sign of the charge"
+              />
+              <div class="feedback" id="r3c3FB" name="r3c3FB"></div>
+            </td>
+            <td>
+               <input
+                type="text"
+                step="any"
+                class="calc num"
+                id="r3c4"
+                name="r3c4"
+                formula="2-||-2"
+                help="Add the charges of all the sulfide ions and include the sign of the charge"
+              />
+              <div class="feedback" id="r3c4FB" name="r3c4FB"></div> 
+            </td>
+            <td>
+            <input
+                type="text"
+                step="any"
+                class="calc num sub"
+                id="r3c5"
+                name="r3c5"
+                formula="FeS"
+                help="Symbol of the cation first then the anion. Add a subscript after the cation or anion if there are 
+                      more than one. Ones are understood in the formula."
+                     /><div id="r3c5DIV"></div><div class="feedback" id="r3c5FB" name="r3c5FB"></div>    
+            </td>
+            <td>
+            <input
+                type="text"
+                step="any"
+                class="calc num"
+                id="r3c6"
+                name="r3c6"
+                formula="Iron(II) sulfide||"iron(II) sulfide"
+                help="Name the cation with a capital letter, space, name the anion with a lowercase letter. Include the Roman numeral in parenthesis with no space after the cation if the name of the cation includes a Roman numeral."
+                />
+               <div class="feedback" id="r3c6FB" name="r3c6FB"></div>        
+            </td>
           </tr>
           <tr>
             <td>Magnesium and Bromide</td>
