@@ -16,7 +16,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
     />
-    
+
     <style>
       table {
         width: 75%;
@@ -32,7 +32,7 @@
       th {
         background-color: #f2f2f2;
       }
-    </style> 
+    </style>
   </head>
 
   <body onload="onLoad()">
@@ -58,7 +58,7 @@
 
       <table border="1">
         <thead>
-          <tr> 
+          <tr>
             <th>Combining Ions</th>
             <th># of Cations</th>
             <th># of Anions</th>
@@ -126,7 +126,7 @@
                 formula="2-||-2"
                 help="Add the charges of all the oxide ions and include the sign of the charge"
               />
-              <div class="feedback" id="r2c4FB" name="r2c4FB"></div>            
+              <div class="feedback" id="r2c4FB" name="r2c4FB"></div>
             </td>
             <td>
               <input
@@ -138,7 +138,9 @@
                 formula="Na2O"
                 help="Symbol of the cation first then the anion. Add a subscript after the cation or anion if there are 
                       more than one. Ones are understood in the formula."
-                     /><div id="r2c5DIV"></div><div class="feedback" id="r2c5FB" name="r2c5FB"></div>            
+              />
+              <div id="r2c5DIV"></div>
+              <div class="feedback" id="r2c5FB" name="r2c5FB"></div>
             </td>
             <td>
               <input
@@ -150,7 +152,7 @@
                 formula="Sodium oxide||sodium oxide"
                 help="Name the cation with a capital letter, space, name the anion with a lowercase letter. Include the Roman numeral in parenthesis if the name of the cation includes a Roman numeral."
               />
-              <div class="feedback" id="r2c6FB" name="r2c6FB"></div>              
+              <div class="feedback" id="r2c6FB" name="r2c6FB"></div>
             </td>
           </tr>
           <tr>
@@ -165,10 +167,10 @@
                 formula="1"
                 help="The number of iron(II) ions that balance the charge of sulfide ions"
               />
-              <div class="feedback" id="r3c1FB" name="r3c1FB"></div>            
+              <div class="feedback" id="r3c1FB" name="r3c1FB"></div>
             </td>
             <td>
-             <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -177,10 +179,10 @@
                 formula="1"
                 help="The number of sulfide ions that balance the charge of iron(II) ions"
               />
-              <div class="feedback" id="r3c2FB" name="r3c2FB"></div>            
+              <div class="feedback" id="r3c2FB" name="r3c2FB"></div>
             </td>
             <td>
-             <input
+              <input
                 type="text"
                 step="any"
                 class="calc num"
@@ -192,7 +194,7 @@
               <div class="feedback" id="r3c3FB" name="r3c3FB"></div>
             </td>
             <td>
-               <input
+              <input
                 type="text"
                 step="any"
                 class="calc num"
@@ -201,10 +203,10 @@
                 formula="2-||-2"
                 help="Add the charges of all the sulfide ions and include the sign of the charge"
               />
-              <div class="feedback" id="r3c4FB" name="r3c4FB"></div> 
+              <div class="feedback" id="r3c4FB" name="r3c4FB"></div>
             </td>
             <td>
-            <input
+              <input
                 type="text"
                 step="any"
                 class="calc num sub"
@@ -213,10 +215,12 @@
                 formula="FeS"
                 help="Symbol of the cation first then the anion. Add a subscript after the cation or anion if there are 
                       more than one. Ones are understood in the formula."
-                     /><div id="r3c5DIV"></div><div class="feedback" id="r3c5FB" name="r3c5FB"></div>    
+              />
+              <div id="r3c5DIV"></div>
+              <div class="feedback" id="r3c5FB" name="r3c5FB"></div>
             </td>
             <td>
-            <input
+              <input
                 type="text"
                 step="any"
                 class="calc num"
@@ -224,11 +228,12 @@
                 name="r3c6"
                 formula="Iron(II) sulfide||iron(II) sulfide"
                 help="Name the cation with a capital letter, space, name the anion with a lowercase letter. Include the Roman numeral in parenthesis with no space after the cation if the name of the cation includes a Roman numeral."
-            /><div class="feedback" id="r3c6FB" name="r3c6FB"></div>            
+              />
+              <div class="feedback" id="r3c6FB" name="r3c6FB"></div>
             </td>
           </tr>
-          
-            <tr>
+
+          <tr>
             <td>Magnesium and Bromide</td>
             <td>
               <input
@@ -241,8 +246,19 @@
                 help="The number of magnesium ions that balance the charge of bromide ions"
               />
               <div class="feedback" id="r4c1FB" name="r4c1FB"></div>
-              </td>
-            <td></td>
+            </td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r4c2"
+                name="r4c2"
+                formula="2"
+                help="The number of bromide ions that balance the charge of magnesium ions"
+              />
+              <div class="feedback" id="r4c2FB" name="r4c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -251,7 +267,7 @@
           <tr>
             <td>Iron(III) and Oxide</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -262,7 +278,18 @@
               />
               <div class="feedback" id="r5c1FB" name="r5c1FB"></div>
             </td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r5c2"
+                name="r5c2"
+                formula="3"
+                help="The number of oxide ions that balance the charge of iron(III) ions"
+              />
+              <div class="feedback" id="r5c2FB" name="r5c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -271,7 +298,7 @@
           <tr>
             <td>Aluminum and Sulfide</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -282,7 +309,18 @@
               />
               <div class="feedback" id="r6c1FB" name="r6c1FB"></div>
             </td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r6c2"
+                name="r6c2"
+                formula="3"
+                help="The number of sulfide ions that balance the charge of aluminum ions"
+              />
+              <div class="feedback" id="r6c2FB" name="r6c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -291,7 +329,7 @@
           <tr>
             <td>Sodium and Bromide</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -302,7 +340,18 @@
               />
               <div class="feedback" id="r7c1FB" name="r7c1FB"></div>
             </td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r7c2"
+                name="r7c2"
+                formula="1"
+                help="The number of bromide ions that balance the charge of sodium ions"
+              />
+              <div class="feedback" id="r7c2FB" name="r7c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -311,7 +360,7 @@
           <tr>
             <td>Potassium and Oxide</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -322,7 +371,18 @@
               />
               <div class="feedback" id="r8c1FB" name="r8c1FB"></div>
             </td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r8c2"
+                name="r8c2"
+                formula="1"
+                help="The number of oxide ions that balance the charge of potassium ions"
+              />
+              <div class="feedback" id="r8c2FB" name="r8c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -331,7 +391,7 @@
           <tr>
             <td>Copper(I) and Sulfide</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -342,7 +402,18 @@
               />
               <div class="feedback" id="r9c1FB" name="r9c1FB"></div>
             </td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r9c2"
+                name="r9c2"
+                formula="1"
+                help="The number of sulfide ions that balance the charge of copper(I) ions"
+              />
+              <div class="feedback" id="r9c2FB" name="r9c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -351,7 +422,7 @@
           <tr>
             <td>Calcium and Chloride</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -362,7 +433,18 @@
               />
               <div class="feedback" id="r10c1FB" name="r10c1FB"></div>
             </td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r10c2"
+                name="r10c2"
+                formula="2"
+                help="The number of chloride ions that balance the charge of calcium ions"
+              />
+              <div class="feedback" id="r10c2FB" name="r10c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -371,7 +453,7 @@
           <tr>
             <td>Potassium and Sulfate</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -382,7 +464,18 @@
               />
               <div class="feedback" id="r11c1FB" name="r11c1FB"></div>
             </td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r11c2"
+                name="r11c2"
+                formula="1"
+                help="The number of sulfate ions that balance the charge of potassium ions"
+              />
+              <div class="feedback" id="r11c2FB" name="r11c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -391,7 +484,7 @@
           <tr>
             <td>Silver and Nitrate</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -402,7 +495,18 @@
               />
               <div class="feedback" id="r12c1FB" name="r12c1FB"></div>
             </td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r13c2"
+                name="r13c2"
+                formula="1"
+                help="The number of nitrate ions that balance the charge of sodium ions"
+              />
+              <div class="feedback" id="r13c2FB" name="r13c2FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -411,7 +515,7 @@
           <tr>
             <td>Copper(II) and Hydroxide</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -431,7 +535,7 @@
           <tr>
             <td>Ammonium and Carbonate</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -451,7 +555,7 @@
           <tr>
             <td>Copper(I) and Phosphate</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -471,7 +575,7 @@
           <tr>
             <td>Calcium and Acetate</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -491,7 +595,7 @@
           <tr>
             <td>Sodium and Bicarbonate</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
@@ -511,16 +615,16 @@
           <tr>
             <td>Copper(I) and Chromate</td>
             <td>
-            <input
+              <input
                 type="number"
                 step="any"
                 class="calc num"
                 id="r18c1"
                 name="r18c1"
                 formula="2"
-                help="The number of sodium ions that balance the charge of oxide ions"
+                help="The number of copper(I) ions that balance the charge of chromate ions"
               />
-              <div class="feedback" id="r2c1FB" name="r2c1FB"></div>
+              <div class="feedback" id="r18c1FB" name="r18c1FB"></div>
             </td>
             <td></td>
             <td></td>
@@ -530,7 +634,18 @@
           </tr>
           <tr>
             <td>Magnesium and Phosphate</td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r19c1"
+                name="r19c1"
+                formula="3"
+                help="The number of magnesium ions that balance the charge of phosphate ions"
+              />
+              <div class="feedback" id="r19c1FB" name="r19c1FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
@@ -539,7 +654,18 @@
           </tr>
           <tr>
             <td>Potassium and Cyanide</td>
-            <td></td>
+            <td>
+            <input
+                type="number"
+                step="any"
+                class="calc num"
+                id="r20c1"
+                name="r20c1"
+                formula="1"
+                help="The number of potassium ions that balance the charge of cyanide ions"
+              />
+              <div class="feedback" id="r20c1FB" name="r20c1FB"></div>
+            </td>
             <td></td>
             <td></td>
             <td></td>
