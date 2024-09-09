@@ -1,1 +1,1 @@
-{}
+{"labName":"Signs A Chemical Reaction Has Occurred","userName":"Amanda Antonie","observations1":"","observations2":"","observations3":"","observations4":"","observations6":"Zinc changed colors from silver/grey to black. The copper chloride changed from see through to cloudy as well as blue to green from a result from the particles of the zinc.","observationsEthanol":"","observationsMagnesium":"","GasTT1":"","GasTT2":"","GasTT3":"","GasTT4":"","GasEthanol":"","conclusion":""}

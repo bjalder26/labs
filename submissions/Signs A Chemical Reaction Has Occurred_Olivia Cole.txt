@@ -1,1 +1,1 @@
-{}
+{"labName":"Signs A Chemical Reaction Has Occurred","userName":"Olivia Cole","observations1":"","observations2":"","observations3":"","observations4":"","observations6":"the color of the zinc changes from silver to almost black. the liquid (copper (II) chlorine) also became cloudy due to the particles from the zinc","observationsEthanol":"","observationsMagnesium":"","GasTT1":"","GasTT2":"","GasTT3":"","GasTT4":"","GasEthanol":"","conclusion":""}
