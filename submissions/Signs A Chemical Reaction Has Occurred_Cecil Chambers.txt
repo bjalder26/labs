@@ -1,1 +1,1 @@
-{}
+{"labName":"Signs A Chemical Reaction Has Occurred","userName":"Cecil Chambers","observations1":"bubbles when mixed. Splint test exstinguished. got colder. ","observations2":"Bubbles when mixed. Color changed to yellow. Splint test flared and relit.","observations3":"Bubbles whe nmixed. Liquid got hotter. Splint test popped.","observations4":"","observations6":"","observationsEthanol":"","observationsMagnesium":"","GasTT1":"Carbon dioxide","GasTT2":"Oxygen","GasTT3":"Hydrogen","GasTT4":"","GasEthanol":"","conclusion":""}
