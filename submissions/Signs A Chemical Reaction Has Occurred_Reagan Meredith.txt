@@ -1,1 +1,1 @@
-{}
+{"labName":"Signs A Chemical Reaction Has Occurred","userName":"Reagan Meredith","observations1":"","observations2":"","observations3":"","observations4":"","observations6":"The CuCl2 turned cloudy green, and the Zinc turned black with particles falling off. ","observationsEthanol":"","observationsMagnesium":"","GasTT1":"","GasTT2":"","GasTT3":"","GasTT4":"","GasEthanol":"","conclusion":""}
