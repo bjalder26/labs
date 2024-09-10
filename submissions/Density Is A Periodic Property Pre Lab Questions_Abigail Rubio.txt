@@ -1,0 +1,1 @@
+{"labName":"Density Is A Periodic Property Pre Lab Questions","userName":"Abigail Rubio","calalden":"2.69","calrockden":"3.33","y1":"2.70","x1":"3","y2":"7.31","x2":"5","y3":"11.85","x3":"6","preDenGa":"","pererr":"","elementname":""}
