@@ -1,0 +1,391 @@
+<!DOCTYPE html> 
+
+<html> 
+
+  <head> 
+
+    <title>Density Lab</title><!-- Title --> 
+
+    <link rel="stylesheet" href="../css/lab.css"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"> 
+
+  </head> 
+
+ 
+
+  <body onload="onLoad()"> 
+
+  <script type="text/javascript"> 
+
+      //PARAMS**GO**HERE 
+
+    </script> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
+
+ 
+
+    <h1 id="title" > Density Lab </h1> <!-- Title --> 
+
+    Name: <div id="name"></div><br> 
+
+    
+
+    <form id="labdataform" action="/save" method="post" target="_self"> 
+
+      <input type="text" id="labName" name="labName" style="display:none"> 
+
+      <input type="text" id="userName" name="userName" style="display:none"> 
+<style>
+      textarea {
+            width: 100%;
+            height: 100px;
+            font-size: 16px;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+    
+        }
+    </style>
+<!-- Beginning --> 
+
+    <h2>PART 1: Intro</h2>
+ <h3>
+  Directions:
+  </h3><p>
+  Open the <a href="https://phet.colorado.edu/sims/html/density/latest/density_all.html">Density simulation</a> and click Intro.
+  </p>
+  <p>
+     Once open, set the number of protons to 20 and click on the blue button above the Alpha Particles to start firing Alpha particles towards the gold foil. Click on the Traces button.
+  </p>
+    <!-- Question 1 -->
+  <div>
+    <p><strong>Question 1:</strong> What do you notice about the paths of most of the alpha particles when the number of protons is set to 20?</p> 
+        <textarea class="num text essay" id="q1" name="q1" placeholder="Type your answer here..."></textarea>
+        </div>
+      <div style="display: none;" class="hidden">Most of the particles take straight line paths. </div>
+
+  <p>
+     Increase the number of protons to 60.
+  </p>
+    
+    <!-- Question 2 -->
+  <div> <p><strong>Question 2:</strong> Does it change how the alpha particles move?  If so, how?</p>
+        <textarea class="num text essay" id="q2" name="q2" placeholder="Type your answer here..."></textarea>
+        </div>     
+      <div style="display: none;" class="hidden">More of the particles make wide angle deflections.</div>
+<p>
+     Now, increase the number of protons to 100.
+  </p>
+    <!-- Question 3 -->
+  <div> <p><strong>Question 3:</strong> How does this increase change how the alpha particles move through the gold foil as compared to when you started?</p>
+        <textarea class="num text essay" id="q3" name="q3" placeholder="Type your answer here..."></textarea>
+        </div>
+      <div style="display: none;" class="hidden">Some are deflecting straight back.</div>
+  <br>
+  <!-- Question 4 -->
+  <div <p><strong>Question 4:</strong> Why do you think this change occurred?
+        <textarea class="num text essay" id="q4" name="q4" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">The increase in positive charge must be repelling the alpha particles more.</div>
+  <p>
+     Repeat the above steps but vary how many neutrons are present with the protons.
+  </p>
+ <!-- Question 5 -->
+      <div> <p><strong>Question 5:</strong> Does this change how the Alpha particles travel?</p>
+        <textarea class="num text essay" id="q5" name="q5" placeholder="Type your answer here..."></textarea>
+        </div> 
+    <div style="display: none;" class="hidden">It does not seem to alter the way the alpha particles move. </div>
+<br>
+  <!-- Question 6 -->
+      <div> <p><strong>Question 6:</strong> Why or why not?</p>
+        <textarea class="num text essay" id="q6" name="q6" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">The neutrons are neutral so they don’t repel the positive alpha particles.</div>
+  <p>
+     Click on the red/gray sphere and reset the number of protons to 20.
+  </p>
+  <!-- Question 7 -->
+      <div> <p><strong>Question 7:</strong> Watch and describe how the alpha particles move in relationship to the nucleus.</p>
+        <textarea class="num text essay" id="q7" name="q7" placeholder="Type your answer here..."></textarea>
+        </div>
+     <div style="display: none;" class="hidden">They are moving away from the nucleus and not touching it all. </div>
+
+  <p>
+     Click on the red/gray sphere and reset the number of protons to 60.
+  </p>
+  <!-- Question 8 -->
+      <div> <p><strong>Question 8:</strong> Watch and describe how the alpha particles move in relationship to the nucleus.</p>
+        <textarea class="num text essay" id="q8" name="q8" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">They are moving away from the nucleus and not touching it all. </div>
+  <p>
+     Now increase the number of protons to 100.
+  </p>
+  <!-- Question 9 -->
+      <div> <p><strong>Question 9:</strong> How are the situations with 20 protons and 100 protons different?</p>
+        <textarea class="num text essay" id="q9" name="q9" placeholder="Type your answer here..."></textarea>
+        </div>
+     <div style="display: none;" class="hidden">The number of protons. The more positive charge causes a stronger force of repulsion. </div>
+ <h2>PART 2: Plum-Pudding Model of the Atom</h2> 
+    <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/plum%20pudding.png?v=1725044329819" width="450px" style="display: block; margin: auto;"> 
+
+ <h3>
+  Directions:
+  </h3><p>
+  Switch the simulation to the Plum-Pudding Atom.  Once the simulation opens, click on the trace button.  Click on the blue button on the Alpha Particle gun to turn on the Alpha particles.
+  </p> 
+  <!-- Question 10 -->
+      <div> <p><strong>Question 10:</strong> What type of path do the Alpha particles take?</p>
+        <textarea class="num text essay" id="q10" name="q10" placeholder="Type your answer here..."></textarea>
+        </div>
+<br>  <div style="display: none;" class="hidden">All straight line paths. </div>
+  
+  <!-- Question 11 -->
+      <div> <p><strong>Question 11:</strong> How is this different than the Rutherford simulation?</p>
+        <textarea class="num text essay" id="q11" name="q11" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">Absolutely no deflections. </div>
+<br>
+    <!-- Question 12 -->
+      <div><p><strong>Question 12:</strong> Why do you think that our model of the atom changed after Rutherford’s experiment?</p>
+        <textarea class="num text essay" id="q12" name="q12" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">The assumption was the particles would move straight through the plum pudding. Instead, the reaction of the alpha 
+      particles being deflected proved the presence of a nucleus, its size and the existence of electrons since there had to be negative to balance the positive nucleus. </div>
+<br>
+  <!-- Question 13 -->
+      <div> <p><strong>Question 13:</strong> Why were the Alpha particles deflected by the nucleus and not attracted to it? </p>
+        <textarea class="num text essay" id="q13" name="q13" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">Alpha particles are positively charged. Like charges repel. The nucleus had to be 
+      positively charged since alpha particles (like, positive charges) deflected/repelled. </div>
+<br>
+   <h2>PART 3: Isotopes</h2> 
+ <h3>
+  Directions:
+  </h3><p>
+  Open the <a href="https://phet.colorado.edu/sims/html/isotopes-and-atomic-mass/latest/isotopes-and-atomic-mass_all.html">Isotopes and Atomic Mass simulation</a> and click on Isotopes.
+  </p> 
+   <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopessim.png?v=1725044335343" width="600px" style="display: block; margin: auto;"> 
+ 
+  <p>
+  Develop your understanding: Explore the simulation to develop your own ideas about "isotopes". Explain your understanding using your own words to show you can:  
+  </p>
+  <!-- Question 14 -->
+      <div> <p><strong>Question 14:</strong> Define “isotope” using the following words in your definition: mass number, atomic number, number of protons, neutrons and electrons.</p>
+        <textarea class="num text essay" id="q14" name="q14" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">An isotope is an atom of an element that has the same atomic number, that is the same number of protons, but a 
+      different number of neutrons and therefore a different mass number.</div>
+<br>
+    <!-- Question 15 -->
+      <div> <p><strong>Question 15:</strong> Compare and contrast: an element, an atom, and an isotope.</p>
+        <textarea class="num text essay" id="q15" name="q15" placeholder="Type your answer here..."></textarea>
+        </div>
+     <div style="display: none;" class="hidden">An element is a pure substance containing  only atoms with the same number of protons. An atom is the smallest unit of an 
+       element that still retains the properties of an element. Isotopes are atoms of a given element that contain different numbers of neutrons and therefore have different masses. </div>
+<br>
+  <!-- Question 16 -->
+      <div> <p><strong>Question 16:</strong> Given the number of protons, neutrons and electrons, explain how you would find the mass and name of an isotope.</p>
+        <textarea class="num text essay" id="q16" name="q16" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">If I was given the number of protons, I could identify the name of the element by looking at that atomic number on the periodic table. If the number of 
+      protons and electrons are the same, I could determine the isotope is neutral. If there were more electrons than protons, I could determine the negative charge. If there were less electrons 
+      than protons, I could determine the positive charge. I could determine the mass of the isotope by adding the number of protons to the number of neutrons. </div>
+<br>
+  <!-- Question 17 -->
+      <div> <p><strong>Question 17:</strong> Given the name of an element and the number of neutrons, explain how you would find the mass of an isotope.</p>
+        <textarea class="num text essay" id="q17" name="q17" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden"> If I was given the name of an element, I could look at the periodic table and determine the atomic number. The atomic number is equal to the number of protons. 
+      Now knowing the number of protons I could add them to the number of neutrons to get the mass number. </div>
+<br>
+   <p>
+  Develop your understanding: Explore the Mixtures screen to develop your ideas about isotope mixtures are related to Average Atomic Mass. Make sure to explore both My Mix and Nature’s Mix. </p> 
+ <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/mixturessim.png?v=1725044343553" width="600px" style="display: block; margin: auto;"> 
+ 
+    <!-- Question 18 -->
+      <div> <p><strong>Question 18:</strong> What are the differences between My Mix and Nature’s Mix?</p>
+        <textarea class="num text essay" id="q18" name="q18" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">In the Nature’s Mix the proportions are fixed and represent the relative abundances of the isotopes in nature. My Mix allows you to make the element have different proportions of each isotopes’ abundance. 
+</div>
+<br>
+  <!-- Question 19 -->
+      <div> <p><strong>Question 19:</strong> Give evidence to support or dispute: “In nature, the probability or chance of finding one isotope of an element is the same for all elements.” Use the simulation to write a paragraph for your argument.</p>
+        <textarea class="num text essay" id="q19" name="q19" placeholder="Type your answer here..."></textarea>
+        </div>
+    <div style="display: none;" class="hidden">I dispute the statement: “In nature, the chance of finding one isotope of an element is the same for all elements.” I will use three elements to illustrate my argument.  
+The chances of finding one isotope of an element is different for most of the elements. It depends on the natural abundance of each isotope of each particular element. Lithium, Boron, and Oxygen all have different percent abundances. 
+</div>
+   <p>
+  Test your understanding using both screens of the simulation. </p> 
+ <!-- Question 20 -->
+   <div>
+     
+      <p><strong>Question 20:</strong> You and your friend, Bill, are given a rock that you know has some Silicon. You just learned that there are 3 common isotopes of silicon- Silicon-28, Silicon-29, and Silicon-30. Bill suggests that the rock might have equal parts of each isotope. What would be the average mass of Silicon in the rock? </p> 
+     <input type="number" step="any" class="calc num" id="avgsi" name="avgsi" formula="28.97573" help="Use the Mixtures screen to create your own mixture that is like Bill's: equal parts Silicon-28, Silicon-29, and Silicon-30. Check what the calculated Average Atomic Mass would be. ">
+      <div class="feedback" id="avgsiFB" name="avgsiFB"></div>
+      </div>
+  
+<br><br>
+    <!-- Question 21 -->
+      <div> <p><strong>Question 21:</strong> How could you check to see if Bill’s ideas are correct?</p>
+        <textarea class="num text essay" id="q21" name="q21" placeholder="Type your answer here..."></textarea>
+        </div>  
+    <div style="display: none;" class="hidden">You would compare Bill’s Mix to Nature’s Mix or the mass on the periodic table. If they are the same mass, then Bill is correct. If they are different masses, then Bill is incorrect. 
+</div>
+<br>
+   <!-- Question 22 -->
+      <div> <p>
+        <strong>Questions 22:</strong> Iron has many isotopes but only 4 are found in significant amounts in naturally found mixtures. The amounts by mass percent are: 5.845% of <sup>54</sup>Fe (53.9396 amu), 91.754% of <sup>56</sup>Fe (55.9349 amu), 2.119% of <sup>57</sup>Fe (56.9354 amu), and 0.282% of <sup>58</sup>Fe (57.9333 amu). What would you determine the average mass of iron to be? </p>
+    <input type="number" step="any" class="calc num" id="avgfemass" name="avgfemass" formula=".05845*53.9396+.91754*55.9349+.02119*56.9354+.00282*57.9333" help="Calculate the average atomic mass by taking each percentage and placing it in decimal form. Then multiple each decimal form percentage by the respective atomic mass. Finally add all four masses together.">
+      <div class="feedback" id="avgfemassFB" name="avgfemassFB"></div></div>
+<br>
+<!-- Question 23 -->
+      <div> <p><strong>Question 23:</strong> How do your results compare to the information for iron (Fe) on the periodic table?</p>
+        <textarea class="num text essay" id="q22" name="q22" placeholder="Type your answer here..."></textarea>
+        </div> 
+<br>
+     <!-- Question 24 -->
+    <div>
+      
+      <p><strong>Question 24:</strong> <label for="isotope1">What would this be?</label> <br><img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes1.PNG?v=1724973602594" width="375px"> <br> </p></div>
+        <select name="isotope1" id="isotope1" class="calc" formula="carbon-14" help="Remember that the mass number comes after the hypen. Also remember which particle identifies an element.">
+          <option value="">Choose the correct answer.</option>
+          <option value="carbon-12">carbon-12</option>
+          <option value="carbon-14">carbon-14</option>
+          <option value="oxygen-14">oxygen-14</option>
+          <option value="More than one of these">More than one of these</option> 
+   	    </select>  
+      <div class="feedback" id="isotope1FB" name="isotope1FB"></div>
+      <br>
+  <!-- Question 25 -->
+      <p><strong>Question 25:</strong> Compare the following images of isotopes and determine which would be isotopes.</p> <br><img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes.PNG?v=1724973077637" width="375px">
+   <br>
+      <div class="inline-block">
+      <select name="isotope2" id="isotope2" class="calc" formula="one and two" help="Remember that isotopes have the same atomic number (number of protons) but different numbers of neutrons." >
+        <option value="">Choose the correct answer.</option>
+        <option value="one and two">1 and 2</option> // It thought it was a number, and tried to mathmatically compare the answers
+        <option value="one and three">1 and 3</option>
+        <option value="two and three">2 and 3</option>
+        <option value="More than one combination">More than one combination</option>
+      </select> 
+        <div class="feedback" id="isotope2FB" name="isotope2FB"></div> </div>
+      
+<!-- Question 26 -->
+      <p><strong>Question 26:</strong> What would the approximate average mass of Hydrogen be based on the image?</p>
+      <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes3.PNG?v=1724973938805" width="150px">
+    <div class="inline-block">
+      <select name="isotope3" id="isotope3" class="calc" formula="1.5 amu" help="Remember how to calculate a weighted average based on the abundance of the isotopes." >
+        <option value="">Choose the correct answer.</option>
+        <option value="6 amu">6 amu</option>
+        <option value="2 amu">2 amu</option>
+        <option value="1.5 amu">1.5 amu</option>
+        <option value="1 amu">1 amu</option>	
+      </select>
+   <div class="feedback" id="isotope3FB" name="isotope3FB"></div> </div>    
+     
+      <!-- Question 27 -->
+      <p><strong>Question 27:</strong> What would the approximate average mass of Argon be based on the image? </p>
+      <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes4.PNG?v=1724974392018" width="300px">
+      <div class="inline-block">
+    <select name="isotope4" id="isotope4" class="calc" formula="37.5 amu" help="Remember how to calculate a weighted average based on the abundance of the isotopes." >
+      <option value="">Choose the correct answer.</option>
+      <option value="40 amu">40 amu</option>
+      <option value="38 amu">38 amu</option>
+      <option value="37.5 amu">37.5 amu</option>
+    </select>
+        <div class="feedback" id="isotope4FB" name="isotope4FB"></div></div>
+     
+      <!-- Question 28 -->
+      <!-- <div class="text essay"> I don't think you need this --> 
+        <p><strong>Question 28:</strong> How would you know if this combination is likely to be found in some dirt?</p> 
+      <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes5.PNG?v=1724974988611" width="300px">
+    <textarea class="num text essay" id="q28" name="q28" placeholder="Type your answer here..."></textarea>
+    <div style="display: none;" class="hidden">When you put this mixture in the simulation you get a mass of 14.29 amu but Nature’s Mix in the simulation 
+      and the periodic table display the mass as 14.01 amu. 
+</div>
+    
+      
+<!-- End --> 
+
+      <div class="footer">Rutherford Scattering and Isotopes</div> 
+
+      <!-- title --> 
+
+       <div id="button_bar"> 
+
+        <button 
+
+          type="submit" 
+
+          title="save" 
+
+          class="large material-icons" 
+
+          id="savebutton" 
+
+          onclick="saveData()" 
+
+        > 
+
+          save 
+
+        </button> 
+
+        <button onclick="toPrint()" title="print" class="large material-icons"> 
+
+          print 
+
+        </button> 
+
+        <button type="button" class="hidden" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%"> 
+
+          Submit</button 
+
+        >&nbsp; 
+
+        <div class="vcenter hidden" style="display: none;"> 
+
+          <label for="score">Score: </label> 
+
+          <div id="score" style="display: inline">0</div> 
+
+          % 
+
+        </div> 
+
+      </div> 
+
+    </form> 
+  
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+
+    <script src="../js/lab.js"></script> 
+
+  </body> 
+
+</html> 
