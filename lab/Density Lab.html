@@ -128,18 +128,41 @@
 <br>  <div style="display: none;" class="hidden">The mass always also decreases. </div>
   
   <!-- Question 11 -->
-      <div> <p><strong>Question 11:</strong>Choose a mass for the ice. Take the mass and divide by the corresponding volume.</p>
+      <div> <p><strong>Question 11:</strong>Choose a mass for the ice. Type in the mass and corresponding volume. Then divide the mass by the volume. This ratio is called density.</p>
         <div>
-    <input type="number" step="any" class="calc num" id="denice" name="denice" formula=".05845*53.9396+.91754*55.9349+.02119*56.9354+.00282*57.9333" help="Calculate the average atomic mass by taking each percentage and placing it in decimal form. Then multiple each decimal form percentage by the respective atomic mass. Finally add all four masses together.">
-      <div class="feedback" id="avgfemassFB" name="avgfemassFB"></div></div>
-<br>
+           <label>Mass of Ice:</label>&nbsp;&nbsp;
+       <input
+                type="number"
+                step="any"
+                class="num"
+                id="massice"
+                name="massice"
+              />
+      </div>&nbsp;&nbsp;kg
+      <br />
+    <label>Volume of Ice:</label>&nbsp;&nbsp;
+       <input
+                type="number"
+                step="any"
+                class="num"
+                id="volice"
+                name="volice"
+              />
+      </div>&nbsp;&nbsp;L
+      <br />
+     <label>Density of Ice:</label>&nbsp;&nbsp;
+        <input type="number" step="any"
+        class="calc num" id="denIce" name="denIce"
+        formula="${massice}/${volice}" help="Divide the mass you chose for ice by the corresponding volume."><div class="feedback" id="denIceFB" name=" denIceFB "> 
+      </div>&nbsp;&nbsp;kg/L
+      <br />
     <!-- Question 12 -->
-      <div><p><strong>Question 12:</strong> Why do you think that our model of the atom changed after Rutherford’s experiment?</p>
+      <div><p><strong>Question 12:</strong> Try dividing a different mass of ice by a new corresponding volume. How does this calculated density compare the the calculated density in the previous question?</p>
         <textarea class="num text essay" id="q12" name="q12" placeholder="Type your answer here..."></textarea>
         </div>
-    <div style="display: none;" class="hidden">The assumption was the particles would move straight through the plum pudding. Instead, the reaction of the alpha 
-      particles being deflected proved the presence of a nucleus, its size and the existence of electrons since there had to be negative to balance the positive nucleus. </div>
+    <div style="display: none;" class="hidden">They are exactly the same. </div>
 <br>
+    <!
   <!-- Question 13 -->
       <div> <p><strong>Question 13:</strong> Why were the Alpha particles deflected by the nucleus and not attracted to it? </p>
         <textarea class="num text essay" id="q13" name="q13" placeholder="Type your answer here..."></textarea>
