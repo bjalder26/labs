@@ -1,192 +1,314 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 
-<html> 
+<html>
+  <head>
+    <title>Density Lab</title>
+    <!-- Title -->
 
-  <head> 
+    <link rel="stylesheet" href="../css/lab.css" />
 
-    <title>Density Lab</title><!-- Title --> 
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
 
-    <link rel="stylesheet" href="../css/lab.css"> 
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-  </head> 
+    <h1 id="title">Density Lab</h1>
+    <!-- Title -->
 
- 
+    Name:
+    <div id="name"></div>
+    <br />
 
-  <body onload="onLoad()"> 
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
 
-  <script type="text/javascript"> 
-
-      //PARAMS**GO**HERE 
-
-    </script> 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
-
- 
-
-    <h1 id="title" > Density Lab </h1> <!-- Title --> 
-
-    Name: <div id="name"></div><br> 
-
-    
-
-    <form id="labdataform" action="/save" method="post" target="_self"> 
-
-      <input type="text" id="labName" name="labName" style="display:none"> 
-
-      <input type="text" id="userName" name="userName" style="display:none"> 
-<style>
-      textarea {
-            width: 100%;
-            height: 100px;
-            font-size: 16px;
-            padding: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-
-    
+      <input type="text" id="userName" name="userName" style="display: none" />
+      <style>
+        textarea {
+          width: 100%;
+          height: 100px;
+          font-size: 16px;
+          padding: 10px;
+          margin-top: 10px;
+          margin-bottom: 10px;
         }
-    </style>
-<!-- Beginning --> 
+      </style>
+      <!-- Beginning -->
 
-    <h2>PART 1: Intro</h2>
- <h3>
-  Directions:
-  </h3><p>
-  Open the <a href="https://phet.colorado.edu/sims/html/density/latest/density_all.html">Density simulation</a> and click Intro.
-  </p>
-  <p>
-     Once open, make sure the top right corner has Block A listed as Wood.  </p>
-     <br>
-  <p>Increase the mass using the slider.  </p>
+      <h2>PART 1: Intro</h2>
+      <h3>Directions:</h3>
+      <p>
+        Open the
+        <a
+          href="https://phet.colorado.edu/sims/html/density/latest/density_all.html"
+          >Density simulation</a
+        >
+        and click Intro.
+      </p>
+      <p>
+        Once open, make sure the top right corner has Block A listed as Wood.
+      </p>
+      <br />
+      <p>Increase the mass using the slider.</p>
       <!-- Question 1 -->
-  <div>
-    <p><strong>Question 1:</strong> What do you notice happens to the volume?</p> 
-        <textarea class="num text essay" id="q1" name="q1" placeholder="Type your answer here..."></textarea>
-        </div>
-      <div style="display: none;" class="hidden">The volume increases.</div>
-    
-    <!-- Question 2 -->
-  <div> <p><strong>Question 2:</strong> What happens to the block</p>
-        <textarea class="num text essay" id="q2" name="q2" placeholder="Type your answer here..."></textarea>
-        </div>     
-      <div style="display: none;" class="hidden">It gets bigger in size. Floats the whole time.</div>
-    <!-- Question 3 -->
-  <div> <p><strong>Question 3:</strong> What happens to the water?</p>
-        <textarea class="num text essay" id="q3" name="q3" placeholder="Type your answer here..."></textarea>
-        </div>
-      <div style="display: none;" class="hidden">The volume level of the water rises.</div>
-  <br>
-   <p>Decrease the volume using the slider.</p>    
-  <!-- Question 4 -->
-  <div <p><strong>Question 4:</strong> What happens to the mass of the block?
-        <textarea class="num text essay" id="q4" name="q4" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">The mass decreases.</div>
- <!-- Question 5 -->
-      <div> <p><strong>Question 5:</strong> What happens to the water?</p>
-        <textarea class="num text essay" id="q5" name="q5" placeholder="Type your answer here..."></textarea>
-        </div> 
-    <div style="display: none;" class="hidden">The water volume level gets lower. </div>
-<br>
-  <!-- Question 6 -->
-      <div> <p><strong>Question 6:</strong> Does the block ever sink?</p>
-        <textarea class="num text essay" id="q6" name="q6" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">No.</div>
-  <p>
-     Change the drop down menu to aluminum.
-  </p>
-  <!-- Question 7 -->
-      <div> <p><strong>Question 7:</strong> By adjusting the mass and/or the volume of the aluminum, does it ever float?</p>
-        <textarea class="num text essay" id="q7" name="q7" placeholder="Type your answer here..."></textarea>
-        </div>
-     <div style="display: none;" class="hidden">No.</div>
+      <div>
+        <p>
+          <strong>Question 1:</strong> What do you notice happens to the volume?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q1"
+          name="q1"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">The volume increases.</div>
 
-  <!-- Question 8 -->
-      <div> <p><strong>Question 8:</strong> As you increase the mass of the aluminum, what always happens to the volume?</p>
-        <textarea class="num text essay" id="q8" name="q8" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">The volume always also increases.</div>
-  <p>
-     Now change the drop down menu to ice.
-  </p>
-  <!-- Question 9 -->
-      <div> <p><strong>Question 9:</strong> By adjusting the mass and/or the volume of the ice, does it ever sink?</p>
-        <textarea class="num text essay" id="q9" name="q9" placeholder="Type your answer here..."></textarea>
-        </div>
-     <div style="display: none;" class="hidden">No.</div>
- 
-  <!-- Question 10 -->
-      <div> <p><strong>Question 10:</strong> As you decrease the volume of the ice, what always happens to the mass?</p>
-        <textarea class="num text essay" id="q10" name="q10" placeholder="Type your answer here..."></textarea>
-        </div>
-<br>  <div style="display: none;" class="hidden">The mass always also decreases. </div>
-  
-  <!-- Question 11 -->
-      <div> <p><strong>Question 11:</strong>Choose a mass for the ice. Type in the mass and corresponding volume. Then divide the mass by the volume. This ratio is called density.</p>
+      <!-- Question 2 -->
+      <div>
+        <p><strong>Question 2:</strong> What happens to the block</p>
+        <textarea
+          class="num text essay"
+          id="q2"
+          name="q2"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        It gets bigger in size. Floats the whole time.
+      </div>
+      <!-- Question 3 -->
+      <div>
+        <p><strong>Question 3:</strong> What happens to the water?</p>
+        <textarea
+          class="num text essay"
+          id="q3"
+          name="q3"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        The volume level of the water rises.
+      </div>
+      <br />
+      <p>Decrease the volume using the slider.</p>
+      <!-- Question 4 -->
+      <div <p>
+        <strong>Question 4:</strong> What happens to the mass of the block?
+        <textarea
+          class="num text essay"
+          id="q4"
+          name="q4"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">The mass decreases.</div>
+      <!-- Question 5 -->
+      <div>
+        <p><strong>Question 5:</strong> What happens to the water?</p>
+        <textarea
+          class="num text essay"
+          id="q5"
+          name="q5"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        The water volume level gets lower.
+      </div>
+      <br />
+      <!-- Question 6 -->
+      <div>
+        <p><strong>Question 6:</strong> Does the block ever sink?</p>
+        <textarea
+          class="num text essay"
+          id="q6"
+          name="q6"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">No.</div>
+      <p>Change the drop down menu to aluminum.</p>
+      <!-- Question 7 -->
+      <div>
+        <p>
+          <strong>Question 7:</strong> By adjusting the mass and/or the volume
+          of the aluminum, does it ever float?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q7"
+          name="q7"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">No.</div>
+
+      <!-- Question 8 -->
+      <div>
+        <p>
+          <strong>Question 8:</strong> As you increase the mass of the aluminum,
+          what always happens to the volume?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q8"
+          name="q8"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        The volume always also increases.
+      </div>
+      <p>Now change the drop down menu to ice.</p>
+      <!-- Question 9 -->
+      <div>
+        <p>
+          <strong>Question 9:</strong> By adjusting the mass and/or the volume
+          of the ice, does it ever sink?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q9"
+          name="q9"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">No.</div>
+
+      <!-- Question 10 -->
+      <div>
+        <p>
+          <strong>Question 10:</strong> As you decrease the volume of the ice,
+          what always happens to the mass?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q10"
+          name="q10"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <br />
+      <div style="display: none" class="hidden">
+        The mass always also decreases.
+      </div>
+
+      <!-- Question 11 -->
+      <div>
+        <p>
+          <strong>Question 11:</strong>Choose a mass for the ice. Type in the
+          mass and corresponding volume. Then divide the mass by the volume.
+          This ratio is called density.
+        </p>
         <div>
-           <label>Mass of Ice:</label>&nbsp;&nbsp;
-       <input
-                type="number"
-                step="any"
-                class="num"
-                id="massice"
-                name="massice"
-              />
-      </div>&nbsp;&nbsp;kg
-      <br />
-    <label>Volume of Ice:</label>&nbsp;&nbsp;
-       <input
-                type="number"
-                step="any"
-                class="num"
-                id="volice"
-                name="volice"
-              />
-      </div>&nbsp;&nbsp;L
-      <br />
-     <label>Density of Ice:</label>&nbsp;&nbsp;
-        <input type="number" step="any"
-        class="calc num" id="denIce" name="denIce"
-        formula="${massice}/${volice}" help="Divide the mass you chose for ice by the corresponding volume."><div class="feedback" id="denIceFB" name=" denIceFB "> 
-      </div>&nbsp;&nbsp;kg/L
-      <br />
-    <!-- Question 12 -->
-      <div><p><strong>Question 12:</strong> Try dividing a different mass of ice by a new corresponding volume. How does this calculated density compare the the calculated density in the previous question?</p>
-        <textarea class="num text essay" id="q12" name="q12" placeholder="Type your answer here..."></textarea>
+          <label>Mass of Ice:</label>&nbsp;&nbsp;
+          <input
+            type="number"
+            step="any"
+            class="num"
+            id="massice"
+            name="massice"
+          />
         </div>
-    <div style="display: none;" class="hidden">They are exactly the same. </div>
-<br>
-    
-  <!-- Question 13 -->
-      <div> <p><strong>Question 13:</strong> The density of liquid water is 1.00 kg/L. Compare that to the density of solid water (ice). Why does ice float in liquid water? </p>
-        <textarea class="num text essay" id="q13" name="q13" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">The density of ice is less than the density of liquid water. Less dense objects float.</div>
-<br>
-   
-    <p>
-      Change the drop down menu to custom.
-    </p>
-  <!-- Question 14 -->
-      <div> <p><strong>Question 14:</strong> Notice the difference in your options to change the mass and the volume. What makes the custom block float? What makes the custom block sink? </p>
-        <textarea class="num text essay" id="q14" name="q14" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">Should note that there is a threshold for when the mass/volume ratio is too high for the block to float and it will sink.</div>
-<br>
-       
-    <h2>PART 2: Compare </h2> 
-   <h3>
-  Directions:
-  </h3><p>
-  Switch the simulation to the Compare screen. Make sure Same Mass is clicked in the top right corner.
-  </p> 
-    <!--move this lower
+        &nbsp;&nbsp;kg
+        <br />
+        <label>Volume of Ice:</label>&nbsp;&nbsp;
+        <input type="number" step="any" class="num" id="volice" name="volice" />
+      </div>
+      &nbsp;&nbsp;L
+      <br />
+      <label>Density of Ice:</label>&nbsp;&nbsp;
+      <input
+        type="number"
+        step="any"
+        class="calc num"
+        id="denIce"
+        name="denIce"
+        formula="${massice}/${volice}"
+        help="Divide the mass you chose for ice by the corresponding volume."
+      />
+      <div class="feedback" id="denIceFB" name=" denIceFB "></div>
+      &nbsp;&nbsp;kg/L
+      <br />
+      <!-- Question 12 -->
+      <div>
+        <p>
+          <strong>Question 12:</strong> Try dividing a different mass of ice by
+          a new corresponding volume. How does this calculated density compare
+          the the calculated density in the previous question?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q12"
+          name="q12"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">They are exactly the same.</div>
+      <br />
+
+      <!-- Question 13 -->
+      <div>
+        <p>
+          <strong>Question 13:</strong> The density of liquid water is 1.00
+          kg/L. Compare that to the density of solid water (ice). Why does ice
+          float in liquid water?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q13"
+          name="q13"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        The density of ice is less than the density of liquid water. Less dense
+        objects float.
+      </div>
+      <br />
+
+      <p>Change the drop down menu to custom.</p>
+      <!-- Question 14 -->
+      <div>
+        <p>
+          <strong>Question 14:</strong> Notice the difference in your options to
+          change the mass and the volume. What makes the custom block float?
+          What makes the custom block sink?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q14"
+          name="q14"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        Should note that there is a threshold for when the mass/volume ratio is
+        too high for the block to float and it will sink.
+      </div>
+      <br />
+
+      <h2>PART 2: Compare</h2>
+      <h3>Directions:</h3>
+      <p>
+        Switch the simulation to the Compare screen. Make sure Same Mass is
+        clicked in the top right corner.
+      </p>
+      <!--move this lower
    <h2>PART 3: Isotopes</h2> 
  <h3>
   Directions:
@@ -198,183 +320,335 @@
   <p>
   Develop your understanding: Explore the simulation to develop your own ideas about "isotopes". Explain your understanding using your own words to show you can:  
   </p> ---->
-    <!-- Question 15 -->
-      <div> <p><strong>Question 15:</strong> Put one block in the water at a time. What do you notice? Remove the block from the water. Repeat this process with every other block. Indicate using the letter of the block whether they sink or float. </p>
-        <textarea class="num text essay" id="q15" name="q15" placeholder="Type your answer here..."></textarea>
-        </div>
-     <div style="display: none;" class="hidden">Blocks C and D immediately sink. Block B floats. Block A sort of floats in the middle. </div>
-<br>
-  <!-- Question 16 -->
-      <div> <p><strong>Question 16:</strong>Adjust the mass to 8.50 kg. Which block now sinks that didn't previously?</p>
-        <textarea class="num text essay" id="q16" name="q16" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">Block A now sinks.</div>
-<br>
-  <!-- Question 17 -->
-      <div> <p><strong>Question 17:</strong> Adjust the mass to 1.80 kg. Which blocks now float?</p>
-        <textarea class="num text essay" id="q17" name="q17" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">Blocks A, B, and C now float.</div>
-<br>
-  <!----move this
+      <!-- Question 15 -->
+      <div>
+        <p>
+          <strong>Question 15:</strong> Put one block in the water at a time.
+          What do you notice? Remove the block from the water. Repeat this
+          process with every other block. Indicate using the letter of the block
+          whether they sink or float.
+        </p>
+        <textarea
+          class="num text essay"
+          id="q15"
+          name="q15"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        Blocks C and D immediately sink. Block B floats. Block A sort of floats
+        in the middle.
+      </div>
+      <br />
+      <!-- Question 16 -->
+      <div>
+        <p>
+          <strong>Question 16:</strong>Adjust the mass to 8.50 kg. Which block
+          now sinks that didn't previously?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q16"
+          name="q16"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">Block A now sinks.</div>
+      <br />
+      <!-- Question 17 -->
+      <div>
+        <p>
+          <strong>Question 17:</strong> Adjust the mass to 1.80 kg. Which blocks
+          now float?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q17"
+          name="q17"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        Blocks A, B, and C now float.
+      </div>
+      <br />
+      <!----move this
     <p>
   Develop your understanding: Explore the Mixtures screen to develop your ideas about isotope mixtures are related to Average Atomic Mass. Make sure to explore both My Mix and Nature’s Mix. </p> 
  <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/mixturessim.png?v=1725044343553" width="600px" style="display: block; margin: auto;"> 
  
     <!-- Question 18 -->
-      <div> <p><strong>Question 18:</strong> Reset the mass to 5.00 kg. Experiment with putting different blocks on top of each other. Without adjusting the mass are there ways you can make a block sink that would normally float by doing this?  
- </p>
-        <textarea class="num text essay" id="q18" name="q18" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">You can make Block B sink by placing two blocks on top of it.</div>
-<br>
-  <!-- Question 19 -->
-      <div> <p><strong>Question 19:</strong> What about making a block float that would normally sink? </p>
-        <textarea class="num text essay" id="q19" name="q19" placeholder="Type your answer here..."></textarea>
-        </div>
-    <div style="display: none;" class="hidden">You can make Blocks C or D float by placing it on top of Block B.</div>
- <!---  <p>
-  Test your understanding using both screens of the simulation. </p> --->
- <!-- Question 20 -->
-   <div>
-     
-      <p><strong>Question 20:</strong>  </p> 
-     <input type="number" step="any" class="calc num" id="avgsi" name="avgsi" formula="28.97573" help="Use the Mixtures screen to create your own mixture that is like Bill's: equal parts Silicon-28, Silicon-29, and Silicon-30. Check what the calculated Average Atomic Mass would be. ">
-      <div class="feedback" id="avgsiFB" name="avgsiFB"></div>
+      <div>
+        <p>
+          <strong>Question 18:</strong> Reset the mass to 5.00 kg. Experiment
+          with putting different blocks on top of each other. Without adjusting
+          the mass are there ways you can make a block sink that would normally
+          float by doing this?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q18"
+          name="q18"
+          placeholder="Type your answer here..."
+        ></textarea>
       </div>
-  
-<br><br>
-    <!-- Question 21 -->
-      <div> <p><strong>Question 21:</strong> How could you check to see if Bill’s ideas are correct?</p>
-        <textarea class="num text essay" id="q21" name="q21" placeholder="Type your answer here..."></textarea>
-        </div>  
-    <div style="display: none;" class="hidden">You would compare Bill’s Mix to Nature’s Mix or the mass on the periodic table. If they are the same mass, then Bill is correct. If they are different masses, then Bill is incorrect. 
-</div>
-<br>
-   <!-- Question 22 -->
-      <div> <p>
-        <strong>Questions 22:</strong> Iron has many isotopes but only 4 are found in significant amounts in naturally found mixtures. The amounts by mass percent are: 5.845% of <sup>54</sup>Fe (53.9396 amu), 91.754% of <sup>56</sup>Fe (55.9349 amu), 2.119% of <sup>57</sup>Fe (56.9354 amu), and 0.282% of <sup>58</sup>Fe (57.9333 amu). What would you determine the average mass of iron to be? </p>
-    <input type="number" step="any" class="calc num" id="avgfemass" name="avgfemass" formula=".05845*53.9396+.91754*55.9349+.02119*56.9354+.00282*57.9333" help="Calculate the average atomic mass by taking each percentage and placing it in decimal form. Then multiple each decimal form percentage by the respective atomic mass. Finally add all four masses together.">
-      <div class="feedback" id="avgfemassFB" name="avgfemassFB"></div></div>
-<br>
-<!-- Question 23 -->
-      <div> <p><strong>Question 23:</strong> How do your results compare to the information for iron (Fe) on the periodic table?</p>
-        <textarea class="num text essay" id="q22" name="q22" placeholder="Type your answer here..."></textarea>
-        </div> 
-<br>
-     <!-- Question 24 -->
-    <div>
-      
-      <p><strong>Question 24:</strong> <label for="isotope1">What would this be?</label> <br><img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes1.PNG?v=1724973602594" width="375px"> <br> </p></div>
-        <select name="isotope1" id="isotope1" class="calc" formula="carbon-14" help="Remember that the mass number comes after the hypen. Also remember which particle identifies an element.">
-          <option value="">Choose the correct answer.</option>
-          <option value="carbon-12">carbon-12</option>
-          <option value="carbon-14">carbon-14</option>
-          <option value="oxygen-14">oxygen-14</option>
-          <option value="More than one of these">More than one of these</option> 
-   	    </select>  
-      <div class="feedback" id="isotope1FB" name="isotope1FB"></div>
-      <br>
-  <!-- Question 25 -->
-      <p><strong>Question 25:</strong> Compare the following images of isotopes and determine which would be isotopes.</p> <br><img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes.PNG?v=1724973077637" width="375px">
-   <br>
-      <div class="inline-block">
-      <select name="isotope2" id="isotope2" class="calc" formula="one and two" help="Remember that isotopes have the same atomic number (number of protons) but different numbers of neutrons." >
+      <div style="display: none" class="hidden">
+        You can make Block B sink by placing two blocks on top of it.
+      </div>
+      <br />
+      <!-- Question 19 -->
+      <div>
+        <p>
+          <strong>Question 19:</strong> What about making a block float that
+          would normally sink?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q19"
+          name="q19"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        You can make Blocks C or D float by placing it on top of Block B.
+      </div>
+      <!---  <p>
+  Test your understanding using both screens of the simulation. </p> --->
+      <!-- Question 20 -->
+      <div>
+        <p>
+          <strong>Question 20:</strong> Block B, the biggest block and Block D,
+          the smallest block have the same mass. But one floats and one sinks.
+          Why do you think that is?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q20"
+          name="q20"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        Block B, the biggest block has a higher volume. Thus even though it has
+        the same amount of mass it can still float.
+      </div>
+      <br />
+    <p>
+      Now click on the same volume in the top right corner of the simulation.
+    </p>
+      <!-- Question 21 -->
+      <div>
+        <p>
+          <strong>Question 21:</strong> Throw all four blocks into the water. Which ones float? Which ones don’t? Why do you think that is? Use the masses of the blocks to indicate which ones sink and which ones float.
+        </p>
+        <textarea
+          class="num text essay"
+          id="q21"
+          name="q21"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <div style="display: none" class="hidden">
+        The 2.0 and 4.0 kg ones float, but the 6.0 kg and 8.0 kg ones sink. The heavier ones have too much density to float. 
+      </div>
+      <br />
+      <!-- Question 22 -->
+      <div>
+        <p>
+          <strong>Questions 22:</strong> Decrease the volume of the blocks to 1.50 L. What happens to the blocks?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q22"
+          name="q22"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <br />
+      <!-- Question 23 -->
+      <div>
+        <p>
+          <strong>Question 23:</strong> How do your results compare to the
+          information for iron (Fe) on the periodic table?
+        </p>
+        <textarea
+          class="num text essay"
+          id="q22"
+          name="q22"
+          placeholder="Type your answer here..."
+        ></textarea>
+      </div>
+      <br />
+      <!-- Question 24 -->
+      <div>
+        <p>
+          <strong>Question 24:</strong>
+          <label for="isotope1">What would this be?</label> <br /><img
+            src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes1.PNG?v=1724973602594"
+            width="375px"
+          />
+          <br />
+        </p>
+      </div>
+      <select
+        name="isotope1"
+        id="isotope1"
+        class="calc"
+        formula="carbon-14"
+        help="Remember that the mass number comes after the hypen. Also remember which particle identifies an element."
+      >
         <option value="">Choose the correct answer.</option>
-        <option value="one and two">1 and 2</option> // It thought it was a number, and tried to mathmatically compare the answers
-        <option value="one and three">1 and 3</option>
-        <option value="two and three">2 and 3</option>
-        <option value="More than one combination">More than one combination</option>
-      </select> 
-        <div class="feedback" id="isotope2FB" name="isotope2FB"></div> </div>
-      
-<!-- Question 26 -->
-      <p><strong>Question 26:</strong> What would the approximate average mass of Hydrogen be based on the image?</p>
-      <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes3.PNG?v=1724973938805" width="150px">
-    <div class="inline-block">
-      <select name="isotope3" id="isotope3" class="calc" formula="1.5 amu" help="Remember how to calculate a weighted average based on the abundance of the isotopes." >
-        <option value="">Choose the correct answer.</option>
-        <option value="6 amu">6 amu</option>
-        <option value="2 amu">2 amu</option>
-        <option value="1.5 amu">1.5 amu</option>
-        <option value="1 amu">1 amu</option>	
+        <option value="carbon-12">carbon-12</option>
+        <option value="carbon-14">carbon-14</option>
+        <option value="oxygen-14">oxygen-14</option>
+        <option value="More than one of these">More than one of these</option>
       </select>
-   <div class="feedback" id="isotope3FB" name="isotope3FB"></div> </div>    
-     
-      <!-- Question 27 -->
-      <p><strong>Question 27:</strong> What would the approximate average mass of Argon be based on the image? </p>
-      <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes4.PNG?v=1724974392018" width="300px">
+      <div class="feedback" id="isotope1FB" name="isotope1FB"></div>
+      <br />
+      <!-- Question 25 -->
+      <p>
+        <strong>Question 25:</strong> Compare the following images of isotopes
+        and determine which would be isotopes.
+      </p>
+      <br /><img
+        src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes.PNG?v=1724973077637"
+        width="375px"
+      />
+      <br />
       <div class="inline-block">
-    <select name="isotope4" id="isotope4" class="calc" formula="37.5 amu" help="Remember how to calculate a weighted average based on the abundance of the isotopes." >
-      <option value="">Choose the correct answer.</option>
-      <option value="40 amu">40 amu</option>
-      <option value="38 amu">38 amu</option>
-      <option value="37.5 amu">37.5 amu</option>
-    </select>
-        <div class="feedback" id="isotope4FB" name="isotope4FB"></div></div>
-     
+        <select
+          name="isotope2"
+          id="isotope2"
+          class="calc"
+          formula="one and two"
+          help="Remember that isotopes have the same atomic number (number of protons) but different numbers of neutrons."
+        >
+          <option value="">Choose the correct answer.</option>
+          <option value="one and two">1 and 2</option>
+          // It thought it was a number, and tried to mathmatically compare the
+          answers
+          <option value="one and three">1 and 3</option>
+          <option value="two and three">2 and 3</option>
+          <option value="More than one combination">
+            More than one combination
+          </option>
+        </select>
+        <div class="feedback" id="isotope2FB" name="isotope2FB"></div>
+      </div>
+
+      <!-- Question 26 -->
+      <p>
+        <strong>Question 26:</strong> What would the approximate average mass of
+        Hydrogen be based on the image?
+      </p>
+      <img
+        src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes3.PNG?v=1724973938805"
+        width="150px"
+      />
+      <div class="inline-block">
+        <select
+          name="isotope3"
+          id="isotope3"
+          class="calc"
+          formula="1.5 amu"
+          help="Remember how to calculate a weighted average based on the abundance of the isotopes."
+        >
+          <option value="">Choose the correct answer.</option>
+          <option value="6 amu">6 amu</option>
+          <option value="2 amu">2 amu</option>
+          <option value="1.5 amu">1.5 amu</option>
+          <option value="1 amu">1 amu</option>
+        </select>
+        <div class="feedback" id="isotope3FB" name="isotope3FB"></div>
+      </div>
+
+      <!-- Question 27 -->
+      <p>
+        <strong>Question 27:</strong> What would the approximate average mass of
+        Argon be based on the image?
+      </p>
+      <img
+        src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes4.PNG?v=1724974392018"
+        width="300px"
+      />
+      <div class="inline-block">
+        <select
+          name="isotope4"
+          id="isotope4"
+          class="calc"
+          formula="37.5 amu"
+          help="Remember how to calculate a weighted average based on the abundance of the isotopes."
+        >
+          <option value="">Choose the correct answer.</option>
+          <option value="40 amu">40 amu</option>
+          <option value="38 amu">38 amu</option>
+          <option value="37.5 amu">37.5 amu</option>
+        </select>
+        <div class="feedback" id="isotope4FB" name="isotope4FB"></div>
+      </div>
+
       <!-- Question 28 -->
-      <!-- <div class="text essay"> I don't think you need this --> 
-        <p><strong>Question 28:</strong> How would you know if this combination is likely to be found in some dirt?</p> 
-      <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes5.PNG?v=1724974988611" width="300px">
-    <textarea class="num text essay" id="q28" name="q28" placeholder="Type your answer here..."></textarea>
-    <div style="display: none;" class="hidden">When you put this mixture in the simulation you get a mass of 14.29 amu but Nature’s Mix in the simulation 
-      and the periodic table display the mass as 14.01 amu. 
-</div>
-    
-      
-<!-- End --> 
+      <!-- <div class="text essay"> I don't think you need this -->
+      <p>
+        <strong>Question 28:</strong> How would you know if this combination is
+        likely to be found in some dirt?
+      </p>
+      <img
+        src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/isotopes5.PNG?v=1724974988611"
+        width="300px"
+      />
+      <textarea
+        class="num text essay"
+        id="q28"
+        name="q28"
+        placeholder="Type your answer here..."
+      ></textarea>
+      <div style="display: none" class="hidden">
+        When you put this mixture in the simulation you get a mass of 14.29 amu
+        but Nature’s Mix in the simulation and the periodic table display the
+        mass as 14.01 amu.
+      </div>
 
-      <div class="footer">Rutherford Scattering and Isotopes</div> 
+      <!-- End -->
 
-      <!-- title --> 
+      <div class="footer">Rutherford Scattering and Isotopes</div>
 
-       <div id="button_bar"> 
+      <!-- title -->
 
-        <button 
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
 
-          type="submit" 
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
 
-          title="save" 
+        <button
+          type="button"
+          class="hidden"
+          onclick="submitAssignment(window.labName, window.userName, params.sessionID)"
+          style="height: 83%"
+        >
+          Submit</button
+        >&nbsp;
 
-          class="large material-icons" 
+        <div class="vcenter hidden" style="display: none">
+          <label for="score">Score: </label>
 
-          id="savebutton" 
+          <div id="score" style="display: inline">0</div>
 
-          onclick="saveData()" 
+          %
+        </div>
+      </div>
+    </form>
 
-        > 
-
-          save 
-
-        </button> 
-
-        <button onclick="toPrint()" title="print" class="large material-icons"> 
-
-          print 
-
-        </button> 
-
-        <button type="button" class="hidden" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%"> 
-
-          Submit</button 
-
-        >&nbsp; 
-
-        <div class="vcenter hidden" style="display: none;"> 
-
-          <label for="score">Score: </label> 
-
-          <div id="score" style="display: inline">0</div> 
-
-          % 
-
-        </div> 
-
-      </div> 
-
-    </form> 
-  
     <script type="text/javascript">
       MathJax.Hub.Config({
         tex2jax: {
@@ -384,18 +658,15 @@
           ],
         },
         TeX: {
-          extensions: ["mhchem.js"]
-        }
+          extensions: ["mhchem.js"],
+        },
       });
-
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="../js/lab.js"></script> 
-
-  </body> 
-
-</html> 
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
