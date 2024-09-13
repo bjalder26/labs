@@ -156,16 +156,6 @@ app.post('/upload/image', (req, res) => {
     });
 });
 
-// Serve the uploads directory statically
-app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
-
-// Your existing app code here (routes, LTI integration, etc.)
-
-const port = process.env.PORT || 3000;
-app.listen(port, () => {
-    console.log(`App running on port ${port}`);
-});
-
 app.post("/", async (req, res) => {
     var lmsData = new lti.Provider("top", "secret");
 
