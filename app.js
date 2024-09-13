@@ -4,6 +4,7 @@
 var express = require('express');
 const http = require('http');
 const path = require('path');
+const fileUpload = require('express-fileupload');
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
@@ -15,6 +16,9 @@ var fs = require('fs');
 // create a new express server
 var app = express();
 
+
+
+app.use(fileUpload()); // for file uploads from input
 app.use(express.urlencoded({ // increases the limit on what is sent via url not sure if this is needed anymore
   limit: '50mb',
   extended: true, // not sure about
@@ -22,6 +26,8 @@ app.use(express.urlencoded({ // increases the limit on what is sent via url not 
 }));
 app.use(express.json({limit: '50mb'})); // increases the limit on what is sent
 
+// Serve the uploads directory statically
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 app.use('/html', express.static(__dirname + '/html/'));
 app.use('/images', express.static(__dirname + '/images/'));
 app.use('/users', express.static(__dirname + '/users/'));
@@ -125,6 +131,40 @@ function filesToLowerCase(files) {
         .map(file => file.toLowerCase())
         .map(file => file.replace('.html', ''));
 }
+
+app.post('/upload/image', (req, res) => {
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+
+    // Retrieve the uploaded file
+    const uploadedFile = req.files.file;
+
+    // Define the path to save the file (for demonstration, save it in the 'public/uploads' directory)
+    const uploadPath = path.join(__dirname, 'public/uploads', uploadedFile.name);
+
+    // Move the file to the server
+    uploadedFile.mv(uploadPath, function (err) {
+        if (err) {
+            return res.status(500).send(err);
+        }
+
+        // Return the URL to access the uploaded file
+        res.json({
+            url: `/uploads/${uploadedFile.name}`
+        });
+    });
+});
+
+// Serve the uploads directory statically
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
+
+// Your existing app code here (routes, LTI integration, etc.)
+
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`App running on port ${port}`);
+});
 
 app.post("/", async (req, res) => {
     var lmsData = new lti.Provider("top", "secret");

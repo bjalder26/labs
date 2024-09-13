@@ -10,7 +10,8 @@
     "cfenv": "^1.2.4",
     "express": "^4.18.2",
     "ims-lti": "^3.0.2",
-    "uuid4": "^2.0.3"
+    "uuid4": "^2.0.3",
+    "express-fileupload": "^1.5.1"
   },
   "repository": {},
   "engines": {
