@@ -861,6 +861,54 @@ if (matches) {
       }
     });
   }
+  
+  // imageUpload elemsnts
+  
+  const imageUploadElements = document.getElementsByClassName("imageUpload");
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    // Find all file inputs with class 'imgUpload'
+    const fileInputs = document.querySelectorAll('input[type="file"].imgUpload');
+
+    fileInputs.forEach(input => {
+        input.addEventListener('change', async function () {
+            const file = input.files[0];
+            if (file) {
+                const formData = new FormData();
+                formData.append('files[]', file);
+
+                try {
+                    // Upload the file to Glitch assets
+                    const response = await fetch('/upload/image', {
+                        method: 'POST',
+                        body: formData
+                    });
+                    const result = await response.json();
+
+                    if (result && result[0] && result[0].url) {
+                        const fileUrl = result[0].url;
+
+                        // Get the div ID by modifying the input's ID
+                        const divId = `${input.id}DIV`;
+                        const div = document.getElementById(divId);
+
+                        if (div) {
+                            // Insert an image tag inside the div with the file URL
+                            div.innerHTML = `<img src="${fileUrl}" alt="Uploaded Image" />`;
+                        }
+
+                        // Set the file URL as the input's value
+                        input.value = fileUrl;
+                    } else {
+                        console.error('File upload failed.');
+                    }
+                } catch (error) {
+                    console.error('Error uploading file:', error);
+                }
+            }
+        });
+    });
+});
 
   if (dataFile != null && JSON.stringify(dataFile) != "{}") {
     for (var index in dataFile) {
