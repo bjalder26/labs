@@ -430,7 +430,7 @@ function getSigFigs(number) {
 }
 
 
-// ==========================================
+// ===================== onLoad =====================
 
 function onLoad() {
   MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
@@ -646,16 +646,6 @@ if (matches) {
   var numElements = document.getElementsByClassName("num");
 
   for (var num of numElements) {
-    /*
-  num.addEventListener("input", function(e) {
-    if (isNaN(this.value)) {
-      this.style.color = 'red';
-    } else {
-      this.style.color = null;
-    }
-  });
-  */
-
     num.addEventListener("input", function (e) {
       var calcElements = document.getElementsByClassName("calc");
       const numbIdText = "${" + this.id + "}";
@@ -1010,4 +1000,4 @@ if (isAnyChecked) {
   if ($("score")) {
     $("score").click();
   }
-} // end onLoad
+} // ================= end onLoad ====================
