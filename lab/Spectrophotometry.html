@@ -217,14 +217,79 @@ Molar absorptivity: <input type="number" class="calc" step="any" id="molarAbsorp
   <li>Turn on the gas to the bunsen burner, and light it using a striker.</li>
   <li>Carefully spray each sample (A--E and the unknown mixture) into the flame.</li>
   <li>Observe the unknown misture with and without looking through the cobalt glass.</li>
+  <li>The cobalt glass will block yellow and orange colors allowing you to look for other colors </li>
   <li>If at any point you blow out the flame, then turn off the gas, and relight the burner as above.</li>
   <li>Record all the colors you see carefully distingiuishing between the orange color of a disrupted flame, and the color from the metal ion.</li>
   <table>
     <tr><th>Solution</th><th>Color</th><th>Identity of metal ion</th></tr>
     <tr><td>A</td><td><input type="text" class="num" id="colorA" name="colorA"/></td><td>
       
+      <select name="identityA" id="identityA" class="calc" formula="Calcium" help="Compare your results to the colors in the table and image above.">
+			<option value="">Choose a metal ion</option>
+			<option value="Strontium">Strontium</option>
+        <option value="Potassium">Potassium</option>
+			<option value="Sodium">Sodium</option>
+			<option value="Calcium">Calcium</option>
+			<option value="Copper(II)">Copper(II)</option>	
+</select>
+			<div class="feedback" id="identityAFB" name="identityAFB"></div>
+      </td></tr>
+    
+    <tr><td>B</td><td><input type="text" class="num" id="colorB" name="colorB"/></td><td>
       
-      </td></tr>    
+      <select name="identityB" id="identityB" class="calc" formula="Copper(II)" help="Compare your results to the colors in the table and image above.">
+			<option value="">Choose a metal ion</option>
+			<option value="Strontium">Strontium</option>
+        <option value="Potassium">Potassium</option>
+			<option value="Sodium">Sodium</option>
+			<option value="Calcium">Calcium</option>
+			<option value="Copper(II)">Copper(II)</option>	
+</select>
+			<div class="feedback" id="identityBFB" name="identityBFB"></div>
+      </td></tr>
+    
+    <tr><td>C</td><td><input type="text" class="num" id="colorC" name="colorC"/></td><td>
+      
+      <select name="identityC" id="identityC" class="calc" formula="Potassium" help="Compare your results to the colors in the table and image above.">
+			<option value="">Choose a metal ion</option>
+			<option value="Strontium">Strontium</option>
+        <option value="Potassium">Potassium</option>
+			<option value="Sodium">Sodium</option>
+			<option value="Calcium">Calcium</option>
+			<option value="Copper(II)">Copper(II)</option>	
+</select>
+			<div class="feedback" id="identityCFB" name="identityCFB"></div>
+      </td></tr>
+    
+    <tr><td>D</td><td><input type="text" class="num" id="colorD" name="colorD"/></td><td>
+      
+      <select name="identityD" id="identityD" class="calc" formula="Sodium" help="Compare your results to the colors in the table and image above.">
+			<option value="">Choose a metal ion</option>
+			<option value="Strontium">Strontium</option>
+        <option value="Potassium">Potassium</option>
+			<option value="Sodium">Sodium</option>
+			<option value="Calcium">Calcium</option>
+			<option value="Copper(II)">Copper(II)</option>	
+</select>
+			<div class="feedback" id="identityDFB" name="identityDFB"></div>
+      </td></tr>
+    
+    <tr><td>E</td><td><input type="text" class="num" id="colorE" name="colorE"/></td><td>
+      
+      <select name="identityE" id="identityE" class="calc" formula="Strontium" help="Compare your results to the colors in the table and image above.">
+			<option value="">Choose a metal ion</option>
+			<option value="Strontium">Strontium</option>
+        <option value="Potassium">Potassium</option>
+			<option value="Sodium">Sodium</option>
+			<option value="Calcium">Calcium</option>
+			<option value="Copper(II)">Copper(II)</option>	
+</select>
+			<div class="feedback" id="identityEFB" name="identityEFB"></div>
+      </td></tr>
+    
+    
+    
+    
   </table>
   
                                                                                                                                          
