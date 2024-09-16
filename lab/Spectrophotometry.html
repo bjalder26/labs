@@ -215,9 +215,9 @@ Molar absorptivity: <input type="number" class="calc" step="any" id="molarAbsorp
     </table>
     <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/flame%20text.png?v=1726440153616" height="200">
   <li>Turn on the gas to the bunsen burner, and light it using a striker.</li>
-  <li>Carefully spray each sample (A--E and the unknown mixture) into the flame.</li>
+  <li>Carefully spray each sample (A-E and the unknown mixture) into the flame.</li>
   <li>Observe the unknown misture with and without looking through the cobalt glass.</li>
-  <li>The cobalt glass will block yellow and orange colors allowing you to look for other colors </li>
+  <li>The cobalt glass will block yellow and orange colors allowing you to look for other colors that are given off.</li>
   <li>If at any point you blow out the flame, then turn off the gas, and relight the burner as above.</li>
   <li>Record all the colors you see carefully distingiuishing between the orange color of a disrupted flame, and the color from the metal ion.</li>
   <table>
@@ -285,12 +285,27 @@ Molar absorptivity: <input type="number" class="calc" step="any" id="molarAbsorp
 			<option value="Copper(II)">Copper(II)</option>	
 </select>
 			<div class="feedback" id="identityEFB" name="identityEFB"></div>
-      </td></tr>
-    
-    
-    
-    
+      </td></tr>   
   </table>
+  
+   <table>
+    <tr><th>Solution</th><th>Color without cobalt glass</th><th>Color when looking through cobalt glass</th><th>Identity of metal ions</th></tr>
+    <tr><td>Unknown mixture</td><td><input type="text" class="num" id="colorUnknown" name="colorUnknown"/></td>
+      <td><input type="text" class="num" id="colorUnknownCobalt" name="colorUnknownCobalt"/></td>
+      <td>
+      
+      <select name="identityUnknown" id="identityUnknown" class="calc" formula="Sodium and Potassium" help="Compare your results to the colors in the table and image above.">
+			<option value="">Choose a metal ion</option>
+			<option value="Strontium and Sodium">Strontium and Sodium</option>
+        <option value="Sodium and Potassium">Sodium and Potassium</option>
+			<option value="Calcium and Potassiu">Calcium and Potassium</option>
+			<option value="Calcium and Copper(II)">Calcium and Copper(II)</option>
+			<option value="Strontium and Copper(II)">Strontium and Copper(II)</option>	
+</select>
+			<div class="feedback" id="identityUnknownFB" name="identityUnknownFB"></div>
+      </td></tr>
+  </table>
+  <li>Make sure the gas is off before you leave the station.</li>
   
                                                                                                                                          
 </ol>
