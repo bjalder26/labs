@@ -1,1 +1,1 @@
-{}
+{"labName":"Capillary Action And Evaporation Rate","userName":"Britney Villafana","heightNarrowWater":"-1","heightWideWater":"-1","heightDiffWater":"0","heightRatioWater":"","heightNarrowMethanol":"-1","heightWideMethanol":"2","heightDiffMethanol":"-3","heightRatioMethanol":"","waterOrMethanol":"Methanol","molecularStructure":""}
