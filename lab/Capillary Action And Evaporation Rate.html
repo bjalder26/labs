@@ -38,7 +38,7 @@
 
       <input type="text" id="labName" name="labName" style="display:none"> 
 
-      <input type="text" id="userName" name="userName" style="display:none"> "a" 
+      <input type="text" id="userName" name="userName" style="display:none">
 
 <!-- Beginning --> 
       
@@ -63,26 +63,31 @@
          
           <tr><td>Water</td><td><input type="number" step="any" class="num" id="heightNarrowWater" name="heightNarrowWater"></td>
             <td><input type="number" step="any" class="num" id="heightWideWater" name="heightWideWater"></td>
-            <td><input type="number" step="any" class="num" id="heightDiffWater" name="heightDiffWater"></td>
-          <td><input type="number" step="any" class="num" id="heightRatioWater" name="heightRatioWater"></td>
+            <td><input type="number" step="any" class="calc num" id="heightDiffWater" name="heightDiffWater" formula="${heightNarrowWater}-${heightWideWater}"  help="Take the height of the water in the narrowest tube, and subtract the height of the water in the widest tube">
+            <div class="feedback" id="heightDiffWaterFB" name="heightDiffWaterFB "></div></td>
+          <td><input type="number" step="any" class="calc num" id="heightRatioWater" name="heightRatioWater" formula="${heightDiffWater}/${heightWideWater}"  help="Take the difference in heights and divide it by the height of the water in the wide tube">
+            <div class="feedback" id="heightRatioWaterFB" name="heightRatioWaterFB "></div></td>
             
           </tr><tr><td>Methanol</td><td><input type="number" step="any" class="num" id="heightNarrowMethanol" name="heightNarrowMethanol"></td>
             <td><input type="number" step="any" class="num" id="heightWideMethanol" name="heightWideMethanol"></td>
-            <td><input type="number" step="any" class="num" id="heightDiffMethanol" name="heightDiffMethanol"></td>
-          <td><input type="number" step="any" class="num" id="heightRatioMethanol" name="heightRatioMethanol"></td>
+            <td><input type="number" step="any" class="calc num" id="heightDiffMethanol" name="heightDiffMethanol" formula="${heightNarrowMethanol}-${heightWideMethanol}"  help="Take the height of the methanol in the narrowest tube, and subtract the height of the methanol in the widest tube">
+          <div class="feedback" id="heightDiffMethanolFB" name="hheightDiffMethanolFB "></div></td>
+          <td><input type="number" step="any" class="calc num" id="heightRatioMethanol" name="heightRatioMethanol" formula="${heightDiffMethanol}/${heightWideMethanol}"  help="Take the difference in heights and divide it by the height of the methanol in the wide tube">
+          <div class="feedback" id="heightRatioMethanolFB" name="heightRatioMethanolFB "></div></td>
           </tr>         
         </table>
-       Which liquid has a higher capillary action?
+        
+       <p>Which liquid has a higher capillary action?
         
 <select name="waterOrMethanol" id="waterOrMethanol"> 
 <option value="">Choose a liquid</option> 
 <option value="Water">Water</option> 
 <option value="Methanol">Methanol</option> 		 
-</select>
-        
-        Based on their molecular structure, and intermolecular bonding, why does the one you chose have a higher capillary action?
+</select></p>
         <img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/water%20and%20methanol.jpg?v=1726540266455" height="150">
-        <textarea class="text" id="molecularStructure" name="molecularStructure"></textarea> 
+        <p>Based on their molecular structure, and intermolecular bonding, why does the one you chose have a higher capillary action?</p>
+        
+        <textarea class="text essay" id="molecularStructure" name="molecularStructure"></textarea> 
         
         
         
