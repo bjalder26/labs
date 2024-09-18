@@ -1007,7 +1007,7 @@ if (isAnyChecked) {
       }
     } catch (error) {
       // Handle any network-related errors
-      alert("Network error occurred.");
+      //alert("Network error occurred.");
     }
   });
 
