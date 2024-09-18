@@ -104,18 +104,63 @@
         <li>Calculate the mass of the liquid, mass of liquid remaining after 15 minutes, the percent mass of liquid remaining, and the percent mass of liquid that evaporated.</li>
         <li>Follow the steps you took for the methanol with water and ethylene glycol.</li>
         <table>
-          <tr><th>Liquid</th><th>Mass of weighing boats (g)</th><th>mass of weighing boats and liquid (g)</th><th>Mass of liquid (g)</th><th>Mass Remaining (g)</th><th>Percent Mass Remaining</th><th>Percent Mass Evaporated</th></tr>
+          <tr><th>Liquid</th><th>Mass of weighing boats (g)</th><th>mass of weighing boats and liquid (g)</th><th>Mass of liquid (g)</th><th>mass of weighing boats and liquid - after evaporization (g)</th><th>Mass Remaining (g)</th><th>Percent Mass Remaining</th><th>Percent Mass Evaporated</th></tr>
           
           <tr>
             <td>Methanol</td>
             <td><input type="number" step="any" class="num" id="methanolBoatMass" name="methanolBoatMass"></td>
             <td><input type="number" step="any" class="num" id="methanolAndBoatMass" name="methanolAndBoatMass"></td>
-            <td><input type="number" step="any" class="calc num" id="heightRatioWater" name="heightRatioWater" formula="${heightDiffWater}/${heightWideWater}" 
-                       help="Take the difference in heights and divide it by the height of the water in the wide tube">
-            <div class="feedback" id="heightRatioWaterFB" name="heightRatioWaterFB "></div></td>
-            <td><input type="number" step="any" class="num" id="methanolMassEnd" name="methanolMassEnd"></td>
-            <td>Percent Mass Remaining</td>
-            <td>Percent Mass Evaporated</td>
+            <td><input type="number" step="any" class="calc num" id="methanolMassBeg" name="methanolMassBeg" formula="${methanolAndBoatMass}-${methanolBoatMass}" 
+                       help="Take the mass of the liquid and weighing boats and subtract the mass of the weighing boats.">
+            <div class="feedback" id="methanolMassBegFB" name="methanolMassBegFB "></div></td>
+            <td><input type="number" step="any" class="num" id="methanolAndBoatMassEnd" name="methanolAndBoatMassEnd"></td>
+            <td><input type="number" step="any" class="calc num" id="methanolMassEnd" name="methanolMassEnd" formula="${methanolAndBoatMassEnd}-${methanolBoatMass}" 
+                       help="Take the mass of the liquid and weighing boats after evaporization and subtract the mass of the weighing boats.">
+            <div class="feedback" id="methanolMassEndFB" name="methanolMassEndFB "></div></td>
+            <td><input type="number" step="any" class="calc num" id="methanolPercentRem" name="methanolPercentRem" formula="${methanolMassEnd}/${methanolMassBeg}*100" 
+                       help="Take the mass of the liquid after evaporization, and divide by the mass of the liquid before evaporization, then multiply by 100 to get a percentage.">
+            <div class="feedback" id="methanolPercentRemFB" name="methanolPercentRemFB "></div></td>
+            <td><input type="number" step="any" class="calc num" id="methanolPercentEvap" name="methanolPercentEvap" formula="100-${methanolPercentRem}" 
+                       help="100 percent minus the percent of liquid remaining.">
+            <div class="feedback" id="methanolPercentEvapFB" name="methanolPercentEvapFB "></div></td>
+          </tr>
+          
+          <tr>
+            <td>Methanol</td>
+            <td><input type="number" step="any" class="num" id="waterBoatMass" name="waterBoatMass"></td>
+            <td><input type="number" step="any" class="num" id="waterAndBoatMass" name="waterAndBoatMass"></td>
+            <td><input type="number" step="any" class="calc num" id="waterMassBeg" name="waterMassBeg" formula="${waterAndBoatMass}-${waterBoatMass}" 
+                       help="Take the mass of the liquid and weighing boats and subtract the mass of the weighing boats.">
+            <div class="feedback" id="waterMassBegFB" name="waterMassBegFB "></div></td>
+            <td><input type="number" step="any" class="num" id="waterAndBoatMassEnd" name="waterAndBoatMassEnd"></td>
+            <td><input type="number" step="any" class="calc num" id="waterMassEnd" name="waterMassEnd" formula="${waterAndBoatMassEnd}-${waterBoatMass}" 
+                       help="Take the mass of the liquid and weighing boats after evaporization and subtract the mass of the weighing boats.">
+            <div class="feedback" id="waterMassEndFB" name="waterMassEndFB "></div></td>
+            <td><input type="number" step="any" class="calc num" id="waterPercentRem" name="waterPercentRem" formula="${waterMassEnd}/${waterMassBeg}*100" 
+                       help="Take the mass of the liquid after evaporization, and divide by the mass of the liquid before evaporization, then multiply by 100 to get a percentage.">
+            <div class="feedback" id="waterPercentRemFB" name="waterPercentRemFB "></div></td>
+            <td><input type="number" step="any" class="calc num" id="waterPercentEvap" name="waterPercentEvap" formula="100-${waterPercentRem}" 
+                       help="100 percent minus the percent of liquid remaining.">
+            <div class="feedback" id="waterPercentEvapFB" name="waterPercentEvapFB "></div></td>
+          </tr>
+          
+          <tr>
+            <td>Methanol</td>
+            <td><input type="number" step="any" class="num" id="methanolBoatMass" name="methanolBoatMass"></td>
+            <td><input type="number" step="any" class="num" id="methanolAndBoatMass" name="methanolAndBoatMass"></td>
+            <td><input type="number" step="any" class="calc num" id="methanolMassBeg" name="methanolMassBeg" formula="${methanolAndBoatMass}-${methanolBoatMass}" 
+                       help="Take the mass of the liquid and weighing boats and subtract the mass of the weighing boats.">
+            <div class="feedback" id="methanolMassBegFB" name="methanolMassBegFB "></div></td>
+            <td><input type="number" step="any" class="num" id="methanolAndBoatMassEnd" name="methanolAndBoatMassEnd"></td>
+            <td><input type="number" step="any" class="calc num" id="methanolMassEnd" name="methanolMassEnd" formula="${methanolAndBoatMassEnd}-${methanolBoatMass}" 
+                       help="Take the mass of the liquid and weighing boats after evaporization and subtract the mass of the weighing boats.">
+            <div class="feedback" id="methanolMassEndFB" name="methanolMassEndFB "></div></td>
+            <td><input type="number" step="any" class="calc num" id="methanolPercentRem" name="methanolPercentRem" formula="${methanolMassEnd}/${methanolMassBeg}*100" 
+                       help="Take the mass of the liquid after evaporization, and divide by the mass of the liquid before evaporization, then multiply by 100 to get a percentage.">
+            <div class="feedback" id="methanolPercentRemFB" name="methanolPercentRemFB "></div></td>
+            <td><input type="number" step="any" class="calc num" id="methanolPercentEvap" name="methanolPercentEvap" formula="100-${methanolPercentRem}" 
+                       help="100 percent minus the percent of liquid remaining.">
+            <div class="feedback" id="methanolPercentEvapFB" name="methanolPercentEvapFB "></div></td>
           </tr>
           
         </table>
