@@ -88,7 +88,7 @@
         <p>Based on their molecular structure, and intermolecular bonding, why does the one you chose have a higher capillary action? Note: usually we only consider the type of intermolecular bonds, 
           but we should also consider the number of bonds, and in this case the mass of the molecule.</p>
         
-        <textarea class="text essay" id="molecularStructure" name="molecularStructure" style="width: 50%; height: 100px;"></textarea>
+        <textarea class="text essay" id="capStructure" name="capStructure" style="width: 50%; height: 100px;"></textarea>
 
         <h2>Part B: Vaporization Rate</h2>
         For this part you will allow 10 ml of methanol, water, and ethylene glycol to evaporate for 15 minutes.  You will weigh the samples before and after they are allowed to evaporate for 15 minutes.
@@ -146,30 +146,27 @@
           
           <tr>
             <td>Methanol</td>
-            <td><input type="number" step="any" class="num" id="methanolBoatMass" name="methanolBoatMass"></td>
-            <td><input type="number" step="any" class="num" id="methanolAndBoatMass" name="methanolAndBoatMass"></td>
-            <td><input type="number" step="any" class="calc num" id="methanolMassBeg" name="methanolMassBeg" formula="${methanolAndBoatMass}-${methanolBoatMass}" 
+            <td><input type="number" step="any" class="num" id="egBoatMass" name="egBoatMass"></td>
+            <td><input type="number" step="any" class="num" id="egAndBoatMass" name="egAndBoatMass"></td>
+            <td><input type="number" step="any" class="calc num" id="egMassBeg" name="egMassBeg" formula="${egAndBoatMass}-${egBoatMass}" 
                        help="Take the mass of the liquid and weighing boats and subtract the mass of the weighing boats.">
-            <div class="feedback" id="methanolMassBegFB" name="methanolMassBegFB "></div></td>
-            <td><input type="number" step="any" class="num" id="methanolAndBoatMassEnd" name="methanolAndBoatMassEnd"></td>
-            <td><input type="number" step="any" class="calc num" id="methanolMassEnd" name="methanolMassEnd" formula="${methanolAndBoatMassEnd}-${methanolBoatMass}" 
+            <div class="feedback" id="egMassBegFB" name="egMassBegFB "></div></td>
+            <td><input type="number" step="any" class="num" id="egAndBoatMassEnd" name="egAndBoatMassEnd"></td>
+            <td><input type="number" step="any" class="calc num" id="egMassEnd" name="egMassEnd" formula="${egAndBoatMassEnd}-${egBoatMass}" 
                        help="Take the mass of the liquid and weighing boats after evaporization and subtract the mass of the weighing boats.">
-            <div class="feedback" id="methanolMassEndFB" name="methanolMassEndFB "></div></td>
-            <td><input type="number" step="any" class="calc num" id="methanolPercentRem" name="methanolPercentRem" formula="${methanolMassEnd}/${methanolMassBeg}*100" 
+            <div class="feedback" id="egMassEndFB" name="egMassEndFB "></div></td>
+            <td><input type="number" step="any" class="calc num" id="egPercentRem" name="egPercentRem" formula="${egMassEnd}/${egMassBeg}*100" 
                        help="Take the mass of the liquid after evaporization, and divide by the mass of the liquid before evaporization, then multiply by 100 to get a percentage.">
-            <div class="feedback" id="methanolPercentRemFB" name="methanolPercentRemFB "></div></td>
-            <td><input type="number" step="any" class="calc num" id="methanolPercentEvap" name="methanolPercentEvap" formula="100-${methanolPercentRem}" 
+            <div class="feedback" id="egPercentRemFB" name="egPercentRemFB "></div></td>
+            <td><input type="number" step="any" class="calc num" id="egPercentEvap" name="egPercentEvap" formula="100-${egPercentRem}" 
                        help="100 percent minus the percent of liquid remaining.">
-            <div class="feedback" id="methanolPercentEvapFB" name="methanolPercentEvapFB "></div></td>
+            <div class="feedback" id="egPercentEvapFB" name="egPercentEvapFB "></div></td>
           </tr>
-          
         </table>
         
+        <p>Which liquid evaporated the quickest.  Which evaporated the slowest?  Based on their molecular structures, explain why one evaporated quickest, and another evaporated the slowest.</p>
         
-        
-        
-        
-        
+        <textarea class="text essay" id="vaporStructure" name="vaporStructure" style="width: 50%; height: 100px;"></textarea
         
       </ol>
       
