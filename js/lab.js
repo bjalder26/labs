@@ -314,6 +314,8 @@ function saveData() {
   if (gridObjElement) {
     gridObjElement.value = JSON.stringify(gridObj);
   }
+  const buttonBar = $('button_bar');
+  buttonBar.style.backgroundColor = null;
 }
 
 function slopeIntercept(xyValues, name) {
@@ -1005,12 +1007,27 @@ if (isAnyChecked) {
         // Handle the case when the request fails (e.g., show an error message)
         //alert("Failed to save data.");
         
+        setTimeout(function() {
+          const savebutton = $("savebutton");
+          savebutton.click();
+        }, 300000);
+        
+        const buttonBar = $('button_bar');
+        buttonBar.style.backgroundColor = '#fb2727';
+        
         
       }
     } catch (error) {
       // Handle any network-related errors
       //alert("Network error occurred.");
       
+      setTimeout(function() {
+          const savebutton = $("savebutton");
+          savebutton.click();
+        }, 300000);
+      
+      const buttonBar = $('button_bar');
+      buttonBar.style.backgroundColor = '#fb2727';
       
     }
   });
