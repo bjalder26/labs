@@ -107,11 +107,13 @@
           <tr><th>Liquid</th><th>Mass of weighing boats (g)</th><th>mass of weighing boats and liquid (g)</th><th>Mass of liquid (g)</th><th>Mass Remaining (g)</th><th>Percent Mass Remaining</th><th>Percent Mass Evaporated</th></tr>
           
           <tr>
-            <td>Methanol</th>
+            <td>Methanol</td>
             <td><input type="number" step="any" class="num" id="methanolBoatMass" name="methanolBoatMass"></td>
-            <td>mass of weighing boats (g)</td>
-            <td>Mass of liquid (g)</td>
-            <td>Mass Remaining (g)</td>
+            <td><input type="number" step="any" class="num" id="methanolAndBoatMass" name="methanolAndBoatMass"></td>
+            <td><input type="number" step="any" class="calc num" id="heightRatioWater" name="heightRatioWater" formula="${heightDiffWater}/${heightWideWater}" 
+                       help="Take the difference in heights and divide it by the height of the water in the wide tube">
+            <div class="feedback" id="heightRatioWaterFB" name="heightRatioWaterFB "></div></td>
+            <td><input type="number" step="any" class="num" id="methanolMassEnd" name="methanolMassEnd"></td>
             <td>Percent Mass Remaining</td>
             <td>Percent Mass Evaporated</td>
           </tr>
