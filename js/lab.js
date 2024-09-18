@@ -1004,10 +1004,14 @@ if (isAnyChecked) {
       } else {
         // Handle the case when the request fails (e.g., show an error message)
         //alert("Failed to save data.");
+        
+        
       }
     } catch (error) {
       // Handle any network-related errors
       //alert("Network error occurred.");
+      
+      
     }
   });
 
