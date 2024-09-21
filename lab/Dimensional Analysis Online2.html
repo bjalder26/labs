@@ -157,6 +157,8 @@
           name="secondCalc"
           formula="${secondNum}/1000/1000*0.621"
           help="Use the conversion factors for converting mm to m, m to km, and km to mi"
+          getsigfigsfrom="secondNum"
+               sigfigs="3"
         />
         mi
         <div class="feedback" id="secondCalcFB"></div>
@@ -181,6 +183,8 @@
           name="thirdCalc"
           formula="${thirdNum}/1000*2.2"
           help="Use the conversion factors for converting g to kg and kg to lbs"
+          getsigfigsfrom="thirdNum"
+               sigfigs="2"
         />
         lbs
         <div class="feedback" id="thirdCalcFB"></div>
@@ -205,6 +209,8 @@
           name="fourthCalc"
           formula="${fourthNum}/1000/3.785"
           help="Use the conversion factors for converting mL to L and L to gal"
+          getsigfigsfrom="fourthNum"
+               sigfigs="4"
         />
         gal
         <div class="feedback" id="fourthCalcFB"></div>
@@ -229,6 +235,8 @@
           name="fifthCalc"
           formula="${fifthNum}/1000*2.2/32.17"
           help="Use the conversion factors for converting g to kg, kg to lbs, and lbs to slugs"
+               getsigfigsfrom="fifthNum"
+               sigfigs="2"
         />
         slugs
         <div class="feedback" id="fifthCalcFB"></div>
@@ -254,6 +262,7 @@
           name="sixthCalc"
           formula="${sixthNum}/12/3"
           help="Use the conversion factors for converting in to ft and ft to yd."
+               getsigfigsfrom="sixthNum"
         />
         yd
         <div class="feedback" id="sixthCalcFB"></div>
@@ -278,6 +287,7 @@
           name="seventhCalc"
           formula="${seventhNum}/60/60/24"
           help="Use the conversion factors for converting s to min, min to hrs, and hrs to days"
+               getsigfigsfrom="seventhNum"               
         />
         days
         <div class="feedback" id="seventhCalcFB"></div>
@@ -302,6 +312,7 @@
           name="eighthCalc"
           formula="${eighthNum}/60/60/24/7"
           help="Use the conversion factors for converting s to min, min to hrs, hrs to days, and days to weeks"
+               getsigfigsfrom="eigthNum"
         />
         weeks
         <div class="feedback" id="eighthCalcFB"></div>
@@ -326,6 +337,7 @@
           name="ninthCalc"
           formula="${ninthNum}*2.54*10"
           help="Use the conversion factors for converting in to cm and cm to mm"
+               getsigfigsfrom="ninthNum"
         />
         mm
         <div class="feedback" id="ninthCalcFB"></div>
@@ -350,6 +362,7 @@
           name="tenthCalc"
           formula="${tenthNum}/1000"
           help="Use the conversion factor for converting mL to L"
+               getsigfigsfrom="tenthNum"
         />
         L
         <div class="feedback" id="tenthCalcFB"></div>
@@ -374,6 +387,7 @@
           name="eleventhCalc"
           formula="${eleventhNum}/1000"
           help="Use the conversion factors for converting cubic centimeters (cm³) to mL and mL to L"
+               getsigfigsfrom="eleventhNum"
         />
         L
         <div class="feedback" id="eleventhCalcFB"></div>
@@ -398,6 +412,7 @@
           name="twelthCalc"
           formula="${twelthNum}*365*24"
           help="Use the conversion factors for converting years to days, and days to hours"
+               getsigfigsfrom="twelthNum"
         />
         hr
         <div class="feedback" id="twelthCalcFB"></div>
