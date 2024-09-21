@@ -521,10 +521,21 @@ elements.forEach(element => {
         
         let requiredSigFigs = this.getAttribute("sigfigs") ? this.getAttribute("sigfigs") : "";
         
-        var getSigFigsFrom = this.getAttribute("getSigFigsFrom");
-        //var sigFigsFromElement = $(getSigFigsFrom);
-        
-        
+        var getSigFigsFrom = this.getAttribute("getsigfigsfrom");
+        let sigFigs = 0;
+
+if (getSigFigsFrom) {
+  var sigFigsFromElement = document.getElementById(getSigFigsFrom)
+  if (sigFigsFromElement) {
+    let sigFigsFromNumber = sigFigsFromElement.value
+    if (sigFigsFromNumber) {
+    sigFigs = getSigFigs(sigFigsFromNumber);
+    if(sigFigs) {      
+    requiredSigFigs = requiredSigFigs? Math.min(requiredSigFigs, sigFigs): sigFigs;
+    }
+    }
+  }
+}     
         
         const range = this.getAttribute("range")
           ? this.getAttribute("range")
