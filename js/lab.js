@@ -518,9 +518,14 @@ elements.forEach(element => {
     ["click", "change"].forEach(function (event) {
       calc.addEventListener(event, function (e) {
         var formula = this.getAttribute("formula");
-        const requiredSigFigs = this.getAttribute("sigfigs")
-          ? this.getAttribute("sigfigs")
-          : "";
+        
+        const requiredSigFigs = this.getAttribute("sigfigs") ? this.getAttribute("sigfigs") : "";
+        
+        var getSigFigsFrom = this.getAttribute("getSigFigsFrom");
+        //var sigFigsFromElement = $(getSigFigsFrom);
+        
+        
+        
         const range = this.getAttribute("range")
           ? this.getAttribute("range")
           : "5%";
@@ -540,6 +545,9 @@ if (matches) {
     }
   }
 }
+        
+        
+        
         let answer = null;
         if (formula) {answer = evaluateWithCustomFunctions(formula).toString();}
         
