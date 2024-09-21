@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dimensional Analysis Lab</title>
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <style>
+      input {
+        width: 80px;
+      }
+    </style>
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title">Dimensional Analysis Lab</h1>
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
+      <input type="text" id="userName" name="userName" style="display: none" />
+
+      Use the equalities provided to correctly convert the units to
+      the desired units. Utilize the manipulatibles provided in lab to set up
+      the dimensional analysis problems correctly. To enter numbers using
+      scientific notation use a small letter e (e.g. 6.022 x 10<sup>-23</sup>
+      should be entered as 6.022e-23).
+      <p>
+        Example video:
+        <a href="https://youtu.be/7voNNBbMcxE"
+          >Dimensional Analysis: Converting Units with 1 or 2 Conversion
+          Factors</a
+        ><br />
+        Example video:
+        <a href="https://youtu.be/eKDePGWNAHo"
+          >Dimensional Analysis: Converting Units with 3 Conversion Factors</a
+        ><br />
+        Example video:
+        <a href="https://youtu.be/t6fYYPrzhOU"
+          >Unit Conversion with Multiple Conversion Factors</a
+        >
+      </p>
+      <div class="noBreak">
+        <h3>Conversion Factors:</h3>
+        <table class="inline-block">
+          <tr>
+            <th colspan="4">Metric Prefixes</th>
+          </tr>
+          <tr>
+            <th>Prefix</th>
+            <th>Symbol</th>
+            <th colspan="2">Multiplier</th>
+          </tr>
+          <tr>
+            <td>kilo</td>
+            <td>K</td>
+            <td>10<sup>3</sup></td>
+            <td>1,000</td>
+          </tr>
+
+          <tr>
+            <td>centi</td>
+            <td>c</td>
+            <td>10<sup>-2</sup></td>
+            <td>0.01</td>
+          </tr>
+
+          <tr>
+            <td>milli</td>
+            <td>m</td>
+            <td>10<sup>-3</sup></td>
+            <td>0.001</td>
+          </tr>
+        </table>
+        <table class="noborder inline-block">
+          <tr>
+            <td>1 inch (in) = 2.54 centimeters (cm)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>1 centimeter cubed (cm<sup>3</sup>) = 1 milliliter (mL)</td>
+          </tr>
+          <tr>
+            <td>5280 feet (ft) = 1 mile (mi)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>1 gram (g) = 0.0353 ounces (oz)</td>
+          </tr>
+          <tr>
+            <td>1 gallon (gal) = 3.785 liter (L)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>1 kilogram (kg) = 2.2 pounds (lbs)</td>
+          </tr>
+          <tr>
+            <td>1 kilometer (km) = 0.621 miles (mi)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>1 slug = 32.17 pounds (lbs)</td>
+          </tr>
+          <tr>
+            <td>12 inches (in) = 1 foot (ft)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>3 feet (ft) = 1 yard (yd)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="noBreak">
+        1) The height of a lab bench is 90.45 cm. Convert this to feet (ft).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="firstNum"
+          name="firstNum"
+          value="90.45" readonly
+        />
+        cm →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="firstCalc"
+          name="firstCalc"
+          formula="${firstNum}/2.54/12"
+          help="Use the conversion factors for converting cm to in and in to ft"
+        />
+        ft
+        <div class="feedback" id="firstCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        2) The width of a pencil or pen is 7.0 mm. Convert this to miles (mi).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="secondNum"
+          name="secondNum"
+          value="7.0" readonly
+        />
+        mm →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="secondCalc"
+          name="secondCalc"
+          formula="${secondNum}/1000/1000*0.621"
+          help="Use the conversion factors for converting mm to m, m to km, and km to mi"
+        />
+        mi
+        <div class="feedback" id="secondCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        3) The mass of a pen or pencil is 10.245 grams. Convert this to pounds <br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="thirdNum"
+          name="thirdNum"
+          value="10.245" readonly
+        />
+        g →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="thirdCalc"
+          name="thirdCalc"
+          formula="${thirdNum}/1000*2.2"
+          help="Use the conversion factors for converting g to kg and kg to lbs"
+        />
+        lbs
+        <div class="feedback" id="thirdCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        4) The volume of water that can fit in a dixie cup is approximately 250 mL. Convert this to gallons (gal).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="fourthNum"
+          name="fourthNum"
+               value="250" readonly
+        />
+        mL →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="fourthCalc"
+          name="fourthCalc"
+          formula="${fourthNum}/1000/3.785"
+          help="Use the conversion factors for converting mL to L and L to gal"
+        />
+        gal
+        <div class="feedback" id="fourthCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        5) The mass of a penny is 2.50 grams. Convert this to slugs.<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="fifthNum"
+          name="fifthNum"
+               value="2.50" readonly
+        />
+        g →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="fifthCalc"
+          name="fifthCalc"
+          formula="${fifthNum}/1000*2.2/32.17"
+          help="Use the conversion factors for converting g to kg, kg to lbs, and lbs to slugs"
+        />
+        slugs
+        <div class="feedback" id="fifthCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        6) The length of a lab bench is approximately 72.4 inches. Convert this to yards (yd).
+        (yd).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="sixthNum"
+          name="sixthNum"
+               value="72.4" readonly
+        />
+        in →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="sixthCalc"
+          name="sixthCalc"
+          formula="${sixthNum}/12/3"
+          help="Use the conversion factors for converting in to ft and ft to yd."
+        />
+        yd
+        <div class="feedback" id="sixthCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        7) The time it takes to recite the alphabet is approximately 30.0 seconds. Convert this to days. (Note: final answer should be in scientific notation)<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="seventhNum"
+          name="seventhNum"
+               value="30.0" readonly
+        />
+        s →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="seventhCalc"
+          name="seventhCalc"
+          formula="${seventhNum}/60/60/24"
+          help="Use the conversion factors for converting s to min, min to hrs, and hrs to days"
+        />
+        days
+        <div class="feedback" id="seventhCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        8) The time it takes to walk down the hallway is approximately 120. seconds. Convert this to weeks. (Note: final answer should be in scientific notation)<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="eighthNum"
+          name="eighthNum"
+               value="120" readonly
+        />
+        s →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="eighthCalc"
+          name="eighthCalc"
+          formula="${eighthNum}/60/60/24/7"
+          help="Use the conversion factors for converting s to min, min to hrs, hrs to days, and days to weeks"
+        />
+        weeks
+        <div class="feedback" id="eighthCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        9) The height of a classmate is 68.4 inches. Convert this to millimeters (mm).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="ninthNum"
+          name="ninthNum"
+               value="68.4" readonly
+        />
+        in →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="ninthCalc"
+          name="ninthCalc"
+          formula="${ninthNum}*2.54*10"
+          help="Use the conversion factors for converting in to cm and cm to mm"
+        />
+        mm
+        <div class="feedback" id="ninthCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        10) The volume of a penny is 0.35 milliliters. Convert this to liters (L).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="tenthNum"
+          name="tenthNum"
+               value="0.35" readonly
+        />
+        mL →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="tenthCalc"
+          name="tenthCalc"
+          formula="${tenthNum}/1000"
+          help="Use the conversion factor for converting mL to L"
+        />
+        L
+        <div class="feedback" id="tenthCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        11) The volume of a book is 5250 cubic centimeters (cm³). Convert this to liters (L).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="eleventhNum"
+          name="eleventhNum"
+               value="5250" readonly
+        />
+        cm<sup>3</sup> →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="eleventhCalc"
+          name="eleventhCalc"
+          formula="${eleventhNum}/1000"
+          help="Use the conversion factors for converting cubic centimeters (cm³) to mL and mL to L"
+        />
+        L
+        <div class="feedback" id="eleventhCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        12) If you are 20 years old (assume 3 sig figs), then how many hours old would you be?<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="twelthNum"
+          name="twelthNum"
+               value="20.0" readonly
+        />
+        y →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="twelthCalc"
+          name="twelthCalc"
+          formula="${twelthNum}*365*24"
+          help="Use the conversion factors for converting years to days, and days to hours"
+        />
+        hr
+        <div class="feedback" id="twelthCalcFB"></div>
+      </div>
+      <p></p>
+
+      <div class="footer">Dimensional Analysis</div>
+      <!-- title -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab2.js"></script>
+  </body>
+</html>
