@@ -519,7 +519,7 @@ elements.forEach(element => {
       calc.addEventListener(event, function (e) {
         var formula = this.getAttribute("formula");
         
-        const requiredSigFigs = this.getAttribute("sigfigs") ? this.getAttribute("sigfigs") : "";
+        let requiredSigFigs = this.getAttribute("sigfigs") ? this.getAttribute("sigfigs") : "";
         
         var getSigFigsFrom = this.getAttribute("getSigFigsFrom");
         //var sigFigsFromElement = $(getSigFigsFrom);
