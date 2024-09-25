@@ -34,6 +34,7 @@ app.use('/users', express.static(__dirname + '/users/'));
 app.use('/submissions', express.static(__dirname + '/submissions/'));
 app.use('/js', express.static(__dirname + '/js/'));
 app.use('/css', express.static(__dirname + '/css/'));
+app.use('/lab', express.static(path.join(__dirname, 'lab')));
 
 // I believe this allows for http vs https only
 app.enable('trust proxy');
@@ -424,17 +425,27 @@ app.get("/score/:sessionID/:score", (req, res) => {
 });    // app.get("/score...")
 
 
+app.get('/', (req, res) => {
+  const labDir = path.join(__dirname, 'lab');
 
+  // Read the "lab" directory
+  fs.readdir(labDir, (err, files) => {
+    if (err) {
+      return res.status(500).send('Unable to scan lab directory');
+    }
 
+    // Filter for .html files and create links
+    const htmlFiles = files.filter(file => file.endsWith('.html'));
+    let links = '<h1>HTML Files in the "lab" Folder:</h1><ul>';
 
+    htmlFiles.forEach(file => {
+      links += `<li><a href="/lab/${file}">${file}</a></li>`;
+    });
 
-
-
-
-
-
-
-
+    links += '</ul>';
+    res.send(links);
+  });
+});
 
 app.post('/save', (req, res) => {
   console.log('obj:');

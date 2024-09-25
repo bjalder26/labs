@@ -51,14 +51,14 @@
 A colligative property is when a solute affects a solution property like its freezing or boiling point, and the effect depends only on the amount of particles dissolved, 
   no matter which substance you use. In this lab we will investigate the effect of the different solutes on the freezing point of aqueous solutions.<br><br>
       
-      You should observe that as the solute concentration increases the freezing point  T<sub>f</sub>(solution)
+      You should observe that as the solute concentration increases, the freezing point  T<sub>f</sub> (solution)
   decreases (the freezing point depression ΔT increases), and this can be described by the following equation:<br>
        $\huge{ΔT = -i⋅k_f⋅m}$<br>
       $\large{where}$<br>
       $\large{i=Van't\;Hoff\;Factor}$<br>
       $\large{k_f=freezing\;point\;depression\;constant}$<br>
-      $\large{m= molality\;solvent}$<br>
-      $\large{and}$<br>
+      $\large{m = molality}$<br>
+      $\large{and}$
       $\large{ΔT=T_f(solution)}-T_f(pure\;solvent)$<br>
       The value of k<sub>f</sub> for the solvent water is 1.86 °C kg/mol.<br>
       
@@ -95,7 +95,7 @@ We are making the assumption that at the instance the ice melts the mixture of i
       Why did you expect that? <textarea class="text essay num" id="whyExpect" name="whyExpect"></textarea>
       
 <h3>Part 2: Freezing point determination, sucrose solution</h3>
-You can do part 2 and part 3 in any order, depending which balance is available.<br>
+You can do part 2 and part 3 in any order.<br>
 <ol>
   <li>calculate the mass of 0.05 mol of sucrose (molar mass is 342.3 g/mol).</li>
   $0.05\;mol\;sucrose\;x\;\frac{342.3\;g\;sucrose}{1\;mol\;sucrose} = $ <input type="number" class="num calc" id="massGlu" name="massGlu" step="any" 
@@ -134,7 +134,7 @@ Then, calculate the mass of water (solvent) from the available data.</li>
   
   <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
       van't Hoff factor for sucrose: 
-      <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" formula="(${lastTemp1}-${lastTemp2})*${kgWater2}/1.86/${molGlu2}" help="Use the formula in the Background section, and solve for i"/>
+      <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" formula="(${lowestTemp1}-${lowestTemp2})*${kgWater2}/1.86/${molGlu2}" help="Use the formula in the Background section, and solve for i"/>
       <div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
       </ol>
       
@@ -186,7 +186,7 @@ Then, calculate the mass of water (solvent) from the available data.</li>
         
         <li>Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary</li>
       van't Hoff factor for sodium chloride: <input type="number" class="num calc" id="vhfNaCl" name="vhfNaCl" step="any" 
-    formula="(${lastTemp1}-${lastTemp3})*${kgWater3}/1.86/${molNaCl3}" help="Use the formula in the Background section, and solve for i"/>
+    formula="(${lowestTemp1}-${lowestTemp3})*${kgWater3}/1.86/${molNaCl3}" help="Use the formula in the Background section, and solve for i"/>
         <div class="feedback" id="vhfNaClFB" name="vhfNaClFB"></div>
         
 </ol>      
