@@ -129,10 +129,13 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       <li>Convert the grams of water to Kg.</li>
       Mass of water in Kg: <input type="number" class="num calc" id="kgWater2" name="kgWater2" step="any" 
     formula="${massWater2}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater2FB" name="kgWater2FB"></div> 
-  
+  <li>Calculate the molality of the sucrose solution: 
+  <input type="number" class="num calc" id="molalitySucrose" name="molalitySucrose" step="any" formula="(${molGlu2}/${kgWater2}" help="Molality = moles of solute divided by kg of solvent."/>
+      <div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
+  </li>
   <li>Calculate the van't Hoff factor for sucrose and record your work in the lab summary</li>
       van't Hoff factor for sucrose: 
-      <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" formula="(${lowestTemp1}-${lowestTemp2})*${kgWater2}/1.86/${molGlu2}" help="Use the formula in the Background section, and solve for i"/>
+      <input type="number" class="num calc" id="vhfSucrose" name="vhfSucrose" step="any" formula="(${lowestTemp1}-${lowestTemp2})/1.86/${molalitySucrose}" help="Use the formula in the Background section, and solve for i"/>
       <div class="feedback" id="vhfSucroseFB" name="vhfSucroseFB"></div>
       </ol>
       
@@ -179,10 +182,14 @@ Then, calculate the mass of water (solvent) from the available data.</li>
       <li>Convert the grams of water to Kg.</li>
       Mass of water in Kg: <input type="number" class="num calc" id="kgWater3" name="kgWater3" step="any" 
     formula="${massWater3}/1000" help="Take the mass of the water and divide by 1000 to convert from g to Kg."/> g<div class="feedback" id="kgWater3FB" name="kgWater3FB"></div>
-        
+      <li>Calculate the molalityof the sodium chloride solution:   
+        <input type="number" class="num calc" id="molalityNaCl" name="molalityNaCl" step="any" 
+    formula="${molNaCl3}/${kgWater3}" help="Molality = moles of solute divided by kg of solvent."/>
+        <div class="feedback" id="vhfNaClFB" name="vhfNaClFB"></div>
+        </li>
         <li>Calculate the van't Hoff factor for sodium chloride and record your work in the lab summary</li>
       van't Hoff factor for sodium chloride: <input type="number" class="num calc" id="vhfNaCl" name="vhfNaCl" step="any" 
-    formula="(${lowestTemp1}-${lowestTemp3})*${kgWater3}/1.86/${molNaCl3}" help="Use the formula in the Background section, and solve for i"/>
+    formula="(${lowestTemp1}-${lowestTemp3})/1.86/${molalityNaCl}" help="Use the formula in the Background section, and solve for i"/>
         <div class="feedback" id="vhfNaClFB" name="vhfNaClFB"></div>
         
 </ol>      
