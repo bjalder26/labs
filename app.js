@@ -339,7 +339,7 @@ app.get('/dynamic-content/:passed', (req, res) => {
     res.send(sendMe);
 });
 
-
+/* this part will allow you to preview changes
 app.get("/:lab/:name", async (req, res) => {	
   //console.log('lab: ' + req.params.lab + " name: " + req.params.name);
 		//const name = lmsData.body.lis_person_name_full;
@@ -389,7 +389,7 @@ app.get("/:lab/:name", async (req, res) => {
 	   // lmsDate.valid_request
 	
 });       // app.post("/");
-
+*/
 
 app.get("/score/:sessionID/:score", (req, res) => {
 
