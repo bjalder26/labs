@@ -1,1 +1,1 @@
-{}
+{"labName":"Freezing Point Depression Lab","userName":"Ryan Morgan","lowestTemp1":"2.3","lastTemp1":"4.3","whyExpect":"","massGlu":"","massGluMeasured2":"","lowestTemp2":"","beakerAndWaterMass2":"","beakerMass2":"","massGluMeasured2Repeat":"","molGlu2":"","massWater2":"","kgWater2":"","molalitySucrose":"","vhfSucrose":"","massNaCl":"","massNaClMeasured3":"","lowestTemp3":"","beakerAndWaterMass3":"","beakerMass3":"","massNaClMeasured3Repeat":"","molNaCl3":"","massWater3":"","kgWater3":"","molalityNaCl":"","vhfNaCl":""}
