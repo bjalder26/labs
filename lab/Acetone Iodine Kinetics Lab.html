@@ -54,7 +54,7 @@
       <h3>Introduction</h3>
 In this lab, we will apply the concepts of reaction rate, order of reaction and catalyst. Our example reaction is the iodination of
 acetone catalyzed by hydrochloric acid.<br><br>
-      $\LARGE{\ce{CH3C(=O)CH3 + I2 ->[HCl] CH3C(=O)CH2I + I- + H+}}$<br><br>
+      $\LARGE{\ce{CH3C(=O)CH3 + I2 ->[HCl] CH3C(=O)CH2I + HI}}$<br><br>
       
       The reaction is <b>zero order with respect to iodine</b>. You will figure out the <b>order with respect to acetone and the order with respect to HCl, and the rate constant</b>.
       <!-- Then, you will predict which initial concentrations are necessary to make the reaction run for <b>exactly 3 minutes (180 s)</b>.--><br><br>
@@ -88,14 +88,14 @@ if the initial iodine concentration is 0.001 mol /L, and it takes 180 s for the 
 You will set up multiple reactions, varying the concentrations in the reaction mix. To quickly figure out the concentrations, it makes
 sense to always keep the final volume the same (25 mL), and use the dilution law to figure out concentrations (or volumes you need
       to add to get the desired concentration). Here is the dilution law:<br>
-      $\LARGE{c_{mix}V_{mix} = c_{stock}V_{stock}}$<br><br>
+      $\LARGE{M_{mix}V_{mix} = M_{stock}V_{stock}}$<br><br>
 If you want to know the (initial) concentration of a component in the reaction mixture, plug in the volume and concentration of the
 stock solution. For example, if our 25 mL reaction mixture contains 5 mL iodine stock with an original concentration of 0.005 M,
 we get:<br><br>
-      $\LARGE{c_{mix} = c_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\right)}$<br><br>
+      $\LARGE{M_{mix} = M_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\right)}$<br><br>
 If you want to know how much of the 4-M acetone stock solution you need to get 0.8 M in the reaction mixture, you solve for the
 volume of stock solution:<br><br>
-      $\LARGE{V_{stock} = V_{mix}\frac{c_{mix}}{c_{stock}} = 25mL\left(\frac{0.8M}{4M}\right)}$<br><br>
+      $\LARGE{V_{stock} = V_{mix}\frac{M_{mix}}{M_{stock}} = 25mL\left(\frac{0.8M}{4M}\right)}$<br><br>
 
       <h3>Procedure</h3>
 This is the procedure for measuring a single rate. You will run this procedure twice for each different reaction mixture. You can
@@ -111,10 +111,10 @@ Calculate the mL of water you need to add to each experiment to ensure a volume 
   <table>
   <tr>
   <th>#</th>
-    <th>V in mL<br>Acetone(aq)</th>
-    <th>V in mL<br>Water</th>
-    <th>V in mL<br>HCl(aq)</th>
-    <th>V in mL<br>Iodine(aq)</th>
+    <th>Acetone(aq) (mL)</th>
+    <th>Water (mL)</th>
+    <th>HCl(aq) (mL)</th>
+    <th>Iodine(aq) (mL)</th>
     <th>t<sub>1</sub> (sec)</th>
     <th>t<sub>2</sub> (sec)</th>
     <th>t<sub>ave</sub> (sec)</th>
@@ -205,7 +205,7 @@ Calculate the concentration of the acetone, HCl, and Iodine <b>after mixing</b> 
       The stock solution volumes are in table 1.
       Enter your calculated concentrations in table 2.<br><br>
       
-$\LARGE{c_{mix} = c_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\right)}$<br><br>
+$\LARGE{M_{mix} = M_{stock}\frac{V_{stock}}{V_{mix}} = 0.005M\left(\frac{5mL}{25mL}\right)}$<br><br>
       
       Calculate the rates of each experiment from your average times in table 1 using the formula below.  
       The change in iodine concentration is equal to the concentraiton after mixing.  Enter your calculated rates in table 2<br><br>
@@ -275,13 +275,13 @@ $\LARGE{ rate = \frac{Δ[I_2]}{Δt} }$<br><br>
       
       
 The rate with respect to acetone and HCl are calculated using the formulas below.<br><br>
-$\LARGE{\left(\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}\right)^x = \frac{rate_{experiment\;1}}{rate_{experiment\;2}}}$<br><br>
+$\LARGE{\left(\frac{M_{acetone\;in\;experiment\;1}}{M_{acetone\;in\;experiment\;2}}\right)^x = \frac{rate_{experiment\;1}}{rate_{experiment\;2}}}$<br><br>
 The formula above can be rearranted to the following:<br><br>      
-$Order\;of\;reaction\;with\;respect\;to\;acetone = \LARGE{ x = \frac{log\frac{rate_{experiment\;1}}{rate_{experiment\;2}}}{log\frac{c_{acetone\;in\;experiment\;1}}{c_{acetone\;in\;experiment\;2}}}}$<br><br>
+$Order\;of\;reaction\;with\;respect\;to\;acetone = \LARGE{ x = \frac{log\frac{rate_{experiment\;1}}{rate_{experiment\;2}}}{log\frac{M_{acetone\;in\;experiment\;1}}{M_{acetone\;in\;experiment\;2}}}}$<br><br>
 
-$\LARGE{\left(\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}\right)^y = \frac{rate_{experiment\;1}}{rate_{experiment\;3}}}$<br><br>
+$\LARGE{\left(\frac{M_{HCl\;in\;experiment\;1}}{M_{HCl\;in\;experiment\;3}}\right)^y = \frac{rate_{experiment\;1}}{rate_{experiment\;3}}}$<br><br>
 The formula above can be rearranted to the following:<br><br>
-$Order\;of\;reaction\;with\;respect\;to\;HCl = \LARGE{ y = \frac{log\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{log\frac{c_{HCl\;in\;experiment\;1}}{c_{HCl\;in\;experiment\;3}}}}$<br><br>
+$Order\;of\;reaction\;with\;respect\;to\;HCl = \LARGE{ y = \frac{log\frac{rate_{experiment\;1}}{rate_{experiment\;3}}}{log\frac{M_{HCl\;in\;experiment\;1}}{M_{HCl\;in\;experiment\;3}}}}$<br><br>
       
       
       What is the order of reaction with respect to acetone (round to the nearest whole number)?
@@ -372,6 +372,20 @@ Acetone Iodine kinetics is shared under a CC BY-NC-SA 4.0 license and was author
       </div>
 
     </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/lab.js"></script>
