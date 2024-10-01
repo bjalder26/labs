@@ -1,1 +1,1 @@
-{}
+{"labName":"Empirical Formula Of Magnesium Oxide","userName":"Cimone Virges","crucibleAndLidMass":"0.308","magnesiumMass":"","crucibleLidAndMgOMass":"","MgOMass":"","oxygenMass":"","magnesiumMass2":"","magnesiumMol":"","oxygenMass2":"","oxygenMol":"","magnesiumMol2":"","lowestMol":"","magnesiumMol3":"","oxygenMol2":"","lowestMol2":"","oxygenMol3":"","decimal":"","decimalLV":"","MgSubscript":"","OSubscript":""}
