@@ -71,6 +71,7 @@
         <li>100 or 125 mL Erlenmeyer flasks (4)</li>
         <li>100 mL beaker</li>
         <li>100 mL graduated cylinder</li>
+        <li>10 mL graduated cylinder</li>
         <li>600 mL beaker</li>
         <li>50 mL buret and buret stand</li>
         <li>Magnetic stirring bar</li>
@@ -245,19 +246,19 @@
     <tr>
     <td>Volume HCl added to borax solution (mL)</td>
       <td><input type="number" step="any" class="num calc" id="HClVolT1" name="HClVolT1"
-      formula="${finalVolT1}-${initialVolT1})"  help="Final volume minus initial volume.">
+      formula="${finalVolT1}-${initialVolT1}"  help="Final volume minus initial volume.">
         <div class="feedback" id="HClVolT1FB" name="HClVolT1FB "></div>
       </td>
       <td><input type="number" step="any" class="num calc" id="HClVolT2" name="HClVolT2"
-      formula="${finalVolT2}-${initialVolT2})"  help="Final volume minus initial volume.">
+      formula="${finalVolT2}-${initialVolT2}"  help="Final volume minus initial volume.">
         <div class="feedback" id="HClVolT2FB" name="HClVolT2FB "></div>
       </td>
       <td><input type="number" step="any" class="num calc" id="HClVolT3" name="HClVolT3"
-      formula="${finalVolT3}-${initialVolT3})"  help="Final volume minus initial volume.">
+      formula="${finalVolT3}-${initialVolT3}"  help="Final volume minus initial volume.">
         <div class="feedback" id="HClVolT3FB" name="HClVolT3FB "></div>
       </td>
       <td><input type="number" step="any" class="num calc" id="HClVolT4" name="HClVolT4"
-      formula="${finalVolT4}-${initialVolT4})"  help="Final volume minus initial volume.">
+      formula="${finalVolT4}-${initialVolT4}"  help="Final volume minus initial volume.">
         <div class="feedback" id="HClVolT4FB" name="HClVolT4FB "></div>
       </td>
     </tr>
@@ -271,11 +272,20 @@
   </table>
   <br>
   Use your titration data to determine the borate ion concentration in each trial:<br>
-  ? mL HCl x $\frac{1\ L\ HCl}{1000\ mL\ HCl}$ x $\frac{0.5\ mol\ HCl}{1\ L\ HCl}$ x $\frac{1\ mol\ borate}{2\ mol\ HCl}$ = mol borate
-  mol bo
+  ? mL HCl x $\frac{1\ L\ HCl}{1000\ mL\ HCl}$ x $\frac{0.5\ mol\ HCl}{1\ L\ HCl}$ x $\frac{1\ mol\ borate}{2\ mol\ HCl}$ = mol borate<br>
+  $[borate] = \frac{mol\ borate}{0.005\ L}$<br>
+  
+  <table>
+    <tr><th>Trial 1:</th><td>[borate] = </td><td>
+      <input type="number" step="any" class="num calc" id="molarityBorate1" name="molarityBorate1"
+      formula="${HClVolT1}/1000*0.5/2"  help="Use the two formulas above.">
+        <div class="feedback" id="molarityBorate1FB" name="molarityBorate1FB "></div>
+      </td></tr>
+  </table>
+  
       
 
-      
+      // ************** input reaction ********************
       
       
       
