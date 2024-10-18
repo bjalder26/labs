@@ -278,10 +278,33 @@
   <table>
     <tr><th>Trial 1:</th><td>[borate] = </td><td>
       <input type="number" step="any" class="num calc" id="molarityBorate1" name="molarityBorate1"
-      formula="${HClVolT1}/1000*0.5/2"  help="Use the two formulas above.">
+      formula="${HClVolT1}/1000*0.5/2/0.005"  help="Use the two formulas above.">
         <div class="feedback" id="molarityBorate1FB" name="molarityBorate1FB "></div>
       </td></tr>
+    <tr><th>Trial 2:</th><td>[borate] = </td><td>
+      <input type="number" step="any" class="num calc" id="molarityBorate2" name="molarityBorate2"
+      formula="${HClVolT2}/1000*0.5/2/0.005"  help="Use the two formulas above.">
+        <div class="feedback" id="molarityBorate2FB" name="molarityBorate2FB "></div>
+      </td></tr>
+    <tr><th>Trial 3:</th><td>[borate] = </td><td>
+      <input type="number" step="any" class="num calc" id="molarityBorate3" name="molarityBorate3"
+      formula="${HClVolT3}/1000*0.5/2/0.005"  help="Use the two formulas above.">
+        <div class="feedback" id="molarityBorate3FB" name="molarityBorate3FB "></div>
+      </td></tr>
+    <tr><th>Trial 4:</th><td>[borate] = </td><td>
+      <input type="number" step="any" class="num calc" id="molarityBorate4" name="molarityBorate4"
+      formula="${HClVolT4}/1000*0.5/2/0.005"  help="Use the two formulas above.">
+        <div class="feedback" id="molarityBorate4FB" name="molarityBorate4FB "></div>
+      </td></tr>
+    <tr><th>Average:</th><td>[borate] = </td><td>
+      <input type="number" step="any" class="num calc" id="molarityBorateAve" name="molarityBorateAve"
+      formula="(${molarityBorate1}+${molarityBorate2}+${molarityBorate3}+${molarityBorate4})/4"  help="Add your calculated molarities and divide by 4.">
+        <div class="feedback" id="molarityBorateAveFB" name="molarityBorateAveFB "></div>
+      </td></tr>
   </table>
+  <br>
+  Use your average [borate] to calculate the K<sub>sp</sub> below.
+  
   
       
 
