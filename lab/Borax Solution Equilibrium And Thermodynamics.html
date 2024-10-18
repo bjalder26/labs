@@ -220,7 +220,49 @@
     <li>Dispose of your samples down the drain, 
       and pour the remaining HCl solution in a waste container provided by your instructor.</li>
   </ol>
+  
+  Termperature of the borax solution at the point of removal from the flask:
+  Concentration of HCl: 
+  <h4>
+    Titration Data:
+  </h4>
+  <table>
+    <tr><th></th><th>Trial 1</th><th>Trial 2</th><th>Trial 3</th><th>Trial 4</th></tr>
+    <tr>
+    <td>Final buret reading (mL)</td>
+      <td><input type="number" step="any" class="num" id="finalVolT1" name="finalVolT1"></td>
+      <td><input type="number" step="any" class="num" id="finalVolT2" name="finalVolT2"></td>
+      <td><input type="number" step="any" class="num" id="finalVolT3" name="finalVolT3"></td>
+      <td><input type="number" step="any" class="num" id="finalVolT4" name="finalVolT4"></td>
+    </tr>
+    <tr>
+    <td>Initial buret reading (mL)</td>
+      <td><input type="number" step="any" class="num" id="initialVolT1" name="initialVolT1"></td>
+      <td><input type="number" step="any" class="num" id="initialVolT2" name="initialVolT2"></td>
+      <td><input type="number" step="any" class="num" id="initialVolT3" name="initialVolT3"></td>
+      <td><input type="number" step="any" class="num" id="initialVolT4" name="initialVolT4"></td>
+    </tr>
+    <tr>
+    <td>Volume HCl added to borax solution (mL)</td>
+      <td><input type="number" step="any" class="num calc" id="HClVolT1" name="HClVolT1"
+      formula="${finalVolT1}-${initialVolT1})"  help="Final volume minus initial volume.">
+        <div class="feedback" id="massWaterT1FB" name=" massWaterT1FB "></div>
+      </td>
+      <td><input type="number" step="any" class="num calc" id="HClVolT2" name="HClVolT2"></td>
+      <td><input type="number" step="any" class="num calc" id="HClVolT3" name="HClVolT3"></td>
+      <td><input type="number" step="any" class="num calc" id="HClVolT4" name="HClVolT4"></td>
+    </tr>
+    <tr>
+  <td>Endpoint color</td>
+      <td><input type="text" step="any" class="num" id="colorT1" name="colorT1"></td>
+      <td><input type="text" step="any" class="num" id="colorT2" name="colorT2"></td>
+      <td><input type="text" step="any" class="num" id="colorT3" name="colorT3"></td>
+      <td><input type="text" step="any" class="num" id="colorT4" name="colorT4"></td>
+    </tr>
+  </table>
+  
       
+
       
       
       
