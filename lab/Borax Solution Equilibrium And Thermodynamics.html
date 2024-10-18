@@ -1,59 +1,70 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 
-<html> 
+<html>
+  <head>
+    <title>Dimensional Analysis</title>
+    <!-- Title -->
 
-  <head> 
+    <link rel="stylesheet" href="../css/lab.css" />
 
-    <title> Dimensional Analysis </title><!-- Title --> 
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
 
-    <link rel="stylesheet" href="../css/lab.css"> 
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-  </head> 
+    <h1 id="title">Borax Solution Equilibrium and Thermodynamics</h1>
+    <!-- Title -->
 
- 
+    Name:
+    <div id="name"></div>
+    <br />
 
-  <body onload="onLoad()"> 
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
 
-  <script type="text/javascript"> 
+      <input type="text" id="userName" name="userName" style="display: none" />
 
-      //PARAMS**GO**HERE 
-
-    </script> 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
-
- 
-
-    <h1 id="title" > Borax Solution Equilibrium and Thermodynamics </h1> <!-- Title --> 
-
-    Name: <div id="name"></div><br> 
-
-    
-
-    <form id="labdataform" action="/save" method="post" target="_self"> 
-
-      <input type="text" id="labName" name="labName" style="display:none"> 
-
-      <input type="text" id="userName" name="userName" style="display:none"> 
-
-<!-- Beginning --> 
+      <!-- Beginning -->
 
       <h3>Objectives</h3>
       <ul>
-        <li>Determine the solibility product constant (K<sub>sp</sub>) for the dissolution of Borax at different temperatures.</li>
-        <li>Determine the values of ΔG<sup>°</sup> for the dissolution of Borax at different temperatures.</li>
-        <li>Estimate the values of ΔH<sup>°</sup> and ΔS<sup>°</sup> for the dissolution of Borax at 25°C.</li>
+        <li>
+          Determine the solibility product constant (K<sub>sp</sub>) for the
+          dissolution of Borax at different temperatures.
+        </li>
+        <li>
+          Determine the values of ΔG<sup>°</sup> for the dissolution of Borax at
+          different temperatures.
+        </li>
+        <li>
+          Estimate the values of ΔH<sup>°</sup> and ΔS<sup>°</sup> for the
+          dissolution of Borax at 25°C.
+        </li>
       </ul>
-      
+
       <h3>Materials</h3>
       <ul>
         <li>Deionized water</li>
         <li>Ice</li>
-        <li>Borax (Sodium tetraborate decahydrate - Na<sub>2</sub>B<sub>4</sub>O<sub>7</sub> · 10H<sub>2</sub>O or Na<sub>2</sub>[B<sub>4</sub>O<sub>5</sub>(OH<sub>4</sub>)] · 8H<sub>2</sub>O)</li>
+        <li>
+          Borax (Sodium tetraborate decahydrate -
+          Na<sub>2</sub>B<sub>4</sub>O<sub>7</sub> · 10H<sub>2</sub>O or
+          Na<sub>2</sub>[B<sub>4</sub>O<sub>5</sub>(OH<sub>4</sub>)] ·
+          8H<sub>2</sub>O)
+        </li>
         <li>Methyl red indicator</li>
         <li>0.5 M HCl solution</li>
         <li>250 mL Erlenmeyer flask (1)</li>
@@ -64,109 +75,93 @@
         <li>50 mL buret and buret stand</li>
         <li>Magnetic stirring bar</li>
         <li>Hot plate</li>
-        <li>5 mL volumetric pipet &amp;	pipet pump</li>
+        <li>5 mL volumetric pipet &amp; pipet pump</li>
         <li>Thermometer or temperature probe</li>
         <li>Ring stand with clamp for thermometer</li>
         <li>Heat resistant gloves</li>
         <li>Beaker tongs</li>
         <li>A beaker of heated water to clean glassware (~50°C)</li>
       </ul>
-  <h3>Safety Precautions</h3>
+      <h3>Safety Precautions</h3>
       <ul>
         <li>Safety goggles should be worn at all times.</li>
-        <li>Hot glassware can cause burns.  Use heat resistant gloves or beaker tongs</li>
+        <li>
+          Hot glassware can cause burns. Use heat resistant gloves or beaker
+          tongs
+        </li>
         <li>HCl is caustic and can damage skin - wear nitril gloves.</li>
       </ul>
-      
+
       <h3>Procedure</h3>
       <ol>
-        <li>Heated water will be provided to help students wash glassware, and unclog pipets.  
-          Washing your glassware as soon as possible may prevent the need of heated water to clean it.</li>
-        <li>Measure about 25g of Borax and place it into a 250 mL Erlenmeyer flask.</li>
+        <li>
+          Heated water will be provided to help students wash glassware, and
+          unclog pipets. Washing your glassware as soon as possible may prevent
+          the need of heated water to clean it.
+        </li>
+        <li>
+          Measure about 25g of Borax and place it into a 250 mL Erlenmeyer
+          flask.
+        </li>
         <li>Add a stirring bar and 75 mL of deionized water to the flask.</li>
-        <table>
-          <th>Steps for groups below rrom temperature</th>
-          <tr></tr>
-        </table>
-        <li></li>
+      </ol>
+      <table>
+        <th>Steps for groups below room temperature</th>
+        <tr>
+          <ol>
+            <li>
+              Place your Erlenmeyer flask in and ice-water bath and stir for at
+              least 20 minutes. Some undissolved solid should remain to ensure
+              that the solution is saturated.
+            </li>
+            <li>
+              If your entire sample dissolves, then add a little more solid
+              until a small amount remains undissolved
+            </li>
+            <li></li>
+          </ol>
+        </tr>
+      </table>
       
       
       
+      
+      
 
+      <!-- End -->
 
+      <div class="footer">Borax Solution Equilibrium and Thermodynamics</div>
 
+      <!-- title -->
 
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
 
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
 
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
 
+        <div class="vcenter">
+          <label for="score">Score: </label>
 
+          <div id="score" style="display: inline">0</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- End --> 
-
-      <div class="footer">Borax Solution Equilibrium and Thermodynamics</div> 
-
-      <!-- title --> 
-
-      <div id="button_bar"> 
-
-        <button 
-
-          type="submit" 
-
-          title="save" 
-
-          class="large material-icons" 
-
-          id="savebutton" 
-
-          onclick="saveData()" 
-
-        > 
-
-          save 
-
-        </button> 
-
-        <button onclick="toPrint()" title="print" class="large material-icons"> 
-
-          print 
-
-        </button> 
-
-        <button type="button" onclick="submitScore()" style="height: 83%"> 
-
-          Submit</button 
-
-        >&nbsp; 
-
-        <div class="vcenter"> 
-
-          <label for="score">Score: </label> 
-
-          <div id="score" style="display: inline">0</div> 
-
-          % 
-
-        </div> 
-
-      </div> 
-
-    </form> 
+          %
+        </div>
+      </div>
+    </form>
     <script type="text/javascript">
       MathJax.Hub.Config({
         tex2jax: {
@@ -176,18 +171,15 @@
           ],
         },
         TeX: {
-          extensions: ["mhchem.js"]
-        }
+          extensions: ["mhchem.js"],
+        },
       });
-
     </script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script src="../js/lab.js"></script> 
-
-  </body> 
-
-</html> 
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
