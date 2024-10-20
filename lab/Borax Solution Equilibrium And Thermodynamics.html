@@ -382,21 +382,36 @@
   $$ \Large \ln (K_T) = \left( \frac{-\Delta H^°_T}{R} \right)\left( \frac{1}{T} \right) + \left( \frac{\Delta S^°_T}{R} \right) $$
  <br>
   Slope of your line: 
-  <input type="number" step="any" class="borax graph num calc" id="y4" name="y4"
-      formula="ln(${ksp4})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="y4FB" name="y4FB "></div>
+  <input type="number" step="any" class="calc" id="recorded borax slope" name="recorded borax slope" formula="${borax slope}" help="Record the slope from the y = mx + b formula above">
   <br>
-  Y-intercept of your line: <br>
+  Y-intercept of your line: 
+  <input type="number" step="any" class="calc" id="recorded borax intercept" name="recorded borax intercept" formula="${borax intercept}" help="Record the y-intercept from the y = mx + b formula above">
   <br>
-  ΔH° (kJ/mol): <br>
-  ΔS° (J/mol-K): <br>
+  <br>
+  ΔH° (kJ/mol): 
+  <input type="number" step="any" class="num calc" id="ΔH" name="ΔH"
+      formula="${recorded borax slope}*-0.0083145"  help="Multiple the slope of your line by -R (-0.0083145 kJ/mol-K)">
+  <div class="feedback" id="ΔHFB" name="ΔHFB "></div>
+  <br>
+  ΔS° (J/mol-K): 
+  <input type="number" step="any" class="num calc" id="ΔS" name="ΔS"
+      formula="${recorded borax slope}*8.3145"  help="Multiple the slope of your line by R (8.3145 J/mol-K)">
+  <div class="feedback" id="ΔSFB" name="ΔSFB "></div>
+  
+  
+  <br>
   <br>
   Literature values:<br>
     ΔH° (kJ/mol): 110 kJ/mol<br>
   ΔS° (J/mol-K): 380 J/mol-K<br>
   <br>
   
-  Percent error for ΔH°: <br>
+  Percent error for ΔH°: 
+  <input type="number" step="any" class="num calc" id="ΔH" name="ΔH"
+      formula="${recorded borax slope}*-0.0083145"  help="Multiple the slope of your line by -R (-0.0083145 kJ/mol-K)">
+  <div class="feedback" id="ΔHFB" name="ΔHFB "></div>
+  
+  <br>
   Precent error for ΔS°: <br>
   <br>
   
