@@ -61,8 +61,8 @@
         <li>Ice</li>
         <li>
           Borax (Sodium tetraborate decahydrate -
-          Na<sub>2</sub>B<sub>4</sub>O<sub>7</sub> · 10H<sub>2</sub>O or
-          Na<sub>2</sub>[B<sub>4</sub>O<sub>5</sub>(OH<sub>4</sub>)] ·
+          Na<sub>2</sub>B<sub>4</sub>O<sub>7</sub> <b>·</b> 10H<sub>2</sub>O or
+          Na<sub>2</sub>[B<sub>4</sub>O<sub>5</sub>(OH<sub>4</sub>)] <b>·</b>
           8H<sub>2</sub>O)
         </li>
         <li>Methyl red indicator</li>
@@ -106,7 +106,7 @@
         </li>
         <li>Add a stirring bar and 75 mL of deionized water to the flask.</li>
       </ol>
-      <table>
+      <table style="background-color: hsl(188 100% 91%);">
         <tr><th>Steps for groups below room temperature</th></tr>
         <tr>
           <td>
@@ -147,8 +147,8 @@
         </td></tr>
       </table>
       
-            <table>
-              <tr><th>Steps for groups below room temperature</th></tr>
+            <table style="background-color: hsl(0 100% 89%);">
+              <tr><th>Steps for groups above room temperature</th></tr>
         <tr>
           <td>
           <ol start="4">
@@ -321,7 +321,11 @@
         <div class="feedback" id="1/T1FB" name="1/T1FB "></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp1" name="ksp1"></td>
-      <td></td>    
+      <td>
+      <input type="number" step="any" class="num calc" id="lnKsp1" name="lnKsp1"
+      formula="ln(${ksp1})"  help="Take the natural log of the Ksp.">
+        <div class="feedback" id="lnKsp1FB" name="lnKsp1FB "></div>
+      </td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp2" name="temp2" title="~293, not ~20"></td>
@@ -331,7 +335,11 @@
         <div class="feedback" id="1/T2FB" name="1/T2FB "></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp2" name="ksp2"></td>
-      <td></td>    
+      <td>
+      <input type="number" step="any" class="num calc" id="lnKsp2" name="lnKsp2"
+      formula="ln(${ksp2})"  help="Take the natural log of the Ksp.">
+        <div class="feedback" id="lnKsp2FB" name="lnKsp2FB "></div>
+      </td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp3" name="temp3" title="~308, not ~35"></td>
@@ -341,7 +349,11 @@
         <div class="feedback" id="1/T3FB" name="1/T3FB "></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp3" name="ksp3"></td>
-      <td></td>    
+      <td>
+      <input type="number" step="any" class="num calc" id="lnKsp3" name="lnKsp3"
+      formula="ln(${ksp3})"  help="Take the natural log of the Ksp.">
+        <div class="feedback" id="lnKsp3FB" name="lnKsp3FB "></div>
+      </td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp4" name="temp4" title="~318, not ~45"></td>
@@ -351,9 +363,15 @@
         <div class="feedback" id="1/T4FB" name="1/T4FB "></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp4" name="ksp4"></td>
-      <td></td>    
+      <td>
+      <input type="number" step="any" class="num calc" id="lnKsp4" name="lnKsp4"
+      formula="ln(${ksp4})"  help="Take the natural log of the Ksp.">
+        <div class="feedback" id="lnKsp4FB" name="lnKsp4FB "></div>
+      </td>    
     </tr>
   </table>
+  
+  
   
   Determine the values of ΔG° at each temperature using both equations below.  
  
