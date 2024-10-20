@@ -403,9 +403,11 @@
  <br>
   Slope of your line: 
   <input type="number" step="any" class="num calc" id="recorded borax slope" name="recorded borax slope" formula="${borax slope}" help="Record the slope from the y = mx + b formula above">
+  <div class="feedback" id="recorded borax slopeFB" name="recorded borax slopeFB "></div>
   <br>
   Y-intercept of your line: 
   <input type="number" step="any" class="num calc" id="recorded borax intercept" name="recorded borax intercept" formula="${borax intercept}" help="Record the y-intercept from the y = mx + b formula above">
+  <div class="feedback" id="recorded borax interceptFB" name="recorded borax interceptFB "></div>
   <br>
   <br>
   ΔH° (kJ/mol): 
@@ -415,7 +417,7 @@
   <br>
   ΔS° (J/mol-K): 
   <input type="number" step="any" class="num calc" id="ΔS" name="ΔS"
-      formula="${recorded borax slope}*8.3145"  help="Multiple the slope of your line by R (8.3145 J/mol-K)">
+      formula="${recorded borax intercept}*8.3145"  help="Multiple the intercept of your line by R (8.3145 J/mol-K)">
   <div class="feedback" id="ΔSFB" name="ΔSFB "></div>
   
   
@@ -474,9 +476,9 @@
          <div class="feedback" id="ΔG2aFB" name="ΔG2aFB "></div>
       </td>
       
-      <td><input type="number" step="any" class="num calc" id="ΔG1b" name="ΔG1b"
-      formula="ΔH-${temp1}*ΔS"  help="Use the formula in the heading of this column. Make sure you are using R = 8.3145 J/mol-K, and the temperature in K.">
-  <div class="feedback" id="ΔG1bFB" name="ΔG1bFB "></div></td>
+      <td><input type="number" step="any" class="num calc" id="ΔG2b" name="ΔG2b"
+      formula="ΔH-${temp2}*ΔS"  help="Use the formula in the heading of this column. Make sure you are using R = 8.3145 J/mol-K, and the temperature in K.">
+  <div class="feedback" id="ΔG2bFB" name="ΔG2bFB "></div></td>
     </tr>
     
     <tr>
