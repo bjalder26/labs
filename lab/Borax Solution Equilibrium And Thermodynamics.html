@@ -316,62 +316,64 @@
     <tr>
       <td><input type="text" step="any" class="num" id="temp1" name="temp1" title="~278, not ~5"></td>
       <td>
-        <input type="number" step="any" class="num calc" id="1/T1" name="1/T1"
+        <input type="number" step="any" class="borax graph num calc" id="x4" name="x4"
       formula="1/${temp1}"  help="Take the inverse of the temperature.">
-        <div class="feedback" id="1/T1FB" name="1/T1FB "></div>
+        <div class="feedback" id="x4FB" name="x4FB "></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp1" name="ksp1"></td>
       <td>
-      <input type="number" step="any" class="num calc" id="lnKsp1" name="lnKsp1"
+      <input type="number" step="any" class="borax graph num calc" id="y1" name="y1"
       formula="ln(${ksp1})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="lnKsp1FB" name="lnKsp1FB "></div>
+        <div class="feedback" id="y1FB" name="y1FB "></div>
       </td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp2" name="temp2" title="~293, not ~20"></td>
       <td>
-      <input type="number" step="any" class="num calc" id="1/T2" name="1/T2"
+      <input type="number" step="any" class="borax graph num calc" id="x3" name="x3"
       formula="1/${temp2}"  help="Take the inverse of the temperature.">
-        <div class="feedback" id="1/T2FB" name="1/T2FB "></div>
+        <div class="feedback" id="x3FB" name="x3FB"></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp2" name="ksp2"></td>
       <td>
-      <input type="number" step="any" class="num calc" id="lnKsp2" name="lnKsp2"
+      <input type="number" step="any" class="borax graph num calc" id="y2" name="y2"
       formula="ln(${ksp2})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="lnKsp2FB" name="lnKsp2FB "></div>
+        <div class="feedback" id="y2FB" name="y2FB "></div>
       </td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp3" name="temp3" title="~308, not ~35"></td>
       <td>
-      <input type="number" step="any" class="num calc" id="1/T3" name="1/T3"
+      <input type="number" step="any" class="borax graph num calc" id="x2" name="x3"
       formula="1/${temp3}"  help="Take the inverse of the temperature.">
-        <div class="feedback" id="1/T3FB" name="1/T3FB "></div>
+        <div class="feedback" id="x2FB" name="x2FB"></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp3" name="ksp3"></td>
       <td>
-      <input type="number" step="any" class="num calc" id="lnKsp3" name="lnKsp3"
+      <input type="number" step="any" class="borax graph num calc" id="y3" name="y3"
       formula="ln(${ksp3})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="lnKsp3FB" name="lnKsp3FB "></div>
+        <div class="feedback" id="y3FB" name="y3FB"></div>
       </td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp4" name="temp4" title="~318, not ~45"></td>
       <td>
-      <input type="number" step="any" class="num calc" id="1/T4" name="1/T4"
+      <input type="number" step="any" class="borax graph num calc" id="x1" name="x1"
       formula="1/${temp4}"  help="Take the inverse of the temperature.">
-        <div class="feedback" id="1/T4FB" name="1/T4FB "></div>
+        <div class="feedback" id="x1FB" name="x1FB"></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp4" name="ksp4"></td>
       <td>
-      <input type="number" step="any" class="num calc" id="lnKsp4" name="lnKsp4"
+      <input type="number" step="any" class="borax graph num calc" id="y4" name="y4"
       formula="ln(${ksp4})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="lnKsp4FB" name="lnKsp4FB "></div>
+        <div class="feedback" id="y4FB" name="y4FB "></div>
       </td>    
     </tr>
   </table>
   
-  
+  <div class="canvas centered">
+	<canvas id="borax graph" onclick="updateGraph('borax graph')" ></canvas>
+     </div>
   
   Determine the values of ΔG° at each temperature using both equations below.  
  
