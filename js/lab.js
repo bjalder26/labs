@@ -84,14 +84,11 @@ function toPrint() {
 function updateGraph(graphName) {
   const dataArray = getData(graphName);
   const data = dataArray[0];
-  //const xAxisLabel = dataArray[1];
-  //const yAxisLabel = dataArray[2];
 
   const chartInstance = chartInstances.find(
     (chart) => chart.graphName === graphName
   );
   if (chartInstance) {
-    //graphName.instance.data.datasets[0].data = data;
     chartInstance.instance.data = data;
     chartInstance.instance.update();
   } else {
@@ -792,7 +789,7 @@ if (matches) {
     graphElement.addEventListener("change", function (e) {
       const savebutton = $("savebutton");
       savebutton.click();
-      const graph = $(this.className);
+      const graph = $(this.className.replace(/num/g, '').replace(/calc/g, '').trim());
       graph.click();
     });
   }
