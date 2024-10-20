@@ -312,7 +312,7 @@
   Collect the temperatures (in K) and K<sub>sp</sub> data from the other groups.
   If more than one group was assigned the same temperature, then take a average of their actual temperatures and <th>K<sub>sp</sub>.
   <table>
-    <tr><th>Actual Temperature (K)</th><th>1/T (1/K)</th><th>K<sub>sp</sub></th><th>ln (K<sub>sp</sub>)</th></tr>
+    <tr><th>Actual Temperature (K)</th><th><label id="borax x-axis">1/T</label> (1/K)</th><th>K<sub>sp</sub></th><th>ln (K<sub>sp</sub>)<label id="borax y-axis" style="display: none;">ln (Ksp)</label></th></tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp1" name="temp1" title="~278, not ~5"></td>
       <td>
@@ -373,8 +373,12 @@
   
   <div class="canvas centered">
 	<canvas id="borax graph" onclick="updateGraph('borax graph')" ></canvas>
-     </div>
-  
+     </div><br>
+  <div class="centered">
+   Formula for the best fit line: y = <div class="num" id="borax slope"></div>
+        x&nbsp;<label class="borax plus">&nbsp;+&nbsp;</label>
+        <div class="num" id="borax intercept"></div>
+      </div>
   Determine the values of ΔG° at each temperature using both equations below.  
  
   <table>
