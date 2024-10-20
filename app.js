@@ -429,7 +429,7 @@ app.get('/', (req, res) => {
   const isGlitchPreview = req.headers['referer'] && req.headers['referer'] == 'https://glitch.com/';
 
   if (!isGlitchPreview) {
-    return res.status(403).send('Access denied. This page is only available in the Glitch preview window.');
+    return res.status(403).send('Sorry, you cannot refresh this window in the browser.  Refresh your Canvas assignment, and reopen the lab from the link in that assignment.');
   }
 
   const labDir = path.join(__dirname, 'lab');

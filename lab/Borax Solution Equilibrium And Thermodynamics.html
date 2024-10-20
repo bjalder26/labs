@@ -461,7 +461,7 @@
       </td>
       
       <td><input type="number" step="any" class="num calc" id="ΔG1b" name="ΔG1b"
-      formula="ΔH-${temp1}*ΔS"  help="Use the formula in the heading of this column. Make sure you convert ΔS to kJ and are using the temperature in K.">
+      formula="${ΔH}-${temp1}*${ΔS}/1000"  help="Use the formula in the heading of this column. Make sure you convert ΔS to kJ and are using the temperature in K.">
   <div class="feedback" id="ΔG1bFB" name="ΔG1bFB "></div></td>
     </tr>
     
@@ -477,7 +477,7 @@
       </td>
       
       <td><input type="number" step="any" class="num calc" id="ΔG2b" name="ΔG2b"
-      formula="ΔH-${temp2}*ΔS"  help="Use the formula in the heading of this column. Make sure you convert ΔS to kJ and are using the temperature in K.">
+      formula="${ΔH}-${temp2}*${ΔS}/1000"  help="Use the formula in the heading of this column. Make sure you convert ΔS to kJ and are using the temperature in K.">
   <div class="feedback" id="ΔG2bFB" name="ΔG2bFB "></div></td>
     </tr>
     
@@ -493,7 +493,7 @@
       </td>
       
       <td><input type="number" step="any" class="num calc" id="ΔG3b" name="ΔG3b"
-      formula="ΔH-${temp3}*ΔS"  help="Use the formula in the heading of this column. Make sure you convert ΔS to kJ and are using the temperature in K.">
+      formula="${ΔH}-${temp3}*${ΔS}/1000"  help="Use the formula in the heading of this column. Make sure you convert ΔS to kJ and are using the temperature in K.">
   <div class="feedback" id="ΔG3bFB" name="ΔG3bFB "></div></td>
     </tr>
     
@@ -512,7 +512,7 @@
       formula="${ΔH}-${temp4}*${ΔS}/1000"  help="Use the formula in the heading of this column. Make sure you convert ΔS to kJ and are using the temperature in K.">
   <div class="feedback" id="ΔG4bFB" name="ΔG4bFB "></div></td>
     </tr>
-  </table>
+  </table><br><br>
   
   
           
