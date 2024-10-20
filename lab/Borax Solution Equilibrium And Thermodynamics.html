@@ -444,12 +444,21 @@
   Determine the values of ΔG° at each temperature using both equations below.  
  
   <table>
-    <tr><th></th><th>Temperature (K)</th><th>ΔG° (kJ)<br>ΔG°<sub>T</sub> = -RT ln(K<sub>T</sub>)</th><th>ΔG° (kJ)<br>ΔG°<sub>T</sub> = ΔH° - TΔH°</th></tr>
+    <tr><th>Assigned Temperature (°C)</th><th>Temperature (K)</th><th>ΔG° (kJ)<br>ΔG°<sub>T</sub> = -RT ln(K<sub>T</sub>)</th><th>ΔG° (kJ)<br>ΔG°<sub>T</sub> = ΔH° - TΔH°</th></tr>
     <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
+      <th>~5°C</th>
+      <td><input type="number" step="any" class="num calc" id="temp1b" name="temp1b"
+      formula="${temp1}"  help="Same as the temperature in the previous chart.">
+  <div class="feedback" id="temp1bFB" name="temp1bFB "></div></td>
+      <td>
+      <input type="number" step="any" class="num calc" id="ΔG1a" name="ΔG1a"
+      formula="-0.0083145*${temp1}*ln(${})"  help="Use the formula in the heading of the chart.  Make sure you are using R=0.0083145 kJ/mol-K, and the temperature in K.">
+         <div class="feedback" id="ΔG1aFB" name="ΔG1aFB "></div>
+      </td>
+      
+      <td><input type="number" step="any" class="num calc" id="temp1b" name="temp1b"
+      formula="${temp1}"  help="Same as the temperature in the previous chart.">
+  <div class="feedback" id="temp1bFB" name="temp1bFB "></div></td>
     </tr>
   </table>
   
