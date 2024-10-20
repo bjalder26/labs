@@ -337,9 +337,9 @@
       </td>
       <td><input type="text" step="any" class="num" id="ksp1" name="ksp1"></td>
       <td>
-      <input type="number" step="any" class="borax graph num calc" id="y1" name="y1"
+      <input type="number" step="any" class="borax graph num calc" id="y4" name="y4"
       formula="ln(${ksp1})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="y1FB" name="y1FB "></div>
+        <div class="feedback" id="y4FB" name="y4FB "></div>
       </td>    
     </tr>
     <tr>
@@ -352,24 +352,24 @@
       </td>
       <td><input type="text" step="any" class="num" id="ksp2" name="ksp2"></td>
       <td>
-      <input type="number" step="any" class="borax graph num calc" id="y2" name="y2"
+      <input type="number" step="any" class="borax graph num calc" id="y3" name="y3"
       formula="ln(${ksp2})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="y2FB" name="y2FB "></div>
+        <div class="feedback" id="y3FB" name="y3FB "></div>
       </td>    
     </tr>
     <tr>
       <th>~35°C</th>
       <td><input type="text" step="any" class="num" id="temp3" name="temp3" title="~308, not ~35"></td>
       <td>
-      <input type="number" step="any" class="borax graph num calc" id="x2" name="x3"
+      <input type="number" step="any" class="borax graph num calc" id="x2" name="x2"
       formula="1/${temp3}"  help="Take the inverse of the temperature.">
         <div class="feedback" id="x2FB" name="x2FB"></div>
       </td>
       <td><input type="text" step="any" class="num" id="ksp3" name="ksp3"></td>
       <td>
-      <input type="number" step="any" class="borax graph num calc" id="y3" name="y3"
+      <input type="number" step="any" class="borax graph num calc" id="y2" name="y2"
       formula="ln(${ksp3})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="y3FB" name="y3FB"></div>
+        <div class="feedback" id="y2FB" name="y2FB"></div>
       </td>    
     </tr>
     <tr>
@@ -382,9 +382,9 @@
       </td>
       <td><input type="text" step="any" class="num" id="ksp4" name="ksp4"></td>
       <td>
-      <input type="number" step="any" class="borax graph num calc" id="y4" name="y4"
+      <input type="number" step="any" class="borax graph num calc" id="y1" name="y1"
       formula="ln(${ksp4})"  help="Take the natural log of the Ksp.">
-        <div class="feedback" id="y4FB" name="y4FB "></div>
+        <div class="feedback" id="y1FB" name="y1FB "></div>
       </td>    
     </tr>
   </table>
@@ -452,13 +452,13 @@
   <div class="feedback" id="temp1bFB" name="temp1bFB "></div></td>
       <td>
       <input type="number" step="any" class="num calc" id="ΔG1a" name="ΔG1a"
-      formula="-0.0083145*${temp1}*ln(${})"  help="Use the formula in the heading of the chart.  Make sure you are using R=0.0083145 kJ/mol-K, and the temperature in K.">
+      formula="-0.0083145*${temp1}*ln(${y4})"  help="Use the formula in the heading of the chart.  Make sure you are using R=0.0083145 kJ/mol-K, and the temperature in K.">
          <div class="feedback" id="ΔG1aFB" name="ΔG1aFB "></div>
       </td>
       
-      <td><input type="number" step="any" class="num calc" id="temp1b" name="temp1b"
-      formula="${temp1}"  help="Same as the temperature in the previous chart.">
-  <div class="feedback" id="temp1bFB" name="temp1bFB "></div></td>
+      <td><input type="number" step="any" class="num calc" id="ΔG1b" name="ΔG1b"
+      formula="ΔH-${temp1}*ΔS"  help="Same as the temperature in the previous chart.">
+  <div class="feedback" id="ΔG1bFB" name="ΔG1bFB "></div></td>
     </tr>
   </table>
   
