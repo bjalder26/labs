@@ -65,6 +65,16 @@ String.prototype.toPrecisionRound = function(sf) {
     return num.toPrecisionRound(sf);
 };
 
+// Extend the HTMLElement prototype
+HTMLElement.prototype.getValue = function() {
+    if (this.tagName === 'DIV') {
+        return this.innerHTML; // return the innerHTML of the div
+    } else {
+         return this.value; // else return value
+    }
+    return null; // Return null for other types
+};
+
 
 function toPrint() {
   event.preventDefault(); // Prevent default form submission or button click behavior
