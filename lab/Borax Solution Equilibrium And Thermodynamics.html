@@ -310,7 +310,7 @@
   <div class="feedback" id="KspAveFB" name="KspAveFB "></div><br>
   
   Collect the temperatures (in K) and K<sub>sp</sub> data from the other groups.
-  If more than one group was assigned the same temperature, then take a average of their actual temperatures and <th>K<sub>sp</sub>.
+  If more than one group was assigned the same temperature, then take a average of their actual temperatures and K<sub>sp</sub>.
   <table>
     <tr><th>Actual Temperature (K)</th><th><label id="borax x-axis">1/T</label> (1/K)</th><th>K<sub>sp</sub></th><th>ln (K<sub>sp</sub>)<label id="borax y-axis" style="display: none;">ln (Ksp)</label></th></tr>
     <tr>
@@ -372,13 +372,15 @@
   </table>
   
   <div class="canvas centered">
-	<canvas id="borax graph" onclick="updateGraph('borax graph')" ></canvas>
+	<canvas id="borax graph" onclick="updateGraph('borax graph')" title="Natural log of Ksp vs 1/Time" ></canvas>
      </div><br>
   <div class="centered">
    Formula for the best fit line: y = <div class="num" id="borax slope"></div>
         x&nbsp;<label class="borax plus">&nbsp;+&nbsp;</label>
         <div class="num" id="borax intercept"></div>
-      </div>
+      </div><br>
+  $ln K_T = \left(\frac{-ΔH^°_T}{RT}\right)\left) + \left(\frac{ΔS^°_T}{R}\right)$ <br>
+  
   Determine the values of ΔG° at each temperature using both equations below.  
  
   <table>
