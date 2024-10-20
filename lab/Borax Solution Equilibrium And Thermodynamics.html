@@ -315,26 +315,42 @@
     <tr><th>Actual Temperature (K)</th><th>1/T (1/K)</th><th>K<sub>sp</sub></th><th>ln (K<sub>sp</sub>)</th></tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp1" name="temp1" title="~278, not ~5"></td>
-      <td></td>
-      <td></td>
+      <td>
+        <input type="number" step="any" class="num calc" id="1/T1" name="1/T1"
+      formula="1/${temp1}"  help="Take the inverse of the temperature.">
+        <div class="feedback" id="1/T1FB" name="1/T1FB "></div>
+      </td>
+      <td><input type="text" step="any" class="num" id="ksp1" name="ksp1"></td>
       <td></td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp2" name="temp2" title="~293, not ~20"></td>
-      <td></td>
-      <td></td>
+      <td>
+      <input type="number" step="any" class="num calc" id="1/T2" name="1/T2"
+      formula="1/${temp2}"  help="Take the inverse of the temperature.">
+        <div class="feedback" id="1/T2FB" name="1/T2FB "></div>
+      </td>
+      <td><input type="text" step="any" class="num" id="ksp2" name="ksp2"></td>
       <td></td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp3" name="temp3" title="~308, not ~35"></td>
-      <td></td>
-      <td></td>
+      <td>
+      <input type="number" step="any" class="num calc" id="1/T3" name="1/T3"
+      formula="1/${temp3}"  help="Take the inverse of the temperature.">
+        <div class="feedback" id="1/T3FB" name="1/T3FB "></div>
+      </td>
+      <td><input type="text" step="any" class="num" id="ksp3" name="ksp3"></td>
       <td></td>    
     </tr>
     <tr>
       <td><input type="text" step="any" class="num" id="temp4" name="temp4" title="~318, not ~45"></td>
-      <td></td>
-      <td></td>
+      <td>
+      <input type="number" step="any" class="num calc" id="1/T4" name="1/T4"
+      formula="1/${temp4}"  help="Take the inverse of the temperature.">
+        <div class="feedback" id="1/T4FB" name="1/T4FB "></div>
+      </td>
+      <td><input type="text" step="any" class="num" id="ksp4" name="ksp4"></td>
       <td></td>    
     </tr>
   </table>
