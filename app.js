@@ -424,34 +424,9 @@ app.get("/score/:sessionID/:score", (req, res) => {
 
 });    // app.get("/score...")
 
-/*
-app.get('/', (req, res) => {
-  const labDir = path.join(__dirname, 'lab');
-
-  // Read the "lab" directory
-  fs.readdir(labDir, (err, files) => {
-    if (err) {
-      return res.status(500).send('Unable to scan lab directory');
-    }
-
-    // Filter for .html files and create links
-    const htmlFiles = files.filter(file => file.endsWith('.html'));
-    let links = '<h1>HTML Files in the "lab" Folder:</h1><ul>';
-
-    htmlFiles.forEach(file => {
-      links += `<li><a href="/lab/${file}">${file}</a></li>`;
-    });
-
-    links += '</ul>';
-    res.send(links);
-  });
-});
-*/
-
 app.get('/', (req, res) => {
   // Check if the request is from the Glitch preview
-  console.log(req.headers['user-agent'], req.headers['user-agent'])
-  const isGlitchPreview = req.headers['user-agent'] && req.headers['user-agent'].includes('Glitch Preview');
+  const isGlitchPreview = req.headers['referer'] && req.headers['referer'] == 'https://glitch.com/';
 
   if (!isGlitchPreview) {
     return res.status(403).send('Access denied. This page is only available in the Glitch preview window.');
