@@ -65,6 +65,7 @@ String.prototype.toPrecisionRound = function(sf) {
     return num.toPrecisionRound(sf);
 };
 
+/*
 // Extend the HTMLElement prototype
 HTMLElement.prototype.getValue = function() {
     if (this.tagName === 'DIV') {
@@ -74,7 +75,7 @@ HTMLElement.prototype.getValue = function() {
     }
     return null; // Return null for other types
 };
-
+*/
 
 function toPrint() {
   event.preventDefault(); // Prevent default form submission or button click behavior
