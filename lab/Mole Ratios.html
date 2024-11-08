@@ -248,10 +248,186 @@ Measure and record the exact mass of silver nitrate in the data table.
                   g
                   <div class="feedback" id="molAgFB" name="molAgFB"></div>
                 </td>
-              </tr>
-                          <tr>
-                <td colspan="2">Ratio of moles of silver to moles of copper:</td>
-              </tr>
+                </tr> </table>
+                         
+                <h3>Ratio of moles of silver to moles of copper:</h3>
+             Divide the moles of silver and copper by the lower of the two numbers.
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="molAg2"
+          name="molAg2"
+          formula="${molAg}"
+          help="Same as above"
+        />
+        mol Ag
+        <div class="feedback" id="molAg2FB" name="molAg2FB"></div>
+        /
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="lowestMol"
+          name="lowestMol"
+          formula="min(${molAg}, ${molCu})"
+          help="Same as the lower of mol of Ag and mol of Cu"
+        />
+        <div class="feedback" id="lowestMolFB" name="lowestMolFB"></div>
+        =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="molAg3"
+          name="molAg3"
+          formula="${molAg}/${lowestMol}"
+          help="Divide mol of Ag by the lower of the mol of Ag and mol of Cu"
+        />
+        mol Ag
+        <div class="feedback" id="molAg3FB" name="molAg3FB"></div>
+        <br />
+
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="molCu2"
+          name="molCu2"
+          formula="${molCu}"
+          help="Same as above"
+        />
+        mol Cu
+        <div class="feedback" id="molCu2FB" name="molCu2FB"></div>
+        /
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="lowestMol2"
+          name="lowestMol2"
+          formula="min(${molAg}, ${molCu})"
+          help="Same as the lower of mol of Ag and mol of Cu"
+        />
+        <div class="feedback" id="lowestMol2FB" name="lowestMol2FB"></div>
+        =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="molCu3"
+          name="molCu3"
+          formula="${molCu}/${lowestMol}"
+          help="Divide mol of Cu by the lower of the mol of Ag and mol of Cu"
+        />
+        mol Cu
+        <div class="feedback" id="molCu3FB" name="molCu3FB"></div>
+        <br />
+        If the higher of the two mol numbers has a decimal less than 0.125, then
+        round down to the nearest whole number. If it is over 0.875, then round
+        up to the nearest whole number. Otherwise, check chart 2 for the nearest
+        fraction, and multiply both mole amounts by the corresponding number in
+        the chart, then round to the nearest whole number. Decimal of higher of
+        the two mol numbers:
+        <input
+          type="number"
+          class="calc lookup"
+          step="any"
+          id="decimal"
+          name="decimal"
+          formula="max(${molCu3}, ${molAg3}) - floor(max(${molCu3}, ${molAg3}))"
+          help="The decimal of the higher of the two mol numbers above"
+        />
+        <div class="feedback" id="decimalFB" name="decimalFB"></div>
+
+        <input
+          type="number"
+          step="any"
+          class="lookupValue"
+          id="decimalLV"
+          name="decimalLV"
+          tableID="decimalsAndFractionsTable"
+          searchColumn="0"
+          returnColumn="2"
+        />
+
+        <div class="noBreak">
+          Table 2:
+          <h4>Decimals and fractions</h4>
+          <table
+            id="decimalsAndFractionsTable"
+            name="decimalsAndFractionsTable"
+          >
+            <tr>
+              <th>Nearest decimal</th>
+              <th>Fraction</th>
+              <th>Multiply both numbers of moles by:</th>
+            </tr>
+            <tr style="display: none">
+              <td>0</td>
+              <td></td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>.25</td>
+              <td>$\frac{1}{4}$</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>.33</td>
+              <td>$\frac{1}{3}$</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>.5</td>
+              <td>$\frac{1}{2}$</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>.67</td>
+              <td>$\frac{2}{3}$</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>.75</td>
+              <td>$\frac{3}{4}$</td>
+              <td>4</td>
+            </tr>
+            <tr style="display: none">
+              <td>1</td>
+              <td></td>
+              <td>1</td>
+            </tr>
+          </table>
+        </div>
+
+        <li>
+          Write in the subscripts for the empirical formal for magnesium oxide
+          below.
+        </li>
+        Mg<sub
+          ><input
+            type="number"
+            class="calc"
+            step="1"
+            style="width: 40px"
+            id="MgSubscript"
+            name="MgSubscript"
+            formula="round(${magnesiumMol3}*${decimalLV})"
+            help="Round the moles of magnesium in 31 if your fraction is below 0.125 or above 0.875, or by the number found in the 3rd column of Table 2" /></sub
+        >O<sub
+          ><input
+            type="number"
+            class="calc"
+            step="1"
+            style="width: 40px"
+            id="OSubscript"
+            name="OSubscript"
+            formula="round(${oxygenMol3}*${decimalLV})"
+            help="Round the moles of oxygen in 31 if your fraction is below 0.125 or above 0.875, or by the number found in the 3rd column of Table 2"
+        /></sub>
+        <div class="feedback" id="MgSubscriptFB" name="MgSubscriptFB"></div>
+        <div class="feedback" id="OSubscriptFB" name="OSubscriptFB"></div>
               <tr>
                 <td>Mass of Cu(s) produced (actual)</td>
                 <td>
