@@ -181,7 +181,7 @@ Measure and record the exact mass of silver nitrate in the data table.
           <p></p>
           <div class="noBreak">
             <b>Calculations and Analysis</b>:
-              <tr>
+              <table><tr>
                 <td>Mass of copper wire that reacted in this experiment:</td>
                 <td>
                   <input
@@ -226,28 +226,31 @@ Measure and record the exact mass of silver nitrate in the data table.
                     class="calc num"
                     id="Ag2mass"
                     name="Ag2mass"
-                    formula="${beakerAgMass}-${}"
-                    help="Based on which reactant is the limiting reactant either 1) Multiply the moles of copper(II) chloride dihydrate by the moles of copper in each mole of copper(II) chloride dihydrate or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of Cu(s)"
+                    formula="${beakerAgMass}-${beaker1Mass}"
+                    help="Subtract the mass of the empty beaker from the mass of the beaker plus silver product."
                   />
                   mol
-                  <div class="feedback" id="B1MolCuFB" name="B1MolCuFB"></div>
+                  <div class="feedback" id="Ag2massFB" name="Ag2massFB"></div>
                 </td>
               </tr>
               <tr>
-                <td>Mass of Cu(s) produced (theoretical)</td>
+                <td>Moles of silver metal produced in the reaction:</td>
                 <td>
                   <input
                     type="number"
                     step="any"
                     class="calc num"
-                    id="B1MassCu"
-                    name="B1MassCu"
-                    formula="${B1MolCuSalt}*63.55"
-                    help="Multiply the moles of copper(s) by the molar mass of copper (63.55 g/mol)."
+                    id="molAg"
+                    name="molAg"
+                    formula="${Ag2mass}/107.87"
+                    help="Divide the mass of silver produced by the molar mass of silver (107.87 g/mol)."
                   />
                   g
-                  <div class="feedback" id="B1MassCuFB" name="B1MassCuFB"></div>
+                  <div class="feedback" id="molAgFB" name="molAgFB"></div>
                 </td>
+              </tr>
+                          <tr>
+                <td colspan="2">Ratio of moles of silver to moles of copper:</td>
               </tr>
               <tr>
                 <td>Mass of Cu(s) produced (actual)</td>
