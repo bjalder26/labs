@@ -107,7 +107,7 @@ Measure and record the exact mass of silver nitrate in the data table.
                 name="AgNO31Mass"
                      step="any"
               />
-              g&nbsp;
+              g
             </td>
           </tr>
           <tr>
@@ -120,7 +120,7 @@ Measure and record the exact mass of silver nitrate in the data table.
                 name="CuMass"
                      step="any"
               />
-              g&nbsp;
+              g
             </td>
           </tr>
           <tr>
@@ -143,14 +143,33 @@ Measure and record the exact mass of silver nitrate in the data table.
             </td>
           </tr>
           <tr>
-            <td>Mass of Al(s) in Beaker 2</td>
+            <td>Mass of leftover copper wire (final)</td>
             <td style="text-align: center">
               <input
                 type="number"
                 step="any"
                 class="num"
-                id="beaker2AlMass"
-                name="beaker2AlMass"
+                id="Cu2Mass"
+                name="Cu2Mass"
+              />
+              g
+            </td>
+          </tr>
+          <tr>
+            <td>Appearance of leftover copper wire</td>
+            <td style="text-align: center">
+          <textarea class="text essay" id="app " name="app"></textarea>
+            </td>
+          </tr>
+          <tr>
+            <td>Mass of beaker plus silver product (step 22)</td>
+            <td style="text-align: center">
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="beakerAgMass"
+                name="beakerAgMass"
               />
               g
             </td>
@@ -159,198 +178,43 @@ Measure and record the exact mass of silver nitrate in the data table.
 
         <p></p>
         <div class="noBreak">
-          Table 2: Observations for reaction (Beakers 1 &amp; 2):
-          <table>
-            <tr>
-              <td></td>
-              <td>Beaker 1</td>
-              <td>Beaker 2</td>
-            </tr>
-            <tr>
-              <td>
-                <u>Initial</u> observations (immediately after being mixed)
-              </td>
-              <td>
-                <textarea
-                  class="text essay num"
-                  id="beaker1I"
-                  name="beaker1I"
-                ></textarea>
-              </td>
-              <td>
-                <textarea
-                  class="text essay num"
-                  id="beaker2I"
-                  name="beaker2I"
-                ></textarea>
-              </td>
-            </tr>
-            <tr>
-              <td><u>Changes</u> during reaction</td>
-              <td>
-                <textarea
-                  class="text essay num"
-                  id="beaker1C"
-                  name="beaker1C"
-                ></textarea>
-              </td>
-              <td>
-                <textarea
-                  class="text essay num"
-                  id="beaker2C"
-                  name="beaker2C"
-                ></textarea>
-              </td>
-            </tr>
-            <tr>
-              <td><u>After reaction</u> is complete</td>
-              <td>
-                <textarea
-                  class="text essay num"
-                  id="beaker1A"
-                  name="beaker1A"
-                ></textarea>
-              </td>
-              <td>
-                <textarea
-                  class="text essay num"
-                  id="beaker2A"
-                  name="beaker2A"
-                ></textarea>
-              </td>
-            </tr>
-          </table>
-        </div>
-
-        <p></p>
-        <div class="noBreak">
-          Table 3:
-          <table>
-            <tr>
-              <td>Mass of beaker 1 &amp contents:</td>
-              <td style="text-align: center">
-                <input
-                  type="number"
-                  class="num"
-                  id="beaker1ContentsMass"
-                  name="beaker1ContentsMass"
-                       step="any"
-                />
-                g&nbsp;
-              </td>
-            </tr>
-            <tr>
-              <td>Mass of CuCl<sub>2</sub>·2H<sub>2</sub>O in Beaker 3</td>
-              <td style="text-align: center">
-                <input
-                  type="number"
-                  class="num"
-                  id="beaker3CuSaltMass"
-                  name="beaker3CuSaltMass"
-                       step="any"
-                />
-                g
-              </td>
-            </tr>
-            <tr>
-              <td>Mass of Al(s) in Beaker 3</td>
-              <td style="text-align: center">
-                <input
-                  type="number"
-                  class="num"
-                  id="beaker3AlMass"
-                  name="beaker3AlMass"
-                       step="any"
-                />
-                g
-              </td>
-            </tr>
-          </table>
-
           <p></p>
           <div class="noBreak">
-            Table 4: Observations for reaction (Beaker 3):
-            <table>
+            <b>Calculations and Analysis</b>:
               <tr>
-                <td></td>
-                <td>Beaker 3</td>
-              </tr>
-              <tr>
-                <td>
-                  <u>Initial</u> observations (immediately after being mixed)
-                </td>
-                <td>
-                  <textarea
-                    class="text essay num"
-                    id="beaker3I"
-                    name="beaker3I"
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td><u>Changes</u> during reaction</td>
-                <td>
-                  <textarea
-                    class="text essay num"
-                    id="beaker3C"
-                    name="beaker3C"
-                  ></textarea>
-                </td>
-              </tr>
-              <tr>
-                <td><u>After reaction</u> is complete</td>
-                <td>
-                  <textarea
-                    class="text essay num"
-                    id="beaker3A"
-                    name="beaker3A"
-                  ></textarea>
-                </td>
-              </tr>
-            </table>
-          </div>
-
-          <p></p>
-          <div class="noBreak">
-            Table 5: <b>ANALYSIS</b>:
-            <table>
-              <tr>
-                <td colspan="2">Beaker 1 calculations</td>
-              </tr>
-              <tr>
-                <td>Moles of CuCl<sub>2</sub>·2H<sub>2</sub>O</td>
+                <td>Mass of copper wire that reacted in this experiment:</td>
                 <td>
                   <input
                     type="number"
                     step="any"
                     class="calc num"
-                    id="B1MolCuSalt"
-                    name="B1MolCuSalt"
-                    formula="${beaker1CuSaltMass}/170.48"
-                    help="Divide your measured mass of copper(II) chloride dihydrate in beaker 1 by the molar mass of copper(II) chloride dihydrate (170.48 g/mol)"
+                    id="PLCumass"
+                    name="PLCumass"
+                    formula="${CuMass}-${Cu2Mass}"
+                    help="Subtract the mass of the leftover copper wire from the mass of the initial copper wire."
                   />
-                  mol
+                  g
                   <div
                     class="feedback"
-                    id="B1MolCuSaltFB"
-                    name="B1MolCuSaltFB"
+                    id="PLCumassFB"
+                    name="PLCumassFB"
                   ></div>
                 </td>
               </tr>
               <tr>
-                <td>Moles of Al(s)</td>
+                <td>Moles of copper wire that reacted in this experiment:</td>
                 <td>
                   <input
                     type="number"
                     step="any"
                     class="calc"
-                    id="B1MolAl"
-                    name="B1MolAl"
-                    formula="${beaker1AlMass}/26.98"
-                    help="Divide your measured mass of aluminium in beaker 1 by the molar mass of aluminum (26.98 g/mol)"
+                    id="molCu"
+                    name="molCu"
+                    formula="${PLCumass}/63.55"
+                    help="Divide your reacted mass of copper by the molar mass of copper (63.55 g/mol)"
                   />
                   mol
-                  <div class="feedback" id="B1MolAlFB" name="B1MolAlFB"></div>
+                  <div class="feedback" id="molCuFB" name="molCuFB"></div>
                 </td>
               </tr>
               <tr>
