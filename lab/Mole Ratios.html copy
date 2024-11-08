@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Limiting Reactant Lab</title>
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title">Limiting Reactant Lab</h1>
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
+      <input type="text" id="userName" name="userName" style="display: none" />
+
+      Read the prelab in Canvas. In this lab we will be learning about limiting
+      reactants. Be certain to follow all instructions. Always properly dispose
+      of broken glass and chemical waste according to your instructor.
+
+      <div class="noBreak">
+        <h3>Materials:</h3>
+        <ul>
+          <li>
+            Copper(II) chloride dihydrate (CuCl<sub>2</sub>·2H<sub>2</sub>O)
+          </li>
+          <li>Alumininum foil (Al)</li>
+          <li>Methanol</li>
+          <li>6 M Hydrochloric acid (HCl)</li>
+        </ul>
+        <h3>Per each group:</h3>
+        <ul>
+          <li>250 mL beakers (3)</li>
+          <li>Glass stirring rod</li>
+          <li>20-50 mL graduated cylinder</li>
+          <li>10 mL graduated cylinders (2)</li>
+          <li>Deionized water</li>
+          <li>Plastic pasteur pipets</li>
+          <li>Permenent marker or wax pencil</li>
+        </ul>
+      </div>
+      <div class="noBreak">
+        <h3>Equations and Calculations:</h3>
+        <ul>
+          <li>Molarity (M) = $\frac{mol_{solute}}{L{solution}}$</li>
+          <li>Molar mass = $\frac{grams}{mol}$</li>
+          <li>For aA → bB, Mole A x $\frac{b\;mol\;B}{a\;mol\;A}$ = Mol B</li>
+          <li>
+            Percent yield = $\frac{Actual\;yield}{Theoretical\;yield}$ x 100%<br /><br />
+          </li>
+        </ul>
+      </div>
+
+      <div class="noBreak">
+        <h3>Safety:</h3>
+        <ul>
+          <li>Goggles and nitril gloves must be worn at all times.</li>
+          <li>
+            NaOH is a strong base and can cause burns. Avoid contact with body
+            tissues.
+          </li>
+          <li>
+            Methanol is toxic if ingested or inhailed, and is very flamiable. Do
+            not use methanol near open flames.
+          </li>
+          <li>
+            Concentrated hydrochloric acid is a strong acid and can damage body
+            tissue. Avoid inhalation, ingestion, and contact body tissues. Store
+            in a ventilation hood.
+          </li>
+          <li>
+            Waste should not go down the drain. Store in a waste container
+            provided by your instructor.
+          </li>
+        </ul>
+      </div>
+      <div class="noBreak">
+        <h3>Procedure:</h3>
+        <ol>
+          <li>
+            Label two 150 mL beakers "1" and "2". Record the mass of beaker 1
+            (you will not need the mass of beaker 2).
+          </li>
+          <li>
+            Measure out the following amounts of
+            CuCl<sub>2</sub>·2H<sub>2</sub>O, add it to the respective beaker,
+            and record the actual masses.
+            <ul>
+              <li>Beaker 1: 0.50 g CuCl<sub>2</sub>·2H<sub>2</sub>O</li>
+              <li>Beaker 2: 0.70 g CuCl<sub>2</sub>·2H<sub>2</sub>O</li>
+            </ul>
+          </li>
+          <li>Add 10 mL deionized water to each of the beakers.</li>
+          <li>
+            Gently stir the solutions with a glass rod until the copper salt is
+            completely dissolved.
+          </li>
+          <li>
+            Measure out the following masses of aluminum foil and add the foil
+            to the respective beakers in small pieces. Record the actual masses.
+          </li>
+          <ul>
+            <li>Beaker 1: 0.25 g Al(s)</li>
+            <li>Beaker 2: 0.05 g Al(s)</li>
+          </ul>
+          <li>
+            Inspect the contents of each beaker and record your observations
+            (e.g. color, small, bubbling, heat formation, etc.).
+          </li>
+          <li>
+            Stir the contents of each beaker periodically with a glass stirring
+            rod and record any changes you observe.
+          </li>
+          <li>
+            If you completed the prelab, then you should know when the reactions
+            are complete. Once the reactions are complete, record the colors of
+            the beaker contents, how much solid Al remains, and any other
+            observations.
+          </li>
+          <li>Set beaker 2 aside.</li>
+          <li>
+            In beaker 1, if excess aluminum foil remains, then in a vent hood,
+            add 6 M HCl in small portions with constant stirring until the foil
+            is completely reacted.
+          </li>
+          <li>
+            Allow the solid copper to settle to the bottom, then use a plastic
+            Pasteur pipet to suction off the solution being careful not to lose
+            any of the copper.
+          </li>
+          <li>
+            Wash the copper solid with 15 mL of deionized water, let the solid
+            settle, and suction off the solution again. Repeat by washing and
+            suctioning again.
+          </li>
+          (note: this step washes away any dissolved ions)
+          <li>
+            Wash the copper solid with 10 mL of methanol, let the solid settle,
+            and suction off the solution.
+          </li>
+            (note: this step washes away the water, which evaporates slowly, and
+            replaces it with methanol which evaporates quickly)
+          <li>
+            In a vent hood, heat beaker 1 containing the copper solid on a hot
+            plate at a low setting ultil dry. Do not heat at high temperatures
+            for longer periods of time, because this may cause oxidation of the
+            copper.
+          </li>
+          <li>
+            Cool beaker 1, then record the mass of beaker 1 and its contents.
+          </li>
+          <li>Label a third 150 mL beaker "3".</li>
+          <li>
+            Add 0.70 g CuCl<sub>2</sub>·2H<sub>2</sub>O (record actual mass) and
+            10 mL deionized water to beaker 3.
+          </li>
+          <li>
+            Determine how much Al(s) is needed in grams (i.e. the stoichiometric
+            amount) in order to completely react all of the CuCl<sub>2</sub>.
+            Measure this amount out, record the mass, and add it to the beaker
+            in small pieces.
+          </li>
+          <li>
+            Record your observations before the reaction (initially), during the
+            reaction, and at the end of the reaction.
+          </li>
+          <li>
+            Dispose of the contents of the beakers in a container specified by
+            your instructor.
+          </li>
+          <li>Complete the calculations in the analysis section.</li>
+        </ol>
+      </div>
+
+      <p></p>
+      <div class="noBreak">
+        Table 1:
+        <table>
+          <tr>
+            <td>Mass of beaker 1:</td>
+            <td style="text-align: center">
+              <input
+                type="number"
+                class="num"
+                id="beaker1Mass"
+                name="beaker1Mass"
+                     step="any"
+              />
+              g&nbsp;
+            </td>
+          </tr>
+          <tr>
+            <td>Mass of CuCl<sub>2</sub>·2H<sub>2</sub>O in Beaker 1</td>
+            <td style="text-align: center">
+              <input
+                type="number"
+                class="num"
+                id="beaker1CuSaltMass"
+                name="beaker1CuSaltMass"
+                     step="any"
+              />
+              g
+            </td>
+          </tr>
+          <tr>
+            <td>Mass of CuCl<sub>2</sub>·2H<sub>2</sub>O in Beaker 2</td>
+            <td style="text-align: center">
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="beaker2CuSaltMass"
+                name="beaker2CuSaltMass"
+              />
+              g
+            </td>
+          </tr>
+          <tr>
+            <td>Mass of Al(s) in Beaker 1</td>
+            <td style="text-align: center">
+              <input
+                type="number"
+                class="num"
+                id="beaker1AlMass"
+                name="beaker1AlMass"
+                     step="any"
+              />
+              g
+            </td>
+          </tr>
+          <tr>
+            <td>Mass of Al(s) in Beaker 2</td>
+            <td style="text-align: center">
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="beaker2AlMass"
+                name="beaker2AlMass"
+              />
+              g
+            </td>
+          </tr>
+        </table>
+
+        <p></p>
+        <div class="noBreak">
+          Table 2: Observations for reaction (Beakers 1 &amp; 2):
+          <table>
+            <tr>
+              <td></td>
+              <td>Beaker 1</td>
+              <td>Beaker 2</td>
+            </tr>
+            <tr>
+              <td>
+                <u>Initial</u> observations (immediately after being mixed)
+              </td>
+              <td>
+                <textarea
+                  class="text essay num"
+                  id="beaker1I"
+                  name="beaker1I"
+                ></textarea>
+              </td>
+              <td>
+                <textarea
+                  class="text essay num"
+                  id="beaker2I"
+                  name="beaker2I"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td><u>Changes</u> during reaction</td>
+              <td>
+                <textarea
+                  class="text essay num"
+                  id="beaker1C"
+                  name="beaker1C"
+                ></textarea>
+              </td>
+              <td>
+                <textarea
+                  class="text essay num"
+                  id="beaker2C"
+                  name="beaker2C"
+                ></textarea>
+              </td>
+            </tr>
+            <tr>
+              <td><u>After reaction</u> is complete</td>
+              <td>
+                <textarea
+                  class="text essay num"
+                  id="beaker1A"
+                  name="beaker1A"
+                ></textarea>
+              </td>
+              <td>
+                <textarea
+                  class="text essay num"
+                  id="beaker2A"
+                  name="beaker2A"
+                ></textarea>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <p></p>
+        <div class="noBreak">
+          Table 3:
+          <table>
+            <tr>
+              <td>Mass of beaker 1 &amp contents:</td>
+              <td style="text-align: center">
+                <input
+                  type="number"
+                  class="num"
+                  id="beaker1ContentsMass"
+                  name="beaker1ContentsMass"
+                       step="any"
+                />
+                g&nbsp;
+              </td>
+            </tr>
+            <tr>
+              <td>Mass of CuCl<sub>2</sub>·2H<sub>2</sub>O in Beaker 3</td>
+              <td style="text-align: center">
+                <input
+                  type="number"
+                  class="num"
+                  id="beaker3CuSaltMass"
+                  name="beaker3CuSaltMass"
+                       step="any"
+                />
+                g
+              </td>
+            </tr>
+            <tr>
+              <td>Mass of Al(s) in Beaker 3</td>
+              <td style="text-align: center">
+                <input
+                  type="number"
+                  class="num"
+                  id="beaker3AlMass"
+                  name="beaker3AlMass"
+                       step="any"
+                />
+                g
+              </td>
+            </tr>
+          </table>
+
+          <p></p>
+          <div class="noBreak">
+            Table 4: Observations for reaction (Beaker 3):
+            <table>
+              <tr>
+                <td></td>
+                <td>Beaker 3</td>
+              </tr>
+              <tr>
+                <td>
+                  <u>Initial</u> observations (immediately after being mixed)
+                </td>
+                <td>
+                  <textarea
+                    class="text essay num"
+                    id="beaker3I"
+                    name="beaker3I"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td><u>Changes</u> during reaction</td>
+                <td>
+                  <textarea
+                    class="text essay num"
+                    id="beaker3C"
+                    name="beaker3C"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td><u>After reaction</u> is complete</td>
+                <td>
+                  <textarea
+                    class="text essay num"
+                    id="beaker3A"
+                    name="beaker3A"
+                  ></textarea>
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <p></p>
+          <div class="noBreak">
+            Table 5: <b>ANALYSIS</b>:
+            <table>
+              <tr>
+                <td colspan="2">Beaker 1 calculations</td>
+              </tr>
+              <tr>
+                <td>Moles of CuCl<sub>2</sub>·2H<sub>2</sub>O</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B1MolCuSalt"
+                    name="B1MolCuSalt"
+                    formula="${beaker1CuSaltMass}/170.48"
+                    help="Divide your measured mass of copper(II) chloride dihydrate in beaker 1 by the molar mass of copper(II) chloride dihydrate (170.48 g/mol)"
+                  />
+                  mol
+                  <div
+                    class="feedback"
+                    id="B1MolCuSaltFB"
+                    name="B1MolCuSaltFB"
+                  ></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of Al(s)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc"
+                    id="B1MolAl"
+                    name="B1MolAl"
+                    formula="${beaker1AlMass}/26.98"
+                    help="Divide your measured mass of aluminium in beaker 1 by the molar mass of aluminum (26.98 g/mol)"
+                  />
+                  mol
+                  <div class="feedback" id="B1MolAlFB" name="B1MolAlFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of Cu(s) produced (theoretical)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B1MolCu"
+                    name="B1MolCu"
+                    formula="${B1MolCuSalt}"
+                    help="Based on which reactant is the limiting reactant either 1) Multiply the moles of copper(II) chloride dihydrate by the moles of copper in each mole of copper(II) chloride dihydrate or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of Cu(s)"
+                  />
+                  mol
+                  <div class="feedback" id="B1MolCuFB" name="B1MolCuFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Mass of Cu(s) produced (theoretical)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B1MassCu"
+                    name="B1MassCu"
+                    formula="${B1MolCuSalt}*63.55"
+                    help="Multiply the moles of copper(s) by the molar mass of copper (63.55 g/mol)."
+                  />
+                  g
+                  <div class="feedback" id="B1MassCuFB" name="B1MassCuFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Mass of Cu(s) produced (actual)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B1MassCuActual"
+                    name="B1MassCuActual"
+                    formula="${beaker1ContentsMass}-${beaker1Mass}"
+                    s
+                    help="The mass of copper is the difference between the mass of beaker 1 &amp contents and the mass of beaker 1 alone."
+                  />
+                  g
+                  <div
+                    class="feedback"
+                    id="B1MassCuActualFB"
+                    name="B1MassCuActualFB"
+                  ></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Percent yield of Cu(s)</td>
+                <td>
+                <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B1PercentYield"
+                    name="B1PercentYield"
+                    formula="abs(${B1MassCuActual}/${B1MassCu}*100)"
+                    help="The percent yield is the actual yield divided by the theoretical yield times 100%"
+                  />
+                  %
+                  <div
+                    class="feedback"
+                    id="B1PercentYieldFB"
+                    name="B1PercentYieldFB"
+                  ></div>
+                </td>
+              </tr>
+              <tr><td colspan="2">&nbsp;</td></tr>
+              
+              <tr>
+                <td colspan="2">Beaker 2 calculations</td>
+              </tr>
+              <tr>
+                <td>Moles of CuCl<sub>2</sub>·2H<sub>2</sub>O</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B2MolCuSalt"
+                    name="B2MolCuSalt"
+                    formula="${beaker2CuSaltMass}/170.48"
+                    help="Divide your measured mass of copper(II) chloride dihydrate in beaker 2 by the molar mass of copper(II) chloride dihydrate (170.48 g/mol)"
+                  />
+                  mol
+                  <div
+                    class="feedback"
+                    id="B2MolCuSaltFB"
+                    name="B2MolCuSaltFB"
+                  ></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of Al(s)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc"
+                    id="B2MolAl"
+                    name="B2MolAl"
+                    formula="${beaker2AlMass}/26.98"
+                    help="Divide your measured mass of aluminium in beaker 2 by the molar mass of aluminum (26.98 g/mol)"
+                  />
+                  mol
+                  <div class="feedback" id="B2MolAlFB" name="B2MolAlFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of Cu(s) produced (theoretical)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B2MolCu"
+                    name="B2MolCu"
+                    formula="${B2MolAl}*3/2"
+                    help="Based on which reactant is the limiting reactant either 1) Multiply the moles of copper(II) chloride dihydrate by the moles of copper in each mole of copper(II) chloride dihydrate or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of Cu(s)"
+                  />
+                  mol
+                  <div class="feedback" id="B2MolCuFB" name="B2MolCuFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of of AlCl<sub>3</sub>(aq) produced (theoretical)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B2MolCuTheor"
+                    name="B2MolCuTheor"
+                    formula="${B2MolAl}"
+                    help="Based on which reactant is the limiting reactant either 1) Use a mole-to-mole ratio to convert from moles of copper(II) chloride dihydrate to moles of AlCl3  or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of AlCl3"
+                  />
+                  mol
+                  <div class="feedback" id="B2MolCuTheorFB" name="B2MolCuTheorFB"></div>
+                </td>
+              </tr>
+              <tr><td colspan="2">&nbsp;</td></tr>
+              
+                            <tr>
+                <td colspan="2">Beaker 3 calculations</td>
+              </tr>
+              <tr>
+                <td>Moles of CuCl<sub>2</sub>·2H<sub>2</sub>O</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B3MolCuSalt"
+                    name="B3MolCuSalt"
+                    formula="${beaker3CuSaltMass}/170.48"
+                    help="Divide your measured mass of copper(II) chloride dihydrate in beaker 3 by the molar mass of copper(II) chloride dihydrate (170.48 g/mol)"
+                  />
+                  mol
+                  <div
+                    class="feedback"
+                    id="B3MolCuSaltFB"
+                    name="B3MolCuSaltFB"
+                  ></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of Al(s)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc"
+                    id="B3MolAl"
+                    name="B3MolAl"
+                    formula="${beaker3AlMass}/26.98"
+                    help="Divide your measured mass of aluminium in beaker 3 by the molar mass of aluminum (26.98 g/mol)"
+                  />
+                  mol
+                  <div class="feedback" id="B3MolAlFB" name="B3MolAlFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of Cu(s) produced (theoretical)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B3MolCu"
+                    name="B3MolCu"
+                    formula="${B3MolAl}*3/2"
+                    help="Either 1) Multiply the moles of copper(II) chloride dihydrate by the moles of copper in each mole of copper(II) chloride dihydrate or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of Cu(s)"
+                  />
+                  mol
+                  <div class="feedback" id="B3MolCuFB" name="B3MolCuFB"></div>
+                </td>
+              </tr>
+              <tr>
+                <td>Moles of of AlCl<sub>3</sub>(aq) produced (theoretical)</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    class="calc num"
+                    id="B3MolAlCl3Theor"
+                    name="B3MolAlCl3Theor"
+                    formula="${B3MolAl}"
+                    help="Either 1) Use a mole-to-mole ratio to convert from moles of copper(II) chloride dihydrate to moles of AlCl3  or 2) Use a mole-to-mole ration to convert from moles of Al(s) to moles of AlCl3"
+                  />
+                  mol
+                  <div class="feedback" id="B3MolAlCl3TheorFB" name="B3MolAlCl3TheorFB"></div>
+                </td>
+              </tr>
+              
+              
+              
+            </table>
+          </div>
+        </div>
+      </div>
+<p></p>
+      <div class="footer">Limiting Reactants</div>
+      <!-- title -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
