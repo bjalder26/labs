@@ -1009,6 +1009,10 @@ if (isAnyChecked) {
   form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent the default form submission
     // Convert the FormData object to a JavaScript object
+    
+    const savebutton = $("savebutton");
+    savebutton.click();
+    
     const formData = {};
     for (const pair of new FormData(form)) {
       formData[pair[0]] = pair[1];
@@ -1035,9 +1039,8 @@ if (isAnyChecked) {
         //alert("Failed to save data.");
         
         setTimeout(function() {
-          const savebutton = $("savebutton");
           savebutton.click();
-        }, 300000);
+        }, 30000);
         
         const buttonBar = $('button_bar');
         buttonBar.style.backgroundColor = '#fb2727';
@@ -1049,9 +1052,8 @@ if (isAnyChecked) {
       //alert("Network error occurred.");
       
       setTimeout(function() {
-          const savebutton = $("savebutton");
           savebutton.click();
-        }, 300000);
+        }, 30000);
       
       const buttonBar = $('button_bar');
       buttonBar.style.backgroundColor = '#fb2727';
