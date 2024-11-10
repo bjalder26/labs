@@ -1007,8 +1007,6 @@ if (isAnyChecked) {
   const form = $("labdataform");
 
   form.addEventListener("submit", async (event) => {
-    const savebutton = $("savebutton");
-          savebutton.click();
     event.preventDefault(); // Prevent the default form submission
     // Convert the FormData object to a JavaScript object
     const formData = {};
@@ -1037,6 +1035,7 @@ if (isAnyChecked) {
         //alert("Failed to save data.");
         
         setTimeout(function() {
+          const savebutton = $("savebutton");
           savebutton.click();
         }, 300000);
         
@@ -1050,6 +1049,7 @@ if (isAnyChecked) {
       //alert("Network error occurred.");
       
       setTimeout(function() {
+          const savebutton = $("savebutton");
           savebutton.click();
         }, 300000);
       
