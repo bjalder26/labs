@@ -18,7 +18,7 @@
       //PARAMS**GO**HERE
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-    <h1 id="title">Mole Ratios Lab</h1>
+    <h1 id="title">Mole Ratios Lab Assignment</h1>
     Name:
     <div id="name"></div>
     <br />
@@ -444,7 +444,8 @@
             then round up to the nearest whole number. Otherwise, check chart 2
             for the nearest fraction, and multiply both mole amounts by the
             corresponding number in the chart, then round to the nearest whole
-            number. Decimal of higher of the two mol numbers <!-- (e.g. if your higher number is 1.14, then type in .14) -->:
+            number. Decimal of higher of the two mol numbers
+            <!-- (e.g. if your higher number is 1.14, then type in .14) -->:
             <input
               type="number"
               class="calc lookup"
@@ -517,45 +518,45 @@
             </div>
             <br />
             Write in the mole ratio for silver to copper below.
-         
-<table class="center"
-<tr><th>moles of silver : moles of copper &nbsp; &nbsp; 
-<tr>
-  <td>
-  <input
-              type="number"
-              class="calc symbol"
-              step="1"
-              id="molAg4"
-              name="molAg4"
-              formula="round(${molAg3}*${decimalLV})"
-              help="Round the moles of silver if your fraction is below 0.125 or above 0.875, or by the number found in the 3rd column of Decimals and Fractions Table"
-            />
-<b>:</b>
-  <input
-              type="number"
-              class="calc symbol"
-              step="1"
-              id="molCu4"
-              name="molCu4"
-              formula="round(${molCu3}*${decimalLV})"
-              help="Round the moles of copper if your fraction is below 0.125 or above 0.875, or by the number found in the 3rd column of Table 2"
-            /><div class="feedback" id="molAg4FB" name="molAg4FB"></div><div class="feedback" id="molCu4FB" name="molCu4FB"></div>
-  </td>
-  </tr>
-            </th></table>
 
-            
-         
+            <table class="center" <tr>
+              <th>
+                moles of silver : moles of copper &nbsp; &nbsp;
+                <tr>
+                  <td>
+                    <input
+                      type="number"
+                      class="calc symbol"
+                      step="1"
+                      id="molAg4"
+                      name="molAg4"
+                      formula="round(${molAg3}*${decimalLV})"
+                      help="Round the moles of silver if your fraction is below 0.125 or above 0.875, or by the number found in the 3rd column of Decimals and Fractions Table"
+                    />
+                    <b>:</b>
+                    <input
+                      type="number"
+                      class="calc symbol"
+                      step="1"
+                      id="molCu4"
+                      name="molCu4"
+                      formula="round(${molCu3}*${decimalLV})"
+                      help="Round the moles of copper if your fraction is below 0.125 or above 0.875, or by the number found in the 3rd column of Table 2"
+                    />
+                    <div class="feedback" id="molAg4FB" name="molAg4FB"></div>
+                    <div class="feedback" id="molCu4FB" name="molCu4FB"></div>
+                  </td>
+                </tr>
+              </th>
+            </table>
+
             <br />
             <br />
             Use the silver/copper mole ratio to write the balanced chemical
             equation for the reaction of copper and silver nitrate.
             <br />
-            
-            
-             
-           <input
+
+            <input
               type="number"
               class="calc symbol"
               step="1"
@@ -563,8 +564,8 @@
               name="molCu5"
               formula="${molCu4}"
               help="Same as the moles of copper in the mole ratio above."
-            /> 
-            Cu(s) + 
+            />
+            Cu(s) +
             <input
               type="number"
               class="calc symbol"
@@ -573,9 +574,8 @@
               name="molAg5"
               formula="${molAg4}"
               help="Same as the moles of silver in the mole ratio above."
-            /> 
-            AgNO<sub>3</sub> (aq) 
-            → 
+            />
+            AgNO<sub>3</sub> (aq) →
             <input
               type="number"
               class="calc symbol"
@@ -584,21 +584,21 @@
               name="molCu6"
               formula="${molCu5}"
               help="Has to be the same as the moles on the reactant side."
-            /> 
-            Cu(NO<sub>3</sub>)
-              <sub>
-             <input
-              type="number"
-              class="calc"
-              style="width: 25px; height: 10px; line-height: 10px;"
-              step="1"
-              id="molAg6"
-              name="molAg6"
-              formula="${molAg5}"
-              help="Has to be the same as the moles of silver nitrate on the reactant side."
             />
+            Cu(NO<sub>3</sub>)
+            <sub>
+              <input
+                type="number"
+                class="calc"
+                style="width: 25px; height: 10px; line-height: 10px"
+                step="1"
+                id="molAg6"
+                name="molAg6"
+                formula="${molAg5}"
+                help="Has to be the same as the moles of silver nitrate on the reactant side."
+              />
             </sub>
-            (aq) + 
+            (aq) +
             <input
               type="number"
               class="calc symbol"
@@ -607,14 +607,14 @@
               name="molAg7"
               formula="${molAg5}"
               help="Has to be the same as the moles of silver on the reactant side."
-            />  
+            />
             Ag(s)
             <div class="feedback" id="molCu5FB" name="molCu5FB"></div>
             <div class="feedback" id="molAg5FB" name="molAg5FB"></div>
             <div class="feedback" id="molCu6FB" name="molCu6FB"></div>
             <div class="feedback" id="molAg6FB" name="molAg6FB"></div>
-            <div class="feedback" id="molAg7FB" name="molAg7FB"></div>      
-            
+            <div class="feedback" id="molAg7FB" name="molAg7FB"></div>
+
             <br />
             Did all the silver nitrate react in this experiment? Explain your
             reasoning. What factors might account for this?
