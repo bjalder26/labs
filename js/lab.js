@@ -739,6 +739,7 @@ if (matches) {
     });
       
       // When the user clicks on the div
+    if(symbolDiv) {
     symbolDiv.addEventListener("click", function() {
         const thisSymbolInput = $(this.id.replace(/DIV$/, ""));
         this.style.display = "none";
@@ -749,6 +750,7 @@ if (matches) {
     });
       
   }
+    }
   
     const subInputs = document.getElementsByClassName("sub");
   
