@@ -1011,7 +1011,6 @@ if (isAnyChecked) {
     // Convert the FormData object to a JavaScript object
     
     const savebutton = $("savebutton");
-    savebutton.click();
     
     const formData = {};
     for (const pair of new FormData(form)) {
