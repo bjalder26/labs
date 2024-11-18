@@ -1,1 +1,1 @@
-{}
+{"labName":"Synthesis Of Calcium Carbonate","userName":"David Edwards","neededVolCaCl2":"99.1","volCaCl2":"100.0","volNa2CO3":"101.0","MCaCl2":".10","MNa2CO3":".20","observations":"Mixture turned murky white. It cleared up and separated after heating.","massFilter":"49.964","massFilter&CaCO3":"50.81","massCaCO3":".846","volCaCl2-2":"100","theoreticalMassCaCO3":"1.0009","theoreticalYieldCaCO3":"84.6","conclusion":"Small amount of CaCO3 could still be in liquid solution. Couldn't fully empty 400ml beaker. Spilled some of the mixture when transferring to filter paper."}
