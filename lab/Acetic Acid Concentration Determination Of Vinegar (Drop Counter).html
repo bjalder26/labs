@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Acetic Acid Concentration Determination of Vinegar (Titration)
+    </title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      input[type="number" i] {
+        max-width: 100px;
+      }
+    </style>
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <h1 id="title">
+      Acetic Acid Concentration Determination of Vinegar (Titration)
+    </h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
+      <input type="text" id="userName" name="userName" style="display: none" />
+      <!-- Beginning -->
+
+      <div class="noBreak">
+        <h3>Chemicals and lab equipment:</h3>
+        <ul>
+          <li>Large waste beaker</li>
+          <li>Solid KHP (potassium hydrogen phthalate) (204.22 g/mol)</li>
+          <li>5% acetic acid vinegar (~30 mL per group)</li>
+          <li>250 mL beaker</li>
+          <li>0.25 M NaOH solution (~150 mL per group)</li>
+          <li>400 mL beaker</li>
+          <li>Evaporation dish or watch glass</li>
+          <li>Scale</li>
+          <li>Weighing boats</li>
+          <li>Scoopulas or spatulas</li>
+        </ul>
+      </div>
+
+      <div class="noBreak">
+        <h3>Each lab group:</h3>
+        <ul>
+          <li>LabQuest</li>
+          <li>pH probe</li>
+          <li>50 mL buret</li>
+          <li>Ring stand &amp; buret clamp</li>
+          <li>Funnel</li>
+          <li>Phenopthalene</li>
+          <li>(2) 250 mL Erlenmeyer flasks</li>
+          <li>50 mL graduated cylinder</li>
+          <li>100 mL beaker</li>
+          <li>10 mL volumetric pipet or graduate pipet</li>
+          <li>Pipet pump</li>
+          <li>Plastic (Pasteur) pipet</li>
+          <li>White piece of paper</li>
+          <li>Rubber stopper for flask</li>
+          <li>Stir plate</li>
+          <li>Stir bar</li>
+          <li>400 mL beaker waste beaker</li>
+          <li>Permanent marker</li>
+          <li>Wash bottle with deionized water</li>
+        </ul>
+      </div>
+
+      <div class="noBreak">
+        <h3>Equations and calculations:</h3>
+        Molarity (M) = $\frac{mol_{solute}}{L_{solution}}$<br />
+        Molar mass = $\frac{grams}{mol}$<br />
+        For aA → bB, Mole A x $\frac{b\;mol\;B}{a\;mol\;A}$ = Mol B<br />
+      </div>
+
+      <div class="noBreak">
+        <h3>Safety:</h3>
+        <ul>
+          <li>
+            NaOH is corrosive, and can cause chemical burns to the skin, eyes,
+            and respiratory system.
+          </li>
+          <li>
+            Acetic acid (HC<sub>2</sub>H<sub>3</sub>O<sub>2</sub>) is an
+            irritant to the eyes, skin, and respiratory system.
+          </li>
+          <li>
+            KHP (potassium hydrogen phthalate) is an eye and skin irritant, and
+            can cause damage to the respiratory system.
+          </li>
+          <li>Wear safety goggles or glasses at all times.</li>
+          <li>Wear nitrile gloves at all times.</li>
+        </ul>
+      </div>
+
+      <div class="noBreak">
+        <h3>Procedure:</h3>
+        <h4>Part A: Setting up your titration apparatus.</h4>
+        You will set up your titration apparatus and rinse your buret with water
+        and 15 mL of NaOH.
+      </div>
+      <ol>
+        <li>
+          Set up your titration apparatus (see figure 1).<br />
+          Figure 1: Titration apparatus<br />
+        </li>
+        <img height="300px" src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/titrationapparatus.png?v=1722891133145" alt="titration apparatus" title="titration apparatus"/>
+        <p></p>
+
+        <li>
+          Rinse your buret by filling your buret with deionized water, then let
+          all of it run into your waste beaker.
+        </li>
+        <li>
+          Obtain approximately 150 mL of NaOH in a 250 mL Erlenmeyer flask and
+          bring it back to your lab bench. Make sure to keep this solution
+          stoppered when not in use.
+        </li>
+        <li>
+          Pour about 60 mL of the NaOH solution from your flask into your 100 mL
+          beaker.
+        </li>
+        <li>
+          From your 100 mL beaker, fill the buret with NaOH solution using a
+          funnel (with the stop cock horizontal/closed).
+        </li>
+        <li>
+          Drain the NaOH, then refill the buret as close to the 0.0 mL mark as
+          possible (a small amount may remain at the bottom of the buret).
+        </li>
+        <li>
+          Record the volume of the NaOH solution to 2 decimal places in table 1
+          as your beginning volume (note: this should be the number you read of
+          the buret, which is approximately 0.00 mL, not your estimate of how
+          much NaOH is in the buret). Part A: Standardization of a NaOH solution
+          with KHP.
+        </li>
+        <li>
+          Because NaOH solutions are basic, they will absorb carbon dioxide from
+          the air, which will neutralize the base over time. For this reason, it
+          is important to standardize the concentration of NaOH at the beginning
+          of your experiment. Since all groups will be using the same NaOH
+          solution, you will average your results to get a more accurate
+          molarity. To standardize the NaOH solution you will measure out a mass
+          of solid KHP on a scale, because that gives a very accurate and
+          precise measurement.
+        </li>
+        <li>
+          Measure out 1.000 g to 1.200 g of KHP in a weighing boat. Remember to
+          tare the scale after placing the weighing boat on it so that you’re
+          only measuring the mass of the KHP. Record your actual mass in table
+          1.
+        </li>
+        <li>
+          Measure out 50 mL of deionized water with the 50 mL graduated
+          cylinder.
+        </li>
+        <li>
+          Dissolve your sample of KHP in 50 mL of deionized water in a 250 mL
+          flask.
+        </li>
+        <li>Add 2-3 drops of phenolphthalein to the solution.</li>
+        <li>
+          Add the magnetic stirring rod to the solution of KHP and place the
+          beaker under the buret.
+        </li>
+        <li>
+          Calculate the estimated amount of approximately 0.25 M NaOH needed to
+          neutralize the amount of KHP you measured.
+        </li>
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="massKHP"
+          name="massKHP"
+        />
+        g KHP x $\frac{1\;mol\;KHP}{204.22\;g\;KHP}$ x
+        $\frac{1\;mol\;NaOH}{1\;mol\;KHP}$ x
+        $\frac{1\;L\;NaOH}{0.25\;mol\;NaOH}$ x $\frac{1000\;mL}{1\;L}$ =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="estVolNaOH"
+          name="estVolNaOH"
+          formula="${massKHP}/204.22/0.25*1000"
+          help="Follow the calculation to the left"
+        />
+        <div class="feedback" id="estVolNaOHFB" name="estVolNaOHFB"></div>
+        mL NaOH
+        <li>Record this volume in table 1.</li>
+        <li>
+          Turn the stirring plate on to a rotation slow enough to prevent
+          splashing.
+        </li>
+        <li>
+          Since you have an estimate of the approximate amount of NaOH needed to
+          neutralize your amount of KHP, you can quickly add about 75% of that
+          value, but then slow down after that point.
+        </li>
+        <li>
+          One you start to see puffs of pink in the solution, make sure that you
+          have slowed the buret down to about 1 drop per second (or slower).
+        </li>
+        <li>
+          When the puffs of pink reach about 50% of the volume of the solution
+          before the color goes away, you are likely within a few drops of the
+          end point, and you should start adding one drop at a time.
+        </li>
+        <li>
+          You can use a few drops from your wash bottle to wash a drop sticking
+          to the bottom of the buret if you think that might be the last drop
+          needed.
+        </li>
+        <li>
+          Your solution should be the lightest color pink you can achieve with
+          the solution remaining pink for at least 30 seconds.
+        </li>
+        <li>
+          Once you reach the end point, record the final volume (the volume you
+          read off the buret, which should be close to the estimated required
+          volume, not the volume you estimate is in the buret) in table 1, and
+          calculate the volume of NaOH solution you used.
+        </li>
+        <li>
+          Pour the slightly pink solution down the drain with running water.
+        </li>
+        <br />
+        <div class="noBreak">
+          Table 1:
+          <h4>Mass of KHP and Volume of NaOH</h4>
+          <table>
+            <tr>
+              <td>KHP (g)</td>
+              <td>
+                <input
+                  type="number"
+                  class="calc"
+                  step="any"
+                  id="massKHP2"
+                  name="massKHP2"
+                  formula="${massKHP}"
+                  help="Mass of KHP should match your mass in #13 above."
+                />
+                <div class="feedback" id="massKHP2FB" name="massKHP2FB"></div>
+              </td>
+            </tr>
+            <tr>
+              <td>Estimated volume of NaOH needed to reach end point (mL)</td>
+              <td>
+                <input
+                  type="number"
+                  class="calc"
+                  step="any"
+                  id="estVolNaOH2"
+                  name="estVolNaOH2"
+                  formula="${estVolNaOH}"
+                  help="Estimated volume of NaOH should match your mass in #13 above."
+                />
+                <div
+                  class="feedback"
+                  id="estVolNaOH2FB"
+                  name="estVolNaOH2FB"
+                ></div>
+              </td>
+            </tr>
+            <tr>
+              <td>Volume NaOH - beginning (mL)</td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="begVolNaOH"
+                  name="begVolNaOH"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Volume NaOH - end (mL)</td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="endVolNaOH"
+                  name="endVolNaOH"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Volume NaOH used (end - beginning) (mL)</td>
+              <td>
+                <input
+                  type="number"
+                  class="calc"
+                  step="any"
+                  id="volNaOH"
+                  name="volNaOH"
+                  formula="${endVolNaOH}-${begVolNaOH}"
+                  help="Ending volume of NaOH minus beginning volume of NaOH."
+                />
+                <div class="feedback" id="volNaOHFB" name="volNaOHFB"></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <li>
+          Calculate the molarity of your NaOH solution based on your results.
+        </li>
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="massKHP3"
+          name="massKHP3"
+          formula="${massKHP}"
+          help="Mass of KHP should match your mass in #13 above."
+        />
+        g KHP x $\frac{1 mol KHP}{204.22 g KHP}$ x $\frac{1 mol NaOH}{1 mol
+        KHP}$ =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="molNaOH"
+          name="molNaOH"
+          formula="${massKHP3}/204.22"
+          help="Follow the calculation to the left."
+        />
+        mol NaOH
+        <div class="feedback" id="massKHP3FB" name="massKHP3FB"></div>
+        <div class="feedback" id="molNaOHFB" name="molNaOHFB"></div>
+        <br />
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="volNaOH2"
+          name="volNaOH2"
+          formula="${volNaOH}"
+          help="Should match your volume of NaOH used in table 1."
+        />
+        <div class="feedback" id="volNaOH2FB" name="volNaOH2FB"></div>
+        mL NaOH solution x $\frac{1 L}{1000 mL}$ =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="volNaOH3"
+          name="volNaOH3"
+          formula="${volNaOH2}/1000"
+          help="Divide the volume of NaOH in mL by 1000"
+        />
+        <div class="feedback" id="volNaOH3FB" name="volNaOH3FB"></div>
+        L NaOH solution<br />
+        Molarity (M) = $\frac{mol_{solute}}{L_{solution}}$ =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="MNaOH"
+          name="MNaOH"
+          formula="${molNaOH}/${volNaOH3}"
+          help="mol NaoH divided by L of NaOH solution"
+        />
+        <div class="feedback" id="MNaOHFB" name="MNaOHFB"></div>
+        M<br />
+        <li>
+          Create a table like table 2 below on the board, to collect every
+          group’s data, then take an average of your molarities.
+        </li>
+
+        <div class="noBreak">
+          Table 2:
+          <h4>Standardized molarity of NaOH</h4>
+          <table>
+            <tr>
+              <td></td>
+              <td>Group 1</td>
+              <td>Group 2</td>
+              <td>Group 3</td>
+              <td>Group 4</td>
+              <td>Group 5</td>
+              <td>Group 6</td>
+              <td>Group 7</td>
+              <td>Group 8</td>
+              <td>Average</td>
+            </tr>
+            <tr>
+              <td>Molarity (M)</td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG1"
+                  name="MNaOHG1"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG2"
+                  name="MNaOHG2"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG3"
+                  name="MNaOHG3"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG4"
+                  name="MNaOHG4"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG5"
+                  name="MNaOHG5"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG6"
+                  name="MNaOHG6"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG7"
+                  name="MNaOHG7"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG8"
+                  name="MNaOHG8"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="calc"
+                  step="any"
+                  id="MNaOHAve"
+                  name="MNaOHAve"
+                  formula="mean(filter('${MNaOHG1}', '${MNaOHG2}', '${MNaOHG3}', '${MNaOHG4}', '${MNaOHG5}', '${MNaOHG6}', '${MNaOHG7}', '${MNaOHG8}'))"
+                  help="Add the molarities from each group, then divide by the number of groups"
+                />
+                <div class="feedback" id="MNaOHAveFB" name="MNaOHAveFB"></div>
+              </td>
+              <!--  -->
+            </tr>
+          </table>
+        </div>
+
+        <li>Use the average molarity of NaOH for any further calculations.</li>
+        Part A: Determination of acetic acid
+        (HC<sub>2</sub>H<sub>3</sub>O<sub>2</sub>) concentration in vinegar.
+        <li>Refill the buret as close to the 0.0 mL mark as possible.</li>
+        <li>
+          Record the volume of the NaOH solution to 2 decimal places in table 3.
+        </li>
+        <li>
+          Obtain 10 mL of vinegar using a 10 mL volumetric or graduated pipet
+          and put it in another 250 mL flask. Record the actual mL of vinegar
+          below.
+        </li>
+
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="volVinegar"
+          name="volVinegar"
+        />
+        mL Vinegar
+
+        <li>
+          Add 2-3 drops of phenolphthalein and the magnetic stirring rod to the
+          vinegar.
+        </li>
+        <li>
+          Turn the stirring plate on to a rotation slow enough to prevent
+          splashing.
+        </li>
+        <li>
+          One you start to see puffs of pink in the solution, make sure that you
+          have slowed the buret down to about 1 drop per second (or slower).
+        </li>
+        <li>
+          When the puffs of pink reach about 50% of the volume of the solution
+          before the color goes away, you are likely within a few drops of the
+          end point, and you should start adding one drop at a time.
+        </li>
+        <li>
+          You can use a few drops from your wash bottle to wash a drop sticking
+          to the bottom of the buret if you think that might be the last drop
+          needed.
+        </li>
+        <li>
+          Your solution should be the lightest color pink you can achieve with
+          the solution remaining pink for at least 30 seconds.
+        </li>
+        <li>
+          Once you reach the end point, record the final volume in table 3, and
+          calculate the volume of NaOH solution you used.
+        </li>
+        <li>
+          Pour the slightly pink solution down the drain with running water.
+        </li>
+
+        <div class="noBreak">
+          Table 3:
+          <table>
+            <tr>
+              <td>Vinegar (mL)</td>
+              <td>
+                <input
+                  type="number"
+                  class="calc"
+                  step="any"
+                  id="volVinegar2"
+                  name="volVinegar2"
+                  formula="${volVinegar}"
+                  help="Same volume of vinegar as above in #28."
+                />
+                <div
+                  class="feedback"
+                  id="volVinegar2FB"
+                  name="volVinegar2FB"
+                ></div>
+              </td>
+            </tr>
+            <tr>
+              <td>Volume NaOH - beginning (mL)</td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="vBegVolNaOH2"
+                  name="vBegVolNaOH2"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Volume NaOH - end (mL)</td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="vEndVolNaOH2"
+                  name="vEndVolNaOH2"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Volume NaOH used (end - beginning) (mL)</td>
+              <td>
+                <input
+                  type="number"
+                  class="calc"
+                  step="any"
+                  id="vVolNaOH"
+                  name="vVolNaOH"
+                  formula="${vEndVolNaOH2}-${vBegVolNaOH2}"
+                  help="Subtract the beginning volume of NaOH from the end volume of NaOH."
+                />
+                <div class="feedback" id="vVolNaOHFB" name="vVolNaOHFB"></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <li>
+          Use your volume at equivalence point to calculate the molarity of the
+          vinegar solution. Remember to input the average molarity of NaOH from
+          24.
+        </li>
+
+        HC<sub>2</sub>H<sub>3</sub>O<sub>2</sub>
+        (aq) + NaOH (aq) ➞ H<sub>2</sub>O (l) +
+        NaC<sub>2</sub>H<sub>3</sub>O<sub>2</sub>
+        (aq)
+        <br />
+
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="vVolNaOH2"
+          name="vVolNaOH2"
+          formula="${vVolNaOH}"
+          help="Same as volume NaOH used above."
+        />
+        mL NaOH
+        <div class="feedback" id="vVolNaOH2FB" name="vVolNaOH2FB"></div>
+        x $\frac{1\;L}{1000\;mL}$ x
+        <table
+          style="display: inline-block; border: none; vertical-align: middle"
+        >
+          <tr>
+            <td style="border: none">
+              <input
+                type="number"
+                class="calc"
+                step="any"
+                id="MNaOHAve2"
+                name="MNaOHAve2"
+                formula="${MNaOHAve}"
+                help="Same as average molarity NaOH calculated above (table 2)."
+              />
+              mol NaOH
+              <div class="feedback" id="MNaOHAve2FB" name="MNaOHAve2FB"></div>
+            </td>
+          </tr>
+          <tr>
+            <td style="border-width: 1px 0 0 0">1 L NaOH}</td>
+          </tr>
+        </table>
+        x $\frac{1\;mol\;acetic\;acid}{1\;mol\;NaOH}$ =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="molAA"
+          name="molAA"
+          formula="${vVolNaOH2}*${MNaOHAve2}/1000"
+          help="mL of NaOH divided by 1000 and times molarity of NaOH."
+        />
+        mol acetic acid
+        <div class="feedback" id="molAAFB" name="molAAFB"></div>
+        <br />
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="mlVinegar"
+          name="mlVinegar"
+          formula="${volVinegar2}"
+          help="Same volume of vinegar as above."
+        />
+        mL vinegar
+        <div class="feedback" id="mlVinegarFB" name="mlVinegarFB"></div>
+        x $\frac{1\;L}{1000\;mL}$ =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="lVinegar"
+          name="lVinegar"
+          formula="${mlVinegar}/1000"
+          help="mL vinegar divided by 1000"
+        />
+        L vinegar
+        <div class="feedback" id="lVinegarFB" name="lVinegarFB"></div>
+        <br />
+        Molarity (M) of acetic acid in vinegar =
+        $\frac{mol_{solute}}{L_{solution}}$ =
+        <input
+          type="number"
+          class="calc"
+          step="any"
+          id="MVinegar"
+          name="MVinegar"
+          formula="${molAA}/${lVinegar}"
+          help="Moles of acetic acid divided by liters of vinegar."
+        />
+        M acetic acid in vinegar solution
+        <div class="feedback" id="MVinegarFB" name="MVinegarFB"></div>
+        <br />
+        <li>
+          Create a table like table 5 below on the board, to collect every
+          group’s data, then take an average of your molarities.
+        </li>
+
+        <div class="noBreak">
+          <table>
+            <tr>
+              <td></td>
+              <td>Group 1</td>
+              <td>Group 2</td>
+              <td>Group 3</td>
+              <td>Group 4</td>
+              <td>Group 5</td>
+              <td>Group 6</td>
+              <td>Group 7</td>
+              <td>Group 8</td>
+              <td>Average</td>
+            </tr>
+
+            <tr>
+              <td>Molarity of acetic acid in vinegar</td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG1"
+                  name="MAAG1"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG2"
+                  name="MAAG2"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG3"
+                  name="MAAG3"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG4"
+                  name="MAAG4"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG5"
+                  name="MAAG5"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG6"
+                  name="MAAG6"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG7"
+                  name="MAAG7"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG8"
+                  name="MAAG8"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  class="calc"
+                  step="any"
+                  id="MAAAve"
+                  name="MAAAve"
+                  formula="mean(filter('${MAAG1}', '${MAAG2}', '${MAAG3}', '${MAAG4}', '${MAAG5}', '${MAAG6}', '${MAAG7}', '${MAAG8}'))"
+                  help="Add the molarities from each group, then divide by the number of groups"
+                />
+                <div class="feedback" id="MAAAveFB" name="MAAAveFB"></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <li>
+          Collect all your waste in your 400 mL waste beaker. If the solution
+          appears light pink, then you can pour it down the drain with the water
+          running, if it turns clear again, then slowly add more NaOH until it
+          turns light pink, then dispose of it down the drain.
+        </li>
+        <li>
+          Clean your funnel, graduated cylinder, flasks, and beaker using the
+          soap and brushes, then rinse them 3-7 times and leave them on paper
+          towels to dry. Rinse your pipet, rubber stopper, and stir bar and
+          leave them to dry. Put everything else back where you found it.
+        </li>
+        <li>
+          Clean up any messes, and make sure the solution bottles are capped
+          before you leave.
+        </li>
+      </ol>
+
+      <!-- End -->
+      <div class="footer">
+        Acetic Acid Concentration Determination of Vinegar (Titration)
+      </div>
+      <!-- Title -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
