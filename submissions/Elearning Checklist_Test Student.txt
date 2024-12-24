@@ -1,1 +1,0 @@
-{"labName":"Elearning Checklist","userName":"Test Student","course":"test2","check1":"on","check2":"on","check6":"on","check7":"on","check15":"on","check17":"on","check18":"on","check19":"on","check20":"on","check21":"on","check22":"on","check23":"on","rsi-standards":"test"}

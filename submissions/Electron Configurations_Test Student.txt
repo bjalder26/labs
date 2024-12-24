@@ -1,1 +1,0 @@
-{"labName":"Electron Configurations","userName":"Test Student","Atomic Model1":"Negative charges embeded in a uniform sea of positive charge.","Atomic Model2":"Positive charge and atomic mass is concentrated in a central location.","massCylinderT1":"","massWaterT1":"","GasTT1":""}

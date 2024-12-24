@@ -1,1 +1,0 @@
-{"labName":"Practice Lab","userName":"David Edwards","mass":"10","volume":"5","density":"2","x1":"1","y1":"5","x2":"2","y2":"12","x3":"3","y3":"14","slope":"4.5","y-intercept":"1.33333","sciNot":"5.47e-4"}
