@@ -1,0 +1,1 @@
+{"labName":"Practice Lab","userName":"Ellie Barnes","mass":"","volume":"","density":"","x1":"1","y1":"5","x2":"","y2":"","x3":"","y3":"","xy slope":"NaN","xy intercept":"NaN","slope":"","y-intercept":"","sciNot":""}
