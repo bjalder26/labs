@@ -1,0 +1,1 @@
+{"labName":"Practice Lab","userName":"Laura Best","mass":"10","volume":"5","density":"2","x1":"1","y1":"5","x2":"1","y2":"","x3":"","y3":"","xy slope":"NaN","xy intercept":"NaN","slope":"","y-intercept":"","sciNot":""}
