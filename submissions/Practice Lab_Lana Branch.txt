@@ -1,1 +1,1 @@
-{"labName":"Practice Lab","userName":"Lana Branch","mass":"10","volume":"5","density":"2","x1":"1","y1":"5","x2":"2","y2":"12","x3":"3","y3":"4","xy slope":"-0.5000","xy intercept":"8.000","slope":"","y-intercept":"","sciNot":""}
+{"labName":"Practice Lab","userName":"Lana Branch","mass":"10","volume":"5","density":"2","x1":"1","y1":"5","x2":"2","y2":"12","x3":"3","y3":"4","xy slope":"-0.5000","xy intercept":"8.000","slope":"-0.500","y-intercept":"8.000","sciNot":"5.47e-4"}
