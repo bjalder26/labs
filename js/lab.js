@@ -601,16 +601,16 @@ if (matches) {
           if (!closeOrCorrect) {
             elementFB.title = this.getAttribute("help");
             elementFB.innerHTML =
-              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
+              '<img src="https://cdn.glitch.me/4375f707-3207-40fe-9935-96f60406c3c1/incorrect.svg?v=1706928334145">';
           } else if (requiredSigFigs && !correctSigFigs) {
             elementFB.title =
               "Incorrect number of significant figures";
             elementFB.innerHTML =
-              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/incorrectSF.svg?v=1707138148381">';
+              '<img src="https://cdn.glitch.me/4375f707-3207-40fe-9935-96f60406c3c1/incorrectSF.svg?v=1707138148381">';
           } else {
             elementFB.title = "correct";
             elementFB.innerHTML =
-              '<img src="https://cdn.glitch.global/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
+              '<img src="https://cdn.glitch.me/4375f707-3207-40fe-9935-96f60406c3c1/correct.svg?v=1706928329736">';
           }
         }
         }
