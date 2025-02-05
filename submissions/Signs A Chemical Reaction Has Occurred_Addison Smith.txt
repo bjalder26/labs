@@ -1,1 +1,1 @@
-{}
+{"labName":"Signs A Chemical Reaction Has Occurred","userName":"Addison Smith","observations1":"","observations2":"","observations3":"","observations4":"","observations6":"Whenever we added the zinc to the copper chloride the zinc turned black and clumped together at the bottom.","observationsEthanol":"","observationsMagnesium":"","GasTT1":"","GasTT2":"","GasTT3":"","GasTT4":"","GasEthanol":"","conclusion":""}
