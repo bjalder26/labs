@@ -1,1 +1,1 @@
-{}
+{"labName":"Signs A Chemical Reaction Has Occurred","userName":"Morgyn Williams","observations1":"","observations2":"","observations3":"","observations4":"","observations6":"The color of the zinc and the liquid both changed due to the zinc absorbing the copper. The copper was originally blue, but was changed to clear and the zinc was originally silver and changed to a almost black color.","observationsEthanol":"","observationsMagnesium":"","GasTT1":"","GasTT2":"","GasTT3":"","GasTT4":"","GasEthanol":"","conclusion":""}
