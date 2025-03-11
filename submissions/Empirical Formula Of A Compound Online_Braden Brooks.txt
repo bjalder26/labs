@@ -1,1 +1,1 @@
-{}
+{"labName":"Empirical Formula Of A Compound Online","userName":"Braden Brooks","evapDishMass":"48.08","evapDish&MagMass":"48.19","MgMass":".11","firstWeighing":"48.58","secondWeighing":"48.51","finalWeighing":"48.50","MgClMass":".42","ClMass":".31","MgMol":".0045","ClMol":"","MgMolDivided":"","ClMolDivided":"","MgSub":"","ClSub":"","MgSubKnown":"","ClSubKnown":""}
