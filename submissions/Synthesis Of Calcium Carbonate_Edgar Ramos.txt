@@ -1,1 +1,1 @@
-{}
+{"labName":"Synthesis Of Calcium Carbonate","userName":"Edgar Ramos","neededVolCaCl2":"99.91","volCaCl2":"100","volNa2CO3":"100","MCaCl2":".10","MNa2CO3":".20","observations":"","massFilter":"","massFilter&CaCO3":"","massCaCO3":"","volCaCl2-2":"","theoreticalMassCaCO3":"","theoreticalYieldCaCO3":"","conclusion":""}
