@@ -21,7 +21,22 @@
   <script type="text/javascript"> 
 
       //PARAMS**GO**HERE 
+    
+  function autoResizeTextarea(el) {
+    el.style.height = 'auto'; // Reset the height
+    el.style.height = el.scrollHeight + 'px'; // Set to scrollHeight
+  }
 
+  document.addEventListener('input', function (event) {
+    if (event.target.tagName.toLowerCase() === 'textarea') {
+      autoResizeTextarea(event.target);
+    }
+  });
+
+  // Optional: Expand all textareas on page load to fit existing content
+  window.addEventListener('load', () => {
+    document.querySelectorAll('textarea').forEach(autoResizeTextarea);
+  });
     </script> 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
@@ -39,7 +54,6 @@
       <input type="text" id="labName" name="labName" style="display:none"> 
 
       <input type="text" id="userName" name="userName" style="display:none"> 
-<style>
       <style>
   table {
     table-layout: fixed;
@@ -56,9 +70,9 @@
     box-sizing: border-box;
   }
 </style>
-    </style>
 <!-- Beginning --> 
-
+    <br>
+Before submitting, save, then press the print button to print the page or "Save as PDF" to print later.
  <table border="1">
   <thead>
     <tr>
