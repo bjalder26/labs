@@ -1,0 +1,187 @@
+<!DOCTYPE html> 
+
+<html> 
+
+  <head> 
+
+    <title>Problem-Solving Steps (Ch 17)</title><!-- Title --> 
+
+    <link rel="stylesheet" href="../css/lab.css"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"> 
+
+  </head> 
+
+ 
+
+  <body onload="onLoad()"> 
+
+  <script type="text/javascript"> 
+
+      //PARAMS**GO**HERE 
+    
+  function autoResizeTextarea(el) {
+    el.style.height = 'auto'; // Reset the height
+    el.style.height = el.scrollHeight + 'px'; // Set to scrollHeight
+  }
+
+  document.addEventListener('input', function (event) {
+    if (event.target.tagName.toLowerCase() === 'textarea') {
+      autoResizeTextarea(event.target);
+    }
+  });
+
+  // Optional: Expand all textareas on page load to fit existing content
+  window.addEventListener('load', () => {
+    document.querySelectorAll('textarea').forEach(autoResizeTextarea);
+  });
+    </script> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
+
+ 
+
+    <h1 id="title" >Problem-Solving Steps (Ch 17)</h1> <!-- Title --> 
+
+    Name: <div id="name"></div><br> 
+
+    
+
+    <form id="labdataform" action="/save" method="post" target="_self"> 
+
+      <input type="text" id="labName" name="labName" style="display:none"> 
+
+      <input type="text" id="userName" name="userName" style="display:none"> 
+      <style>
+  table {
+    table-layout: fixed;
+  }
+
+  th, td {
+    width: 50%;  /* Two equal columns */
+    padding: 8px;
+    vertical-align: top;
+  }
+
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+</style>
+<!-- Beginning --> 
+    <br>
+Before submitting, save, then press the print button to print the page or "Save as PDF" to print later.
+<table>
+  <thead>
+    <tr>
+      <th>Problem type</th>
+      <th>Common Mistakes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>calculating percent ionization</td><td><textarea class="num text essay" id="c1" name="c1"></textarea></td></tr>
+    <tr><td>pOH from [H<sup>3</sup>O<sup>+</sup>]</td><td><textarea class="num text essay" id="c2" name="c2"></textarea></td></tr>
+    <tr><td>ranking oxyacid strengths</td><td><textarea class="num text essay" id="c3" name="c3"></textarea></td></tr>
+    <tr><td>recognizing bases based on their formulas</td><td><textarea class="num text essay" id="c4" name="c4"></textarea></td></tr>
+    <tr><td>recognizing acids based on their formulas</td><td><textarea class="num text essay" id="c5" name="c5"></textarea></td></tr>
+    <tr><td>converting from [H<sup>+</sup>] to pH or [OH<sup>-</sup>] to pOH</td><td><textarea class="num text essay" id="c6" name="c6"></textarea></td></tr>
+    <tr><td>pH of a weak acid</td><td><textarea class="num text essay" id="c7" name="c7"></textarea></td></tr>
+    <tr><td>converting from [H<sup>+</sup>] to pOH or [OH<sup>-</sup>] to pH</td><td><textarea class="num text essay" id="c8" name="c8"></textarea></td></tr>
+    <tr><td>converting between K<sub>a</sub> and K<sub>b</sub></td><td><textarea class="num text essay" id="c9" name="c9"></textarea></td></tr>
+    <tr><td>conjugate acids and bases</td><td><textarea class="num text essay" id="c10" name="c10"></textarea></td></tr>
+    <tr><td>pH of a weak acid given the K<sub>b</sub> of the conjugate base</td><td><textarea class="num text essay" id="c11" name="c11"></textarea></td></tr>
+    <tr><td>converting from pH to [H<sup>+</sup>] or from pOH to [OH<sup>-</sup>]</td><td><textarea class="num text essay" id="c12" name="c12"></textarea></td></tr>
+    <tr><td>recognizing amphoteric compounds from their structure</td><td><textarea class="num text essay" id="c13" name="c13"></textarea></td></tr>
+    <tr><td>ranking acid strength based on acid-dissociation constant (K<sub>a</sub>)</td><td><textarea class="num text essay" id="c14" name="c14"></textarea></td></tr>
+    <tr><td>converting between [H<sup>+</sup>] and [OH<sup>-</sup>]</td><td><textarea class="num text essay" id="c15" name="c15"></textarea></td></tr>
+    <tr><td>pH from the concentration of a strong monobasic base</td><td><textarea class="num text essay" id="c16" name="c16"></textarea></td></tr>
+    <tr><td>pH from the concentration of a strong acid</td><td><textarea class="num text essay" id="c17" name="c17"></textarea></td></tr>
+    <tr><td>strength of acids and bases based on the strength of their conjugate</td><td><textarea class="num text essay" id="c18" name="c18"></textarea></td></tr>
+    <tr><td>converting from pH to [OH<sup>-</sup>] or from pOH to [H<sup>+</sup>]</td><td><textarea class="num text essay" id="c19" name="c19"></textarea></td></tr>
+    <tr><td>conjugate acids and bases</td><td><textarea class="num text essay" id="c20" name="c20"></textarea></td></tr>
+    <tr><td>pOH from the concentration of a strong monobasic base</td><td><textarea class="num text essay" id="c21" name="c21"></textarea></td></tr>
+    <tr><td>pH of a weak acid</td><td><textarea class="num text essay" id="c22" name="c22"></textarea></td></tr>
+    <tr><td>strength of acids and bases based on the strength of their conjugate</td><td><textarea class="num text essay" id="c23" name="c23"></textarea></td></tr>
+    <tr><td>ranking acid strength based on pK<sub>a</sub></td><td><textarea class="num text essay" id="c24" name="c24"></textarea></td></tr>
+    <tr><td>pH of a weak base</td><td><textarea class="num text essay" id="c25" name="c25"></textarea></td></tr>
+  </tbody>
+</table>
+      
+<!-- End --> 
+
+      <div class="footer">Rutherford Scattering and Isotopes</div> 
+
+      <!-- title --> 
+
+       <div id="button_bar"> 
+
+        <button 
+
+          type="submit" 
+
+          title="save" 
+
+          class="large material-icons" 
+
+          id="savebutton" 
+
+          onclick="saveData()" 
+
+        > 
+
+          save 
+
+        </button> 
+
+        <button onclick="toPrint()" title="print" class="large material-icons"> 
+
+          print 
+
+        </button> 
+
+        <button type="button" class="hidden" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%"> 
+
+          Submit</button 
+
+        >&nbsp; 
+
+        <div class="vcenter hidden" style="display: none;"> 
+
+          <label for="score">Score: </label> 
+
+          <div id="score" style="display: inline">0</div> 
+
+          % 
+
+        </div> 
+
+      </div> 
+
+    </form> 
+  
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+
+    <script src="../js/lab.js"></script> 
+
+  </body> 
+
+</html> 
