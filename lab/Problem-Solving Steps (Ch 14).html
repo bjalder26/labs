@@ -1,0 +1,249 @@
+<!DOCTYPE html> 
+
+<html> 
+
+  <head> 
+
+    <title>Problem-Solving Steps (Ch 14)</title><!-- Title --> 
+
+    <link rel="stylesheet" href="../css/lab.css"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"> 
+
+  </head> 
+
+ 
+
+  <body onload="onLoad()"> 
+
+  <script type="text/javascript"> 
+
+      //PARAMS**GO**HERE 
+    
+  function autoResizeTextarea(el) {
+    el.style.height = 'auto'; // Reset the height
+    el.style.height = el.scrollHeight + 'px'; // Set to scrollHeight
+  }
+
+  document.addEventListener('input', function (event) {
+    if (event.target.tagName.toLowerCase() === 'textarea') {
+      autoResizeTextarea(event.target);
+    }
+  });
+
+  // Optional: Expand all textareas on page load to fit existing content
+  window.addEventListener('load', () => {
+    document.querySelectorAll('textarea').forEach(autoResizeTextarea);
+  });
+    </script> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
+
+ 
+
+    <h1 id="title" >Problem-Solving Steps (Ch 14)</h1> <!-- Title --> 
+
+    Name: <div id="name"></div><br> 
+
+    
+
+    <form id="labdataform" action="/save" method="post" target="_self"> 
+
+      <input type="text" id="labName" name="labName" style="display:none"> 
+
+      <input type="text" id="userName" name="userName" style="display:none"> 
+      <style>
+  table {
+    table-layout: fixed;
+  }
+
+  th, td {
+    width: 50%;  /* Two equal columns */
+    padding: 8px;
+    vertical-align: top;
+  }
+
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+</style>
+<!-- Beginning --> 
+    <br>
+Before submitting, save, then press the print button to print the page or "Save as PDF" to print later.
+<table>
+  <thead>
+    <tr>
+      <th>Problem type</th>
+      <th>Problem-Solving Steps</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>reaction rate and measured concentrations</td>
+      <td><textarea class="num text essay" id="k1" name="k1" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>molecularity</td>
+      <td><textarea class="num text essay" id="k2" name="k2" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>overall order of reaction</td>
+      <td><textarea class="num text essay" id="k3" name="k3" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>two point Arrhenius equation</td>
+      <td><textarea class="num text essay" id="k4" name="k4" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>change in concentration and reaction rate</td>
+      <td><textarea class="num text essay" id="k5" name="k5" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>deriving rate formula</td>
+      <td><textarea class="num text essay" id="k6" name="k6" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>integrated rate law</td>
+      <td><textarea class="num text essay" id="k7" name="k7" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>rate determining step from description</td>
+      <td><textarea class="num text essay" id="k8" name="k8" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>rate constant units</td>
+      <td><textarea class="num text essay" id="k9" name="k9" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>single point Arrhenius equation</td>
+      <td><textarea class="num text essay" id="k10" name="k10" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>half life from rate law constant</td>
+      <td><textarea class="num text essay" id="k11" name="k11" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>catalyzed and uncatalyzed pathways</td>
+      <td><textarea class="num text essay" id="k12" name="k12" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>overall order from rate law</td>
+      <td><textarea class="num text essay" id="k13" name="k13" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>rate law from mechanism</td>
+      <td><textarea class="num text essay" id="k14" name="k14" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>rate constant and temperature</td>
+      <td><textarea class="num text essay" id="k15" name="k15" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>factors that affect the rate constant</td>
+      <td><textarea class="num text essay" id="k16" name="k16" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>Enzymes</td>
+      <td><textarea class="num text essay" id="k17" name="k17" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>order of reaction from a graph</td>
+      <td><textarea class="num text essay" id="k18" name="k18" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>rate from concentration change</td>
+      <td><textarea class="num text essay" id="k19" name="k19" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>overall order of reaction from rate constant units</td>
+      <td><textarea class="num text essay" id="k20" name="k20" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+    <tr>
+      <td>rate law from experimental data</td>
+      <td><textarea class="num text essay" id="k21" name="k21" placeholder="Type the problem solving steps here..."></textarea></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+      
+<!-- End --> 
+
+      <div class="footer">Rutherford Scattering and Isotopes</div> 
+
+      <!-- title --> 
+
+       <div id="button_bar"> 
+
+        <button 
+
+          type="submit" 
+
+          title="save" 
+
+          class="large material-icons" 
+
+          id="savebutton" 
+
+          onclick="saveData()" 
+
+        > 
+
+          save 
+
+        </button> 
+
+        <button onclick="toPrint()" title="print" class="large material-icons"> 
+
+          print 
+
+        </button> 
+
+        <button type="button" class="hidden" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%"> 
+
+          Submit</button 
+
+        >&nbsp; 
+
+        <div class="vcenter hidden" style="display: none;"> 
+
+          <label for="score">Score: </label> 
+
+          <div id="score" style="display: inline">0</div> 
+
+          % 
+
+        </div> 
+
+      </div> 
+
+    </form> 
+  
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+
+    <script src="../js/lab.js"></script> 
+
+  </body> 
+
+</html> 
