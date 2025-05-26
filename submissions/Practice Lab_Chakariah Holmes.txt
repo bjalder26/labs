@@ -1,1 +1,0 @@
-{"labName":"Practice Lab","userName":"Chakariah Holmes","mass":"10","volume":"5","density":"2","x1":"1","y1":"5","x2":"2","y2":"12","x3":"3","y3":"14","xy slope":"4.500","xy intercept":"1.333","slope":"4.500","y-intercept":"1.333","sciNot":"5.47e-4"}
