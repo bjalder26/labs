@@ -27,6 +27,7 @@ textarea {
 .canvas {
   max-height: 300px;
 }
+
 canvas {
   border-radius: 10px;
   background-color: #e6ebfb;
