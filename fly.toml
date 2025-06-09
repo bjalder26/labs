@@ -1,0 +1,28 @@
+app = "labs"
+
+[env]
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+  processes = ["app"]
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    interval = "15s"
+    timeout = "2s"
+    grace_period = "5s"
+
+[mounts]
+source = "labs_vol"
+destination = "/app/submissions"
+
+[processes]
+app = "node app.js"

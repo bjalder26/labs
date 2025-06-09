@@ -61,65 +61,27 @@ function readLabList(labFolder) {
                 console.log(`Error reading the lab folder: ${err}`);
                 return reject(`Error reading the lab folder: ${err}`);
             }
-          console.log('files');
-            console.log(files);
+         
             const lowerCaseFiles = filesToLowerCase(files);
-          console.log('lowerCaseFiles');
-            console.log(lowerCaseFiles);
+      
             resolve(lowerCaseFiles);
         });
     });
 }
 
-/*
-function readLabList() {
-    const labFolder = './lab';
-
-    try {
-        const files = fs.readdirSync(labFolder);
-
-        // Remove the .html extension from each file name
-        const labList = files.map(file => path.basename(file, '.html'));
-
-        return labList;
-    } catch (error) {
-        console.error(`Error reading the lab folder: ${error}`);
-        return [];
-    }
-}
-*/
-
-/*
-// Function to read the lab list from the text file
-function readLabList() {
-  
-    try {
-        const labListText = fs.readFileSync('labList.txt', 'utf8');
-        const labList = JSON.parse(labListText);
-        const capitalizedLabList = labList.map(capitalizeEveryWord);
-        return capitalizedLabList;
-    } catch (error) {
-        console.error('Error reading lab list:', error);
-        return [];
-    } 
-}
-*/
-
 // Function to find student names based on selected lab
 function findStudents(labName) {
     try {
         const labPrefix = capitalizeEveryWord(labName) + '_';
-      console.log('labPrefix')
-      console.log(labPrefix)
+ 
+
         const submissionsFolder = __dirname + '/submissions';
-      console.log('submissionsFolder')
-        console.log(submissionsFolder)
+  
         const files = fs.readdirSync(submissionsFolder);
         const students = files
             .filter(file => file.startsWith(labPrefix))
             .map(file => file.split('_')[1].split('.')[0]);
-      console.log('students2');  
-      console.log(students);
+
         return students;
     } catch (error) {
         console.error('Error finding students:', error);
@@ -158,7 +120,22 @@ app.post('/upload/image', (req, res) => {
 });
 
 app.post("/", async (req, res) => {
-    var lmsData = new lti.Provider("top", "secret");
+    const isFake = req.body.fake_launch === 'true';
+    const sessionID = uuid();
+
+    let lmsData;
+
+    if (isFake) {
+        // Manually mock the structure of lmsData
+        lmsData = {
+            body: req.body
+        };
+        sessions[sessionID] = lmsData;
+        proceedWithLaunch(lmsData);
+        return;
+    }
+
+    lmsData = new lti.Provider("top", "secret");
 
     if (req.body.roles.includes('Instructor')) {
         res.redirect("/instructor");
@@ -171,11 +148,12 @@ app.post("/", async (req, res) => {
             return;
         }
 
-        var sessionID = uuid();
         sessions[sessionID] = lmsData;
+        proceedWithLaunch(lmsData);
+    });
 
+    async function proceedWithLaunch(lmsData) {
         const name = lmsData.body.lis_person_name_full.replaceAll("'", "");
-        //console.log('name: ' + name);
         let labHtml = '';
         let dataFile = {};
         let labName = '';
@@ -185,8 +163,6 @@ app.post("/", async (req, res) => {
         let labList;
         try {
             labList = await readLabList(labFolder);
-            //console.log('labList1');
-            //console.log(labList);
         } catch (error) {
             console.error(error);
             res.send("Error reading lab list.");
@@ -195,20 +171,19 @@ app.post("/", async (req, res) => {
 
         if (labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
             labName = capitalizeEveryWord(lmsData.body.resource_link_title);
-            if (!fs.existsSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`))) {
-                fs.writeFileSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`), '{}', 'utf8');
+            const filepath = path.join(__dirname, 'submissions', `${labName}_${name}.txt`);
+            if (!fs.existsSync(filepath)) {
+                fs.writeFileSync(filepath, '{}', 'utf8');
             }
 
             labHtml = fs.readFileSync(path.join(__dirname, "lab", `${labName}.html`), "utf8");
-            dataFile = fs.readFileSync(path.join(__dirname, 'submissions', `${labName}_${name}.txt`), "utf8");
-            //console.log('dataFile');
-            //console.log(dataFile);
+            dataFile = fs.readFileSync(filepath, "utf8");
         } else {
-           //console.log('labList2');
-           // console.log(labList);
-            //console.log(typeof labList);
-            labHtml = 'Invalid title' + '<br>lmsData.body.resource_link_title.toLowerCase(): ' + lmsData.body.resource_link_title.toLowerCase() + '<br>labList.toString(): ' + labList.toString();
+            labHtml = 'Invalid title' +
+                '<br>lmsData.body.resource_link_title.toLowerCase(): ' + lmsData.body.resource_link_title.toLowerCase() +
+                '<br>labList.toString(): ' + labList.toString();
         }
+
         labHtml = labHtml.replace('</head>', '<style>#button_bar{display:flex;}</style></head>');
         var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
             `
@@ -223,15 +198,14 @@ app.post("/", async (req, res) => {
 
         res.setHeader("Content-Type", "text/html");
         res.send(sendMe);
-    });
+    }
 });
        // app.post("/");
 
 // Route to get lab list
 app.get('/labList', async (req, res) => {
   const labList = await readLabList(__dirname + '/lab');
-  //console.log('labList')
-    //console.log(labList)
+  
     res.json(labList);
 });
 
@@ -256,8 +230,6 @@ app.get("/instructor", (req, res) => {
 
 app.get('/noscore/:passed', (req, res) => {
     
-   console.log('req.params.passed');
-  console.log(decodeURI(req.params.passed));
     let passed = decodeURI(req.params.passed);
     passed = JSON.parse(passed);
     const labName = passed.labName
@@ -265,7 +237,7 @@ app.get('/noscore/:passed', (req, res) => {
     const sessionID = passed.sessionID;
     //const { labName, name, sessionID } = decodeURI(req.params.passed);
     var session = sessions[sessionID];
-    console.log(labName, name, sessionID);
+
     let resp = '';
   
     const encodedLabName = encodeURIComponent(labName);
@@ -276,10 +248,11 @@ let passedInfo = {};
     
     passedInfo = encodeURIComponent(JSON.stringify(passedInfo));
 
-const baseUrl = 'https://elfin-ten-marble.glitch.me'; // fix this later
+//const baseUrl = 'https://elfin-ten-marble.glitch.me'; // fix this later
+ const baseUrl = `${req.protocol}://${req.get('host')}`;
 
 const dynamicUrl = `${baseUrl}/dynamic-content/${passedInfo}`;
-  console.log(dynamicUrl);
+ 
     session.outcome_service.send_replace_result_with_url(1, dynamicUrl, (err, isValid) => {
         if (err) {
             console.error('Error:', err);
@@ -301,7 +274,7 @@ const dynamicUrl = `${baseUrl}/dynamic-content/${passedInfo}`;
                     resp += '<br/>Instructor will manually grade assignment.';
                 }
                 
-                //console.log(result);
+         
                 res.send(resp);
             });
         }
@@ -339,12 +312,31 @@ app.get('/dynamic-content/:passed', (req, res) => {
     res.send(sendMe);
 });
 
+app.get('/fakelaunch/:labTitle', (req, res) => {
+  const labTitle = decodeURIComponent(req.params.labTitle);
+  const html = `
+    <form id="launchForm" action="/" method="post" enctype="application/x-www-form-urlencoded">
+      <input type="hidden" name="oauth_consumer_key" value="top" />
+      <input type="hidden" name="roles" value="Learner" />
+      <input type="hidden" name="lis_person_name_full" value="Tester" />
+      <input type="hidden" name="custom_canvas_assignment_title" value="Fake Assignment" />
+      <input type="hidden" name="resource_link_title" value="${labTitle}" />
+      <input type="hidden" name="resource_link_id" value="abc123" />
+      <input type="hidden" name="user_id" value="test-user" />
+      <input type="hidden" name="lti_version" value="LTI-1p0" />
+      <input type="hidden" name="lti_message_type" value="basic-lti-launch-request" />
+      <input type="hidden" name="fake_launch" value="true" />
+    </form>
+    <script>document.getElementById('launchForm').submit();</script>
+  `;
+  res.send(html);
+});
 
 app.get("/:lab/:name", async (req, res) => {	
-  //console.log('lab: ' + req.params.lab + " name: " + req.params.name);
-		//const name = lmsData.body.lis_person_name_full;
+
+
     let name =  decodeURIComponent(req.params.name);
-		//console.log('name: ' + name);
+		
 		let labHtml = '';
 		let dataFile = {};
 		let labName =  decodeURIComponent(req.params.lab);
@@ -352,8 +344,6 @@ app.get("/:lab/:name", async (req, res) => {
     
     const labList = await readLabList(__dirname + '/lab'); //here
   
-    //let labList = ['exploring density properties', 'dimensional analysis', 'dimensional analysis online', 'empirical formula of magnesium oxide', 'empirical formula of a compound online'];
-    
 		if(labList.includes(lower)) {
 		labName = capitalizeEveryWord(labName);
 		// creates user data file if it doesn't exist *** make this a function? ***
@@ -363,8 +353,7 @@ app.get("/:lab/:name", async (req, res) => {
 			
 		labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
 		dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
-		//console.log('dataFile');
-		//console.log(dataFile);
+	
 
 		} else {
       labHtml = 'Invalid title or student';
@@ -393,17 +382,7 @@ app.get("/:lab/:name", async (req, res) => {
 app.get("/score/:sessionID/:score", (req, res) => {
 
 	var session = sessions[req.params.sessionID];
-	console.log('req');
-	console.log(JSON.stringify(req.params));
-	console.log(JSON.stringify(req.session));
-	console.log('session');
-	console.log(JSON.stringify(session));
-	console.log('sessions');
-	console.log(JSON.stringify(sessions));
-	console.log('sessionID');
-	console.log(req.params.sessionID);
 	var score = req.params.score;
-	console.log(score/100);
 	var resp = `Your score of ${score}% has been recorded`;
 
   
@@ -423,23 +402,20 @@ app.get("/score/:sessionID/:score", (req, res) => {
 
 });    // app.get("/score...")
 
+// Route for the root path — always blocks refresh
 app.get('/', (req, res) => {
-  // Check if the request is from the Glitch preview
-  const isGlitchPreview = req.headers['referer'] && req.headers['referer'] == 'https://glitch.com/';
+  res.status(403).send('Sorry, you cannot refresh this window in the browser. Refresh your Canvas assignment, and reopen the lab from the link in that assignment.');
+});
 
-  if (!isGlitchPreview) {
-    return res.status(403).send('Sorry, you cannot refresh this window in the browser.  Refresh your Canvas assignment, and reopen the lab from the link in that assignment.');
-  }
-
+// Explicit route for /dev — shows lab list
+app.get('/dev', (req, res) => {
   const labDir = path.join(__dirname, 'lab');
 
-  // Read the "lab" directory
   fs.readdir(labDir, (err, files) => {
     if (err) {
       return res.status(500).send('Unable to scan lab directory');
     }
 
-    // Filter for .html files and create links
     const htmlFiles = files.filter(file => file.endsWith('.html'));
     let links = '<h1>HTML Files in the "lab" Folder:</h1><ul>';
 
@@ -454,15 +430,14 @@ app.get('/', (req, res) => {
 
 
 app.post('/save', (req, res) => {
-  console.log('obj:');
+
   const obj = JSON.parse(JSON.stringify(req.body));
-  console.log(JSON.stringify(obj));
+
   let userName = obj.userName;
   let labName = obj.labName;
-  console.log(userName)
-  console.log(labName)
+
     try {
-		console.log(labName)
+		
     fs.writeFileSync(__dirname + "/submissions/" + labName + "_" + userName + ".txt", JSON.stringify(obj), {
       flag: 'w+'
     });
@@ -479,9 +454,8 @@ app.post('/save', (req, res) => {
 var appEnv = cfenv.getAppEnv();
 
 // start server on the specified port and binding host
-// app.listen([port[, host[, backlog]]][, callback])
-// not sure why 0.0.0.0 needed
-app.listen(appEnv.port, '0.0.0.0', function() {
-  // print a message when the server starts listening
-  console.log("server starting on " + appEnv.url);
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server listening on port ${port}`);
 });
+
