@@ -125,34 +125,8 @@ app.post("/", async (req, res) => {
 
     let lmsData;
 
-    if (isFake) {
-        // Manually mock the structure of lmsData
-        lmsData = {
-            body: req.body
-        };
-        sessions[sessionID] = lmsData;
-        proceedWithLaunch(lmsData);
-        return;
-    }
-
-    lmsData = new lti.Provider("top", "secret");
-
-    if (req.body.roles.includes('Instructor')) {
-        res.redirect("/instructor");
-        return;
-    }
-
-    lmsData.valid_request(req, async (err, isValid) => {
-        if (!isValid) {
-            res.send("Invalid request: " + err);
-            return;
-        }
-
-        sessions[sessionID] = lmsData;
-        proceedWithLaunch(lmsData);
-    });
-
     async function proceedWithLaunch(lmsData) {
+        try {
         const name = lmsData.body.lis_person_name_full.replaceAll("'", "");
         let labHtml = '';
         let dataFile = {};
@@ -198,7 +172,40 @@ app.post("/", async (req, res) => {
 
         res.setHeader("Content-Type", "text/html");
         res.send(sendMe);
+    } catch(err) {
+        console.error('Error during launch:', err);
+        res.status(500).send('Internal Server Error');
     }
+    }
+
+    if (isFake) {
+        // Manually mock the structure of lmsData
+        lmsData = {
+            body: req.body
+        };
+        sessions[sessionID] = lmsData;
+        proceedWithLaunch(lmsData);
+        return;
+    }
+
+    lmsData = new lti.Provider("top", "secret");
+
+    if (req.body.roles.includes('Instructor')) {
+        res.redirect("/instructor");
+        return;
+    }
+
+    lmsData.valid_request(req, async (err, isValid) => {
+        if (!isValid) {
+            res.send("Invalid request: " + err);
+            return;
+        }
+
+        sessions[sessionID] = lmsData;
+        proceedWithLaunch(lmsData);
+    });
+
+    
 });
        // app.post("/");
 
@@ -377,7 +384,7 @@ app.get("/:lab/:name", async (req, res) => {
 		res.send(sendMe);
 	   // lmsDate.valid_request
 	
-});       // app.post("/");
+});
 
 app.get("/score/:sessionID/:score", (req, res) => {
 

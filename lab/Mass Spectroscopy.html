@@ -1,0 +1,667 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mass Spectrometry</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <h1 id="title">Mass Spectrometry</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
+      <input type="text" id="userName" name="userName" style="display: none" />
+      <!-- Beginning -->
+
+      <iframe
+        width="853"
+        height="480"
+        src="https://www.youtube.com/embed/d7KP_QRqfxo"
+        title="Calculate The Average Atomic Mass (3 Easy Steps) | Tadashi Science"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+
+      <div class="noBreak">
+        <h3>Chemicals and lab equipment:</h3>
+        <ul></ul>
+      </div>
+      <h3>Procedure:</h3>
+      Open the Mass Spectrometry Virtual Lab.
+      <h4>
+        Part A: Calculating the average molecular mass of chlorine, magnesium,
+        neon, and sulfur
+      </h4>
+      <ol>
+        <li>Attach the chlorine container to the mass spectometer.</li>
+        <li>
+          Click the start button, and wait for the data to be displayed on the
+          screen.
+        </li>
+        <li>Record the data below, and calculate the average atomic mass.</li>
+        <li>Repeate the steps above for magnesium, neon, and sulfur.</li>
+      </ol>
+
+      <div class="noBreak">
+        <h4>Table 1: Chlorine data and atomic mass calculation</h4>
+        <table>
+          <tr>
+            <th>Isotope</th>
+            <th>Mass (amu)</th>
+            <th>Abundance (%)</th>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="ClIsotope1"
+                name="ClIsotope1"
+                formula="Cl-35"
+                help="Enter the first isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="ClIsotope1FB" name="ClIsotope1FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="ClMass1"
+                name="ClMass1"
+                formula="34.968853"
+                range="0"
+                step="any"
+                help="Enter the first isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="ClMass1FB" name="ClMass1FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="ClAbundance1"
+                name="ClAbundance1"
+                formula="75.77"
+                range="0"
+                step="any"
+                help="Enter the first isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="ClAbundance1FB"
+                name="ClAbundance1FB"
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="ClIsotope2"
+                name="ClIsotope2"
+                formula="Cl-37"
+                help="Enter the second isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="ClIsotope2FB" name="ClIsotope2FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="ClMass2"
+                name="ClMass2"
+                formula="36.965903"
+                range="0"
+                step="any"
+                help="Enter the second isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="ClMass2FB" name="ClMass2FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="ClAbundance2"
+                name="ClAbundance2"
+                formula="24.23"
+                range="0"
+                step="any"
+                help="Enter the second isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="ClAbundance2FB"
+                name="ClAbundance2FB"
+              ></div>
+            </td>
+          </tr>
+        </table>
+        <br />
+        Calculate the average atomic mass of chlorine:
+        <input
+          type="num calc"
+          id="ClAAMass"
+          name="ClAAMass"
+          formula="35.45"
+          range="0"
+          step="any"
+          help="Calculate the average atomic mass (it is a weighted average), e.g 65.38"/> amu
+        <div class="feedback" id="ClAAMassFB" name="ClAAMassFB"></div>
+      </div>
+
+      <div class="noBreak">
+        <h4>Table 2: Magnesium data and atomic mass calculation</h4>
+        <table>
+          <tr>
+            <th>Isotope</th>
+            <th>Mass (amu)</th>
+            <th>Abundance (%)</th>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="MgIsotope1"
+                name="MgIsotope1"
+                formula="Mg-24"
+                help="Enter the first isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="MgIsotope1FB" name="MgIsotope1FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="MgMass1"
+                name="MgMass1"
+                formula="23.985042"
+                range="0"
+                step="any"
+                help="Enter the first isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="MgMass1FB" name="MgMass1FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="MgAbundance1"
+                name="MgAbundance1"
+                formula="78.99"
+                range="0"
+                step="any"
+                help="Enter the first isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="MgAbundance1FB"
+                name="MgAbundance1FB"
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="MgIsotope2"
+                name="MgIsotope2"
+                formula="Mg-25"
+                help="Enter the second isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="MgIsotope2FB" name="MgIsotope2FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="MgMass2"
+                name="MgMass2"
+                formula="24.985837"
+                range="0"
+                step="any"
+                help="Enter the second isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="MgMass2FB" name="MgMass2FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="MgAbundance2"
+                name="MgAbundance2"
+                formula="10.00"
+                range="0"
+                step="any"
+                help="Enter the second isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="MgAbundance2FB"
+                name="MgAbundance2FB"
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="MgIsotope3"
+                name="MgIsotope3"
+                formula="Mg-26"
+                help="Enter the third isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="MgIsotope3FB" name="MgIsotope3FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="MgMass3"
+                name="MgMass3"
+                formula="25.982593"
+                range="0"
+                step="any"
+                help="Enter the third isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="MgMass3FB" name="MgMass3FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="MgAbundance3"
+                name="MgAbundance3"
+                formula="11.01"
+                range="0"
+                step="any"
+                help="Enter the third isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="MgAbundance3FB"
+                name="MgAbundance3FB"
+              ></div>
+            </td>
+          </tr>
+        </table>
+        <br />
+        Calculate the average atomic mass of magnesium:
+        <input
+          type="num calc"
+          id="MgAAMass"
+          name="MgAAMass"
+          formula="24.31"
+          range="0"
+          step="any"
+          help="Calculate the average atomic mass (it is a weighted average), e.g 65.38"/> amu
+        <div class="feedback" id="MgAAMassFB" name="MgAAMassFB"></div>
+      </div>
+
+      <div class="noBreak">
+        <h4>Table 3: Neon data and atomic mass calculation</h4>
+        <table>
+          <tr>
+            <th>Isotope</th>
+            <th>Mass (amu)</th>
+            <th>Abundance (%)</th>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="NeIsotope1"
+                name="NeIsotope1"
+                formula="Ne-20"
+                help="Enter the first isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="NeIsotope1FB" name="NeIsotope1FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="NeMass1"
+                name="NeMass1"
+                formula="19.992440"
+                range="0"
+                step="any"
+                help="Enter the first isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="NeMass1FB" name="NeMass1FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="NeAbundance1"
+                name="NeAbundance1"
+                formula="90.48"
+                range="0"
+                step="any"
+                help="Enter the first isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="NeAbundance1FB"
+                name="NeAbundance1FB"
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="NeIsotope2"
+                name="NeIsotope2"
+                formula="Ne-21"
+                help="Enter the second isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="NeIsotope2FB" name="NeIsotope2FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="NeMass2"
+                name="NeMass2"
+                formula="20.993847"
+                range="0"
+                step="any"
+                help="Enter the second isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="NeMass2FB" name="NeMass2FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="NeAbundance2"
+                name="NeAbundance2"
+                formula="0.27"
+                range="0"
+                step="any"
+                help="Enter the second isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="NeAbundance2FB"
+                name="NeAbundance2FB"
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="NeIsotope3"
+                name="NeIsotope3"
+                formula="Ne-22"
+                help="Enter the third isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="NeIsotope3FB" name="NeIsotope3FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="NeMass3"
+                name="NeMass3"
+                formula="21.991386"
+                range="0"
+                step="any"
+                help="Enter the third isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="NeMass3FB" name="NeMass3FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="NeAbundance3"
+                name="NeAbundance3"
+                formula="9.25"
+                range="0"
+                step="any"
+                help="Enter the third isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="NeAbundance3FB"
+                name="NeAbundance3FB"
+              ></div>
+            </td>
+          </tr>
+        </table>
+        <br />
+        Calculate the average atomic mass of chlorine:
+        <input
+          type="num calc"
+          id="NeAAMass"
+          name="NeAAMass"
+          formula="20.18"
+          range="0"
+          step="any"
+          help="Calculate the average atomic mass (it is a weighted average), e.g 65.38"/> amu
+        <div class="feedback" id="NeAAMassFB" name="NeAAMassFB"></div>
+      </div>
+
+      <div class="noBreak">
+        <h4>Table 4: Sulfur data and atomic mass calculation</h4>
+        <table>
+          <tr>
+            <th>Isotope</th>
+            <th>Mass (amu)</th>
+            <th>Abundance (%)</th>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="SIsotope1"
+                name="SIsotope1"
+                formula="S-32"
+                help="Enter the first isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="SIsotope1FB" name="SIsotope1FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="SMass1"
+                name="SMass1"
+                formula="31.972071"
+                range="0"
+                step="any"
+                help="Enter the first isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="SMass1FB" name="SMass1FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="SAbundance1"
+                name="SAbundance1"
+                formula="94.99"
+                range="0"
+                step="any"
+                help="Enter the first isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="SAbundance1FB"
+                name="SAbundance1FB"
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="SIsotope2"
+                name="SIsotope2"
+                formula="S-33"
+                help="Enter the second isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="SIsotope2FB" name="SIsotope2FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="SMass2"
+                name="SMass2"
+                formula="32.971458"
+                range="0"
+                step="any"
+                help="Enter the second isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="SMass2FB" name="SMass2FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="SAbundance2"
+                name="SAbundance2"
+                formula="0.75"
+                range="0"
+                step="any"
+                help="Enter the second isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="SAbundance2FB"
+                name="SAbundance2FB"
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="SIsotope3"
+                name="SIsotope3"
+                formula="S-34"
+                help="Enter the third isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="SIsotope3FB" name="SIsotope3FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="SMass3"
+                name="SMass3"
+                formula="33.967867"
+                range="0"
+                step="any"
+                help="Enter the third isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="SMass3FB" name="SMass3FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="SAbundance3"
+                name="SAbundance3"
+                formula="4.25"
+                range="0"
+                step="any"
+                help="Enter the third isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="SAbundance3FB"
+                name="SAbundance3FB"
+              ></div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text calc"
+                id="SIsotope4"
+                name="SIsotope4"
+                formula="S-36"
+                help="Enter the fourth isotope symbol, e.g. Zn-64"
+              />
+              <div class="feedback" id="SIsotope4FB" name="SIsotope4FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="SMass4"
+                name="SMass4"
+                formula="35.967081"
+                range="0"
+                step="any"
+                help="Enter the fourth isotope's mass, e.g 63.929142"
+              />
+              <div class="feedback" id="SMass4FB" name="SMass4FB"></div>
+            </td>
+            <td>
+              <input
+                type="num calc"
+                id="SAbundance4"
+                name="SAbundance4"
+                formula="0.01"
+                range="0"
+                step="any"
+                help="Enter the forth isotope's abundance, e.g 48.63"
+              />
+              <div
+                class="feedback"
+                id="SAbundance4FB"
+                name="SAbundance4FB"
+              ></div>
+            </td>
+          </tr>
+        </table>
+        <br />
+        Calculate the average atomic mass of chlorine:
+        <input
+          type="num calc"
+          id="SAAMass"
+          name="SAAMass"
+          formula="35.45"
+          range="0"
+          step="any"
+          help="Calculate the average atomic mass (it is a weighted average), e.g 65.38"/> amu
+        <div class="feedback" id="SAAMassFB" name="SAAMassFB"></div>
+      </div><br>
+
+      <!-- End -->
+      <div class="footer">Mass Spectroscopy</div>
+      <!-- title -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button
+          type="button"
+          onclick="submitAssignment(window.labName, window.userName, params.sessionID)"
+          style="height: 83%"
+        >
+          Submit</button
+        >&nbsp;
+        <div class="vcenter" style="display: none">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
