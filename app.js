@@ -2,29 +2,16 @@
 // This application uses express as its web server
 // for more info, see: http://expressjs.com
 var express = require('express');
+const multer = require('multer');
 const http = require('http');
 const path = require('path');
-const fileUpload = require('express-fileupload');
 
-// cfenv provides access to your Cloud Foundry environment
-// for more info, see: https://www.npmjs.com/package/cfenv
-var cfenv = require('cfenv');
 var uuid = require("uuid4");
 var lti = require("ims-lti");
 var fs = require('fs');
 
 // create a new express server
 var app = express();
-
-
-
-app.use(fileUpload()); // for file uploads from input
-app.use(express.urlencoded({ // increases the limit on what is sent via url not sure if this is needed anymore
-  limit: '50mb',
-  extended: true, // not sure about
-  parameterLimit: 50000
-}));
-app.use(express.json({limit: '50mb'})); // increases the limit on what is sent
 
 // Serve the uploads directory statically
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
@@ -39,6 +26,64 @@ app.use('/lab', express.static(path.join(__dirname, 'lab')));
 // I believe this allows for http vs https only
 app.enable('trust proxy');
 
+// Multer setup
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    const safePath = path.join(__dirname, 'submissions', 'tempuploads'); // use a temp dir
+    fs.mkdirSync(safePath, { recursive: true });
+    cb(null, safePath);
+  },
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const filename = file.originalname; // Or customize with Date.now(), etc.
+    cb(null, filename);
+  }
+});
+
+
+
+const upload = multer({ storage });
+
+// Upload route
+app.post('/upload-image', upload.single('image'), (req, res) => {
+
+  if (!req.file) {
+    return res.status(400).json({ success: false, message: 'No file received' });
+  }
+  
+  const { userName, labName, id } = req.body;
+  if (!userName || !labName || !id) {
+    return res.status(400).json({ success: false, message: 'Missing form data' });
+  }
+
+  try {
+    const ext = path.extname(req.file.originalname);
+    const newDir = path.join(__dirname, 'submissions', 'studentimages', userName, labName);
+    fs.mkdirSync(newDir, { recursive: true });
+
+    const newPath = path.join(newDir, id + ext);
+
+    fs.renameSync(req.file.path, newPath); // Move the file
+
+    const fileUrl = `/submissions/studentimages/${userName}/${labName}/${id + ext}`;
+    console.log('✅ Upload successful:', fileUrl);
+
+    res.json({ success: true, url: fileUrl });
+  } catch (err) {
+    console.error('❌ Error saving file:', err);
+    res.status(500).json({ success: false, message: 'Server error', error: err.message });
+  }
+});
+
+
+
+app.use(express.urlencoded({ // increases the limit on what is sent via url not sure if this is needed anymore
+  limit: '50mb',
+  extended: true, // not sure about
+  parameterLimit: 50000
+}));
+app.use(express.json({limit: '50mb'})); // increases the limit on what is sent
+
 
 var sessions = {};
 
@@ -50,6 +95,14 @@ function capitalizeEveryWord(str) {
 
 // serve the files out of ./public as our main files
 app.use(express.static(__dirname + '/public'));
+
+/*
+// logs the method and URL of every incoming request
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+*/
 
 app.post("*", require("body-parser").urlencoded({extended: true}));
 
@@ -94,30 +147,6 @@ function filesToLowerCase(files) {
         .map(file => file.toLowerCase())
         .map(file => file.replace('.html', ''));
 }
-
-app.post('/upload/image', (req, res) => {
-    if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).send('No files were uploaded.');
-    }
-
-    // Retrieve the uploaded file
-    const uploadedFile = req.files.file;
-
-    // Define the path to save the file (for demonstration, save it in the 'public/uploads' directory)
-    const uploadPath = path.join(__dirname, 'public/uploads', uploadedFile.name);
-
-    // Move the file to the server
-    uploadedFile.mv(uploadPath, function (err) {
-        if (err) {
-            return res.status(500).send(err);
-        }
-
-        // Return the URL to access the uploaded file
-        res.json({
-            url: `/uploads/${uploadedFile.name}`
-        });
-    });
-});
 
 app.post("/", async (req, res) => {
     const isFake = req.body.fake_launch === 'true';
@@ -219,11 +248,7 @@ app.get('/labList', async (req, res) => {
 // Route to get students based on selected lab
 app.get('/students/:labName', (req, res) => {
     const labName = req.params.labName;
-  console.log('labName');
-    console.log(labName);
     const students = findStudents(labName);
-  console.log('students');
-    console.log(students);
     res.json(students);
 });
 
@@ -255,7 +280,6 @@ let passedInfo = {};
     
     passedInfo = encodeURIComponent(JSON.stringify(passedInfo));
 
-//const baseUrl = 'https://elfin-ten-marble.glitch.me'; // fix this later
  const baseUrl = `${req.protocol}://${req.get('host')}`;
 
 const dynamicUrl = `${baseUrl}/dynamic-content/${passedInfo}`;
@@ -454,11 +478,6 @@ app.post('/save', (req, res) => {
   }
   res.json({ success: true });
 });
-
-
-// get the app environment from Cloud Foundry
-// seems to be getting the app environment to know which port
-var appEnv = cfenv.getAppEnv();
 
 // start server on the specified port and binding host
 const port = process.env.PORT || 3000;

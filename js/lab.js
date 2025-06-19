@@ -65,18 +65,6 @@ String.prototype.toPrecisionRound = function(sf) {
     return num.toPrecisionRound(sf);
 };
 
-/*
-// Extend the HTMLElement prototype
-HTMLElement.prototype.getValue = function() {
-    if (this.tagName === 'DIV') {
-        return this.innerHTML; // return the innerHTML of the div
-    } else {
-         return this.value; // else return value
-    }
-    return null; // Return null for other types
-};
-*/
-
 function toPrint() {
   event.preventDefault(); // Prevent default form submission or button click behavior
 
@@ -364,7 +352,7 @@ function submitAssignment(labName, name, sessionID) {
   passed.labName = labName;
   passed.name = name;
   passed.sessionID = sessionID;
-  console.log(labName, name, sessionID);
+  console.log('submission', labName, name, sessionID);
   passed = encodeURI(JSON.stringify(passed));
   var path = `/noscore/${passed}`;
   document.location = path;
@@ -571,7 +559,7 @@ if (matches) {
         if (formula) {answer = evaluateWithCustomFunctions(formula).toString();}
         
         var elementFB = $(this.id + "FB");
-        //const value = isNaN(this.value) ? this.value : this.value * 1;
+
         let value;
         if (this.type=="checkbox") {
         value = this.checked.toString();
@@ -583,15 +571,10 @@ if (matches) {
         const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
         let closeOrCorrect = false;
         if (value !== "") {
-          //console.log("value: " + value + " isNaN: " + isNaN(value))
           if (isNaN(answer)) {
-          //if (isNaN(value)) {
             // allows the use of || for multiple correct text answers
-            //console.log("answer: "+answer)
             const possibleAnswers = answer.split("||").map(ans => ans.trim());
-            //console.log(possibleAnswers);
-            closeOrCorrect = possibleAnswers.includes(value.toString());
-            //console.log('closeOrCorrect' + closeOrCorrect);
+            closeOrCorrect = possibleAnswers.includes(value.toString().trim());
             
             // closeOrCorrect = value == answer ? true : false;
           } else {
@@ -722,20 +705,18 @@ if (matches) {
       const savebutton = $("savebutton");
       savebutton.click();
       const thisSymbolDiv = $(this.id+'DIV')
-       //const formattedText = formatText(symbolInput.value);
-        let formattedText = formatText(this.value);
-        if(formattedText == "") {formattedText = "&nbsp;"}
-       //symbolDiv.innerHTML = formattedText;
+      let formattedText = formatText(this.value.trim());
+      if (formattedText.replaceAll('&nbsp;', '').trim() == "") {
+        this.style.display = "block";
+        thisSymbolDiv.style.display = "none";
+      } else {
         thisSymbolDiv.innerHTML = formattedText;
-        //symbolInput.style.display = "none";
         this.style.display = "none";
-        //symbolDiv.style.display = "block";
-       thisSymbolDiv.style.display = "block";
-      
+        thisSymbolDiv.style.display = "block";
+      }
       if ($("score") && loaded) {
         $("score").click();
       }
- 
     });
       
       // When the user clicks on the div
@@ -768,14 +749,10 @@ if (matches) {
       const savebutton = $("savebutton");
       savebutton.click();
       const thisSubDiv = $(this.id+'DIV')
-       let formattedText = formatText(this.value);
-       if(formattedText == "") {formattedText = "&nbsp;"}
-       
-        thisSubDiv.innerHTML = formattedText;
-    
-        this.style.display = "none";
-        
-       thisSubDiv.style.display = "block";
+      let formattedText = formatText(this.value.trim()); 
+      thisSubDiv.innerHTML = formattedText;   
+      this.style.display = "none"; 
+      thisSubDiv.style.display = "block";  
       
       if ($("score") && loaded) {
         $("score").click();
@@ -894,63 +871,70 @@ if (matches) {
   }
   
   // imageUpload elements
-  
-  // Select all elements with the class 'imageUpload'
-const imageUploads = document.querySelectorAll('input[type="file"].imageUpload');
+(async () => {
+  const imageInputs = document.querySelectorAll('.imageUpload');
+  const extensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff'];
 
-for (const imageUpload of imageUploads) {
-    imageUpload.addEventListener('change', async function () {
-        const file = imageUpload.files[0];
-        if (file) {
-            const formData = new FormData();
-            formData.append('files[]', file);
+  for (const input of imageInputs) {
+    const id = input.id;
+    const div = document.getElementById(id + 'DIV');
 
-            try {
-                // Upload the file to Glitch assets
-                const response = await fetch('/upload/image', {
-                    method: 'POST',
-                    body: formData
-                });
-                const result = await response.json();
-
-                if (result && result[0] && result[0].url) {
-                    const fileUrl = result[0].url;
-
-                    // Get the div ID by modifying the imageUpload's ID
-                    const divId = `${imageUpload.id}DIV`;
-                    const div = document.getElementById(divId);
-
-                    if (div) {
-                        // Insert an image tag inside the div with the file URL
-                        div.innerHTML = `<img src="${fileUrl}" alt="Uploaded Image" />`;
-                    }
-
-                    // Set the file URL as the imageUpload's value
-                    imageUpload.value = fileUrl;
-                } else {
-                    console.error('File upload failed.');
-                }
-            } catch (error) {
-                console.error('Error uploading file:', error);
-            }
+    // Try to load existing image
+    for (const ext of extensions) {
+      const url = `/submissions/studentimages/${userName}/${labName}/${id}.${ext}`;
+      try {
+        const res = await fetch(url, { method: 'HEAD' });
+        if (res.ok) {
+          const img = document.createElement('img');
+          img.src = url;
+          img.alt = 'Uploaded Image';
+          img.style.maxHeight = '100%';
+          img.style.maxWidth = '100%';
+          div.innerHTML = '';
+          div.appendChild(img);
+          break;
         }
-    });
-}
-
-  if (dataFile != null && JSON.stringify(dataFile) != "{}") {
-    for (var index in dataFile) {
-      const element = $(index);
-      if (element) {
-        if(element.type == "checkbox") {
-        element.checked = dataFile[index];
-        } else {
-        element.value = dataFile[index];  
-        }
-      } else {
-        console.log(index + " was not found");
+      } catch (err) {
+        console.warn('Could not load image', err);
       }
     }
+
+    // Upload image on change
+    input.addEventListener('change', async (event) => {
+      const file = event.target.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('id', id);
+      formData.append('userName', userName);
+      formData.append('labName', labName);
+
+      try {
+        const res = await fetch('/upload-image', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          const img = document.createElement('img');
+          img.src = data.url;
+          img.alt = 'Uploaded Image';
+          img.style.maxHeight = '100%';
+          img.style.maxWidth = '100%';
+          div.innerHTML = '';
+          div.appendChild(img);
+        } else {
+          console.error(data.message);
+        }
+      } catch (err) {
+        console.error('Upload failed', err);
+      }
+    });
   }
+})();
+
   
   // Get all checkbox inputs
 var checkBoxes = document.querySelectorAll('input[type=checkbox]');
@@ -1019,7 +1003,7 @@ if (isAnyChecked) {
       formData[pair[0]] = pair[1];
     }
 
-    console.log(JSON.stringify(formData)); // Log the converted object
+    // console.log(JSON.stringify(formData)); // Log the converted object
 
     try {
       // Make a POST request to the server
