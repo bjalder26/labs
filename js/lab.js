@@ -869,6 +869,22 @@ if (matches) {
       }
     });
   }
+
+// load data into elements
+  if (dataFile != null && JSON.stringify(dataFile) != "{}") {
+    for (var index in dataFile) {
+      const element = $(index);
+      if (element) {
+        if(element.type == "checkbox") {
+        element.checked = dataFile[index];
+        } else {
+        element.value = dataFile[index];  
+        }
+      } else {
+        console.log(index + " was not found");
+      }
+    }
+  }
   
   // imageUpload elements
 (async () => {
