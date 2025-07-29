@@ -6,6 +6,11 @@
     <title>Lab Submission Portal</title>
 </head>
 <body>
+    <h2>Admin Tools</h2>
+<div>
+  <button onclick="downloadSubmissions()">Download Submissions ZIP</button>
+  <button onclick="deleteSubmissions()">Delete Submissions</button>
+</div>
     <h1>Lab Submission Portal</h1>
     <form id="labSubmissionForm">
         <label for="labSelect">Select Lab:</label>
@@ -71,6 +76,45 @@ labSubmissionForm.addEventListener('submit', (event) => {
     window.location.href = url;
 });
 
+  function downloadSubmissions() {
+    const password = prompt("Enter admin password:");
+    if (!password) return;
+
+    fetch('/admin/download-submissions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    })
+    .then(response => {
+      if (!response.ok) throw new Error("Unauthorized or error downloading");
+      return response.blob();
+    })
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'submissions.zip';
+      a.click();
+      window.URL.revokeObjectURL(url);
+    })
+    .catch(err => alert('Download failed: ' + err.message));
+  }
+
+  function deleteSubmissions() {
+    if (!confirm("Are you sure you want to delete all submissions? This cannot be undone.")) return;
+
+    const password = prompt("Enter admin password:");
+    if (!password) return;
+
+    fetch('/admin/delete-submissions', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ password })
+    })
+    .then(res => res.text())
+    .then(alert)
+    .catch(err => alert('Error: ' + err.message));
+  }
     </script>
 </body>
 </html>

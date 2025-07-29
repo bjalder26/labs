@@ -10,8 +10,15 @@ var uuid = require("uuid4");
 var lti = require("ims-lti");
 var fs = require('fs');
 
+const rimraf = require('rimraf');
+const archiver = require('archiver');
+
 // create a new express server
 var app = express();
+
+const ADMIN_PASSWORD = 'trouble2maker'; // password for downloading and deleting directories
+const SUBMISSIONS_DIR = path.join(__dirname, 'submissions');
+const PRESERVE_FOLDERS = ['studentimages', 'tempuploads'];
 
 // Serve the uploads directory statically
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
@@ -485,3 +492,60 @@ app.listen(port, '0.0.0.0', () => {
   console.log(`Server listening on port ${port}`);
 });
 
+
+app.post('/admin/delete-submissions', (req, res) => {
+  const { password } = req.body;
+  if (password !== ADMIN_PASSWORD) {
+    return res.status(401).send('Unauthorized');
+  }
+
+  try {
+    if (fs.existsSync(SUBMISSIONS_DIR)) {
+      fs.readdirSync(SUBMISSIONS_DIR).forEach(item => {
+        const itemPath = path.join(SUBMISSIONS_DIR, item);
+
+        if (PRESERVE_FOLDERS.includes(item)) {
+          // Delete contents inside preserved folder
+          fs.readdirSync(itemPath).forEach(subItem => {
+            const subItemPath = path.join(itemPath, subItem);
+            rimraf.sync(subItemPath);
+          });
+        } else {
+          // Delete entire item (file or folder)
+          rimraf.sync(itemPath);
+        }
+      });
+    }
+
+    // Recreate folders if missing
+    PRESERVE_FOLDERS.forEach(folder => {
+      const folderPath = path.join(SUBMISSIONS_DIR, folder);
+      if (!fs.existsSync(folderPath)) {
+        fs.mkdirSync(folderPath, { recursive: true });
+      }
+    });
+
+    res.send('Submissions folder cleaned. Preserved studentimages and tempuploads.');
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error deleting submissions.');
+  }
+});
+
+app.post('/admin/download-submissions', (req, res) => {
+  const { password } = req.body;
+  if (password !== ADMIN_PASSWORD) {
+    return res.status(401).send('Unauthorized');
+  }
+
+  try {
+    const archive = archiver('zip', { zlib: { level: 9 } });
+    res.attachment('submissions.zip');
+    archive.pipe(res);
+    archive.directory(SUBMISSIONS_DIR, false);
+    archive.finalize();
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error creating ZIP.');
+  }
+});
