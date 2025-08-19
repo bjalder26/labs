@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML Editor</title>
+  <link rel="stylesheet" href="https://codemirror.net/5/lib/codemirror.css">
+  <link rel="stylesheet" href="/css/editor.css">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
+<body>
+  <div id="login-screen">
+    <div>
+      <h2>Enter Password</h2>
+      <input type="password" id="password-input" />
+      <button id="login-btn">Enter</button>
+    </div>
+  </div>
+  <div id="editor-container">
+    <div id="left-panel">
+      <div id="controls">
+        <select id="file-selector"></select>
+        <button id="open-file" title="Open">
+          <span class="material-symbols-outlined">file_open</span>
+        </button>
+        <button id="save-file" title="Save">
+          <span class="material-symbols-outlined">save</span>
+        </button>
+        <button id="new-file" title="New File">
+          <span class="material-symbols-outlined">note_add</span>
+        </button>
+        <button id="insert-header">Header</button>
+        <button id="form-data">Data</button>
+        <button id="form-answer">Answer</button>
+        <!--<button id="insert-footer-ungraded">Footer (ungraded)</button> not sure if I have one like this-->
+        <button id="insert-footer-graded">Footer (graded)</button>
+        <button id="insert-footer-grade-submitted">Footer (grade submitted)</button>
+      </div>
+      <div id="editor" style="height: 90%; border: 1px solid #ccc;"></div>
+    </div>
+    <div id="right-panel">
+      <iframe id="preview-frame"></iframe>
+    </div>
+  </div>
+  <script type="module" src="/js/editor.js"></script>
+</body>
+</html>

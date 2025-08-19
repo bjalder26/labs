@@ -1,0 +1,29 @@
+<!-- End --> 
+       <div id="button_bar"> 
+        <button type="submit" title="save" class="large material-icons" id="savebutton" onclick="saveData()">save</button>
+        <button onclick="toPrint()" title="print" class="large material-icons">print</button> 
+        <button type="button" class="hidden" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%">Submit</button >&nbsp; 
+        <div class="vcenter hidden" style="display: none;"> 
+          <label for="score">Score: </label> 
+          <div id="score" style="display: inline">0</div>% 
+        </div> 
+      </div> 
+    </form> 
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="../js/lab.js"></script> 
+  </body> 
+</html> 

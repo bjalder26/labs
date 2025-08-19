@@ -155,6 +155,76 @@ function filesToLowerCase(files) {
         .map(file => file.replace('.html', ''));
 }
 
+// ===================== editor ===================================
+// Serve editor page
+app.get('/editor', (req, res) => {
+  res.sendFile(path.join(__dirname, 'html', 'editor.html'));
+});
+
+// Get list of files in /lab
+
+app.get('/api/lab-files', (req, res) => {
+  const labDir = path.join(__dirname, 'lab');
+  fs.readdir(labDir, (err, files) => {
+    if (err) {
+      console.error("Error reading lab folder:", err);
+      return res.status(500).json({ error: 'Unable to list files.' });
+    }
+    const htmlFiles = files.filter(file => file.endsWith('.html'));
+    res.json(htmlFiles);
+  });
+});
+
+// Get file contents
+app.get('/api/load-file', (req, res) => {
+  const file = req.query.file;
+  const filePath = path.join(__dirname, 'lab', file);
+  if (!file || !file.endsWith('.html')) return res.status(400).send('Invalid file.');
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) return res.status(500).send('Unable to read file.');
+    res.send(data);
+  });
+});
+
+// Save file contents
+app.post('/api/save-file', express.json(), (req, res) => {
+  const { filename, content } = req.body;
+  if (!filename || !filename.endsWith('.html')) return res.status(400).send('Invalid filename.');
+  const filePath = path.join(__dirname, 'lab', filename);
+  fs.writeFile(filePath, content, 'utf8', err => {
+    if (err) return res.status(500).send('Unable to save file.');
+    res.send('File saved.');
+  });
+});
+
+app.post('/api/create-lab-file', express.json(), (req, res) => {
+  const { filename } = req.body;
+  console.log(filename);
+
+  if (!filename || typeof filename !== 'string') {
+    return res.status(400).json({ error: "Invalid filename" });
+  }
+
+  const filePath = path.join(__dirname, 'lab', filename);
+  console.log('filePath', filePath)
+
+  if (fs.existsSync(filePath)) {
+    return res.status(409).json({ error: "File already exists" });
+  }
+  
+  // ✅ Correct use of writeFile
+  fs.writeFile(filePath, "", (err) => {
+    if (err) {
+      console.error("Error creating file:", err);
+      return res.status(500).json({ error: "Could not create file" });
+    }
+
+    res.status(200).json({ success: true });
+  });
+});
+
+// ========================= end editor =======================================
+
 app.post("/", async (req, res) => {
     const isFake = req.body.fake_launch === 'true';
     const sessionID = uuid();
