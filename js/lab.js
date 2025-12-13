@@ -871,17 +871,22 @@ if (matches) {
   }
 
 // load data into elements
-  if (dataFile != null && JSON.stringify(dataFile) != "{}") {
-    for (var index in dataFile) {
-      const element = $(index);
-      if (element) {
-        if(element.type == "checkbox") {
-        element.checked = dataFile[index];
-        } else {
-        element.value = dataFile[index];  
-        }
-      } else {
+  if (dataFile && Object.keys(dataFile).length > 0) {
+    for (const index in dataFile) {
+      const element = document.getElementById(index);
+      
+      if (!element) {
         console.log(index + " was not found");
+        continue;
+      }
+      
+      // NEVER restore file inputs (images handled separately)
+      if (element.type === "file") continue;
+      
+      if (element.type === "checkbox") {
+        element.checked = Boolean(dataFile[index]);
+      } else {
+        element.value = dataFile[index];
       }
     }
   }
