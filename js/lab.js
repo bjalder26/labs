@@ -277,7 +277,6 @@ function evaluateWithCustomFunctions(equation) {
   };
 
   try {
-    //console.log(equation);
     // Check if the equation contains only numbers and letters without any mathematical operators
     if (/^[a-zA-Z0-9]+$/.test(equation)) {
       return equation; // Return as-is if it's a simple alphanumeric string
@@ -427,6 +426,73 @@ function getSigFigs(number) {
   }
 }
 
+function evaluateIf(expr) {
+  expr = expr.trim();
+
+  // Base case
+  if (!expr.startsWith("if(")) return expr;
+
+  // Strip outer if(...)
+  const inner = expr.slice(3, -1);
+
+  const [condition, trueBranch, falseBranch] = splitTopLevel(inner);
+
+  const conditionResult = evaluateCondition(condition.trim());
+
+  const result = conditionResult
+    ? trueBranch.trim()
+    : falseBranch.trim();
+
+  return evaluateIf(result);
+}
+
+function evaluateCondition(cond) {
+  // Handle OR
+  if (cond.includes("||")) {
+    return cond.split("||").some(part => evaluateCondition(part.trim()));
+  }
+
+  // Handle AND
+  if (cond.includes("&&")) {
+    return cond.split("&&").every(part => evaluateCondition(part.trim()));
+  }
+
+  // Handle == and !=
+  if (cond.includes("==")) {
+    const [left, right] = cond.split("==").map(s => s.trim());
+    return left === right;
+  }
+
+  if (cond.includes("!=")) {
+    const [left, right] = cond.split("!=").map(s => s.trim());
+    return left !== right;
+  }
+
+  throw new Error("Invalid condition: " + cond);
+}
+
+function splitTopLevel(str) {
+  let parts = [];
+  let depth = 0;
+  let current = "";
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+
+    if (char === "(") depth++;
+    if (char === ")") depth--;
+
+    if (char === ";" && depth === 0) {
+      parts.push(current);
+      current = "";
+    } else {
+      current += char;
+    }
+  }
+
+  parts.push(current);
+  return parts;
+}
 
 // ===================== onLoad =====================
 
@@ -557,6 +623,8 @@ if (matches) {
         
         let answer = null;
         if (formula) {answer = evaluateWithCustomFunctions(formula).toString();}
+
+        answer = evaluateIf(answer);
         
         var elementFB = $(this.id + "FB");
 
