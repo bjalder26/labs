@@ -92,6 +92,14 @@
       </div>
       <div class="noBreak">
         <h3>Procedure:</h3>
+		Make sure you have the following items at your bench, or pull them from the drawers at your bench.
+		<ul>
+		<li>Three 50 mL graduated cylinders</li>
+        <li>100 mL beaker</li>
+        <li>Ruler or Caliper</li>
+        <li>Deionized water bottle</li> 
+		<li>Microfiber duster sticks (if available)</li> 
+		</ul>
         <h3>Part A: Density of Water</h3>
         <ol>
           <li>
@@ -1331,27 +1339,27 @@
 <br>
 Convert 3.45 km to meters.<br>
 <input type="number" step="any" class="calc" id="uc1" name="uc1"
-       formula="3450" sigfigs="3"
+       formula="3450" sigfigs="3" range="0"
        help="Use 1 km = 1000 m. Multiply, then apply significant figures."> m <div class="feedback" id="uc1FB" name="uc1FB"></div>
 <br>
 Convert 825 mg to grams.<br>
 <input type="number" step="any" class="calc" id="uc2" name="uc2"
-       formula="0.825" sigfigs="3"
+       formula="0.825" sigfigs="3" range="0"
        help="Use 1000 mg = 1 g. Milligrams must be converted to grams."> g <div class="feedback" id="uc2FB" name="uc2FB"></div>
 <br>
 Convert 0.056 L to milliliters.<br>
 <input type="number" step="any" class="calc" id="uc3" name="uc3"
-       formula="56" sigfigs="2"
+       formula="56" sigfigs="2" range="0"
        help="Use 1 L = 1000 mL. Watch significant figures."> mL <div class="feedback" id="uc3FB" name="uc3FB"></div>
 <br>
 Convert 7.20 × 10<sup>2</sup> cm to meters.<br>
 <input type="number" step="any" class="calc" id="uc4" name="uc4"
-       formula="7.20" sigfigs="3"
+       formula="7.20" sigfigs="3" range="0"
        help="First convert centimeters to meters using 100 cm = 1 m."> m <div class="feedback" id="uc4FB" name="uc4FB"></div>
 <br>
 Convert 1.85 hours to seconds.<br>
 <input type="number" step="any" class="calc" id="uc5" name="uc5"
-       formula="6660" sigfigs="3"
+       formula="6660" sigfigs="3" range="0"
        help="Use 1 hour = 3600 seconds. Multiply, then round correctly."> s <div class="feedback" id="uc5FB" name="uc5FB"></div>
 <br>
 <hr>
@@ -1361,49 +1369,75 @@ Convert 1.85 hours to seconds.<br>
 
 a) 0.00340<br>
 <input type="number" class="calc" id="sf1" name="sf1"
-       formula="3"
+       formula="3" range="0"
        help="Leading zeros are not significant; trailing zeros after a decimal are."> sig figs <div class="feedback" id="sf1FB" name="sf1FB"></div>
 <br>
 b) 150.0<br>
 <input type="number" class="calc" id="sf2" name="sf2"
-       formula="4"
+       formula="4" range="0"
        help="A trailing zero is significant when a decimal point is present."> sig figs <div class="feedback" id="sf2FB" name="sf2FB"></div>
 <br>
 c) 2.070<br>
 <input type="number" class="calc" id="sf3" name="sf3"
-       formula="4"
+       formula="4" range="0"
        help="Zeros between nonzero digits and trailing zeros after a decimal are significant."> sig figs <div class="feedback" id="sf3FB" name="sf3FB"></div>
 <br>
 d) 6.02 × 10<sup>23</sup><br>
 <input type="number" class="calc" id="sf4" name="sf4"
-       formula="3"
+       formula="3" range="0"
        help="In scientific notation, count only the digits in the coefficient."> sig figs <div class="feedback" id="sf4FB" name="sf4FB"></div>
 <br>
 e) 45000<br>
 <input type="number" class="calc" id="sf5" name="sf5"
-       formula="2"
+       formula="2" range="0"
        help="Without a decimal point, trailing zeros are not assumed to be significant."> sig figs <div class="feedback" id="sf5FB" name="sf5FB"></div>
 <br>
-<h5>B. Calculations with Significant Figures</h5>
+
+<h4>Significant Figures</h4>
+<h5>B. Rounding</h5>
+<p>Round the following numbers to the given number of significant figures.</p>
+
+a) Round 347 to 2 significant figures.<br>
+<input type="number" class="calc" id="r1" name="r1"
+       formula="350" range="0"
+       help="Keep the first two digits, then look at the next digit to decide whether to round up or down."> <div class="feedback" id="rFB" name="r1FB"></div>
+<br>
+b) Round 1,674 to 3 significant figures.<br>
+<input type="number" class="calc" id="r2" name="r2"
+       formula="1670" range="0"
+       help="Identify the first three significant digits, then check the next digit to determine rounding. Use scientific notation if it helps."> <div class="feedback" id="r2FB" name="r2FB"></div>
+<br>
+c) Round 57.843 to 3 significant figures.<br>
+<input type="number" class="calc" id="r3" name="r3"
+       formula="57.8" range="0"
+       help="Count three significant digits starting from the first nonzero digit, then use the next digit to round."> <div class="feedback" id="r3FB" name="r3FB"></div>
+<br>
+d) Round 3.251 to 2 significant figures.<br>
+<input type="number" class="calc" id="r4" name="r4"
+       formula="3.3" range="0"
+      help="Keep two significant digits and use the next digit to round."> <div class="feedback" id="r4FB" name="r4FB"></div>
+<br>
+		
+<h5>C. Calculations with Significant Figures</h5>
 <br>
 a) 12.4 × 3.26<br>
 <input type="number" step="any" class="calc" id="sf6" name="sf6"
-       formula="40.4" sigfigs="3"
+       formula="40.4" sigfigs="3" range="0"
        help="For multiplication, the answer must have the same number of sig figs as the least precise value."><div class="feedback" id="sf6FB" name="sf6FB"></div>
 <br>
 b) 8.52 ÷ 0.040<br>
 <input type="number" step="any" class="calc" id="sf7" name="sf7"
-       formula="210" sigfigs="2"
+       formula="210" sigfigs="2" range="0"
        help="Count sig figs carefully before rounding your final answer."><div class="feedback" id="sf7FB" name="sf7FB"></div>
 <br>
 c) (15.0 + 2.35 + 0.678)<br>
 <input type="number" step="any" class="calc" id="sf8" name="sf8"
-       formula="18.0" sigfigs="3"
+       formula="18.0" sigfigs="3" range="0"
        help="For addition, round based on the least number of decimal places."><div class="feedback" id="sf8FB" name="sf8FB"></div>
 <br>
 d) (42.8 − 17.25)<br>
 <input type="number" step="any" class="calc" id="sf9" name="sf9"
-       formula="25.6" sigfigs="3"
+       formula="25.6" sigfigs="3" range="0"
        help="For subtraction, the result must match the fewest decimal places."><div class="feedback" id="sf9FB" name="sf9FB"></div>
 <br>
 <hr>
@@ -1411,17 +1445,17 @@ d) (42.8 − 17.25)<br>
 <br>
 Convert 25.0 &deg;C to Kelvin.<br>
 <input type="number" step="any" class="calc" id="tc1" name="tc1"
-       formula="298.2" sigfigs="4"
+       formula="298.2" sigfigs="4" range="0"
        help="To convert °C to K, add 273.15, then round correctly."> K <div class="feedback" id="tc1FB" name="tc1FB"></div>
 <br>
-Convert 310 K to &deg;C.<br>
+Convert 310. K to &deg;C.<br>
 <input type="number" step="any" class="calc" id="tc2" name="tc2"
-       formula="36.9" sigfigs="3"
+       formula="36.9" sigfigs="3" range="0"
        help="To convert K to °C, subtract 273.15."> &deg;C <div class="feedback" id="tc2FB" name="tc2FB"></div>
 <br>
 Convert 68.0 &deg;F to &deg;C.<br>
 <input type="number" step="any" class="calc" id="tc3" name="tc3"
-       formula="20.0" sigfigs="3"
+       formula="20.0" sigfigs="3" range="0"
        help="Use (°F − 32) × 5/9, then apply significant figures."> &deg;C <div class="feedback" id="tc3FB" name="tc3FB"></div>
 <p></p>
       <div class="footer">Exploring Density Properties</div>
