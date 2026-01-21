@@ -1324,7 +1324,161 @@
           <li>Was your copper percent for you pennies close to 2.5%?</li>
         </ol>
         
-        <textarea class="text essay" id="conclusion" name="conclusion"></textarea>
+        <p></p><textarea class="text essay" id="conclusion" name="conclusion"></textarea></p>
+
+		<h3>Measurement &amp; Data Skill Building</h3>
+
+<h4>Unit Conversions</h4>
+
+<p>
+Convert 3.45 km to meters.<br>
+<input type="number" step="any" class="calc" id="uc1" name="uc1"
+       formula="3450" sigfigs="3"
+       help="Use 1 km = 1000 m. Multiply, then apply significant figures."> m
+<div class="feedback" id="uc1FB" name="uc1FB"></div>
+</p>
+
+<p>
+Convert 825 mg to grams.<br>
+<input type="number" step="any" class="calc" id="uc2" name="uc2"
+       formula="0.825" sigfigs="3"
+       help="Use 1000 mg = 1 g. Milligrams must be converted to grams."> g
+<div class="feedback" id="uc2FB" name="uc2FB"></div>
+</p>
+
+<p>
+Convert 0.056 L to milliliters.<br>
+<input type="number" step="any" class="calc" id="uc3" name="uc3"
+       formula="56" sigfigs="2"
+       help="Use 1 L = 1000 mL. Watch significant figures."> mL
+<div class="feedback" id="uc3FB" name="uc3FB"></div>
+</p>
+
+<p>
+Convert 7.20 × 10<sup>2</sup> cm to meters.<br>
+<input type="number" step="any" class="calc" id="uc4" name="uc4"
+       formula="7.20" sigfigs="3"
+       help="First convert centimeters to meters using 100 cm = 1 m."> m
+<div class="feedback" id="uc4FB" name="uc4FB"></div>
+</p>
+
+<p>
+Convert 1.85 hours to seconds.<br>
+<input type="number" step="any" class="calc" id="uc5" name="uc5"
+       formula="6660" sigfigs="3"
+       help="Use 1 hour = 3600 seconds. Multiply, then round correctly."> s
+<div class="feedback" id="uc5FB" name="uc5FB"></div>
+</p>
+
+<hr>
+
+<h4>Significant Figures</h4>
+
+<h5>A. Counting Significant Figures</h5>
+<p>How many significant figures are in each?</p>
+
+<p>
+a) 0.00340<br>
+<input type="number" class="calc" id="sf1" name="sf1"
+       formula="3"
+       help="Leading zeros are not significant; trailing zeros after a decimal are."> sig figs
+<div class="feedback" id="sf1FB" name="sf1FB"></div>
+</p>
+
+<p>
+b) 150.0<br>
+<input type="number" class="calc" id="sf2" name="sf2"
+       formula="4"
+       help="A trailing zero is significant when a decimal point is present."> sig figs
+<div class="feedback" id="sf2FB" name="sf2FB"></div>
+</p>
+
+<p>
+c) 2.070<br>
+<input type="number" class="calc" id="sf3" name="sf3"
+       formula="4"
+       help="Zeros between nonzero digits and trailing zeros after a decimal are significant."> sig figs
+<div class="feedback" id="sf3FB" name="sf3FB"></div>
+</p>
+
+<p>
+d) 6.02 × 10<sup>23</sup><br>
+<input type="number" class="calc" id="sf4" name="sf4"
+       formula="3"
+       help="In scientific notation, count only the digits in the coefficient."> sig figs
+<div class="feedback" id="sf4FB" name="sf4FB"></div>
+</p>
+
+<p>
+e) 45000<br>
+<input type="number" class="calc" id="sf5" name="sf5"
+       formula="2"
+       help="Without a decimal point, trailing zeros are not assumed to be significant."> sig figs
+<div class="feedback" id="sf5FB" name="sf5FB"></div>
+</p>
+
+<h5>B. Calculations with Significant Figures</h5>
+
+<p>
+a) 12.4 × 3.26<br>
+<input type="number" step="any" class="calc" id="sf6" name="sf6"
+       formula="40.4" sigfigs="3"
+       help="For multiplication, the answer must have the same number of sig figs as the least precise value.">
+<div class="feedback" id="sf6FB" name="sf6FB"></div>
+</p>
+
+<p>
+b) 8.52 ÷ 0.040<br>
+<input type="number" step="any" class="calc" id="sf7" name="sf7"
+       formula="210" sigfigs="2"
+       help="Count sig figs carefully before rounding your final answer.">
+<div class="feedback" id="sf7FB" name="sf7FB"></div>
+</p>
+
+<p>
+c) (15.0 + 2.35 + 0.678)<br>
+<input type="number" step="any" class="calc" id="sf8" name="sf8"
+       formula="18.0" sigfigs="3"
+       help="For addition, round based on the least number of decimal places.">
+<div class="feedback" id="sf8FB" name="sf8FB"></div>
+</p>
+
+<p>
+d) (42.8 − 17.25)<br>
+<input type="number" step="any" class="calc" id="sf9" name="sf9"
+       formula="25.6" sigfigs="3"
+       help="For subtraction, the result must match the fewest decimal places.">
+<div class="feedback" id="sf9FB" name="sf9FB"></div>
+</p>
+
+<hr>
+
+<h4>Temperature Conversions</h4>
+
+<p>
+Convert 25.0 &deg;C to Kelvin.<br>
+<input type="number" step="any" class="calc" id="tc1" name="tc1"
+       formula="298.2" sigfigs="4"
+       help="To convert °C to K, add 273.15, then round correctly."> K
+<div class="feedback" id="tc1FB" name="tc1FB"></div>
+</p>
+
+<p>
+Convert 310 K to &deg;C.<br>
+<input type="number" step="any" class="calc" id="tc2" name="tc2"
+       formula="36.9" sigfigs="3"
+       help="To convert K to °C, subtract 273.15."> &deg;C
+<div class="feedback" id="tc2FB" name="tc2FB"></div>
+</p>
+
+<p>
+Convert 68.0 &deg;F to &deg;C.<br>
+<input type="number" step="any" class="calc" id="tc3" name="tc3"
+       formula="20.0" sigfigs="3"
+       help="Use (°F − 32) × 5/9, then apply significant figures."> &deg;C
+<div class="feedback" id="tc3FB" name="tc3FB"></div>
+</p>
+
 	
       <div class="footer">Exploring Density Properties</div>
       <!-- title -->
