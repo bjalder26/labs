@@ -318,8 +318,8 @@ Table 4:
 </tr>	
   </table></div>
 
-When you burned ethanol (C<sub>2</sub>H<sub>4</sub>) it produced water that condensed on a cold test tube. When C<sub>2</sub>H<sub>4</sub> reacts with O<sub>2</sub> from the air it produces H<sub>2</sub>O, and another gas.  What could possibly be the other gas?<br>
-<select name="GasEthanol" id="GasEthanol" class="calc" formula="Carbon dioxide" help="Consider which elements from C<sub>2</sub>H<sub>4</sub> are not yet accounted for in H<sub>2</sub>O that could bond to oxygen.">
+When you burned ethanol (C<sub>2</sub>H<sub>6</sub>O) it produced water that condensed on a cold test tube. When C<sub>2</sub>H<sub>6</sub>O reacts with O<sub>2</sub> from the air it produces H<sub>2</sub>O, and another gas.  What could possibly be the other gas?<br>
+<select name="GasEthanol" id="GasEthanol" class="calc" formula="Carbon dioxide" help="Consider which elements from C<sub>2</sub>H<sub>6</sub>O are not yet accounted for in H<sub>2</sub>O that could bond to oxygen.">
 			<option value="">Choose a gas</option>
 			<option value="Ammonia">Ammonia</option>
 			<option value="Carbon dioxide">Carbon dioxide</option>
@@ -330,6 +330,193 @@ When you burned ethanol (C<sub>2</sub>H<sub>4</sub>) it produced water that cond
 
 Write a conclusion that explains how you were able to deduce the identity of each gas in test tubes 1-4.
         <textarea class="text essay" id="conclusion" name="conclusion"></textarea>
+		<br>
+		<h3>Measurement &amp; Data Skill Building</h3>
+		<h4>Unit Conversions</h4>
+
+		<h4>Stoichiometry Problems Based on Lab Reactions</h4>
+
+<p>Answer the following questions about the reactions you performed using the given balanced equations. Each question refers to a specific test tube or reaction from the experiment. Show calculations where appropriate.</p>
+
+<ol>
+
+<!-- QUESTION 1 -->
+<li>
+<strong>1) Test Tube 1 – Sodium bicarbonate</strong><br>
+Reaction from Test Tube 1:<br>
+NaHCO<sub>3</sub>(s) + CH<sub>3</sub>COOH(aq) → CO<sub>2</sub>(g) + H<sub>2</sub>O(l) + CH<sub>3</sub>COONa(aq)<br><br>
+
+A student used <strong>0.84 g of sodium bicarbonate, NaHCO<sub>3</sub></strong> in test tube 1.<br><br>
+
+Calculate:<br>
+
+a) the number of moles of sodium bicarbonate, NaHCO<sub>3</sub>
+<input type="number" step="any" class="calc" id="molNaHCO3" name="molNaHCO3" 
+       formula="0.84/84.01" sigfigs="2" range="2%" 
+       help="Calculate the molar mass of sodium hydrogen carbonate, then divide the mass (g) by the molar mass."> mol
+<div class="feedback" id="molNaHCO3FB" name="molNaHCO3FB"></div>
+<br>
+
+b) the number of formula units of sodium bicarbonate used
+<input type="number" step="any" class="calc" id="fuNaHCO3" name="fuNaHCO3" 
+       formula="0.84/84.01*6.022*10^23" sigfigs="2" range="2%" 
+       help="Calculate the moles of sodium hydrogen carbonate, then multiply by Avogadro's number (6.022 x 10^23)."> formula units
+<div class="feedback" id="fuNaHCO3FB" name="fuNaHCO3FB"></div>
+</li>
+
+
+<!-- QUESTION 2 -->
+<li>
+<strong>2) Test Tube 2 – Hydrogen peroxide</strong><br>
+Reaction from Test Tube 2:<br>
+2 H<sub>2</sub>O<sub>2</sub>(aq) → 2 H<sub>2</sub>O(l) + O<sub>2</sub>(g)<br><br>
+
+During the reaction, it is estimated that <strong>3.0 × 10<sup>22</sup> molecules of hydrogen peroxide, H<sub>2</sub>O<sub>2</sub></strong>, decomposed.<br><br>
+
+Calculate:<br>
+
+a) the number of moles of hydrogen peroxide, H<sub>2</sub>O<sub>2</sub>
+<input type="number" step="any" class="calc" id="molH2O2" name="molH2O2" 
+       formula="3.0*10^22/6.022*10^23" sigfigs="2" range="2%" 
+       help="Divide the number of molecules by Avogadro's number (6.022 x 10^23)."> mol
+<div class="feedback" id="molH2O2FB" name="molH2O2FB"></div>
+<br>
+
+b) the mass in grams of hydrogen peroxide that reacted
+<input type="number" step="any" class="calc" id="gH2O2" name="gH2O2" 
+       formula="(3.0*10^22/6.022*10^23)*34.02" sigfigs="2" range="2%" 
+       help="First convert molecules to moles, then multiply by the molar mass of H2O2 (34.02 g/mol)."> g
+<div class="feedback" id="gH2O2FB" name="gH2O2FB"></div>
+</li>
+
+
+<!-- QUESTION 3 -->
+<li>
+<strong>3) Test Tube 3 – Magnesium</strong><br>
+Reaction from Test Tube 3:<br>
+Mg(s) + 2 HCl(aq) → MgCl<sub>2</sub>(aq) + H<sub>2</sub>(g)<br><br>
+
+A piece of <strong>magnesium metal, Mg, with a mass of 0.15 g</strong> was used.<br><br>
+
+Calculate:<br>
+
+a) the number of moles of magnesium, Mg
+<input type="number" step="any" class="calc" id="molMg" name="molMg" 
+       formula="0.15/24.31" sigfigs="2" range="2%" 
+       help="Divide the mass of magnesium by its molar mass (24.31 g/mol)."> mol
+<div class="feedback" id="molMgFB" name="molMgFB"></div>
+<br>
+
+b) the number of atoms of magnesium that reacted
+<input type="number" step="any" class="calc" id="atomsMg" name="atomsMg" 
+       formula="0.15/24.31*6.022*10^23" sigfigs="2" range="2%" 
+       help="Convert grams to moles, then multiply by Avogadro's number."> atoms
+<div class="feedback" id="atomsMgFB" name="atomsMgFB"></div>
+</li>
+
+
+<!-- QUESTION 4 -->
+<li>
+<strong>4) Test Tube 4 – Ammonium carbonate</strong><br>
+Reaction from Test Tube 4:<br>
+(NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub>(s) → 2 NH<sub>3</sub>(g) + CO<sub>2</sub>(g) + H<sub>2</sub>O(g)<br><br>
+
+A student heated <strong>1.25 g of ammonium carbonate, (NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub></strong>.<br><br>
+
+Calculate:<br>
+
+a) the number of moles of ammonium carbonate, (NH<sub>4</sub>)<sub>2</sub>CO<sub>3</sub>
+<input type="number" step="any" class="calc" id="molAmCarb" name="molAmCarb" 
+       formula="1.25/96.09" sigfigs="2" range="2%" 
+       help="Divide the mass by the molar mass of ammonium carbonate (96.09 g/mol)."> mol
+<div class="feedback" id="molAmCarbFB" name="molAmCarbFB"></div>
+<br>
+
+b) the number of formula units of ammonium carbonate decomposed
+<input type="number" step="any" class="calc" id="fuAmCarb" name="fuAmCarb" 
+       formula="1.25/96.09*6.022*10^23" sigfigs="2" range="2%" 
+       help="Convert grams to moles, then multiply by Avogadro's number."> formula units
+<div class="feedback" id="fuAmCarbFB" name="fuAmCarbFB"></div>
+</li>
+
+
+<!-- QUESTION 5 -->
+<li>
+<strong>5) Test Tube 5 – Zinc</strong><br>
+Reaction from Test Tube 5:<br>
+Zn(s) + CuCl<sub>2</sub>(aq) → ZnCl<sub>2</sub>(aq) + Cu(s)<br><br>
+
+After the reaction, <strong>2.5 × 10<sup>21</sup> atoms of zinc, Zn</strong>, were found to have reacted.<br><br>
+
+Calculate:<br>
+
+a) the number of moles of zinc, Zn
+<input type="number" step="any" class="calc" id="molZn" name="molZn" 
+       formula="2.5*10^21/6.022*10^23" sigfigs="2" range="2%" 
+       help="Divide the number of atoms by Avogadro's number."> mol
+<div class="feedback" id="molZnFB" name="molZnFB"></div>
+<br>
+
+b) the mass in grams of zinc that reacted
+<input type="number" step="any" class="calc" id="gZn" name="gZn" 
+       formula="(2.5*10^21/6.022*10^23)*65.38" sigfigs="2" range="2%" 
+       help="Convert atoms to moles, then multiply by the molar mass of zinc (65.38 g/mol)."> g
+<div class="feedback" id="gZnFB" name="gZnFB"></div>
+</li>
+
+
+<!-- QUESTION 6 -->
+<li>
+<strong>6) Ethanol combustion</strong><br>
+Reaction:<br>
+C<sub>2</sub>H<sub>5</sub>OH(l) + 3 O<sub>2</sub>(g) → 2 CO<sub>2</sub>(g) + 3 H<sub>2</sub>O(g)<br><br>
+
+During combustion, <strong>0.92 g of ethanol, C<sub>2</sub>H<sub>5</sub>OH</strong>, was burned.<br><br>
+
+Calculate:<br>
+
+a) the number of moles of ethanol, C<sub>2</sub>H<sub>5</sub>OH
+<input type="number" step="any" class="calc" id="molEthanol" name="molEthanol" 
+       formula="0.92/46.07" sigfigs="2" range="2%" 
+       help="Divide the mass by the molar mass of ethanol (46.07 g/mol)."> mol
+<div class="feedback" id="molEthanolFB" name="molEthanolFB"></div>
+<br>
+
+b) the number of molecules of ethanol burned
+<input type="number" step="any" class="calc" id="molcEthanol" name="molcEthanol" 
+       formula="0.92/46.07*6.022*10^23" sigfigs="2" range="2%" 
+       help="Convert grams to moles, then multiply by Avogadro's number."> molecules
+<div class="feedback" id="molcEthanolFB" name="molcEthanolFB"></div>
+</li>
+
+
+<!-- QUESTION 7 -->
+<li>
+<strong>7) Magnesium oxide – product from magnesium combustion</strong><br>
+Reaction:<br>
+2 Mg(s) + O<sub>2</sub>(g) → 2 MgO(s)<br><br>
+
+After burning magnesium, a student collected <strong>0.40 g of magnesium oxide, MgO</strong>.<br><br>
+
+Calculate:<br>
+
+a) the number of moles of magnesium oxide, MgO
+<input type="number" step="any" class="calc" id="molMgO" name="molMgO" 
+       formula="0.40/40.30" sigfigs="2" range="2%" 
+       help="Divide the mass by the molar mass of magnesium oxide (40.30 g/mol)."> mol
+<div class="feedback" id="molMgOFB" name="molMgOFB"></div>
+<br>
+
+b) the number of formula units of magnesium oxide produced
+<input type="number" step="any" class="calc" id="fuMgO" name="fuMgO" 
+       formula="0.40/40.30*6.022*10^23" sigfigs="2" range="2%" 
+       help="Convert grams to moles, then multiply by Avogadro's number."> formula units
+<div class="feedback" id="fuMgOFB" name="fuMgOFB"></div>
+</li>
+
+</ol>
+
+		
 	<!-- End -->
 	<div class="footer">Signs a Chemical Reaction Has Occured</div> <!-- title -->
       <div id="button_bar">
