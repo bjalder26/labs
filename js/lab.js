@@ -416,17 +416,29 @@ function reverseString(string) {
   return reverseArray.join("");
 }
 
-function getSigFigs(number) {
-  number = number.toString(); // unsure about this
-  if (number.includes(".")) {
-    number = number.replace(".", "");
-    return number.length - number.search(/[123456789]/);
+function getSigFigs(value) {
+  value = value.trim();
+
+  // strip sign
+  value = value.replace(/^[+-]/, "");
+
+  // scientific notation → only mantissa matters
+  const [mantissa] = value.split(/e/i);
+
+  if (!/[1-9]/.test(mantissa)) return 0;
+
+  if (mantissa.includes(".")) {
+    // decimal present → trailing zeros count
+    const digits = mantissa.replace(".", "");
+    const firstNonZero = digits.search(/[1-9]/);
+    return digits.length - firstNonZero;
   } else {
-    number = reverseString(number);
-    return number.length - number.search(/[123456789]/);
+    // no decimal → trailing zeros do NOT count
+    const trimmed = mantissa.replace(/0+$/, "");
+    const firstNonZero = trimmed.search(/[1-9]/);
+    return trimmed.length - firstNonZero;
   }
 }
-
 
 // ===================== onLoad =====================
 
