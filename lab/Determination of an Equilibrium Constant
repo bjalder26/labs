@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Borax Solution Equilibrium and Thermodynamics</title>
+    <!-- Title -->
+
+    <link rel="stylesheet" href="../css/lab.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <h1 id="title">Determination of an Equilibrium Constant</h1>
+    <!-- Title -->
+
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
+
+      <input type="text" id="userName" name="userName" style="display: none" />
+
+      <!-- Beginning -->
+
+<article class="lab-manual">
+
+<h1>Determination of an Equilibrium Constant</h1>
+
+<section>
+<p>
+The equilibrium state of a chemical reaction can be characterized by quantitatively defining its equilibrium constant, Keq. In this experiment, you will determine the value of Keq for the reaction between iron (III) ions and thiocyanate ions, SCN–.
+</p>
+
+<p class="equation">
+Fe³⁺(aq) + SCN⁻(aq) ⇌ FeSCN²⁺(aq)
+</p>
+
+<p>
+When you mix amounts of Fe³⁺ and SCN⁻, a reaction occurs to produce FeSCN²⁺, but not all of the reactants react. Thus, your beaker will contain some of each of these three species, which forms the equilibrium system. The FeSCN²⁺ complex has a reddish color in solution while the reactants are nearly colorless.
+</p>
+
+<p>
+The equilibrium constant for the reaction is defined as:
+</p>
+
+<p class="equation">
+K<sub>eq</sub> =
+<span class="fraction">
+[FeSCN²⁺] / ([Fe³⁺][SCN⁻])
+</span>
+</p>
+
+<p>
+To determine the value of Keq, the concentration of each species must be determined. A colorimeter or spectrometer will be used to measure the absorbance of light passing through the solution. Because FeSCN²⁺ is red, it absorbs blue light. Colorimeter users will use the 470 nm LED.
+</p>
+
+<p>
+Two experiments are performed. In Part I, standard FeSCN²⁺ solutions are prepared so that a calibration curve can be created. In Part II, equilibrium mixtures are analyzed using this calibration curve to determine the equilibrium concentrations.
+</p>
+</section>
+
+
+<section>
+<h2>Objectives</h2>
+
+<ul>
+<li>Prepare and test standard solutions of FeSCN²⁺.</li>
+<li>Determine the molar concentrations of ions in an equilibrium system.</li>
+<li>Determine the equilibrium constant, K<sub>eq</sub>, for the reaction.</li>
+</ul>
+</section>
+
+
+<section>
+<h2>Materials</h2>
+
+<ul>
+<li>LabQuest</li>
+<li>LabQuest App</li>
+<li>Colorimeter or Spectrometer (Vernier)</li>
+<li>Plastic cuvette</li>
+<li>10 mL graduated cylinders</li>
+<li>50 mL graduated cylinder</li>
+<li>Small beakers (100–250 mL)</li>
+<li>Beral pipets</li>
+<li>0.200 M Fe(NO₃)₃ solution in 1.0 M HNO₃</li>
+<li>0.0020 M Fe(NO₃)₃ solution in 1.0 M HNO₃</li>
+<li>0.0020 M KSCN solution</li>
+<li>Distilled water</li>
+<li>Lint-free tissues</li>
+</ul>
+</section>
+
+
+<section>
+<h2>Pre-Lab Exercise</h2>
+
+<p>
+For the solutions prepared in Part I, calculate the expected concentration of FeSCN²⁺ assuming all SCN⁻ reacts.
+</p>
+
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Volume Fe³⁺ (mL)</th>
+<th>Volume SCN⁻ (mL)</th>
+<th>Volume H₂O (mL)</th>
+<th>[FeSCN²⁺] (M)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+<section>
+<h2>Procedure — Part I: Standard Solutions</h2>
+
+<ol>
+<li>Prepare five solutions containing varying amounts of SCN⁻.</li>
+<li>Add excess Fe³⁺ so that SCN⁻ becomes the limiting reagent.</li>
+<li>Allow at least one minute for color to develop.</li>
+<li>Measure absorbance using the colorimeter at 470 nm.</li>
+<li>Record absorbance values for each solution.</li>
+</ol>
+
+<table>
+<thead>
+<tr>
+<th>Solution</th>
+<th>Absorbance</th>
+<th>[FeSCN²⁺] (M)</th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>1</td><td></td><td></td></tr>
+<tr><td>2</td><td></td><td></td></tr>
+<tr><td>3</td><td></td><td></td></tr>
+<tr><td>4</td><td></td><td></td></tr>
+<tr><td>5</td><td></td><td></td></tr>
+</tbody>
+</table>
+
+</section>
+
+
+<section>
+<h2>Procedure — Part II: Equilibrium Mixtures</h2>
+
+<ol>
+<li>Prepare several mixtures with varying SCN⁻ concentrations.</li>
+<li>Measure the absorbance of each mixture.</li>
+<li>Use the calibration curve from Part I to determine [FeSCN²⁺].</li>
+<li>Calculate equilibrium concentrations.</li>
+<li>Determine the value of K<sub>eq</sub>.</li>
+</ol>
+
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Absorbance</th>
+<th>[FeSCN²⁺]</th>
+<th>[Fe³⁺]</th>
+<th>[SCN⁻]</th>
+<th>K<sub>eq</sub></th>
+</tr>
+</thead>
+
+<tbody>
+<tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>
+<tr><td>3</td><td></td><td></td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+
+</section>
+
+</article>
+
+      <!-- title -->
+
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+
+        <div class="vcenter">
+          <label for="score">Score: </label>
+
+          <div id="score" style="display: inline">0</div>
+
+          %
+        </div>
+      </div>
+    </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"],
+        },
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
