@@ -239,18 +239,59 @@ mol SCN<sup>–</sup><sub>(before reaction)</sub> = mol FeSCN<sup>2+</sup><sub>(
 </table>
 
 <h2>Procedure</h2>
-
+      
 <h3>Part I – Prepare and Test Standard Solutions</h3>
-
 <ol>
 <li>Obtain and wear goggles and nitril gloves.</li>
 
 <li>
-Label four small beakers 1–4. Obtain small volumes of 0.200 M Fe(NO<sub>3</sub>)<sub>3</sub>, 
-0.0020 M SCN<sup>–</sup>, and distilled water. Prepare four solutions according to the chart 
-below. Use graduated cylinders to measure the solutions. Mix each solution thoroughly. 
+  Label one 100 mL beaker "0.200 M Fe(NO<sub>3</sub>)<sub>3</sub>" and obtain 25 mL of 0.200 M Fe(NO<sub>3</sub>)<sub>3</sub> solution.
+</li>
+<li>
+  Label another 100 mL beaker "0.0020 M SCN<sup>–</sup>" and obtain 25 mL of 0.0020 M SCN<sup>–</sup> solution.
+</li>
+
+  <p><strong>Prepare the Spectrometer</strong></p>
+
+<li>
+Prepare a blank by filling a cuvette 3/4 full with 0.200 M Fe(NO<sub>3</sub>)<sub>3</sub> using a plastic pipet.
+To correctly use cuvettes, remember:
+
+<ul>
+<li>Wipe the outside of each cuvette with a lint-free tissue.</li>
+<li>Handle cuvettes only by the top edge of the ribbed sides.</li>
+<li>Dislodge any bubbles by gently tapping the cuvette on a hard surface.</li>
+<li>Always position the cuvette so the light passes through the clear sides.</li>
+</ul>
+
+</li>
+
+<li>
+Turn on your LabQuest, connect the spectrometer to LabQuest via USB, make sure the SpectroVis Plus sensor is recognized by the LabQuest, and choose <strong>New</strong> from the File menu.
+</li>
+
+<li>
+To calibrate the spectrometer, choose <strong>Calibrate ► Spectrometer</strong> from the Sensors menu. Click Ok, to take a dark sample with nothing in the SpectroVis Plus.
+  Wait for the spectrometer to warm up.  place the blank cuvette into the cuvette slot of the spectrometer (with a clear side facing the arrow).  
+  Tap <strong>Finish Calibration</strong>, then tap <strong>OK</strong>.
+</li>
+
+  <li>
+Label four 100 mL beakers 1–4. </li>
+ <li>Label three 5 mL graduated pipets "0.200 M Fe(NO<sub>3</sub>)<sub>3</sub>", "0.0020 M SCN<sup>–</sup>", and "0.0020 M Fe(NO<sub>3</sub>)<sub>3</sub>" </li> 
+  Prepare four solutions according to the chart
+below adding SCN<sup>–</sup> last. Use the labeled graduated pipets to measure the Fe(NO<sub>3</sub>)<sub>3</sub> and SCN<sup>–</sup>.  Use a 50 mL graduated cylinder to measure the water. 
+  Mix each solution thoroughly using a plastic pipet, and keep the plastic pipet in the 100 mL beaker you mixed with it. 
 Record the temperature of one of the solutions as the temperature for the equilibrium 
 constant, K<sub>eq</sub>.
+
+  <p>Temperature: <input
+    type="number"
+    step="any"
+    class="num"
+    id="temp"
+    name="temp"
+  /> °C</p>
 
 <p><strong>DANGER:</strong> Iron (III) nitrate solution, Fe(NO<sub>3</sub>)<sub>3</sub>•9H<sub>2</sub>O: Causes skin and eye irritation. Do not breathe mist, vapors, or spray.</p>
 
@@ -297,41 +338,14 @@ constant, K<sub>eq</sub>.
 </table>
 
 </li>
-
-<li>
-Prepare a blank by filling a cuvette 3/4 full with 0.200 M Fe(NO<sub>3</sub>)<sub>3</sub>. 
-To correctly use cuvettes, remember:
-
-<ul>
-<li>Wipe the outside of each cuvette with a lint-free tissue.</li>
-<li>Handle cuvettes only by the top edge of the ribbed sides.</li>
-<li>Dislodge any bubbles by gently tapping the cuvette on a hard surface.</li>
-<li>Always position the cuvette so the light passes through the clear sides.</li>
-</ul>
-
-</li>
-
-<p><strong>Spectrometer</strong></p>
-
-<li>
-Choose <strong>New</strong> from the File menu. Connect the spectrometer to LabQuest via USB.
-</li>
-
-<li>
-To calibrate the spectrometer, place the blank cuvette into the cuvette slot of the spectrometer, 
-choose <strong>Calibrate ► Spectrometer</strong> from the Sensors menu. Wait for the spectrometer 
-to warm up, tap <strong>Finish Calibration</strong>, then tap <strong>OK</strong>.
-</li>
-
+  
 <li>
 Determine the optimum wavelength for the equilibrium mixture and set up the mode of data collection.
 
 <ol type="a">
-
 <li>
-Empty the solution from the blank cuvette. Using the solution in Beaker 1, rinse the cuvette twice 
-with ~1 mL amounts and then fill it 3/4 full. Wipe the outside with a tissue and place the cuvette 
-in the spectrometer.
+Fill a cuvette 3/4 full with solution 1.
+Wipe the outside with a tissue and place the cuvette in the spectrometer.
 </li>
 
 <li>
@@ -340,6 +354,24 @@ Stop the data collection. Tap the graph to select the wavelength of maximum abso
 (λ<sub>max</sub>). The λ<sub>max</sub> should be 400–480 nm.
 </li>
 
+<li>
+  Record the λ<sub>max</sub> (wavelength at maximal absorbance below).
+  <ul>
+    <li>
+  λ<sub>max</sub> = 
+    <input
+    type="number"
+    step="any"
+    class="num"
+    id="λ"
+    name="λ"
+    /> nm
+    </li>
+  </ul>
+</li>
+  <li>
+    Click the red data output box, select Change Wavelength, and set the wavelength to the λ<sub>max</sub> you recorded above.
+  </li>
 <li>
 On the Meter screen, tap <strong>Mode</strong>. Change the mode to <strong>Events with Entry</strong>.
 </li>
@@ -362,15 +394,19 @@ Leave the cuvette, containing the Beaker 1 mixture, in the device (colorimeter o
 </li>
 
 <li>
-Start data collection. After the absorbance reading stabilizes, tap <strong>Keep</strong> and enter the value for the concentration of FeSCN<sup>2+</sup> from your Pre-Lab calculations. Tap <strong>OK</strong>. The absorbance and concentration values have now been saved for the first solution.
+Start data collection. After the absorbance reading stabilizes, tap <strong>Keep</strong> 
+  and enter the value for the concentration of FeSCN<sup>2+</sup> from your Pre-Lab calculations (e.g 0.00016). 
+  
+  Tap <strong>OK</strong>. The absorbance and concentration values have now been saved for the first solution.
 </li>
 
 <li>
-Discard the cuvette contents as directed. Using the solution in Beaker 2, rinse the cuvette twice with ~1 mL amounts, and then fill it 3/4 full. Place the cuvette in the device, wait for the value displayed on the screen to stabilize, and tap <strong>Keep</strong>. Enter the value for the concentration of FeSCN<sup>2+</sup> in Beaker 2, then tap <strong>OK</strong>.
+Using the solution in Beaker 2, fill another curvette 3/4 full. Place the cuvette in the device, wait for the value displayed on the screen to stabilize, 
+  and tap <strong>Keep</strong>. Enter the value for the concentration of FeSCN<sup>2+</sup> in Beaker 2, then tap <strong>OK</strong>.
 </li>
 
 <li>
-Repeat Part c of this step to measure the absorbance of the solutions in Beakers 3 and 4. <strong>Note:</strong> Wait until Step 10 to test the unknown.
+Repeat Part c of this step to measure the absorbance of the solutions in Beakers 3 and 4. <strong>Note:</strong> Do not mix and test the unknowns (A-C) at this time.
 </li>
 
 <li>
@@ -380,165 +416,9 @@ Repeat Part c of this step to measure the absorbance of the solutions in Beakers
 </ol>
 
 </li>
+<h3>Data Table Part I</h3>
 
-<li>
-Display a graph of absorbance vs. concentration with a linear regression curve.
 
-<ol type="a">
-
-<li>Choose <strong>Graph Options</strong> from the Graph menu.</li>
-
-<li>Select <strong>Autoscale from 0</strong> and select <strong>OK</strong>.</li>
-
-<li>Choose <strong>Curve Fit</strong> from the Analyze menu.</li>
-
-<li>Select <strong>Linear</strong> as the Fit Equation.</li>
-
-<li>
-Tap <strong>OK</strong>. The graph should indicate a direct relationship between absorbance and concentration, a relationship known as <strong>Beer’s Law</strong>. Record the linear fit equation in your data table.
-</li>
-</ol>
-</li>
-
-  <li>Enter the slope and y-intercept of your trend line here.</li>
-  <ul>
-    <li>Slope: 
-      <input
-    type="number"
-    step="any"
-    class="num"
-    id="slope"
-    name="slope"
-  />
-    </li>
-    <li>Y-intercept: 
-      <input
-        type="number"
-        step="any"
-        class="num"
-        id="y-intercept"
-        name="y-intercept"
-      />
-    </li>
-  </ul>
-
-  <li>Solve the slope-intercept equation for your trend line for FeSCN<sup>2+</sup> concentration (X).</li>
-    <ul>
-      <li>
-        [FeSCN<sup>2+</sup>] =
-        <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
-          <!-- Numerator -->
-          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
-            <span>Absorbance —</span>
-            <input type="number" step="any" class="calc num" id="y-intercept2" name="y-intercept2" formula="${y-intercept}" help="Solve your trend line equation for X" placeholder="y-intercept" style="width: 80px; border: 1px solid #ccc; border-radius: 3px; padding: 2px;">
-          </div>
-
-          <!-- Fraction Bar -->
-          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
-
-          <!-- Denominator -->
-          <div style="padding: 2px 5px;">
-            <input type="number" step="any" class="calc num" id="slope2" name="slope2" formula="${slope}" help="Solve your trend line equation for X" placeholder="slope" style="width: 80px; border: 1px solid #ccc; border-radius: 3px; padding: 2px;">
-          </div>
-        </div>
-        <div class="feedback" id="y-intercept2FB" name="y-intercept2FB"></div><div class="feedback" id="slope2FB" name="slope2FB"></div>
-      </li>
-      <li>
-        You will use this equation to solve for the concentration of [FeSCN<sup>2+</sup>] in your equilibrium solutions.
-      </li>
-    </ul>
-
-<h3>Part II – Prepare and Test Equilibrium Systems</h3>
-
-<li>
-Label three new small beakers A–C. Prepare the solutions according to the chart below. 
-Use 10.0 mL graduated pipets to measure the solutions. Mix each solution thoroughly.
-
-<p><strong>Note:</strong> You are using 0.0020 M Fe(NO<sub>3</sub>)<sub>3</sub> in this test.</p>
-
-<p><strong>WARNING:</strong> Iron (III) nitrate solution, Fe(NO<sub>3</sub>)<sub>3</sub>•9H<sub>2</sub>O: 
-Causes skin and eye irritation. Do not breathe mist, vapors, or spray.</p>
-
-<table border="1" cellpadding="5">
-<tr>
-<th>Beaker</th>
-<th>0.0020 M Fe(NO<sub>3</sub>)<sub>3</sub> (mL)</th>
-<th>0.0020 M SCN<sup>–</sup> (mL)</th>
-<th>H<sub>2</sub>O (mL)</th>
-</tr>
-
-<tr>
-<td>A</td>
-<td>3.00</td>
-<td>3.00</td>
-<td>4.00</td>
-</tr>
-
-<tr>
-<td>B</td>
-<td>3.00</td>
-<td>4.00</td>
-<td>3.00</td>
-</tr>
-
-<tr>
-<td>C</td>
-<td>3.00</td>
-<td>5.00</td>
-<td>2.00</td>
-</tr>
-
-</table>
-
-</li>
-
-<li>
-Collect absorbance–concentration data for the three beakers of equilibrium mixtures.
-
-<ol type="a">
-
-<li>
-Using the solution in Beaker A, rinse the cuvette twice with ~1 mL amounts and then fill it 
-3/4 full. Wipe the outside with a tissue and place the cuvette in the device 
-(spectrometer or colorimeter).
-</li>
-
-<li>
-Write down, in your data table, the absorbance of the sample in Beaker A.
-</li>
-
-<li>
-Use your concentration of FeSCN<sup>2+</sup> equation above to solve for the concentration of FeSCN<sup>2+</sup> at equilibrium for the sample in Beaker A. Write down the concentration in your data table.
-</li>
-
-<li>
-Discard the cuvette contents as directed. Rinse and fill the cuvette with the solution 
-in Beaker B and place it in the device. After the reading stabilizes, write down the 
-absorbance in your data table and use the <strong>Interpolate</strong> function to determine 
-the concentration of the sample.
-</li>
-
-<li>
-Repeat Step d for the mixtures in Beaker C.
-</li>
-
-</ol>
-
-</li>
-
-</ol>
-
-<h2>Data Table</h2>
-
-<h3>Part I</h3>
-
-<p>Temperature: <input
-    type="number"
-    step="any"
-    class="num"
-    id="temp"
-    name="temp"
-  /> °C</p>
 
 <table border="1" cellpadding="5">
 <tr>
@@ -664,6 +544,162 @@ Repeat Step d for the mixtures in Beaker C.
 </tr>
 
 </table>
+
+  
+<li>
+Display a graph of absorbance vs. concentration with a linear regression curve.
+
+<ol type="a">
+
+<li>Choose <strong>Graph Options</strong> from the Graph menu.</li>
+
+<li>Select <strong>Autoscale from 0</strong> and select <strong>OK</strong>.</li>
+<li>Make sure you are not recording data (press the stop button if needed).
+<li>Choose <strong>Curve Fit</strong> from the Analyze menu, then Abs@.</li>
+
+<li>Select <strong>Linear</strong> as the Fit Equation.</li>
+
+<li>
+Tap <strong>OK</strong>. The graph should indicate a direct relationship between absorbance and concentration, a relationship known as <strong>Beer’s Law</strong>. Record the linear fit equation in your data table.
+</li>
+</ol>
+</li>
+
+  <li>Enter the slope and y-intercept of your trend line here.</li>
+  <ul>
+    <li>Slope: 
+      <input
+    type="number"
+    step="any"
+    class="num"
+    id="slope"
+    name="slope"
+  />
+    </li>
+    <li>Y-intercept: 
+      <input
+        type="number"
+        step="any"
+        class="num"
+        id="y-intercept"
+        name="y-intercept"
+      />
+    </li>
+  </ul>
+
+  <li>Solve the slope-intercept equation for your trend line for FeSCN<sup>2+</sup> concentration (X).</li>
+    <ul>
+      <li>
+        [FeSCN<sup>2+</sup>] =
+        <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+            <span>Absorbance —</span>
+            (<input type="number" step="any" class="calc num" id="y-intercept2" name="y-intercept2" formula="${y-intercept}" help="Solve your trend line equation for X" placeholder="y-intercept" style="width: 80px; border: 1px solid #ccc; border-radius: 3px; padding: 2px;">)
+          </div>
+
+          <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+          <!-- Denominator -->
+          <div style="padding: 2px 5px;">
+            <input type="number" step="any" class="calc num" id="slope2" name="slope2" formula="${slope}" help="Solve your trend line equation for X" placeholder="slope" style="width: 80px; border: 1px solid #ccc; border-radius: 3px; padding: 2px;">
+          </div>
+        </div>
+        <div class="feedback" id="y-intercept2FB" name="y-intercept2FB"></div><div class="feedback" id="slope2FB" name="slope2FB"></div>
+      </li>
+      <li>
+        You will use this equation to solve for the concentration of [FeSCN<sup>2+</sup>] in your equilibrium solutions.
+      </li>
+    </ul>
+
+<h3>Part II – Prepare and Test Equilibrium Systems</h3>
+
+<li>
+Label three 10 mL graduated cylinders A–C. Prepare the solutions according to the chart below. 
+Use your labeled 5.0 mL graduated pipets to add the 0.0020 M Fe(NO<sub>3</sub>)<sub>3</sub> and 0.0020 M SCN<sup>–</sup>. 
+  Add enough water to reach 10 mL on the graduated cylinder, and mix using a plastic pipet by sucking in solution and spraying it back out over and over within the graduated cylinder.
+  Keep the plastic pipet with the solution.
+
+<p><strong>Note:</strong> You are using 0.0020 M Fe(NO<sub>3</sub>)<sub>3</sub> in this test.</p>
+
+<p><strong>WARNING:</strong> Iron (III) nitrate solution, Fe(NO<sub>3</sub>)<sub>3</sub>•9H<sub>2</sub>O: 
+Causes skin and eye irritation. Do not breathe mist, vapors, or spray.</p>
+
+<table border="1" cellpadding="5">
+<tr>
+<th>Beaker</th>
+<th>0.0020 M Fe(NO<sub>3</sub>)<sub>3</sub> (mL)</th>
+<th>0.0020 M SCN<sup>–</sup> (mL)</th>
+<th>H<sub>2</sub>O (mL)</th>
+</tr>
+
+<tr>
+<td>A</td>
+<td>3.00</td>
+<td>3.00</td>
+<td>4.00</td>
+</tr>
+
+<tr>
+<td>B</td>
+<td>3.00</td>
+<td>4.00</td>
+<td>3.00</td>
+</tr>
+
+<tr>
+<td>C</td>
+<td>3.00</td>
+<td>5.00</td>
+<td>2.00</td>
+</tr>
+
+</table>
+
+</li>
+
+<li>
+Collect absorbance–concentration data for the three beakers of equilibrium mixtures.
+
+<ol type="a">
+
+<li>
+Using the solution in graduated cylinder A, fill a new cuvette 3/4 full. Wipe the outside with a tissue and place the cuvette in the device 
+(spectrometer or colorimeter).
+</li>
+
+<li>
+Write down, in your data table, the absorbance of the sample in Beaker A.
+</li>
+
+<li>
+  Repeat the same process for the solutons in graduated cylinders B and C and write down their absorbances.
+</li>
+
+<li>
+Use your concentration of FeSCN<sup>2+</sup> equation above to solve for the concentration of FeSCN<sup>2+</sup> at equilibrium for the sample in Beaker A. Write down the concentration in your data table.
+</li>
+
+<li>
+Discard the cuvette contents as directed. Rinse and fill the cuvette with the solution 
+in Beaker B and place it in the device. After the reading stabilizes, write down the 
+absorbance in your data table and use the <strong>Interpolate</strong> function to determine 
+the concentration of the sample.
+</li>
+
+<li>
+Repeat Step d for the mixtures in Beaker C.
+</li>
+
+</ol>
+
+</li>
+
+</ol>
+
+<h2>Data Table</h2>
+
 
 <h3>Part II</h3>
 
