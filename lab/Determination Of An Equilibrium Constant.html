@@ -1,0 +1,1357 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Determination of an Equilibrium Constant</title>
+    <!-- Title -->
+
+    <link rel="stylesheet" href="../css/lab.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <h1 id="title">Determination of an Equilibrium Constant</h1>
+    <!-- Title -->
+
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display: none" />
+
+      <input type="text" id="userName" name="userName" style="display: none" />
+
+      <!-- Beginning -->
+
+<h1>The Determination of an Equilibrium Constant</h1>
+
+<p>
+The equilibrium state of a chemical reaction can be characterized by <b>quantitatively</b> defining its equilibrium constant, 
+K<sub>eq</sub>. In this experiment, you will determine the value of K<sub>eq</sub> for the reaction between iron(III) 
+ions and thiocyanate ions, SCN<sup>–</sup>.
+</p>
+
+<p>
+Fe<sup>3+</sup> (aq) + SCN<sup>–</sup> (aq) ↔ FeSCN<sup>2+</sup> (aq)
+</p>
+
+<p>
+When you mix amounts of Fe<sup>3+</sup> and SCN<sup>–</sup>, a reaction occurs to produce FeSCN<sup>2+</sup>, but not all 
+of the reactants react. Thus, your beaker (or flask or cauldron) will contain some of each of these three species, which 
+is your equilibrium system. To learn more about the system, we need to figure out a way to count the number of different 
+ions in the reaction mixture.
+</p>
+
+<p>
+That is the major objective of this experiment, and to achieve this objective you will take advantage of something about 
+FeSCN<sup>2+</sup> — in aqueous solution it has a reddish color. The two reactants, Fe<sup>3+</sup> and SCN<sup>–</sup>, 
+are essentially colorless in solution, thus the red color you will see when you conduct the reaction is produced by the 
+FeSCN<sup>2+</sup> ions.
+</p>
+
+<p>
+One of the more important numbers that help us understand an equilibrium system is called the equilibrium constant, 
+K<sub>eq</sub>. For the reaction between Fe<sup>3+</sup> and SCN<sup>–</sup>, the K<sub>eq</sub> is defined by the equation:
+</p>
+
+<p>
+  $K_{eq} = \frac{[FeSCN^{2+}]}{[Fe^{3+}][SCN^–]}$
+</p>
+
+<p>
+To find the value of K<sub>eq</sub> at a given temperature, it is necessary to determine the molar concentration of each 
+of the three species in solution at equilibrium. You will determine the concentrations by using a colorimeter or 
+spectrometer to measure the amount of light of a specific wavelength that passes through a sample of the equilibrium 
+mixtures.
+</p>
+
+<p>
+The amount of light absorbed by a colored solution is proportional to its concentration. The red FeSCN<sup>2+</sup> 
+solution absorbs blue light, thus the colorimeter users will be instructed to use the 470 nm (blue) LED. Spectrometer 
+users will determine an appropriate wavelength based on the absorbance spectrum of the solution. The wavelength will 
+be close to, but not exactly, 470 nm.
+</p>
+
+<p>
+In order to successfully evaluate this equilibrium system, it is necessary to conduct two separate tests. In Part I of 
+the experiment, you will prepare a series of standard solutions of FeSCN<sup>2+</sup> from solutions of varying 
+concentrations of SCN<sup>–</sup> and constant concentrations of H<sup>+</sup> and Fe<sup>3+</sup> that are in 
+stoichiometric excess.
+</p>
+
+<p>
+The excess of H<sup>+</sup> ions will ensure that Fe<sup>3+</sup> engages in no side reactions (to form 
+FeOH<sup>2+</sup>, for example) which could interfere with your measurements. In an excess of Fe<sup>3+</sup> ions, 
+the SCN<sup>–</sup> ions will be the limiting reagent, thus all of the SCN<sup>–</sup> will form FeSCN<sup>2+</sup> 
+ions.
+</p>
+
+<p>
+The FeSCN<sup>2+</sup> complex forms slowly, taking at least one minute for the color to develop. It is best to take 
+absorbance readings after a specific length of time has passed, between two and four minutes after preparing the 
+equilibrium mixture. Do not wait much longer than 5 minutes to take readings, however, because the mixture is light 
+sensitive and the FeSCN<sup>2+</sup> ions will slowly decompose.
+</p>
+
+<p>
+In Part II of the experiment, you will prepare a new series of solutions that have varied concentrations of the 
+SCN<sup>–</sup> ions and constant concentrations of H<sup>+</sup> ions and Fe<sup>3+</sup> ions. You will use the 
+results of this test to accurately evaluate the equilibrium concentrations of each species and calculate the 
+K<sub>eq</sub> of the reaction.
+</p>
+
+<h2>Objectives</h2>
+
+<ul>
+<li>Prepare and test standard solutions of FeSCN<sup>2+</sup> in equilibrium.</li>
+<li>Determine the molar concentrations of the ions present in an equilibrium system.</li>
+<li>Determine the value of the equilibrium constant, K<sub>eq</sub>, for the reaction.</li>
+</ul>
+
+<h2>Materials</h2>
+
+<ul>
+<li>LabQuest (LabQuest App)</li>
+<li>Spectrometer from Vernier</li>
+<li>Plastic cuvette</li>
+<li>Four 10 mL graduated pipets</li>
+<li>One 50 mL graduated cylinder</li>
+<li>Seven small beakers (100–250 mL)</li>
+<li>Several plastic Beral pipets</li>
+<li>0.200 M iron (III), Fe<sup>3+</sup>, solution in 1.0 M HNO<sub>3</sub></li>
+<li>0.0020 M iron (III), Fe<sup>3+</sup>, solution in 1.0 M HNO<sub>3</sub></li>
+<li>0.0020 M thiocyanate, SCN<sup>–</sup>, solution</li>
+<li>Distilled water</li>
+<li>Lint free tissues or Kim® Wipes</li>
+</ul>
+
+<h2>Pre-Lab Exercise</h2>
+
+<p>
+For the solutions that you will prepare in Step 2 of Part I below, calculate the 
+[FeSCN<sup>2+</sup>]. Presume that all of the SCN<sup>–</sup> ions react. 
+In Part I of the experiment:
+</p>
+
+<p>
+mol SCN<sup>–</sup><sub>(before reaction)</sub> = mol FeSCN<sup>2+</sup><sub>(after reaction)</sub>
+</p>
+
+<p>Record these values in the following table:</p>
+
+<table border="1" cellpadding="5">
+<tr>
+<th>Beaker Number</th>
+<th>[FeSCN<sup>2+</sup>]</th>
+</tr>
+<tr>
+<td>1</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="B1FeSCN"
+    name="B1FeSCN"
+    formula="4*0.0020/50"
+    help="mL SCN- x M SCN- / total mL"
+  />
+  <div
+    class="feedback"
+    id="B1FeSCNFB"
+    name="B1FeSCNFB"
+  ></div>
+</td>
+</tr>
+<tr>
+<td>2</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="B2FeSCN"
+    name="B2FeSCN"
+    formula="3*0.0020/50"
+    help="mL SCN- x M SCN- / total mL"
+  />
+  <div
+    class="feedback"
+    id="B2FeSCNFB"
+    name="B2FeSCNFB"
+  ></div>
+</td>
+</tr>
+<tr>
+<td>3</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="B3FeSCN"
+    name="B3FeSCN"
+    formula="2*0.0020/50"
+    help="mL SCN- x M SCN- / total mL"
+  />
+  <div
+    class="feedback"
+    id="B3FeSCNFB"
+    name="B3FeSCNFB"
+  ></div>
+</td>
+</tr>
+<tr>
+<td>4</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="B4FeSCN"
+    name="B4FeSCN"
+    formula="1*0.0020/50"
+    help="mL SCN- x M SCN- / total mL"
+  />
+  <div
+    class="feedback"
+    id="B4FeSCNFB"
+    name="B4FeSCNFB"
+  ></div>
+</td>
+</tr>
+</table>
+
+<h2>Procedure</h2>
+
+<h3>Part I – Prepare and Test Standard Solutions</h3>
+
+<ol>
+<li>Obtain and wear goggles and nitril gloves.</li>
+
+<li>
+Label four small beakers 1–4. Obtain small volumes of 0.200 M Fe(NO<sub>3</sub>)<sub>3</sub>, 
+0.0020 M SCN<sup>–</sup>, and distilled water. Prepare four solutions according to the chart 
+below. Use graduated cylinders to measure the solutions. Mix each solution thoroughly. 
+Record the temperature of one of the solutions as the temperature for the equilibrium 
+constant, K<sub>eq</sub>.
+
+<p><strong>DANGER:</strong> Iron (III) nitrate solution, Fe(NO<sub>3</sub>)<sub>3</sub>•9H<sub>2</sub>O: Causes skin and eye irritation. Do not breathe mist, vapors, or spray.</p>
+
+<p><strong>WARNING:</strong> Potassium thiocyanate solution, KSCN: Causes eye irritation and mild skin irritation.</p>
+
+<p><strong>Important:</strong> The mixtures you will prepare are light sensitive. You need to measure the absorbance of these four mixtures within 2–5 minutes of preparing them.</p>
+
+<table border="1" cellpadding="5">
+<tr>
+<th>Beaker</th>
+<th>0.200 M Fe(NO<sub>3</sub>)<sub>3</sub> (mL)</th>
+<th>0.0020 M SCN<sup>–</sup> (mL)</th>
+<th>H<sub>2</sub>O (mL)</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>5.0</td>
+<td>4.0</td>
+<td>41.0</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>5.0</td>
+<td>3.0</td>
+<td>42.0</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>5.0</td>
+<td>2.0</td>
+<td>43.0</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>5.0</td>
+<td>1.0</td>
+<td>44.0</td>
+</tr>
+
+</table>
+
+</li>
+
+<li>
+Prepare a blank by filling a cuvette 3/4 full with 0.200 M Fe(NO<sub>3</sub>)<sub>3</sub>. 
+To correctly use cuvettes, remember:
+
+<ul>
+<li>Wipe the outside of each cuvette with a lint-free tissue.</li>
+<li>Handle cuvettes only by the top edge of the ribbed sides.</li>
+<li>Dislodge any bubbles by gently tapping the cuvette on a hard surface.</li>
+<li>Always position the cuvette so the light passes through the clear sides.</li>
+</ul>
+
+</li>
+
+<p><strong>Spectrometer</strong></p>
+
+<li>
+Choose <strong>New</strong> from the File menu. Connect the spectrometer to LabQuest via USB.
+</li>
+
+<li>
+To calibrate the spectrometer, place the blank cuvette into the cuvette slot of the spectrometer, 
+choose <strong>Calibrate ► Spectrometer</strong> from the Sensors menu. Wait for the spectrometer 
+to warm up, tap <strong>Finish Calibration</strong>, then tap <strong>OK</strong>.
+</li>
+
+<li>
+Determine the optimum wavelength for the equilibrium mixture and set up the mode of data collection.
+
+<ol type="a">
+
+<li>
+Empty the solution from the blank cuvette. Using the solution in Beaker 1, rinse the cuvette twice 
+with ~1 mL amounts and then fill it 3/4 full. Wipe the outside with a tissue and place the cuvette 
+in the spectrometer.
+</li>
+
+<li>
+Start data collection. After a moment, the absorbance vs. wavelength spectrum will be displayed. 
+Stop the data collection. Tap the graph to select the wavelength of maximum absorbance 
+(λ<sub>max</sub>). The λ<sub>max</sub> should be 400–480 nm.
+</li>
+
+<li>
+On the Meter screen, tap <strong>Mode</strong>. Change the mode to <strong>Events with Entry</strong>.
+</li>
+
+<li>
+Enter the Name (Concentration) and Units (mol/L). Tap <strong>OK</strong>.
+</li>
+
+</ol>
+
+</li>
+
+<li>
+Collect absorbance–concentration data for the four standard equilibrium mixtures.
+
+<ol type="a">
+
+<li>
+Leave the cuvette, containing the Beaker 1 mixture, in the device (colorimeter or spectrometer).
+</li>
+
+<li>
+Start data collection. After the absorbance reading stabilizes, tap <strong>Keep</strong> and enter the value for the concentration of FeSCN<sup>2+</sup> from your Pre-Lab calculations. Tap <strong>OK</strong>. The absorbance and concentration values have now been saved for the first solution.
+</li>
+
+<li>
+Discard the cuvette contents as directed. Using the solution in Beaker 2, rinse the cuvette twice with ~1 mL amounts, and then fill it 3/4 full. Place the cuvette in the device, wait for the value displayed on the screen to stabilize, and tap <strong>Keep</strong>. Enter the value for the concentration of FeSCN<sup>2+</sup> in Beaker 2, then tap <strong>OK</strong>.
+</li>
+
+<li>
+Repeat Part c of this step to measure the absorbance of the solutions in Beakers 3 and 4. <strong>Note:</strong> Wait until Step 10 to test the unknown.
+</li>
+
+<li>
+  Record the data for the [FeSCN<sup>2+</sup>] and absorbances for beakers 1-4 in the table below. 
+</li>
+
+</ol>
+
+</li>
+
+<li>
+Display a graph of absorbance vs. concentration with a linear regression curve.
+
+<ol type="a">
+
+<li>Choose <strong>Graph Options</strong> from the Graph menu.</li>
+
+<li>Select <strong>Autoscale from 0</strong> and select <strong>OK</strong>.</li>
+
+<li>Choose <strong>Curve Fit</strong> from the Analyze menu.</li>
+
+<li>Select <strong>Linear</strong> as the Fit Equation.</li>
+
+<li>
+Tap <strong>OK</strong>. The graph should indicate a direct relationship between absorbance and concentration, a relationship known as <strong>Beer’s Law</strong>. Record the linear fit equation in your data table.
+</li>
+</ol>
+</li>
+
+  <li>Enter the slope and y-intercept of your trend line here.</li>
+  <ul>
+    <li>Slope: 
+      <input
+    type="number"
+    step="any"
+    class="num"
+    id="slope"
+    name="slope"
+  />
+    </li>
+    <li>Y-intercept: 
+      <input
+        type="number"
+        step="any"
+        class="num"
+        id="y-intercept"
+        name="y-intercept"
+      />
+    </li>
+  </ul>
+
+  <li>Solve the slope-intercept equation for your trend line for FeSCN<sup>2+</sup> concentration (X).</li>
+    <ul>
+      <li>
+        [FeSCN<sup>2+</sup>] =
+        <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+            <span>Absorbance —</span>
+            <input type="number" step="any" class="calc num" id="y-intercept2" name="y-intercept2" formula="${y-intercept}" help="Solve your trend line equation for X" placeholder="y-intercept" style="width: 80px; border: 1px solid #ccc; border-radius: 3px; padding: 2px;">
+          </div>
+
+          <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+          <!-- Denominator -->
+          <div style="padding: 2px 5px;">
+            <input type="number" step="any" class="calc num" id="slope2" name="slope2" formula="${slope}" help="Solve your trend line equation for X" placeholder="slope" style="width: 80px; border: 1px solid #ccc; border-radius: 3px; padding: 2px;">
+          </div>
+        </div>
+        <div class="feedback" id="y-intercept2FB" name="y-intercept2FB"></div><div class="feedback" id="slope2FB" name="slope2FB"></div>
+      </li>
+      <li>
+        You will use this equation to solve for the concentration of [FeSCN<sup>2+</sup>] in your equilibrium solutions.
+      </li>
+    </ul>
+
+<h3>Part II – Prepare and Test Equilibrium Systems</h3>
+
+<li>
+Label three new small beakers A–C. Prepare the solutions according to the chart below. 
+Use 10.0 mL graduated pipets to measure the solutions. Mix each solution thoroughly.
+
+<p><strong>Note:</strong> You are using 0.0020 M Fe(NO<sub>3</sub>)<sub>3</sub> in this test.</p>
+
+<p><strong>WARNING:</strong> Iron (III) nitrate solution, Fe(NO<sub>3</sub>)<sub>3</sub>•9H<sub>2</sub>O: 
+Causes skin and eye irritation. Do not breathe mist, vapors, or spray.</p>
+
+<table border="1" cellpadding="5">
+<tr>
+<th>Beaker</th>
+<th>0.0020 M Fe(NO<sub>3</sub>)<sub>3</sub> (mL)</th>
+<th>0.0020 M SCN<sup>–</sup> (mL)</th>
+<th>H<sub>2</sub>O (mL)</th>
+</tr>
+
+<tr>
+<td>A</td>
+<td>3.00</td>
+<td>3.00</td>
+<td>4.00</td>
+</tr>
+
+<tr>
+<td>B</td>
+<td>3.00</td>
+<td>4.00</td>
+<td>3.00</td>
+</tr>
+
+<tr>
+<td>C</td>
+<td>3.00</td>
+<td>5.00</td>
+<td>2.00</td>
+</tr>
+
+</table>
+
+</li>
+
+<li>
+Collect absorbance–concentration data for the three beakers of equilibrium mixtures.
+
+<ol type="a">
+
+<li>
+Using the solution in Beaker A, rinse the cuvette twice with ~1 mL amounts and then fill it 
+3/4 full. Wipe the outside with a tissue and place the cuvette in the device 
+(spectrometer or colorimeter).
+</li>
+
+<li>
+Write down, in your data table, the absorbance of the sample in Beaker A.
+</li>
+
+<li>
+Use your concentration of FeSCN<sup>2+</sup> equation above to solve for the concentration of FeSCN<sup>2+</sup> at equilibrium for the sample in Beaker A. Write down the concentration in your data table.
+</li>
+
+<li>
+Discard the cuvette contents as directed. Rinse and fill the cuvette with the solution 
+in Beaker B and place it in the device. After the reading stabilizes, write down the 
+absorbance in your data table and use the <strong>Interpolate</strong> function to determine 
+the concentration of the sample.
+</li>
+
+<li>
+Repeat Step d for the mixtures in Beaker C.
+</li>
+
+</ol>
+
+</li>
+
+</ol>
+
+<h2>Data Table</h2>
+
+<h3>Part I</h3>
+
+<p>Temperature: <input
+    type="number"
+    step="any"
+    class="num"
+    id="temp"
+    name="temp"
+  /> °C</p>
+
+<table border="1" cellpadding="5">
+<tr>
+<th>Beaker</th>
+<th>[FeSCN<sup>2+</sup>]</th>
+<th>Absorbance</th>
+</tr>
+
+<tr>
+<td>1</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="B1FeSCN2"
+    name="B1FeSCN2"
+    formula="4*0.0020/50"
+    help="mL SCN- x M SCN- / total mL"
+  />
+  <div
+    class="feedback"
+    id="B1FeSCN2FB"
+    name="B1FeSCN2FB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="num"
+    id="absorbance1"
+    name="absorbance1"
+  />
+</td>
+</tr>
+
+<tr>
+<td>2</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="B2FeSCN2"
+    name="B2FeSCN2"
+    formula="3*0.0020/50"
+    help="mL SCN- x M SCN- / total mL"
+  />
+  <div
+    class="feedback"
+    id="B2FeSCN2FB"
+    name="B2FeSCN2FB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="num"
+    id="absorbance2"
+    name="absorbance2"
+  />
+</td>
+</tr>
+
+<tr>
+<td>3</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="B3FeSCN2"
+    name="B3FeSCN2"
+    formula="2*0.0020/50"
+    help="mL SCN- x M SCN- / total mL"
+  />
+  <div
+    class="feedback"
+    id="B3FeSCN2FB"
+    name="B3FeSCN2FB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="num"
+    id="absorbance3"
+    name="absorbance3"
+  />
+</td>
+</tr>
+
+<tr>
+<td>4</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="B4FeSCN2"
+    name="B4FeSCN2"
+    formula="1*0.0020/50"
+    help="mL SCN- x M SCN- / total mL"
+  />
+  <div
+    class="feedback"
+    id="B4FeSCN2FB"
+    name="B4FeSCN2FB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="num"
+    id="absorbance4"
+    name="absorbance4"
+  />
+</td>
+</tr>
+
+</table>
+
+<h3>Part II</h3>
+
+<table border="1" cellpadding="5">
+<tr>
+<th>Beaker</th>
+<th>Absorbance</th>
+<th>[FeSCN<sup>2+</sup>] at equilibrium</th>
+</tr>
+
+<tr>
+<td>A</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="num"
+    id="absorbanceA"
+    name="absorbanceA"
+  />
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="AFeSCNeq"
+    name="AFeSCNeq"
+    formula="(${absorbanceA}-${y-intercept})/${slope}"
+    help="Use the [FeSCN2+] equation to solve for the equilibrium concentration based on your measured absorbance."
+  />
+  <div
+    class="feedback"
+    id="AFeSCNeqFB"
+    name="AFeSCNeqFB"
+  ></div>
+</td>
+</tr>
+
+<tr>
+<td>B</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="num"
+    id="absorbanceB"
+    name="absorbanceB"
+  />
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BFeSCNeq"
+    name="BFeSCNeq"
+    formula="(${absorbanceB}-${y-intercept})/${slope}"
+    help="Use the [FeSCN2+] equation to solve for the equilibrium concentration based on your measured absorbance."
+  />
+  <div
+    class="feedback"
+    id="BFeSCNeqFB"
+    name="BFeSCNeqFB"
+  ></div>
+</td>
+</tr>
+
+<tr>
+<td>C</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="num"
+    id="absorbanceC"
+    name="absorbanceC"
+  />
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CFeSCNeq"
+    name="CFeSCNeq"
+    formula="(${absorbanceC}-${y-intercept})/${slope}"
+    help="Use the [FeSCN2+] equation to solve for the equilibrium concentration based on your measured absorbance."
+  />
+  <div
+    class="feedback"
+    id="CFeSCNeqFB"
+    name="CFeSCNeqFB"
+  ></div>
+</td>
+</tr>
+
+</table>
+
+<h2>Calculating Equilibrium Concentrations</h2>
+
+<p>
+A common method used to organize and calculate the concentrations of the species in an equilibrium system 
+is colloquially known as an <strong>I.C.E. chart</strong>. "I.C.E" stands for <strong>Initial concentration, 
+Change in concentration, and the Equilibrium concentration</strong>.
+</p>
+
+<p>
+The initial concentrations of the Fe<sup>3+</sup> and the SCN<sup>–</sup> ions can be calculated from the 
+mixing chart in Part II, Step 10. You have already determined the equilibrium concentration of the 
+FeSCN<sup>2+</sup> ions by completing the analysis in Part II. The rest is a little bit of math.  Remember that <b>initial + change = equilibrium</b>.  Also the molt-to-mole ratios in the <b>balanced chemical equation</b> determine the relative change for each reactant and product.
+</p>
+
+<h3>Beaker A</h3>
+
+<table border="1" cellpadding="5">
+<tr>
+<th></th>
+<th>[Fe<sup>3+</sup>]</th>
+<th>[SCN<sup>–</sup>]</th>
+<th>[FeSCN<sup>2+</sup>]</th>
+</tr>
+
+<tr>
+<td>Initial</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="AFe3+I"
+    name="AFe3+I"
+    formula="3*0.0020/10"
+    help="You diluted 3.00 mL of 0.0020M Fe(NO3)3 solution to a total volume of 10 mL.  M2 = M1xV1/V2"
+  />
+  <div
+    class="feedback"
+    id="AFe3+IFB"
+    name="AFe3+IFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="ASCN-I"
+    name="ASCN-I"
+    formula="3*0.0020/10"
+    help="You diluted 3.00 mL of 0.0020M SCN- solution to a total volume of 10 mL.  M2 = M1xV1/V2"
+  />
+  <div
+    class="feedback"
+    id="ASCN-IFB"
+    name="ASCN-IFB"
+  ></div>
+</td>
+<td>0.00</td>
+</tr>
+
+<tr>
+<td>Change</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="AFe3+ch"
+    name="AFe3+ch"
+    formula="-${AFeSCNch}"
+    help="This should be the negative of the change in concentration of the FESCN2+ based on the balanced chemical equation, and the direction the reaction has to go to reach an equilibrium"
+  />
+  <div
+    class="feedback"
+    id="AFe3+chFB"
+    name="AFe3+chFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="ASCN-ch"
+    name="ASCN-ch"
+    formula="-${AFeSCNch}"
+    help="This should be the negative of the change in concentration of the FESCN2+ based on the balanced chemical equation, and the direction the reaction has to go to reach an equilibrium"
+  />
+  <div
+    class="feedback"
+    id="ASCN-chFB"
+    name="ASCN-chFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="AFeSCNch"
+    name="AFeSCNch"
+    formula="${AFeSCNeq2}"
+    help="Change = final - initial"
+  />
+  <div
+    class="feedback"
+    id="AFeSCNchFB"
+    name="AFeSCNch2FB"
+  ></div>
+</td>
+</tr>
+
+<tr>
+<td>Equilibrium</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="AFe3+eq"
+    name="AFe3+eq"
+    formula="${AFe3+I}+${AFe3+ch}"
+    help="Equilibrium = Initial + Change"
+  />
+  <div
+    class="feedback"
+    id="AFe3+eqFB"
+    name="AFe3+eqFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="ASCN-eq"
+    name="ASCN-eq"
+    formula="${ASCN-I}+${ASCN-ch}"
+    help="Equilibrium = Initial + Change"
+  />
+  <div
+    class="feedback"
+    id="ASCN-eqFB"
+    name="ASCN-eqFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="AFeSCNeq2"
+    name="AFeSCNeq2"
+    formula="(${absorbanceA}-${y-intercept})/${slope}"
+    help="Use the [FeSCN2+] equation to solve for the equilibrium concentration based on your measured absorbance."
+  />
+  <div
+    class="feedback"
+    id="AFeSCNeq2FB"
+    name="AFeSCNeq2FB"
+  ></div>
+</td>
+</tr>
+</table>
+
+Calculate K<sub>eq</sub> for Beaker A.<br>
+
+K<sub>eq</sub> = 
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="KA"
+    name="KA"
+    formula="${AFeSCNeq2}/(${AFe3+eq}*${AFe3+eq})"
+    help="Use the Keq equation at the top of the lab"
+  />
+  <div
+    class="feedback"
+    id="KAFB"
+    name="KAFB"
+  ></div>
+
+<h3>Beaker B</h3>
+
+<table border="1" cellpadding="5">
+<tr>
+<th></th>
+<th>[Fe<sup>3+</sup>]</th>
+<th>[SCN<sup>–</sup>]</th>
+<th>[FeSCN<sup>2+</sup>]</th>
+</tr>
+
+<tr>
+<td>Initial</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BFe3+I"
+    name="BFe3+I"
+    formula="3*0.0020/10"
+    help="You diluted 3.00 mL of 0.0020M Fe(NO3)3 solution to a total volume of 10 mL.  M2 = M1xV1/V2"
+  />
+  <div
+    class="feedback"
+    id="BFe3+IFB"
+    name="BFe3+IFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BSCN-I"
+    name="BSCN-I"
+    formula="4*0.0020/10"
+    help="You diluted 4.00 mL of 0.0020M SCN- solution to a total volume of 10 mL.  M2 = M1xV1/V2"
+  />
+  <div
+    class="feedback"
+    id="BSCN-IFB"
+    name="BSCN-IFB"
+  ></div>
+</td>
+<td>0.00</td>
+</tr>
+
+<tr>
+<td>Change</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BFe3+ch"
+    name="BFe3+ch"
+    formula="-${BFeSCNch}"
+    help="This should be the negative of the change in concentration of the FESCN2+ based on the balanced chemical equation, and the direction the reaction has to go to reach an equilibrium"
+  />
+  <div
+    class="feedback"
+    id="BFe3+chFB"
+    name="BFe3+chFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BSCN-ch"
+    name="BSCN-ch"
+    formula="-${BFeSCNch}"
+    help="This should be the negative of the change in concentration of the FESCN2+ based on the balanced chemical equation, and the direction the reaction has to go to reach an equilibrium"
+  />
+  <div
+    class="feedback"
+    id="BSCN-chFB"
+    name="BSCN-chFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BFeSCNch"
+    name="BFeSCNch"
+    formula="${BFeSCNeq2}"
+    help="Change = final - initial"
+  />
+  <div
+    class="feedback"
+    id="BFeSCNchFB"
+    name="BFeSCNch2FB"
+  ></div>
+</td>
+</tr>
+
+<tr>
+<td>Equilibrium</td>
+<td>  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BFe3+eq"
+    name="BFe3+eq"
+    formula="${BFe3+I}+${BFe3+ch}"
+    help="Equilibrium = Initial + Change"
+  />
+  <div
+    class="feedback"
+    id="BFe3+eqFB"
+    name="BFe3+eqFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BSCN-eq"
+    name="BSCN-eq"
+    formula="${BSCN-I}+${BSCN-ch}"
+    help="Equilibrium = Initial + Change"
+  />
+  <div
+    class="feedback"
+    id="BSCN-eqFB"
+    name="BSCN-eqFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="BFeSCNeq2"
+    name="BFeSCNeq2"
+    formula="(${absorbanceB}-${y-intercept})/${slope}"
+    help="Use the [FeSCN2+] equation to solve for the equilibrium concentration based on your measured absorbance."
+  />
+  <div
+    class="feedback"
+    id="BFeSCNeq2FB"
+    name="BFeSCNeq2FB"
+  ></div>
+</td>
+</tr>
+</table>
+
+Calculate K<sub>eq</sub> for Beaker B.<br>
+
+K<sub>eq</sub> = 
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="KB"
+    name="KB"
+    formula="${BFeSCNeq2}/(${BFe3+eq}*${BFe3+eq})"
+    help="Use the Keq equation at the top of the lab"
+  />
+  <div
+    class="feedback"
+    id="KBFB"
+    name="KBFB"
+  ></div>
+
+<h3>Beaker C</h3>
+
+<table border="1" cellpadding="5">
+<tr>
+<th></th>
+<th>[Fe<sup>3+</sup>]</th>
+<th>[SCN<sup>–</sup>]</th>
+<th>[FeSCN<sup>2+</sup>]</th>
+</tr>
+
+<tr>
+<td>Initial</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CFe3+I"
+    name="CFe3+I"
+    formula="3*0.0020/10"
+    help="You diluted 3.00 mL of 0.0020M Fe(NO3)3 solution to a total volume of 10 mL.  M2 = M1xV1/V2"
+  />
+  <div
+    class="feedback"
+    id="CFe3+IFB"
+    name="CFe3+IFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CSCN-I"
+    name="CSCN-I"
+    formula="5*0.0020/10"
+    help="You diluted 5.00 mL of 0.0020M SCN- solution to a total volume of 10 mL.  M2 = M1xV1/V2"
+  />
+  <div
+    class="feedback"
+    id="CSCN-IFB"
+    name="CSCN-IFB"
+  ></div>
+</td>
+<td>0.00</td>
+</tr>
+
+<tr>
+<td>Change</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CFe3+ch"
+    name="CFe3+ch"
+    formula="-${CFeSCNch}"
+    help="This should be the negative of the change in concentration of the FESCN2+ based on the balanced chemical equation, and the direction the reaction has to go to reach an equilibrium"
+  />
+  <div
+    class="feedback"
+    id="CFe3+chFB"
+    name="CFe3+chFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CSCN-ch"
+    name="CSCN-ch"
+    formula="-${CFeSCNch}"
+    help="This should be the negative of the change in concentration of the FESCN2+ based on the balanced chemical equation, and the direction the reaction has to go to reach an equilibrium"
+  />
+  <div
+    class="feedback"
+    id="CSCN-chFB"
+    name="CSCN-chFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CFeSCNch"
+    name="CFeSCNch"
+    formula="${CFeSCNeq2}"
+    help="Change = final - initial"
+  />
+  <div
+    class="feedback"
+    id="CFeSCNchFB"
+    name="CFeSCNch2FB"
+  ></div>
+</td>
+</tr>
+
+<tr>
+<td>Equilibrium</td>
+<td>  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CFe3+eq"
+    name="CFe3+eq"
+    formula="${CFe3+I}+${CFe3+ch}"
+    help="Equilibrium = Initial + Change"
+  />
+  <div
+    class="feedback"
+    id="CFe3+eqFB"
+    name="CFe3+eqFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CSCN-eq"
+    name="CSCN-eq"
+    formula="${CSCN-I}+${CSCN-ch}"
+    help="Equilibrium = Initial + Change"
+  />
+  <div
+    class="feedback"
+    id="CSCN-eqFB"
+    name="CSCN-eqFB"
+  ></div>
+</td>
+<td>
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="CFeSCNeq2"
+    name="CFeSCNeq2"
+    formula="(${absorbanceC}-${y-intercept})/${slope}"
+    help="Use the [FeSCN2+] equation to solve for the equilibrium concentration based on your measured absorbance."
+  />
+  <div
+    class="feedback"
+    id="CFeSCNeq2FB"
+    name="CFeSCNeq2FB"
+  ></div>
+</td>
+</tr>
+</table>
+
+Calculate K<sub>eq</sub> for Beaker C.<br>
+
+K<sub>eq</sub> = 
+  <input
+    type="number"
+    step="any"
+    class="calc num"
+    id="KC"
+    name="KC"
+    formula="${CFeSCNeq2}/(${CFe3+eq}*${CFe3+eq})"
+    help="Use the Keq equation at the top of the lab"
+  />
+  <div
+    class="feedback"
+    id="KCFB"
+    name="KCFB"
+  ></div>
+
+Average the K<sub>eq</sub> for your three beakers.<br>
+
+K<sub>eq (average)</sub> =  
+<input
+    type="number"
+    step="any"
+    class="calc num"
+    id="Kave"
+    name="Kave"
+    formula="(${KA}+${KB}+${KC})/3"
+    help="Add the Keq from beakers A, B, and C and divide by 3."
+  />
+  <div
+    class="feedback"
+    id="KaveFB"
+    name="KaveFB"
+  ></div>
+
+<!-- end -->
+      <!-- title -->
+
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+
+        <div class="vcenter">
+          <label for="score">Score: </label>
+
+          <div id="score" style="display: inline">0</div>
+
+          %
+        </div>
+      </div>
+    </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"],
+        },
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
