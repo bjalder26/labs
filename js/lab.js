@@ -511,8 +511,14 @@ function showOverlay(message) {
   const overlay = document.getElementById("overlay");
   const overlayText = document.getElementById("overlay-text");
 
-  overlayText.textContent = message;
+  overlayText.innerHTML = message; // IMPORTANT: use innerHTML for math
   overlay.classList.remove("hidden");
+
+  // Tell MathJax to process the new content
+  if (window.MathJax) {
+    MathJax.typesetClear([overlayText]);
+    MathJax.typesetPromise([overlayText]);
+  }
 }
 
 function createOverlay() {
