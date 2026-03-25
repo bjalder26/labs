@@ -507,6 +507,50 @@ function splitTopLevel(str) {
   return parts;
 }
 
+function showOverlay(message) {
+  const overlay = document.getElementById("overlay");
+  const overlayText = document.getElementById("overlay-text");
+
+  overlayText.textContent = message;
+  overlay.classList.remove("hidden");
+}
+
+function createOverlay() {
+  // Avoid duplicating it if called more than once
+  if (document.getElementById("overlay")) return;
+
+  const overlay = document.createElement("div");
+  overlay.id = "overlay";
+  overlay.className = "overlay hidden";
+
+  overlay.innerHTML = `
+    <div class="overlay-content">
+      <div id="overlay-text"></div>
+      <button id="overlay-ok">OK</button>
+    </div>
+  `;
+
+  document.body.appendChild(overlay);
+
+  const overlayContent = overlay.querySelector(".overlay-content");
+  const overlayOk = document.getElementById("overlay-ok");
+
+  // Close when clicking outside
+  overlay.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+  });
+
+  // Prevent closing when clicking inside content
+  overlayContent.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+
+  // OK button closes it
+  overlayOk.addEventListener("click", () => {
+    overlay.classList.add("hidden");
+  });
+}
+
 // ===================== onLoad =====================
 
 function onLoad() {
@@ -553,6 +597,8 @@ function onLoad() {
       return false;
     }
   };
+
+  createOverlay();
   
   document.addEventListener('keydown', function(event) {
     // Check if Shift, Alt, and D keys are pressed together
@@ -891,7 +937,7 @@ if (matches) {
 
   for (var feedbackElement of feedbackElements) {
     feedbackElement.addEventListener("click", function (e) {
-      alert(this.title);
+      showOverlay(this.title);
     });
   }
 
