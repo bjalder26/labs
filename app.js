@@ -649,24 +649,35 @@ GRADING INSTRUCTIONS
 
 - Default toward giving full credit:
   If the student’s response reasonably reflects the intended idea of a criterion, award credit even if the wording is informal, incomplete, or not precise.
+  A student receives full credit for addressing only one option of a criteria (e.g. x or y).
+
+- Presence over completeness rule:
+  If a student states the core idea required by a criterion, award full credit for that criterion, even if:
+  - the explanation is incomplete
+  - the reasoning is not fully developed
+  - connections between ideas are not clearly explained
+
+- Do NOT downgrade for missing explanation:
+  Do not reduce credit because the answer could be clearer, more detailed, or more explicit.
+
+- Do NOT require explicit linking between ideas:
+  If relevant ideas are present but loosely connected, still award full credit.
 
 - Substantial understanding rule:
-  If a response captures the core meaning of a criterion, award full credit for that criterion, even if:
-  - terminology is not exact
-  - explanation is brief
-  - minor details are missing
+  If a response captures the core meaning of a criterion, award full credit even if terminology is not exact.
 
 - Partial credit rule:
-  If a response even the slightest understanding of a criterion but incorrect, award partial credit instead of zero.
+  If a response shows some understanding but does not meet any of the instructions for full credit given above, award partial credit instead of zero
+  (0.9 for addressing less than half of one of the options for the criteria, 0.8 for barely addressing the criteria at all).  
+  Full credit for half or more of one of the options being addressed.
 
 - Accept equivalent language:
   Credit responses that express the same basic idea using different words or phrasing.
 
 - Interpret meaning over wording:
-  Base grading on the student’s intended meaning, not exact phrases. If a reasonable instructor would interpret the idea as correct, award credit.
+  Base grading on the student’s intended meaning, not exact phrases.
 
-- Do not penalize for brevity:
-  A short answer can receive full credit if it correctly addresses the criterion.
+- Do not penalize for brevity.
 
 - Do not require justification unless explicitly stated in the criteria.
 
@@ -676,14 +687,12 @@ GRADING INSTRUCTIONS
 
 - Do not introduce additional criteria beyond those provided.
 
-- If a criteria has multiple options (e.g. x or y) then award credit for students addressing even just ONE of those options.
-
-- If uncertain whether a response meets a criterion, err on the side of awarding credit.
+- If uncertain, err on the side of awarding credit.
 
 FINAL SCORING
 
 - Assign a score to each criterion.
-- The final score is the average of all criterion scores.
+- The final score is the average.
 
 FEEDBACK RULES
 
@@ -691,9 +700,8 @@ FEEDBACK RULES
   Provide brief, specific praise.
 
 - If score < 1:
-  - Do not provide the correct answer.
-  - Ask targeted, guiding questions that help the student address missing criteria.
-  - Focus only on what is missing or unclear.
+  - Do not give the correct answer
+  - Ask guiding questions about missing criteria only
 `;
 
     const aiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
