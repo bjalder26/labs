@@ -12,6 +12,7 @@ var fs = require('fs');
 
 const rimraf = require('rimraf');
 const archiver = require('archiver');
+require('dotenv').config();
 
 // create a new express server
 var app = express();
@@ -19,6 +20,7 @@ var app = express();
 const ADMIN_PASSWORD = 'trouble2maker'; // password for downloading and deleting directories
 const SUBMISSIONS_DIR = path.join(__dirname, 'submissions');
 const PRESERVE_FOLDERS = ['studentimages', 'tempuploads'];
+const ChatGPT_API_KEY = process.env.ChatGPT_API_KEY;
 
 // Serve the uploads directory statically
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
@@ -617,5 +619,110 @@ app.post('/admin/download-submissions', (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).send('Error creating ZIP.');
+  }
+});
+
+app.post("/ai-grade-essay", async (req, res) => {
+  const { studentAnswer, correctAnswer } = req.body;
+
+  try {
+    const prompt = `
+You are grading a student's answer.
+
+Correct answer criteria:
+${correctAnswer}
+
+Student answer:
+${studentAnswer}
+
+Return ONLY valid JSON in this format:
+{
+  "score": decimal_between_0_and_1,
+  "feedback": "short helpful feedback"
+}
+
+GRADING INSTRUCTIONS
+
+- Give a score between 0 and 1.
+
+- Evaluate each criterion independently before determining the final score.
+
+- Default toward giving credit:
+  If the student’s response reasonably reflects the intended idea of a criterion, award credit even if the wording is informal, incomplete, or not precise.
+
+- Substantial understanding rule:
+  If a response captures the core meaning of a criterion, award full credit for that criterion, even if:
+  - terminology is not exact
+  - explanation is brief
+  - minor details are missing
+
+- Partial credit rule:
+  If a response shows some understanding of a criterion but is incomplete or unclear, award partial credit instead of zero.
+
+- Accept equivalent language:
+  Credit responses that express the same idea using different words or phrasing.
+
+- Interpret meaning over wording:
+  Base grading on the student’s intended meaning, not exact phrases. If a reasonable instructor would interpret the idea as correct, award credit.
+
+- Do not penalize for brevity:
+  A short answer can receive full credit if it correctly addresses the criterion.
+
+- Do not require justification unless explicitly stated in the criteria.
+
+- Only withhold credit if:
+  - the idea is clearly incorrect, or
+  - the criterion is not addressed at all
+
+- Do not introduce additional criteria beyond those provided.
+
+- If uncertain whether a response meets a criterion, err on the side of awarding credit.
+
+FINAL SCORING
+
+- Assign a score to each criterion.
+- The final score is the average of all criterion scores.
+
+FEEDBACK RULES
+
+- If score = 1:
+  Provide brief, specific praise.
+
+- If score < 1:
+  - Do not provide the correct answer.
+  - Ask targeted, guiding questions that help the student address missing criteria.
+  - Focus only on what is missing or unclear.
+`;
+
+    const aiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.ChatGPT_API_KEY}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [{ role: "user", content: prompt }],
+        temperature: 0.2
+      })
+    });
+
+    const json = await aiResponse.json();
+
+    let content = json.choices[0].message.content;
+
+    // Try parsing safely
+    let parsed;
+    try {
+      parsed = JSON.parse(content);
+    } catch {
+      parsed = { score: 0, feedback: "Error parsing AI response." };
+    }
+
+    res.json(parsed);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ score: 0, feedback: "Server error." });
   }
 });

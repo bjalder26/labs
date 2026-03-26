@@ -52,6 +52,9 @@ canvas {
   width: 15px;
 }
 
+.aiMax {
+  display: inline-block;
+}
 table,
 th,
 td {
@@ -175,6 +178,10 @@ button.hidden, .vcenter {
   border-radius: 8px;
   max-width: 400px;
   text-align: center;
+}
+
+.overlay-content #overlay-text {
+    padding: 10px;
 }
 
 #overlay.hidden {

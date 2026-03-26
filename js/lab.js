@@ -945,61 +945,181 @@ if (matches) {
     });
   }
 
-  const scoreElement = $("score");
+const scoreElement = $("score");
 
-  if (scoreElement) {
-    scoreElement.addEventListener("click", function (e) {
-      // Check if 'loaded' is true
-      if (loaded) {
-        let dataScore = 0;
-        let calcScore = 0;
-        let dataFactor = 1;
-        let calcFactor = 1;
-        // Get elements with the 'num' class
-        let numElements = document.getElementsByClassName("num");
+if (scoreElement) {
+  scoreElement.addEventListener("click", function (e) {
+    if (loaded) {
+      let dataScore = 0;
+      let calcScore = 0;
+      let dataFactor = 1;
+      let calcFactor = 1;
 
-        // Convert the HTMLCollection to an array
-        let numElementsArray = Array.from(numElements);
+      // --------------------
+      // DATA (non-calc .num)
+      // --------------------
+      let numElements = document.getElementsByClassName("num");
+      let numElementsArray = Array.from(numElements);
 
-        // Filter out elements that do not have the 'calc' class
-        let numElementsArrayFiltered =
-          numElementsArray.filter(isNotCalcElement);
+      let numElementsArrayFiltered =
+        numElementsArray.filter(isNotCalcElement);
 
-        if (numElementsArrayFiltered.length > 0) {
-        // Filter out elements that are not filled out (assuming these are form elements)
-        let filledOutNumElements = numElementsArrayFiltered.filter(isFilledOut);
+      if (numElementsArrayFiltered.length > 0) {
+        let filledOutNumElements =
+          numElementsArrayFiltered.filter(isFilledOut);
 
         dataScore =
-          (filledOutNumElements.length / numElementsArrayFiltered.length) * 50;
-        } else {
-          calcFactor = 2;
-        }
+          (filledOutNumElements.length /
+            numElementsArrayFiltered.length) *
+          50;
+      } else {
+        calcFactor = 2;
+      }
 
-        // Get all elements with IDs ending in "FB"
-        const fbElements = document.querySelectorAll('[id$="FB"]');
-        
-        if (fbElements.length > 0) {
+      // --------------------
+      // CALC (FB elements)
+      // --------------------
+      const fbElements = document.querySelectorAll('[id$="FB"]');
 
-        // Initialize a count for elements with the title "correct"
-        let countCorrectElements = 0;
+      let calcNumerator = 0;
+      let calcDenominator = 0;
 
-        // Iterate through the selected elements
+      if (fbElements.length > 0) {
         fbElements.forEach((element) => {
-          // Check if the element has the title "correct"
           if (element.getAttribute("title") === "correct") {
-            countCorrectElements++;
+            calcNumerator++;
           }
         });
-        
-        calcScore = (countCorrectElements / fbElements.length) * 50;
-        } else {
-          dataFactor = 2;
-        }
-        const totalScore = dataScore*dataFactor + calcScore*calcFactor;
-        $("score").innerHTML = totalScore.toFixed(1);
+
+        calcDenominator = fbElements.length;
+      } else {
+        dataFactor = 2;
       }
-    });
+
+      // --------------------
+      // AI ESSAY (NEW PART)
+      // --------------------
+      const aiScoreInputs = document.querySelectorAll(".aiScore");
+
+      let aiEarned = 0;
+      let aiMaxTotal = 0;
+
+      aiScoreInputs.forEach((input) => {
+        const baseId = input.id.replace("AiScore", "");
+        const maxDiv = document.getElementById(baseId + "AiMax");
+
+        const score = parseFloat(input.value);
+        const max = parseFloat(maxDiv?.textContent);
+
+        if (!isNaN(score) && !isNaN(max)) {
+          aiEarned += score;
+          aiMaxTotal += max;
+        }
+      });
+
+      // --------------------
+      // COMBINE CALC + AI
+      // --------------------
+      calcNumerator += aiEarned;
+      calcDenominator += aiMaxTotal;
+
+      if (calcDenominator > 0) {
+        calcScore = (calcNumerator / calcDenominator) * 50;
+      }
+
+      // --------------------
+      // FINAL TOTAL
+      // --------------------
+      const totalScore =
+        dataScore * dataFactor + calcScore * calcFactor;
+
+      $("score").innerHTML = totalScore.toFixed(1);
+    }
+  });
+}
+
+  //button eventlistener for ai feedback
+  document.addEventListener("click", async (e) => {
+  if (!e.target.id.endsWith("Button")) return;
+
+  const button = e.target;
+  const baseId = button.id.replace("Button", "");
+
+  const textarea = document.getElementById(baseId);
+  const scoreInput = document.getElementById(baseId + "AiScore");
+  const maxDiv = document.getElementById(baseId + "AiMax");
+
+  const studentAnswer = textarea.value.trim();
+  const correctAnswer = textarea.dataset.correct;
+  const totalPoints = parseFloat(maxDiv.textContent);
+
+  if (!studentAnswer) {
+    showOverlay("Please enter an answer first.");
+    return;
   }
+
+  button.disabled = true;
+  button.textContent = "Grading...";
+
+  try {
+    const response = await fetch("/ai-grade-essay", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        studentAnswer,
+        correctAnswer
+      })
+    });
+
+    const data = await response.json();
+
+    const rawScore = parseFloat(data.score);
+    const feedback = data.feedback;
+
+    const finalScore = (rawScore * totalPoints).toFixed(2);
+
+    // ✅ update readonly input (this is what gets saved)
+    scoreInput.value = finalScore;
+
+    // ✅ show overlay instead of alert
+    showOverlay(`
+      <strong>Score:</strong> ${finalScore}/${totalPoints}<br><br>
+      ${feedback}
+    `);
+
+    // ✅ trigger your existing save system
+    const savebutton = $("savebutton");
+    if (savebutton) savebutton.click();
+
+    // ✅ lock if full credit
+    if (rawScore === 1) {
+      button.disabled = true;
+      button.textContent = "Full Credit Earned";
+      return;
+    }
+
+  } catch (err) {
+    console.error(err);
+    showOverlay("Error grading response.");
+  }
+
+  // ⏱ cooldown (goes AFTER try/catch)
+  let timeLeft = 60;
+  button.disabled = true;
+
+  const interval = setInterval(() => {
+    button.textContent = `Wait ${timeLeft}s`;
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(interval);
+      button.disabled = false;
+      button.textContent = "Submit Answer for Grading and Feedback";
+    }
+  }, 1000);
+});
 
 // load data into elements
   if (dataFile && Object.keys(dataFile).length > 0) {
