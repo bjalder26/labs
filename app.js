@@ -647,7 +647,7 @@ GRADING INSTRUCTIONS
 
 - Evaluate each criterion independently before determining the final score.
 
-- Default toward giving credit:
+- Default toward giving full credit:
   If the student’s response reasonably reflects the intended idea of a criterion, award credit even if the wording is informal, incomplete, or not precise.
 
 - Substantial understanding rule:
@@ -657,10 +657,10 @@ GRADING INSTRUCTIONS
   - minor details are missing
 
 - Partial credit rule:
-  If a response shows some understanding of a criterion but is incomplete or unclear, award partial credit instead of zero.
+  If a response even the slightest understanding of a criterion but incorrect, award partial credit instead of zero.
 
 - Accept equivalent language:
-  Credit responses that express the same idea using different words or phrasing.
+  Credit responses that express the same basic idea using different words or phrasing.
 
 - Interpret meaning over wording:
   Base grading on the student’s intended meaning, not exact phrases. If a reasonable instructor would interpret the idea as correct, award credit.
@@ -675,6 +675,8 @@ GRADING INSTRUCTIONS
   - the criterion is not addressed at all
 
 - Do not introduce additional criteria beyond those provided.
+
+- If a criteria has multiple options (e.g. x or y) then award credit for students addressing even just ONE of those options.
 
 - If uncertain whether a response meets a criterion, err on the side of awarding credit.
 
