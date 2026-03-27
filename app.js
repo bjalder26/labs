@@ -643,45 +643,87 @@ Return ONLY valid JSON in this format:
 
 GRADING INSTRUCTIONS
 
-- Give a score between 0 and 1.
+* Assign a score between 0 and 1.
 
-- Evaluate each criterion independently before determining the final score.
-  Criteria may have multiple options (x or y), and a student only has to meet one of those options.
+* Evaluate each criterion independently before determining the final score.
+  Criteria may include multiple acceptable options (x or y), and a student only needs to meet one of those options.
 
-- Presence over completeness rule:
-  If a student states the core idea required by a criterion, award full credit for that criterion, even if:
-  - the explanation is incomplete
-  - the reasoning is not fully developed
-  - connections between ideas are not clearly explained
+---
 
-- Do NOT require explicit linking between ideas:
-  If relevant ideas are present but loosely connected, still award full credit.
+CORE GRADING PRINCIPLES
 
-- Substantial understanding rule:
-  If a response captures the core meaning of a criterion, award full credit even if terminology is not exact.
+* Evidence-based grading:
+  Only evaluate what is explicitly stated in the response.
+  Do NOT infer understanding or assume meaning beyond the written answer.
 
-- Partial credit rule
-  Each criterion must be scored independently based on explicit evidence in the response, and the final score is the average score of those criteria. 
-  Do not infer understanding.
-  Do not award credit for isolated keywords or phrases.
+* Meaning over wording:
+  Credit responses that express the correct idea using different wording or phrasing.
 
-  For each criteria apply this grading scale:
-  0 = not addressed, incorrect, or only keywords
-  0.25 = attempt made but mostly incorrect or vague
-  0.5 = partially correct with some explanation, but major gaps
-  1.0 = mostly correct and meets majority of expectations
+* No additional requirements:
+  Do not introduce expectations beyond those stated in the criteria.
 
-- Accept equivalent language:
-  Credit responses that express the same basic idea using different words or phrasing.
+---
 
-- Interpret meaning over wording:
-  Base grading on the student’s intended meaning, not exact phrases.
+REQUIREMENTS FOR CREDIT
 
-- Do not penalize for brevity if students still meet the criteria.
+* Minimum content requirement:
+  A response must include more than a single word or isolated phrase to earn full credit.
 
-- Do not require justification unless explicitly stated in the criteria.
+* Definition of “core idea”:
+  A criterion is only fully met if the response includes:
+  (1) the correct concept, AND
+  (2) minimal meaningful context or explanation.
+  Naming a term alone (e.g., “ion-dipole”) is NOT sufficient for full credit.
 
-- Do not introduce additional criteria beyond those provided.
+* No keyword-only credit:
+  Do NOT award credit for isolated keywords or phrases without supporting context.
+
+* No inference rule:
+  If an idea is not clearly stated, it does not count—even if it seems implied.
+
+---
+
+SCORING EACH CRITERION
+
+Score each criterion independently using the following scale:
+
+* 0.0 = Not addressed, incorrect, or only isolated keywords
+* 0.25 = Attempt made but mostly incorrect, vague, or unclear
+* 0.5 = Partially correct with some explanation, but significant gaps or inaccuracies
+* 1.0 = Correct and includes at least minimal supporting explanation or context
+
+---
+
+ADDITIONAL GUIDELINES
+
+* Presence with meaning:
+  Credit should be given when the correct idea is present with meaningful context, even if the explanation is brief or not fully developed.
+
+* Do not require explicit linking:
+  Concepts do not need to be strongly connected or fully explained together unless explicitly required by the criterion.
+
+* Do not penalize for brevity:
+  Concise answers can receive full credit if they meet the minimum content requirement.
+
+* Criterion independence:
+  Each criterion must be explicitly addressed.
+  Strong performance on one criterion does NOT compensate for missing others.
+
+---
+
+FINAL SCORE
+
+* The final score is the average of all criterion scores.
+
+* Do not adjust the score beyond this calculation.
+
+---
+
+ACCEPTABLE FLEXIBILITY
+
+* Accept equivalent language that conveys the same scientific meaning.
+
+* Interpret responses based on intended meaning, but only when that meaning is clearly supported by the written content.
 
 FEEDBACK RULES
 
