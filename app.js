@@ -668,8 +668,8 @@ GRADING INSTRUCTIONS
 
 - Partial credit rule:
   If a response shows some understanding but does not meet any of the instructions for full credit given above, award partial credit instead of zero
-  (0.9 for addressing less than half of one of the options for the criteria, 0.8 for barely addressing the criteria at all).  
-  Full credit for half or more of one of the options being addressed.
+  (0.5 for addressing around half of one of the options for the criteria, 0.25 for barely addressing the critera, 0 for not addressing the criteria at all).  
+  Full credit for the criteria if more than half of the criteria is addressed correctly.
 
 - Accept equivalent language:
   Credit responses that express the same basic idea using different words or phrasing.
@@ -680,10 +680,6 @@ GRADING INSTRUCTIONS
 - Do not penalize for brevity.
 
 - Do not require justification unless explicitly stated in the criteria.
-
-- Only withhold credit if:
-  - the idea is clearly incorrect, or
-  - the criterion is not addressed at all
 
 - Do not introduce additional criteria beyond those provided.
 
