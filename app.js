@@ -666,10 +666,17 @@ GRADING INSTRUCTIONS
 - Substantial understanding rule:
   If a response captures the core meaning of a criterion, award full credit even if terminology is not exact.
 
-- Partial credit for a criteria rule:
-  If a response shows some understanding but does not meet any of the instructions for full credit given above, award partial credit instead of zero
-  (0.5 for a criteria that is half correct, 0.25 for a criteria that barely shows knowledge, and 0 for a criteria that is not addressed).  
-  Full credit for the criteria if more than half of the criteria is addressed correctly.
+- Partial credit rule
+  Each criterion must be evaluated independently based on explicit evidence in the response. Do not infer understanding.
+  Do not award credit for isolated keywords or phrases.
+
+  For each criteria apply this grading scale:
+  [
+  0 = not addressed, incorrect, or only keywords
+  0.25 = attempt made but mostly incorrect or vague
+  0.5 = partially correct with some explanation, but major gaps
+  1.0 = mostly correct and meets majority of expectations
+  ]
 
 - Accept equivalent language:
   Credit responses that express the same basic idea using different words or phrasing.
