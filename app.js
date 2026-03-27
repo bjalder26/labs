@@ -646,19 +646,13 @@ GRADING INSTRUCTIONS
 - Give a score between 0 and 1.
 
 - Evaluate each criterion independently before determining the final score.
-
-- Default toward giving full credit:
-  If the student’s response reasonably reflects the intended idea of a criterion, award credit even if the wording is informal, incomplete, or not precise.
-  A student receives full credit for addressing only one option of a criteria (e.g. x or y).
+  Criteria may have multiple options (x or y), and a student only has to meet one of those options.
 
 - Presence over completeness rule:
   If a student states the core idea required by a criterion, award full credit for that criterion, even if:
   - the explanation is incomplete
   - the reasoning is not fully developed
   - connections between ideas are not clearly explained
-
-- Do NOT downgrade for missing explanation:
-  Do not reduce credit because the answer could be clearer, more detailed, or more explicit.
 
 - Do NOT require explicit linking between ideas:
   If relevant ideas are present but loosely connected, still award full credit.
@@ -667,16 +661,15 @@ GRADING INSTRUCTIONS
   If a response captures the core meaning of a criterion, award full credit even if terminology is not exact.
 
 - Partial credit rule
-  Each criterion must be evaluated independently based on explicit evidence in the response. Do not infer understanding.
+  Each criterion must be scored independently based on explicit evidence in the response, and the final score is the average score of those criteria. 
+  Do not infer understanding.
   Do not award credit for isolated keywords or phrases.
 
   For each criteria apply this grading scale:
-  [
   0 = not addressed, incorrect, or only keywords
   0.25 = attempt made but mostly incorrect or vague
   0.5 = partially correct with some explanation, but major gaps
   1.0 = mostly correct and meets majority of expectations
-  ]
 
 - Accept equivalent language:
   Credit responses that express the same basic idea using different words or phrasing.
@@ -684,18 +677,11 @@ GRADING INSTRUCTIONS
 - Interpret meaning over wording:
   Base grading on the student’s intended meaning, not exact phrases.
 
-- Do not penalize for brevity.
+- Do not penalize for brevity if students still meet the criteria.
 
 - Do not require justification unless explicitly stated in the criteria.
 
 - Do not introduce additional criteria beyond those provided.
-
-- If uncertain, err on the side of awarding credit.
-
-FINAL SCORING
-
-- Assign a score to each criterion.
-- The final score is the average.
 
 FEEDBACK RULES
 
