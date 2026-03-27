@@ -668,7 +668,7 @@ GRADING INSTRUCTIONS
 
 - Partial credit for a criteria rule:
   If a response shows some understanding but does not meet any of the instructions for full credit given above, award partial credit instead of zero
-  (0.5 for a criteria addressing around half of one of the options for the criteria, 0.25 for a criteria barely addressing the critera, 0 for not addressing the criteria at all).  
+  (0.5 for a criteria that is half correct, 0.25 for a criteria that barely shows knowledge, and 0 for a criteria that is not addressed).  
   Full credit for the criteria if more than half of the criteria is addressed correctly.
 
 - Accept equivalent language:
