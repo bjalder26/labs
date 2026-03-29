@@ -801,32 +801,32 @@ if (matches) {
         const haveSigFigs = getSigFigs(this.value);
         const correctSigFigs = requiredSigFigs == haveSigFigs ? true : false;
         let closeOrCorrect = false;
-        if (value !== "") {
-          if (isNaN(answer)) {
-            // allows the use of || for multiple correct text answers
-            const possibleAnswers = answer.split("||").map(ans => ans.trim());
-            closeOrCorrect = possibleAnswers.includes(value.toString().trim());
-            
-            // closeOrCorrect = value == answer ? true : false;
+        let trimmedValue = value.toString().trim();
+
+        if (elementFB) {
+          if (trimmedValue === "") {
+            // Handle empty input explicitly
+          elementFB.title = "No answer";
+          elementFB.innerHTML = '<img src="/images/incorrect.svg">';
           } else {
-            closeOrCorrect = value.inRange(answer, range) ? true : false;
-          }
-          if(elementFB){
-          if (!closeOrCorrect) {
-            elementFB.title = this.getAttribute("help");
-            elementFB.innerHTML =
-              '<img src="/images/incorrect.svg">';
-          } else if (requiredSigFigs && !correctSigFigs) {
-            elementFB.title =
-              "Incorrect number of significant figures";
-            elementFB.innerHTML =
-              '<img src="/images/incorrectSF.svg">';
-          } else {
-            elementFB.title = "correct";
-            elementFB.innerHTML =
-              '<img src="/images/correct.svg">';
-          }
-        }
+              if (isNaN(answer)) {
+              const possibleAnswers = answer.split("||").map(ans => ans.trim());
+              closeOrCorrect = possibleAnswers.includes(trimmedValue);
+            } else {
+              closeOrCorrect = value.inRange(answer, range) ? true : false;
+            }
+
+            if (!closeOrCorrect) {
+              elementFB.title = this.getAttribute("help");
+              elementFB.innerHTML = '<img src="/images/incorrect.svg">';
+            } else if (requiredSigFigs && !correctSigFigs) {
+              elementFB.title = "Incorrect number of significant figures";
+              elementFB.innerHTML = '<img src="/images/incorrectSF.svg">';
+            } else {
+              elementFB.title = "correct";
+              elementFB.innerHTML = '<img src="/images/correct.svg">';
+             }
+            }
         }
         if ($("score") && loaded) {
           score();

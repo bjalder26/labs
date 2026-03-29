@@ -34,7 +34,7 @@
                 </li>
                 <ul>
                     <li>All the materials found in portable electronic devices are obtained and purified through
-                        <input type="text" class="calc" id="opening" name="opening" formula="chemical transformations||Chemical Transformations" help="Watch the Chapter One Opening Video.  The answer has two words, which you should type in the box with a space between the words.">.<div class="feedback" id="openingFB" name="openingFB"></div>
+                        <input type="text" class="calc num" id="opening" name="opening" formula="chemical transformations||Chemical Transformations" help="Watch the Chapter One Opening Video.  The answer has two words, which you should type in the box with a space between the words.">.<div class="feedback" id="openingFB" name="openingFB"></div>
                     </li>
                 </ul>
             </ol>
@@ -311,7 +311,7 @@
             </li>
             <ol>
                 <li>
-                    Watch the video Purification of Copper below.
+                    Watch the video Purification of Copper below.<br>
                     <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/qqmKqpA61GI" title="Purifying Copper | Reactions | Chemistry | FuseSchool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
                 </li>
                 <li>
@@ -350,23 +350,660 @@
                     </li>
                 </ul>
             </ol>
+            <hr>
             <li>
                 <h3>What's In Your Cell Phone?</h3>
             </li>
-            <hr>
             <ol>
                 <li>
                     Watch the video <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/inside-cell-phone.html" target="_blank">What's In Your Cell Phone?</a>.
                 </li>
                 <ul>
                     <li>In one year more than $2.5 billion worth of two precious metals are used to manufacture cell phones.  What are those two precious metals?<br>
-                        <input  type="text" class="calc" id="precious1"  name="precious1" formula="gold||Gold||silver||Silver)"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious1FB" name="precious1FB"></div> 
+                        <input  type="text" class="calc" id="precious1"  name="precious1" formula="gold||Gold||silver||Silver"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious1FB" name="precious1FB"></div> 
                         and
-                        <input  type="text" class="calc" id="precious2"  name="precious2" formula="if(${precious1} != silver||Silver ; silver||Silver)"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious2FB" name="precious2FB"></div>
+                        <input  type="text" class="calc" id="precious2"  name="precious2" formula="if(${precious1} == silver ; gold||Gold ; if(${precious1} == Silver ; gold||Gold ; silver||Silver))"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious2FB" name="precious2FB"></div>
                     </li>
                 </ul>
             </ol>
-<br>
+            <hr>
+            <li>
+                <h3>Atom Calculations</h3>
+            </li>
+            <ol>
+                <li>
+                    Watch the video Atom Calculations Explained! (protons, electrons, neutrons, mass, &amp; charge) below.  Then complete the table below.
+                    <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/PUx05ckyDxI" title="Atom Calculations Explained! (protons, electrons, neutrons, mass, &amp; charge)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </li>
+                <li>
+                    Use thes two equations to complete the table below. Notice that you are given partial information.  The name of each isotope is the element's name followed by a dash, and the mass number.  Mass number is how we distinguish between two different isotopes of the same element.  The symbol is written in this format: $^{mass\ number}element\ symbol^{charge}$ (e.g. $^{16}O^{2-}$).  Atomic number is the same as the number of protons and can be found on the top of an element's square in the periodic table.<br>
+                    Charge = protons - neutrons<br>
+                    Mass number = protons + neutrons<br>
+                    You can use this <a href="https://ptable.com/?lang=en#Properties" target="_blank">periodic table</a> to help you.
+                </li>
+
+Note: Symbols should be input without superscripts and without a "0" charge for neutral atoms. E.g. <sup>25</sup>Mg<sup>2+</sup> should be entered as 25Mg2+.
+      <table>
+        <!-- header-->
+        <tr>
+          <th>Name</th>
+          <th>Symbol</th>
+          <th>Atomic Number</th>
+          <th>Mass Number</th>
+          <th>Number of Neutrons</th>
+          <th>Number of Electrons</th>
+          <th>Charge</th>
+        </tr>
+        <!-- hydrogen-2 row 1-->
+        <tr>
+          <td>hydrogen-2</td>
+          <td>$\ce{^{2}H}$</td>
+          <td>1</td>
+          <td>2</td>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+        </tr>
+       
+        <!-- sodium-22 row 3-->
+        <tr>
+          <td>sodium-22</td>
+          <td>$\ce{^{22}Na^+}$</td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an3" name="an3" formula="11" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an3FB" name="an3FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn3" name="mn3" formula="22" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn3FB" name="mn3FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="nn3" name="nn3" formula="11" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn3FB" name="nn3FB"></div>
+          </td>
+          <td>10</td>
+          <td>
+            <input type="text" class="calc num" id="c3" name="c3" formula="+1||1+" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c3FB" name="c3FB"></div>
+          </td>
+        </tr>
+
+        <!-- magnesium-24 row 4 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n4" name="n4" formula="magnesium-24" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n4FB" name="n4FB"></div>
+          </td>
+          <td style="display: flex;">
+            <input type="text" class="calc num symbol" id="s4" name="s4" formula="24Mg" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s4DIV"></div>
+            <div class="feedback" id="s4FB" name="s4FB"></div>
+          </td>
+          <td>12</td>
+          <td>24</td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn4" name="nn4" formula="12" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn4FB" name="nn4FB"></div>
+          </td>
+          <td>12</td>
+          <td>
+            <input type="text" class="calc num" id="c4" name="c4" formula="0" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c4FB" name="c4FB"></div>
+          </td>
+        </tr>
+
+        <!-- magnesium-25 row 5 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n5" name="n5" formula="magnesium-25" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n5FB" name="n5FB"></div>
+          </td>
+          <td style="display: flex;">
+            <input type="text" class="calc num symbol" id="s5" name="s5" formula="25Mg-||25Mg-1||25Mg1-" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s5DIV"></div>
+            <div class="feedback" id="s5FB" name="s5FB"></div>
+          </td>
+          <td>12</td>
+          <td>25</td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn5" name="nn5" formula="13" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn5FB" name="nn5FB"></div>
+          </td>
+          <td>13</td>
+          <td>
+            <input type="text" class="calc num" id="c5" name="c5" formula="-1||1-" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c5FB" name="c5FB"></div>
+          </td>
+        </tr>
+
+        <!-- titanium-46 row 6 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n6" name="n6" formula="titanium-46" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n6FB" name="n6FB"></div>
+          </td>
+          <td>
+            <sup>46</sup>Ti<sup>2-</sup>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an6" name="an6" formula="22" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an6FB" name="an6FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn6" name="mn6" formula="46" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn6FB" name="mn6FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn6" name="nn6" formula="24" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn6FB" name="nn6FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne6" name="ne6" formula="24" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="ne6FB" name="ne6FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c6" name="c6" formula="-2||2-" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c6FB" name="c6FB"></div>
+          </td>
+        </tr>
+
+        <!-- silver-107 row 7 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n7" name="n7" formula="silver-107" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n7FB" name="n7FB"></div>
+          </td>
+          <td><sup>107</sup>Ag
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an7" name="an7" formula="47" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an7FB" name="an7FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn7" name="mn7" formula="107" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn7FB" name="mn7FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn7" name="nn7" formula="60" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn7FB" name="nn7FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne7" name="ne7" formula="47" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="ne7FB" name="ne7FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c7" name="c7" formula="0" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c7FB" name="c7FB"></div>
+          </td>
+        </tr>
+
+        <!-- fluorine-19 row 8 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n8" name="n8" formula="fluorine-19" range="1%" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n8FB" name="n8FB"></div>
+          </td>
+          <td><sup>19</sup>F<sup>-</sup>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an8" name="an8" formula="9" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an8FB" name="an8FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn8" name="mn8" formula="19" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn8FB" name="mn8FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn8" name="nn8" formula="10" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn8FB" name="nn8FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne8" name="ne8" formula="10" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="ne8FB" name="ne8FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c8" name="c8" formula="-1||1-" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c8FB" name="c8FB"></div>
+          </td>
+        </tr>
+
+        <!-- carbon-12 row 9 -->
+        <tr>
+          <td>carbon-12</td>
+          <td style="display: flex;">
+            <input type="text" class="calc num symbol" id="s9" name="s9" formula="12C" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s9DIV">
+            </div>
+            <div class="feedback" id="s9FB" name="s9FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an9" name="an9" formula="6" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an9FB" name="an9FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn9" name="mn9" formula="12" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn9FB" name="mn9FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn9" name="nn9" formula="6" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn9FB" name="nn9FB"></div>
+          </td>
+          <td>6</td>
+          <td>
+            <input type="text" class="calc num" id="c9" name="c9" formula="0" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c9FB" name="c9FB"></div>
+          </td>
+        </tr>
+
+     
+
+        <!-- carbon-12 anion row 12 -->
+        <tr>
+          <td>carbon-12</td>
+          <td style="display: flex;">
+            <input type="text" class="calc num symbol" id="s12" name="s12" formula="12C1-||12C-1||12C-" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s12DIV">
+            </div>
+            <div class="feedback" id="s12FB" name="s12FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an12" name="an12" formula="6" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an12FB" name="an12FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn12" name="mn12" formula="12" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn12FB" name="mn12FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn12" name="nn12" formula="6" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn12FB" name="nn12FB"></div>
+          </td>
+          <td>7</td>
+          <td>
+            <input type="text" class="calc num" id="c12" name="c12" formula="-1||1-" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c12FB" name="c12FB"></div>
+          </td>
+        </tr>
+
+        <!-- Helium-4 row 14 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n14" name="n14" formula="helium-4" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n14FB" name="n14FB"></div>
+          </td>
+          <td><sup>4</sup>He</td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an14" name="an14" range="1%" formula="2" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an14FB" name="an14FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn14" name="mn14" range="1%" formula="4" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn14FB" name="mn14FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn14" name="nn14" range="1%" formula="2" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn14FB" name="nn14FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne14" name="ne14" range="1%" formula="2" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="ne14FB" name="ne14FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c14" name="c14" formula="0" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c14FB" name="c14FB"></div>
+          </td>
+        </tr>
+
+
+        <!-- oxygen-16 row 15 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n15" name="n15" formula="oxygen-16" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n15FB" name="n15FB"></div>
+          </td>
+          <td style="display: flex;">
+            <input type="text" class="calc num symbol" id="s15" name="s15" formula="16O2-||16O-2" range="1%" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+            <div id="s15DIV">
+            </div>
+            <div class="feedback" id="s15FB" name="s15FB"></div>
+          </td>
+          <td>8</td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn15" name="mn15" formula="16" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn15FB" name="mn15FB"></div>
+          </td>
+          <td>8</td>
+          <td>10</td>
+          <td>
+            <input type="text" class="calc num" id="c15" name="c15" formula="-2||2-" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c15FB" name="c15FB"></div>
+          </td>
+        </tr>
+
+
+        <!-- gallium-70 row 17 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n17" name="n17" formula="gallium-70" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n17FB" name="n17FB"></div>
+          </td>
+          <td><sup>70</sup>Ga
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an17" name="an17" formula="31" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an17FB" name="an17FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn17" name="mn17" formula="70" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn17FB" name="mn17FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn17" name="nn17" formula="39" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn17FB" name="nn17FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne17" name="ne17" formula="31" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="ne17FB" name="ne17FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c17" name="c17" formula="0" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c17FB" name="c17FB"></div>
+          </td>
+        </tr>
+
+
+        <!-- galium-70 cation row 18 -->
+        <tr>
+          <td>
+            <input type="text" class="calc num" id="n18" name="n18" formula="gallium-70" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="n18FB" name="n18FB"></div>
+          </td>
+          <td><sup>70</sup>Ga<sup>3+</sup>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an18" name="an18" formula="31" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="an18FB" name="an18FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn18" name="mn18" formula="70" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mn18FB" name="mn18FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn18" name="nn18" formula="39" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nn18FB" name="nn18FB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne18" name="ne18" formula="28" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="ne18FB" name="ne18FB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c18" name="c18" formula="3+||+3" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="c18FB" name="c18FB"></div>
+          </td>
+        </tr>
+
+        <!-- row -->
+        <!-- for adding more rows 
+        <tr>
+        <td><input type="checkbox" class="calc num" formula="false" id="check" name="check">
+          <td>
+            <input type="text" class="calc num" id="n" name="n" formula="" help="The name of the element followed by a dash and the mass number" />
+            <div class="feedback" id="nFB" name="nFB"></div>
+          </td>
+          <td>
+          <input type="text" class="calc num symbol" id="s" name="s" formula="" help="Type the mass number, the symbol, then the charge (with the number before a + or minus).  Do not put 0 for the charge, just leave the charge blank if there is no charge." />
+          <div id="sDIV">
+          </div>
+          <div class="feedback" id="sFB" name="sFB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="an" name="an" formula="" range="1%" help="The atomic number is the same number as the number of protons.  It can be found above an element in the periodic table.  Mass # = # protons (atomic number) + # neutrons." />
+            <div class="feedback" id="anFB" name="anFB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="mn" name="mn" formula="" range="1%" help="Mass # = # protons (atomic number) + # neutrons. Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="mnFB" name="mnFB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="nn" name="nn" formula="" range="1%" help="Mass # = # protons (atomic number) + # neutrons, solve for # neutrons.  Note: mass # is indicated in atomic symbols on the upper left." />
+            <div class="feedback" id="nnFB" name="nnFB"></div>
+          </td>
+          <td>
+            <input type="number" step="any" class="calc num" id="ne" name="ne" formula="" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in ion symbols in the upper right" />
+            <div class="feedback" id="neFB" name="neFB"></div>
+          </td>
+          <td>
+            <input type="text" class="calc num" id="c" name="c" formula="" range="1%" help="Charge = # protons - # electrons, solve for # electrons.  Note: charge is indicated in atomic symbols in the upper right" />
+            <div class="feedback" id="cFB" name="cFB"></div>
+          </td>
+        </tr>
+         -->
+      </table>
+  </ol>
+            <hr>
+            <li>
+                <h3>Atom Calculations</h3>
+            </li>
+            <ol>
+                <li>
+                    Use the equalities provided to correctly convert the units to
+                    the desired units. Utilize the manipulatibles provided in lab to set up
+                    the dimensional analysis problems correctly. To enter numbers using
+                    scientific notation use a small letter e (e.g. 6.022 x 10<sup>-23</sup>
+                    should be entered as 6.022e-23).
+                </li>
+                <!--
+                <li>
+                    Example video Dimensional Analysis: Converting Units with 1 or 2 Conversion Factors:
+                </li>
+            <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/7voNNBbMcxE" title="Dimensional Analysis: Converting Units with 1 or 2 Conversion Factors" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br />
+
+                <li>
+                    Example video Dimensional Analysis: Converting Units with 3 Conversion Factors:
+                </li>
+            <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/eKDePGWNAHo" title="Dimensional Analysis: Converting Units with 3 Conversion Factors" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            
+                <li>
+                    Example video Unit Conversion with Multiple Conversion Factors:
+                </li>
+            <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/t6fYYPrzhOU" title="Unit Conversion with Multiple Conversion Factors" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <br>
+                -->
+      <div class="noBreak">
+        <h3>Conversion Factors:</h3>
+        <table class="inline-block">
+          <tr>
+            <th colspan="4">Metric Prefixes</th>
+          </tr>
+          <tr>
+            <th>Prefix</th>
+            <th>Symbol</th>
+            <th colspan="2">Multiplier</th>
+          </tr>
+          <tr>
+            <td>kilo</td>
+            <td>K</td>
+            <td>10<sup>3</sup></td>
+            <td>1,000</td>
+          </tr>
+
+          <tr>
+            <td>centi</td>
+            <td>c</td>
+            <td>10<sup>-2</sup></td>
+            <td>0.01</td>
+          </tr>
+
+          <tr>
+            <td>milli</td>
+            <td>m</td>
+            <td>10<sup>-3</sup></td>
+            <td>0.001</td>
+          </tr>
+        </table>
+        <table class="noborder inline-block">
+            <li>
+                Use this <a href="https://vtt-lti.fly.dev/#%7B%0A%20%20%22hideToolbar%22%3A%20true%2C%0A%20%20%22load%22%3A%20%22https%3A%2F%2Fdrive.google.com%2Fuc%3Fexport%3Ddownload%26id%3D1pickcVuAEwRyHH-We5uvu7G0ejymcTCF%22%0A%7D" target="_self">Conversion Factor interactive</a> to set up your conversion factors by placing the equality in the proper numberator and denominator, then calculating your answer.  Use the <span style="background: red; color: black; height: 15px; border: 2px solid black; border-radius: 800px; box-sizing: border-box; padding: 0px 6px;">-</span> and <span style="background: green; color: black; height: 15px; border: 2px solid black; border-radius: 800px; box-sizing: border-box; padding: 0px 4px;">+</span> to lengthen or shorten the conversion.
+            </li>
+          <tr>
+            <td>1 inch (in) = 2.54 centimeters (cm)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>1 centimeter cubed (cm<sup>3</sup>) = 1 milliliter (mL)</td>
+          </tr>
+          <tr>
+            <td>5280 feet (ft) = 1 mile (mi)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>1 gram (g) = 0.0353 ounces (oz)</td>
+          </tr>
+          <tr>
+            <td>1 gallon (gal) = 3.785 liter (L)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>1 kilogram (kg) = 2.2 pounds (lbs)</td>
+          </tr>
+          <tr>
+            <td>1 kilometer (km) = 0.621 miles (mi)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>1 slug = 32.17 pounds (lbs)</td>
+          </tr>
+          <tr>
+            <td>12 inches (in) = 1 foot (ft)</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>3 feet (ft) = 1 yard (yd)</td>
+          </tr>
+        </table>
+      </div>
+      <div class="noBreak">
+        1) The height of a lab bench is 90.45 cm. Convert this to feet (ft).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="firstNum"
+          name="firstNum"
+          value="90.45" readonly
+        />
+        cm →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="firstCalc"
+          name="firstCalc"
+          formula="${firstNum}/2.54/12"
+          help="Use the conversion factors for converting cm to in and in to ft"
+          getsigfigsfrom="firstNum"
+        />
+        ft
+        <div class="feedback" id="firstCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        2) The width of a pencil or pen is 7.0 mm. Convert this to miles (mi).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="secondNum"
+          name="secondNum"
+          value="7.0" readonly
+        />
+        mm →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="secondCalc"
+          name="secondCalc"
+          formula="${secondNum}/1000/1000*0.621"
+          help="Use the conversion factors for converting mm to m, m to km, and km to mi"
+          getsigfigsfrom="secondNum"
+               sigfigs="3"
+        />
+        mi
+        <div class="feedback" id="secondCalcFB"></div>
+      </div>
+            <p></p>
+      <div class="noBreak">
+        3) The mass of a pen or pencil is 10.245 grams. Convert this to pounds <br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="thirdNum"
+          name="thirdNum"
+          value="10.245" readonly
+        />
+        g →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="thirdCalc"
+          name="thirdCalc"
+          formula="${thirdNum}/1000*2.2"
+          help="Use the conversion factors for converting g to kg and kg to lbs"
+          getsigfigsfrom="thirdNum"
+               sigfigs="2"
+        />
+        lbs
+        <div class="feedback" id="thirdCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        4) The volume of water that can fit in a dixie cup is approximately 250 mL. Convert this to gallons (gal).<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="fourthNum"
+          name="fourthNum"
+               value="250" readonly
+        />
+        mL →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="fourthCalc"
+          name="fourthCalc"
+          formula="${fourthNum}/1000/3.785"
+          help="Use the conversion factors for converting mL to L and L to gal"
+          getsigfigsfrom="fourthNum"
+               sigfigs="4"
+        />
+        gal
+        <div class="feedback" id="fourthCalcFB"></div>
+      </div>
+      <p></p>
+      <div class="noBreak">
+        5) The mass of a penny is 2.50 grams. Convert this to slugs.<br />
+        <input
+          type="number"
+          step="any"
+          class="num"
+          id="fifthNum"
+          name="fifthNum"
+               value="2.50" readonly
+        />
+        g →
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="fifthCalc"
+          name="fifthCalc"
+          formula="${fifthNum}/1000*2.2/32.17"
+          help="Use the conversion factors for converting g to kg, kg to lbs, and lbs to slugs"
+               getsigfigsfrom="fifthNum"
+               sigfigs="2"
+        />
+        slugs
+        <div class="feedback" id="fifthCalcFB"></div>
+      </div>
+      <p></p>
+  </ul>
+
 </ul>
 
 <!-- end -->
