@@ -1,87 +1,426 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit 1 Lab Activities</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+</head>
 
+<body onload="onLoad()">
+    <script type="text/javascript">//PARAMS**GO**HERE</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-<ol>
-<li>
-Watch the <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/chapter-opening.html" target="_blank">Chapter One Opening Video</a>.<br>
-What does Chemistry have to do with portable electronic devices (fill in the blank)?<br>
-All the materials found in portable electronic devices are obtained and purified through
-<input type="text" class="calc" id="opening" name="opening" formula="chemical transformations||Chemical Transformations" help="Watch the Chapter One Opening Video.  The answer has two words, which you should type in the box with a space between the words.">
-<div class="feedback" id="openingFB" name="openingFB"></div>
-</div>.
-</li>
+    <h1 id="title">Unit 1 Lab Activities</h1>
+    <!-- Title -->
+    Name:<div id="name"></div><br />
 
-<li>
-Watch the video "How Do Touchscreens Work?", and fill in the blanks for the statements below.
-<iframe width="1309" height="737" src="https://www.youtube.com/embed/wKuqNuzM1oM" title="How Do Touchscreens Work?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <form id="labdataform" action="/save" method="post" target="_self">
+        <input type="text" id="labName" name="labName" style="display: none" />
+        <input type="text" id="userName" name="userName" style="display: none" />
+        <!-- Beginning -->
 
-<input type="text" class="calc" id="ts1" name="ts1" formula="Resistive||resistive" help="Watch the 'How Do Touchscreens Work?' Video, and looke for a single-word answer.">
-<div class="feedback" id="ts1FB" name="ts1FB"></div> 
-touchscreens are made of two seperate layers, and you have to bend the screen to make it work.  They are affordable and durible, so they are frequently used in credit card readers.
+        <ul>
+            <li>
+                <h3>Chapter One Opening Video</h3>
+            </li>
+            <ol>
+                <li>
+                    Watch the <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/chapter-opening.html" target="_blank">Chapter One Opening Video</a>.
+                </li>
+                <li>
+                    What does Chemistry have to do with portable electronic devices (fill in the blank)?
+                </li>
+                <ul>
+                    <li>All the materials found in portable electronic devices are obtained and purified through
+                        <input type="text" class="calc" id="opening" name="opening" formula="chemical transformations||Chemical Transformations" help="Watch the Chapter One Opening Video.  The answer has two words, which you should type in the box with a space between the words.">.<div class="feedback" id="openingFB" name="openingFB"></div>
+                    </li>
+                </ul>
+            </ol>
+            <hr>
+            <li>
+                <h3>How Do Touchscreens Work?</h3>
+            </li>
+            <ol>
+                <li>
+                    Watch the video "How Do Touchscreens Work?"
+                </li>
+                <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/wKuqNuzM1oM" title="How Do Touchscreens Work?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" position="absolute" allowfullscreen></iframe><br>
+                <li>
+                    Fill in the blanks for the statements below.
+                </li>
+                <ul>
+                    <li>
+                        <input type="text" class="calc" id="ts1" name="ts1" formula="Resistive||resistive" help="Watch the 'How Do Touchscreens Work?' Video, and look for a single-word answer."><div class="feedback" id="ts1FB" name="ts1FB"></div> touchscreens are made of two seperate layers, and you have to bend the screen to make it work.  They are affordable and durible, so they are frequently used in credit card readers.
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <input type="text" class="calc" id="ts2" name="ts2" formula="Capacitive||capacitive" help="Watch the 'How Do Touchscreens Work?' Video, and look for a single-word answer."><div class="feedback" id="ts2FB" name="ts2FB"></div> touchscreen depend on the capacitance of your finger.  They are more precise and can often detect two touches at the same time.
+                    </li>
+                </ul>
+            </ol>
+            <hr>
+            <li>
+                <h3>States of Matter Simulation</h3>
+            </li>
+            <ol>
+                <li>
+                    Open the <a href="https://phet.colorado.edu/en/simulations/states-of-matter-basics/activities?subjects=chemistry" target="_blank">States of Matter Simulation</a> and follow the instructions below.<br>
+                </li>
+                <li>
+                    Click the <b>play</b> button to begin the simulation.
+                </li>
+                <li>
+                    Select <b>States</b>.
+                </li>
+                <li>
+                    Select <b>Argon</b>.
+                </li>
+                <li>
+                    Click on <b>Solid</b>.
+                </li>  
+                <li>
+                    Notice how densely packed the atoms of argon are.
+                </li>
+                <li>
+                    Now click on <b>liquid</b> and notice how densly packed the atoms of argon are.
+                </li>
+                <li>
+                    Is argon more dense as a liquid or solid?
+                    <select name="dense1" id="dense1" class="calc" formula="solid" help="Check the solid and liquid states again.  More dense means the atoms are more closely packed together.">
+                        <option value="">Choose the correct answer.</option>
+                        <option value="liquid">liquid</option>
+                        <option value="solid">solid</option>
+                    </select><div class="feedback" id="dense1FB" name="dense1FB"></div>
+                </li>
+                <li>
+                    Select <b>water</b>.
+                </li>
+                <li>
+                    Click on <b>Liquid</b>.
+                </li>
+                <li>
+                    Change the thermometer at top to read in degrees Celsius (°C) instead of Kelvin (K).
+                </li>
+                <li>
+                    Cool the water to 4°C by dragging the slider at the bottom down.  If you go below 4°C, then drag the slider up until you reach 4°C.
+                </li>
+                <li>
+                    Notice how densly packed together the water molecules are.
+                </li>
+                <li>
+                    Now cool the water to below 0°C (the freezing point) by pulling the slider down again.
+                </li>
+                <li>
+                    Notice how densely packed together the water molecules are now compared to when the water was a liquid (at 4°C).
+                </li>
+                <li>
+                    Is water more dense as a liquid or a solid?
+                    <select name="dense2" id="dense2" class="calc" formula="liquid" help="Check the solid and liquid states again.  More dense means the atoms are more closely packed together.">
+                      <option value="">Choose the correct answer.</option>
+                      <option value="liquid">liquid</option>
+                      <option value="solid">solid</option>
+   	                </select><div class="feedback" id="dense2FB" name="dense2FB"></div>
+                </li>
+                <li>
+                    Notice how in the solid state (ice), the water molecules tend to stay oriented in such a way so that the oxygen atoms (red) in one molecule is near the hydrogen atoms (white) in another molecule. This maximizes hydrogen bonding, which is a lower energy state.  Maximizing hydrogen bonding is what causes ice to float on water.
+                </li>
+                <li>
+                    An interesting fact is that water reaches its maximum density at
+                    about 4°C.  As it cools below 4°C it starts maximizing the number of hydrogen bonds and becoming less dense.  At 0°C water will fully maximize its hydrogen bonds froming a crystaline structure that will float on water.  This creates an interesting temperature stratification in lakes during the winter where the coldest water is near the frozen surface and the warmest water is at the bottom of the lake. The top (least dense) layer of ice forms an insulating barrier and the warmest water (most dense at about 4°C) sinks to the bottom away from the cold air.  That prevents the entire water body from freezing solid, allowing aquatic life to survive below. <br>
+                    <img src="images/lake_temp.png" alt="freezing water floats to the top of a lake" height="200">
+                </li>
+            </ol>
+            <hr>
+            <li>
+                <h3>Phases of Matter Simulations</h3>
+            </li>
+            <ol>
+                <li>
+                    Open the <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/phases-of-matter-solids.html" target="_blank">Phases of Matter: Solids Simulation</a> and follow the instructions below.
+                </li>
+                <li>
+                    Click <b>Mark two atoms</b>.
+                </li>
+                <li>
+                    Press the <b>play</b> button.
+                </li>  
+                <li>
+                    Note how much those two atoms move around.
+                </li>
+                    Open the <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/phases-of-matter-liquids.html" target="_blank">Phases of Matter: Liquids Simulation and follow the instructions below.</a>
+                </li>
+                <li>
+                    Click <b>Mark two atoms</b>.
+                </li>
+                <li>
+                    Press the <b>play</b> button.
+                </li>  
+                <li>
+                    Note how much those two atoms move around.
+                </li>
+                <li>
+                    Open the <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/phases-of-matter-gases.html" target="_blank">Phases of Matter: Gases Simulation and follow the instructions below.</a>
+                </li>
+                <li>
+                    Click <b>Mark two atoms</b>.
+                </li>
+                <li>
+                    Press the <b>play</b> button.
+                </li>  
+                <li>
+                    Note how much those two atoms move around.
+                </li>
+                <li>
+                    In which state did the atoms have the weakest bonds and thus the most freedom to move around?
+                    <select name="freedom1" id="freedom1" class="calc" formula="gas" help="Check all 3 states again, and note that most movement means most freedom, and that atoms have the most freedom to move when they have weak bonds between them.">
+                      <option value="">Choose the correct answer.</option>
+                      <option value="gas">gas</option>
+                      <option value="liquid">liquid</option>
+                      <option value="solid">solid</option>
+                    </select><div class="feedback" id="freedom1FB" name="freedom1FB"></div>
+                </li>
+                <li>
+                    In which state did the atoms have the strongest bonds and thus the least freedom to move around?
+                    <select name="freedom2" id="freedom2" class="calc" formula="solid" help="Check all 3 states again, and note that least movement means least freedom, and that atoms have the least freedom to move when they have strong bonds between them.">
+                      <option value="">Choose the correct answer.</option>
+                      <option value="gas">gas</option>
+                      <option value="liquid">liquid</option>
+                      <option value="solid">solid</option>
+                    </select><div class="feedback" id="freedom2FB" name="freedom2FB"></div>
+                </li>
+            </ol>
+            <hr>
+            <li>
+                <h3>Phases of Matter Transitions Simulation</h3>
+            </li>
+            <ol>
+                <li>
+                    Open the <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/phases-of-matter-transitions.html" target="_blank">Phases of Matter Transitions Simulation</a> and follow the instructions below.
+                </li>
+                <li>
+                    Set the attraction between atoms to the strongest possible setting.
+                </li>
+                <li>
+                    What state do you think the element is in?
+                    <select name="attraction1" id="attraction1" class="calc" formula="solid" help="Look at the atoms again with the attractions on the highest possible setting.  Strong attractions would cause the atoms to pull together closely.  Weak attractions would allow the atoms to drift further apart.">
+                        <option value="">Choose the correct answer.</option>
+                        <option value="gas">gas</option>
+                        <option value="liquid">liquid</option>
+                        <option value="solid">solid</option>
+                    </select><div class="feedback" id="attraction1FB" name="attraction1FB"></div>
+                </li>
+                <li>
+                    Set the attractions between atoms to the weakest possible setting.
+                </li>
+                <li>
+                    What state do you think the elements is in?
+                    <select name="attraction2" id="attraction2" class="calc" formula="gas" help="Look at the atoms again with the attractions on the highest possible setting.  Strong attractions would cause the atoms to pull together closely.  Weak attractions would allow the atoms to drift further apart.">
+                        <option value="">Choose the correct answer.</option>
+                        <option value="gas">gas</option>
+                        <option value="liquid">liquid</option>
+                        <option value="solid">solid</option>
+                    </select><div class="feedback" id="attraction2FB" name="attraction2FB"></div>
+                </li>
+            </ol>
+            <hr>
+            <li>
+                <h3>The Periodic Table and Periodic Trends</h3>
+            </li>
+            <ol>
+                <li>
+                    Watch the video The Race to Invent the Periodic Table below.
+                    <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/-ojcm3IIf98" title="The Race to Invent the Periodic Table" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
+                </li>
+                <li>
+                    What did Mendeleev notice about elements that allowed him to predict properties of elements that were not yet discovered?  After you answer click the <b>Submit Answer for Grading and Feedback</b> button.
+                    <textarea 
+                        class="AI text essay" 
+                        id="periodic"
+                        name="periodic"
+                        data-correct="1) Element's properties repeat in a pattern, or elements properties are periodic"
+                        placeholder="Type your answer here...">
+                    </textarea>
+                    <button type="button" id="periodicButton">Submit Answer for Grading and Feedback</button>
+                    <input 
+                      type="text" 
+                      class="aiScore" 
+                      id="periodicAiScore" 
+                      name="periodicAiScore" 
+                      readonly> / <div class="aiMax" id="periodicAiMax" name="periodicAiMax">5</div>
+                  </li>
+            </ol>
+            <hr>
+            <li>
+                <h3>How Can You See an Atom?</h3>
+            </li>
+            <ol>
+                <li>Watch the video How Can You See an Atom?, and answer the questions below.
+                    <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/ipzFnGRfsfE" title="How Can You See an Atom?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </li>
+                <li>
+                    Enter the type of "light" (electromagnetic radiation) that chemists were able to use to "see" (visualize) atoms below.<br>
+                    <input type="text" class="calc" id="light" name="light" formula="x-rays||X-rays||xrays||Xrays||x rays||X rays||x-ray||X-ray||xray||Xray||x ray||X ray" help="Chemists had to wait for 'light' with short wavelengths - what was that type of 'light'?"><div class="feedback" id="lightFB" name="lightFB"></div>
+                </li>
+                <li>
+                    The type of microscopes that finally revealed the shape of atoms themselves were 
+                    <input type="text" class="calc" id="microscopes" name="microscopes" formula="scanning tunneling||Scanning tunneling||Scanning Tunneling" help="Chemists had to wait for 'light' with short wavelengths - what was that type of 'light'?"><div class="feedback" id="microscopesFB" name="microscopesFB"></div>
+                    microscopes.
+                </li>
+            </ol>
+            <hr>
+            <li>
+                <h3>Atomic Structure?</h3>
+            </li>
+            <ol>
+                <li>Open the <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/atomic-structure.html" target="_blank">Atomic Structure Simulation then follow the instructions below.</a>
+                </li>
+                <li>
+                    Set <b>Delay between finding Electrons</b> to short.
+                </li>
+                <li>
+                    Click the <b>checkbox for Trace Electrons</b>.
+                </li>
+                <li>
+                    Click the <b>Start</b> button. 
+                </li>
+                <li>
+                    Let the simulation run for a couple of minutes, then notice the general shape of the electron clouds. 
+                </li>
+                <li>
+                    As you trace the electrons over a period of time, they form a 
+                    <select name="shape" id="shape" class="calc" formula="sphere" help="Look at the atoms again with the attractions on the highest possible setting.  Strong attractions would cause the atoms to pull together closely.  Weak attractions would allow the atoms to drift further apart.">
+                        <option value="">Choose the correct answer.</option>
+                        <option value="cube">cube</option>
+                        <option value="cuboid">cuboid</option>
+                        <option value="cylinder">cylinder</option>
+                        <option value="pyramid">pyramid</option>
+                        <option value="triangular prism">triangular prism</option>
+                        <option value="sphere">sphere</option>
+                        <option value="hexagonal prism">hexagonal prism</option>
+                        <option value="hemi sphere">hemi sphere</option>
+                        <option value="cone">cone</option>
+                    </select> shape. <div class="feedback" id="shapeFB" name="shapeFB"></div>
+                </li>
+            </ol>
+            <hr>
+            <li>
+                <h3>Purification of Copper</h3>
+            </li>
+            <ol>
+                <li>
+                    Watch the video Purification of Copper below.
+                    <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/qqmKqpA61GI" title="Purifying Copper | Reactions | Chemistry | FuseSchool" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
+                </li>
+                <li>
+                    The method used to purify copper was  
+                    <input type="text" class="calc" id="purify" name="purify" formula="electrolysis||Electrolysis" help="It is the process that uses electrical energy to purify elements.">.<div class="feedback" id="purifyFB" name="purifyFB"></div>
+                </li>
+            </ol>
+            <hr>
+            <li>
+                <h3>Why is Silicon Used for Computer Chips?</h3>
+            </li>
+            <ol>
+                <li>
+                    Watch the video Why is Silicon Used for Computer Chips? below.
+                    <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/8W9CA1QENqg" title="Why is Silicon Used for Computer Chips?" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><br>
+                </li>
+                <li>
+                    Silicon is used in computer chips because it is grouped as a 
+                    <input type="text" class="calc" id="silicon1" name="silicon1" formula="metaloid||Metaloid" help="Silicon is one of only about 6 elements that are not grouped as a metal or a nonmetal, the answer to this question is the name of that 3rd group.">.<div class="feedback" id="silicon1FB" name="silicon1FB"></div>
+                    and metaloids are 
+                    <input type="text" class="calc" id="silicon2" name="silicon2" formula="semiconductor||Semiconductor" help="The answer is the name we give materials with conductivity between conductors (like most metals), and insulators (like most nonmetals)"><div class="feedback" id="silicon2FB" name="silicon2FB"></div>
+                    , which allows electricity to pass through certain transistors selectively.
+                </li>
+            </ol>
+            <hr>
+            <li>
+                <h3>The Creation of Gorilla Glass</h3>
+            </li>
+            <ol>
+                <li>
+                    Watch the video <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/creation-gorilla-glass.html" target="_blank">The Creation of Gorilla Glass</a>.
+                </li>
+                <ul>
+                    <li>Chemically strengthened glass typically consists of immersing regular soda-lime glass in molten  
+                        <input type="text" class="calc" id="glass" name="glass" formula="potassium nitrate||Potassium nitrate||KNO3" help="What chemical is the soda-lime glass immersed in to make strengthened glass?  The answer has two words, which you should type in the box with a space between the words.">.<div class="feedback" id="glassFB" name="glassFB"></div>, which allows the sodium ions to be replaced by potassium ions.
+                    </li>
+                </ul>
+            </ol>
+            <li>
+                <h3>What's In Your Cell Phone?</h3>
+            </li>
+            <hr>
+            <ol>
+                <li>
+                    Watch the video <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/inside-cell-phone.html" target="_blank">What's In Your Cell Phone?</a>.
+                </li>
+                <ul>
+                    <li>In one year more than $2.5 billion worth of two precious metals are used to manufacture cell phones.  What are those two precious metals?<br>
+                        <input  type="text" class="calc" id="precious1"  name="precious1" formula="gold||Gold||silver||Silver)"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious1FB" name="precious1FB"></div> 
+                        and
+                        <input  type="text" class="calc" id="precious2"  name="precious2" formula="if(${precious1} != silver||Silver ; silver||Silver)"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious2FB" name="precious2FB"></div>
+                    </li>
+                </ul>
+            </ol>
+<br>
+</ul>
 
-<input type="text" class="calc" id="ts2" name="ts2" formula="Capacitive||capacitive" help="Watch the 'How Do Touchscreens Work?' Video, and looke for a single-word answer.">
-<div class="feedback" id="ts2FB" name="ts2FB"></div> 
-touchscreen depend on the capacitance of your finger.  they are more precise, can often detect two touches at the same time.
-</li>
+<!-- end -->
+      <!-- title -->
 
-<li>
-Open the <a href="https://phet.colorado.edu/en/simulations/states-of-matter-basics/activities?subjects=chemistry" target="_blank">States of Matter simulation</a> and follow the instructions below.<br>
-<ol>
-<li>Click the <b>play</b> button to begin the simulation.</li>
-<li>Select <b>States</b>.</li>
-<li>Select <b>Argon</b>.</li>
-<li>Click on <b>Solid</b>.<li>  
-<li>Notice how densely packed the atoms of argon are.<li>
-<li>Now click on liquid and notice how densly packed the atoms of argon are.<li><br>
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
 
-Is argon more dense as a liquid or solid?<br>
-<select name="dense1" id="dense1" class="calc" formula="solid" help="Check the solid and liquid states again.  More dense means the atoms are more closely packed together.">
-          <option value="">Choose the correct answer.</option>
-          <option value="liquid">liquid</option>
-          <option value="solid">solid</option>
-   	    </select><div class="feedback" id="dense1FB" name="dense1FB"></div>   
- 
-<li>Select <b>water</b>.</li>
-<li>Click on <b>Liquid</b>.</li>
-<li>Change the thermometer at top to read in degrees Celsius (°C) instead of Kelvin (K).</li>
-<li>Cool the water to 4°C by dragging the slider at the bottom down.  If you go below 4°C, then drag the slider up until you reach 4°C.</li>
-<li>Notice how densly packed together the water molecules are.</li>
-<li>Now cool the water to below 0°C (the freezing point) by pulling the slider down again.</li>
-<li>Notice how densely packed together the water molecules are now compared to when the water was a liquid (at 4°C).</li>
-<li>Is water more dense as a liquid or a solid?<li><br>
-<select name="dense2" id="dense2" class="calc" formula="liquid" help="Check the solid and liquid states again.  More dense means the atoms are more closely packed together.">
-          <option value="">Choose the correct answer.</option>
-          <option value="liquid">liquid</option>
-          <option value="solid">solid</option>
-   	    </select><div class="feedback" id="dense2FB" name="dense2FB"></div>  
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
 
-Notice how in the solid state (ice), the water molecules tend to stay oriented in such a way so that the oxygen atoms (red) in one molecule is near the hydrogen atoms (white) in another molecule.  
-This maximizes hydrogen bonding, which is a lower energy state.  Maximizing hydrogen bonding is what causes ice to float on water.
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
 
-Phases of Matter: Solids
-https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/phases-of-matter-solids.html
-Click Mark two atoms.
-Press the play button.  Note how much those two atoms move around.
-https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/phases-of-matter-liquids.html
-Click Mark two atoms.
-Press the play button.  Note how much those two atoms move around.
-https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/phases-of-matter-gases.html
-Click Mark two atoms.
-Press the play button.  Note how much those two atoms move around.
-In which state did the atoms have the weakest bonds and thus the most freedom to move around?
+        <div class="vcenter">
+          <label for="score">Score: </label>
 
-In which state did the atoms have the strongest bonds and thus the least freedom to move around?
+          <div id="score" style="display: inline">0</div>
 
-https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/portable-electronics/phases-of-matter-transitions.html
-Set the attraction between atoms to the strongest possible setting.
-What state do you think the element is in?
-Set the attractions between atoms to the weakest possible setting.
-What state do you think the elements is in?
+          %
+        </div>
+      </div>
+    </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"],
+        },
+      });
+    </script>
 
-Purifying Copper
-https://youtu.be/qqmKqpA61GI
-What process is used to purify the copper?
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
 
 
 

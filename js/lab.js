@@ -297,7 +297,97 @@ function evaluateWithCustomFunctions(equation) {
   }
 }
 
+function score() {
+    if (loaded) {
+      let dataScore = 0;
+      let calcScore = 0;
+      let dataFactor = 1;
+      let calcFactor = 1;
+
+      // --------------------
+      // DATA (non-calc .num)
+      // --------------------
+      let numElements = document.getElementsByClassName("num");
+      let numElementsArray = Array.from(numElements);
+
+      let numElementsArrayFiltered =
+        numElementsArray.filter(isNotCalcElement);
+
+      if (numElementsArrayFiltered.length > 0) {
+        let filledOutNumElements =
+          numElementsArrayFiltered.filter(isFilledOut);
+
+        dataScore =
+          (filledOutNumElements.length /
+            numElementsArrayFiltered.length) *
+          50;
+      } else {
+        calcFactor = 2;
+      }
+
+      // --------------------
+      // CALC (FB elements)
+      // --------------------
+      const fbElements = document.querySelectorAll('[id$="FB"]');
+
+      let calcNumerator = 0;
+      let calcDenominator = 0;
+
+      if (fbElements.length > 0) {
+        fbElements.forEach((element) => {
+          if (element.getAttribute("title") === "correct") {
+            calcNumerator++;
+          }
+        });
+
+        calcDenominator = fbElements.length;
+      } else {
+        dataFactor = 2;
+      }
+
+      // --------------------
+      // AI ESSAY (NEW PART)
+      // --------------------
+      const aiScoreInputs = document.querySelectorAll(".aiScore");
+
+      let aiEarned = 0;
+      let aiMaxTotal = 0;
+
+      aiScoreInputs.forEach((input) => {
+        const baseId = input.id.replace("AiScore", "");
+        const maxDiv = document.getElementById(baseId + "AiMax");
+
+        const score = parseFloat(input.value);
+        const max = parseFloat(maxDiv?.textContent);
+
+        if (!isNaN(score) && !isNaN(max)) {
+          aiEarned += score;
+          aiMaxTotal += max;
+        }
+      });
+
+      // --------------------
+      // COMBINE CALC + AI
+      // --------------------
+      calcNumerator += aiEarned;
+      calcDenominator += aiMaxTotal;
+
+      if (calcDenominator > 0) {
+        calcScore = (calcNumerator / calcDenominator) * 50;
+      }
+
+      // --------------------
+      // FINAL TOTAL
+      // --------------------
+      const totalScore =
+        dataScore * dataFactor + calcScore * calcFactor;
+
+      $("score").innerHTML = totalScore.toFixed(1);
+    }
+}
+
 function saveData() {
+  //  I don't think any of this does anything
   const gridItems = document.querySelectorAll(".grid-item");
   let gridObj = {};
   for (var gridItem of gridItems) {
@@ -309,6 +399,10 @@ function saveData() {
   if (gridObjElement) {
     gridObjElement.value = JSON.stringify(gridObj);
   }
+  
+  if ($("score") && loaded) {
+        score();
+      }
   const buttonBar = $('button_bar');
   buttonBar.style.backgroundColor = null;
 }
@@ -603,6 +697,12 @@ function onLoad() {
   };
 
   createOverlay();
+
+  const form = $("labdataform");
+
+  form.addEventListener("submit", function () {
+    saveData();
+  });
   
   document.addEventListener('keydown', function(event) {
     // Check if Shift, Alt, and D keys are pressed together
@@ -729,16 +829,12 @@ if (matches) {
         }
         }
         if ($("score") && loaded) {
-          $("score").click();
+          score();
         }
       });
     });
     calc.addEventListener("input", function (e) {
-      const savebutton = $("savebutton");
-      savebutton.click();
-      if ($("score") && loaded) {
-        $("score").click();
-      }
+      form.requestSubmit();
     });
   }
 
@@ -800,11 +896,7 @@ if (matches) {
           calcElement.click();
         }
       }
-      const savebutton = $("savebutton");
-      savebutton.click();
-      if ($("score") && loaded) {
-        $("score").click();
-      }
+      form.requestSubmit();
     });
   }
   
@@ -833,8 +925,7 @@ if (matches) {
     }
       
     symbolInput.addEventListener("blur", function (e) {
-      const savebutton = $("savebutton");
-      savebutton.click();
+      form.requestSubmit();
       const thisSymbolDiv = $(this.id+'DIV')
       let formattedText = formatText(this.value.trim());
       if (formattedText.replaceAll('&nbsp;', '').trim() == "") {
@@ -844,9 +935,6 @@ if (matches) {
         thisSymbolDiv.innerHTML = formattedText;
         this.style.display = "none";
         thisSymbolDiv.style.display = "block";
-      }
-      if ($("score") && loaded) {
-        $("score").click();
       }
     });
       
@@ -877,18 +965,12 @@ if (matches) {
 }
       
     subInput.addEventListener("blur", function (e) {
-      const savebutton = $("savebutton");
-      savebutton.click();
+      form.requestSubmit();
       const thisSubDiv = $(this.id+'DIV')
       let formattedText = formatText(this.value.trim()); 
       thisSubDiv.innerHTML = formattedText;   
       this.style.display = "none"; 
-      thisSubDiv.style.display = "block";  
-      
-      if ($("score") && loaded) {
-        $("score").click();
-      }
- 
+      thisSubDiv.style.display = "block";   
     });
       
       // When the user clicks on the div
@@ -908,8 +990,7 @@ if (matches) {
 
   for (var graphElement of graphElements) {
     graphElement.addEventListener("change", function (e) {
-      const savebutton = $("savebutton");
-      savebutton.click();
+      form.requestSubmit();
       const graph = $(this.className.replace(/num/g, '').replace(/calc/g, '').trim());
       graph.click();
     });
@@ -918,22 +999,14 @@ if (matches) {
   const textElements = document.getElementsByClassName("text");
   for (var textElement of textElements) {
     textElement.addEventListener("change", function (e) {
-      const savebutton = $("savebutton");
-      savebutton.click();
-      if ($("score") && loaded) {
-        $("score").click();
-      }
+      form.requestSubmit();
     });
   }
 
   const essayElements = document.getElementsByClassName("essay");
   for (var essayElement of essayElements) {
     essayElement.addEventListener("change", function (e) {
-      const savebutton = $("savebutton");
-      savebutton.click();
-      if ($("score") && loaded) {
-        $("score").click();
-      }
+      form.requestSubmit();
     });
   }
 
@@ -949,92 +1022,7 @@ const scoreElement = $("score");
 
 if (scoreElement) {
   scoreElement.addEventListener("click", function (e) {
-    if (loaded) {
-      let dataScore = 0;
-      let calcScore = 0;
-      let dataFactor = 1;
-      let calcFactor = 1;
-
-      // --------------------
-      // DATA (non-calc .num)
-      // --------------------
-      let numElements = document.getElementsByClassName("num");
-      let numElementsArray = Array.from(numElements);
-
-      let numElementsArrayFiltered =
-        numElementsArray.filter(isNotCalcElement);
-
-      if (numElementsArrayFiltered.length > 0) {
-        let filledOutNumElements =
-          numElementsArrayFiltered.filter(isFilledOut);
-
-        dataScore =
-          (filledOutNumElements.length /
-            numElementsArrayFiltered.length) *
-          50;
-      } else {
-        calcFactor = 2;
-      }
-
-      // --------------------
-      // CALC (FB elements)
-      // --------------------
-      const fbElements = document.querySelectorAll('[id$="FB"]');
-
-      let calcNumerator = 0;
-      let calcDenominator = 0;
-
-      if (fbElements.length > 0) {
-        fbElements.forEach((element) => {
-          if (element.getAttribute("title") === "correct") {
-            calcNumerator++;
-          }
-        });
-
-        calcDenominator = fbElements.length;
-      } else {
-        dataFactor = 2;
-      }
-
-      // --------------------
-      // AI ESSAY (NEW PART)
-      // --------------------
-      const aiScoreInputs = document.querySelectorAll(".aiScore");
-
-      let aiEarned = 0;
-      let aiMaxTotal = 0;
-
-      aiScoreInputs.forEach((input) => {
-        const baseId = input.id.replace("AiScore", "");
-        const maxDiv = document.getElementById(baseId + "AiMax");
-
-        const score = parseFloat(input.value);
-        const max = parseFloat(maxDiv?.textContent);
-
-        if (!isNaN(score) && !isNaN(max)) {
-          aiEarned += score;
-          aiMaxTotal += max;
-        }
-      });
-
-      // --------------------
-      // COMBINE CALC + AI
-      // --------------------
-      calcNumerator += aiEarned;
-      calcDenominator += aiMaxTotal;
-
-      if (calcDenominator > 0) {
-        calcScore = (calcNumerator / calcDenominator) * 50;
-      }
-
-      // --------------------
-      // FINAL TOTAL
-      // --------------------
-      const totalScore =
-        dataScore * dataFactor + calcScore * calcFactor;
-
-      $("score").innerHTML = totalScore.toFixed(1);
-    }
+    score();
   });
 }
 
@@ -1090,8 +1078,7 @@ if (scoreElement) {
     `);
 
     // ✅ trigger your existing save system
-    const savebutton = $("savebutton");
-    if (savebutton) savebutton.click();
+    form.requestSubmit();
 
     // ✅ lock if full credit
     if (rawScore === 1) {
@@ -1262,13 +1249,12 @@ if (isAnyChecked) {
   }
 
   // JavaScript to handle the form submission
-  const form = $("labdataform");
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault(); // Prevent the default form submission
     // Convert the FormData object to a JavaScript object
-    
-    const savebutton = $("savebutton");
+
+    saveData();
     
     const formData = {};
     for (const pair of new FormData(form)) {
@@ -1296,7 +1282,7 @@ if (isAnyChecked) {
         //alert("Failed to save data.");
         
         setTimeout(function() {
-          savebutton.click();
+          form.requestSubmit();
         }, 30000);
         
         const buttonBar = $('button_bar');
@@ -1309,7 +1295,7 @@ if (isAnyChecked) {
       //alert("Network error occurred.");
       
       setTimeout(function() {
-          savebutton.click();
+          form.requestSubmit();
         }, 30000);
       
       const buttonBar = $('button_bar');
@@ -1325,8 +1311,7 @@ if (isAnyChecked) {
       const statesArray = item.getAttribute("states").split(",");
       state = (state + 1) % statesArray.length;
       item.textContent = statesArray[state];
-      const savebutton = $("savebutton");
-      savebutton.click();
+      form.requestSubmit();
     });
   });
 
@@ -1349,6 +1334,6 @@ if (isAnyChecked) {
   });
   loaded = true;
   if ($("score")) {
-    $("score").click();
+    score();
   }
 } // ================= end onLoad ====================
