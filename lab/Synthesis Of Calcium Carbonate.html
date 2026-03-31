@@ -255,6 +255,39 @@ Percent yield:  <input type="number" class="calc" step="any" id="theoreticalYiel
 
 <textarea class="text essay" id="conclusion" name="conclusion"></textarea><br>
 
+A student forgets to dry their CaCO₃ completely before weighing.
+Will their percent yield be too high, too low, or unaffected? Explain quantitatively.
+<textarea 
+                        class="AI text essay" 
+                        id="wet"
+                        name="wet"
+                        data-correct="1) Their product will have extra mass from the water.  2) The percent yield will be too high because their actual yield will be too high from the water."
+                        placeholder="Type your answer here...">
+                    </textarea>
+                    <button type="button" id="wetButton">Submit Answer for Grading and Feedback</button>
+                    <input 
+                      type="text" 
+                      class="aiScore" 
+                      id="wetAiScore" 
+                      name="wetAiScore" 
+                      readonly> / <div class="aiMax" id="wetAiMax" name="wetAiMax">5</div>
+A student loses some solid during transfer.
+How does this affect actual yield and percent yield?
+<textarea 
+                        class="AI text essay" 
+                        id="loss"
+                        name="loss"
+                        data-correct="1) Their product will have less mass from the lossed product.  2) The percent yield will be low (or lowered) because they have lost part of their actual yield."
+                        placeholder="Type your answer here...">
+                    </textarea>
+                    <button type="button" id="lossButton">Submit Answer for Grading and Feedback</button>
+                    <input 
+                      type="text" 
+                      class="aiScore" 
+                      id="lossAiScore" 
+                      name="lossAiScore" 
+                      readonly> / <div class="aiMax" id="lossAiMax" name="lossMax">5</div>
+
 <li>Pour your aqueous waste down the drain while running water.</li>
 <li>Throw your solid product and filter paper into the trash.</li>
 <li>Clean your beakers, watch glass, funnel, flask, stirring rod, graduated cylinders, and forceps using the soap and brushes, then rinse them 3-7 times and leave them on paper towels to dry.  Put everything else back where you found it.</li>
