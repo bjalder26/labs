@@ -53,6 +53,100 @@
 </ul>
 </div>
 
+<h2>Background</h2>
+
+<p>
+In this experiment, you will synthesize <strong>calcium carbonate (CaCO<sub>3</sub>)</strong> using a 
+<strong>precipitation reaction</strong>, then determine how efficient your reaction was by calculating 
+<strong>percent yield</strong>.
+</p>
+
+<p>
+A precipitation reaction occurs when two aqueous (dissolved in water) ionic compounds react to form an 
+<strong>insoluble solid</strong>, called a <strong>precipitate</strong>. In this lab, aqueous sodium carbonate 
+(Na<sub>2</sub>CO<sub>3</sub>) reacts with aqueous calcium chloride (CaCl<sub>2</sub>) to form solid calcium carbonate:
+</p>
+
+<p style="text-align:center;">
+$$ \text{Na}_2\text{CO}_3 (aq) + \text{CaCl}_2 (aq) \rightarrow 2\ \text{NaCl} (aq) + \text{CaCO}_3 (s) $$
+</p>
+
+<p>
+In solution, these compounds dissociate into ions:
+</p>
+
+<ul>
+<li>$$ \text{Na}_2\text{CO}_3 (aq) \rightarrow 2\ \text{Na}^+ (aq) + \text{CO}_3^{2-} (aq) $$</li>
+<li>$$ \text{CaCl}_2 (aq) \rightarrow \text{Ca}^{2+} (aq) + 2\ \text{Cl}^- (aq) $$</li>
+</ul>
+
+<p>
+The calcium ions and carbonate ions combine to form solid calcium carbonate:
+</p>
+
+<p style="text-align:center;">
+$$ \text{Ca}^{2+} (aq) + \text{CO}_3^{2-} (aq) \rightarrow \text{CaCO}_3 (s) $$
+</p>
+
+<h3>Limiting Reactant and Theoretical Yield</h3>
+
+<p>
+In chemical reactions, the amount of product formed depends on the <strong>limiting reactant</strong>—the 
+reactant that is completely used up first. In this lab, sodium carbonate is present in excess, so calcium 
+chloride is the limiting reactant.
+</p>
+
+<p>
+Using stoichiometry, you can calculate the <strong>theoretical yield</strong>, which is the maximum amount 
+of calcium carbonate that could be formed if the reaction goes perfectly.
+</p>
+
+<h3>Actual Yield and Percent Yield</h3>
+
+<p>
+The amount of product you actually collect in the lab is called the <strong>actual yield</strong>. This is 
+often less than the theoretical yield due to factors such as:
+</p>
+
+<ul>
+<li>Loss of product during transfer or filtration</li>
+<li>Incomplete reaction</li>
+<li>Product remaining dissolved in solution</li>
+</ul>
+
+<p>
+To evaluate the efficiency of your experiment, you will calculate percent yield:
+</p>
+
+<p style="text-align:center;">
+$$ \text{Percent yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100\% $$
+</p>
+
+<p>
+A percent yield close to 100% indicates a very efficient process, while lower values suggest sources of 
+error or product loss.
+</p>
+
+<h3>Separation by Suction Filtration</h3>
+
+<p>
+After the reaction, the solid calcium carbonate must be separated from the liquid. This is done using 
+<strong>suction filtration</strong> with a Büchner funnel. The vacuum pulls liquid through the filter paper, 
+leaving the solid behind.
+</p>
+
+<p>
+The solid is then dried to remove water, since any remaining moisture would increase the measured mass and 
+lead to an inaccurate yield.
+</p>
+
+<h3>Real-World Connection</h3>
+
+<p>
+Calcium carbonate is a common compound found in chalk, limestone, and seashells. This lab models how chemists 
+produce and isolate solid compounds from solution and evaluate the efficiency of chemical processes.
+</p>
+
 <div class="noBreak">
 <h3>Equations and calculations:</h3>
 <ul>
@@ -167,6 +261,112 @@ Percent yield:  <input type="number" class="calc" step="any" id="theoreticalYiel
 <li>Clean up any messes, and make sure the solution bottles are capped before you leave.</li>
 <li>If you are the last group, make sure the over is turned off.</li>
 </ol>
+		<h3>Measurement &amp; Data Skill Building</h3>
+
+		<h3>Part 1: Calculating Moles from Molarity</h3>
+
+How many moles of CaCl<sub>2</sub> are present in 50.0 mL of a 0.100 M CaCl<sub>2</sub> solution?<br>
+<input type="number" class="calc" id="q1" name="q1"
+       formula="0.0500*0.100"
+       help="Convert mL to L, then use M = mol/L.">
+mol
+<div class="feedback" id="q1FB" name="q1FB"></div>
+<br><br>
+
+How many moles of Na<sub>2</sub>CO<sub>3</sub> are present in 25.0 mL of a 0.200 M solution?<br>
+<input type="number" class="calc" id="q2" name="q2"
+       formula="0.0250*0.200"
+       help="Convert mL to L, then multiply by molarity.">
+mol
+<div class="feedback" id="q2FB" name="q2FB"></div>
+<br><br>
+
+How many moles of CaCl<sub>2</sub> are present in 75.0 mL of a 0.150 M solution?<br>
+<input type="number" class="calc" id="q3" name="q3"
+       formula="0.0750*0.150"
+       help="Convert mL to L, then multiply by molarity.">
+mol
+<div class="feedback" id="q3FB" name="q3FB"></div>
+<br><br>
+
+
+<h3>Part 2: Converting Moles to Mass</h3>
+
+If 0.00500 mol of CaCl<sub>2</sub> reacts with excess Na<sub>2</sub>CO<sub>3</sub>, how many grams of CaCO<sub>3</sub> can be produced?<br>
+<input type="number" class="calc" id="q4" name="q4"
+       formula="0.00500*100.09"
+       help="Use a 1:1 mole ratio and multiply by the molar mass of CaCO3 (100.09 g/mol).">
+g
+<div class="feedback" id="q4FB" name="q4FB"></div>
+<br><br>
+
+If 0.0100 mol of Na<sub>2</sub>CO<sub>3</sub> reacts with excess CaCl<sub>2</sub>, what mass of CaCO<sub>3</sub> is formed?<br>
+<input type="number" class="calc" id="q5" name="q5"
+       formula="0.0100*100.09"
+       help="Use a 1:1 mole ratio, then multiply by molar mass.">
+g
+<div class="feedback" id="q5FB" name="q5FB"></div>
+<br><br>
+
+
+<h3>Part 3: Identifying the Limiting Reactant</h3>
+
+A student mixes 50.0 mL of 0.100 M CaCl<sub>2</sub> and 50.0 mL of 0.100 M Na<sub>2</sub>CO<sub>3</sub>. Which is the limiting reactant?<br>
+<select class="calc" id="q6" name="q6"
+        formula="Neither"
+        help="Calculate moles of each. The smaller amount is limiting (1:1 ratio).">
+  <option value="">Choose</option>
+  <option value="CaCl2">CaCl<sub>2</sub></option>
+  <option value="Na2CO3">Na<sub>2</sub>CO<sub>3</sub></option>
+  <option value="Neither">Neither (they are equal)</option>
+</select>
+<div class="feedback" id="q6FB" name="q6FB"></div>
+<br><br>
+
+A student mixes 25.0 mL of 0.100 M CaCl<sub>2</sub> and 50.0 mL of 0.200 M Na<sub>2</sub>CO<sub>3</sub>. Which is the limiting reactant?<br>
+<select class="calc" id="q7" name="q7"
+        formula="CaCl2"
+        help="Find moles of each. The smaller mole amount is the limiting reactant.">
+  <option value="">Choose</option>
+  <option value="CaCl2">CaCl<sub>2</sub></option>
+  <option value="Na2CO3">Na<sub>2</sub>CO<sub>3</sub></option>
+</select>
+<div class="feedback" id="q7FB" name="q7FB"></div>
+<br><br>
+
+
+<h3>Part 4: Theoretical Yield</h3>
+
+A student mixes 50.0 mL of 0.100 M CaCl<sub>2</sub> and 50.0 mL of 0.200 M Na<sub>2</sub>CO<sub>3</sub>. What is the theoretical yield of CaCO<sub>3</sub>?<br>
+<input type="number" class="calc" id="q8" name="q8"
+       formula="0.0500*0.100*100.09"
+       help="Find moles of each, identify the limiting reactant, then convert to grams.">
+g
+<div class="feedback" id="q8FB" name="q8FB"></div>
+<br><br>
+
+
+<h3>Part 5: Percent Yield</h3>
+
+The theoretical yield is 0.500 g and the actual yield is 0.425 g. What is the percent yield?<br>
+<input type="number" class="calc" id="q9" name="q9"
+       formula="0.425/0.500*100"
+       help="Percent yield = (actual ÷ theoretical) × 100.">
+%
+<div class="feedback" id="q9FB" name="q9FB"></div>
+<br><br>
+
+
+<h3>Part 6: Multi-Step Problem</h3>
+
+A student mixes 40.0 mL of 0.100 M CaCl<sub>2</sub> and 40.0 mL of 0.100 M Na<sub>2</sub>CO<sub>3</sub> and collects 0.300 g CaCO<sub>3</sub>. What is the percent yield?<br>
+<input type="number" class="calc" id="q10" name="q10"
+       formula="0.300/(0.0400*0.100*100.09)*100"
+       help="Find the limiting reactant, calculate theoretical yield, then calculate percent yield.">
+%
+<div class="feedback" id="q10FB" name="q10FB"></div>
+<br>
+		
 
 	<!-- End -->
 	<div class="footer">Synthesis of Calcium Carbonate (Percent Yield)</div> <!-- Title -->
