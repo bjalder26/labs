@@ -489,8 +489,8 @@ Percent yield:  <input type="number" class="calc" step="any" id="theoreticalYiel
 <br>
 		
 
-	<!-- End -->
-	<div class="footer">Synthesis of Calcium Carbonate (Percent Yield)</div> <!-- Title -->
+<!-- end -->
+      <!-- title -->
       <div id="button_bar">
         <button
           type="submit"
@@ -501,21 +501,42 @@ Percent yield:  <input type="number" class="calc" step="any" id="theoreticalYiel
         >
           save
         </button>
+
         <button onclick="toPrint()" title="print" class="large material-icons">
           print
         </button>
-        <button type="button" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%">
+
+        <button type="button" onclick="submitScore()" style="height: 83%">
           Submit</button
         >&nbsp;
-        <div class="vcenter" style="display: none;">
+
+        <div class="vcenter">
           <label for="score">Score: </label>
+
           <div id="score" style="display: inline">0</div>
+
           %
         </div>
       </div>
     </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"],
+        },
+      });
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
     <script src="../js/lab.js"></script>
   </body>
 </html>
