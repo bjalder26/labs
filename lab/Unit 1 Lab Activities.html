@@ -360,9 +360,9 @@
                 </li>
                 <ul>
                     <li>In one year more than $2.5 billion worth of two precious metals are used to manufacture cell phones.  What are those two precious metals?<br>
-                        <input  type="text" class="calc" id="precious1"  name="precious1" formula="gold||Gold||silver||Silver"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious1FB" name="precious1FB"></div> 
+                        <input  type="text" class="calc num" id="precious1"  name="precious1" formula="if(${precious2} == ${precious2} ; gold||Gold||silver||Silver ; gold||Gold||silver||Silver)"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious1FB" name="precious1FB"></div> 
                         and
-                        <input  type="text" class="calc" id="precious2"  name="precious2" formula="if(${precious1} == silver ; gold||Gold ; if(${precious1} == Silver ; gold||Gold ; silver||Silver))"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious2FB" name="precious2FB"></div>
+                        <input  type="text" class="calc num" id="precious2"  name="precious2" formula="if(${precious1} == silver ; gold||Gold ; if(${precious1} == Silver ; gold||Gold ; silver||Silver))"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="precious2FB" name="precious2FB"></div>
                     </li>
                 </ul>
             </ol>
@@ -792,7 +792,6 @@ Note: Symbols should be input without superscripts and without a "0" charge for 
                     scientific notation use a small letter e (e.g. 6.022 x 10<sup>-23</sup>
                     should be entered as 6.022e-23).
                 </li>
-                <!--
                 <li>
                     Example video Dimensional Analysis: Converting Units with 1 or 2 Conversion Factors:
                 </li>
@@ -809,7 +808,6 @@ Note: Symbols should be input without superscripts and without a "0" charge for 
                 </li>
             <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/t6fYYPrzhOU" title="Unit Conversion with Multiple Conversion Factors" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             <br>
-                -->
       <div class="noBreak">
         <h3>Conversion Factors:</h3>
         <table class="inline-block">

@@ -52,6 +52,11 @@ canvas {
   width: 15px;
 }
 
+/* Selects any div ending in "DIV" that is the direct next sibling of .sub */
+input.sub + div[id$="DIV"] {
+  display: none;
+}
+
 .aiMax {
   display: inline-block;
 }

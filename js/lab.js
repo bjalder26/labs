@@ -298,6 +298,73 @@ function evaluateWithCustomFunctions(equation) {
 }
 
 function score() {
+  if (!loaded) return;
+
+  // --------------------
+  // 1️⃣ Non-calc .num inputs (data portion)
+  // --------------------
+  const numElements = Array.from(document.getElementsByClassName("num"));
+  const nonCalcNums = numElements.filter(isStudentDataInput);
+
+  let dataScore = 0; // will be 0 if no non-calc inputs
+  if (nonCalcNums.length > 0) {
+    const filledOut = nonCalcNums.filter(isFilledOut);
+    dataScore = (filledOut.length / nonCalcNums.length) * 50; // 50% of total
+  }
+
+  // --------------------
+  // 2️⃣ Calc + AI portion
+  // --------------------
+  // Get all FB elements for calc questions
+  const fbElements = document.querySelectorAll('[id$="FB"]');
+  let calcNumerator = 0;
+  let calcDenominator = fbElements.length; // total calc questions
+
+  fbElements.forEach((fb) => {
+    if (fb.getAttribute("title") === "correct") {
+      calcNumerator++;
+    }
+  });
+
+  // AI scores
+  const aiInputs = document.querySelectorAll(".aiScore");
+  let aiEarned = 0;
+  let aiMaxTotal = 0;
+
+  aiInputs.forEach((input) => {
+    const baseId = input.id.replace("AiScore", "");
+    const maxDiv = document.getElementById(baseId + "AiMax");
+
+    const score = parseFloat(input.value);
+    const max = parseFloat(maxDiv?.textContent);
+
+    if (!isNaN(score) && !isNaN(max)) {
+      aiEarned += score;
+      aiMaxTotal += max;
+    }
+  });
+
+  // Combine AI with calc
+  calcNumerator += aiEarned;
+  calcDenominator += aiMaxTotal;
+
+  // Calculate calcScore percentage
+  let calcScore = 0;
+  if (calcDenominator > 0) {
+    calcScore = (calcNumerator / calcDenominator);
+    // Scale: 50% if there are non-calc nums, otherwise 100%
+    calcScore *= nonCalcNums.length > 0 ? 50 : 100;
+  }
+
+  // --------------------
+  // 3️⃣ Final total
+  // --------------------
+  const totalScore = dataScore + calcScore;
+
+  $("score").innerHTML = totalScore.toFixed(1);
+}
+/*
+function score() {
     if (loaded) {
       let dataScore = 0;
       let calcScore = 0;
@@ -322,7 +389,9 @@ function score() {
             numElementsArrayFiltered.length) *
           50;
       } else {
-        calcFactor = 2;
+          dataScore = 0;
+          dataFactor = 0;
+          calcFactor = 2;
       }
 
       // --------------------
@@ -385,7 +454,7 @@ function score() {
       $("score").innerHTML = totalScore.toFixed(1);
     }
 }
-
+*/
 function saveData() {
   //  I don't think any of this does anything
   const gridItems = document.querySelectorAll(".grid-item");
@@ -492,8 +561,12 @@ function lookupValueInTable(tableID, searchColumn, searchValue, returnColumn) {
   return null;
 }
 
-function isNotCalcElement(element) {
-  return !element.classList.contains("calc");
+function isStudentDataInput(el) {
+  return el.classList.contains("num") &&
+         !el.classList.contains("calc") &&
+         !el.classList.contains("aiScore") &&
+         !el.readOnly &&
+         !el.disabled;
 }
 
 function isFilledOut(element) {
@@ -929,12 +1002,12 @@ if (matches) {
       const thisSymbolDiv = $(this.id+'DIV')
       let formattedText = formatText(this.value.trim());
       if (formattedText.replaceAll('&nbsp;', '').trim() == "") {
-        this.style.display = "block";
+        this.style.display = "inline-block";
         thisSymbolDiv.style.display = "none";
       } else {
         thisSymbolDiv.innerHTML = formattedText;
         this.style.display = "none";
-        thisSymbolDiv.style.display = "block";
+        thisSymbolDiv.style.display = "inline-block";
       }
     });
       
@@ -943,7 +1016,7 @@ if (matches) {
     symbolDiv.addEventListener("click", function() {
         const thisSymbolInput = $(this.id.replace(/DIV$/, ""));
         this.style.display = "none";
-        thisSymbolInput.style.display = "block";
+        thisSymbolInput.style.display = "inline-block";
         
         //if(this.innerHTML == "&nbsp;") {this.innerHTML == ""}
         thisSymbolInput.focus();
@@ -963,21 +1036,30 @@ if (matches) {
         return '<sub>' + match + '</sub>';
     });
 }
-      
+
     subInput.addEventListener("blur", function (e) {
       form.requestSubmit();
-      const thisSubDiv = $(this.id+'DIV')
-      let formattedText = formatText(this.value.trim()); 
-      thisSubDiv.innerHTML = formattedText;   
-      this.style.display = "none"; 
-      thisSubDiv.style.display = "block";   
+      const thisSubDiv = $(this.id + 'DIV');
+      let value = this.value.trim();
+      let formattedText = formatText(value);
+
+      if (value === "") {
+        // Keep input visible if nothing was entered
+        this.style.display = "inline-block";
+        thisSubDiv.style.display = "none";
+      } else {
+        thisSubDiv.innerHTML = formattedText;
+        this.style.display = "none";
+        thisSubDiv.style.display = "inline-block";
+        thisSubDiv.style.width = "19ch";
+      }
     });
-      
+
       // When the user clicks on the div
       subDiv.addEventListener("click", function() {
         const thisSubInput = $(this.id.replace(/DIV$/, ""));
         this.style.display = "none";
-        thisSubInput.style.display = "block";
+        thisSubInput.style.display = "inline-block";
         
         //if(this.innerHTML == "&nbsp;") {this.innerHTML == ""}
         thisSubInput.focus();

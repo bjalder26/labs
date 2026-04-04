@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit 2 Lab Activities</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
+</head>
+
+<body onload="onLoad()">
+    <script type="text/javascript">//PARAMS**GO**HERE</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <h1 id="title">Unit 2 Lab Activities</h1>
+    <!-- Title -->
+    Name:<div id="name"></div><br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+        <input type="text" id="labName" name="labName" style="display: none" />
+        <input type="text" id="userName" name="userName" style="display: none" />
+        <!-- Beginning -->
+        <ul>
+            <li>
+                <h3>Chapter Two Opening Video</h3>
+            </li>
+            <ol>
+                <li>
+                    Watch the <a href="https://www.acs.org/education/resources/undergraduate/chemistryincontext/interactives/air-we-breathe/chapter-opening.html" target="_blank">Chapter Two Opening Video</a>.
+                </li>
+                  <li>
+                    The air we breath is a misture of gases and 
+                    <input type="text" class="calc" id="opening" name="opening" formula="particles||Particles" help="Watch the Chapter Two Opening Video.  The answer is a single word."><div class="feedback" id="openingFB" name="openingFB"></div>.
+                  </li>
+              </ol>
+              <li>
+                <hr>
+                <h3>What are Chemtrails?</h3>
+              </li>
+              <ol>
+                <li>
+                  Watch the Chemtrails video below.<br>
+                  <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/ZonPvpgcBc0" title="Chemtrails" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </li>
+                <li>
+                  Besides cropdusting or cloudseeding, most chemtrails are mostly composed of water and are more technically known as
+                  <input type="text" class="calc" id="chemtrails" name="chemtrails" formula="contrails||Contrails||condensationtrails||Condensationtrails||con(densation)trails||Con(densation)trails" help="Watch the Contrails Video.  The answer is a single word.">.<div class="feedback" id="chemtrailsFB" name="chemtrailsFB"></div>.
+                  </li>.
+                </ol>
+                <hr>
+                <li>
+                  <h3>The Composition of Air</h3>
+                </li>
+                <ol>
+                  <li>
+                    <img src="images/gas_percents.png" height="200px"><br>
+                    The bends in scuba diving occur when the most abundant gas in the air dissolves into the body and forms bubbles during rapid ascent. What is that gas?
+                  </li>
+                  <li>
+                    A scuba diver can get 'the bends' if they ascend too rapidly. The bends is caused by the most abundant gas in the air forming bubbles in their bloodstream.<br>
+                    According to the chart above, what is that gas?
+                    <input type="text" class="calc" id="bends" name="bends" formula="nitrogen||Nitrogen||N2" help="Which gas is present in the highest amount in air?">.<div class="feedback" id="bendsFB" name="bendsFB"></div>
+                  </li>
+                  <li>
+                    One of the gases that composes about 1% air was difficult to identify because it was nonreactive.  Lord Rayleigh was able to isolate it and determined that it had an atomic mass of about 40 amu.  He gave it a name meaning inactive or lazy because it was nonreactive.<br>
+                    What was that gas?
+                    <input type="text" class="calc" id="unknowngas" name="unknowngas" formula="argon||Argon||Ar" help="Which gas is approximately 1% of air?">.<div class="feedback" id="unknowngasFB" name="unknowngasFB"></div>
+                  </li>
+                </ol>
+                <hr>
+                <li>
+                  <h3>Why is Carbon Monoxide So Deadly?</h3>
+                </li>
+                <ol>
+                  <li>
+                  Watch the Why is Carbon Monoxide So Deadly? video below.<br>
+                  <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/lMnaLKlVXxo" title="Why is Carbon Monoxide So Deadly? - GTKAM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </li>
+                  <li>
+                    One of the reasons why carbon monoxide is so deadly is because it holds on to hemoglobin about 
+                    <input type="text" class="calc" id="carbonmonoxide" name="carbonmonoxide" formula="200" help="Watch the Why is Carbon Monoxide So Deadly? video, and listen for a number that will tell you how many times tighter carbon monoxide holds to hemoglobin than oxygen."><div class="feedback" id="carbonmonoxideFB" name="carbonmonoxideFB"></div> times tighter than oxygen, thus prevents hemoglobin from carrying oxygen.
+                  </li>
+                </ol>
+                <hr>
+                <li>
+                  <h3>Air quality in the world</h3>
+                </li>
+                <ol>
+                  <li>
+                  View the <a href="https://www.iqair.com/us/world-air-quality" target="_blank">Air quality in the world</a> website and notice where in the world the biggest problems with air polution are.<br>
+                </li>
+                  <li>
+                    Which two continents have the biggest problems with air polution?<br> 
+                    <input  type="text" class="calc num" id="country1"  name="country1" formula="if(${country2} == ${country2} ; Africa||Asia ; Africa||Asia)"  help="Which two continents have the most unhealthy air areas?"><div class="feedback" id="country1FB" name="country1FB"></div> 
+                    and
+                    <input  type="text" class="calc num" id="country2"  name="country2" formula="if(${country1} == Africa ; Asia ; Africa)"  help="Watch the video and listen for the the two precious metals used in 30mg and 300mg amounts."><div class="feedback" id="country2FB" name="country2FB"></div>
+                  </li>
+                </ol>
+                <hr>
+                <li>
+                  <h3>Covalent Compound Nomenclature (Naming)</h3>
+                </li>
+                <ol>
+                  <li>
+                  Watch the Covalent Compound Nomenclature video below.<br>
+                  <iframe style="width: 80%; aspect-ratio: 16 / 9;" src="https://www.youtube.com/embed/WnBQyXXXdVc" title="Covalent Compound Nomenclature" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </li>
+                  <li>
+                    Give the chemical name for the following covalent compounds.  Note: monoxide is the only vowel dropping supported by official IUPAC rules, though it is still common to drop an a or o if they come before a vowel.
+                      <table>
+  <tr>
+    <th>Chemical Formula</th>
+    <th>Chemical Name</th>
+  </tr>
+
+  <tr>
+    <td>CO</td>
+    <td>
+      <input type="text" class="calc" id="formula1" name="formula1" formula="carbon monoxide||Carbon monoxide" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element, but use it for the second when needed.  Watch for vowel dropping (monoxide not monooxide).  Note: monoxide is the only vowel dropping supported by official IUPAC rules, though it is still common to drop an a or o if they come before a vowel.">
+      <div class="feedback" id="formula1FB" name="formula1FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>CO<sub>2</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula2" name="formula2" formula="carbon dioxide||Carbon dioxide" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element, but use it for the second when needed.">
+      <div class="feedback" id="formula2FB" name="formula2FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>N<sub>2</sub>O<sub>5</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula3" name="formula3" formula="dinitrogen pentoxide||Dinitrogen pentoxide||dinitrogen pentaoxide||Dinitrogen pentaoxide" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element.">
+      <div class="feedback" id="formula3FB" name="formula3FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>SO<sub>3</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula4" name="formula4" formula="sulfur trioxide||Sulfur trioxide" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element.">
+      <div class="feedback" id="formula4FB" name="formula4FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>PCl<sub>3</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula5" name="formula5" formula="phosphorus trichloride||Phosphorus trichloride" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element.">
+      <div class="feedback" id="formula5FB" name="formula5FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>PCl<sub>5</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula6" name="formula6" formula="phosphorus pentachloride||Phosphorus pentachloride" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element.">
+      <div class="feedback" id="formula6FB" name="formula6FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>SF<sub>6</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula7" name="formula7" formula="sulfur hexafluoride||Sulfur hexafluoride" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element.">
+      <div class="feedback" id="formula7FB" name="formula7FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>NO<sub>2</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula8" name="formula8" formula="nitrogen dioxide||Nitrogen dioxide" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element.">
+      <div class="feedback" id="formula8FB" name="formula8FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>N<sub>2</sub>O<sub>3</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula9" name="formula9" formula="dinitrogen trioxide||Dinitrogen trioxide" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element.">
+      <div class="feedback" id="formula9FB" name="formula9FB"></div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>Cl<sub>2</sub>O<sub>7</sub></td>
+    <td>
+      <input type="text" class="calc" id="formula10" name="formula10" formula="dichlorine heptoxide||Dichlorine heptoxide||dichlorine heptaoxide||Dichlorine heptaoxide" help="Name the first element as written. Name the second element with an -ide ending. Use Greek prefixes (mono-, di-, tri-, etc.) to show how many atoms are present. Do NOT use 'mono-' for the first element.">
+      <div class="feedback" id="formula10FB" name="formula10FB"></div>
+    </td>
+  </tr>
+</table>
+</li>
+
+<li>
+Give the chemical formula for the following covalent compounds. Note: the program will automatically make your numbers subscripts, so you would enter CO<sub>2</sub> as CO2.<br>
+<table>
+  <tr>
+    <th>Chemical Name</th>
+    <th>Chemical Formula</th>
+  </tr>
+  <tr>
+  <td>Dinitrogen monoxide</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name1" name="name1" formula="N2O" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name1DIV"></div>
+    <div class="feedback" id="name1FB" name="name1FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Sulfur dichloride</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name2" name="name2" formula="SCl2" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name2DIV"></div>
+    <div class="feedback" id="name2FB" name="name2FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Phosphorus tribromide</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name3" name="name3" formula="PBr3" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name3DIV"></div>
+    <div class="feedback" id="name3FB" name="name3FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Carbon tetrachloride</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name4" name="name4" formula="CCl4" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name4DIV"></div>
+    <div class="feedback" id="name4FB" name="name4FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Dinitrogen tetrafluoride</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name5" name="name5" formula="N2F4" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name5DIV"></div>
+    <div class="feedback" id="name5FB" name="name5FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Silicon dioxide</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name6" name="name6" formula="SiO2" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name6DIV"></div>
+    <div class="feedback" id="name6FB" name="name6FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Boron trifluoride</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name7" name="name7" formula="BF3" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name7DIV"></div>
+    <div class="feedback" id="name7FB" name="name7FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Dichlorine hexaoxide<br>(common: dichlorine hexoxide)</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name8" name="name8" formula="Cl2O6" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name8DIV"></div>
+    <div class="feedback" id="name8FB" name="name8FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Phosphorus triiodide</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name9" name="name9" formula="PI3" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name9DIV"></div>
+    <div class="feedback" id="name9FB" name="name9FB"></div>
+  </td>
+</tr>
+
+<tr>
+  <td>Disulfur difluoride</td>
+  <td>
+    <input type="text" step="any" class="calc sub" id="name10" name="name10" formula="S2F2" help="Write the element symbols in the order given. Use Greek prefixes (mono-, di-, tri-, tetra-, etc.) to determine the number of atoms of each element. If there is no prefix on the first element, it means one atom. Do not write a subscript of 1.">
+    <div id="name10DIV"></div>
+    <div class="feedback" id="name10FB" name="name10FB"></div>
+  </td>
+</tr>
+</table>
+</li>
+                </ol>
+
+
+                
+
+          </ul>
+            
+
+
+
+
+<!-- end -->
+      <!-- title -->
+
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+
+        <div class="vcenter">
+          <label for="score">Score: </label>
+
+          <div id="score" style="display: inline">0</div>
+
+          %
+        </div>
+      </div>
+    </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"],
+        },
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
