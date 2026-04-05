@@ -8,39 +8,359 @@ export function startEditor() {
   initEditor();
   loadFileList();
 
-  document.getElementById('open-file').addEventListener('click', loadSelectedFile);
+  const buttonActions = {
+    'data-form': showDataForm,
+    'answer-form': showAnswerForm,
+    'insert-header': insertHeader,
+    'insert-table': showTableForm,
+    'insert-footer-graded': insertFooterGraded,
+    'insert-footer-grade-submitted': insertFooterGradeSubmitted,
+    'insert-ul': insertUnorderedList,
+    'insert-ol': insertOrderedList,
+    'insert-ai-question': showAIQuestionForm,
+    'insert-open-ended': showOpenEndedForm,
+    'insert-symbol': showSymbolForm,
+    'insert-subscript': showSubscriptForm,
+    'insert-hidden': insertHidden,
+    'insert-dropdown': showDropdownForm
+
+  };
+
+  document.getElementById('file-selector').addEventListener('change', loadSelectedFile);
   document.getElementById('save-file').addEventListener('click', saveFile);
   document.getElementById('new-file').addEventListener('click', createNewFile);
+  document.getElementById('commit').addEventListener('click', commit);
 
-  document.querySelectorAll("button[id^='insert-']").forEach((button) => {
-  button.addEventListener("click", async () => {
-    const snippetName = button.id.replace(/^insert-/, ''); // "variable", "div", etc.
+  // Call this after you populate the file list
+document.getElementById("file-selector").addEventListener("change", () => {
+  const selector = document.getElementById("file-selector");
+  const selectedValue = selector.value;
+
+  // Enable/disable all buttons based on whether a real file is selected
+  const allButtons = document.querySelectorAll("button[data-action], #save-file, #new-file, #commit");
+  allButtons.forEach(button => {
+    button.disabled = (selectedValue === "" || selectedValue === null);
+  });
+
+  // Only load a file if it's not the default option
+  if (selectedValue) {
+    loadSelectedFile();
+  }
+});
+
+// Initial check: disable all buttons at start
+document.querySelectorAll("button[data-action], #save-file, #new-file, #commit")
+  .forEach(button => button.disabled = true);
+
+
+  document.querySelectorAll("button[data-action]").forEach((button) => {
+    button.addEventListener("click", async () => {
+      const action = button.dataset.action;
+
+      if (!buttonActions.hasOwnProperty(action)) {
+        console.warn(`No handler for action: ${action}`);
+        return;
+      }
+
+      try {
+        await buttonActions[action](); // call the mapped function
+      } catch (err) {
+        console.error(`Error executing action ${action}:`, err);
+      }
+    });
+  });
+
+
+
+
+
+
+}
+
+function showTableForm() {
+  const form = document.createElement("form");
+  form.innerHTML = `
+    <label>
+      Headers:
+      <input type="checkbox" name="headers" checked>
+    </label><br>
+
+    <label>
+      Rows:
+      <input type="number" name="rows" min="1" value="2" required>
+    </label><br>
+
+    <label>
+      Columns:
+      <input type="number" name="cols" min="1" value="2" required>
+    </label><br>
+
+    <button type="submit">Insert Table</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  // Styling to center the form
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 1000
+  });
+
+  document.body.appendChild(form);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const headers = formData.get("headers") === "on";
+    const rows = parseInt(formData.get("rows"));
+    const cols = parseInt(formData.get("cols"));
+
+    let tableHTML = "<table border='1'>\n";
+
+    if (headers) {
+      tableHTML += "  <thead>\n    <tr>\n";
+      for (let c = 0; c < cols; c++) {
+        tableHTML += `      <th>Header ${c+1}</th>\n`;
+      }
+      tableHTML += "    </tr>\n  </thead>\n";
+    }
+
+    tableHTML += "  <tbody>\n";
+    for (let r = 0; r < rows; r++) {
+      tableHTML += "    <tr>\n";
+      for (let c = 0; c < cols; c++) {
+        tableHTML += "      <td></td>\n";
+      }
+      tableHTML += "    </tr>\n";
+    }
+    tableHTML += "  </tbody>\n</table>\n";
+
+    insertTextAtCursor(tableHTML);
+    form.remove();
+  });
+}
+
+function updatePreview() {
+  const previewFrame = document.getElementById("preview-frame");
+  const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+  doc.open();
+  doc.write(editor.state.doc.toString());
+  doc.close();
+}
+
+function initEditor() {
+  try {
+    const editorElement = document.getElementById("editor");
+
+    editor = new EditorView({
+      state: EditorState.create({
+        doc: "<!-- Your HTML here -->",
+        extensions: [
+          basicSetup,
+          html(),
+          EditorView.lineWrapping,
+          EditorView.updateListener.of((update) => {
+            if (update.docChanged) {
+              updatePreview();
+            }
+          })
+        ]
+      }),
+      parent: editorElement
+    });
+
+    // Initial preview
+    updatePreview();
+
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function getLabFileList() {
+  return fetch('/api/lab-files')
+    .then(async res => {
+      const text = await res.text();
+      try {
+        return JSON.parse(text);
+      } catch (e) {
+        console.error("Server did not return valid JSON:", text);
+        throw new Error("Invalid JSON from server");
+      }
+    });
+}
+
+function loadFileList() {
+  getLabFileList()
+    .then(files => {
+      const selector = document.getElementById("file-selector");
+      selector.innerHTML = '';
+
+      // Add the default "Select a file" option
+      const defaultOption = document.createElement("option");
+      defaultOption.value = "";
+      defaultOption.textContent = "Select a file";
+      defaultOption.selected = true;
+      defaultOption.disabled = true; // optional: prevent selecting again
+      selector.appendChild(defaultOption);
+
+      if (!Array.isArray(files) || files.length === 0) {
+        const noFilesOption = document.createElement("option");
+        noFilesOption.disabled = true;
+        noFilesOption.textContent = "No files found";
+        selector.appendChild(noFilesOption);
+        return;
+      }
+
+      files.forEach(file => {
+        const option = document.createElement("option");
+        option.value = file;
+        option.textContent = file;
+        selector.appendChild(option);
+      });
+
+      // Do NOT auto-load the first file anymore
+    })
+    .catch(err => {
+      alert("Failed to load file list.");
+      console.error(err);
+    });
+}
+
+function loadSelectedFile() {
+  const filename = document.getElementById("file-selector").value;
+  fetch(`/lab/${filename}`)
+    .then(res => res.text())
+    .then(content => {
+      editor.dispatch({
+        changes: { from: 0, to: editor.state.doc.length, insert: content }
+      });
+    })
+    .catch(err => {
+      alert("Failed to load file content.");
+      console.error(err);
+    });
+}
+
+function saveFile() {
+  const filename = document.getElementById("file-selector").value;
+  const content = editor.state.doc.toString();
+
+  fetch('/api/save-file', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ filename, content })
+  })
+    .then(res => {
+      if (!res.ok) throw new Error("Save failed");
+      alert("File saved!");
+    })
+    .catch(err => {
+      alert("Failed to save file.");
+      console.error(err);
+    });
+}
+
+// may want to update to fetch current list of 
+async function createNewFile() {
+  const newFileName = prompt("Enter name for the new file (e.g., example.html):");
+  if (!newFileName || !newFileName.trim()) return;
+
+  const trimmedFileName = newFileName.trim();
+
+  try {
+    const existingFiles = await getLabFileList();  // ← use existing function here
+    if (existingFiles.includes(trimmedFileName)) {
+      alert("A file with that name already exists.");
+      return;
+    }
+console.log(trimmedFileName);
+    // Create the file on the server
+    const res = await fetch('/api/create-lab-file', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: trimmedFileName })
+    });
+
+    if (!res.ok) throw new Error("Failed to create file on server");
+
+    // Add to dropdown
+    const selector = document.getElementById("file-selector");
+    const option = document.createElement("option");
+    option.value = trimmedFileName;
+    option.textContent = trimmedFileName;
+    option.selected = true;
+    selector.appendChild(option);
+
+    // Clear editor and update preview
+    editor.dispatch({
+      changes: { from: 0, to: editor.state.doc.length, insert: "" }
+    });
+    updatePreview();
+    selector.value = trimmedFileName;
+
+  } catch (err) {
+    alert("Error creating file: " + err.message);
+    console.error(err);
+  }
+}
+
+function commit() {
+  // 1. Get the file info from your editor
+  const pageName = document.getElementById("file-selector").value;
+  
+  // 3. Send to your server
+  fetch('/commit-to-github', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      pageName
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if(data.prUrl) {
+      alert(`PR created/updated: ${data.prUrl}`);
+    } else {
+      alert('File committed successfully!');
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert('Error committing file. Check console.');
+  });
+}
+
+  async function insertSnippet(name) {
     try {
-      const response = await fetch(`/html/${snippetName}.html`);
+      const response = await fetch(`/html/${name}.html`);
       if (!response.ok) throw new Error("Failed to load snippet");
       const snippet = await response.text();
       insertTextAtCursor(snippet);
     } catch (err) {
-      console.error("Error inserting snippet:", err);
+      console.error(`Error inserting snippet ${name}:`, err);
     }
-  });
-});
+  }
 
-  document.querySelectorAll("button[id^='form-']").forEach((button) => {
-  button.addEventListener("click", () => {
-    const formType = button.id.replace(/^form-/, '');
-    if (formGenerators.hasOwnProperty(formType)) {
-      formGenerators[formType](); // Show appropriate form logic
-    } else {
-      console.warn(`No form generator for type: ${formType}`);
-    }
-  });
-});
+    // Example mapping functions for snippets
+  function insertHeader() {
+    return insertSnippet('header');
+  }
 
-const formGenerators = {
-  data: showDataForm,
-  answer: showAnswerForm
-};
+  function insertFooterGraded() {
+    return insertSnippet('footer-graded');
+  }
+
+  function insertFooterGradeSubmitted() {
+    return insertSnippet('footer-grade-submitted');
+  }
 
 // begin  show data form
 
@@ -98,8 +418,6 @@ function showDataForm() {
   });
   form.querySelector("input[name='id']").focus();
 }
-
-
 // end show data form 
 
 // beginning of show answer form
@@ -200,161 +518,286 @@ function showAnswerForm() {
   editor.dispatch(transaction);
   editor.focus(); // Optional: re-focus the editor
 }
+
+function insertUnorderedList() {
+  const ulHTML = `<ul>\n  <li>Item 1</li>\n</ul>\n`;
+  insertTextAtCursor(ulHTML);
 }
 
-
-function updatePreview() {
-  const previewFrame = document.getElementById("preview-frame");
-  const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
-  doc.open();
-  doc.write(editor.state.doc.toString());
-  doc.close();
+function insertOrderedList() {
+  const olHTML = `<ol>\n  <li>Item 1</li>\n</ol>\n`;
+  insertTextAtCursor(olHTML);
 }
 
-function initEditor() {
-  try {
-    const editorElement = document.getElementById("editor");
+function showAIQuestionForm() {
+  const form = document.createElement("form");
 
-    editor = new EditorView({
-      state: EditorState.create({
-        doc: "<!-- Your HTML here -->",
-        extensions: [
-          basicSetup,
-          html(),
-          EditorView.lineWrapping,
-          EditorView.updateListener.of((update) => {
-            if (update.docChanged) {
-              updatePreview();
-            }
-          })
-        ]
-      }),
-      parent: editorElement
-    });
+  form.innerHTML = `
+    <label>ID:
+      <input type="text" name="id" required>
+    </label><br>
 
-    // Initial preview
-    updatePreview();
+    <label>Grading criteria:
+      <textarea name="criteria" rows="4" cols="40" required></textarea>
+    </label><br>
 
-  } catch (error) {
-    console.error(error);
-  }
+    <label>Maximum score:
+      <input type="number" name="max" min="1" value="5" required>
+    </label><br>
+
+    <button type="submit">Insert AI Question</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  // Center the form
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 1000
+  });
+
+  document.body.appendChild(form);
+  form.querySelector("input[name='id']").focus();
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const id = formData.get("id").trim();
+    const criteria = formData.get("criteria").trim();
+    const max = formData.get("max").trim();
+
+    if (!id) return alert("ID is required!");
+
+    const aiHTML = `
+<textarea 
+ class="AI text essay" 
+ id="${id}"
+ name="${id}"
+ data-correct="${criteria}"
+ placeholder="Type your answer here...">
+</textarea>
+<button type="button" id="${id}Button">Submit Answer for Grading and Feedback</button>
+<input 
+ type="text" 
+ class="aiScore" 
+ id="${id}AiScore" 
+ name="${id}AiScore" 
+ readonly> / <div class="aiMax" id="${id}AiMax" name="${id}AiMax">${max}</div>
+`;
+
+    insertTextAtCursor(aiHTML);
+    form.remove();
+  });
 }
 
-function getLabFileList() {
-  return fetch('/api/lab-files')
-    .then(async res => {
-      const text = await res.text();
-      try {
-        return JSON.parse(text);
-      } catch (e) {
-        console.error("Server did not return valid JSON:", text);
-        throw new Error("Invalid JSON from server");
-      }
-    });
+function showOpenEndedForm() {
+  const form = document.createElement("form");
+
+  form.innerHTML = `
+    <label>ID:
+      <input type="text" name="id" required>
+    </label><br>
+
+    <button type="submit">Insert Open-Ended Question</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  // Center the form
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 1000
+  });
+
+  document.body.appendChild(form);
+  form.querySelector("input[name='id']").focus();
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const id = form.querySelector("input[name='id']").value.trim();
+    if (!id) return alert("ID is required!");
+
+    const openEndedHTML = `<textarea class="text essay" id="${id}" name="${id}"></textarea>\n`;
+
+    insertTextAtCursor(openEndedHTML);
+    form.remove();
+  });
 }
 
-function loadFileList() {
-  getLabFileList()
-    .then(files => {
-      const selector = document.getElementById("file-selector");
-      selector.innerHTML = '';
+function showSymbolForm() {
+  const form = document.createElement("form");
 
-      if (!Array.isArray(files) || files.length === 0) {
-        selector.innerHTML = '<option disabled selected>No files found</option>';
-        return;
-      }
+  form.innerHTML = `
+    <label>ID:
+      <input type="text" name="id" required>
+    </label><br>
 
-      files.forEach(file => {
-        const option = document.createElement("option");
-        option.value = file;
-        option.textContent = file;
-        selector.appendChild(option);
-      });
+    <label>Formula:
+      <input type="text" name="formula" placeholder="e.g., 12C+">
+    </label><br>
 
-      selector.selectedIndex = 0;
-      loadSelectedFile(); // Load first file automatically
-    })
-    .catch(err => {
-      alert("Failed to load file list.");
-      console.error(err);
-    });
+    <label>Help:
+      <input type="text" name="help" placeholder="Type instructions for students">
+    </label><br>
+
+    <button type="submit">Insert Symbol</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 1000
+  });
+
+  document.body.appendChild(form);
+  form.querySelector("input[name='id']").focus();
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const id = form.querySelector("input[name='id']").value.trim();
+    const formula = form.querySelector("input[name='formula']").value.trim();
+    const help = form.querySelector("input[name='help']").value.trim();
+
+    if (!id) return alert("ID is required!");
+
+    const inputHTML = `<input type="text" class="calc symbol" id="${id}" name="${id}"` +
+                      `${formula ? ` formula="${formula}"` : ""}` +
+                      `${help ? ` help="${help}"` : ""} />\n` +
+                      `<div id="${id}DIV"></div>\n`;
+
+    insertTextAtCursor(inputHTML);
+    form.remove();
+  });
 }
 
-function loadSelectedFile() {
-  const filename = document.getElementById("file-selector").value;
-  fetch(`/lab/${filename}`)
-    .then(res => res.text())
-    .then(content => {
-      editor.dispatch({
-        changes: { from: 0, to: editor.state.doc.length, insert: content }
-      });
-    })
-    .catch(err => {
-      alert("Failed to load file content.");
-      console.error(err);
-    });
+function showSubscriptForm() {
+  const form = document.createElement("form");
+
+  form.innerHTML = `
+    <label>ID:
+      <input type="text" name="id" required>
+    </label><br>
+
+    <label>Formula:
+      <input type="text" name="formula" placeholder="e.g., H2O">
+    </label><br>
+
+    <label>Help:
+      <input type="text" name="help" placeholder="Instructions for students">
+    </label><br>
+
+    <button type="submit">Insert Subscript Input</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 1000
+  });
+
+  document.body.appendChild(form);
+  form.querySelector("input[name='id']").focus();
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const id = form.querySelector("input[name='id']").value.trim();
+    const formula = form.querySelector("input[name='formula']").value.trim();
+    const help = form.querySelector("input[name='help']").value.trim();
+
+    if (!id) return alert("ID is required!");
+
+    const inputHTML = `<input type="text" step="any" class="calc sub" id="${id}" name="${id}"` +
+                      `${formula ? ` formula="${formula}"` : ""}` +
+                      `${help ? ` help="${help}"` : ""} />\n` +
+                      `<div id="${id}DIV"></div>\n` +
+                      `<div class="feedback" id="${id}FB" name="${id}FB"></div>\n`;
+
+    insertTextAtCursor(inputHTML);
+    form.remove();
+  });
 }
 
-function saveFile() {
-  const filename = document.getElementById("file-selector").value;
-  const content = editor.state.doc.toString();
-
-  fetch('/api/save-file', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ filename, content })
-  })
-    .then(res => {
-      if (!res.ok) throw new Error("Save failed");
-      alert("File saved!");
-    })
-    .catch(err => {
-      alert("Failed to save file.");
-      console.error(err);
-    });
+function insertHidden() {
+  const hiddenHTML = `<div style="display: none" class="hidden">Put your hidden text here</div>`;
+  insertTextAtCursor(hiddenHTML);
 }
 
-// may want to update to fetch current list of 
-async function createNewFile() {
-  const newFileName = prompt("Enter name for the new file (e.g., example.html):");
-  if (!newFileName || !newFileName.trim()) return;
+function showDropdownForm() {
+  const form = document.createElement("form");
+  form.innerHTML = `
+    <label>ID:
+      <input type="text" name="id" required>
+    </label><br>
 
-  const trimmedFileName = newFileName.trim();
+    <label>Formula:
+      <input type="text" name="formula">
+    </label><br>
 
-  try {
-    const existingFiles = await getLabFileList();  // ← use existing function here
-    if (existingFiles.includes(trimmedFileName)) {
-      alert("A file with that name already exists.");
-      return;
-    }
-console.log(trimmedFileName);
-    // Create the file on the server
-    const res = await fetch('/api/create-lab-file', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ filename: trimmedFileName })
-    });
+    <label>Help:
+      <input type="text" name="help">
+    </label><br>
 
-    if (!res.ok) throw new Error("Failed to create file on server");
+    <button type="submit">Insert Dropdown</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
 
-    // Add to dropdown
-    const selector = document.getElementById("file-selector");
-    const option = document.createElement("option");
-    option.value = trimmedFileName;
-    option.textContent = trimmedFileName;
-    option.selected = true;
-    selector.appendChild(option);
+  Object.assign(form.style, {
+    position: "fixed",
+    top: "20%",
+    left: "50%",
+    transform: "translateX(-50%)",
+    background: "#fff",
+    padding: "1em",
+    border: "1px solid #ccc",
+    zIndex: 1000
+  });
 
-    // Clear editor and update preview
-    editor.dispatch({
-      changes: { from: 0, to: editor.state.doc.length, insert: "" }
-    });
-    updatePreview("");
-    selector.value = trimmedFileName;
+  document.body.appendChild(form);
 
-  } catch (err) {
-    alert("Error creating file: " + err.message);
-    console.error(err);
-  }
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const formData = new FormData(form);
+    const id = formData.get("id");
+    const formula = formData.get("formula") || "";
+    const help = formData.get("help") || "";
+
+    const dropdownHTML = `
+<select id="${id}" name="${id}" class="calc" formula="${formula}" help="${help}">
+  <option value="">Choose an option</option>
+  <option value="Choice1">Choice1</option>
+</select>
+<div class="feedback" id="${id}FB" name="${id}FB"></div>
+`;
+
+    insertTextAtCursor(dropdownHTML);
+    form.remove();
+  });
+
+  form.querySelector("input[name='id']").focus();
 }
-

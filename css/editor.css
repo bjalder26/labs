@@ -7,14 +7,14 @@ html, body {
 }
 
 #login-screen {
-  position: absolute;
+  position: fixed;   /* change from absolute → fixed */
   inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #222;
   color: white;
-  z-index: 10;
+  z-index: 9999;     /* higher than controls */
 }
 
 #editor-container {
@@ -62,16 +62,38 @@ html, body {
 }
 
 #controls {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: white; /* or whatever background you want */
-    z-index: 1000;
-    padding: 10px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: white;
+  z-index: 1000;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+/* File selector stays fixed width on the left */
+#file-selector {
+  flex-shrink: 0;
+  min-width: 180px;
+}
+
+/* ALL buttons go here */
+#button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  /* THIS is the key fix */
+  flex: 1;               /* take remaining space */
+  align-content: flex-start;
+}
+
+/* Prevent weird button stretching */
+#button-group button {
+  white-space: nowrap;
 }

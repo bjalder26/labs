@@ -12,15 +12,24 @@ var fs = require('fs');
 
 const rimraf = require('rimraf');
 const archiver = require('archiver');
+const fetch = require('node-fetch') // npm install node-fetch@2
+const base64 = require('js-base64').Base64 // npm install js-base64
 require('dotenv').config();
 
 // create a new express server
 var app = express();
+app.use(express.json())
 
 const ADMIN_PASSWORD = 'trouble2maker'; // password for downloading and deleting directories
 const SUBMISSIONS_DIR = path.join(__dirname, 'submissions');
 const PRESERVE_FOLDERS = ['studentimages', 'tempuploads'];
 const ChatGPT_API_KEY = process.env.ChatGPT_API_KEY;
+const EDITOR_PASSWORD = process.env.EDITOR_PASSWORD;
+const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
+
+const OWNER = 'bjalder26'
+const REPO = 'labs'
+const MAIN_BRANCH = 'main'
 
 // Serve the uploads directory statically
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
@@ -767,3 +776,99 @@ FEEDBACK RULES
     res.status(500).json({ score: 0, feedback: "Server error." });
   }
 });
+
+app.post('/commit-to-github', async (req, res) => {
+  try {
+    const { pageName } = req.body
+    if (!pageName) return res.status(400).json({ error: 'Missing pageName' })
+
+    // 1️⃣ Map pageName to file path on disk
+    const filePath = path.join(__dirname, 'lab', `${pageName}`)
+    if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'File not found' })
+
+    const fileContent = fs.readFileSync(filePath, 'utf8')
+    const contentEncoded = base64.encode(fileContent)
+
+    // 2️⃣ Check if an open PR already exists for this page
+    const pullsRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/pulls?state=open`, {
+      headers: { Authorization: `token ${GITHUB_TOKEN}` }
+    })
+    const pulls = await pullsRes.json()
+
+    // Try to find a PR with this page name in the title
+    let existingPR = pulls.find(pr => pr.title.includes(pageName))
+
+    let branchName
+    let prUrl
+
+    if (existingPR) {
+      // ✅ Reuse existing PR & branch
+      branchName = existingPR.head.ref
+      prUrl = existingPR.html_url
+    } else {
+      // ✅ No open PR → create a new branch
+      branchName = `${pageName}-${Date.now()}`
+
+      // 2a. Get SHA of main branch
+      const mainRefRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/git/ref/heads/${MAIN_BRANCH}`, {
+        headers: { Authorization: `token ${GITHUB_TOKEN}` }
+      })
+      const mainRef = await mainRefRes.json()
+      const mainSha = mainRef.object.sha
+
+      // 2b. Create new branch
+      await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/git/refs`, {
+        method: 'POST',
+        headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ref: `refs/heads/${branchName}`,
+          sha: mainSha
+        })
+      })
+    }
+
+    // 3️⃣ Get file SHA if it exists on the branch (needed for updating)
+    let fileSha
+    const fileRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}?ref=${branchName}`, {
+      headers: { Authorization: `token ${GITHUB_TOKEN}` }
+    })
+    if (fileRes.status === 200) {
+      const fileData = await fileRes.json()
+      fileSha = fileData.sha
+    }
+
+    // 4️⃣ Commit file to branch
+    const commitRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}`, {
+      method: 'PUT',
+      headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: `Editor update for ${pageName}`,
+        content: contentEncoded,
+        branch: branchName,
+        sha: fileSha // undefined if new file
+      })
+    })
+    await commitRes.json() // just to ensure request completed
+
+    // 5️⃣ Create a PR if branch was new
+    if (!existingPR) {
+      const prRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/pulls`, {
+        method: 'POST',
+        headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          title: `Editor update: ${pageName}`,
+          head: branchName,
+          base: MAIN_BRANCH,
+          body: `Changes made via editor for ${pageName}`
+        })
+      })
+      const prData = await prRes.json()
+      prUrl = prData.html_url
+    }
+
+    res.json({ success: true, prUrl })
+  } catch (err) {
+    console.error(err)
+    res.status(500).json({ error: 'Something went wrong', details: err.message })
+  }
+})

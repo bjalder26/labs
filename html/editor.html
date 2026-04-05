@@ -18,21 +18,32 @@
     <div id="left-panel">
       <div id="controls">
         <select id="file-selector"></select>
-        <button id="open-file" title="Open">
-          <span class="material-symbols-outlined">file_open</span>
-        </button>
-        <button id="save-file" title="Save">
-          <span class="material-symbols-outlined">save</span>
-        </button>
-        <button id="new-file" title="New File">
-          <span class="material-symbols-outlined">note_add</span>
-        </button>
-        <button id="insert-header">Header</button>
-        <button id="form-data">Data</button>
-        <button id="form-answer">Answer</button>
-        <!--<button id="insert-footer-ungraded">Footer (ungraded)</button> not sure if I have one like this-->
-        <button id="insert-footer-graded">Footer (graded)</button>
-        <button id="insert-footer-grade-submitted">Footer (grade submitted)</button>
+
+        <div id="button-group">
+          <button id="save-file" title="Save">
+            <span class="material-symbols-outlined">save</span>
+          </button>
+          <button id="new-file" title="New File">
+            <span class="material-symbols-outlined">note_add</span>
+          </button>
+          <button data-action="insert-header">Header</button>
+          <button data-action="data-form">Data</button>
+          <button data-action="answer-form">Answer</button>
+          <button data-action="insert-ai-question">AI Question</button>
+          <button data-action="insert-table">Table</button>
+          <button data-action="insert-open-ended">Open-Ended Question</button>
+          <button data-action="insert-symbol"><sup>12</sup>C<sup>-</sup></button>
+          <button data-action="insert-subscript">H<sub>2</sub>O</button>
+          <button data-action="insert-ul">Unordered List</button>
+          <button data-action="insert-ol">Ordered List</button>
+          <button data-action="insert-dropdown">Dropdown Menu</button>
+          <button data-action="insert-hidden">Hidden Text</button>
+          <button data-action="insert-footer-graded">Footer (graded)</button>
+          <button data-action="insert-footer-grade-submitted">Footer (grade submitted)</button>
+          <button id="commit" title="Commit">
+            <span class="material-symbols-outlined">commit</span>
+          </button>
+        </div>
       </div>
       <div id="editor" style="height: 90%; border: 1px solid #ccc;"></div>
     </div>
