@@ -29,3 +29,4 @@ function updatePreview() {
   doc.write(editor.state.doc.toString());
   doc.close();
 }
+

@@ -22,7 +22,9 @@ export function startEditor() {
     'insert-symbol': showSymbolForm,
     'insert-subscript': showSubscriptForm,
     'insert-hidden': insertHidden,
-    'insert-dropdown': showDropdownForm
+    'insert-dropdown': showDropdownForm,
+    'insert-lookup-system': showLookupForm,
+    'insert-linear-graph-system': showLinearGraphForm,
 
   };
 
@@ -148,8 +150,40 @@ function showTableForm() {
 function updatePreview() {
   const previewFrame = document.getElementById("preview-frame");
   const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+
+  const blockerScript = `
+    <script>
+      (function () {
+        console.log("Preview mode: autosave disabled");
+
+        HTMLFormElement.prototype.requestSubmit = function () {
+          console.log("Blocked requestSubmit");
+        };
+
+        HTMLFormElement.prototype.submit = function () {
+          console.log("Blocked submit");
+        };
+
+        document.addEventListener(
+          "submit",
+          function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            console.log("Blocked submit event");
+          },
+          true
+        );
+      })();
+    <\/script>
+  `;
+
+  let html = editor.state.doc.toString();
+
+  // ✅ Inject right after <head>
+  html = html.replace(/<head([^>]*)>/i, `<head$1>${blockerScript}`);
+
   doc.open();
-  doc.write(editor.state.doc.toString());
+  doc.write(html);
   doc.close();
 }
 
@@ -800,4 +834,234 @@ function showDropdownForm() {
   });
 
   form.querySelector("input[name='id']").focus();
+}
+
+function showLookupForm() {
+  const form = document.createElement("form");
+  form.innerHTML = `
+    <label>
+      Base ID:
+      <input type="text" name="baseId" placeholder="e.g., labTemp" required>
+    </label><br>
+
+    <label>
+      Table ID:
+      <input type="text" name="tableId" placeholder="e.g., Density of Water Table" required>
+    </label><br>
+
+    <label>
+      Headers:
+      <input type="checkbox" name="headers" checked>
+    </label><br>
+
+    <label>
+      Rows:
+      <input type="number" name="rows" min="1" value="3" required>
+    </label><br>
+
+    <button type="submit">Insert Lookup System</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  // Same styling as your table form
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 1000
+  });
+
+  document.body.appendChild(form);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const baseId = formData.get("baseId").trim();
+    const tableId = formData.get("tableId").trim();
+    const headers = formData.get("headers") === "on";
+    const rows = parseInt(formData.get("rows"));
+
+    if (!baseId || !tableId) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    // Build table (ALWAYS 2 columns)
+    let tableHTML = `<table id="${tableId}" name="${tableId}">\n`;
+
+    if (headers) {
+      tableHTML += "  <thead>\n    <tr>\n";
+      tableHTML += "      <th>X Value</th>\n";
+      tableHTML += "      <th>Y Value</th>\n";
+      tableHTML += "    </tr>\n  </thead>\n";
+    }
+
+    tableHTML += "  <tbody>\n";
+    for (let r = 0; r < rows; r++) {
+      tableHTML += "    <tr>\n";
+      tableHTML += "      <td></td>\n";
+      tableHTML += "      <td></td>\n";
+      tableHTML += "    </tr>\n";
+    }
+    tableHTML += "  </tbody>\n</table>\n";
+
+    // Full system HTML
+    const fullHTML = `
+<!-- Lookup Input -->
+<input
+  type="number"
+  class="lookup num"
+  id="${baseId}"
+  name="${baseId}"
+/>
+
+<!-- Lookup Value -->
+<input
+  type="number"
+  step="any"
+  class="lookupValue"
+  id="${baseId}LV"
+  name="${baseId}LV"
+  tableID="${tableId}"
+/>
+
+<!-- Calculated Answer -->
+<input
+  type="number"
+  step="any"
+  class="calc num"
+  id="${baseId}Calc"
+  name="${baseId}Calc"
+  formula="\${${baseId}LV}"
+  help="Use the table to find the correct value."
+/>
+
+<div
+  class="feedback"
+  id="${baseId}CalcFB"
+  name="${baseId}CalcFB"
+></div>
+
+${tableHTML}
+`;
+
+    insertTextAtCursor(fullHTML);
+    form.remove();
+  });
+}
+
+function showLinearGraphForm() {
+  const form = document.createElement("form");
+  form.innerHTML = `
+    <label>
+      Base ID:
+      <input type="text" name="baseId" placeholder="e.g., borax" required>
+    </label><br>
+
+    <label>
+      X-Axis Label:
+      <input type="text" name="xLabel" placeholder="e.g., 1/T" required>
+    </label><br>
+
+    <label>
+      Y-Axis Label:
+      <input type="text" name="yLabel" placeholder="e.g., ln(Ksp)" required>
+    </label><br>
+
+    <label>
+      Number of Rows:
+      <input type="number" name="rows" min="2" value="4" required>
+    </label><br>
+
+    <label>
+      Order:
+      <select name="order">
+        <option value="desc" selected>Descending (n → 1)</option>
+        <option value="asc">Ascending (1 → n)</option>
+      </select>
+    </label><br>
+
+    <label>
+      Graph Title:
+      <input type="text" name="title" placeholder="e.g., Natural log of Ksp vs 1/T" required>
+    </label><br>
+
+    <button type="submit">Insert Graph</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 1000
+  });
+
+  document.body.appendChild(form);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const baseId = formData.get("baseId").trim();
+    const xLabel = formData.get("xLabel");
+    const yLabel = formData.get("yLabel");
+    const rows = parseInt(formData.get("rows"));
+    const order = formData.get("order");
+    const title = formData.get("title");
+
+    if (!baseId || !xLabel || !yLabel || !title) {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    let rowHTML = "";
+
+    for (let i = 0; i < rows; i++) {
+      const index = order === "desc" ? (rows - i) : (i + 1);
+
+      rowHTML += `
+    <tr>
+      <td>
+        <input type="number" step="any" class="${baseId} graph num" id="x${index}" name="x${index}">
+      </td>
+      <td>
+        <input type="number" step="any" class="${baseId} graph num" id="y${index}" name="y${index}">
+      </td>
+    </tr>`;
+    }
+
+    const html = `
+<table>
+  <tr>
+    <th><label id="${baseId} x-axis">${xLabel}</label></th>
+    <th><label id="${baseId} y-axis">${yLabel}</label></th>
+  </tr>
+  ${rowHTML}
+</table>
+
+<div class="canvas centered">
+  <canvas id="${baseId} graph" onclick="updateGraph('${baseId} graph')" title="${title}"></canvas>
+</div><br>
+
+<div class="centered">
+  Formula for the best fit line: y =&nbsp;
+  <div class="num" id="${baseId} slope"></div>
+  x&nbsp;<label class="${baseId} plus">&nbsp;+&nbsp;</label>
+  <div class="num" id="${baseId} intercept"></div>
+</div><br>
+`;
+
+    insertTextAtCursor(html);
+    form.remove();
+  });
 }
