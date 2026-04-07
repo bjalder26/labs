@@ -189,6 +189,6 @@ button.hidden, .vcenter {
     padding: 10px;
 }
 
-#overlay.hidden {
-  display: none;
+.overlay-hidden {
+  display: none !important;
 }
