@@ -945,7 +945,8 @@ app.post('/upload-editor-image', editorUpload.single('image'), async (req, res) 
       body: JSON.stringify({
         message: `Upload image: ${fileName}`,
         content: contentEncoded,
-        sha: fileSha
+        sha: fileSha,
+        branch: 'assets'
       })
     });
 

@@ -1,0 +1,31 @@
+name: Sync assets into main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  merge-assets:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v3
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Set up Git
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+
+      - name: Fetch and merge assets
+        run: |
+          git fetch origin assets
+          git merge origin/assets --no-edit || echo "Nothing to merge"
+
+      - name: Push changes
+        run: git push origin main
