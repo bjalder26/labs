@@ -1226,7 +1226,7 @@ function safe(str) {
 
     // Try to load existing image
     for (const ext of extensions) {
-      const url = `/submissions/studentimages/${userName}/${safe(labName)}/${id}.${ext}`;
+      const url = `/submissions/studentimages/${safe(luserName)}/${safe(labName)}/${id}.${ext}`;
       try {
         const res = await fetch(url, { method: 'HEAD' });
         if (res.ok) {
