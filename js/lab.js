@@ -679,7 +679,7 @@ function showOverlay(message) {
   const overlayText = document.getElementById("overlay-text");
 
   overlayText.innerHTML = message;
-  overlay.classList.remove("hidden");
+  overlay.classList.remove("overlay-hidden");
 
   if (window.MathJax) {
     MathJax.Hub.Queue(["Typeset", MathJax.Hub, overlayText]);
@@ -692,7 +692,7 @@ function createOverlay() {
 
   const overlay = document.createElement("div");
   overlay.id = "overlay";
-  overlay.className = "overlay hidden";
+  overlay.className = "overlay overlay-hidden";
 
   overlay.innerHTML = `
     <div class="overlay-content">
@@ -708,7 +708,7 @@ function createOverlay() {
 
   // Close when clicking outside
   overlay.addEventListener("click", () => {
-    overlay.classList.add("hidden");
+    overlay.classList.add("overlay-hidden");
   });
 
   // Prevent closing when clicking inside content
@@ -718,7 +718,7 @@ function createOverlay() {
 
   // OK button closes it
   overlayOk.addEventListener("click", () => {
-    overlay.classList.add("hidden");
+    overlay.classList.add("overlay-hidden");
   });
 }
 
