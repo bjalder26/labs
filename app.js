@@ -88,6 +88,18 @@ app.post('/upload-image', studentUpload.single('image'), (req, res) => {
     const newDir = path.join(__dirname, 'submissions', 'studentimages', safeUser, safeLab);
     fs.mkdirSync(newDir, { recursive: true });
 
+    // ✅ DELETE OLD FILES WITH SAME BASE NAME
+    const existingFiles = fs.readdirSync(newDir);
+    existingFiles.forEach(file => {
+      const fileBase = path.parse(file).name;
+
+      if (fileBase === id) {
+        const fullPath = path.join(newDir, file);
+        fs.unlinkSync(fullPath);
+        console.log('🗑️ Deleted old file:', fullPath);
+      }
+    });
+
     const newPath = path.join(newDir, id + ext);
 
     fs.renameSync(req.file.path, newPath);
