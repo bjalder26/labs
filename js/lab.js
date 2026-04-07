@@ -1210,6 +1210,10 @@ if (scoreElement) {
       }
     }
   }
+
+function safe(str) {
+  return str.replace(/[^a-zA-Z0-9_-]/g, '_');
+}
   
   // imageUpload elements
 (async () => {
@@ -1222,7 +1226,7 @@ if (scoreElement) {
 
     // Try to load existing image
     for (const ext of extensions) {
-      const url = `/submissions/studentimages/${userName}/${labName}/${id}.${ext}`;
+      const url = `/submissions/studentimages/${userName}/${safe(labName)}/${id}.${ext}`;
       try {
         const res = await fetch(url, { method: 'HEAD' });
         if (res.ok) {
