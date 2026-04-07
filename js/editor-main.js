@@ -477,7 +477,7 @@ function showAnswerForm() {
     </label><br>
 
     <label>
-      <input type="checkbox" name="calc" checked>
+      <input type="checkbox" name="num" checked>
       Used for other answers
     </label><br>
 
@@ -513,12 +513,12 @@ function showAnswerForm() {
     const formData = new FormData(form);
     const type = formData.get("type");
     const step = formData.get("step");
-    const calc = formData.get("calc") !== null;
+    const num = formData.get("num") !== null;
     const id = formData.get("id");
     const formula = formData.get("formula") || "";
     const help = formData.get("help") || "";
 
-    const classList = calc ? "num calc" : "num";
+    const classList = num ? "num calc" : "calc";
     let inputHTML = `<input type="${type}" class="${classList}" id="${id}" name="${id}"`;
     if (type === "number") {
       inputHTML += ` step="${step}"`;

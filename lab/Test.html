@@ -1,45 +1,38 @@
 
 <!DOCTYPE html>
-
 <html>
   <head>
-    <title>Test</title>
-    <!-- Title -->
-
-    <link rel="stylesheet" href="../css/lab.css" />
-
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    />
-
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
+    <title>Test</title><!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
   </head>
 
   <body onload="onLoad()">
-    <script type="text/javascript">
+  <script type="text/javascript">
       //PARAMS**GO**HERE
     </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-    <h1 id="title">Test</h1>
-    <!-- Title -->
-
-    Name:
-    <div id="name"></div>
-    <br />
-
+    <h1 id="title" >Test</h1> <!-- Title -->
+    Name: <div id="name"></div><br>
+   
     <form id="labdataform" action="/save" method="post" target="_self">
-      <input type="text" id="labName" name="labName" style="display: none" />
+      <input type="text" id="labName" name="labName" style="display:none">
+      <input type="text" id="userName" name="userName" style="display:none">
+  <!-- Beginning -->
+      142:
+<input type="number" class="calc" id="a1" name="a1" step="any" formula="142" help="It's 142"><div class="feedback" id="a1FB" name="a1FB"></div><br>
 
-      <input type="text" id="userName" name="userName" style="display: none" />
-
-      <!-- Beginning -->
-
+      How many moles of CaCl<sub>2</sub> are present in 50.0 mL of a 0.100 M CaCl<sub>2</sub> solution?<br>
+<input type="number" class="calc" id="q1" name="q1"
+       formula="0.0500*0.100"
+       help="Convert mL to L, then use M = mol/L."
+     step="any"
+  >
+mol
+<div class="feedback" id="q1FB" name="q1FB"></div>
+<br><br>
 
 <p>A student dissolves sodium chloride (NaCl) in water.  What new intermolecular forces form between the dissolved particles and water molecules? Explain how you deduced the correct new intermolecular forces.</p>
 
@@ -65,9 +58,8 @@
   name="q26AiScore" 
   readonly> / <div class="aiMax" id="q26AiMax" name="q26AiMax">5</div>
 
-  <!-- end -->
+<!-- end -->
       <!-- title -->
-
       <div id="button_bar">
         <button
           type="submit"

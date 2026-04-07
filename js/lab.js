@@ -335,7 +335,7 @@ function score() {
     const baseId = input.id.replace("AiScore", "");
     const maxDiv = document.getElementById(baseId + "AiMax");
 
-    const score = parseFloat(input.value);
+    const score = parseFloat(input.value) || 0;
     const max = parseFloat(maxDiv?.textContent);
 
     if (!isNaN(score) && !isNaN(max)) {
