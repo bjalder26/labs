@@ -504,7 +504,7 @@ function slopeIntercept(xyValues, name) {
 }
 
 function submitScore() {
-  var path = `/score/${params.sessionID}/${score.innerHTML}`;
+  var path = `/score/${params.sessionID}/${$("score").innerHTML}`;
   document.location = path;
 }
 
