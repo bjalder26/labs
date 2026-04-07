@@ -31,6 +31,7 @@ const OWNER = 'bjalder26'
 const REPO = 'labs'
 const MAIN_BRANCH = 'main'
 
+
 // Serve the uploads directory statically
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 app.use('/html', express.static(__dirname + '/html/'));
@@ -44,49 +45,59 @@ app.use('/lab', express.static(path.join(__dirname, 'lab')));
 // I believe this allows for http vs https only
 app.enable('trust proxy');
 
-// Multer setup
-const storage = multer.diskStorage({
+function safe(str) {
+  return str.replace(/[^a-zA-Z0-9_-]/g, '_');
+}
+
+const studentStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const safePath = path.join(__dirname, 'submissions', 'tempuploads'); // use a temp dir
+    const safePath = path.join(__dirname, 'submissions', 'tempuploads');
     fs.mkdirSync(safePath, { recursive: true });
     cb(null, safePath);
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname);
-    const filename = file.originalname; // Or customize with Date.now(), etc.
-    cb(null, filename);
+    cb(null, Date.now() + '-' + Math.random().toString(36).slice(2) + ext);
   }
 });
 
+const studentUpload = multer({ storage: studentStorage });
 
-
-const upload = multer({ storage });
-
-// Upload route
-app.post('/upload-image', upload.single('image'), (req, res) => {
+app.post('/upload-image', studentUpload.single('image'), (req, res) => {
 
   if (!req.file) {
     return res.status(400).json({ success: false, message: 'No file received' });
   }
-  
+
   const { userName, labName, id } = req.body;
   if (!userName || !labName || !id) {
     return res.status(400).json({ success: false, message: 'Missing form data' });
   }
 
   try {
-    const ext = path.extname(req.file.originalname);
-    const newDir = path.join(__dirname, 'submissions', 'studentimages', userName, labName);
+    const safeUser = safe(userName);
+    const safeLab = safe(labName);
+
+    const ext = path.extname(req.file.originalname).toLowerCase();
+    const allowed = ['.png', '.jpg', '.jpeg', '.gif', '.webp'];
+
+    if (!allowed.includes(ext)) {
+      return res.status(400).json({ success: false, message: 'Invalid file type' });
+    }
+
+    const newDir = path.join(__dirname, 'submissions', 'studentimages', safeUser, safeLab);
     fs.mkdirSync(newDir, { recursive: true });
 
     const newPath = path.join(newDir, id + ext);
 
-    fs.renameSync(req.file.path, newPath); // Move the file
+    fs.renameSync(req.file.path, newPath);
 
-    const fileUrl = `/submissions/studentimages/${userName}/${labName}/${id + ext}`;
+    const fileUrl = `/submissions/studentimages/${safeUser}/${safeLab}/${id + ext}`;
+
     console.log('✅ Upload successful:', fileUrl);
 
     res.json({ success: true, url: fileUrl });
+
   } catch (err) {
     console.error('❌ Error saving file:', err);
     res.status(500).json({ success: false, message: 'Server error', error: err.message });
@@ -872,3 +883,68 @@ app.post('/commit-to-github', async (req, res) => {
     res.status(500).json({ error: 'Something went wrong', details: err.message })
   }
 })
+
+const editorUpload = multer({ storage: multer.memoryStorage() });
+
+app.post('/upload-editor-image', editorUpload.single('image'), async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ error: 'No file uploaded' });
+    }
+
+    let fileName = req.body.fileName || req.file.originalname;
+
+    // sanitize filename
+    fileName = fileName.replace(/[^a-zA-Z0-9.\-_]/g, '_');
+
+    const ext = path.extname(req.file.originalname);
+    if (!fileName.endsWith(ext)) fileName += ext;
+
+    // ✅ FIXED: use buffer
+    const fileBuffer = req.file.buffer;
+    const contentEncoded = fileBuffer.toString('base64');
+
+    const githubPath = `images/${fileName}`;
+
+    let fileSha;
+    const checkRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${githubPath}`, {
+      headers: { Authorization: `token ${GITHUB_TOKEN}` }
+    });
+
+    if (checkRes.status === 200) {
+      const data = await checkRes.json();
+      fileSha = data.sha;
+    }
+
+    if (fileSha && req.body.overwrite !== 'true') {
+      return res.json({
+        success: false,
+        exists: true,
+        message: 'File already exists'
+      });
+    }
+
+    await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${githubPath}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: `Upload image: ${fileName}`,
+        content: contentEncoded,
+        sha: fileSha
+      })
+    });
+
+    res.json({
+      success: true,
+      fileName,
+      url: `/images/${fileName}`
+    });
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: err.message });
+  }
+});

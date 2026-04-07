@@ -25,7 +25,7 @@ export function startEditor() {
     'insert-dropdown': showDropdownForm,
     'insert-lookup-system': showLookupForm,
     'insert-linear-graph-system': showLinearGraphForm,
-
+    'insert-image': showImageUploadForm
   };
 
   document.getElementById('file-selector').addEventListener('change', loadSelectedFile);
@@ -1063,5 +1063,73 @@ function showLinearGraphForm() {
 
     insertTextAtCursor(html);
     form.remove();
+  });
+}
+
+function showImageUploadForm() {
+  const form = document.createElement("form");
+
+  form.innerHTML = `
+    <label>
+      Select Image:
+      <input type="file" name="image" accept="image/*" required>
+    </label><br>
+
+    <label>
+      File Name:
+      <input type="text" name="fileName" placeholder="Leave blank to use original name">
+    </label><br>
+
+    <button type="submit">Upload</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 2000
+  });
+
+  document.body.appendChild(form);
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    let res = await fetch('/upload-editor-image', {
+      method: 'POST',
+      body: formData
+    });
+
+    let data = await res.json();
+
+    // ⚠️ file exists → ask before overwrite
+    if (data.exists) {
+      const confirmOverwrite = confirm("Image exists. Overwrite?");
+      if (!confirmOverwrite) return;
+
+      formData.append("overwrite", "true");
+
+      res = await fetch('/upload-editor-image', {
+        method: 'POST',
+        body: formData
+      });
+
+      data = await res.json();
+    }
+
+    if (data.success) {
+      const imgTag = `<img src="/images/${data.fileName}">\n`;
+      insertTextAtCursor(imgTag);
+      form.remove();
+    } else {
+      alert(data.message || "Upload failed");
+    }
   });
 }
