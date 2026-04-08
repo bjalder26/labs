@@ -678,7 +678,7 @@ GRADING INSTRUCTIONS
 * Assign a score between 0 and 1.
 
 * Evaluate each criterion independently before determining the final score.
-  Criteria may include multiple acceptable options (x or y), and a student only needs to meet one of those options.
+  Criteria may include multiple acceptable options (x or y), and a student only needs to address one of those options with any part of their answer.
 
 ---
 
@@ -690,20 +690,8 @@ CORE GRADING PRINCIPLES
 
 * No additional requirements:
   Do not introduce expectations beyond those stated in the criteria.
-
----
-
-REQUIREMENTS FOR CREDIT
-
-* Minimum content requirement:
-
-* Definition of “core idea”:
-  A criterion is only fully met if the response includes:
-  (1) the correct concept, AND
-  (2) minimal meaningful context or explanation.
-
-* No keyword-only credit:
-  Do NOT award credit for isolated keywords if they are not used in a relatively correct context.
+  Do not take off points for bad grammar, incorrect spelling, or imprecise wording (e.g. mass vs weight).
+  Do NOT award full credit for isolated keywords if they are not used in a relatively correct context.
 
 ---
 
@@ -712,8 +700,8 @@ SCORING EACH CRITERION
 Score each criterion independently using the following scale:
 
 * 0.0 = Not addressed, completely incorrect, or only isolated keywords without any context
-* 0.25 = Attempt made but core idea is incorrect
-* 0.5 = Partially correct with some explanation, but significant gaps or inaccuracies
+* 0.5 = Attempt made but core idea is incorrect
+* 0.75 = Partially correct with some explanation, but significant gaps or inaccuracies
 * 1.0 = Correct or mostly correct and includes at least minimal supporting explanation or context
 
 ---
@@ -725,20 +713,18 @@ ADDITIONAL GUIDELINES
 
 * Do not require explicit linking:
   Concepts do not need to be strongly connected or fully explained together unless explicitly required by the criterion.
-  Minimal connection between concepts is accepable for connections required by the criterion (e.g. thus, then, will, causes...). 
+  Minimal connection between concepts is accepable for connections required by the criterion (e.g. and, thus, then, will, causes, therefore, because, and other such minor connections). 
 
 * Do not penalize for brevity:
   Concise answers can receive full credit if they meet the minimum content requirement.
 
 * Criterion independence:
-  Each criterion must be explicitly assessed, though they can be addressed with the same text.
+  Each criterion must be explicitly assessed, though they can be addressed with the same text or anywhere in the response.
 ---
 
 FINAL SCORE
 
 * The final score is the average of all criterion scores.
-
-* Do not adjust the score beyond this calculation.
 
 ---
 
@@ -746,7 +732,7 @@ ACCEPTABLE FLEXIBILITY
 
 * Accept equivalent language that conveys the same scientific meaning.
 
-* Interpret responses based on intended meaning.
+* Interpret responses based on intended meaning, even if the language is imprecise, grammatically incorrect, misspelled, or uses poor word choices.
 
 FEEDBACK RULES
 
