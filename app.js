@@ -907,9 +907,10 @@ app.post('/upload-editor-image', editorUpload.single('image'), async (req, res) 
     let fileName = req.body.fileName || req.file.originalname;
 
     // sanitize filename
+    fileName = path.basename(fileName); // strip any path junk first
     fileName = fileName.replace(/[^a-zA-Z0-9.\-_]/g, '_');
 
-    const ext = path.extname(req.file.originalname);
+    const ext = path.extname(req.file.originalname).toLowerCase();
     fileName = path.basename(fileName, path.extname(fileName)) + ext;
 
     const fileBuffer = req.file.buffer;
