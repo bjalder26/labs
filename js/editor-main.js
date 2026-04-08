@@ -1111,7 +1111,7 @@ function showImageUploadForm() {
 
     // ⚠️ file exists → ask before overwrite
     if (data.exists) {
-      const confirmOverwrite = confirm("Image exists. Overwrite?");
+      const confirmOverwrite = confirm(`${data.fileName} already exists. Overwrite it?`);
       if (!confirmOverwrite) return;
 
       formData.append("overwrite", "true");

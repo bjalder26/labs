@@ -910,12 +910,19 @@ app.post('/upload-editor-image', editorUpload.single('image'), async (req, res) 
     fileName = fileName.replace(/[^a-zA-Z0-9.\-_]/g, '_');
 
     const ext = path.extname(req.file.originalname);
-    if (!fileName.endsWith(ext)) fileName += ext;
+    fileName = path.basename(fileName, path.extname(fileName)) + ext;
 
-    // ✅ FIXED: use buffer
     const fileBuffer = req.file.buffer;
-    const contentEncoded = fileBuffer.toString('base64');
+    const imagePath = path.join(__dirname, 'images', fileName);
 
+    // -------------------------
+    // 1. CHECK LOCAL
+    // -------------------------
+    const localExists = fs.existsSync(imagePath);
+
+    // -------------------------
+    // 2. CHECK GITHUB
+    // -------------------------
     const githubPath = `images/${fileName}`;
 
     let fileSha;
@@ -928,13 +935,29 @@ app.post('/upload-editor-image', editorUpload.single('image'), async (req, res) 
       fileSha = data.sha;
     }
 
-    if (fileSha && req.body.overwrite !== 'true') {
+    const githubExists = !!fileSha;
+
+    // -------------------------
+    // 3. BLOCK IF EXISTS (no overwrite)
+    // -------------------------
+    if ((localExists || githubExists) && req.body.overwrite !== 'true') {
       return res.json({
         success: false,
         exists: true,
-        message: 'File already exists'
+        fileName
       });
     }
+
+    // -------------------------
+    // 4. SAVE LOCALLY (overwrite OK)
+    // -------------------------
+    fs.mkdirSync(path.dirname(imagePath), { recursive: true });
+    fs.writeFileSync(imagePath, fileBuffer);
+
+    // -------------------------
+    // 5. UPLOAD TO GITHUB (overwrite via sha)
+    // -------------------------
+    const contentEncoded = fileBuffer.toString('base64');
 
     await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${githubPath}`, {
       method: 'PUT',
@@ -945,11 +968,14 @@ app.post('/upload-editor-image', editorUpload.single('image'), async (req, res) 
       body: JSON.stringify({
         message: `Upload image: ${fileName}`,
         content: contentEncoded,
-        sha: fileSha,
+        sha: fileSha, // required for overwrite
         branch: 'assets'
       })
     });
 
+    // -------------------------
+    // 6. SUCCESS
+    // -------------------------
     res.json({
       success: true,
       fileName,
