@@ -1148,6 +1148,8 @@ if (scoreElement) {
     const rawScore = parseFloat(data.score);
     const feedback = data.feedback;
 
+    console.log(data);
+
     const finalScore = (rawScore * totalPoints).toFixed(2);
 
     // ✅ update readonly input (this is what gets saved)
