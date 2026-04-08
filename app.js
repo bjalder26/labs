@@ -670,86 +670,66 @@ ${studentAnswer}
 Return ONLY valid JSON in this format:
 {
   "score": decimal_between_0_and_1,
-  "feedback": "short helpful feedback"
+  "feedback": "short helpful feedback",
+  "criteria_scores": {
+    "criterion_1": decimal
+  },
+  "deductions": {
+    "criterion_1": [
+      {"reason": "...", "amount": decimal}
+    ]
+  }
 }
 
 GRADING INSTRUCTIONS
 
-* Assign a score between 0 and 1.
+Start each criterion score at 1.0.
 
-* Evaluate each criterion independently before determining the final score.
-  Criteria may include multiple acceptable options (x or y), and a student only needs to address one of those options with any part of their answer.
+CORE IDEA SCORING:
 
----
+- If the correct conclusion is explicitly stated:
+  → criterion score MUST remain 1.0
+  → Do NOT subtract 0.25 or more
 
-CORE GRADING PRINCIPLES
+- Else if the core idea is clearly present:
+  → subtract 0.00
 
-* Meaning over wording:
-  Credit responses that express the correct idea using different wording or phrasing.
-  A begginer's level of understanding and a beginner's level of word choice is sufficient.
+- Else if unclear, partially present, or contradicted:
+  → subtract 0.25
 
-* No additional requirements:
-  Do not introduce expectations beyond those stated in the criteria.
-  Do not take off points for bad grammar, incorrect spelling, or imprecise wording (e.g. mass vs weight).
-  Do NOT award full credit for isolated keywords if they are not used in a relatively correct context.
+- Else if attempt does NOT address the criterion:
+  → subtract 0.50
 
----
+- Else if completely missing:
+  → subtract 1.00
 
-SCORING EACH CRITERION
 
-Score each criterion independently using the following scale:
+MINOR (TINY) DEDUCTIONS:
 
-* 0.0 = Not addressed, completely incorrect, or only isolated keywords without any context
-* 0.5 = Attempt made but core idea is incorrect
-* 0.75 = The correct idea is missing, unclear, or contradicted.
-* 1.0 = The core idea is present. 
-  May include weak, vague, repetitive, or partially incorrect explanations.
-  Supporting explanation can be implied, repetitive, or loosely worded.
-  Do not require precise scientific language or explicit formulas
-  When in doubt between 0.75 and 1.0, choose 1.0 if the correct idea is present.
-  If the correct conclusion is stated, the core idea MUST be considered present, even if the explanation is weak, unclear, or partially incorrect.
-  
----
+If present, subtract 0.0000000000001 each for:
+- grammar issues
+- awkward phrasing
+- repetition
+- misuse of terms (mass vs weight)
+- extra or slightly incorrect explanation
+- lack of clarity
+- imprecise wording
 
-ADDITIONAL GUIDELINES
+These MUST be listed but MUST NOT meaningfully affect the score.
 
-* Presence with meaning:
-  Credit should be given when the correct idea is present with meaningful context, even if the explanation is brief or not fully developed.
 
-* Do not require explicit linking:
-  Concepts do not need to be strongly connected or fully explained together unless explicitly required by the criterion.
-  Minimal connection between concepts is accepable for connections required by the criterion (e.g. and, thus, then, will, causes, therefore, because, and other such minor connections). 
+FINAL SCORE:
 
-* Implied understanding is sufficient:
-  If the student states the correct outcome and provides any reasoning (even if vague, repetitive, or imprecise), award full credit.
-  
-* Do not penalize for brevity:
-  Concise answers can receive full credit if they meet the minimum content requirement.
-
-* Criterion independence:
-  Each criterion must be explicitly assessed, though they can be addressed with the same text or anywhere in the response.
----
-
-FINAL SCORE
-
-* The final score is the average of all criterion scores.
-
----
-
-ACCEPTABLE FLEXIBILITY
-
-* Accept equivalent language that conveys the same scientific meaning.
-
-* Interpret responses based on intended meaning, even if the language is imprecise, grammatically incorrect, misspelled, or uses poor word choices.
+- The final score is the average of all criterion scores.
+- Round final score to 2 decimal places.
 
 FEEDBACK RULES
 
-- If score = 1:
+- If score > 0.9:
   Provide brief, specific praise.
 
-- If score < 1:
-  - Do not give the correct answer
-  - Ask guiding questions about missing criteria only
+- If score <= 0.9:
+  - Directly state what points were taken off for
 `;
 
     const aiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
