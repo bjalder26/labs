@@ -702,7 +702,9 @@ Score each criterion independently using the following scale:
 * 0.0 = Not addressed, completely incorrect, or only isolated keywords without any context
 * 0.5 = Attempt made but core idea is incorrect
 * 0.75 = Partially correct with some explanation, but significant gaps or inaccuracies
-* 1.0 = Correct or mostly correct and includes at least minimal supporting explanation or context
+* 1.0 = Correct or mostly correct and includes at least minimal supporting explanation or context.
+  Supporting explanation can be implied, repetitive, or loosely worded, as long as it shows an attempt to explain the idea.
+  Do not require precise scientific language or explicit formulas.
 
 ---
 
@@ -715,6 +717,9 @@ ADDITIONAL GUIDELINES
   Concepts do not need to be strongly connected or fully explained together unless explicitly required by the criterion.
   Minimal connection between concepts is accepable for connections required by the criterion (e.g. and, thus, then, will, causes, therefore, because, and other such minor connections). 
 
+* Implied understanding is sufficient:
+  If the student states the correct outcome and provides any reasoning (even if vague, repetitive, or imprecise), award full credit.
+  
 * Do not penalize for brevity:
   Concise answers can receive full credit if they meet the minimum content requirement.
 
