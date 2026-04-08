@@ -725,6 +725,7 @@ ADDITIONAL GUIDELINES
 
 * Do not require explicit linking:
   Concepts do not need to be strongly connected or fully explained together unless explicitly required by the criterion.
+  Minimal connection between concepts is accepable for connections required by the criterion (e.g. thus, then, will, causes...). 
 
 * Do not penalize for brevity:
   Concise answers can receive full credit if they meet the minimum content requirement.
