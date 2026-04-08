@@ -1,5 +1,92 @@
+
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1e40af;
+  /* --accent: #10b981; */
+
+  --bg: #ebf5ff;
+  --card: #ffffff;
+
+  --text: #111827;
+  --muted: #6b7280;
+
+  --border: #e5e7eb;
+}
+
+/* ===== Base ===== */
 body {
   font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  line-height: 1.6;
+  padding: 0px 10px;
+}
+
+/* ===== Layout ===== */
+#title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+#name, .inline-block {
+  display: inline-block;
+}
+
+/* ===== Button Bar ===== */
+#button_bar {
+  height: 50px;
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+  display: none;
+  gap: 8px;
+  padding: 6px 12px;
+  box-sizing: border-box;
+  background: white;
+  border-top: 1px solid var(--border);
+  align-items: center;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+/* ===== Buttons ===== */
+button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button.hidden, .vcenter {
+  color: black;
+  background: #e5e7eb;
+}
+
+/* ===== Inputs ===== */
+input, textarea {
+  border: 1px solid var(#000000);
+  border-radius: 3px;
+  padding: 4px 0px;
+  /* font-size: 0.95rem; */
+  transition: 0.15s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
 }
 
 textarea {
@@ -8,64 +95,7 @@ textarea {
   resize: none;
 }
 
-#button_bar {
-  height: 40px;
-  position: sticky;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-  display: none;
-  align-content: center;
-  gap: 2px;
-  padding: 2px;
-  box-sizing: border-box;
-  background: lightgrey;
-  align-items: center; /* Vertical centering */
-}
-
-.canvas {
-  max-height: 300px;
-}
-
-canvas {
-  border-radius: 10px;
-  background-color: #e6ebfb;
-}
-
-#title {
-  text-align: center;
-}
-
-#name, .inline-block {
-  display: inline-block;
-}
-
-.feedback {
-  display: inline-block;
-  height: 15px;
-  width: 15px;
-}
-
-.feedback[title="correct"] {
-  height: 15px;
-  width: 15px;
-}
-
-/* Selects any div ending in "DIV" that is the direct next sibling of .sub */
-input.sub + div[id$="DIV"] {
-  display: none;
-}
-
-.aiMax {
-  display: inline-block;
-}
-table,
-th,
-td {
-  border: 1px solid black;
-}
-
+/* ===== Answer Types ===== */
 .essay {
   width: 100%;
   display: block;
@@ -82,6 +112,95 @@ td {
   resize: none;
 }
 
+/* ===== Tables (BIG upgrade) ===== */
+table {
+  max-width: 100%;
+  border-collapse: collapse;
+  margin: 15px 0;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+th {
+  background: var(--primary);
+  color: white;
+  padding: 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+tr:nth-child(even) {
+  background: #f3f4f6;
+}
+
+tr:hover {
+  background: #e0f2fe;
+}
+
+/* Remove borders when needed */
+td.noborder,
+tr.noborder td,
+table.noborder td {
+  border: none;
+}
+
+/* ===== Fraction Tables ===== */
+table.fraction {
+  border-collapse: collapse;
+  border: none;
+}
+
+table.fraction td {
+  border-collapse: collapse;
+  border: none;
+  display: inline-flex;
+}
+
+td.underline {
+  border-bottom: 2px solid var(--text) !important;
+}
+
+/* ===== Feedback indicators ===== */
+.feedback {
+  display: inline-block;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+}
+
+.feedback[title="incorrect"] {
+  background: #ef4444;
+}
+
+/* ===== Canvas styling ===== */
+.canvas {
+  max-height: 300px;
+}
+
+canvas {
+  border-radius: 12px;
+  background-color: #eef2ff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* ===== Centering helpers ===== */
+.center {
+  text-align: center;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+/* ===== Misc ===== */
 img,
 .noBreak {
   break-inside: avoid-page;
@@ -95,63 +214,6 @@ img,
   display: none;
 }
 
-td.noborder {
-  border: none;
-}
-
-tr.noborder td {
-  border: none;
-}
-
-table.noborder tr td {
-  border: none;
-}
-
-table.fraction {
-  border-collapse: collapse;
-  border: none;
-}
-
-table.fraction > tbody > tr > td {
-  border-collapse: collapse;
-  border: none;
-  display: inline-flex;
-}
-
-td.underline {
-  border-bottom: 1px solid black !important;
-}
-
-.center {
-  text-align: center;
-}
-
-.centered {
-  display: flex;           /* Use Flexbox to center the canvas */
-  justify-content: center; /* Center horizontally */
-}
-
-@media screen {
-  div.footer {
-    display: none;
-  }
-}
-
-@media print {
-  @page {
-    body {
-      bottom: 5cm;
-    }
-  }
-
-  div.footer {
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
-    display: none;
-  }
-}
-
 .symbol {
   width: 50px;
 }
@@ -160,17 +222,15 @@ td.underline {
   color: red;
 }
 
-button.hidden, .vcenter {
-  color: black
-}
-
+/* ===== Overlay (modal) ===== */
 .overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(4px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -179,16 +239,50 @@ button.hidden, .vcenter {
 
 .overlay-content {
   background: white;
-  padding: 20px;
-  border-radius: 8px;
-  max-width: 400px;
+  padding: 24px;
+  border-radius: 12px;
+  max-width: 420px;
   text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .overlay-content #overlay-text {
-    padding: 10px;
+  padding: 10px;
 }
 
 .overlay-hidden {
   display: none !important;
+}
+
+/* ===== Print tweaks ===== */
+@media screen {
+  div.footer {
+    display: none;
+  }
+}
+
+@media print {
+  body {
+    bottom: 5cm;
+    background: white;
+  }
+
+  table {
+    box-shadow: none;
+  }
+
+  div.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: none;
+  }
+}
+
+.aiMax {
+  display: inline-block;
+}
+
+input.sub + div[id$="DIV"] {
+  display: none;
 }
