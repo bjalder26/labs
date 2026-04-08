@@ -701,11 +701,14 @@ Score each criterion independently using the following scale:
 
 * 0.0 = Not addressed, completely incorrect, or only isolated keywords without any context
 * 0.5 = Attempt made but core idea is incorrect
-* 0.75 = Partially correct with some explanation, but significant gaps or inaccuracies
-* 1.0 = Correct or mostly correct and includes at least minimal supporting explanation or context.
-  Supporting explanation can be implied, repetitive, or loosely worded, as long as it shows an attempt to explain the idea.
-  Do not require precise scientific language or explicit formulas.
-
+* 0.75 = The correct idea is missing, unclear, or contradicted.
+* 1.0 = The core idea is present. 
+  May include weak, vague, repetitive, or partially incorrect explanations.
+  Supporting explanation can be implied, repetitive, or loosely worded.
+  Do not require precise scientific language or explicit formulas
+  When in doubt between 0.75 and 1.0, choose 1.0 if the correct idea is present.
+  If the correct conclusion is stated, the core idea MUST be considered present, even if the explanation is weak, unclear, or partially incorrect.
+  
 ---
 
 ADDITIONAL GUIDELINES
