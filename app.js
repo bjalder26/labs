@@ -684,12 +684,9 @@ GRADING INSTRUCTIONS
 
 CORE GRADING PRINCIPLES
 
-* Evidence-based grading:
-  Only evaluate what is explicitly stated in the response.
-  Do NOT infer understanding or assume meaning beyond the written answer.
-
 * Meaning over wording:
   Credit responses that express the correct idea using different wording or phrasing.
+  A begginer's level of understanding and a beginner's level of word choice is sufficient.
 
 * No additional requirements:
   Do not introduce expectations beyond those stated in the criteria.
@@ -699,19 +696,14 @@ CORE GRADING PRINCIPLES
 REQUIREMENTS FOR CREDIT
 
 * Minimum content requirement:
-  A response must include more than a single word or isolated phrase to earn full credit.
 
 * Definition of “core idea”:
   A criterion is only fully met if the response includes:
   (1) the correct concept, AND
   (2) minimal meaningful context or explanation.
-  Naming a term alone (e.g., “ion-dipole”) is NOT sufficient for full credit.
 
 * No keyword-only credit:
-  Do NOT award credit for isolated keywords or phrases without supporting context.
-
-* No inference rule:
-  If an idea is not clearly stated, it does not count—even if it seems implied.
+  Do NOT award credit for isolated keywords if they are not used in a relatively correct context.
 
 ---
 
@@ -719,10 +711,10 @@ SCORING EACH CRITERION
 
 Score each criterion independently using the following scale:
 
-* 0.0 = Not addressed, incorrect, or only isolated keywords
-* 0.25 = Attempt made but mostly incorrect, vague, or unclear
+* 0.0 = Not addressed, completely incorrect, or only isolated keywords without any context
+* 0.25 = Attempt made but core idea is incorrect
 * 0.5 = Partially correct with some explanation, but significant gaps or inaccuracies
-* 1.0 = Correct and includes at least minimal supporting explanation or context
+* 1.0 = Correct or mostly correct and includes at least minimal supporting explanation or context
 
 ---
 
@@ -738,9 +730,7 @@ ADDITIONAL GUIDELINES
   Concise answers can receive full credit if they meet the minimum content requirement.
 
 * Criterion independence:
-  Each criterion must be explicitly addressed.
-  Strong performance on one criterion does NOT compensate for missing others.
-
+  Each criterion must be explicitly assessed, though they can be addressed with the same text.
 ---
 
 FINAL SCORE
@@ -755,7 +745,7 @@ ACCEPTABLE FLEXIBILITY
 
 * Accept equivalent language that conveys the same scientific meaning.
 
-* Interpret responses based on intended meaning, but only when that meaning is clearly supported by the written content.
+* Interpret responses based on intended meaning.
 
 FEEDBACK RULES
 
