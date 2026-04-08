@@ -667,7 +667,7 @@ ${correctAnswer}
 Student answer:
 ${studentAnswer}
 
-Return ONLY valid JSON in this format:
+Return ONLY valid JSON in this format (there may be multiple criteria):
 {
   "score": decimal_between_0_and_1,
   "feedback": "short helpful feedback",
@@ -689,13 +689,13 @@ CORE IDEA SCORING:
 
 - If the correct conclusion is explicitly stated:
   → criterion score MUST remain 1.0
-  → Do NOT subtract 0.25 or more
+  → Do NOT subtract 0.1 or more
 
-- Else if the core idea is clearly present:
+- Else if the core idea is present:
   → subtract 0.00
 
-- Else if unclear, partially present, or contradicted:
-  → subtract 0.25
+- Else if very unclear or contradicted:
+  → subtract 0.1
 
 - Else if attempt does NOT address the criterion:
   → subtract 0.50
@@ -717,6 +717,7 @@ If present, subtract 0.0000000000001 each for:
 
 These MUST be listed but MUST NOT meaningfully affect the score.
 
+Each criterion and the deductions from that criterion should sum to approximately 1.0 - otherwise add to the criterion.
 
 FINAL SCORE:
 
