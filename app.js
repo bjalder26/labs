@@ -1,4 +1,3 @@
-
 // This application uses express as its web server
 // for more info, see: http://expressjs.com
 var express = require('express');
@@ -773,96 +772,207 @@ FEEDBACK RULES
 app.post('/commit-to-github', async (req, res) => {
   try {
     const { pageName } = req.body
-    if (!pageName) return res.status(400).json({ error: 'Missing pageName' })
+    if (!pageName) {
+      return res.status(400).json({ error: 'Missing pageName' })
+    }
 
-    // 1️⃣ Map pageName to file path on disk
-    const filePath = path.join(__dirname, 'lab', `${pageName}`)
-    if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'File not found' })
+    // ---------- HELPERS ----------
+    const ghHeaders = {
+      Authorization: `token ${GITHUB_TOKEN}`,
+      'Content-Type': 'application/json'
+    }
+
+    const fetchJSON = async (url, options = {}) => {
+      const response = await fetch(url, options)
+      const data = await response.json().catch(() => ({}))
+      return { ok: response.ok, status: response.status, data }
+    }
+
+    const safeName = pageName.replace(/[^a-zA-Z0-9._-]/g, '-')
+
+    const makeBranchName = (attempt = 0) => {
+      return `${safeName}-${Date.now()}${attempt ? '-' + attempt : ''}`
+    }
+
+    // ---------- 1. READ FILE ----------
+    const filePath = path.join(__dirname, 'lab', pageName)
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ error: 'File not found' })
+    }
 
     const fileContent = fs.readFileSync(filePath, 'utf8')
-    const contentEncoded = base64.encode(fileContent)
+    const contentEncoded = Buffer.from(fileContent).toString('base64')
 
-    // 2️⃣ Check if an open PR already exists for this page
-    const pullsRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/pulls?state=open`, {
-      headers: { Authorization: `token ${GITHUB_TOKEN}` }
-    })
-    const pulls = await pullsRes.json()
+    // ---------- 2. CHECK EXISTING PR ----------
+    const pullsRes = await fetchJSON(
+      `https://api.github.com/repos/${OWNER}/${REPO}/pulls?state=open`,
+      { headers: ghHeaders }
+    )
 
-    // Try to find a PR with this page name in the title
-    let existingPR = pulls.find(pr => pr.title.includes(pageName))
+    if (!pullsRes.ok) {
+      return res.status(500).json({
+        error: 'Failed to fetch PRs',
+        details: pullsRes.data
+      })
+    }
+
+    let existingPR = pullsRes.data.find(pr => pr.title.includes(pageName))
 
     let branchName
     let prUrl
 
     if (existingPR) {
-      // ✅ Reuse existing PR & branch
+      // Reuse existing branch
       branchName = existingPR.head.ref
       prUrl = existingPR.html_url
     } else {
-      // ✅ No open PR → create a new branch
-      branchName = `${pageName}-${Date.now()}`
+      // ---------- 3. CREATE BRANCH (WITH RETRY) ----------
+      let attempts = 0
+      let created = false
 
-      // 2a. Get SHA of main branch
-      const mainRefRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/git/ref/heads/${MAIN_BRANCH}`, {
-        headers: { Authorization: `token ${GITHUB_TOKEN}` }
-      })
-      const mainRef = await mainRefRes.json()
-      const mainSha = mainRef.object.sha
+      const mainRefRes = await fetchJSON(
+        `https://api.github.com/repos/${OWNER}/${REPO}/git/ref/heads/${MAIN_BRANCH}`,
+        { headers: ghHeaders }
+      )
 
-      // 2b. Create new branch
-      await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/git/refs`, {
-        method: 'POST',
-        headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ref: `refs/heads/${branchName}`,
-          sha: mainSha
+      if (!mainRefRes.ok) {
+        return res.status(500).json({
+          error: 'Failed to get main branch SHA',
+          details: mainRefRes.data
         })
-      })
+      }
+
+      const mainSha = mainRefRes.data.object.sha
+
+      while (!created && attempts < 5) {
+        branchName = makeBranchName(attempts)
+
+        const branchRes = await fetchJSON(
+          `https://api.github.com/repos/${OWNER}/${REPO}/git/refs`,
+          {
+            method: 'POST',
+            headers: ghHeaders,
+            body: JSON.stringify({
+              ref: `refs/heads/${branchName}`,
+              sha: mainSha
+            })
+          }
+        )
+
+        if (branchRes.ok) {
+          created = true
+        } else if (branchRes.data.message?.includes('Reference already exists')) {
+          attempts++
+        } else {
+          return res.status(500).json({
+            error: 'Branch creation failed',
+            details: branchRes.data
+          })
+        }
+      }
+
+      if (!created) {
+        return res.status(500).json({
+          error: 'Failed to create branch after retries'
+        })
+      }
     }
 
-    // 3️⃣ Get file SHA if it exists on the branch (needed for updating)
+    // ---------- 4. GET FILE SHA (if exists) ----------
     let fileSha
-    const fileRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}?ref=${branchName}`, {
-      headers: { Authorization: `token ${GITHUB_TOKEN}` }
-    })
-    if (fileRes.status === 200) {
-      const fileData = await fileRes.json()
-      fileSha = fileData.sha
+
+    const fileRes = await fetchJSON(
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}?ref=${branchName}`,
+      { headers: ghHeaders }
+    )
+
+    if (fileRes.ok) {
+      fileSha = fileRes.data.sha
     }
 
-    // 4️⃣ Commit file to branch
-    const commitRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}`, {
-      method: 'PUT',
-      headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: `Editor update for ${pageName}`,
-        content: contentEncoded,
-        branch: branchName,
-        sha: fileSha // undefined if new file
-      })
-    })
-    await commitRes.json() // just to ensure request completed
+    // ---------- 5. COMMIT (WITH RETRY) ----------
+    let commitAttempts = 0
+    let committed = false
 
-    // 5️⃣ Create a PR if branch was new
-    if (!existingPR) {
-      const prRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/pulls`, {
-        method: 'POST',
-        headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: `Editor update: ${pageName}`,
-          head: branchName,
-          base: MAIN_BRANCH,
-          body: `Changes made via editor for ${pageName}`
+    while (!committed && commitAttempts < 3) {
+      const commitRes = await fetchJSON(
+        `https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}`,
+        {
+          method: 'PUT',
+          headers: ghHeaders,
+          body: JSON.stringify({
+            message: `Editor update for ${pageName}`,
+            content: contentEncoded,
+            branch: branchName,
+            sha: fileSha
+          })
+        }
+      )
+
+      if (commitRes.ok) {
+        committed = true
+      } else if (commitRes.data.message?.toLowerCase().includes('sha')) {
+        // SHA mismatch → refetch and retry
+        const retryFileRes = await fetchJSON(
+          `https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}?ref=${branchName}`,
+          { headers: ghHeaders }
+        )
+
+        fileSha = retryFileRes.ok ? retryFileRes.data.sha : undefined
+        commitAttempts++
+      } else {
+        return res.status(500).json({
+          error: 'Commit failed',
+          details: commitRes.data
         })
-      })
-      const prData = await prRes.json()
-      prUrl = prData.html_url
+      }
     }
 
-    res.json({ success: true, prUrl })
+    if (!committed) {
+      return res.status(500).json({
+        error: 'Commit failed after retries'
+      })
+    }
+
+    // ---------- 6. CREATE PR ----------
+    if (!existingPR) {
+      const prRes = await fetchJSON(
+        `https://api.github.com/repos/${OWNER}/${REPO}/pulls`,
+        {
+          method: 'POST',
+          headers: ghHeaders,
+          body: JSON.stringify({
+            title: `Editor update: ${pageName}`,
+            head: branchName,
+            base: MAIN_BRANCH,
+            body: `Changes made via editor for ${pageName}`
+          })
+        }
+      )
+
+      if (!prRes.ok) {
+        return res.status(500).json({
+          error: 'PR creation failed',
+          details: prRes.data
+        })
+      }
+
+      prUrl = prRes.data.html_url
+    }
+
+    // ---------- DONE ----------
+    res.json({
+      success: true,
+      branch: branchName,
+      prUrl
+    })
+
   } catch (err) {
-    console.error(err)
-    res.status(500).json({ error: 'Something went wrong', details: err.message })
+    console.error('FATAL ERROR:', err)
+    res.status(500).json({
+      error: 'Something went wrong',
+      details: err.message
+    })
   }
 })
 
