@@ -667,15 +667,19 @@ ${correctAnswer}
 Student answer:
 ${studentAnswer}
 
-Return ONLY valid JSON in this format (there may be multiple criteria):
+Return ONLY valid JSON in this format (there may be 1 criterion, or more, so that part is flexible.):
 {
   "score": decimal_between_0_and_1,
   "feedback": "short helpful feedback",
   "criteria_scores": {
-    "criterion_1": decimal
+    "criterion_1": decimal,
+	"criterion_2": decimal
   },
   "deductions": {
     "criterion_1": [
+      {"reason": "...", "amount": decimal}
+    ],
+	"criterion_2": [
       {"reason": "...", "amount": decimal}
     ]
   }
