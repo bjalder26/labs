@@ -1,4 +1,3 @@
-
 // This application uses express as its web server
 // for more info, see: http://expressjs.com
 var express = require('express');
@@ -667,104 +666,74 @@ ${correctAnswer}
 Student answer:
 ${studentAnswer}
 
-Return ONLY valid JSON in this format:
+Return ONLY valid JSON in this format (there may be 1 criterion, or more, so that part is flexible.):
 {
   "score": decimal_between_0_and_1,
-  "feedback": "short helpful feedback"
+  "feedback": "short helpful feedback",
+  "criteria_scores": {
+    "criterion_1": decimal,
+	"criterion_2": decimal
+  },
+  "deductions": {
+    "criterion_1": [
+      {"reason": "...", "amount": decimal}
+    ],
+	"criterion_2": [
+      {"reason": "...", "amount": decimal}
+    ]
+  }
 }
 
 GRADING INSTRUCTIONS
 
-* Assign a score between 0 and 1.
+Start each criterion score at 1.0.
 
-* Evaluate each criterion independently before determining the final score.
-  Criteria may include multiple acceptable options (x or y), and a student only needs to meet one of those options.
+CORE IDEA SCORING:
 
----
+- If the correct conclusion is explicitly stated:
+  → criterion score MUST remain 1.0
+  → Do NOT subtract 0.1 or more
 
-CORE GRADING PRINCIPLES
+- Else if the core idea is present:
+  → subtract 0.00
 
-* Evidence-based grading:
-  Only evaluate what is explicitly stated in the response.
-  Do NOT infer understanding or assume meaning beyond the written answer.
+- Else if very unclear or contradicted:
+  → subtract 0.1
 
-* Meaning over wording:
-  Credit responses that express the correct idea using different wording or phrasing.
+- Else if attempt does NOT address the criterion:
+  → subtract 0.50
 
-* No additional requirements:
-  Do not introduce expectations beyond those stated in the criteria.
+- Else if completely missing:
+  → subtract 1.00
 
----
 
-REQUIREMENTS FOR CREDIT
+MINOR (TINY) DEDUCTIONS:
 
-* Minimum content requirement:
-  A response must include more than a single word or isolated phrase to earn full credit.
+If present, subtract 0.0000000000001 each for:
+- grammar issues
+- awkward phrasing
+- repetition
+- misuse of terms (mass vs weight)
+- extra or slightly incorrect explanation
+- lack of clarity
+- imprecise wording
 
-* Definition of “core idea”:
-  A criterion is only fully met if the response includes:
-  (1) the correct concept, AND
-  (2) minimal meaningful context or explanation.
-  Naming a term alone (e.g., “ion-dipole”) is NOT sufficient for full credit.
+These MUST be listed but MUST NOT meaningfully affect the score.
 
-* No keyword-only credit:
-  Do NOT award credit for isolated keywords or phrases without supporting context.
+Each criterion and the deductions from that criterion should sum to approximately 1.0 - otherwise add to the criterion.
 
-* No inference rule:
-  If an idea is not clearly stated, it does not count—even if it seems implied.
+FINAL SCORE:
 
----
-
-SCORING EACH CRITERION
-
-Score each criterion independently using the following scale:
-
-* 0.0 = Not addressed, incorrect, or only isolated keywords
-* 0.25 = Attempt made but mostly incorrect, vague, or unclear
-* 0.5 = Partially correct with some explanation, but significant gaps or inaccuracies
-* 1.0 = Correct and includes at least minimal supporting explanation or context
-
----
-
-ADDITIONAL GUIDELINES
-
-* Presence with meaning:
-  Credit should be given when the correct idea is present with meaningful context, even if the explanation is brief or not fully developed.
-
-* Do not require explicit linking:
-  Concepts do not need to be strongly connected or fully explained together unless explicitly required by the criterion.
-
-* Do not penalize for brevity:
-  Concise answers can receive full credit if they meet the minimum content requirement.
-
-* Criterion independence:
-  Each criterion must be explicitly addressed.
-  Strong performance on one criterion does NOT compensate for missing others.
-
----
-
-FINAL SCORE
-
-* The final score is the average of all criterion scores.
-
-* Do not adjust the score beyond this calculation.
-
----
-
-ACCEPTABLE FLEXIBILITY
-
-* Accept equivalent language that conveys the same scientific meaning.
-
-* Interpret responses based on intended meaning, but only when that meaning is clearly supported by the written content.
+- The final score is the average of all criterion scores.
+- Round final score to 2 decimal places.
 
 FEEDBACK RULES
 
-- If score = 1:
+- If score > 0.9:
   Provide brief, specific praise.
 
-- If score < 1:
-  - Do not give the correct answer
-  - Ask guiding questions about missing criteria only
+- If score <= 0.9:
+  - Directly state what points were taken off for
 `;
 
     const aiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -803,96 +772,207 @@ FEEDBACK RULES
 app.post('/commit-to-github', async (req, res) => {
   try {
     const { pageName } = req.body
-    if (!pageName) return res.status(400).json({ error: 'Missing pageName' })
+    if (!pageName) {
+      return res.status(400).json({ error: 'Missing pageName' })
+    }
 
-    // 1️⃣ Map pageName to file path on disk
-    const filePath = path.join(__dirname, 'lab', `${pageName}`)
-    if (!fs.existsSync(filePath)) return res.status(404).json({ error: 'File not found' })
+    // ---------- HELPERS ----------
+    const ghHeaders = {
+      Authorization: `token ${GITHUB_TOKEN}`,
+      'Content-Type': 'application/json'
+    }
+
+    const fetchJSON = async (url, options = {}) => {
+      const response = await fetch(url, options)
+      const data = await response.json().catch(() => ({}))
+      return { ok: response.ok, status: response.status, data }
+    }
+
+    const safeName = pageName.replace(/[^a-zA-Z0-9._-]/g, '-')
+
+    const makeBranchName = (attempt = 0) => {
+      return `${safeName}-${Date.now()}${attempt ? '-' + attempt : ''}`
+    }
+
+    // ---------- 1. READ FILE ----------
+    const filePath = path.join(__dirname, 'lab', pageName)
+    if (!fs.existsSync(filePath)) {
+      return res.status(404).json({ error: 'File not found' })
+    }
 
     const fileContent = fs.readFileSync(filePath, 'utf8')
-    const contentEncoded = base64.encode(fileContent)
+    const contentEncoded = Buffer.from(fileContent).toString('base64')
 
-    // 2️⃣ Check if an open PR already exists for this page
-    const pullsRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/pulls?state=open`, {
-      headers: { Authorization: `token ${GITHUB_TOKEN}` }
-    })
-    const pulls = await pullsRes.json()
+    // ---------- 2. CHECK EXISTING PR ----------
+    const pullsRes = await fetchJSON(
+      `https://api.github.com/repos/${OWNER}/${REPO}/pulls?state=open`,
+      { headers: ghHeaders }
+    )
 
-    // Try to find a PR with this page name in the title
-    let existingPR = pulls.find(pr => pr.title.includes(pageName))
+    if (!pullsRes.ok) {
+      return res.status(500).json({
+        error: 'Failed to fetch PRs',
+        details: pullsRes.data
+      })
+    }
+
+    let existingPR = pullsRes.data.find(pr => pr.title.includes(pageName))
 
     let branchName
     let prUrl
 
     if (existingPR) {
-      // ✅ Reuse existing PR & branch
+      // Reuse existing branch
       branchName = existingPR.head.ref
       prUrl = existingPR.html_url
     } else {
-      // ✅ No open PR → create a new branch
-      branchName = `${pageName}-${Date.now()}`
+      // ---------- 3. CREATE BRANCH (WITH RETRY) ----------
+      let attempts = 0
+      let created = false
 
-      // 2a. Get SHA of main branch
-      const mainRefRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/git/ref/heads/${MAIN_BRANCH}`, {
-        headers: { Authorization: `token ${GITHUB_TOKEN}` }
-      })
-      const mainRef = await mainRefRes.json()
-      const mainSha = mainRef.object.sha
+      const mainRefRes = await fetchJSON(
+        `https://api.github.com/repos/${OWNER}/${REPO}/git/ref/heads/${MAIN_BRANCH}`,
+        { headers: ghHeaders }
+      )
 
-      // 2b. Create new branch
-      await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/git/refs`, {
-        method: 'POST',
-        headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ref: `refs/heads/${branchName}`,
-          sha: mainSha
+      if (!mainRefRes.ok) {
+        return res.status(500).json({
+          error: 'Failed to get main branch SHA',
+          details: mainRefRes.data
         })
-      })
+      }
+
+      const mainSha = mainRefRes.data.object.sha
+
+      while (!created && attempts < 5) {
+        branchName = makeBranchName(attempts)
+
+        const branchRes = await fetchJSON(
+          `https://api.github.com/repos/${OWNER}/${REPO}/git/refs`,
+          {
+            method: 'POST',
+            headers: ghHeaders,
+            body: JSON.stringify({
+              ref: `refs/heads/${branchName}`,
+              sha: mainSha
+            })
+          }
+        )
+
+        if (branchRes.ok) {
+          created = true
+        } else if (branchRes.data.message?.includes('Reference already exists')) {
+          attempts++
+        } else {
+          return res.status(500).json({
+            error: 'Branch creation failed',
+            details: branchRes.data
+          })
+        }
+      }
+
+      if (!created) {
+        return res.status(500).json({
+          error: 'Failed to create branch after retries'
+        })
+      }
     }
 
-    // 3️⃣ Get file SHA if it exists on the branch (needed for updating)
+    // ---------- 4. GET FILE SHA (if exists) ----------
     let fileSha
-    const fileRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}?ref=${branchName}`, {
-      headers: { Authorization: `token ${GITHUB_TOKEN}` }
-    })
-    if (fileRes.status === 200) {
-      const fileData = await fileRes.json()
-      fileSha = fileData.sha
+
+    const fileRes = await fetchJSON(
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}?ref=${branchName}`,
+      { headers: ghHeaders }
+    )
+
+    if (fileRes.ok) {
+      fileSha = fileRes.data.sha
     }
 
-    // 4️⃣ Commit file to branch
-    const commitRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}`, {
-      method: 'PUT',
-      headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        message: `Editor update for ${pageName}`,
-        content: contentEncoded,
-        branch: branchName,
-        sha: fileSha // undefined if new file
-      })
-    })
-    await commitRes.json() // just to ensure request completed
+    // ---------- 5. COMMIT (WITH RETRY) ----------
+    let commitAttempts = 0
+    let committed = false
 
-    // 5️⃣ Create a PR if branch was new
-    if (!existingPR) {
-      const prRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/pulls`, {
-        method: 'POST',
-        headers: { Authorization: `token ${GITHUB_TOKEN}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          title: `Editor update: ${pageName}`,
-          head: branchName,
-          base: MAIN_BRANCH,
-          body: `Changes made via editor for ${pageName}`
+    while (!committed && commitAttempts < 3) {
+      const commitRes = await fetchJSON(
+        `https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}`,
+        {
+          method: 'PUT',
+          headers: ghHeaders,
+          body: JSON.stringify({
+            message: `Editor update for ${pageName}`,
+            content: contentEncoded,
+            branch: branchName,
+            sha: fileSha
+          })
+        }
+      )
+
+      if (commitRes.ok) {
+        committed = true
+      } else if (commitRes.data.message?.toLowerCase().includes('sha')) {
+        // SHA mismatch → refetch and retry
+        const retryFileRes = await fetchJSON(
+          `https://api.github.com/repos/${OWNER}/${REPO}/contents/lab/${pageName}?ref=${branchName}`,
+          { headers: ghHeaders }
+        )
+
+        fileSha = retryFileRes.ok ? retryFileRes.data.sha : undefined
+        commitAttempts++
+      } else {
+        return res.status(500).json({
+          error: 'Commit failed',
+          details: commitRes.data
         })
-      })
-      const prData = await prRes.json()
-      prUrl = prData.html_url
+      }
     }
 
-    res.json({ success: true, prUrl })
+    if (!committed) {
+      return res.status(500).json({
+        error: 'Commit failed after retries'
+      })
+    }
+
+    // ---------- 6. CREATE PR ----------
+    if (!existingPR) {
+      const prRes = await fetchJSON(
+        `https://api.github.com/repos/${OWNER}/${REPO}/pulls`,
+        {
+          method: 'POST',
+          headers: ghHeaders,
+          body: JSON.stringify({
+            title: `Editor update: ${pageName}`,
+            head: branchName,
+            base: MAIN_BRANCH,
+            body: `Changes made via editor for ${pageName}`
+          })
+        }
+      )
+
+      if (!prRes.ok) {
+        return res.status(500).json({
+          error: 'PR creation failed',
+          details: prRes.data
+        })
+      }
+
+      prUrl = prRes.data.html_url
+    }
+
+    // ---------- DONE ----------
+    res.json({
+      success: true,
+      branch: branchName,
+      prUrl
+    })
+
   } catch (err) {
-    console.error(err)
-    res.status(500).json({ error: 'Something went wrong', details: err.message })
+    console.error('FATAL ERROR:', err)
+    res.status(500).json({
+      error: 'Something went wrong',
+      details: err.message
+    })
   }
 })
 
