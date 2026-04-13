@@ -147,6 +147,74 @@ function showTableForm() {
   });
 }
 
+let previewTimeout;
+
+function updatePreview() {
+  clearTimeout(previewTimeout);
+
+  previewTimeout = setTimeout(() => {
+    const previewFrame = document.getElementById("preview-frame");
+    const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+
+    const blockerScript = `
+      <script>
+        (function () {
+          HTMLFormElement.prototype.requestSubmit = function () {};
+          HTMLFormElement.prototype.submit = function () {};
+          document.addEventListener("submit", function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+          }, true);
+        })();
+      <\/script>
+    `;
+
+    let html = editor.state.doc.toString();
+
+    // Inject blocker
+    html = html.replace(/<head([^>]*)>/i, `<head$1>${blockerScript}`);
+
+    doc.open();
+    doc.write(html);
+    doc.close();
+
+    const win = previewFrame.contentWindow;
+
+    // Wait for MathJax, then render smoothly
+    function waitForMathJax(callback) {
+      const check = () => {
+        if (win.MathJax && win.MathJax.Hub) {
+          callback();
+        } else {
+          setTimeout(check, 50);
+        }
+      };
+      check();
+    }
+
+    waitForMathJax(() => {
+      try {
+        const MJ = win.MathJax.Hub;
+
+        // 🔥 Stop any ongoing processing
+        MJ.Cancel();
+
+        // Clear previous math completely
+        MJ.Queue(["Reset", MJ]);
+
+        // Now safely typeset
+        MJ.Queue(["Reprocess", MJ, win.document.body]);
+
+      } catch (e) {
+        console.log("MathJax render error:", e);
+      }
+    });
+
+
+  }, 500); // debounce delay
+}
+
+/*
 function updatePreview() {
   const previewFrame = document.getElementById("preview-frame");
   const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
@@ -186,7 +254,7 @@ function updatePreview() {
   doc.write(html);
   doc.close();
 }
-
+*/
 function initEditor() {
   try {
     const editorElement = document.getElementById("editor");

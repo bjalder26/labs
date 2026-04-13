@@ -363,98 +363,7 @@ function score() {
 
   $("score").innerHTML = totalScore.toFixed(1);
 }
-/*
-function score() {
-    if (loaded) {
-      let dataScore = 0;
-      let calcScore = 0;
-      let dataFactor = 1;
-      let calcFactor = 1;
 
-      // --------------------
-      // DATA (non-calc .num)
-      // --------------------
-      let numElements = document.getElementsByClassName("num");
-      let numElementsArray = Array.from(numElements);
-
-      let numElementsArrayFiltered =
-        numElementsArray.filter(isNotCalcElement);
-
-      if (numElementsArrayFiltered.length > 0) {
-        let filledOutNumElements =
-          numElementsArrayFiltered.filter(isFilledOut);
-
-        dataScore =
-          (filledOutNumElements.length /
-            numElementsArrayFiltered.length) *
-          50;
-      } else {
-          dataScore = 0;
-          dataFactor = 0;
-          calcFactor = 2;
-      }
-
-      // --------------------
-      // CALC (FB elements)
-      // --------------------
-      const fbElements = document.querySelectorAll('[id$="FB"]');
-
-      let calcNumerator = 0;
-      let calcDenominator = 0;
-
-      if (fbElements.length > 0) {
-        fbElements.forEach((element) => {
-          if (element.getAttribute("title") === "correct") {
-            calcNumerator++;
-          }
-        });
-
-        calcDenominator = fbElements.length;
-      } else {
-        dataFactor = 2;
-      }
-
-      // --------------------
-      // AI ESSAY (NEW PART)
-      // --------------------
-      const aiScoreInputs = document.querySelectorAll(".aiScore");
-
-      let aiEarned = 0;
-      let aiMaxTotal = 0;
-
-      aiScoreInputs.forEach((input) => {
-        const baseId = input.id.replace("AiScore", "");
-        const maxDiv = document.getElementById(baseId + "AiMax");
-
-        const score = parseFloat(input.value);
-        const max = parseFloat(maxDiv?.textContent);
-
-        if (!isNaN(score) && !isNaN(max)) {
-          aiEarned += score;
-          aiMaxTotal += max;
-        }
-      });
-
-      // --------------------
-      // COMBINE CALC + AI
-      // --------------------
-      calcNumerator += aiEarned;
-      calcDenominator += aiMaxTotal;
-
-      if (calcDenominator > 0) {
-        calcScore = (calcNumerator / calcDenominator) * 50;
-      }
-
-      // --------------------
-      // FINAL TOTAL
-      // --------------------
-      const totalScore =
-        dataScore * dataFactor + calcScore * calcFactor;
-
-      $("score").innerHTML = totalScore.toFixed(1);
-    }
-}
-*/
 function saveData() {
   //  I don't think any of this does anything
   const gridItems = document.querySelectorAll(".grid-item");
@@ -722,6 +631,84 @@ function createOverlay() {
   });
 }
 
+Number.prototype.setSigFigs = function(sf) {
+  //console.log('== setSigFigs ==');
+  sf = sf * 1;
+  let n = Number(this.toPrecisionRound(sf)).toString(); // rounded here, but not sig figs
+  //console.log('n1: '+n)
+  let exp = 0;
+  if (n.includes("e")) {
+    // splits exponents from coefficient
+    const numpartsarray = n.split("e");
+    n = numpartsarray[0];
+    //console.log('n2: '+n);
+    if (!n.includes(".")) {
+      if (n.length < sf) {
+        n = n + ".";
+      }
+    }
+    n = n.padEnd(sf + 1, 0);
+    //console.log('n3: '+n);
+    exp = numpartsarray[1];
+  }
+  let neg = false;
+  if (parseInt(n) < 0) {
+    // removes negative, and remembers it was negative
+    n = n.replace("-", "");
+    neg = true;
+  }
+  if (n >= 1) {
+    // asb > 1
+    //console.log('abs greater than 1')
+    if (n.length < sf || (n.length == sf && n[n.length - 1] == 0)) {
+      // if number is shorter than the number of required sig figs OR the number is equal to the number of sig figs, but ends in a zero
+      if (!n.includes(".")) {
+        n = n + ".";
+      }
+    }
+    let end = sf - n.length;
+    if (n.includes(".")) {
+      end = end + 1;
+    }
+    for (let i = 0; i < end; i++) {
+      n = n + "0";
+    }
+    let checkIfAllZeros = n.slice(sf - 1);
+    if (+checkIfAllZeros == 0 && !n.includes(".")) {
+      n = n + ` (${sf} sf)`;
+    }
+  } else if (n != 0) {
+    // if < 1
+    //console.log('abs less than 1')
+
+    //console.log('n4: '+n)
+    //console.log('sf1: '+sf)
+    let zeros = n.match(/(?<=\.)(0*)/g);
+    //console.log('zeros: '+zeros);
+    let zerosLength = zeros ? zeros[0].length : 0;
+    //console.log('zl/sf: ' + zerosLength + ' ' + sf);
+    n = n.padEnd(zerosLength + sf + 2, 0);
+  } else {
+    //console.log('here')
+    n = n + ".";
+    //new
+    let zerosLength = 0;
+    n = n.padEnd(zerosLength + sf + 1, 0);
+    //n = n.padEnd(sf+2, 0);
+    //console.log('n5: '+n)
+  }
+  if (neg) {
+    n = "-" + n;
+  }
+  if (exp != 0) {
+    n = (parseFloat(n) * 10 ** parseInt(exp)).toPrecision(sf).toString();
+  }
+  //console.log('n6: '+n)
+  if (n == "0.") {
+    n = "0";
+  }
+  return n;
+};
 // ===================== onLoad =====================
 
 function onLoad() {
@@ -955,24 +942,26 @@ if (matches) {
     });
   }
 
-  var numElements = document.getElementsByClassName("num");
+var numElements = document.getElementsByClassName("num");
 
-  for (var num of numElements) {
-    num.addEventListener("input", function (e) {
-      var calcElements = document.getElementsByClassName("calc");
-      const numbIdText = "${" + this.id + "}";
-      for (var calcElement of calcElements) {
-        if (
-          calcElement.getAttribute("formula").includes(numbIdText) &&
-          calcElement.value != ""
-        ) {
-          calcElement.click();
-        }
+for (var num of numElements) {
+  num.addEventListener("input", function (e) {
+    var calcElements = document.getElementsByClassName("calc");
+    const numbIdText = "${" + this.id + "}";
+
+    for (var calcElement of calcElements) {
+      if (
+        calcElement.getAttribute("formula").includes(numbIdText) &&
+        calcElement.value != ""
+      ) {
+        calcElement.click();
       }
-      form.requestSubmit();
-    });
-  }
-  
+    }
+
+    form.requestSubmit();
+  });
+}
+
   const symbolInputs = document.getElementsByClassName("symbol");
   
     for (var symbolInput of symbolInputs) {
@@ -1210,6 +1199,67 @@ if (scoreElement) {
       }
     }
   }
+
+let randomizedAny = false;
+
+for (var num of numElements) {
+
+  // Only run if random="true"
+  if (num.getAttribute("random") === "true") {
+
+    // Check if already has a value → skip
+    let currentValue = (num.tagName === "INPUT")
+      ? num.value
+      : num.innerText;
+
+    if (currentValue && currentValue.trim() !== "") {
+      continue; // already set, do not randomize again
+    }
+
+    // Get original value from attribute
+    let originalStr = num.getAttribute("data-original");
+    if (!originalStr) continue;
+
+    let baseValue = parseFloat(originalStr);
+    if (isNaN(baseValue)) continue;
+
+    // --- Sig figs ---
+    let sigFigs = getSigFigs(originalStr);
+
+    // --- Percent (default 20%) ---
+    let percentAttr = num.getAttribute("randomPercent");
+    let percent = 20;
+
+    if (percentAttr) {
+      percentAttr = percentAttr.replace("%", "").trim();
+      let parsed = parseFloat(percentAttr);
+      if (!isNaN(parsed)) percent = parsed;
+    }
+
+    let variation = baseValue * (percent / 100);
+
+    // --- Randomize ---
+    let randomized = baseValue + (Math.random() * 2 - 1) * variation;
+
+    // --- Apply sig figs ---
+    let finalValue = Number(randomized).setSigFigs(sigFigs);
+
+    // --- Set value ---
+    if (num.tagName === "INPUT") {
+      num.value = finalValue;
+    } else {
+      num.innerText = finalValue;
+    }
+
+    // 🔥 Mark that we randomized something
+    randomizedAny = true;
+  }
+}
+
+// ✅ Submit once if anything changed
+if (randomizedAny) {
+  form.requestSubmit();
+}
 
 function safe(str) {
   return str.replace(/[^a-zA-Z0-9_-]/g, '_');
