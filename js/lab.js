@@ -709,6 +709,22 @@ Number.prototype.setSigFigs = function(sf) {
   }
   return n;
 };
+
+function autoSizeInput(el) {
+  if (!el._mirror) {
+    const mirror = document.createElement("span");
+    mirror.style.position = "absolute";
+    mirror.style.visibility = "hidden";
+    mirror.style.whiteSpace = "pre";
+    mirror.style.font = getComputedStyle(el).font;
+
+    document.body.appendChild(mirror);
+    el._mirror = mirror;
+  }
+
+  el._mirror.textContent = el.value || "";
+  el.style.width = (el._mirror.offsetWidth + 10) + "px";
+}
 // ===================== onLoad =====================
 
 function onLoad() {
@@ -1204,7 +1220,7 @@ if (scoreElement) {
 
 let randomizedAny = false;
 
-for (var num of numElements) {
+for (let num of numElements) {
 
   // Only run if random="true"
   if (num.getAttribute("random") === "true") {
@@ -1215,52 +1231,52 @@ for (var num of numElements) {
       : num.innerText;
 
     if (currentValue && currentValue.trim() !== "") {
-      continue; // already set, do not randomize again
-    }
-
-    // Get original value from attribute
-    let originalStr = num.getAttribute("data-original");
-    if (!originalStr) continue;
-
-    let baseValue = parseFloat(originalStr);
-    if (isNaN(baseValue)) continue;
-
-    // --- Sig figs ---
-    let sigFigs = getSigFigs(originalStr);
-
-    // --- Percent (default 20%) ---
-    let percentAttr = num.getAttribute("randomPercent");
-    let percent = 20;
-
-    if (percentAttr) {
-      percentAttr = percentAttr.replace("%", "").trim();
-      let parsed = parseFloat(percentAttr);
-      if (!isNaN(parsed)) percent = parsed;
-    }
-
-    let variation = baseValue * (percent / 100);
-
-    // --- Randomize ---
-    let randomized = baseValue + (Math.random() * 2 - 1) * variation;
-
-    // --- Apply sig figs ---
-    let finalValue = Number(randomized).setSigFigs(sigFigs);
-
-    // --- Set value ---
-    if (num.tagName === "INPUT") {
-      num.value = finalValue;
+      // Continue to the next element in the loop
     } else {
-      num.innerText = finalValue;
+      // Get original value from attribute
+      let originalStr = num.getAttribute("data-original");
+      
+      if (originalStr) {
+        let baseValue = parseFloat(originalStr);
+        
+        if (!isNaN(baseValue)) {
+          // --- Sig figs ---
+          let sigFigs = getSigFigs(originalStr);
+
+          // --- Percent (default 20%) ---
+          let percentAttr = num.getAttribute("randomPercent");
+          let percent = 20;
+
+          if (percentAttr) {
+            let parsed = parseFloat(percentAttr.replace("%", "").trim());
+            if (!isNaN(parsed)) percent = parsed;
+          }
+
+          let variation = baseValue * (percent / 100);
+
+          // --- Randomize ---
+          let randomized = baseValue + (Math.random() * 2 - 1) * variation;
+
+          // --- Apply sig figs ---
+          let finalValue = Number(randomized).setSigFigs(sigFigs);
+
+          // --- Set value ---
+          if (num.tagName === "INPUT") {
+            num.value = finalValue;
+          } else {
+            num.innerText = finalValue;
+          }
+
+          // 🔥 Mark that we randomized something
+          randomizedAny = true;
+        }
+      }
     }
-
-    // 🔥 Mark that we randomized something
-    randomizedAny = true;
   }
-}
 
-// ✅ Submit once if anything changed
-if (randomizedAny) {
-  form.requestSubmit();
+  if (num.classList.contains('display-value')) {
+    autoSizeInput(num);
+  }
 }
 
 function safe(str) {
@@ -1474,4 +1490,10 @@ if (isAnyChecked) {
   if ($("score")) {
     score();
   }
+
+// ✅ Submit once if anything changed
+if (randomizedAny) {
+  form.requestSubmit();
+}
+
 } // ================= end onLoad ====================

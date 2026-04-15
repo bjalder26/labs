@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Test</title><!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+  </head>
+
+  <body onload="onLoad()">
+  <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <h1 id="title" >Test</h1> <!-- Title -->
+    Name: <div id="name"></div><br>
+   
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none">
+      <input type="text" id="userName" name="userName" style="display:none">
+  <!-- Beginning -->
+<ol>
+<li>In liquid NH<sub>3</sub> (ammonia), which intermolecular forces are present?</li>
+
+<h4>Step-by-step solution</h4>
+<h5>Step 1: Draw the Lewis structure</h5>
+Nitrogen has <input type="number" class="calc" id="1NVE" name="1NVE" step="any" formula="5" help="Look at the group nitrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."><div class="feedback" id="1NVEFB" name="1NVEFB"></div> valence electrons<br>
+Each hydrogen has <input type="number" class="calc" id="1HVE" name="1HVE" step="any" formula="1" help="Look at the group hydrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."><div class="feedback" id="1HVEFB" name="1HVEFB"></div> valence electron
+Total valence electrons = <input type="number" class="calc" id="1TVE" name="1TVE" step="any" formula="8" help="Add together all the valence electrons [5 + (3 × 1)]."><div class="feedback" id="1TVEFB" name="1TVEFB"></div> valence electrons<br>
+
+Structure:<br>
+  <img src="/images/ammonia_lewis.jpg" alt="ammonia Lewis structure">
+  
+<h5>Step 2: Count electron domains</h5>
+&nbsp; &nbsp;<input type="number" class="calc" id="1BD" name="1BD" step="any" formula="3" help="Count the number of bonding domains in the structure.  Single, double, or triple bonds count as one bonding domain."><div class="feedback" id="1BDFB" name="1BDFB"></div> bonding domains<br>
++ <input type="number" class="calc" id="1LP" name="1LP" step="any" formula="1" help="Count the number of lone pairs (non-bonding pairs) in the structure."><div class="feedback" id="1LPFB" name="1LPFB"></div> lone pair<br>
+= <input type="number" class="calc" id="1TED" name="1TED" step="any" formula="4" help="Add the bonding domains and lone pair to get the total electron domains."><div class="feedback" id="1TEDFB" name="1TEDFB"></div> total electron domains
+
+<h5>Step 3: Determine molecular shape</h5>
+Electron geometry: 
+<select id="1EDG" name="1EDG" class="calc" formula="Tetrahedral" help="The electron domain geometry is based on the total number of electron domains.  2=linear, 3=trigonal planar, 4=tetrahedral, 5=trigonal bipyramidal, 6=octahedral">
+  <option value="">Choose an option</option>
+  <option value="Linear">Linear</option>
+  <option value="Trigonal planar">Trigonal planar</option>
+  <option value="Tetrahedral">Tetrahedral</option>
+  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+  <option value="Octahedral">Octahedral</option>
+</select>
+<div class="feedback" id="1EDGFB" name="1EDGFB"></div><br>
+
+Molecular shape: 
+<select id="1MS" name="1MS" class="calc" formula="Trigonal pyramidal" help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal.">
+  <option value="">Choose an option</option>
+  <option value="Linear">Linear</option>
+  <option value="Trigonal planar">Trigonal planar</option>
+  <option value="Bent">Bent</option>
+  <option value="Tetrahedral">Tetrahedral</option>
+  <option value="Trigonal pyramidal">Trigonal pyramidal</option>
+  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+  <option value="See saw (or saw horse)">See saw (or saw horse)</option>
+  <option value="T-shaped">T-shaped</option>
+  <option value="Octahedral">Octahedral</option>
+  <option value="Square pyramidal">Square pyramidal</option>
+  <option value="Square planar">Square planar</option>
+</select>
+<div class="feedback" id="1MSFB" name="1MSFB"></div><br>
+
+<h5>Step 4: Determine polarity</h5>
+N is more electronegative than H<br>
+Shape is 
+<select id="1sym" name="1sym" class="calc" formula="asymmetrical" help="Linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral, and square planar are symmetrical shapes.">
+  <option value="">Choose an option</option>
+  <option value="symmetrical">symmetrical</option>
+  <option value="asymmetrical">asymmetrical</option>
+</select>
+<div class="feedback" id="1symFB" name="1symFB"></div><br>
+
+Ammonia is
+
+  <select id="1polar" name="1polar" class="calc" formula="polar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
+  <option value="">Choose an option</option>
+  <option value="polar">polar</option>
+  <option value="nonpolar">nonpolar</option>
+</select>
+<div class="feedback" id="1polarFB" name="1polarFB"></div>
+
+<h5>Step 5: Determine intermolecular forces</h5>
+Dispersion forces?
+<select id="1Disp" name="1Disp" class="calc" formula="Yes" help="Everything has dispersion forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="1DispFB" name="1DispFB"></div>
+<br>
+Dipole-dipole forces?
+<select id="1Dipole" name="1Dipole" class="calc" formula="Yes" help="Polar molecules will have dipole-dipole forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="1DipoleFB" name="1DipoleFB"></div>  
+  <br>
+Hydrogen bonding?
+  <select id="1Hbond" name="1Hbond" class="calc" formula="Yes" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="1HbondFB" name="1HbondFB"></div>  
+  <br>
+Ion-dipole?
+  <select id="1IonD" name="1IonD" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="1IonDFB" name="1IonDFB"></div>  
+  <br>
+  <br>
+  
+<li>
+In liquid CO₂ (carbon dioxide), which intermolecular forces are present?<br>
+</li>
+Dispersion forces?
+  
+<select id="2Disp" name="2Disp" class="calc" formula="Yes" help="Everything has dispersion forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="2DispFB" name="2DispFB"></div>
+<br>
+Dipole-dipole forces?
+<select id="2Dipole" name="2Dipole" class="calc" formula="No" help="Polar molecules will have dipole-dipole forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="2DipoleFB" name="2DipoleFB"></div>  
+  <br>
+Hydrogen bonding?
+  <select id="2Hbond" name="2Hbond" class="calc" formula="No" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="2HbondFB" name="2HbondFB"></div>  
+  <br>
+Ion-dipole?
+  <select id="2IonD" name="2IonD" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="2IonDFB" name="2IonDFB"></div>  
+  <br>
+  <br>
+<hr>
+  <br>
+<li>
+  List the compounds below in decreasing boiling point order.<br>
+NH<sub>3</sub>  CH<sub>4</sub>  HF
+</li>
+<h4>Step-by-step solution</h4>
+<h5>Step 1: Draw Lewis structures & count electron domains</h5>
+
+CH<sub>4</sub> (methane)<br>
+<img src="/images/methane_lewis.jpg" height="200px" alt="CH4 (methane) Lewis structure"><br>
+
+
+PH<sub>3</sub> (phosphorus trihydride)<br>
+<img src="/images/PH3_lewis.jpg" height="180px" alt="PH3 (phosphorous trihydride) Lewis structure"><br>
+
+
+HF (hydrogen fluoride)<br>
+<img src="/images/hydrogen_fluoride_Lewis.jpg" height="100px" alt="HF (hydrogen fluoride Lewis structure">
+
+<h5>Step 2: Determine molecular shape</h5>
+CH<sub>4</sub>:
+  <select id="3MS1" name="3MS1" class="calc" formula="Tetrahedral" help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal.">
+  <option value="">Choose an option</option>
+  <option value="Linear">Linear</option>
+  <option value="Trigonal planar">Trigonal planar</option>
+  <option value="Bent">Bent</option>
+  <option value="Tetrahedral">Tetrahedral</option>
+  <option value="Trigonal pyramidal">Trigonal pyramidal</option>
+  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+  <option value="See saw (or saw horse)">See saw (or saw horse)</option>
+  <option value="T-shaped">T-shaped</option>
+  <option value="Octahedral">Octahedral</option>
+  <option value="Square pyramidal">Square pyramidal</option>
+  <option value="Square planar">Square planar</option>
+</select>
+<div class="feedback" id="3MS1FB" name="3MS1FB"></div><br>
+PH<sub>3</sub>:
+  <select id="3MS2" name="3MS2" class="calc" formula="Trigonal pyramidal" help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal.">
+  <option value="">Choose an option</option>
+  <option value="Linear">Linear</option>
+  <option value="Trigonal planar">Trigonal planar</option>
+  <option value="Bent">Bent</option>
+  <option value="Tetrahedral">Tetrahedral</option>
+  <option value="Trigonal pyramidal">Trigonal pyramidal</option>
+  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+  <option value="See saw (or saw horse)">See saw (or saw horse)</option>
+  <option value="T-shaped">T-shaped</option>
+  <option value="Octahedral">Octahedral</option>
+  <option value="Square pyramidal">Square pyramidal</option>
+  <option value="Square planar">Square planar</option>
+</select>
+<div class="feedback" id="3MS2FB" name="3MS2FB"></div><br>
+  
+HF:
+  <select id="3MS3" name="3MS3" class="calc" formula="Linear" help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal.">
+  <option value="">Choose an option</option>
+  <option value="Linear">Linear</option>
+  <option value="Trigonal planar">Trigonal planar</option>
+  <option value="Bent">Bent</option>
+  <option value="Tetrahedral">Tetrahedral</option>
+  <option value="Trigonal pyramidal">Trigonal pyramidal</option>
+  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+  <option value="See saw (or saw horse)">See saw (or saw horse)</option>
+  <option value="T-shaped">T-shaped</option>
+  <option value="Octahedral">Octahedral</option>
+  <option value="Square pyramidal">Square pyramidal</option>
+  <option value="Square planar">Square planar</option>
+</select>
+<div class="feedback" id="3MS3FB" name="3MS3FB"></div><br>
+  
+<h5>Step 3: Determine polarity</h5>
+CH<sub>4</sub>:
+  <select id="3polar1" name="3polar1" class="calc" formula="nonpolar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
+  <option value="">Choose an option</option>
+  <option value="polar">Polar</option>
+  <option value="nonpolar">Nonpolar</option>
+</select>
+<div class="feedback" id="3polar1FB" name="3polar1FB"></div><br>
+PH<sub>3</sub>:
+  <select id="3polar2" name="3polar2" class="calc" formula="polar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
+  <option value="">Choose an option</option>
+  <option value="polar">Polar</option>
+  <option value="nonpolar">Nonpolar</option>
+</select>
+<div class="feedback" id="3polar2FB" name="3polar2FB"></div><br>
+
+</ol>
+HF:
+  <select id="3polar3" name="3polar3" class="calc" formula="polar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
+  <option value="">Choose an option</option>
+  <option value="polar">Polar</option>
+  <option value="nonpolar">Nonpolar</option>
+</select>
+<div class="feedback" id="3polar3FB" name="3polar3FB"></div><br>
+
+<h5>Step 4: Determine intermolecular forces</h5>
+CH<sub>4</sub>:
+  <ul>
+<li>Dispersion forces? <select id="3DispCH4" name="3DispCH4" class="calc" formula="Yes" help="Everything has dispersion forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3DispCH4FB" name="3DispCH4FB"></div>
+  </li>
+<li>
+Dipole-dipole forces?
+<select id="3DipoleCH4" name="3DipoleCH4" class="calc" formula="No" help="Polar molecules will have dipole-dipole forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3DipoleCH4FB" name="3DipoleCH4FB"></div>  
+  </li>
+    <li>
+Hydrogen bonding?
+  <select id="3HbondCH4" name="3HbondCH4" class="calc" formula="No" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3HbondCH4FB" name="3HbondCH4FB"></div>  
+  <br>
+<li>Ion-dipole?
+  <select id="3IonDCH4" name="3IonDCH4" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3IonDCH4FB" name="3IonDCH4FB"></div> 
+    </li>
+  </ul>
+    <li>
+  PH<sub>3</sub>:
+  <ul>
+<li>Dispersion forces? <select id="3DispPH3" name="3DispPH3" class="calc" formula="Yes" help="Everything has dispersion forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3DispPH3FB" name="3DispPH3FB"></div>
+  </li>
+<li>
+Dipole-dipole forces?
+<select id="3DipolePH3" name="3DipolePH3" class="calc" formula="Yes" help="Polar molecules will have dipole-dipole forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3DipolePH3FB" name="3DipolePH3FB"></div>  
+  </li>
+    <li>
+Hydrogen bonding?
+  <select id="3HbondPH3" name="3HbondPH3" class="calc" formula="No" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3HbondPH3FB" name="3HbondPH3FB"></div>  
+  <br>
+<li>Ion-dipole?
+  <select id="3IonDPH3" name="3IonDPH3" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3IonDPH3FB" name="3IonDPH3FB"></div> 
+    </li>
+ </ul>  
+<li>
+  HF:
+  <ul>
+<li>Dispersion forces? <select id="3DispHF" name="3DispHF" class="calc" formula="Yes" help="Everything has dispersion forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3DispHFFB" name="3DispHFFB"></div>
+  </li>
+<li>
+Dipole-dipole forces?
+<select id="3DipoleHF" name="3DipoleHF" class="calc" formula="Yes" help="Polar molecules will have dipole-dipole forces">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3DipoleHFFB" name="3DipoleHFFB"></div>  
+  </li>
+    <li>
+Hydrogen bonding?
+  <select id="3HbondHF" name="3HbondHF" class="calc" formula="Yes" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3HbondHFFB" name="3HbondHFFB"></div>  
+  <br>
+<li>Ion-dipole?
+  <select id="3IonDHF" name="3IonDHF" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
+  <option value="">Choose an option</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+<div class="feedback" id="3IonDHFFB" name="3IonDHFFB"></div> 
+    </li>
+  </ul>
+
+
+
+
+<h5>Step 5: Compare strength of intermolecular forces</h5>
+
+Strongest intermolecular forces:
+  
+<select id="3IMF1" name="3IMF1" class="calc" formula="HF" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
+  <option value="">Choose an option</option>
+  <option value="CH4">CH₄</option>
+  <option value="NH3">NH₃</option>
+  <option value="HF">HF</option>
+</select>
+<div class="feedback" id="3IMF1FB" name="3IMF1FB"></div>
+  <br>
+
+Medium intermolecular forces:
+  <select id="3IMF2" name="3IMF2" class="calc" formula="NH3" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
+  <option value="">Choose an option</option>
+  <option value="CH4">CH₄</option>
+  <option value="NH3">NH₃</option>
+  <option value="HF">HF</option>
+</select>
+<div class="feedback" id="3IMF2FB" name="3IMF2FB"></div>
+  <br>
+Weakest intermolecular forces:
+  <select id="3IMF3" name="3IMF3" class="calc" formula="CH4" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
+  <option value="">Choose an option</option>
+  <option value="CH4">CH₄</option>
+  <option value="NH3">NH₃</option>
+  <option value="HF">HF</option>
+</select>
+<div class="feedback" id="3IMF3FB" name="3IMF3FB"></div>
+  <br>
+</li>
+<br><br>
+
+<!-- end -->
+      <!-- title -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+
+        <div class="vcenter">
+          <label for="score">Score: </label>
+
+          <div id="score" style="display: inline">0</div>
+
+          %
+        </div>
+      </div>
+    </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"],
+        },
+      });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
