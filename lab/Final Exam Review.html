@@ -31,7 +31,7 @@ Each hydrogen has <input type="number" class="calc" id="1HVE" name="1HVE" step="
 Total valence electrons = <input type="number" class="calc" id="1TVE" name="1TVE" step="any" formula="8" help="Add together all the valence electrons [5 + (3 × 1)]."><div class="feedback" id="1TVEFB" name="1TVEFB"></div> valence electrons<br>
 
 Structure:<br>
-  <img src="/images/ammonia_lewis.jpg" alt="ammonia Lewis structure">
+  <img src="./images/ammonia_lewis.jpg" alt="ammonia Lewis structure">
   
 <h5>Step 2: Count electron domains</h5>
 &nbsp; &nbsp;<input type="number" class="calc" id="1BD" name="1BD" step="any" formula="3" help="Count the number of bonding domains in the structure.  Single, double, or triple bonds count as one bonding domain."><div class="feedback" id="1BDFB" name="1BDFB"></div> bonding domains<br>
@@ -161,22 +161,22 @@ Ion-dipole?
 <hr>
   <br>
 <li>
-  List the compounds below in decreasing boiling point order.<br>
+  List the compounds below in decreasing boiling point order (i.e. decreasing intermolecular forces order).<br>
 NH<sub>3</sub>  CH<sub>4</sub>  HF
 </li>
 <h4>Step-by-step solution</h4>
 <h5>Step 1: Draw Lewis structures & count electron domains</h5>
 
 CH<sub>4</sub> (methane)<br>
-<img src="/images/methane_lewis.jpg" height="200px" alt="CH4 (methane) Lewis structure"><br>
+<img src="./images/methane_lewis.jpg" height="200px" alt="CH4 (methane) Lewis structure"><br>
 
 
 PH<sub>3</sub> (phosphorus trihydride)<br>
-<img src="/images/PH3_lewis.jpg" height="180px" alt="PH3 (phosphorous trihydride) Lewis structure"><br>
+<img src="./images/PH3_lewis.jpg" height="180px" alt="PH3 (phosphorous trihydride) Lewis structure"><br>
 
 
 HF (hydrogen fluoride)<br>
-<img src="/images/hydrogen_fluoride_Lewis.jpg" height="100px" alt="HF (hydrogen fluoride Lewis structure">
+<img src="./images/hydrogen_fluoride_Lewis.jpg" height="100px" alt="HF (hydrogen fluoride Lewis structure">
 
 <h5>Step 2: Determine molecular shape</h5>
 CH<sub>4</sub>:
@@ -245,7 +245,7 @@ PH<sub>3</sub>:
 </select>
 <div class="feedback" id="3polar2FB" name="3polar2FB"></div><br>
 
-</ol>
+
 HF:
   <select id="3polar3" name="3polar3" class="calc" formula="polar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
   <option value="">Choose an option</option>
@@ -291,7 +291,6 @@ Hydrogen bonding?
 <div class="feedback" id="3IonDCH4FB" name="3IonDCH4FB"></div> 
     </li>
   </ul>
-    <li>
   PH<sub>3</sub>:
   <ul>
 <li>Dispersion forces? <select id="3DispPH3" name="3DispPH3" class="calc" formula="Yes" help="Everything has dispersion forces">
@@ -328,7 +327,7 @@ Hydrogen bonding?
 <div class="feedback" id="3IonDPH3FB" name="3IonDPH3FB"></div> 
     </li>
  </ul>  
-<li>
+
   HF:
   <ul>
 <li>Dispersion forces? <select id="3DispHF" name="3DispHF" class="calc" formula="Yes" help="Everything has dispersion forces">
@@ -371,38 +370,177 @@ Hydrogen bonding?
 
 <h5>Step 5: Compare strength of intermolecular forces</h5>
 
-Strongest intermolecular forces:
+Strongest intermolecular forces/highest boiling point:
   
 <select id="3IMF1" name="3IMF1" class="calc" formula="HF" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
   <option value="">Choose an option</option>
   <option value="CH4">CH₄</option>
-  <option value="NH3">NH₃</option>
+  <option value="PH3">PH₃</option>
   <option value="HF">HF</option>
 </select>
 <div class="feedback" id="3IMF1FB" name="3IMF1FB"></div>
   <br>
 
-Medium intermolecular forces:
-  <select id="3IMF2" name="3IMF2" class="calc" formula="NH3" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
+Medium intermolecular forces/medium boiling point:
+  <select id="3IMF2" name="3IMF2" class="calc" formula="PH3" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
   <option value="">Choose an option</option>
   <option value="CH4">CH₄</option>
-  <option value="NH3">NH₃</option>
+  <option value="PH3">PH₃</option>
   <option value="HF">HF</option>
 </select>
 <div class="feedback" id="3IMF2FB" name="3IMF2FB"></div>
   <br>
-Weakest intermolecular forces:
+Weakest intermolecular forces/lowest boiling point:
   <select id="3IMF3" name="3IMF3" class="calc" formula="CH4" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
   <option value="">Choose an option</option>
   <option value="CH4">CH₄</option>
-  <option value="NH3">NH₃</option>
+  <option value="PH3">PH₃</option>
   <option value="HF">HF</option>
 </select>
 <div class="feedback" id="3IMF3FB" name="3IMF3FB"></div>
   <br>
+  <br>
+  <li>List the compounds below in decreasing boiling point order (i.e. decreasing intermolecular forces order).<br>
+H₂O  CO₂  H₂S<br>
+Highest boiling point:
+<select id="4IMF1" name="4IMF1" class="calc" formula="H2O" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
+  <option value="">Choose an option</option>
+  <option value="H2O">H₂O</option>
+  <option value="CO2">CO₂</option>
+  <option value="H2S">H₂S</option>
+</select>
+<div class="feedback" id="4IMF1FB" name="4IMF1FB"></div>
+  <br>
+Medium boiling point:
+  <select id="4IMF2" name="4IMF2" class="calc" formula="H2S" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
+  <option value="">Choose an option</option>
+  <option value="H2O">H₂O</option>
+  <option value="CO2">CO₂</option>
+  <option value="H2S">H₂S</option>
+</select>
+<div class="feedback" id="4IMF2FB" name="4IMF2FB"></div>
+  <br>
+Lowest boiling point:
+  <select id="4IMF3" name="4IMF3" class="calc" formula="CO2" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
+  <option value="">Choose an option</option>
+  <option value="H2O">H₂O</option>
+  <option value="CO2">CO₂</option>
+  <option value="H2S">H₂S</option>
+</select>
+<div class="feedback" id="4IMF3FB" name="4IMF3FB"></div>
+  <br>
+<hr>
+<li>  What is the osmotic pressure of a solution formed by dissolving 
+    <input class="num display-value" id="5Mass" name="5Mass" random="true" data-original="60" randomPercent="50%" readonly> mg of glucose (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, 180.16 g/mol) 
+    in enough water to make <input class="num display-value" id="5Vol" name="5Vol" random="true" data-original="0.4" randomPercent="50%" readonly>00 L of solution at <input class="num display-value" id="5Temp" name="5Temp" random="true" data-original="2" randomPercent="50%" readonly>0 °C in atm?
+  <h4>Step-by-step solution</h4>
+
+  <p><b>Step 1: Use the osmotic pressure formula</b></p>
+  <p>Π = MRT</p>
+
+  <p>
+    M = molarity (mol/L)<br>
+    R = 0.0821 L·atm/mol·K<br>
+    T = temperature in Kelvin
+  </p>
+
+  <p><b>Step 2: Convert mass to moles</b></p>
+  <input type="number" class="calc" id="5Mass2" name="5Mass2" step="any" style="width: 80px" formula="${5Mass}" help="What mass in mg was given above?"> mg <div class="feedback" id="5Mass2FB" name="5Mass2FB"></div> x 
+  
+<div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+            <input type="number" step="any" class="calc" id="5gnumb" name="5gnumb" formula="1" help="What is the gram to mg ratio?" style="width: 80px">g <div class="feedback" id="5gnumbFB" name="5gnumbFB"></div>
+          </div>
+
+          <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+          <!-- Denominator -->
+          <div style="padding: 2px 5px;">
+            <input type="number" step="any" class="calc" id="5mgden" name="5mgden" formula="1000" help="What is the gram to mg ratio?" style="width: 80px;"> mg <div class="feedback" id="5mgdenFB" name="5mgdenFB"></div>
+          </div>
+        </div>
+        
+x 
+<div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+            <input type="number" step="any" class="calc" id="5MolNumb" name="5MolNumb" formula="1" help="What is the molar mass of C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>?" style="width: 80px">mol <div class="feedback" id="5MolNumbFB" name="5MolNumbFB"></div>
+          </div>
+
+          <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+          <!-- Denominator -->
+          <div style="padding: 2px 5px;">
+            <input type="number" step="any" class="calc" id="5gden" name="5gden" formula="180.16" help="What is the molar mass of ?" style="width: 80px;"> g <div class="feedback" id="5gdenFB" name="5gdenFB"></div>
+          </div>
+        </div>
+= 
+
+  <input type="number" class="calc" id="5molGlu" name="5molGlu" step="any" style="width: 80px; formula="${5Mass}/1000/180.16" help="Take the mg of C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, convert to grams, then convert to mol."> mol <div class="feedback" id="5molGluFB" name="5molGluFB"></div>
+
+  <p><b>Step 3: Find molarity</b></p>
+
+  M = 
+
+  <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+            <input type="number" step="any" class="calc" id="5molGlu2" name="5molGlu2" formula="1" help="Use the moles you calculated above." style="width: 80px">mol <div class="feedback" id="5molGlu2FB" name="5molGlu2FB"></div>
+          </div>
+
+          <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+          <!-- Denominator -->
+          <div style="padding: 2px 5px;">
+            <input type="number" step="any" class="calc" id="5VolDen" name="5VolDen" formula="${5Vol}" help="Use the volume given in the question stem." style="width: 80px;"> L <div class="feedback" id="5VolDenFB" name="5VolDenFB"></div>
+          </div>
+        </div>
+=
+
+
+
+
+
+
+
+  
+
+  <p><b>Step 4: Convert temperature to Kelvin</b></p>
+  <p>T = 25 + 273 = 298 K</p>
+
+  <p><b>Step 5: Calculate osmotic pressure</b></p>
+  <p>Π = (3.33 × 10<sup>-4</sup>)(0.0821)(298)</p>
+  <p>Π ≈ 0.0081 atm</p>
+
+  <p class="answer">Final Answer: C) 0.0098 atm</p>
+</div>
+
+<div class="question">
+  <h3>Question 2 (practice)</h3>
+
+  <p>
+    The osmotic pressure of a solution formed by dissolving 
+    <b>10.0 mg of urea (CH<sub>4</sub>N<sub>2</sub>O, 60.06 g/mol)</b> 
+    in enough water to make <b>0.200 L</b> of solution at <b>20°C</b> is _____ atm.
+  </p>
+
+  <p>
+    A) 0.010 atm<br>
+    B) 0.020 atm<br>
+    C) 0.030 atm<br>
+    D) 0.040 atm
+  </p>
+
+  <p class="answer">Answer: B) 0.020 atm</p>
+</div>
+    
 </li>
 <br><br>
-
+</ol>
 <!-- end -->
       <!-- title -->
       <div id="button_bar">

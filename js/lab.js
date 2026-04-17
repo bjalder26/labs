@@ -723,7 +723,7 @@ function autoSizeInput(el) {
   }
 
   el._mirror.textContent = el.value || "";
-  el.style.width = (el._mirror.offsetWidth + 10) + "px";
+  el.style.width = (el._mirror.offsetWidth) + "px";
 }
 // ===================== onLoad =====================
 
