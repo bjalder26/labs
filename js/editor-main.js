@@ -360,14 +360,41 @@ function loadSelectedFile() {
   fetch(`/lab/${filename}`)
     .then(res => res.text())
     .then(content => {
-      editor.dispatch({
-        changes: { from: 0, to: editor.state.doc.length, insert: content }
-      });
-    })
-    .catch(err => {
-      alert("Failed to load file content.");
-      console.error(err);
+      // Define the block to be injected
+      // Using 'window.onload' inside the script ensures it waits for the iframe's DOM
+      const injection = `
+<script>
+  window.dataFile = {};
+  window.addEventListener("load", () => {
+    document.addEventListener("mouseover", (event) => {
+      const target = event.target;
+      const isAllowedTag = ['DIV', 'INPUT', "IMG"].includes(target.tagName);
+
+      // If it's the right tag and has an ID, set the 'title' attribute
+      if (isAllowedTag && target.id) {
+          target.setAttribute('title', target.id);
+      }
     });
+  });
+</script>`;
+
+      // Inject before </body>
+      const modifiedContent = content.includes("</body>") 
+        ? content.replace("</body>", injection + "</body>") 
+        : content + injection;
+
+      editor.dispatch({
+        changes: { from: 0, to: editor.state.doc.length, insert: modifiedContent }
+      });
+      
+      // Update the iframe with the modified content
+      const iframe = document.getElementById("your-iframe-id");
+      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+      iframeDoc.open();
+      iframeDoc.write(modifiedContent);
+      iframeDoc.close();
+    })
+    .catch(err => console.error("Failed to load/inject:", err));
 }
 
 function saveFile() {
@@ -1291,6 +1318,7 @@ function verifyHTML() {
   runCheck(results, checkFormulaReferences(doc));
   runCheck(results, checkEmptyAttributes(doc));
   runCheck(results, checkLookupTables(doc));
+  runCheck(results, checkInvalidCalcFormulas(doc));
 
   showVerificationResults(results);
 }
@@ -1597,4 +1625,35 @@ function escapeHTML(str) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function checkInvalidCalcFormulas(doc) {
+  const inputs = doc.querySelectorAll('input.calc[formula]');
+  const issues = [];
+
+  inputs.forEach(input => {
+    const formula = input.getAttribute('formula');
+
+    // Match any '{' not immediately preceded by '$'
+    const regex = /(^|[^$])\{/g;
+    let match;
+
+    while ((match = regex.exec(formula)) !== null) {
+      // Index of the actual '{'
+      const braceIndex = match.index + match[1].length;
+
+      issues.push({
+        type: "error",
+        message: `Invalid formula syntax in calc input`,
+        id: input.id || undefined,
+        details: [
+          `Formula: ${formula}`,
+          `Invalid '{' at character ${braceIndex + 1}`,
+          input.outerHTML
+        ]
+      });
+    }
+  });
+
+  return issues;
 }

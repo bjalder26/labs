@@ -6,6 +6,15 @@
     <link rel="stylesheet" href="../css/lab.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <style>
+      hr { 
+          height: 3px;
+          background-color: blue;
+          } 
+      div[id$="DIV"] {
+        width: 70px !important;
+      }
+    </style>
   </head>
 
   <body onload="onLoad()">
@@ -22,9 +31,11 @@
       <input type="text" id="userName" name="userName" style="display:none">
   <!-- Beginning -->
 <ol>
+
+<h4>Guided problem</h4>
+
 <li>In liquid NH<sub>3</sub> (ammonia), which intermolecular forces are present?</li>
 
-<h4>Step-by-step solution</h4>
 <h5>Step 1: Draw the Lewis structure</h5>
 Nitrogen has <input type="number" class="calc" id="1NVE" name="1NVE" step="any" formula="5" help="Look at the group nitrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."><div class="feedback" id="1NVEFB" name="1NVEFB"></div> valence electrons<br>
 Each hydrogen has <input type="number" class="calc" id="1HVE" name="1HVE" step="any" formula="1" help="Look at the group hydrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."><div class="feedback" id="1HVEFB" name="1HVEFB"></div> valence electron
@@ -121,6 +132,7 @@ Ion-dipole?
   <br>
   <br>
   
+<h4>Practice problem</h4>  
 <li>
 In liquid CO₂ (carbon dioxide), which intermolecular forces are present?<br>
 </li>
@@ -156,10 +168,68 @@ Ion-dipole?
   <option value="No">No</option>
 </select>
 <div class="feedback" id="2IonDFB" name="2IonDFB"></div>  
+<br>
   <br>
+Put the steps required to solve this type of problem in order:
   <br>
+Step 1:
+  <select id="2step1" name="2step1" class="calc" formula="Draw the Lewis structure" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Count electron domains">Count electron domains</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+</select>
+<div class="feedback" id="2step1FB" name="2step1FB"></div>   
+<br>
+Step 2:
+    <select id="2step2" name="2step2" class="calc" formula="Count electron domains" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Count electron domains">Count electron domains</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+</select>
+<div class="feedback" id="2step2FB" name="2step2FB"></div>  
+<br>
+  Step 3:
+    <select id="2step3" name="2step3" class="calc" formula="Determine molecular shape" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Count electron domains">Count electron domains</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+</select>
+<div class="feedback" id="2step3FB" name="2step3FB"></div>  
+<br>
+  Step 4:
+    <select id="2step4" name="2step4" class="calc" formula="Determine polarity" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Count electron domains">Count electron domains</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+</select>
+<div class="feedback" id="2step4FB" name="2step4FB"></div>  
+<br>
+  Step 5:
+    <select id="2step5" name="2step5" class="calc" formula="Determine intermolecular forces" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Count electron domains">Count electron domains</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+</select>
+<div class="feedback" id="2step5FB" name="2step5FB"></div>  
+  
 <hr>
   <br>
+  <h4>Guided problem</h4>  
 <li>
   List the compounds below in decreasing boiling point order (i.e. decreasing intermolecular forces order).<br>
 NH<sub>3</sub>  CH<sub>4</sub>  HF
@@ -400,6 +470,7 @@ Weakest intermolecular forces/lowest boiling point:
 <div class="feedback" id="3IMF3FB" name="3IMF3FB"></div>
   <br>
   <br>
+  <h4>Practice Problem</h4>
   <li>List the compounds below in decreasing boiling point order (i.e. decreasing intermolecular forces order).<br>
 H₂O  CO₂  H₂S<br>
 Highest boiling point:
@@ -428,19 +499,80 @@ Lowest boiling point:
   <option value="H2S">H₂S</option>
 </select>
 <div class="feedback" id="4IMF3FB" name="4IMF3FB"></div>
+  <br><br>
+Put the steps required to solve this type of problem in order:
   <br>
+Step 1:
+  <select id="4step1" name="4step1" class="calc" formula="Draw Lewis structures & count electron domains" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
+</select>
+<div class="feedback" id="4step1FB" name="4step1FB"></div>   
+<br>
+    Step 2:
+  <select id="4step2" name="4step2" class="calc" formula="Determine molecular shape" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
+</select>
+<div class="feedback" id="4step2FB" name="4step2FB"></div>   
+<br>
+    Step 3:
+  <select id="4step3" name="4step3" class="calc" formula="Determine polarity" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
+</select>
+<div class="feedback" id="4step3FB" name="4step3FB"></div>   
+<br>
+    Step 4:
+  <select id="4step4" name="4step4" class="calc" formula="Determine intermolecular forces" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
+</select>
+<div class="feedback" id="4step4FB" name="4step4FB"></div>   
+<br>
+    Step 5:
+  <select id="4step5" name="4step5" class="calc" formula="Compare strength of intermolecular forces" help="Review the steps in the problem above if you are not sure of the order.">
+  <option value="">Choose an option</option>
+  <option value="Determine polarity">Determine polarity</option>
+  <option value="Determine molecular shape">Determine molecular shape</option>
+  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
+  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
+  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
+</select>
+<div class="feedback" id="4step5FB" name="4step5FB"></div>   
+<br>
+
+    
 <hr>
+    <h4>Guided Problem</h4>
 <li>  What is the osmotic pressure of a solution formed by dissolving 
     <input class="num display-value" id="5Mass" name="5Mass" random="true" data-original="60" randomPercent="50%" readonly> mg of glucose (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, 180.16 g/mol) 
-    in enough water to make <input class="num display-value" id="5Vol" name="5Vol" random="true" data-original="0.4" randomPercent="50%" readonly>00 L of solution at <input class="num display-value" id="5Temp" name="5Temp" random="true" data-original="2" randomPercent="50%" readonly>0 °C in atm?
+    in enough water to make <input class="num display-value" id="5Vol" name="5Vol" random="true" data-original="0.4" randomPercent="50%" readonly>00 L of solution at <input class="num display-value" id="5Temp" name="5Temp" random="true" data-original="20" randomPercent="50%" readonly> °C in atm?
   <h4>Step-by-step solution</h4>
 
   <p><b>Step 1: Use the osmotic pressure formula</b></p>
   <p>Π = MRT</p>
 
   <p>
+    i = Van't Hoff Factor (1 for non-electrolytes that are not strong acids)<br>
     M = molarity (mol/L)<br>
-    R = 0.0821 L·atm/mol·K<br>
+    R = 0.08206 L·atm/mol·K<br>
     T = temperature in Kelvin
   </p>
 
@@ -479,7 +611,7 @@ x
         </div>
 = 
 
-  <input type="number" class="calc" id="5molGlu" name="5molGlu" step="any" style="width: 80px; formula="${5Mass}/1000/180.16" help="Take the mg of C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, convert to grams, then convert to mol."> mol <div class="feedback" id="5molGluFB" name="5molGluFB"></div>
+  <input type="number" class="calc" id="5molGlu" name="5molGlu" step="any" style="width: 80px;" formula="${5Mass}/1000/180.16" help="Take the mg of C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, convert to grams, then convert to mol."> mol <div class="feedback" id="5molGluFB" name="5molGluFB"></div>
 
   <p><b>Step 3: Find molarity</b></p>
 
@@ -488,7 +620,7 @@ x
   <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
           <!-- Numerator -->
           <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
-            <input type="number" step="any" class="calc" id="5molGlu2" name="5molGlu2" formula="1" help="Use the moles you calculated above." style="width: 80px">mol <div class="feedback" id="5molGlu2FB" name="5molGlu2FB"></div>
+            <input type="number" step="any" class="num calc" id="5molGlu2" name="5molGlu2" formula="${5Mass}/1000/180.16" help="Use the moles you calculated above." style="width: 80px">mol <div class="feedback" id="5molGlu2FB" name="5molGlu2FB"></div>
           </div>
 
           <!-- Fraction Bar -->
@@ -496,10 +628,1620 @@ x
 
           <!-- Denominator -->
           <div style="padding: 2px 5px;">
-            <input type="number" step="any" class="calc" id="5VolDen" name="5VolDen" formula="${5Vol}" help="Use the volume given in the question stem." style="width: 80px;"> L <div class="feedback" id="5VolDenFB" name="5VolDenFB"></div>
+            <input type="number" step="any" class="num calc" id="5VolDen" name="5VolDen" formula="${5Vol}" help="Use the volume given in the question stem." style="width: 80px;"> L <div class="feedback" id="5VolDenFB" name="5VolDenFB"></div>
           </div>
         </div>
 =
+  <input type="number" class="num calc" id="5M" name="5M" step="any" formula="${5molGlu2}/${5VolDen}" help="Divide the moles of glucose solution by the liters."><div class="feedback" id="5MFB" name="5MFB"></div> M
+
+
+
+  <p><b>Step 4: Convert temperature to Kelvin</b></p>
+  T = <input type="number" class="num calc" id="5Temp2" name="5Temp2" step="any" formula="${5Temp}" help="Get the temperature in °C from the question stem above."> °C <div class="feedback" id="5Temp2FB" name="5Temp2FB"></div> + 273.15 = <input type="number" class="num calc" id="5TempK" name="5TempK" step="any" formula="${5Temp}+273.15" help="Add 273.15 to get the answer in K."><div class="feedback" id="5TempKFB" name="5TempKFB"></div> K
+  
+  <p><b>Step 5: Calculate osmotic pressure</b></p>
+  Π = iMRT<br>
+  Π = (1)(<input type="number" class="calc" id="5M2" name="5M2" step="any" formula="${5molGlu2}/${5VolDen}" help="Same molarity as above."> $\frac{mol}{L}$)(0.08206 $\frac{L-atm}{mol-K}$)(<input type="number" class="calc" id="5TempK2" name="5TempK2" step="any" formula="${5Temp}+273.15" help="Same as the temperature in K calculated above."> K)<div class="feedback" id="5M2FB" name="5M2FB"></div><div class="feedback" id="5TempK2FB" name="5TempK2FB"></div><br>
+  Π = <input type="number" class="num calc" id="5OP" name="5OP" step="any" formula="${5molGlu2}/${5VolDen}*0.08206*(${5Temp}+273.15)" help="Π = MRT"> atm <div class="feedback" id="5OPFB" name="5OPFB"></div>
+
+</div>
+</li>
+  <h4>Practice Problem</h4>
+<li>
+  
+    The osmotic pressure of a solution formed by dissolving 
+    <b><input class="num display-value" id="6MgUrea" name="6MgUrea" random="true" data-original="10.0" randomPercent="50%" readonly> mg of urea (CH<sub>4</sub>N<sub>2</sub>O, 60.06 g/mol)</b> 
+    in enough water to make <b><input class="num display-value" id="6L" name="6L" random="true" data-original="0.2" randomPercent="50%" readonly>00 L</b> of solution at <b><input class="num display-value" id="6TC" name="6TC" random="true" data-original="25" randomPercent="25%" readonly>°C</b> is _____ atm. <br>
+Π = <input type="number" class="calc" id="6OP" name="6OP" step="any" formula="${6MgUrea}/1000/60.06/${6L}*0.08206*(${6TC}+273.15)" help="Convert all of your units, calculate the molarity of Urea, and use the osmotic pressure formula."><div class="feedback" id="6OPFB" name="6OPFB"></div>
+</li>    
+<br><br>
+  <hr>
+
+  <p>
+    <h4>Guided Problem</h4>
+    <li>
+    What do we call a solution that contains the <b>maximum amount of solute</b> that can dissolve at a given temperature?
+  </p>
+
+  <h4>Step-by-step reasoning</h4>
+
+  <p><b>Step 1: Identify key phrases</b></p>
+  <p>
+    “Maximum amount of solute” and “at a given temperature” indicate that the solution is holding as much solute as possible under those conditions.
+  </p>
+
+  <p><b>Step 2: Recall solution types</b></p>
+  <ul>
+    <li><b>Unsaturated</b> → less than the maximum amount</li>
+    <li><b>Saturated</b> → exactly the maximum amount</li>
+    <li><b>Supersaturated</b> → more than normally possible (unstable)</li>
+  </ul>
+
+  <p><b>Step 3: Select the correct term</b></p>
+
+  <select id="sol1" name="sol1" class="calc" formula="saturated" help="Look at step two to see how the solution types are defined.">
+    <option value="">Choose an option</option>
+    <option value="concentrated">A concentrated solution</option>
+    <option value="dilute">A dilute solution</option>
+    <option value="saturated">A saturated solution</option>
+    <option value="aqueous">An aqueous solution</option>
+  </select>
+
+  <div class="feedback" id="sol1FB" name="sol1FB"></div>
+</li>
+<h4>Practice Problem</h4>
+  <li>
+  <p>
+    What is a solution called when it contains less than the maximum amount of solute that can dissolve at a given temperature?
+  </p>
+
+  <select id="solMax1" name="solMax1" class="calc" formula="unsaturated"
+          help="Look at step two to see how the solution types are defined.">
+    <option value="">Choose an option</option>
+    <option value="concentrated">A concentrated solution</option>
+    <option value="supersaturated">A supersaturated solution</option>
+    <option value="saturated">A saturated solution</option>
+    <option value="unsaturated">An unsaturated solution</option>
+    <option value="homogeneous">A homogeneous solution</option>
+  </select> <div class="feedback" id="solMax1FB" name="solMax1FB"></div>
+</li>
+<hr>
+<!-- ==== 9 & 10 === -->
+<h4>Guided Problem</h4>
+
+<li>
+  What is the change in boiling point of a solution made by dissolving 
+  <input class="num display-value" id="bpMass" name="bpMass" random="true" data-original="28.6" randomPercent="40%" readonly> g of calcium chloride (CaCl<sub>2</sub>, 110.98 g/mol) in <input class="num display-value" id="bpWater" name="bpWater" random="true" data-original="825" randomPercent="40%" readonly> g of water?  Assume ideal behavior. Estimate the van ’t Hoff factor for CaCl<sub>2</sub> based on how many ions are in the chemical formula.  
+  K<sub>b</sub> for water is 0.512 °C/m.
+</li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Identify the correct formula</b></p>
+<p>
+  Boiling point elevation is calculated using:
+</p>
+
+<p>ΔT<sub>b</sub> = iK<sub>b</sub>m</p>
+
+<p>
+  i = van ’t Hoff factor<br>
+  K<sub>b</sub> = boiling point elevation constant<br>
+  m = molality (mol solute / kg solvent)
+</p>
+
+<p><b>Step 2: Identify the estimated Van't Hoff Factor</b></p>
+  Van't Hoff factor for CaCl<sub>2</sub>: <input type="number" class="calc" id="9VH" name="9VH" step="any" formula="3" help="Add the number of cations and anions in the chemical formula for CaCl<sub>2</sub>."><div class="feedback" id="9VHFB" name="9VHFB"></div>
+
+<p><b>Step 3: Convert grams of solute to moles</b></p>
+
+<input type="number" class="calc" id="bpMassConfirm" name="bpMassConfirm" step="any"
+       formula="${bpMass}" help="Use the mass of CaCl2 given in the problem.">
+ g
+<div class="feedback" id="bpMassConfirmFB" name="bpMassConfirmFB"></div>
+
+×
+
+<div style="display:inline-flex; flex-direction:column; align-items:center; font-family:'Times New Roman', serif;">
+  <div style="padding:2px 5px;">
+    <input type="number" class="calc" id="bpMolNum" name="bpMolNum" step="any"
+           formula="1" help="There is 1 mole in 1 mole."> mol
+    <div class="feedback" id="bpMolNumFB" name="bpMolNumFB"></div>
+  </div>
+  <div style="width:100%; height:1.5px; background-color:black;"></div>
+  <div style="padding:2px 5px;">
+    <input type="number" class="calc" id="bpMolDen" name="bpMolDen" step="any"
+           formula="110.98" help="Use the molar mass of CaCl2.">
+ g
+    <div class="feedback" id="bpMolDenFB" name="bpMolDenFB"></div>
+  </div>
+</div>
+
+=
+
+<input type="number" class="calc" id="bpMoles" name="bpMoles" step="any" style="width:80px;"
+       formula="${bpMass}/110.98"
+       help="Divide grams of CaCl2 by its molar mass to get moles.">
+ mol
+<div class="feedback" id="bpMolesFB" name="bpMolesFB"></div>
+
+<p><b>Step 4: Convert grams of water to kilograms</b></p>
+
+<input type="number" class="calc" id="bpWaterConfirm" name="bpWaterConfirm" step="any"
+       formula="${bpWater}" help="Use the mass of water given in the problem.">
+ g
+<div class="feedback" id="bpWaterConfirmFB" name="bpWaterConfirmFB"></div>
+
+÷ 1000 =
+
+<input type="number" class="calc" id="bpWaterKG" name="bpWaterKG" step="any"
+       formula="${bpWater}/1000"
+       help="Divide grams of water by 1000 to convert to kilograms.">
+ kg
+<div class="feedback" id="bpWaterKGFB" name="bpWaterKGFB"></div>
+
+<p><b>Step 5: Calculate molality</b></p>
+
+<input type="number" class="calc" id="bpMolality" name="bpMolality" step="any"
+       formula="${bpMoles}/${bpWaterKG}"
+       help="Molality is moles of solute divided by kilograms of solvent.">
+ m
+<div class="feedback" id="bpMolalityFB" name="bpMolalityFB"></div>
+
+<p><b>Step 6: Calculate the boiling point change</b></p>
+
+ΔT<sub>b</sub> =
+
+<input type="number" class="calc" id="bpDelta" name="bpDelta" step="any"
+       formula="3*0.512*${bpMolality}"
+       help="Use ΔTb = iKb·m with i = 3 and Kb = 0.512 °C/m.">
+ °C
+<div class="feedback" id="bpDeltaFB" name="bpDeltaFB"></div>
+<h4>Practice Problem</h4>
+  <li>
+  What is the change in boiling point of a solution made by dissolving 
+  <input class="num display-value" id="bpMass2" name="bpMass2" random="true" data-original="34.2" randomPercent="40%" readonly> g of lithium chloride (LiCl, 42.39 g/mol) 
+  in <input class="num display-value" id="bpWater2" name="bpWater2" random="true" data-original="690" randomPercent="40%" readonly> g of water?
+    <br>
+  Estimate the van ’t Hoff factor for LiCl based on how many ions are in the chemical formula.  
+  K<sub>b</sub> for water is 0.512 °C/m.
+  <br>
+
+  ΔT<sub>b</sub> =
+  <input type="number" class="calc" id="bpDelta2" name="bpDelta2" step="any"
+         formula="2*0.512*((${bpMass2}/42.39)/(${bpWater2}/1000))"
+         help="Convert grams to moles and kilograms, calculate molality, then apply ΔTb = iKb·m.">
+  °C
+  <div class="feedback" id="bpDelta2FB" name="bpDelta2FB"></div>
+</li>
+
+<hr>
+<!-- 11 and 12 -->
+<h4>Guided Problem</h4>
+
+<li>
+  The Henry’s law constant for nitrogen gas (N<sub>2</sub>) dissolved in water is 
+  <b>6.4 × 10<sup>−4</sup> M/atm</b> at 25 °C.
+  <br><br>
+  When the partial pressure of nitrogen above a sample of water is 
+  <input class="num display-value" id="henP" name="henP" random="true"
+         data-original="0.423" randomPercent="40%" readonly> atm,
+  what is the concentration of nitrogen dissolved in the water?
+</li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Identify the correct equation</b></p>
+
+<p>
+  Henry’s Law:
+</p>
+
+<p>
+  C = K<sub>H</sub>P
+</p>
+
+<p>
+  C = concentration of dissolved gas (M)<br>
+  K<sub>H</sub> = Henry’s law constant (M/atm)<br>
+  P = partial pressure of the gas (atm)
+</p>
+
+<p><b>Step 2: Identify the Henry’s law constant</b></p>
+
+K<sub>H</sub> =
+<input type="number" class="calc" id="henKH" name="henKH" step="any"
+       formula="6.4e-4"
+       help="Use the Henry’s law constant given in the problem.">
+ M/atm
+<div class="feedback" id="henKHFB" name="henKHFB"></div>
+
+<p><b>Step 3: Identify the partial pressure</b></p>
+
+P =
+<input type="number" class="calc" id="henPConfirm" name="henPConfirm" step="any"
+       formula="${henP}"
+       help="Use the partial pressure of nitrogen given in the problem.">
+ atm
+<div class="feedback" id="henPConfirmFB" name="henPConfirmFB"></div>
+
+<p><b>Step 4: Calculate the concentration of dissolved gas</b></p>
+
+C =
+<input type="number" class="calc" id="henC" name="henC" step="any"
+       formula="6.4e-4*${henP}"
+       help="Multiply the Henry’s law constant by the partial pressure.">
+ M
+<div class="feedback" id="henCFB" name="henCFB"></div>
+
+<h4>Practice Problem</h4>
+
+<li>
+  The Henry’s law constant for oxygen gas (O<sub>2</sub>) dissolved in water is 
+  <b>1.3 × 10<sup>−3</sup> M/atm</b> at 25 °C.
+  <br><br>
+  What is the concentration of oxygen dissolved in water when the partial pressure
+  of oxygen above the solution is 
+  <input class="num display-value" id="henP2" name="henP2" random="true"
+         data-original="0.615" randomPercent="40%" readonly> atm?
+  <br><br>
+  Assume the Henry’s law constant remains valid over this temperature range.
+  <br><br>
+
+  C =
+  <input type="number" class="calc" id="henC2" name="henC2" step="any"
+         formula="1.3e-3*${henP2}"
+         help="Use C = KHP. Multiply the Henry’s law constant by the partial pressure.">
+  M
+  <div class="feedback" id="henC2FB" name="henC2FB"></div>
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  An aqueous solution is 
+  <input class="num display-value" id="mmMolal" name="mmMolal"
+         random="true" data-original="0.52" randomPercent="40%" readonly>
+  m potassium bromide (KBr, 119.0 g/mol).
+  <br><br>
+  What is the molarity of the solution if the density of the aqueous solution is
+  <input class="num display-value" id="mmDen" name="mmDen"
+         random="true" data-original="1.16" randomPercent="20%" readonly>
+  g/mL?
+</li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Recall the definitions</b></p>
+<p>
+  Molality (m) = moles of solute per kilogram of solvent<br>
+  Molarity (M) = moles of solute per liter of solution
+</p>
+
+<p><b>Step 2: Start with 1.00 kg of solvent</b></p>
+<p>
+  Using 1.00 kg of solvent makes the molality definition easy to apply.
+</p>
+
+<p><b>Step 3: Calculate moles of solute</b></p>
+
+<input type="number" class="calc" id="mmMolalConfirm" name="mmMolalConfirm" step="any"
+       formula="${mmMolal}" help="Use the molality given in the problem.">
+ mol
+<div class="feedback" id="mmMolalConfirmFB" name="mmMolalConfirmFB"></div>
+
+<p>
+  This is the number of moles of KBr present when 1.00 kg of solvent is used.
+</p>
+
+<p><b>Step 4: Calculate the mass of solute</b></p>
+
+<input type="number" class="calc" id="mmSolMoles" name="mmSolMoles" step="any"
+       formula="${mmMolal}" help="Use the number of moles calculated above.">
+ mol
+<div class="feedback" id="mmSolMolesFB" name="mmSolMolesFB"></div>
+
+×
+
+<div style="display:inline-flex; flex-direction:column; align-items:center; font-family:'Times New Roman', serif;">
+  <div style="padding:2px 5px;">
+    <input type="number" class="calc" id="mmMolNum" name="mmMolNum" step="any"
+           formula="119.0" help="Use the molar mass of KBr.">
+ g
+    <div class="feedback" id="mmMolNumFB" name="mmMolNumFB"></div>
+  </div>
+  <div style="width:100%; height:1.5px; background-color:black;"></div>
+  <div style="padding:2px 5px;">
+    <input type="number" class="calc" id="mmMolDen" name="mmMolDen" step="any"
+           formula="1">
+ mol
+    <div class="feedback" id="mmMolDenFB" name="mmMolDenFB"></div>
+  </div>
+</div>
+
+=
+
+<input type="number" class="calc" id="mmSolMass" name="mmSolMass" step="any"
+       formula="${mmMolal}*119.0"
+       help="Multiply moles of solute by its molar mass.">
+ g
+<div class="feedback" id="mmSolMassFB" name="mmSolMassFB"></div>
+  <br>
+We need the mass of the solute to calculate the mass of the solution (solute + solvent).
+
+<p><b>Step 5: Calculate total mass of solution</b></p>
+
+<p>
+  Calculate the mass of solvent by adding the mass of the solute and solvent (we assumed 1 kg or 1000 g of solvent).
+</p>
+
+<input type="number" class="calc" id="mmTotalMass" name="mmTotalMass" step="any"
+       formula="1000+${mmMolal}*119.0"
+       help="Add the mass of solute to 1000 g of solvent.">
+ g
+<div class="feedback" id="mmTotalMassFB" name="mmTotalMassFB"></div>
+
+<p><b>Step 6: Convert mass of solution to volume</b></p>
+  Volume = Mass x Density<br>
+
+<input type="number" class="calc" id="mmVolume" name="mmVolume" step="any"
+       formula="(1000+${mmMolal}*119.0)/${mmDen}"
+       help="Divide total mass of solution by the density to get volume in mL.">
+ mL
+<div class="feedback" id="mmVolumeFB" name="mmVolumeFB"></div>
+
+<p><b>Step 7: Convert volume to liters</b></p>
+
+<input type="number" class="calc" id="mmVolumeL" name="mmVolumeL" step="any"
+       formula="((1000+${mmMolal}*119.0)/${mmDen})/1000"
+       help="Divide mL by 1000 to convert to liters.">
+ L
+<div class="feedback" id="mmVolumeLFB" name="mmVolumeLFB"></div>
+
+<p><b>Step 8: Calculate molarity</b></p>
+
+M =
+
+<input type="number" class="calc" id="mmMolarity" name="mmMolarity" step="any"
+       formula="${mmMolal}/(((1000+${mmMolal}*119.0)/${mmDen})/1000)"
+       help="Molarity is moles of solute divided by liters of solution.">
+ M
+<div class="feedback" id="mmMolarityFB" name="mmMolarityFB"></div>
+
+<h4>Practice Problem</h4>
+
+<li>
+  An aqueous solution is 
+  <input class="num display-value" id="mmMolal2" name="mmMolal2"
+         random="true" data-original="0.64" randomPercent="40%" readonly>
+  m lithium nitrate (LiNO<sub>3</sub>, 68.95 g/mol).
+  <br><br>
+  What is the molarity of the solution if the density of the aqueous solution is
+  <input class="num display-value" id="mmDen2" name="mmDen2"
+         random="true" data-original="1.11" randomPercent="20%" readonly>
+  g/mL?
+  <br><br>
+
+  M =
+  <input type="number" class="calc" id="mmMolarity2" name="mmMolarity2" step="any"
+         formula="${mmMolal2}/(((1000+${mmMolal2}*68.95)/${mmDen2})/1000)"
+         help="Start with 1 kg of solvent, find total mass, convert to volume using density, then calculate molarity.">
+  M
+  <div class="feedback" id="mmMolarity2FB" name="mmMolarity2FB"></div>
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  A reaction is studied at two different temperatures. At <input class="num display-value" id="arrT1" name="arrT1"
+         random="true" data-original="345" randomPercent="15%" readonly> K, the rate constant is 
+  <input class="num display-value" id="arrK1" name="arrK1" random="true" data-original="2.1e4" randomPercent="40%" readonly> M<sup>−1</sup>s<sup>−1</sup>. At 
+  <input class="num display-value" id="arrT2" name="arrT2"
+         random="true" data-original="160" randomPercent="15%" readonly>
+  K, the rate constant is 
+  <input class="num display-value" id="arrK2" name="arrK2"
+         random="true" data-original="7.4" randomPercent="40%" readonly>
+  M<sup>−1</sup>s<sup>−1</sup>.<br>
+
+  What is the activation energy for this reaction?
+  </li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Write the two‑point Arrhenius equation</b></p>
+
+<p>
+  $\ln\!\left(\frac{k_1}{k_2}\right) = \frac{E_a}{R}\left(\frac{1}{T_2}-\frac{1}{T_1}\right)$
+</p>
+
+<p>
+  E<sub>a</sub> = activation energy<br>
+  R = 8.3145 $\frac{J}{mol·K}$ or 0.0083145 $\frac{kJ}{mol·K}$<br>
+  T = temperature in Kelvin
+</p>
+
+<p><b>Step 2: Identify k<sub>1</sub> and k<sub>2</sub></b></p>
+
+  k<sub>1</sub> =
+  <input type="number" class="calc" id="arrK1C" name="arrK1C" step="any"
+         formula="if(${arrK2} == ${arrK2} ; ${arrK1}||${arrK2} ; ${arrK1}||${arrK2}"
+         help="Use the rate constant at the higher temperature."> <div class="feedback" id="arrK1CFB" name="arrK1CFB"></div>
+  <br>
+  k<sub>2</sub> =
+  <input type="number" class="calc" id="arrK2C" name="arrK2C" step="any"
+         formula="if(${arrK1C} == ${arrK1} ; ${arrK2} ; ${arrK1})"
+         help="Use the rate constant at the lower temperature."> <div class="feedback" id="arrK2CFB" name="arrK2CFB"></div>
+
+<p><b>Step 3: Take the natural logarithm of the rate constant ratio</b></p>
+
+$ln\left(\frac{k_1}{k_2}\right)$ =
+<input type="number" class="calc" id="arrLn" name="arrLn" step="any"
+       formula="ln(${arrK1}/${arrK2})"
+       help="Divide the K<sub>1</sub> by the K<sub>2</sub>, then take ln.">
+<div class="feedback" id="arrLnFB" name="arrLnFB"></div>
+
+<p><b>Step 4: Calculate the temperature term</b></p>
+
+$\left(\frac{1}{T_2}-\frac{1}{T_1}\right)$ =
+<input type="number" class="calc" id="arrTempTerm" name="arrTempTerm" step="any"
+       formula="if(${arrK1C} == ${arrK1} ; 1/${arrT2}-1/${arrT1} ; 1/${arrT1}-1/${arrT2})"
+       help="Temperatures must be in Kelvin and T<sub>1</sub> must be the temperature for K<sub>1</sub> and T<sub>2</sub> must be the temperature for K<sub>2</sub>">
+<div class="feedback" id="arrTempTermFB" name="arrTempTermFB"></div>
+
+<p><b>Step 5: Solve for the activation energy</b></p>
+
+E<sub>a</sub> =
+
+<input type="number" class="calc" id="arrEa" name="arrEa" step="any"
+       formula="(0.0083145*${arrLn})/${arrTempTerm}"
+       help="Rearrange the Arrhenius equation and use R = 0.0083145 kJ/(mol·K).">
+ kJ/mol
+
+<div class="feedback" id="arrEaFB" name="arrEaFB"></div>
+
+<h4>Practice Problem</h4>
+
+<li>
+  At 
+  <input class="num display-value" id="arrT1b" name="arrT1b"
+         random="true" data-original="372" randomPercent="15%" readonly>
+  K, a reaction has a rate constant of
+  <input class="num display-value" id="arrK1b" name="arrK1b"
+         random="true" data-original="3.4e4" randomPercent="40%" readonly>
+  M<sup>−1</sup>s<sup>−1</sup>.  At <input class="num display-value" id="arrT2b" name="arrT2b"
+         random="true" data-original="185" randomPercent="15%" readonly>
+  K, the rate constant is <input class="num display-value" id="arrK2b" name="arrK2b"
+         random="true" data-original="11.2" randomPercent="40%" readonly>
+  M<sup>−1</sup>s<sup>−1</sup>.
+  <br>
+
+  What is the activation energy for this reaction?
+  <br><br>
+
+  E<sub>a</sub> =
+  <input type="number" class="calc" id="arrEab" name="arrEab" step="any"
+         formula="(0.008314*ln(${arrK1b}/${arrK2b}))/((1/${arrT2b})-(1/${arrT1b}))"
+         help="Use the two‑point Arrhenius equation. Make sure the larger rate constant corresponds to the higher temperature.">
+  kJ/mol
+
+  <div class="feedback" id="arrEabFB" name="arrEabFB"></div>
+</li>
+<!-- ==== 15 and 16 === -->
+<hr>
+<h4>Guided Problem</h4>
+
+<li>
+  <p>
+    The graph below shows how the concentration of a reactant changes over time.
+  </p>
+  <img src="/images/44.jpg" height="250" alt="Concentration vs Time" title="Concentration vs Time">
+
+  <h4>Step-by-step reasoning</h4>
+
+  <p><b>Step 1: Identify what is plotted</b></p>
+  <p>
+    The graph plots <b>concentration vs. time</b>.
+  </p>
+
+  <p><b>Step 2: Recall how reaction order affects graph shape</b></p>
+  <ul>
+    <li><b>Zeroth order:</b> concentration decreases linearly with time</li>
+    <li><b>First order:</b> natural log of concentration decreases linearly with time</li>
+    <li><b>Second order:</b> $\frac{1}{concentration}$ increases linearly with time</li>
+  </ul>
+
+  <p><b>Step 3: Match the graph to the reaction order</b></p>
+
+  <select id="rxOrder1" name="rxOrder1" class="calc"
+          formula="zeroth"
+          help="For a concentration vs. time graph, a straight line indicates a zeroth-order reaction.">
+    <option value="">Choose an option</option>
+    <option value="zeroth">Zeroth order</option>
+    <option value="first">First order</option>
+    <option value="second">Second order</option>
+    <option value="cannot">Cannot be determined</option>
+  </select>
+
+  <div class="feedback" id="rxOrder1FB" name="rxOrder1FB"></div>
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  <p>
+    What is the order of the reaction represented by the graph below?
+  </p>
+
+  <img src="/images/46.jpg" height="250" alt="one over concentration vs time" title="1/Concentration vs Time">
+<br>
+  <select id="rxOrder2" name="rxOrder2" class="calc"
+          formula="second"
+          help="Determine the reaction order by examining the shape of the concentration vs. time graph.">
+    <option value="">Choose an option</option>
+    <option value="zeroth">Zeroth order</option>
+    <option value="first">First order</option>
+    <option value="second">Second order</option>
+    <option value="cannot">Cannot be determined</option>
+  </select>
+
+  <div class="feedback" id="rxOrder2FB" name="rxOrder2FB"></div>
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Consider the following reaction and rate law:
+  <br><br>
+
+  2 X + 5 Y ➞ 3 Z
+  <br><br>
+
+  Rate = k[X]<sup>3</sup>[Y]<sup>2</sup>
+</li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Recall how overall reaction order is determined</b></p>
+<p>
+  The overall order of a reaction is the <b>sum of the exponents</b> on the concentration terms in the rate law.
+</p>
+
+<p><b>Step 2: Identify the exponents in the rate law</b></p>
+
+[X]<sup>2</sup> contributes an order of
+<input type="number" class="calc" id="rxXOrd" name="rxXOrd" step="any"
+       formula="3" help="The exponent on [X] is the reaction order with respect to X.">
+<div class="feedback" id="rxXOrdFB" name="rxXOrdFB"></div>
+<br>
+
+[Y]<sup>2</sup> contributes an order of
+<input type="number" class="calc" id="rxYOrd" name="rxYOrd" step="any"
+       formula="2" help="The exponent on [Y] is the reaction order with respect to Y.">
+<div class="feedback" id="rxYOrdFB" name="rxYOrdFB"></div>
+
+<p><b>Step 3: Add the individual orders</b></p>
+
+Overall order =
+<input type="number" class="calc" id="rxTotalOrd" name="rxTotalOrd" step="any"
+       formula="5" help="Add the exponents from the rate law.">
+<div class="feedback" id="rxTotalOrdFB" name="rxTotalOrdFB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  What is the overall order of the following reaction, based on its rate law?
+  <br><br>
+
+  X + Y ➞ Z
+  <br><br>
+
+  Rate = k[X]<sup>3</sup>[Y]
+  <br><br>
+
+  Overall reaction order =
+  <input type="number" class="calc" id="rxTotalOrd2" name="rxTotalOrd2" step="any"
+         formula="4"
+         help="The overall order is the sum of the exponents in the rate law.">
+  <div class="feedback" id="rxTotalOrd2FB" name="rxTotalOrd2FB"></div>
+</li>
+
+<hr>
+<!-- 21 and 22 -->
+<h4>Guided Problem</h4>
+
+<li>
+  Given the following balanced equation, determine the rate of reaction with respect to [SO<sub>2</sub>]:
+  <br><br>
+
+  2 SO<sub>2</sub>(g) + O<sub>2</sub>(g) ➞ 2 SO<sub>3</sub>(g)
+</li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Recall how reaction rate is defined</b></p>
+<p>
+  The rate of reaction is related to the change in concentration of each species
+  divided by its stoichiometric coefficient.  If the species is a reactant, we multiply by negative one since the change in concentration will be negative whereas rate is always positive.
+</p>
+
+<p>
+  for aA + bB ➞ cC + dD<br>
+  The rate with respect to A would be written as:<br>
+  $Rate = \frac{-1}{a} \times \frac{\Delta [A]}{\Delta t}$<br>
+  The rate with respect to C would be written as:<br>
+  $Rate = \frac{1}{c} \times \frac{\Delta [C]}{\Delta t}$
+</p>
+
+<p><b>Step 2: Identify the coefficient of SO<sub>2</sub></b></p>
+
+The coefficient of SO<sub>2</sub> is
+<input type="number" class="calc" id="so2coef" name="so2coef" step="any"
+       formula="2"
+       help="Use the coefficient of SO2 from the balanced chemical equation.">
+<div class="feedback" id="so2coefFB" name="so2coefFB"></div>
+
+<p><b>Step 3: Write the rate expression with respect to SO<sub>2</sub></b></p>
+
+  Rate =
+
+<div style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-family:'Times New Roman', serif;">
+
+  <!-- Numerator -->
+  <div style="padding:2px 5px; display:flex; align-items:center; gap:5px;">
+    <input type="number" class="calc" id="RNum" name="RNum" step="any"
+           formula="-1"
+           help="Reactants will have a negative one, and products will have a positive one."
+           style="width:70px;">
+    <div class="feedback" id="RNumFB" name="RNumFB"></div>
+  </div>
+
+  <!-- Fraction Bar -->
+  <div style="width:100%; height:1.5px; background-color:black;"></div>
+
+  <!-- Denominator -->
+  <div style="padding:2px 5px; display:flex; align-items:center; gap:5px;">
+    <input type="number" class="calc" id="so2ratecoef" name="so2ratecoef" step="any"
+           formula="2"
+           help="The coefficient of SO2 from the balanced equation."
+           style="width:70px;">
+    <div class="feedback" id="so2ratecoefFB" name="so2ratecoefFB"></div>
+  </div>
+
+</div>
+
+× 
+
+<div style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-family:'Times New Roman', serif;">
+
+  <!-- Numerator -->
+  <div style="padding:2px 5px; display:flex; align-items:center; gap:5px;">
+    Δ
+    <input type="text" class="calc sub" id="RConc" name="RConc"
+           formula="[SO2]"
+           help="Input the formula for the reactant or product surrounded by brackets (e.g. [H2O])."
+           style="width:70px;">
+    <div id="RConcDIV"></div>
+    <div class="feedback" id="RConcFB" name="RConcFB"></div>
+  </div>
+
+  <!-- Fraction Bar -->
+  <div style="width:100%; height:1.5px; background-color:black;"></div>
+
+  <!-- Denominator -->
+  <div style="padding:2px 5px; text-align:center;">
+    Δt
+  </div>
+
+</div>
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Given the following balanced equation, determine the rate of reaction with respect to [NO<sub>2</sub>]:
+  <br><br>
+
+  2 N<sub>2</sub>O<sub>5</sub>(g) ➞ 4 NO<sub>2</sub>(g) + O<sub>2</sub>(g)
+  <br><br>
+
+  Rate =
+  
+  <div style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-family:'Times New Roman', serif;">
+
+    <!-- Numerator -->
+    <div style="padding:2px 5px; display:flex; align-items:center; gap:5px;">
+      <input type="number" class="calc" id="RNum2" name="RNum2" step="any"
+             formula="1"
+             help="Products will have a positive one, since their concentration increases."
+             style="width:70px;">
+      <div class="feedback" id="RNum2FB" name="RNum2FB"></div>
+    </div>
+
+    <!-- Fraction Bar -->
+    <div style="width:100%; height:1.5px; background-color:black;"></div>
+
+    <!-- Denominator -->
+    <div style="padding:2px 5px; display:flex; align-items:center; gap:5px;">
+      <input type="number" class="calc" id="no2coef" name="no2coef" step="any"
+             formula="4"
+             help="Use the coefficient of NO2 from the balanced equation."
+             style="width:70px;">
+      <div class="feedback" id="no2coefFB" name="no2coefFB"></div>
+    </div>
+
+  </div>
+
+  ×
+
+  <div style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-family:'Times New Roman', serif;">
+
+    <!-- Numerator -->
+    <div style="padding:2px 5px; display:flex; align-items:center; gap:5px;">
+      Δ
+      <input type="text" class="calc sub" id="RConc2" name="RConc2"
+             formula="[NO2]"
+             help="Input the formula for the product surrounded by brackets (e.g. [CO2])."
+             style="width:70px;">
+      <div id="RConc2DIV"></div>
+      <div class="feedback" id="RConc2FB" name="RConc2FB"></div>
+    </div>
+
+    <!-- Fraction Bar -->
+    <div style="width:100%; height:1.5px; background-color:black;"></div>
+
+    <!-- Denominator -->
+    <div style="padding:2px 5px; text-align:center;">
+      Δt
+    </div>
+
+  </div>
+
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  For the reaction below, the rate of <b>disappearance</b> of
+  NO<sub>2</sub>(g) is
+  <input class="num display-value" id="rrRate1" name="rrRate1"
+         random="true" data-original="0.084" randomPercent="40%" readonly>
+  M/s.
+  <br><br>
+
+  2 NO<sub>2</sub>(g) ➞ 2 NO(g) + O<sub>2</sub>(g)
+  <br><br>
+
+  What is the rate of <b>appearance</b> of O<sub>2</sub>?
+</li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Write the rate relationship using coefficients</b></p>
+
+<p>
+$
+\text{Rate}
+=
+-\frac{1}{2}\,\frac{\Delta[\text{NO}_2]}{\Delta t}
+=
+\frac{1}{1}\,\frac{\Delta[\text{O}_2]}{\Delta t}
+$
+
+</p>
+
+<p><b>Step 2: Use the stoichiometric ratio</b></p>
+
+<p>
+  For every 2 moles of NO<sub>2</sub> consumed, 1 mole of O<sub>2</sub> is produced.
+</p>
+
+<p><b>Step 3: Calculate the rate of appearance of O<sub>2</sub></b></p>
+
+Rate of appearance of O<sub>2</sub> =
+
+<input type="number" class="calc" id="rrAns1" name="rrAns1" step="any"
+       formula="${rrRate1}/2"
+       help="Divide the rate of disappearance of NO2 by 2, based on the coefficients.">
+ M/s
+
+<div class="feedback" id="rrAns1FB" name="rrAns1FB"></div>
+
+<h4>Practice Problem</h4>
+
+<li>
+  For the reaction below, the rate of <b>appearance</b> of
+  NO<sub>2</sub>(g) is
+  <input class="num display-value" id="rrRate2" name="rrRate2"
+         random="true" data-original="0.147" randomPercent="40%" readonly>
+  M/s.
+  <br><br>
+
+  2 N<sub>2</sub>O<sub>5</sub>(g) ➞ 4 NO<sub>2</sub>(g) + O<sub>2</sub>(g)
+  <br><br>
+
+  What is the rate of <b>disappearance</b> of N<sub>2</sub>O<sub>5</sub>?
+</li>
+
+
+$
+\text{Rate}
+=
+\frac{1}{4}\,\frac{\Delta[\text{NO}_2]}{\Delta t}
+=
+-\frac{1}{2}\,\frac{\Delta[\text{N}_2\text{O}_5]}{\Delta t}
+$ <br>
+
+
+
+Rate of disappearance of N<sub>2</sub>O<sub>5</sub> =
+<input type="number" class="calc" id="rrAns2" name="rrAns2" step="any"
+       formula="${rrRate2}*(2/4)"
+       help="Use the stoichiometric ratio between NO2 and N2O5 from the balanced equation.">
+ M/s <div class="feedback" id="rrAns2FB" name="rrAns2FB"></div>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Which of the following rate laws represents a <b>unimolecular</b> primary reaction?
+</li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Recall the definitions</b></p>
+<p>
+  For primary reactions:
+  <ul>
+  <li>A <b>uni</b>molecular reaction has an overall order of <b>1</b>. </li>
+    <ul><li>(e.g. Rate = k[A])</li></ul>
+  <li>A <b>bi</b>molecular reaction has an overall order of <b>2</b>.</li>  
+    <ul><li>(e.g. Rate = k[A]<sup>2</sup>, or Rate = k[A][B])</li></ul>
+  <li>A <b>ter</b>molecular reaction has an overall order of <b>3</b>.</li>
+    <ul><li>(e.g. Rate = k[A]<sup>3</sup>, or Rate = k[A]<sup>2</sup>[B], or Rate = K[A][B][C])</li></ul>
+    </ul>
+  <br>
+  This means the <b>sum of the exponents</b> in the rate law is 1.
+</p>
+
+<p><b>Step 2: Examine each rate law</b></p>
+
+<select id="bimol1" name="bimol1" class="calc"
+        formula="k[A]"
+        help="A unimolecular rate law has an overall order of 1.">
+  <option value="">Choose an option</option>
+  <option value="k[A]">Rate = k[A]</option>
+  <option value="k[A][B]">Rate = k[A][B]</option>
+  <option value="k[A]^2[B]">Rate = k[A]<sup>2</sup>[B]</option>
+  <option value="k">Rate = k</option>
+</select>
+
+<div class="feedback" id="bimol1FB" name="bimol1FB"></div>
+
+<h4>Practice Problem</h4>
+
+<li>
+  What rate law corresponds to a <b>termolecular</b> reaction?
+</li>
+
+<select id="bimol2" name="bimol2" class="calc"
+        formula="k[A]^3"
+        help="A termolecular reaction has an overall order of 3.">
+  <option value="">Choose an option</option>
+  <option value="k[A]^3">Rate = k[A]<sup>3</sup></option>
+  <option value="k[A]^2">Rate = k[A]<sup>2</sup></option>
+  <option value="k[A]^2[B]^2">Rate = k[A]<sup>2</sup>[B]<sup>2</sup></option>
+  <option value="k">Rate = k</option>
+</select>
+
+<div class="feedback" id="bimol2FB" name="bimol2FB"></div>
+
+<hr>
+
+<h4>Guided Problem</h4>
+  <p>
+  Which law of thermodynamics states that the total entropy of the universe
+  increases for any spontaneous process?</p>
+
+<li>
+  <b>Reference: Laws of Thermodynamics</b>
+  <ul>
+    <li>
+      <b>Zeroth Law:</b> If two systems are each in thermal equilibrium with a third system, they are in thermal equilibrium with each other.
+    </li>
+    <li>
+      <b>First Law:</b> Energy cannot be created or destroyed, only transferred or converted from one form to another.
+    </li>
+    <li>
+      <b>Second Law:</b> The total entropy of the universe increases for any spontaneous process.
+    </li>
+    <li>
+      <b>Third Law:</b> The entropy of a perfect crystalline substance is zero at absolute zero temperature.
+    </li>
+  </ul>  
+</li>
+
+<select id="thermo2" name="thermo2" class="calc"
+        formula="second"
+        help="The second law describes the natural tendency toward increased entropy.">
+  <option value="">Choose an option</option>
+  <option value="zeroth">Zeroth Law</option>
+  <option value="first">First Law</option>
+  <option value="second">Second Law</option>
+  <option value="third">Third Law</option>
+</select>
+
+<div class="feedback" id="thermo2FB" name="thermo2FB"></div>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Which law of thermodynamics states that the entropy of a perfect crystalline
+  substance is zero at absolute zero temperature?
+</li>
+
+<select id="thermo3" name="thermo3" class="calc"
+        formula="third"
+        help="This law defines the entropy reference point at absolute zero.">
+  <option value="">Choose an option</option>
+  <option value="zeroth">Zeroth Law</option>
+  <option value="first">First Law</option>
+  <option value="second">Second Law</option>
+  <option value="third">Third Law</option>
+</select>
+
+<div class="feedback" id="thermo3FB" name="thermo3FB"></div>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Consider the following reaction at constant pressure. Use the information
+  below to determine the value of ΔS<sub>surr</sub> at
+  <input class="num display-value" id="Tsurr1" name="Tsurr1"
+         random="true" data-original="450" randomPercent="20%" readonly>
+  K. Then predict whether or not this reaction will be spontaneous at this temperature.
+  <br><br>
+
+  2 KClO<sub>3</sub>(s) ➞ 2 KCl(s) + 3 O<sub>2</sub>(g), ΔH = −89.4 kJ
+</li>
+
+<h4>Step-by-step reasoning</h4>
+<p><b>Step 1: Convert enthalpy change into J.</b></p>
+  ΔH =
+<input type="number" class="calc" id="dH1" name="dH1" step="any"
+       formula="-89400"
+       help="Convert kJ to J by multiplying by 1000.">
+ J
+<div class="feedback" id="dH1FB" name="dH1FB"></div>
+
+<p><b>Step 2: Calculate the entropy change of the surroundings</b></p>
+
+<p>
+$
+\Delta S_{\text{surr}} = -\frac{\Delta H_{sys}}{T}
+$
+</p>
+
+
+
+ΔS<sub>surr</sub> =
+<input type="number" class="calc" id="dSsurr1" name="dSsurr1" step="any"
+       formula="-(-89400)/${Tsurr1}"
+       help="Divide −ΔH by the temperature in Kelvin.">
+ J/K
+<div class="feedback" id="dSsurr1FB" name="dSsurr1FB"></div>
+
+<p><b>Step 3: Consider the entropy change of the system</b></p>
+
+<p>
+This reaction produces gas from solids, so the entropy of the system increases
+(ΔS<sub>sys</sub> &gt; 0).
+</p>
+
+ΔS<sub>uni</sub> = ΔS<sub>sys</sub> + ΔS<sub>surr</sub><br>
+  If the ΔS<sub>uni</sub> is positive, then the reaction is spontaneous.  If the ΔS<sub>uni</sub> is negative, then the reaction is nonspontaneous.<br>
+Since both ΔS<sub>sys</sub> and ΔS<sub>surr</sub> are positive, the reaction is 
+<select id="29Sp" name="29Sp" class="calc" formula="spontaneous" help="If the ΔS<sub>uni</sub> is positive, then the reaction is spontaneous.  If the ΔS<sub>uni</sub> is negative, then the reaction is nonspontaneous.">
+  <option value="">Choose an option</option>
+  <option value="spontaneous">spontaneous</option>
+  <option value="spontaneous">nonspontaneous</option>
+</select>
+<div class="feedback" id="29SpFB" name="29SpFB"></div>
+ at this temperature.</p>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Consider the following reaction at constant pressure. Determine the value of
+  ΔS<sub>surr</sub> at
+  <input class="num display-value" id="Tsurr2" name="Tsurr2"
+         random="true" data-original="525" randomPercent="20%" readonly>
+  K. Then predict whether or not the reaction will be spontaneous at this temperature.
+  <br><br>
+
+  2 NO<sub>2</sub>(g) ➞ N<sub>2</sub>O<sub>4</sub>(g)
+  <br><br>
+
+  ΔH = +57.2 kJ
+  <br><br>
+
+  ΔS<sub>surr</sub> =
+  <input type="number" class="calc" id="dSsurr2" name="dSsurr2" step="any"
+         formula="-(57200)/${Tsurr2}"
+         help="Use ΔSsurr = −ΔH/T. Remember to convert kJ to J.">
+  J/K
+  <div class="feedback" id="dSsurr2FB" name="dSsurr2FB"></div>
+
+  <br><br>
+
+  Based on the reaction, the entropy of the system decreases (fewer moles of gas).
+  <br><br>
+
+  This reaction is
+  <select id="spon2" name="spon2" class="calc"
+          formula="not spontaneous"
+          help="Both ΔSsys and ΔSsurr are negative, so the reaction is nonspontaneous.">
+    <option value="">Choose an option</option>
+    <option value="spontaneous">spontaneous</option>
+    <option value="not spontaneous">not spontaneous</option>
+  </select>
+
+  <div class="feedback" id="spon2FB" name="spon2FB"></div>
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  For each of the following reactions, determine whether the entropy change
+  (ΔS) is <b>positive</b> or <b>negative</b>.
+  <br><br>
+  Use the following ideas to guide your reasoning:
+  <ul>
+    <li>Producing more moles of gas increases entropy (ΔS &gt; 0)</li>
+    <li>Producing fewer moles of gas decreases entropy (ΔS &lt; 0)</li>
+    <li>Gas → liquid → solid decreases entropy</li>
+    <li>Solid → liquid → gas increases entropy</li>
+  </ul>
+
+  <br>
+
+  <b>(a)</b>
+  N<sub>2</sub>O<sub>4</sub>(g) ➞ 2 NO<sub>2</sub>(g)<br>
+  ΔS is
+  <select id="gDH1" name="gDH1" class="calc" formula="positive"
+          help="Compare the number of moles of gas before and after the reaction.">
+    <option value="">Choose an option</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+  </select>
+  <div class="feedback" id="gDH1FB" name="gDH1FB"></div>
+
+  <br><br>
+
+  <b>(b)</b>
+  2 NO<sub>2</sub>(g) ➞ N<sub>2</sub>O<sub>4</sub>(g)<br>
+  ΔS is
+  <select id="gDH2" name="gDH2" class="calc" formula="negative"
+          help="Compare the number of moles of gas before and after the reaction.">
+    <option value="">Choose an option</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+  </select>
+  <div class="feedback" id="gDH2FB" name="gDH2FB"></div>
+
+  <br><br>
+
+  <b>(c)</b>
+  H<sub>2</sub>O(g) ➞ H<sub>2</sub>O(l)<br>
+  ΔS is
+  <select id="gDH3" name="gDH3" class="calc" formula="negative"
+          help="A gas became a liquid.">
+    <option value="">Choose an option</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+  </select>
+  <div class="feedback" id="gDH3FB" name="gDH3FB"></div>
+
+  <br><br>
+
+  <b>(d)</b>
+  H<sub>2</sub>O(s) ➞ H<sub>2</sub>O(l)<br>
+  ΔS is
+  <select id="gDH4" name="gDH4" class="calc" formula="positive"
+          help="A liquid became a gas">
+    <option value="">Choose an option</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+  </select>
+  <div class="feedback" id="gDH4FB" name="gDH4FB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  For each of the following reactions, determine whether the entropy change
+  (ΔS) is <b>positive</b> or <b>negative</b>.
+  <br><br>
+
+  <b>(a)</b>
+  2 SO<sub>3</sub>(g) ➞ 2 SO<sub>2</sub>(g) + O<sub>2</sub>(g)<br>
+  ΔS is
+  <select id="pDH1" name="pDH1" class="calc" formula="positive"
+          help="Compare the total number of moles of gas on each side of the equation.">
+    <option value="">Choose an option</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+  </select>
+  <div class="feedback" id="pDH1FB" name="pDH1FB"></div>
+
+  <br><br>
+
+  <b>(b)</b>
+  2 NH<sub>3</sub>(g) ➞ N<sub>2</sub>(g) + 3 H<sub>2</sub>(g)<br>
+  ΔS is
+  <select id="pDH2" name="pDH2" class="calc" formula="positive"
+          help="Compare the total number of moles of gas on each side of the equation.">
+    <option value="">Choose an option</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+  </select>
+  <div class="feedback" id="pDH2FB" name="pDH2FB"></div>
+
+  <br><br>
+
+  <b>(c)</b>
+  CO<sub>2</sub>(g) ➞ CO<sub>2</sub>(s)<br>
+  ΔS is
+  <select id="pDH3" name="pDH3" class="calc" formula="negative"
+          help="Gas to solid.">
+    <option value="">Choose an option</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+  </select>
+  <div class="feedback" id="pDH3FB" name="pDH3FB"></div>
+
+  <br><br>
+
+  <b>(d)</b>
+  Br<sub>2</sub>(l) ➞ Br<sub>2</sub>(g)<br>
+  ΔS is
+  <select id="pDH4" name="pDH4" class="calc" formula="positive"
+          help="Vaporization produces gas from liquid.">
+    <option value="">Choose an option</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+  </select>
+  <div class="feedback" id="pDH4FB" name="pDH4FB"></div>
+
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Calculate the value of ΔS°<sub>rxn</sub> at 25 °C for the following reaction:
+  <br><br>
+
+  2 SO<sub>2</sub>(g) + O<sub>2</sub>(g) ➞ 2 SO<sub>3</sub>(g)
+  <br><br>
+
+  The standard molar entropies are given below.
+</li>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <tr>
+    <th>Substance</th>
+    <th>S° (J/mol·K)</th>
+  </tr>
+  <tr>
+    <td>SO<sub>2</sub>(g)</td>
+    <td>248.2</td>
+  </tr>
+  <tr>
+    <td>O<sub>2</sub>(g)</td>
+    <td>205.2</td>
+  </tr>
+  <tr>
+    <td>SO<sub>3</sub>(g)</td>
+    <td>256.8</td>
+  </tr>
+</table>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Write the ΔS°<sub>rxn</sub> expression</b></p>
+
+<p>
+$$
+\Delta S^\circ_{\text{rxn}} =
+\sum nS^\circ_{\text{products}} -
+\sum nS^\circ_{\text{reactants}}
+$$
+</p>
+
+<p><b>Step 2: Calculate total entropy of products</b></p>
+
+<input type="number" class="calc" id="gProd1" name="gProd1" step="any"
+       formula="2*256.8"
+       range="2%"
+       help="Multiply the entropy of each product by its coefficient, then add.">
+ J/K
+<div class="feedback" id="gProd1FB" name="gProd1FB"></div>
+
+<p><b>Step 3: Calculate total entropy of reactants</b></p>
+
+<input type="number" class="calc" id="gReact1" name="gReact1" step="any"
+       formula="2*248.2+205.2"
+       help="Multiply each reactant entropy by its coefficient, then add.">
+ J/K
+<div class="feedback" id="gReact1FB" name="gReact1FB"></div>
+
+<p><b>Step 4: Calculate ΔS°<sub>rxn</sub></b></p>
+
+ΔS°<sub>rxn</sub> =
+<input type="number" class="calc" id="gDS1" name="gDS1" step="any"
+       formula="(2*256.8)-(2*248.2+205.2)"
+       help="Subtract the total reactant entropy from the total product entropy.">
+ J/K
+<div class="feedback" id="gDS1FB" name="gDS1FB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Calculate the value of ΔS°<sub>rxn</sub> at 25 °C for the reaction below:
+  <br><br>
+
+  N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ➞ 2 NH<sub>3</sub>(g)
+  <br><br>
+
+  The standard molar entropies are given below.
+</li>
+
+<table border="1" cellpadding="6" cellspacing="0">
+  <tr>
+    <th>Substance</th>
+    <th>S° (J/mol·K)</th>
+  </tr>
+  <tr>
+    <td>N<sub>2</sub>(g)</td>
+    <td>191.5</td>
+  </tr>
+  <tr>
+    <td>H<sub>2</sub>(g)</td>
+    <td>130.6</td>
+  </tr>
+  <tr>
+    <td>NH<sub>3</sub>(g)</td>
+    <td>192.8</td>
+  </tr>
+</table>
+
+
+ΔS°<sub>rxn</sub> =
+<input type="number" class="calc" id="pDS1" name="pDS1" step="any"
+       formula="(2*192.8)-(191.5+3*130.6)"
+       help="Use ΔS°rxn = ΣnS°products − ΣnS°reactants.">
+ J/K <div class="feedback" id="pDS1FB" name="pDS1FB"></div>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  For each of the following state changes, determine whether the entropy change
+  (ΔS) and the enthalpy change (ΔH) are <b>positive</b>, <b>negative</b>, or <b>zero</b>.
+  <br><br>
+
+  Use the following ideas to guide your reasoning:
+  <ul>
+    <li>Gas &gt; liquid &gt; solid in entropy</li>
+    <li>Solid → liquid → gas absorbs energy (ΔH &gt; 0)</li>
+    <li>Gas → liquid → solid releases energy (ΔH &lt; 0)</li>
+    <li>No phase change → ΔH and ΔS are zero</li>
+  </ul>
+
+  <br>
+
+  <b>(a)</b>
+  CO<sub>2</sub>(s) ➞ CO<sub>2</sub>(g)  (sublimation)
+  <br>
+  ΔS is
+  <select id="gS1" name="gS1" class="calc" formula="positive"
+          help="Compare the disorder of a solid and a gas.">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+<div class="feedback" id="gS1FB"></div>
+  ΔH is
+  <select id="gH1" name="gH1" class="calc" formula="positive"
+          help="Decide whether energy must be absorbed or released during this phase change.">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+
+  
+  <div class="feedback" id="gH1FB"></div>
+
+  <br><br>
+
+  <b>(b)</b>
+  Br<sub>2</sub>(g) ➞ Br<sub>2</sub>(l)  (condensation)
+  <br>
+  ΔS is
+  <select id="gS2" name="gS2" class="calc" formula="negative"
+          help="Consider how particle freedom changes when a gas becomes a liquid.">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+<div class="feedback" id="gS2FB"></div>
+  ΔH is
+  <select id="gH2" name="gH2" class="calc" formula="negative"
+          help="Think about whether heat is released or absorbed.">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+
+  
+  <div class="feedback" id="gH2FB"></div>
+
+  <br><br>
+
+  <b>(c)</b>
+  I<sub>2</sub>(s) ➞ I<sub>2</sub>(l)  (melting)
+  <br>
+  ΔS is
+  <select id="gS3" name="gS3" class="calc" formula="positive"
+          help="Compare particle motion in a solid versus a liquid.">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+<div class="feedback" id="gS3FB"></div>
+  ΔH is
+  <select id="gH3" name="gH3" class="calc" formula="positive"
+          help="Decide whether energy is required to overcome intermolecular forces.">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+
+  
+  <div class="feedback" id="gH3FB"></div>
+
+  <br><br>
+
+  <b>(d)</b>
+  Ne(g) ➞ Ne(g)
+  <br>
+  ΔS is
+  <select id="gS4" name="gS4" class="calc" formula="zero"
+          help="Ask whether anything about the system has changed.">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+<div class="feedback" id="gS4FB"></div>
+  ΔH is
+  <select id="gH4" name="gH4" class="calc" formula="zero"
+          help="No phase or chemical change occurs.">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+
+  
+  <div class="feedback" id="gH4FB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  For each of the following state changes, determine whether the entropy change
+  (ΔS) and the enthalpy change (ΔH) are <b>positive</b>, <b>negative</b>, or <b>zero</b>.
+  <br><br>
+
+  <b>(a)</b>
+  NH<sub>3</sub>(l) ➞ NH<sub>3</sub>(g)
+  <br>
+  ΔS is
+  <select id="pS1" name="pS1" class="calc" formula="positive">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+ <div class="feedback" id="pS1FB"></div>
+  ΔH is
+  <select id="pH1" name="pH1" class="calc" formula="positive">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+
+ 
+  <div class="feedback" id="pH1FB"></div>
+
+  <br><br>
+
+  <b>(b)</b>
+  CO<sub>2</sub>(g) ➞ CO<sub>2</sub>(s)
+  <br>
+  ΔS is
+  <select id="pS2" name="pS2" class="calc" formula="negative">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+<div class="feedback" id="pS2FB"></div>
+  ΔH is
+  <select id="pH2" name="pH2" class="calc" formula="negative">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+
+  
+  <div class="feedback" id="pH2FB"></div>
+
+  <br><br>
+
+  <b>(c)</b>
+  Hg(l) ➞ Hg(l)
+  <br>
+  ΔS is
+  <select id="pS3" name="pS3" class="calc" formula="zero">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+<div class="feedback" id="pS3FB"></div>
+  ΔH is
+  <select id="pH3" name="pH3" class="calc" formula="zero">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+
+  
+  <div class="feedback" id="pH3FB"></div>
+
+  <br><br>
+
+  <b>(d)</b>
+  Cl<sub>2</sub>(g) ➞ Cl<sub>2</sub>(l)
+  <br>
+  ΔS is
+  <select id="pS4" name="pS4" class="calc" formula="negative">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+<div class="feedback" id="pS4FB"></div>
+  ΔH is
+  <select id="pH4" name="pH4" class="calc" formula="negative">
+    <option value="">Choose</option>
+    <option value="positive">positive</option>
+    <option value="negative">negative</option>
+    <option value="zero">zero</option>
+  </select>
+
+  
+  <div class="feedback" id="pH4FB"></div>
+
+</li>
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Given the following chemical equation:
+  <br><br>
+
+  N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ➞ 2 NH<sub>3</sub>(g)  
+  ΔG°<sub>rxn</sub> = −33.2 kJ/mol
+  <br><br>
+
+  Calculate the value of ΔG°<sub>rxn</sub> for the reaction below.
+  <br><br>
+
+  3 N<sub>2</sub>(g) + 9 H<sub>2</sub>(g) ➞ 6 NH<sub>3</sub>(g)
+</li>
+
+<h4>Step-by-step reasoning</h4>
+
+<p><b>Step 1: Compare the two equations</b></p>
+<p>
+  The second equation is obtained by multiplying the first equation by 3.
+</p>
+
+<p><b>Step 2: Apply the same factor to ΔG°<sub>rxn</sub> since ΔG is an extensive property.</b></p> 
+
+ΔG°<sub>rxn</sub> =
+<input type="number" class="calc" id="gDG1" name="gDG1" step="any"
+       formula="-33.2*3"
+       help="When a reaction is multiplied by a factor, ΔG° is multiplied by the same factor.">
+ kJ/mol
+<div class="feedback" id="gDG1FB" name="gDG1FB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Given the following chemical equation:
+  <br><br>
+
+  4 Al(s) + 3 O<sub>2</sub>(g) ➞ 2 Al<sub>2</sub>O<sub>3</sub>(s)  
+  ΔG°<sub>rxn</sub> = −1582 kJ/mol
+  <br><br>
+
+  Calculate the value of ΔG°<sub>rxn</sub> for the reaction below.
+  <br><br>
+
+  2 Al(s) + <span style="font-family: serif;">3/2</span> O<sub>2</sub>(g) ➞ Al<sub>2</sub>O<sub>3</sub>(s)
+  <br><br>
+
+  ΔG°<sub>rxn</sub> =
+  <input type="number" class="calc" id="pDG1" name="pDG1" step="any"
+         formula="-1582/2"
+         help="When all coefficients are divided by a factor, ΔG° is divided by the same factor.">
+  kJ/mol <div class="feedback" id="pDG1FB" name="pDG1FB"></div>
+</li>
+
+
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -508,38 +2250,6 @@ x
 
 
   
-
-  <p><b>Step 4: Convert temperature to Kelvin</b></p>
-  <p>T = 25 + 273 = 298 K</p>
-
-  <p><b>Step 5: Calculate osmotic pressure</b></p>
-  <p>Π = (3.33 × 10<sup>-4</sup>)(0.0821)(298)</p>
-  <p>Π ≈ 0.0081 atm</p>
-
-  <p class="answer">Final Answer: C) 0.0098 atm</p>
-</div>
-
-<div class="question">
-  <h3>Question 2 (practice)</h3>
-
-  <p>
-    The osmotic pressure of a solution formed by dissolving 
-    <b>10.0 mg of urea (CH<sub>4</sub>N<sub>2</sub>O, 60.06 g/mol)</b> 
-    in enough water to make <b>0.200 L</b> of solution at <b>20°C</b> is _____ atm.
-  </p>
-
-  <p>
-    A) 0.010 atm<br>
-    B) 0.020 atm<br>
-    C) 0.030 atm<br>
-    D) 0.040 atm
-  </p>
-
-  <p class="answer">Answer: B) 0.020 atm</p>
-</div>
-    
-</li>
-<br><br>
 </ol>
 <!-- end -->
       <!-- title -->
