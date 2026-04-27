@@ -14,6 +14,9 @@
       div[id$="DIV"] {
         width: 70px !important;
       }
+      body {
+  user-select: none;
+}
     </style>
   </head>
 
@@ -2300,5 +2303,19 @@ $$
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="../js/lab.js"></script>
-  </body>
+  
+<script>
+  window.dataFile = {};
+  window.addEventListener("load", () => {
+    document.addEventListener("mouseover", (event) => {
+      const target = event.target;
+      const isAllowedTag = ['DIV', 'INPUT', "IMG"].includes(target.tagName);
+
+      // If it's the right tag and has an ID, set the 'title' attribute
+      if (isAllowedTag && target.id) {
+          target.setAttribute('title', target.id);
+      }
+    });
+  });
+</script></body>
 </html>
