@@ -235,47 +235,7 @@ function updatePreview() {
   }, 500); // debounce delay
 }
 
-/*
-function updatePreview() {
-  const previewFrame = document.getElementById("preview-frame");
-  const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
 
-  const blockerScript = `
-    <script>
-      (function () {
-        console.log("Preview mode: autosave disabled");
-
-        HTMLFormElement.prototype.requestSubmit = function () {
-          console.log("Blocked requestSubmit");
-        };
-
-        HTMLFormElement.prototype.submit = function () {
-          console.log("Blocked submit");
-        };
-
-        document.addEventListener(
-          "submit",
-          function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            console.log("Blocked submit event");
-          },
-          true
-        );
-      })();
-    <\/script>
-  `;
-
-  let html = editor.state.doc.toString();
-
-  // ✅ Inject right after <head>
-  html = html.replace(/<head([^>]*)>/i, `<head$1>${blockerScript}`);
-
-  doc.open();
-  doc.write(html);
-  doc.close();
-}
-*/
 function initEditor() {
   try {
     const editorElement = document.getElementById("editor");
