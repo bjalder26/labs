@@ -804,7 +804,7 @@ x
   <li>
   What is the change in boiling point of a solution made by dissolving 
   <input class="num display-value" id="bpMass2" name="bpMass2" random="true" data-original="34.2" randomPercent="40%" readonly> g of lithium chloride (LiCl, 42.39 g/mol) 
-  in <input class="num display-value" id="bpWater2" name="bpWater2" random="true" data-original="690" randomPercent="40%" readonly> g of water?
+  in <input class="num display-value" id="bpWater2" name="bpWater2" random="true" data-original="690." randomPercent="40%" readonly> g of water?
     <br>
   Estimate the van ’t Hoff factor for LiCl based on how many ions are in the chemical formula.  
   K<sub>b</sub> for water is 0.512 °C/m.
@@ -2304,6 +2304,20 @@ $$
 
     <script src="../js/lab.js"></script>
   
+<script>
+  window.dataFile = {};
+  window.addEventListener("load", () => {
+    document.addEventListener("mouseover", (event) => {
+      const target = event.target;
+      const isAllowedTag = ['DIV', 'INPUT', "IMG"].includes(target.tagName);
+
+      // If it's the right tag and has an ID, set the 'title' attribute
+      if (isAllowedTag && target.id) {
+          target.setAttribute('title', target.id);
+      }
+    });
+  });
+</script>
 <script>
   window.dataFile = {};
   window.addEventListener("load", () => {
