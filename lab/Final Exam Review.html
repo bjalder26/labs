@@ -45,7 +45,7 @@ Each hydrogen has <input type="number" class="calc" id="1HVE" name="1HVE" step="
 Total valence electrons = <input type="number" class="calc" id="1TVE" name="1TVE" step="any" formula="8" help="Add together all the valence electrons [5 + (3 × 1)]."><div class="feedback" id="1TVEFB" name="1TVEFB"></div> valence electrons<br>
 
 Structure:<br>
-  <img src="./images/ammonia_lewis.jpg" alt="ammonia Lewis structure">
+  <img src="/images/ammonia_lewis.jpg" alt="ammonia Lewis structure">
   
 <h5>Step 2: Count electron domains</h5>
 &nbsp; &nbsp;<input type="number" class="calc" id="1BD" name="1BD" step="any" formula="3" help="Count the number of bonding domains in the structure.  Single, double, or triple bonds count as one bonding domain."><div class="feedback" id="1BDFB" name="1BDFB"></div> bonding domains<br>
@@ -241,15 +241,15 @@ NH<sub>3</sub>  CH<sub>4</sub>  HF
 <h5>Step 1: Draw Lewis structures & count electron domains</h5>
 
 CH<sub>4</sub> (methane)<br>
-<img src="./images/methane_lewis.jpg" height="200px" alt="CH4 (methane) Lewis structure"><br>
+<img src="/images/methane_lewis.jpg" height="200px" alt="CH4 (methane) Lewis structure"><br>
 
 
 PH<sub>3</sub> (phosphorus trihydride)<br>
-<img src="./images/PH3_lewis.jpg" height="180px" alt="PH3 (phosphorous trihydride) Lewis structure"><br>
+<img src="/images/PH3_lewis.jpg" height="180px" alt="PH3 (phosphorous trihydride) Lewis structure"><br>
 
 
 HF (hydrogen fluoride)<br>
-<img src="./images/hydrogen_fluoride_Lewis.jpg" height="100px" alt="HF (hydrogen fluoride Lewis structure">
+<img src="/images/hydrogen_fluoride_Lewis.jpg" height="100px" alt="HF (hydrogen fluoride Lewis structure">
 
 <h5>Step 2: Determine molecular shape</h5>
 CH<sub>4</sub>:
@@ -2303,18 +2303,5 @@ $$
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="../js/lab.js"></script>
-<script>
-  window.dataFile = {};
-  window.addEventListener("load", () => {
-    document.addEventListener("mouseover", (event) => {
-      const target = event.target;
-      const isAllowedTag = ['DIV', 'INPUT', "IMG"].includes(target.tagName);
-
-      // If it's the right tag and has an ID, set the 'title' attribute
-      if (isAllowedTag && target.id) {
-          target.setAttribute('title', target.id);
-      }
-    });
-  });
-</script></body>
+</body>
 </html>
