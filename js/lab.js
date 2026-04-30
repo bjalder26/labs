@@ -871,7 +871,7 @@ if (matches) {
         
         let answer = null;
 
-        formula = formula.replace(/\s*\([^)]+?\s+sf\)/gi, "");
+        formula = formula.replace(/\s\(\d{1,2}\s+sf\)/gi, "");
         formula = evaluateIf(formula);
         answer = evaluateWithCustomFunctions(formula).toString()
 
