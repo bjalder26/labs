@@ -1071,7 +1071,7 @@ M =
 
   k<sub>1</sub> =
   <input type="number" class="calc" id="arrK1C" name="arrK1C" step="any"
-         formula="if(${arrK2} == ${arrK2} ; ${arrK1}||${arrK2} ; ${arrK1}||${arrK2}"
+         formula="if(${arrK2} == ${arrK2} ; ${arrK1}||${arrK2} ; ${arrK1}||${arrK2})"
          help="Use the rate constant at the higher temperature."> <div class="feedback" id="arrK1CFB" name="arrK1CFB"></div>
   <br>
   k<sub>2</sub> =
@@ -1083,7 +1083,7 @@ M =
 
 $ln\left(\frac{k_1}{k_2}\right)$ =
 <input type="number" class="calc" id="arrLn" name="arrLn" step="any"
-       formula="ln(${arrK1}/${arrK2})"
+       formula="ln(${arrK1C}/${arrK2C})"
        help="Divide the K<sub>1</sub> by the K<sub>2</sub>, then take ln.">
 <div class="feedback" id="arrLnFB" name="arrLnFB"></div>
 
