@@ -317,44 +317,53 @@ function loadFileList() {
 
 function loadSelectedFile() {
   const filename = document.getElementById("file-selector").value;
+
   fetch(`/lab/${filename}`)
     .then(res => res.text())
     .then(content => {
-      // Define the block to be injected
-      // Using 'window.onload' inside the script ensures it waits for the iframe's DOM
-      const injection = `
-<script>
-  window.dataFile = {};
-  window.addEventListener("load", () => {
-    document.addEventListener("mouseover", (event) => {
-      const target = event.target;
-      const isAllowedTag = ['DIV', 'INPUT', "IMG"].includes(target.tagName);
 
-      // If it's the right tag and has an ID, set the 'title' attribute
-      if (isAllowedTag && target.id) {
-          target.setAttribute('title', target.id);
-      }
-    });
-  });
-</script>`;
-
-      // Inject before </body>
-      const modifiedContent = content.includes("</body>") 
-        ? content.replace("</body>", injection + "</body>") 
-        : content + injection;
-
+      // ✅ 1. Put RAW content into the editor (no injection)
       editor.dispatch({
-        changes: { from: 0, to: editor.state.doc.length, insert: modifiedContent }
+        changes: {
+          from: 0,
+          to: editor.state.doc.length,
+          insert: content
+        }
       });
-      
-      // Update the iframe with the modified content
-      const iframe = document.getElementById("your-iframe-id");
+
+      // ✅ 2. Load RAW content into the iframe
+      const iframe = document.getElementById("preview-frame");
       const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+
       iframeDoc.open();
-      iframeDoc.write(modifiedContent);
+      iframeDoc.write(content);
       iframeDoc.close();
+
+      // ✅ 3. Inject helper script ONLY into iframe runtime
+      const script = iframeDoc.createElement("script");
+      script.textContent = `
+        window.dataFile = {};
+        window.addEventListener("load", () => {
+          document.addEventListener("mouseover", (event) => {
+            const target = event.target;
+            const isAllowedTag = ['DIV', 'INPUT', 'IMG'].includes(target.tagName);
+            
+            if (isAllowedTag && target.id) {
+              target.setAttribute('title', target.id);
+            }
+          });
+        });
+      `;
+
+      // Ensure body exists before appending
+      if (iframeDoc.body) {
+        iframeDoc.body.appendChild(script);
+      } else {
+        iframeDoc.documentElement.appendChild(script);
+      }
+
     })
-    .catch(err => console.error("Failed to load/inject:", err));
+    .catch(err => console.error("Failed to load file:", err));
 }
 
 function saveFile() {
