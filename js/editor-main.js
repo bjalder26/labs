@@ -1159,12 +1159,17 @@ function showImageUploadForm() {
       Select Image:
       <input type="file" name="image" accept="image/*" required>
     </label><br>
-
+  
     <label>
       File Name:
       <input type="text" name="fileName" placeholder="Leave blank to use original name">
     </label><br>
-
+  
+    <label>
+      Alt Text:
+      <input type="text" name="altText" placeholder="Describe the image" required>
+    </label><br>
+  
     <button type="submit">Upload</button>
     <button type="button" onclick="this.parentElement.remove()">Cancel</button>
   `;
@@ -1210,7 +1215,8 @@ function showImageUploadForm() {
     }
 
     if (data.success) {
-      const imgTag = `<img src="./images/${data.fileName}">\n`;
+      const altText = formData.get("altText").replace(/"/g, '&quot;');
+      const imgTag = `<img src="/images/${data.fileName}" alt="${altText}">\n`;
       insertTextAtCursor(imgTag);
       form.remove();
     } else {
@@ -1288,6 +1294,8 @@ function verifyHTML() {
   runCheck(results, checkEmptyAttributes(doc));
   runCheck(results, checkLookupTables(doc));
   runCheck(results, checkInvalidCalcFormulas(doc));
+  runCheck(results, checkMissingAltText(doc));
+  runCheck(results, checkFormulaNumClasses(doc));
 
   showVerificationResults(results);
 }
@@ -1624,5 +1632,51 @@ function checkInvalidCalcFormulas(doc) {
     }
   });
 
+  function checkMissingAltText(doc) {
+  const images = doc.querySelectorAll("img");
+  const issues = [];
+
+  images.forEach(img => {
+    const alt = img.getAttribute("alt");
+
+    if (alt === null || alt.trim() === "") {
+      issues.push({
+        type: "warning",
+        message: `Image missing alt text: ${img.getAttribute("src") || "(no src)"}`
+      });
+    }
+  });
+
+  return issues;
+}
+  function checkFormulaNumClasses(doc) {
+  const formulaElements = doc.querySelectorAll(".calc[formula]");
+  const issues = [];
+
+  formulaElements.forEach(el => {
+    const formula = el.getAttribute("formula");
+
+    if (!formula) return;
+
+    const matches = [...formula.matchAll(/\$\{(.*?)\}/g)];
+
+    matches.forEach(match => {
+      const refId = match[1].trim();
+
+      const referenced = doc.getElementById(refId);
+
+      if (!referenced) return;
+
+      if (!referenced.classList.contains("num")) {
+        issues.push({
+          type: "warning",
+          message: `Referenced formula input "${refId}" is missing class "num"`
+        });
+      }
+    });
+  });
+
+  return issues;
+}
   return issues;
 }

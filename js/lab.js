@@ -827,7 +827,7 @@ elements.forEach(element => {
   for (var calc of calcElements) {
     ["click", "change"].forEach(function (event) {
       calc.addEventListener(event, function (e) {
-        var formula = this.getAttribute("formula");
+        let formula = this.getAttribute("formula");
         
         let requiredSigFigs = this.getAttribute("sigfigs") ? this.getAttribute("sigfigs") : "";
         
@@ -871,7 +871,7 @@ if (matches) {
         
         let answer = null;
 
-
+        formula = formula.replace(/\s\(\d{1,2}\s+sf\)/gi, "");
         formula = evaluateIf(formula);
         answer = evaluateWithCustomFunctions(formula).toString()
 
