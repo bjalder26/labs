@@ -30,6 +30,9 @@
       <input type="text" id="labName" name="labName" style="display: none" />
       <input type="text" id="userName" name="userName" style="display: none" />
       <!-- Beginning -->
+      <h3>Background:</h3>
+<b>Mass spectrometry</b> is a technique used to determine the masses of atoms and the relative abundance of their isotopes. In a <b>mass spectrometer</b>, atoms are ionized (given a charge) and then separated based on their mass-to-charge ratio. Because most atoms form +1 ions in this process, the mass-to-charge ratio is usually equal to the mass of the isotope.
+Each element exists as a mixture of isotopes, which are atoms of the same element with different numbers of neutrons. These isotopes have different masses and natural abundances. The <b>average atomic mass of an element</b> is a <b>weighted average</b> based on the mass and abundance of each isotope.
       <h3>Video: Calculate The Average Atomic Mass (3 Easy Steps) | Tadashi Science</h3>
       <iframe
         width="853"
@@ -45,7 +48,7 @@
       <h3>Formulas:</h3>
       <ul>
         <li>Mass number = number of protons + number of neutrons</li>
-        <li>Charge = number of protons - number of neutrons</li>
+        <li>Charge = number of protons - number of electrons</li>
       </ul>
 
       <div class="noBreak">
@@ -59,15 +62,15 @@
         neon, and sulfur
       </h4>
       <ol>
-        <li>Open the <a href="https://virtualtabletop.io/#%7B%0A%20%20%22hideToolbar%22%3A%20true%2C%0A%20%20%22load%22%3A%20%22https%3A%2F%2Fvirtualtabletop.io%2Fgame%2Fdwtznulz%2Fmass-spectrometer%22%0A%7D" target="_blank" rel="noreferrer noopener">Mass Specrophotometry Virtual Lab</a></li>
-        <li>Save the url of your virtual lab if you want to return.  Otherwise clicking on the link above will open a new virtual lab where everything is reset.</li>
-        <li>Attach the chlorine container to the mass spectometer.</li>
+        <li>Open the <a href="https://virtualtabletop.io/#%7B%0A%20%20%22hideToolbar%22%3A%20true%2C%0A%20%20%22load%22%3A%20%22https%3A%2F%2Fvirtualtabletop.io%2Fgame%2Fdwtznulz%2Fmass-spectrometer%22%0A%7D" target="_blank" rel="noreferrer noopener">Mass Spectrometry Virtual Lab</a></li>
+        <li>This virtual lab resets each time you open the link. If you plan to return later, bookmark or save the URL after launching the simulation.</li>
+        <li>Attach the chlorine container to the mass spectrometer.</li>
         <li>
           Click the start button, and wait for the data to be displayed on the
           screen.
         </li>
         <li>Record the data below, and calculate the average atomic mass.</li>
-        <li>Repeate the steps above for magnesium, neon, and sulfur.</li>
+        <li>Repeat the steps above for magnesium, neon, and sulfur.</li>
       </ol>
 
       <div class="noBreak">
@@ -176,7 +179,7 @@
           sigfigs="4"
           range="0.005"
           step="any"
-          help="Calculate the average atomic mass (it is a weighted average), e.g 65.38"/> amu
+          help="Calculate the average atomic mass (it is a weighted average), e.g 65.38.  Calculate the average atomic mass by multiplying each mass by its decimal abundance (percent ÷ 100), then adding them together."/> amu
         <div class="feedback" id="ClAAMassFB" name="ClAAMassFB"></div>
       </div>
 
@@ -387,7 +390,7 @@
           <tr>
             <td>
               <input
-                ttype="text"
+                type="text"
                 class="calc num"
                 id="NeIsotope2"
                 name="NeIsotope2"
@@ -398,7 +401,7 @@
             </td>
             <td>
               <input
-                ttype="number"
+                type="number"
                 class="calc num"
                 id="NeMass2"
                 name="NeMass2"
@@ -657,7 +660,7 @@
                 formula="0.01"
                 range="0"
                 step="any"
-                help="Enter the forth isotope's abundance, e.g 48.63"
+                help="Enter the fourth isotope's abundance, e.g 48.63"
               />
               <div
                 class="feedback"
@@ -1050,5 +1053,19 @@ Note: Symbols should be input without superscripts and without a "0" charge for 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../js/lab.js"></script>
-  </body>
+  
+<script>
+  window.dataFile = {};
+  window.addEventListener("load", () => {
+    document.addEventListener("mouseover", (event) => {
+      const target = event.target;
+      const isAllowedTag = ['DIV', 'INPUT', "IMG"].includes(target.tagName);
+
+      // If it's the right tag and has an ID, set the 'title' attribute
+      if (isAllowedTag && target.id) {
+          target.setAttribute('title', target.id);
+      }
+    });
+  });
+</script></body>
 </html>
