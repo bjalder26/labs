@@ -1,4 +1,4 @@
-let ln = (x) => Math.log(x);
+const ln = (x) => Math.log(x);
 const log10 = (x) => Math.log10(x);
 const log = log10; // Use the same function name for log() as log10()
 
@@ -1305,7 +1305,7 @@ for (let num of numElements) {
 }
 
 function safe(str) {
-  return str.replace(/[^a-zA-Z0-9_-]/g, '_');
+  return String(str ?? "").replace(/[^a-zA-Z0-9_-]/g, '_');
 }
   
   // imageUpload elements

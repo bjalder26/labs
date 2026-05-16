@@ -169,72 +169,65 @@ function showTableForm() {
 }
 
 let previewTimeout;
+let lastScrollY = 0;
+let lastScrollX = 0;
 
 function updatePreview() {
   clearTimeout(previewTimeout);
 
   previewTimeout = setTimeout(() => {
     const previewFrame = document.getElementById("preview-frame");
-    const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+    const prevDoc = previewFrame.contentDocument;
 
-    const blockerScript = `
-      <script>
-        (function () {
-          HTMLFormElement.prototype.requestSubmit = function () {};
-          HTMLFormElement.prototype.submit = function () {};
-          document.addEventListener("submit", function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-          }, true);
-        })();
-      <\/script>
-    `;
+    // ✅ Save scroll position BEFORE reload
+    if (prevDoc) {
+      lastScrollY = prevDoc.documentElement.scrollTop || prevDoc.body.scrollTop;
+      lastScrollX = prevDoc.documentElement.scrollLeft || prevDoc.body.scrollLeft;
+    }
 
     let html = editor.state.doc.toString();
 
-    // Inject blocker
-    html = html.replace(/<head([^>]*)>/i, `<head$1>${blockerScript}`);
+    const runtimeShim = `
+      <script>
+        window.dataFile = window.dataFile || {};
+      </script>
+    `;
 
-    doc.open();
-    doc.write(html);
-    doc.close();
+    previewFrame.onload = () => {
+      console.log("iframe loaded ✅");
 
-    const win = previewFrame.contentWindow;
+      const doc = previewFrame.contentDocument;
 
-    // Wait for MathJax, then render smoothly
-    function waitForMathJax(callback) {
-      const check = () => {
-        if (win.MathJax && win.MathJax.Hub) {
-          callback();
-        } else {
-          setTimeout(check, 50);
+      // ✅ Restore scroll AFTER load
+      doc.documentElement.scrollTop = lastScrollY;
+      doc.documentElement.scrollLeft = lastScrollX;
+      doc.body.scrollTop = lastScrollY;
+      doc.body.scrollLeft = lastScrollX;
+
+      // ✅ Block forms
+      doc.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }, true);
+
+      // ✅ Hover ID tooltip
+      doc.addEventListener("mouseover", (event) => {
+        const el = event.target;
+
+        el.removeAttribute("title");
+
+        if (el.id) {
+          setTimeout(() => {
+            el.setAttribute("title", el.id);
+          }, 0);
         }
-      };
-      check();
-    }
+      });
+    };
 
-    waitForMathJax(() => {
-      try {
-        const MJ = win.MathJax.Hub;
+    previewFrame.srcdoc = runtimeShim + html;
 
-        // 🔥 Stop any ongoing processing
-        MJ.Cancel();
-
-        // Clear previous math completely
-        MJ.Queue(["Reset", MJ]);
-
-        // Now safely typeset
-        MJ.Queue(["Reprocess", MJ, win.document.body]);
-
-      } catch (e) {
-        console.log("MathJax render error:", e);
-      }
-    });
-
-
-  }, 500); // debounce delay
+  }, 500); 
 }
-
 
 function initEditor() {
   try {
@@ -322,7 +315,7 @@ function loadSelectedFile() {
     .then(res => res.text())
     .then(content => {
 
-      // ✅ 1. Put RAW content into the editor (no injection)
+      // ✅ 1. Load into editor (clean)
       editor.dispatch({
         changes: {
           from: 0,
@@ -331,36 +324,36 @@ function loadSelectedFile() {
         }
       });
 
-      // ✅ 2. Load RAW content into the iframe
       const iframe = document.getElementById("preview-frame");
-      const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
 
-      iframeDoc.open();
-      iframeDoc.write(content);
-      iframeDoc.close();
+      // ✅ 2. Wait for iframe to fully load
+      iframe.onload = function () {
+        console.log("iframe loaded ✅");
 
-      // ✅ 3. Inject helper script ONLY into iframe runtime
-      const script = iframeDoc.createElement("script");
-      script.textContent = `
-        window.dataFile = {};
-        window.addEventListener("load", () => {
-          document.addEventListener("mouseover", (event) => {
-            const target = event.target;
-            const isAllowedTag = ['DIV', 'INPUT', 'IMG'].includes(target.tagName);
-            
-            if (isAllowedTag && target.id) {
-              target.setAttribute('title', target.id);
-            }
-          });
+        const iframeDoc = iframe.contentDocument;
+
+        if (!iframeDoc) {
+          console.error("No iframe document ❌");
+          return;
+        }
+
+        // ✅ 3. Attach event listener
+        iframeDoc.addEventListener("mouseover", (event) => {
+          const el = event.target;
+
+          console.log("hover ✅", el);
+
+          // Visual proof it works
+          el.style.outline = "2px solid red";
+
+          setTimeout(() => {
+            el.style.outline = "";
+          }, 200);
         });
-      `;
+      };
 
-      // Ensure body exists before appending
-      if (iframeDoc.body) {
-        iframeDoc.body.appendChild(script);
-      } else {
-        iframeDoc.documentElement.appendChild(script);
-      }
+      // ✅ 4. Set content LAST (this triggers onload)
+      iframe.srcdoc = content;
 
     })
     .catch(err => console.error("Failed to load file:", err));
