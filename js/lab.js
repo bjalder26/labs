@@ -1,4 +1,4 @@
-let ln = (x) => Math.log(x);
+const ln = (x) => Math.log(x);
 const log10 = (x) => Math.log10(x);
 const log = log10; // Use the same function name for log() as log10()
 
@@ -269,30 +269,20 @@ function getData(graphName) {
 
 // new function checks to see if there is actually an equation
 function evaluateWithCustomFunctions(equation) {
-  const scope = {
-    ln,
-    log10,
-    log,
-    filter,
-  };
+  const scope = { ln, log10, log, filter };
 
   try {
-    // Check if the equation contains only numbers and letters without any mathematical operators
-    if (/^[a-zA-Z0-9]+$/.test(equation)) {
-      return equation; // Return as-is if it's a simple alphanumeric string
+    if (typeof equation !== "string") return equation;
+
+    const expr = equation.trim();
+
+    // Skip only pure text
+    if (!/[+\-*/^()<>!=]/.test(expr)) {
+      return expr;
     }
 
-    //console.log("variable2");
-    const variable2 = math.evaluate(equation, scope)
-      ? math.evaluate(equation, scope)
-      : equation;
-    //console.log(variable2);
-    const variable = math.evaluate(equation, scope);
-    //console.log("variable");
-    //console.log(variable);
-    return math.evaluate(equation, scope);
-  } catch (e) {
-    //console.log(e);
+    return math.evaluate(expr, scope);
+  } catch {
     return equation;
   }
 }
@@ -515,46 +505,65 @@ function getSigFigs(value) {
   }
 }
 
+
+function looksLikeMath(expr) {
+  return /[+\-*/^()]/.test(expr);
+}
+
 function evaluateIf(expr) {
+  if (typeof expr !== "string") return expr;
+
   expr = expr.trim();
 
   // Base case
-  if (!expr.startsWith("if(")) return expr;
+  if (!expr.toLowerCase().startsWith("if(")) return expr;
 
-  // Strip outer if(...)
   const inner = expr.slice(3, -1);
-
   const [condition, trueBranch, falseBranch] = splitTopLevel(inner);
 
-  const conditionResult = evaluateCondition(condition.trim());
+  const conditionResult = evaluateCondition(condition);
 
-  const result = conditionResult
+  let chosen = conditionResult
     ? trueBranch.trim()
     : falseBranch.trim();
 
-  return evaluateIf(result);
+  // ✅ ONLY wrap math
+  if (looksLikeMath(chosen)) {
+    chosen = `(${chosen})`;
+  }
+
+  return evaluateIf(chosen);
 }
 
 function evaluateCondition(cond) {
-  // Handle OR
+  cond = cond.trim();
+
+  // OR
   if (cond.includes("||")) {
-    return cond.split("||").some(part => evaluateCondition(part.trim()));
+    return cond.split("||").some(part =>
+      evaluateCondition(part.trim())
+    );
   }
 
-  // Handle AND
+  // AND
   if (cond.includes("&&")) {
-    return cond.split("&&").every(part => evaluateCondition(part.trim()));
+    return cond.split("&&").every(part =>
+      evaluateCondition(part.trim())
+    );
   }
 
-  // Handle == and !=
+  // ==
   if (cond.includes("==")) {
     const [left, right] = cond.split("==").map(s => s.trim());
-    return left === right;
+    return evaluateWithCustomFunctions(left) ==
+           evaluateWithCustomFunctions(right);
   }
 
+  // !=
   if (cond.includes("!=")) {
     const [left, right] = cond.split("!=").map(s => s.trim());
-    return left !== right;
+    return evaluateWithCustomFunctions(left) !=
+           evaluateWithCustomFunctions(right);
   }
 
   throw new Error("Invalid condition: " + cond);
@@ -723,7 +732,7 @@ function autoSizeInput(el) {
   }
 
   el._mirror.textContent = el.value || "";
-  el.style.width = (el._mirror.offsetWidth + 10) + "px";
+  el.style.width = (el._mirror.offsetWidth) + "px";
 }
 // ===================== onLoad =====================
 
@@ -818,7 +827,7 @@ elements.forEach(element => {
   for (var calc of calcElements) {
     ["click", "change"].forEach(function (event) {
       calc.addEventListener(event, function (e) {
-        var formula = this.getAttribute("formula");
+        let formula = this.getAttribute("formula");
         
         let requiredSigFigs = this.getAttribute("sigfigs") ? this.getAttribute("sigfigs") : "";
         
@@ -861,10 +870,11 @@ if (matches) {
         
         
         let answer = null;
-        if (formula) {answer = evaluateWithCustomFunctions(formula).toString();}
 
-        answer = evaluateIf(answer);
-        
+        formula = formula.replace(/\s\(\d{1,2}\s+sf\)/gi, "");
+        formula = evaluateIf(formula);
+        answer = evaluateWithCustomFunctions(formula).toString()
+
         var elementFB = $(this.id + "FB");
 
         let value;
@@ -886,7 +896,22 @@ if (matches) {
           elementFB.innerHTML = '<img src="/images/incorrect.svg">';
           } else {
               if (isNaN(answer)) {
-              const possibleAnswers = answer.split("||").map(ans => ans.trim());
+
+
+
+              //const possibleAnswers = answer.split("||").map(ans => ans.trim());
+              let normalizedAnswer = answer.trim();
+
+              // Strip ONE harmless outer pair of parentheses
+              normalizedAnswer = normalizedAnswer.replace(/^\((.*)\)$/, "$1");
+
+              const possibleAnswers = normalizedAnswer
+                .split("||")
+                .map(ans => ans.trim());
+
+
+
+
               closeOrCorrect = possibleAnswers.includes(trimmedValue);
             } else {
               closeOrCorrect = value.inRange(answer, range) ? true : false;
@@ -1280,7 +1305,7 @@ for (let num of numElements) {
 }
 
 function safe(str) {
-  return str.replace(/[^a-zA-Z0-9_-]/g, '_');
+  return String(str ?? "").replace(/[^a-zA-Z0-9_-]/g, '_');
 }
   
   // imageUpload elements

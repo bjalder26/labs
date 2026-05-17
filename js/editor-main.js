@@ -1,8 +1,27 @@
-import { EditorView, basicSetup } from "https://esm.sh/codemirror";
-import { html } from "https://esm.sh/@codemirror/lang-html";
-import { EditorState } from "https://esm.sh/@codemirror/state";
+import { EditorState, StateField } from "https://esm.sh/@codemirror/state";
 
+import {
+  EditorView,
+  ViewPlugin,
+  ViewUpdate,
+  Decoration
+} from "https://esm.sh/@codemirror/view";
+
+import { basicSetup } from "https://esm.sh/codemirror";
+
+import { html } from "https://esm.sh/@codemirror/lang-html";
+
+
+/*
+import { EditorView, basicSetup, ViewPlugin, ViewUpdate } from "https://esm.sh/codemirror";
+import { html } from "https://esm.sh/@codemirror/lang-html";
+import { EditorState, StateField } from "https://esm.sh/@codemirror/state";
+import { Decoration, DecorationSet} from "https://esm.sh";
+*/
 let editor;
+let lastVerifiedContent = "";
+let duplicateGroups = {};
+let currentDuplicateIndex = {};
 
 export function startEditor() {
   initEditor();
@@ -25,7 +44,9 @@ export function startEditor() {
     'insert-dropdown': showDropdownForm,
     'insert-lookup-system': showLookupForm,
     'insert-linear-graph-system': showLinearGraphForm,
-    'insert-image': showImageUploadForm
+    'insert-image': showImageUploadForm,
+    'insert-random-display': showRandomDisplayForm,
+    'verify-html': verifyHTML
   };
 
   document.getElementById('file-selector').addEventListener('change', loadSelectedFile);
@@ -148,113 +169,66 @@ function showTableForm() {
 }
 
 let previewTimeout;
+let lastScrollY = 0;
+let lastScrollX = 0;
 
 function updatePreview() {
   clearTimeout(previewTimeout);
 
   previewTimeout = setTimeout(() => {
     const previewFrame = document.getElementById("preview-frame");
-    const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
+    const prevDoc = previewFrame.contentDocument;
 
-    const blockerScript = `
-      <script>
-        (function () {
-          HTMLFormElement.prototype.requestSubmit = function () {};
-          HTMLFormElement.prototype.submit = function () {};
-          document.addEventListener("submit", function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-          }, true);
-        })();
-      <\/script>
-    `;
+    // ✅ Save scroll position BEFORE reload
+    if (prevDoc) {
+      lastScrollY = prevDoc.documentElement.scrollTop || prevDoc.body.scrollTop;
+      lastScrollX = prevDoc.documentElement.scrollLeft || prevDoc.body.scrollLeft;
+    }
 
     let html = editor.state.doc.toString();
 
-    // Inject blocker
-    html = html.replace(/<head([^>]*)>/i, `<head$1>${blockerScript}`);
+    const runtimeShim = `
+      <script>
+        window.dataFile = window.dataFile || {};
+      </script>
+    `;
 
-    doc.open();
-    doc.write(html);
-    doc.close();
+    previewFrame.onload = () => {
+      console.log("iframe loaded ✅");
 
-    const win = previewFrame.contentWindow;
+      const doc = previewFrame.contentDocument;
 
-    // Wait for MathJax, then render smoothly
-    function waitForMathJax(callback) {
-      const check = () => {
-        if (win.MathJax && win.MathJax.Hub) {
-          callback();
-        } else {
-          setTimeout(check, 50);
+      // ✅ Restore scroll AFTER load
+      doc.documentElement.scrollTop = lastScrollY;
+      doc.documentElement.scrollLeft = lastScrollX;
+      doc.body.scrollTop = lastScrollY;
+      doc.body.scrollLeft = lastScrollX;
+
+      // ✅ Block forms
+      doc.addEventListener("submit", (e) => {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }, true);
+
+      // ✅ Hover ID tooltip
+      doc.addEventListener("mouseover", (event) => {
+        const el = event.target;
+
+        el.removeAttribute("title");
+
+        if (el.id) {
+          setTimeout(() => {
+            el.setAttribute("title", el.id);
+          }, 0);
         }
-      };
-      check();
-    }
+      });
+    };
 
-    waitForMathJax(() => {
-      try {
-        const MJ = win.MathJax.Hub;
+    previewFrame.srcdoc = runtimeShim + html;
 
-        // 🔥 Stop any ongoing processing
-        MJ.Cancel();
-
-        // Clear previous math completely
-        MJ.Queue(["Reset", MJ]);
-
-        // Now safely typeset
-        MJ.Queue(["Reprocess", MJ, win.document.body]);
-
-      } catch (e) {
-        console.log("MathJax render error:", e);
-      }
-    });
-
-
-  }, 500); // debounce delay
+  }, 500); 
 }
 
-/*
-function updatePreview() {
-  const previewFrame = document.getElementById("preview-frame");
-  const doc = previewFrame.contentDocument || previewFrame.contentWindow.document;
-
-  const blockerScript = `
-    <script>
-      (function () {
-        console.log("Preview mode: autosave disabled");
-
-        HTMLFormElement.prototype.requestSubmit = function () {
-          console.log("Blocked requestSubmit");
-        };
-
-        HTMLFormElement.prototype.submit = function () {
-          console.log("Blocked submit");
-        };
-
-        document.addEventListener(
-          "submit",
-          function (e) {
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            console.log("Blocked submit event");
-          },
-          true
-        );
-      })();
-    <\/script>
-  `;
-
-  let html = editor.state.doc.toString();
-
-  // ✅ Inject right after <head>
-  html = html.replace(/<head([^>]*)>/i, `<head$1>${blockerScript}`);
-
-  doc.open();
-  doc.write(html);
-  doc.close();
-}
-*/
 function initEditor() {
   try {
     const editorElement = document.getElementById("editor");
@@ -336,17 +310,53 @@ function loadFileList() {
 
 function loadSelectedFile() {
   const filename = document.getElementById("file-selector").value;
+
   fetch(`/lab/${filename}`)
     .then(res => res.text())
     .then(content => {
+
+      // ✅ 1. Load into editor (clean)
       editor.dispatch({
-        changes: { from: 0, to: editor.state.doc.length, insert: content }
+        changes: {
+          from: 0,
+          to: editor.state.doc.length,
+          insert: content
+        }
       });
+
+      const iframe = document.getElementById("preview-frame");
+
+      // ✅ 2. Wait for iframe to fully load
+      iframe.onload = function () {
+        console.log("iframe loaded ✅");
+
+        const iframeDoc = iframe.contentDocument;
+
+        if (!iframeDoc) {
+          console.error("No iframe document ❌");
+          return;
+        }
+
+        // ✅ 3. Attach event listener
+        iframeDoc.addEventListener("mouseover", (event) => {
+          const el = event.target;
+
+          console.log("hover ✅", el);
+
+          // Visual proof it works
+          el.style.outline = "2px solid red";
+
+          setTimeout(() => {
+            el.style.outline = "";
+          }, 200);
+        });
+      };
+
+      // ✅ 4. Set content LAST (this triggers onload)
+      iframe.srcdoc = content;
+
     })
-    .catch(err => {
-      alert("Failed to load file content.");
-      console.error(err);
-    });
+    .catch(err => console.error("Failed to load file:", err));
 }
 
 function saveFile() {
@@ -892,7 +902,7 @@ function showDropdownForm() {
     const dropdownHTML = `
 <select id="${id}" name="${id}" class="calc" formula="${formula}" help="${help}">
   <option value="">Choose an option</option>
-  <option value="Choice1">Choice1</option>
+  <option value="${formula}">${formula}</option>
 </select>
 <div class="feedback" id="${id}FB" name="${id}FB"></div>
 `;
@@ -1142,12 +1152,17 @@ function showImageUploadForm() {
       Select Image:
       <input type="file" name="image" accept="image/*" required>
     </label><br>
-
+  
     <label>
       File Name:
       <input type="text" name="fileName" placeholder="Leave blank to use original name">
     </label><br>
-
+  
+    <label>
+      Alt Text:
+      <input type="text" name="altText" placeholder="Describe the image" required>
+    </label><br>
+  
     <button type="submit">Upload</button>
     <button type="button" onclick="this.parentElement.remove()">Cancel</button>
   `;
@@ -1193,11 +1208,468 @@ function showImageUploadForm() {
     }
 
     if (data.success) {
-      const imgTag = `<img src="/images/${data.fileName}">\n`;
+      const altText = formData.get("altText").replace(/"/g, '&quot;');
+      const imgTag = `<img src="/images/${data.fileName}" alt="${altText}">\n`;
       insertTextAtCursor(imgTag);
       form.remove();
     } else {
       alert(data.message || "Upload failed");
     }
   });
+}
+
+function showRandomDisplayForm() {
+  const form = document.createElement("form");
+  form.innerHTML = `
+    <label>ID:
+      <input type="text" name="id" required>
+    </label><br>
+
+    <label>Original Value:
+      <input type="text" name="original" required>
+    </label><br>
+
+    <label>Random Percent:
+      <input type="text" name="percent" value="20%">
+    </label><br>
+
+    <button type="submit">Insert</button>
+    <button type="button" onclick="this.parentElement.remove()">Cancel</button>
+  `;
+
+  Object.assign(form.style, {
+    position: 'fixed',
+    top: '20%',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    background: '#fff',
+    padding: '1em',
+    border: '1px solid #ccc',
+    zIndex: 1000
+  });
+
+  document.body.appendChild(form);
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const id = formData.get("id");
+    const original = formData.get("original");
+    let percent = formData.get("percent") || "20%";
+    if (!percent.endsWith('%')) percent += '%';
+
+    // Only include randomPercent if NOT default
+    const percentAttr = (percent === "20%") ? "" : ` randomPercent="${percent}"`;
+
+    const html = `<input class="num display-value" id="${id}" name="${id}" random="true" data-original="${original}"${percentAttr} readonly>`;
+
+    insertTextAtCursor(html);
+    form.remove();
+  });
+
+  form.querySelector("input[name='id']").focus();
+}
+
+function verifyHTML() {
+  const content = editor.state.doc.toString();
+  lastVerifiedContent = content;
+
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(content, "text/html");
+
+  const results = [];
+
+  // Run all checks
+  runCheck(results, checkDuplicateIds(doc));
+  runCheck(results, checkMissingFeedback(doc));
+  runCheck(results, checkFormulaReferences(doc));
+  runCheck(results, checkEmptyAttributes(doc));
+  runCheck(results, checkLookupTables(doc));
+  runCheck(results, checkInvalidCalcFormulas(doc));
+  runCheck(results, checkMissingAltText(doc));
+  runCheck(results, checkFormulaNumClasses(doc));
+
+  showVerificationResults(results);
+}
+
+// helper to merge results
+function runCheck(results, checkResult) {
+  if (Array.isArray(checkResult)) {
+    results.push(...checkResult);
+  }
+}
+
+function showVerificationResults(results) {
+  const panel = document.createElement("div");
+
+  Object.assign(panel.style, {
+    position: "fixed",
+    top: "20%",
+    left: "50%",
+    transform: "translateX(-50%)",
+    background: "#fff",
+    padding: "1em",
+    border: "1px solid #ccc",
+    zIndex: 1000,
+    maxHeight: "60%",
+    overflowY: "auto",
+    minWidth: "350px"
+  });
+
+  let html = `<h3>Verification Results</h3>`;
+
+  if (results.length === 0) {
+    html += `<p style="color: green;">✅ No issues found</p>`;
+  } else {
+    html += `<ul>`;
+    results.forEach(r => {
+
+  const isDuplicate = r.message.includes("Duplicate id");
+
+  html += `
+    <li style="
+        color:${r.type === "error" ? "red" : "orange"};
+        margin-bottom:10px;
+        list-style:none;
+        padding:6px;
+        border:1px solid #ddd;
+        border-radius:6px;
+    ">
+
+      <div><b>${r.message}</b></div>
+
+      ${isDuplicate ? `
+        <button class="cycle-btn" data-id="${r.id}">
+          Cycle duplicates
+        </button>
+      ` : ""}
+
+      ${r.fixable ? `
+        <button class="fix-btn" data-id="${r.id}">
+          Fix
+        </button>
+      ` : ""}
+
+      ${r.details ? `
+        <div style="font-size:12px;color:#555;margin-top:6px;">
+          ${Array.isArray(r.details)
+  ? r.details.map(d => `<div>${escapeHTML(d)}</div>`).join("")
+  : escapeHTML(r.details)}
+        </div>
+      ` : ""}
+
+    </li>
+  `;
+});
+
+
+    html += `</ul>`;
+  }
+
+  html += `<button onclick="this.parentElement.remove()">Close</button>`;
+
+  panel.innerHTML = html;
+  document.body.appendChild(panel);
+
+  panel.querySelectorAll(".fix-btn").forEach(btn => {
+  btn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    autoFixMissingFeedback(btn.dataset.id);
+  });
+});
+
+  // CLICK HANDLER
+  panel.querySelectorAll(".cycle-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      cycleDuplicate(btn.dataset.id);
+    });
+  });
+
+}
+
+function checkDuplicateIds(doc) {
+  const elements = doc.querySelectorAll("[id]");
+  const map = {};
+  const issues = [];
+
+  elements.forEach(el => {
+    const id = el.id;
+
+    if (!map[id]) map[id] = [];
+
+    map[id].push({
+      tag: el.tagName,
+      html: el.outerHTML
+    });
+  });
+
+  Object.entries(map).forEach(([id, els]) => {
+    if (els.length > 1) {
+      issues.push({
+        type: "error",
+        message: `Duplicate id "${id}" found (${els.length} times)`,
+        id,
+        details: els.map(e => e.html)
+      });
+    }
+  });
+
+  return issues;
+}
+
+function checkFormulaReferences(doc) {
+  const elements = doc.querySelectorAll("[formula]");
+  const issues = [];
+
+  elements.forEach(el => {
+    const formula = el.getAttribute("formula");
+
+    const matches = [...formula.matchAll(/\$\{(.*?)\}/g)];
+
+    matches.forEach(match => {
+      const refId = match[1];
+      const referenced = doc.getElementById(refId);
+
+      if (!referenced) {
+        issues.push({
+          type: 'error',
+          message: `Formula reference "${refId}" not found`
+        });
+      }
+    });
+  });
+
+  return issues;
+}
+
+function checkEmptyAttributes(doc) {
+  const elements = doc.querySelectorAll("[formula], [help]");
+  const issues = [];
+
+  elements.forEach(el => {
+    const formula = el.getAttribute("formula");
+    const help = el.getAttribute("help");
+
+    if (formula !== null && formula.trim() === "") {
+      issues.push({
+        type: 'warning',
+        message: `Empty formula attribute on element id="${el.id || '(no id)'}"`
+      });
+    }
+
+    if (help !== null && help.trim() === "") {
+      issues.push({
+        type: 'warning',
+        message: `Empty help attribute on element id="${el.id || '(no id)'}"`
+      });
+    }
+  });
+
+  return issues;
+}
+
+function checkLookupTables(doc) {
+  const lookupValues = doc.querySelectorAll(".lookupValue[tableID]");
+  const issues = [];
+
+  lookupValues.forEach(el => {
+    const tableId = el.getAttribute("tableID");
+    const table = doc.getElementById(tableId);
+
+    if (!table) {
+      issues.push({
+        type: 'error',
+        message: `lookupValue references missing table "${tableId}"`
+      });
+    }
+  });
+
+  return issues;
+}
+
+function checkMissingFeedback(doc) {
+  const inputs = doc.querySelectorAll(".calc[id]");
+  const issues = [];
+
+  inputs.forEach(input => {
+    const id = input.id;
+    const feedback = doc.getElementById(id + "FB");
+
+    if (!feedback) {
+      issues.push({
+        type: "error",
+        message: `Missing feedback div for "${id}"`,
+        id: id,
+        fixable: true,
+        fixType: "add-feedback"
+      });
+    }
+  });
+
+  return issues;
+}
+
+
+function jumpToId(id) {
+  const content = editor.state.doc.toString();
+
+  const index = content.indexOf(`id="${id}"`);
+  if (index === -1) return;
+
+  const line = content.substring(0, index).split("\n").length;
+
+  const pos = editor.state.doc.line(line).from;
+
+  editor.dispatch({
+    selection: { anchor: pos },
+    scrollIntoView: true
+  });
+
+  editor.focus();
+}
+
+function autoFixMissingFeedback(id) {
+  const content = editor.state.doc.toString();
+
+  const inputTag = `<input[^>]*id="${id}"[^>]*>`;
+  const regex = new RegExp(`<input[^>]*id=["']${id}["'][^>]*>`);
+
+  const match = content.match(regex);
+  if (!match) return;
+
+  const insert = `\n<div class="feedback" id="${id}FB" name="${id}FB"></div>`;
+
+  const index = content.indexOf(match[0]) + match[0].length;
+
+  editor.dispatch({
+    changes: {
+      from: index,
+      to: index,
+      insert
+    }
+  });
+
+  editor.focus();
+}
+
+function cycleDuplicate(id) {
+  const content = editor.state.doc.toString();
+  const occurrences = [];
+
+  const regex = new RegExp(`id=["']${id}["']`, "g");
+  let match;
+
+  while ((match = regex.exec(content)) !== null) {
+    const start = match.index;
+    const line = content.substring(0, start).split("\n").length;
+    const pos = editor.state.doc.line(line).from;
+
+    occurrences.push(pos);
+  }
+
+  if (!occurrences.length) return;
+
+  if (currentDuplicateIndex[id] == null) {
+    currentDuplicateIndex[id] = 0;
+  }
+
+  const i = currentDuplicateIndex[id];
+  const pos = occurrences[i];
+
+  editor.dispatch({
+    selection: { anchor: pos },
+    scrollIntoView: true
+  });
+
+  editor.focus();
+
+  currentDuplicateIndex[id] = (i + 1) % occurrences.length;
+}
+
+function escapeHTML(str) {
+  return str
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+function checkInvalidCalcFormulas(doc) {
+  const inputs = doc.querySelectorAll('input.calc[formula]');
+  const issues = [];
+
+  inputs.forEach(input => {
+    const formula = input.getAttribute('formula');
+
+    // Match any '{' not immediately preceded by '$'
+    const regex = /(^|[^$])\{/g;
+    let match;
+
+    while ((match = regex.exec(formula)) !== null) {
+      // Index of the actual '{'
+      const braceIndex = match.index + match[1].length;
+
+      issues.push({
+        type: "error",
+        message: `Invalid formula syntax in calc input`,
+        id: input.id || undefined,
+        details: [
+          `Formula: ${formula}`,
+          `Invalid '{' at character ${braceIndex + 1}`,
+          input.outerHTML
+        ]
+      });
+    }
+  });
+
+  function checkMissingAltText(doc) {
+  const images = doc.querySelectorAll("img");
+  const issues = [];
+
+  images.forEach(img => {
+    const alt = img.getAttribute("alt");
+
+    if (alt === null || alt.trim() === "") {
+      issues.push({
+        type: "warning",
+        message: `Image missing alt text: ${img.getAttribute("src") || "(no src)"}`
+      });
+    }
+  });
+
+  return issues;
+}
+  function checkFormulaNumClasses(doc) {
+  const formulaElements = doc.querySelectorAll(".calc[formula]");
+  const issues = [];
+
+  formulaElements.forEach(el => {
+    const formula = el.getAttribute("formula");
+
+    if (!formula) return;
+
+    const matches = [...formula.matchAll(/\$\{(.*?)\}/g)];
+
+    matches.forEach(match => {
+      const refId = match[1].trim();
+
+      const referenced = doc.getElementById(refId);
+
+      if (!referenced) return;
+
+      if (!referenced.classList.contains("num")) {
+        issues.push({
+          type: "warning",
+          message: `Referenced formula input "${refId}" is missing class "num"`
+        });
+      }
+    });
+  });
+
+  return issues;
+}
+  return issues;
 }
