@@ -89,7 +89,7 @@ $$ \text{Ca}^{2+} (aq) + \text{CO}_3^{2-} (aq) \rightarrow \text{CaCO}_3 (s) $$
 </p>
 
 <h3>Solubility Table</h3>
-Notice that according to the solubility table $\text{Na}_2\text{CO}_3, {CaCl}_2,\ and\ \text{NaCl}$ are solubile in water, but $\text{CaCO}_3$ is insoluble.
+Notice that according to the solubility table $\text{Na}_2\text{CO}_3, {CaCl}_2,\ and\ \text{NaCl}$ are soluble in water, but $\text{CaCO}_3$ is insoluble.
 <table border="1" cellspacing="0" cellpadding="8">
   <thead>
     <tr>
@@ -168,9 +168,7 @@ Notice that according to the solubility table $\text{Na}_2\text{CO}_3, {CaCl}_2,
 <h3>Limiting Reactant and Theoretical Yield</h3>
 
 <p>
-In chemical reactions, the amount of product formed depends on the <strong>limiting reactant</strong>—the 
-reactant that is completely used up first. In this lab, sodium carbonate is present in excess, so calcium 
-chloride is the limiting reactant.
+In chemical reactions, the amount of product formed depends on the <b>limiting reactant</b>—the reactant that is completely used up first. In this lab, sodium carbonate is present in excess. This ensures that calcium chloride is the limiting reactant and reacts completely. As a result, the amount of calcium chloride used determines how much calcium carbonate can be produced.
 </p>
 
 <p>
@@ -361,6 +359,8 @@ A student mixes 40.0 mL of 0.100 M CaCl<sub>2</sub> and 40.0 mL of 0.100 M Na<su
 <li>Wear nitrile gloves at all times.</li>
 <li>Use beaker tongs and/or heat resistant gloves to move hot items</li>
 <li>Turn off and unplug the hot plate when it is not in use.</li>
+<li>Use caution when pouring and stirring solutions to avoid splashing.</li>
+<li>Ensure all connections in the suction filtration apparatus are secure before turning on the vacuum.</li>
 </ul>
 </div>
 
@@ -376,10 +376,13 @@ Equation 1: Na<sub>2</sub>CO<sub>3</sub> (aq) + CaCl<sub>2</sub> (aq) → 2 NaCl
 
 1.00 g CaCO<sub>3</sub> x $\frac{1\;mol\;CaCO_3}{100.09\;g\;CaCO_3}$ x $\frac{1\;mol\;CaCl_2}{1\;mol\;CaCO_3}$ x $\frac{1\;L\;CaCl_2}{0.100\;mol\;CaCl_2}$ x $\frac{1000\;mL}{1\;L}$ = <input type="number" class="calc" step="any" id="neededVolCaCl2" name="neededVolCaCl2" formula="99.91" help="Follow the calculation to the left"> mL CaCl<sub>2</sub><div class="feedback" id="neededVolCaCl2FB" name="neededVolCaCl2FB"></div>
 <li>Using your two 100 mL graduated cylinders, measure approximately 100 mL of 0.10 M calcium chloride, and 100 mL of 0.20 M sodium carbonate and record your actual volumes to the 10th’s place value and the molarities in table 1.</li>
-  <li>Pour the sodium carbonate that you measured into your 400 mL beaker, then <b>slowly pour</b> the calcium chloride into the 400 mL beaker while <b>slowly stirring</b> (slowly pouring the lower concentration solution into the higher concentrations solution should allow for improved agglutination).</li>
+  <li>Pour the sodium carbonate that you measured into your 400 mL beaker, then <b>slowly pour</b> the calcium chloride into the 400 mL beaker while <b>slowly stirring</b> (slowly pouring the lower concentration solution into the higher concentration solution helps the precipitate form larger particles, making it easier to filter.).</li>
 <li>Plug in your hot plate and place the 400 mL beaker on the hot plate, then turn the hot plate up to a high setting.</li>
 <li>Observe the beaker while stirring occasionally with the glass stirring rod.  As a good practice, do not observe the beaker from above, and make sure your goggles are on.  Record your observations below.</li>
 <li>Once the solution starts to boil (not a full boil), turn off the hot plate, unplug it, and move the solution to your lab bench using beaker tongs or heat resistant gloves.</li>
+  <li>
+    Heating helps the particles collide more frequently, increasing the rate of the reaction, and ensuring that the maximum amount of product is formed before moving to the next step.
+  </li>
 <li>Allow the solution to cool for 15 minutes.</li>
 
 <div class="noBreak">
@@ -399,7 +402,7 @@ While you are waiting for your solution to cool, you can prepare your suction fi
 </div>
 <div class="noBreak">
 Figure 1: Suction filtration apparatus
-<p><img height="300px" src="/images/suctionfiltration.png"></p>
+<p><img height="300px" src="/images/suctionfiltration.png" alt="suction filtration apparatus"></p>
 </div>
 
 <li>Attach a rubber or plastic hose to the suction.</li>
@@ -427,6 +430,9 @@ Once your solution has been allowed to cool, you will use suction filtration to 
 <li>Use this time to clean up and dispose of chemicals (steps 32 - 35)</li>
 <li>Remove the watch glass from the oven using heat resistant gloves, and allow it to cool for 10 minutes.</li>
 <li>Repeat heating, cooling, and weighing your sample (steps 22 &amp; 24) until your mass no longer changes (your actual yield should be lower than 1.1 grams).</li>
+  <li>
+    Repeating heating until the mass no longer changes ensures that all water has been removed and that your mass represents only the solid product.
+  </li>
 <li>Calculate and record your actual yield (mass of filter paper, watch glass, and dried calcium carbonate minus the mass of the filter paper and watch glass), and record it in table 2.</li>
 
 <div class="noBreak">
@@ -436,13 +442,13 @@ Table 2:
 <tr><th></th><th>Mass (g)</th></tr>
 <tr><td>Filter paper and watch glass</td><td><input type="number" step="any" class="num" id="massFilter" name="massFilter"></td></tr>
 <tr><td>Filter paper, watch glass and calcium carbonate (dried)</td><td><input type="number" step="any" class="num" id="massFilter&CaCO3" name="massFilter&CaCO3"></td></tr>
-<tr><td>Actual yield of calcium carbonate</td><td><input type="number" class="calc" step="any" id="massCaCO3" name="massCaCO3" formula="${massFilter&CaCO3}-${massFilter}" help="Mass of filter paper and calcium carbonate (dried) minus mass of filter paper"><div class="feedback" id="massCaCO3FB" name="massCaCO3FB"></div></td></tr>
+<tr><td>Actual yield of calcium carbonate</td><td><input type="number" class="calc num" step="any" id="massCaCO3" name="massCaCO3" formula="${massFilter&CaCO3}-${massFilter}" help="Mass of filter paper and calcium carbonate (dried) minus mass of filter paper"><div class="feedback" id="massCaCO3FB" name="massCaCO3FB"></div></td></tr>
 </table>
 </div><br>
 
 <li>Calculate your theoretical yield of calcium carbonate using  the volume of 0.10 M calcium chloride you recorded in table 1.</li><br>
 Theoretical yield:<br>
-<input type="number" class="calc" step="any" id="volCaCl2-2" name="volCaCl2-2" formula="${volCaCl2}" help="Use your volume of calcium chloride from above.">mL CaCl<sub>2</sub> x $\frac{1\;L}{1000\;mL}$ x $\frac{0.100\;mol\;CaCl_2}{1\;L\;CaCO_3}$ x $\frac{1\;mol CaCO_3}{1\;mol CaCl_2}$ x $\frac{100.09\;g\;CaCO_3}{1\;mol \;CaCO_3}$ = <input type="number" class="calc" step="any" id="theoreticalMassCaCO3" name="theoreticalMassCaCO3" formula="${volCaCl2-2}/1000*.1*100.09" help="Follow the calculation to the left"> g CaCO<sub>3</sub><div class="feedback" id="volCaCl2-2FB" name="volCaCl2-2FB"></div><div class="feedback" id="theoreticalMassCaCO3FB" name="theoreticalMassCaCO3FB"></div>
+<input type="number" class="calc num" step="any" id="volCaCl2-2" name="volCaCl2-2" formula="${volCaCl2}" help="Use your volume of calcium chloride from above.">mL CaCl<sub>2</sub> x $\frac{1\;L}{1000\;mL}$ x $\frac{0.100\;mol\;CaCl_2}{1\;L\;CaCO_3}$ x $\frac{1\;mol CaCO_3}{1\;mol CaCl_2}$ x $\frac{100.09\;g\;CaCO_3}{1\;mol \;CaCO_3}$ = <input type="number" class="calc num" step="any" id="theoreticalMassCaCO3" name="theoreticalMassCaCO3" formula="${volCaCl2-2}/1000*.1*100.09" help="Follow the calculation to the left"> g CaCO<sub>3</sub><div class="feedback" id="volCaCl2-2FB" name="volCaCl2-2FB"></div><div class="feedback" id="theoreticalMassCaCO3FB" name="theoreticalMassCaCO3FB"></div>
 <br>
 <li>Calculate your percent yield, based on your actual and theoretical yield.</li><br>
 
@@ -450,10 +456,10 @@ Percent yield = $\frac{Actual\;yield}{Theoretical\;yield}$ x 100%<br><br>
 
 Percent yield:  <input type="number" class="calc" step="any" id="theoreticalYieldCaCO3" name="theoreticalYieldCaCO3" formula="${massCaCO3}/${theoreticalMassCaCO3}*100" help="Use the percent yield formula above.  Plug in your actual yield and theoretical yield."> % <div class="feedback" id="theoreticalYieldCaCO3FB" name="theoreticalYieldCaCO3FB"></div><br>
 <li>Pour your aqueous waste down the drain while running water.</li>
-<li>Throw your solid product and filter paper into the trash.</li>
+<li>Dispose of the solid calcium carbonate and filter paper in the designated waste container.</li>
 <li>Clean your beakers, watch glass, funnel, flask, stirring rod, graduated cylinders, and forceps using the soap and brushes, then rinse them 3-7 times and leave them on paper towels to dry.  Put everything else back where you found it.</li>
 <li>Clean up any messes, and make sure the solution bottles are capped before you leave.</li>
-<li>If you are the last group, make sure the over is turned off.</li>
+<li>If you are the last group, make sure the oven is turned off.</li>
 <li>A student forgets to dry their CaCO<sub>3</sub> completely before weighing.  Will their percent yield be too high, too low, or unaffected? Explain quantitatively.</li>
 <textarea 
                         class="AI text essay" 
