@@ -1,7 +1,6 @@
 const ln = (x) => Math.log(x);
 const log10 = (x) => Math.log10(x);
 const log = log10; // Use the same function name for log() as log10()
-window.dataFile = window.dataFile || {};
 
 const filter = function (...args) {
   const filteredValues = args[0].filter(
