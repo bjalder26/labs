@@ -11,13 +11,6 @@ import { basicSetup } from "https://esm.sh/codemirror";
 
 import { html } from "https://esm.sh/@codemirror/lang-html";
 
-
-/*
-import { EditorView, basicSetup, ViewPlugin, ViewUpdate } from "https://esm.sh/codemirror";
-import { html } from "https://esm.sh/@codemirror/lang-html";
-import { EditorState, StateField } from "https://esm.sh/@codemirror/state";
-import { Decoration, DecorationSet} from "https://esm.sh";
-*/
 let editor;
 let lastVerifiedContent = "";
 let duplicateGroups = {};
@@ -92,12 +85,32 @@ document.querySelectorAll("button[data-action], #save-file, #new-file, #commit")
       }
     });
   });
+}
 
+function buildRuntimeParams() {
+  return `
+const userName = "student";
+const labName = "Lab";
+const dataFile = {};
+`;
+}
 
+function injectParams(html, params) {
+  const marker = "// PARAMS GO HERE";
 
+  if (!html.includes(marker)) {
+    const errorMessage = "❌ Missing '// PARAMS GO HERE' block in lab HTML.";
 
+    console.error(errorMessage);
 
+    // Optional: show user-facing error
+    alert(errorMessage);
 
+    // Stop everything — this is a real problem
+    throw new Error(errorMessage);
+  }
+
+  return html.replace(marker, params);
 }
 
 function showTableForm() {
@@ -179,7 +192,7 @@ function updatePreview() {
     const previewFrame = document.getElementById("preview-frame");
     const prevDoc = previewFrame.contentDocument;
 
-    // ✅ Save scroll position BEFORE reload
+    // Save scroll
     if (prevDoc) {
       lastScrollY = prevDoc.documentElement.scrollTop || prevDoc.body.scrollTop;
       lastScrollX = prevDoc.documentElement.scrollLeft || prevDoc.body.scrollLeft;
@@ -187,30 +200,26 @@ function updatePreview() {
 
     let html = editor.state.doc.toString();
 
-    const runtimeShim = `
-      <script>
-        window.dataFile = window.dataFile || {};
-      </script>
-    `;
+    // ✅ Build params (controlled injection)
+    const params = buildRuntimeParams();
+
+    // ✅ Inject params cleanly
+    const finalHtml = injectParams(html, params);
 
     previewFrame.onload = () => {
-      console.log("iframe loaded ✅");
-
       const doc = previewFrame.contentDocument;
 
-      // ✅ Restore scroll AFTER load
+      // Restore scroll
       doc.documentElement.scrollTop = lastScrollY;
       doc.documentElement.scrollLeft = lastScrollX;
-      doc.body.scrollTop = lastScrollY;
-      doc.body.scrollLeft = lastScrollX;
 
-      // ✅ Block forms
+      // Block form submits
       doc.addEventListener("submit", (e) => {
         e.preventDefault();
         e.stopImmediatePropagation();
       }, true);
 
-      // ✅ Hover ID tooltip
+      // Hover ID label
       doc.addEventListener("mouseover", (event) => {
         const el = event.target;
 
@@ -224,9 +233,10 @@ function updatePreview() {
       });
     };
 
-    previewFrame.srcdoc = runtimeShim + html;
+    // ✅ Load preview
+    previewFrame.srcdoc = finalHtml;
 
-  }, 500); 
+  }, 300);
 }
 
 function initEditor() {
