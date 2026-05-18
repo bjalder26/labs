@@ -762,7 +762,7 @@ x
 
 =
 
-<input type="number" class="calc" id="bpMoles" name="bpMoles" step="any" style="width:80px;"
+<input type="number" class="calc num" id="bpMoles" name="bpMoles" step="any" style="width:80px;"
        formula="${bpMass}/110.98"
        help="Divide grams of CaCl2 by its molar mass to get moles.">
  mol
@@ -777,7 +777,7 @@ x
 
 ÷ 1000 =
 
-<input type="number" class="calc" id="bpWaterKG" name="bpWaterKG" step="any"
+<input type="number" class="calc num" id="bpWaterKG" name="bpWaterKG" step="any"
        formula="${bpWater}/1000"
        help="Divide grams of water by 1000 to convert to kilograms.">
  kg
@@ -785,7 +785,7 @@ x
 
 <p><b>Step 5: Calculate molality</b></p>
 
-<input type="number" class="calc" id="bpMolality" name="bpMolality" step="any"
+<input type="number" class="calc num" id="bpMolality" name="bpMolality" step="any"
        formula="${bpMoles}/${bpWaterKG}"
        help="Molality is moles of solute divided by kilograms of solvent.">
  m
@@ -1070,19 +1070,19 @@ M =
 <p><b>Step 2: Identify k<sub>1</sub> and k<sub>2</sub></b></p>
 
   k<sub>1</sub> =
-  <input type="number" class="calc" id="arrK1C" name="arrK1C" step="any"
+  <input type="number" class="calc num" id="arrK1C" name="arrK1C" step="any"
          formula="if(${arrK2} == ${arrK2} ; ${arrK1}||${arrK2} ; ${arrK1}||${arrK2})"
          help="Use the rate constant at the higher temperature."> <div class="feedback" id="arrK1CFB" name="arrK1CFB"></div>
   <br>
   k<sub>2</sub> =
-  <input type="number" class="calc" id="arrK2C" name="arrK2C" step="any"
+  <input type="number" class="calc num" id="arrK2C" name="arrK2C" step="any"
          formula="if(${arrK1C} == ${arrK1} ; ${arrK2} ; ${arrK1})"
          help="Use the rate constant at the lower temperature."> <div class="feedback" id="arrK2CFB" name="arrK2CFB"></div>
 
 <p><b>Step 3: Take the natural logarithm of the rate constant ratio</b></p>
 
 $ln\left(\frac{k_1}{k_2}\right)$ =
-<input type="number" class="calc" id="arrLn" name="arrLn" step="any"
+<input type="number" class="calc num" id="arrLn" name="arrLn" step="any"
        formula="ln(${arrK1C}/${arrK2C})"
        help="Divide the K<sub>1</sub> by the K<sub>2</sub>, then take ln.">
 <div class="feedback" id="arrLnFB" name="arrLnFB"></div>
@@ -1090,7 +1090,7 @@ $ln\left(\frac{k_1}{k_2}\right)$ =
 <p><b>Step 4: Calculate the temperature term</b></p>
 
 $\left(\frac{1}{T_2}-\frac{1}{T_1}\right)$ =
-<input type="number" class="calc" id="arrTempTerm" name="arrTempTerm" step="any"
+<input type="number" class="calc num" id="arrTempTerm" name="arrTempTerm" step="any"
        formula="if(${arrK1C} == ${arrK1} ; 1/${arrT2}-1/${arrT1} ; 1/${arrT1}-1/${arrT2})"
        help="Temperatures must be in Kelvin and T<sub>1</sub> must be the temperature for K<sub>1</sub> and T<sub>2</sub> must be the temperature for K<sub>2</sub>">
 <div class="feedback" id="arrTempTermFB" name="arrTempTermFB"></div>
