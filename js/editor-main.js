@@ -1631,6 +1631,8 @@ function checkInvalidCalcFormulas(doc) {
       });
     }
   });
+  return issues;
+}
 
   function checkMissingAltText(doc) {
   const images = doc.querySelectorAll("img");
@@ -1676,7 +1678,5 @@ function checkInvalidCalcFormulas(doc) {
     });
   });
 
-  return issues;
-}
   return issues;
 }
