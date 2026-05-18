@@ -95,23 +95,20 @@ const dataFile = {};
 `;
 }
 
+
 function injectParams(html, params) {
-  const marker = "// PARAMS GO HERE";
+  const marker = "//PARAMS**GO**HERE";
 
   if (!html.includes(marker)) {
-    const errorMessage = "❌ Missing '// PARAMS GO HERE' block in lab HTML.";
+    const errorMessage = "❌ Missing '//PARAMS**GO**HERE' block in lab HTML.";
 
     console.error(errorMessage);
-
-    // Optional: show user-facing error
-    alert(errorMessage);
-
-    // Stop everything — this is a real problem
     throw new Error(errorMessage);
   }
 
   return html.replace(marker, params);
 }
+
 
 function showTableForm() {
   const form = document.createElement("form");
