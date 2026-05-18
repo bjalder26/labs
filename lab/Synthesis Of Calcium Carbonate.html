@@ -399,7 +399,7 @@ While you are waiting for your solution to cool, you can prepare your suction fi
 </div>
 <div class="noBreak">
 Figure 1: Suction filtration apparatus
-<p><img height="300px" src="/images/suctionfiltration.png"></p>
+<p><img height="300px" src="/images/suctionfiltration.png" alt="suction filtration apparatus"></p>
 </div>
 
 <li>Attach a rubber or plastic hose to the suction.</li>
@@ -436,13 +436,13 @@ Table 2:
 <tr><th></th><th>Mass (g)</th></tr>
 <tr><td>Filter paper and watch glass</td><td><input type="number" step="any" class="num" id="massFilter" name="massFilter"></td></tr>
 <tr><td>Filter paper, watch glass and calcium carbonate (dried)</td><td><input type="number" step="any" class="num" id="massFilter&CaCO3" name="massFilter&CaCO3"></td></tr>
-<tr><td>Actual yield of calcium carbonate</td><td><input type="number" class="calc" step="any" id="massCaCO3" name="massCaCO3" formula="${massFilter&CaCO3}-${massFilter}" help="Mass of filter paper and calcium carbonate (dried) minus mass of filter paper"><div class="feedback" id="massCaCO3FB" name="massCaCO3FB"></div></td></tr>
+<tr><td>Actual yield of calcium carbonate</td><td><input type="number" class="calc num" step="any" id="massCaCO3" name="massCaCO3" formula="${massFilter&CaCO3}-${massFilter}" help="Mass of filter paper and calcium carbonate (dried) minus mass of filter paper"><div class="feedback" id="massCaCO3FB" name="massCaCO3FB"></div></td></tr>
 </table>
 </div><br>
 
 <li>Calculate your theoretical yield of calcium carbonate using  the volume of 0.10 M calcium chloride you recorded in table 1.</li><br>
 Theoretical yield:<br>
-<input type="number" class="calc" step="any" id="volCaCl2-2" name="volCaCl2-2" formula="${volCaCl2}" help="Use your volume of calcium chloride from above.">mL CaCl<sub>2</sub> x $\frac{1\;L}{1000\;mL}$ x $\frac{0.100\;mol\;CaCl_2}{1\;L\;CaCO_3}$ x $\frac{1\;mol CaCO_3}{1\;mol CaCl_2}$ x $\frac{100.09\;g\;CaCO_3}{1\;mol \;CaCO_3}$ = <input type="number" class="calc" step="any" id="theoreticalMassCaCO3" name="theoreticalMassCaCO3" formula="${volCaCl2-2}/1000*.1*100.09" help="Follow the calculation to the left"> g CaCO<sub>3</sub><div class="feedback" id="volCaCl2-2FB" name="volCaCl2-2FB"></div><div class="feedback" id="theoreticalMassCaCO3FB" name="theoreticalMassCaCO3FB"></div>
+<input type="number" class="calc num" step="any" id="volCaCl2-2" name="volCaCl2-2" formula="${volCaCl2}" help="Use your volume of calcium chloride from above.">mL CaCl<sub>2</sub> x $\frac{1\;L}{1000\;mL}$ x $\frac{0.100\;mol\;CaCl_2}{1\;L\;CaCO_3}$ x $\frac{1\;mol CaCO_3}{1\;mol CaCl_2}$ x $\frac{100.09\;g\;CaCO_3}{1\;mol \;CaCO_3}$ = <input type="number" class="calc num" step="any" id="theoreticalMassCaCO3" name="theoreticalMassCaCO3" formula="${volCaCl2-2}/1000*.1*100.09" help="Follow the calculation to the left"> g CaCO<sub>3</sub><div class="feedback" id="volCaCl2-2FB" name="volCaCl2-2FB"></div><div class="feedback" id="theoreticalMassCaCO3FB" name="theoreticalMassCaCO3FB"></div>
 <br>
 <li>Calculate your percent yield, based on your actual and theoretical yield.</li><br>
 
