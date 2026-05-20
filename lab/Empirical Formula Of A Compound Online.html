@@ -92,7 +92,7 @@ Calculate the empirical formula of Magnesium Chloride through an experiment:
           <input
           type="number"
           step="any"
-          class="calc"
+          class="calc num"
           id="MgMass"
           name="MgMass"
           formula="${evapDish&MagMass}-${evapDishMass}"
@@ -127,7 +127,7 @@ Calculate the empirical formula of Magnesium Chloride through an experiment:
           <input
           type="number"
           step="any"
-          class="calc"
+          class="calc num"
           id="MgClMass"
           name="MgClMass"
           formula="${finalWeighing}-${evapDishMass}"
@@ -138,7 +138,7 @@ Calculate the empirical formula of Magnesium Chloride through an experiment:
           <input
           type="number"
           step="any"
-          class="calc"
+          class="calc num"
           id="ClMass"
           name="ClMass"
           formula="${MgClMass}-${MgMass}"
@@ -149,7 +149,7 @@ Calculate the empirical formula of Magnesium Chloride through an experiment:
             <input
           type="number"
           step="any"
-          class="calc"
+          class="calc num"
           id="MgMol"
           name="MgMol"
           formula="${MgMass}/24.305"
@@ -160,7 +160,7 @@ Calculate the empirical formula of Magnesium Chloride through an experiment:
           <input
           type="number"
           step="any"
-          class="calc"
+          class="calc num"
           id="ClMol"
           name="ClMol"
           formula="${ClMass}/35.45"
@@ -171,7 +171,7 @@ Calculate the empirical formula of Magnesium Chloride through an experiment:
           <input
           type="number"
           step="any"
-          class="calc"
+          class="calc num"
           id="MgMolDivided"
           name="MgMolDivided"
           formula="${MgMol}/min(${MgMol}, ${ClMol})"
@@ -183,7 +183,7 @@ Calculate the empirical formula of Magnesium Chloride through an experiment:
           <input
           type="number"
           step="any"
-          class="calc"
+          class="calc num"
           id="ClMolDivided"
           name="ClMolDivided"
           formula="${ClMol}/min(${MgMol}, ${ClMol})"
