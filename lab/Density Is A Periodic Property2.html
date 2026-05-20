@@ -300,6 +300,7 @@ Calculate the average value (mean) of the density calculations 1–3 for each el
                 <td><input type="number" step="any" class="density" id="pbTrial1x"></td>
                 <td><input type="number" step="any" class="density" id="pbTrial2x"></td>
                 <td><input type="number" step="any" class="calc num" id="densityPbsolid3x" name=" densityPbsolid3" formula="${massPbsolid3}/${volPbsolid3}"  help="Mass of solid Lead divided by volume of Lead for Sample 3">
+<div class="feedback" id="densityPbsolid3xFB" name="densityPbsolid3xFB"></div>
     <div class="feedback" id=" densityPbsolid3FBx" name=" densityPbsolid3FB"></div>
 </td>
                 <td><input type="number" step="any" id="pbAverage"></td>
@@ -332,29 +333,42 @@ Calculate the average value (mean) of the density calculations 1–3 for each el
         <tbody>
             <tr>
                 <td>Silicon</td>
-                <td><input type="number" step="any" class="calc num" id="siTrial1" name="siTrial1"></td>
-                <td><input type="number" step="any" class="calc num" id="siTrial2" name="siTrial2"></td>
-                <td><input type="number" step="any" class="calc num" id="siTrial3" name="siTrial3"></td>
+                <td><input type="number" step="any" class="calc num" id="siTrial1" name="siTrial1">
+<div class="feedback" id="siTrial1FB" name="siTrial1FB"></div></td>
+                <td><input type="number" step="any" class="calc num" id="siTrial2" name="siTrial2">
+<div class="feedback" id="siTrial2FB" name="siTrial2FB"></div></td>
+                <td><input type="number" step="any" class="calc num" id="siTrial3" name="siTrial3">
+<div class="feedback" id="siTrial3FB" name="siTrial3FB"></div></td>
                 <td><input type="number" step="any" class="calc num Density graph" id="y1" name="y1" formula="(${siTrial1}+${siTrial2}+${siTrial3})/3"  help="Add the densities and divide by 3"><div class="feedback" id="y1FB" name="y1FB"></div></td>
-                <td><input type="number" class="calc num Density graph" id="x1" name="x1"></td>
+                <td><input type="number" class="calc num Density graph" id="x1" name="x1">
+<div class="feedback" id="x1FB" name="x1FB"></div></td>
             </tr>
             <tr>
                 <td>Tin</td>
-                <td><input type="number" step="any" class="calc num" id="snTrial1" name="snTrial1"></td>
-                <td><input type="number" step="any" class="calc num" id="snTrial2" name="snTrial2"></td>
-                <td><input type="number" step="any" class="calc num" id="snTrial3" name="snTrial3"></td>
-                <td><input type="number" step="any" class="calc num Density graph" id="y2" name="y2"></td>
-                <td><input type="number" class="calc num Density graph" id="x2" name="x2"></td>
+                <td><input type="number" step="any" class="calc num" id="snTrial1" name="snTrial1">
+<div class="feedback" id="snTrial1FB" name="snTrial1FB"></div></td>
+                <td><input type="number" step="any" class="calc num" id="snTrial2" name="snTrial2">
+<div class="feedback" id="snTrial2FB" name="snTrial2FB"></div></td>
+                <td><input type="number" step="any" class="calc num" id="snTrial3" name="snTrial3">
+<div class="feedback" id="snTrial3FB" name="snTrial3FB"></div></td>
+                <td><input type="number" step="any" class="calc num Density graph" id="y2" name="y2">
+<div class="feedback" id="y2FB" name="y2FB"></div></td>
+                <td><input type="number" class="calc num Density graph" id="x2" name="x2">
+<div class="feedback" id="x2FB" name="x2FB"></div></td>
             </tr>
             <tr>
                 <td>Lead</td>
-                <td><input type="number" step="any" class="calc num" id="pbTrial1" name="pbTrial1"></td>
-                <td><input type="number" step="any" class="calc num" id="pbTrial2" name="pbTrial2"></td>
+                <td><input type="number" step="any" class="calc num" id="pbTrial1" name="pbTrial1">
+<div class="feedback" id="pbTrial1FB" name="pbTrial1FB"></div></td>
+                <td><input type="number" step="any" class="calc num" id="pbTrial2" name="pbTrial2">
+<div class="feedback" id="pbTrial2FB" name="pbTrial2FB"></div></td>
                 <td><input type="number" step="any" class="calc num" id="pbTrial3" name="pbTrial3" formula="${massPbsolid3}/${volPbsolid3}"  help="Mass of solid Lead divided by volume of Lead for Sample 3">
     <div class="feedback" id="pbTrial3FB" name="pbTrial3FB"></div>
 </td>
-                <td><input type="number" step="any" id="y3" name="y3" class="calc num Density graph"></td>
-                <td><input type="number" class="calc num Density graph" id="x3" name="x3"></td>
+                <td><input type="number" step="any" id="y3" name="y3" class="calc num Density graph">
+<div class="feedback" id="y3FB" name="y3FB"></div></td>
+                <td><input type="number" class="calc num Density graph" id="x3" name="x3">
+<div class="feedback" id="x3FB" name="x3FB"></div></td>
             </tr>
         </tbody>
     </table>
