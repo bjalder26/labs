@@ -657,6 +657,51 @@ app.post("/ai-grade-essay", async (req, res) => {
   const { studentAnswer, correctAnswer } = req.body;
 
   try {
+const prompt = `
+You are grading a student's answer using EXACT scoring rules.
+
+DO NOT invent grading logic.
+DO NOT be harsh.
+Follow the scoring rules exactly as written.
+
+-------------------------------------
+RUBRIC:
+${correctAnswer}
+
+-------------------------------------
+STUDENT ANSWER:
+${studentAnswer}
+-------------------------------------
+
+Average criteria scores to get the final score.
+
+Return ONLY valid JSON:
+For example, if there are 2 criteria:
+{
+  "score": 0-1,
+  "feedback": "...",
+  "criteria_scores": {
+    "criterion_1": number,
+    "criterion_2": number
+  }
+}
+
+INSTRUCTIONS:
+
+- Each criterion already defines exact scores (1.0, 0.9, 0.5, 0.0)
+- Use ONLY those values
+- Do NOT subtract additional points
+- Do NOT penalize wording if meaning is correct
+- If multiple answers match, choose the higher score
+- Final score = average of criteria (2 decimal places)
+
+FEEDBACK:
+- If score > 0.9: brief praise
+- Otherwise: say what was missing or incorrect
+- Students cannot see the criteria, so give explicit feedback on how to improve their answers
+`;
+
+/*
     const prompt = `
 You are grading a student's answer.
 
@@ -735,6 +780,7 @@ FEEDBACK RULES
 - If score <= 0.9:
   - Directly state what points were taken off for
 `;
+*/
 
     const aiResponse = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
