@@ -44,6 +44,10 @@ app.use('/lab', express.static(path.join(__dirname, 'lab')));
 // I believe this allows for http vs https only
 app.enable('trust proxy');
 
+app.get("/", (req, res) => {
+  res.send("OK");
+});
+
 function safe(str) {
   return str.replace(/[^a-zA-Z0-9_-]/g, '_');
 }
