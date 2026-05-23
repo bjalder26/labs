@@ -44,10 +44,6 @@ app.use('/lab', express.static(path.join(__dirname, 'lab')));
 // I believe this allows for http vs https only
 app.enable('trust proxy');
 
-app.get("/", (req, res) => {
-  res.send("OK");
-});
-
 function safe(str) {
   return str.replace(/[^a-zA-Z0-9_-]/g, '_');
 }
@@ -549,7 +545,7 @@ app.get("/score/:sessionID/:score", (req, res) => {
 
 // Route for the root path — always blocks refresh
 app.get('/', (req, res) => {
-  res.status(403).send('Sorry, you cannot refresh this window in the browser. Refresh your Canvas assignment, and reopen the lab from the link in that assignment.');
+  res.status(200).send('Sorry, you cannot refresh this window in the browser...');
 });
 
 // Explicit route for /dev — shows lab list
