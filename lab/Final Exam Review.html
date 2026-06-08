@@ -2229,12 +2229,192 @@ $$
          help="When all coefficients are divided by a factor, ΔG° is divided by the same factor.">
   kJ/mol <div class="feedback" id="pDG1FB" name="pDG1FB"></div>
 </li>
+<hr>
 
+<h4>Guided Problem</h4>
 
+<li>
+  The following reaction is <b>endothermic</b>. Which change will shift the equilibrium to the <b>right</b>?
+  <br><br>
+
+  N<sub>2</sub>O<sub>4</sub> (g) ⇌ 2 NO<sub>2</sub> (g)
+  <br><br>
+
+  <b>Use these ideas to guide your reasoning:</b>
+  <ul>
+    <li>Endothermic reactions absorb heat (treat heat like a reactant)</li>
+    <li>Exothermic reactions produce heat (treat heat as a product)</li>
+    <li>Increasing temperature shifts equilibrium away from the side that has heat
+      <ul>
+        <li>Toward the product in endothermic reactions</li>
+        <li>Toward the reactant in exothermic reactions</li>
+      </ul>
+    </li>
+    <li>Decreasing temperature shifts equilibrium toward the side that has heat
+      <ul>
+        <li>Toward the reactant in endothermic reactions</li>
+        <li>Toward the product in exothermic reactions</li>
+      </ul>
+    </li>
+    <li>Increasing pressure favors the side with fewer moles of gas</li>
+    <li>Decreasing pressure favors the side with more moles of gas</li>
+    <li>Increasing volume lowers the pressure</li>
+    <li>Decreasing volume increases the pressure</li>
+    <li>Catalysts do not have an effect on equilibrium, they only make you reach equilibrium faster</li>
+  </ul>
+
+  <br>
+
+  Which change shifts equilibrium to the <b>right</b>?
+
+  <br><br>
+
+  Answer:
+  <select id="gEQ2" name="gEQ2" class="calc" formula="B"
+          help="For an endothermic reaction, decide how adding heat or changing pressure affects the direction of the reaction.">
+    <option value="">Choose</option>
+    <option value="A">Lowering the temperature</option>
+    <option value="B">Raising the temperature</option>
+    <option value="C">Increasing pressure</option>
+    <option value="D">All of the above</option>
+    <option value="E">None of the above</option>
+  </select>
+
+  <div class="feedback" id="gEQ2FB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  The following reaction is <b>exothermic</b>. Which change will shift the equilibrium to the <b>left</b>?
+  <br><br>
+
+  H<sub>2</sub> (g) + I<sub>2</sub> (g) ⇌ 2 HI (g)
+  <br><br>
+
+  Answer:
+  <select id="pEQ2" name="pEQ2" class="calc" formula="B">
+    <option value="">Choose</option>
+    <option value="A">Lowering the temperature</option>
+    <option value="B">Raising the temperature</option>
+    <option value="C">Adding a catalyst</option>
+    <option value="D">Increasing volume</option>
+    <option value="E">None of the above</option>
+  </select>
+
+  <div class="feedback" id="pEQ2FB"></div>
+
+</li>
 
 <hr>
 
+<h4>Guided Problem</h4>
 
+<li>
+  The K<sub>p</sub> for the reaction below is 8.45 × 10<sup>−6</sup> at 260°C.
+  <br><br>
+
+  2 NO (g) + Cl<sub>2</sub> (g) ⇌ 2 NOCl (g)
+  <br><br>
+
+  At equilibrium:
+  <br>
+  P<sub>NO</sub> = <input class="num display-value" id="PNO" name="PNO" random="true" data-original="5.44e-5" randomPercent="50%" readonly> atm
+  P<sub>Cl₂</sub> = <input class="num display-value" id="PCl2" name="PCl2" random="true" data-original="5.44e-5" randomPercent="50%" readonly>
+  atm  
+  <br><br>
+
+  Find the partial pressure of NOCl.
+  <br><br>
+
+  <b>Step 1: Substitute into the K<sub>p</sub> expression</b>
+  <br><br>
+
+ $K_p =  \frac{P_{NOCL}^2}{P_{NO}^2 \times P_{Cl_2}} = 8.45 × 10^{−6}$<br><br>
+
+  <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+            $P_{NOCL}^2$
+          </div>
+
+          <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+          <!-- Denominator -->
+          <div style="padding: 2px 5px;">
+            <input type="number" step="any" class="calc" id="5gden" name="5gden" formula="180.16" help="What is the molar mass of ?" style="width: 80px;"> g <div class="feedback" id="5gdenFB" name="5gdenFB"></div>
+          </div>
+        </div> = $8.45 × 10^{−6}$
+    
+  <input type="text" class="calc" id="gKPsub" name="gKPsub"
+         formula="(x^2)/((5.44e-5)^2*(5.44e-5))"
+         help="Kp = (products)/(reactants), each raised to their coefficients. Substitute the known pressures.">
+  <div class="feedback" id="gKPsubFB"></div>
+
+  <br><br>
+
+  <b>Step 2: Solve for x²</b>
+  <br><br>
+
+  x² =
+  <input type="number" step="any" class="calc" id="gKPxsq" name="gKPxsq"
+         formula="8.45e-6*(5.44e-5)^3"
+         help="Multiply both sides by the denominator to isolate x².">
+  atm²
+  <div class="feedback" id="gKPxsqFB"></div>
+
+  <br><br>
+
+  <b>Step 3: Solve for x</b>
+  <br><br>
+
+  x =
+  <input type="number" step="any" class="calc" id="gKPx" name="gKPx"
+         formula="sqrt(8.45e-6*(5.44e-5)^3)"
+         help="Take the square root of x².">
+  atm
+  <div class="feedback" id="gKPxFB"></div>
+
+  <br><br>
+
+  <b>Step 4: Final Answer</b>
+  <br><br>
+
+  P<sub>NOCl</sub> =
+  <input type="number" step="any" class="calc" id="gKPans" name="gKPans"
+         formula="sqrt(8.45e-6*(5.44e-5)^3)">
+  atm
+  <div class="feedback" id="gKPansFB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  The K<sub>p</sub> for the reaction below is 3.60 × 10<sup>−5</sup>.
+  <br><br>
+
+  N<sub>2</sub> (g) + 3 H<sub>2</sub> (g) ⇌ 2 NH<sub>3</sub> (g)
+  <br><br>
+
+  At equilibrium:
+  <br>
+  P<sub>N₂</sub> = 2.00 × 10<sup>−3</sup> atm  
+  P<sub>H₂</sub> = 2.00 × 10<sup>−3</sup> atm  
+  <br><br>
+
+  Find the partial pressure of NH<sub>3</sub>.
+  <br><br>
+
+  P<sub>NH₃</sub> =
+  <input type="number" step="any" class="calc" id="pKP3" name="pKP3"
+         formula="sqrt(3.60e-5*(2.00e-3)*(2.00e-3)^3)">
+  atm
+  <div class="feedback" id="pKP3FB"></div>
+
+</li>
 
 
 
