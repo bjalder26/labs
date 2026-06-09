@@ -17,7 +17,9 @@ require('dotenv').config();
 
 // create a new express server
 var app = express();
-app.use(express.json())
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }
 
 const ADMIN_PASSWORD = 'trouble2maker'; // password for downloading and deleting directories
 const SUBMISSIONS_DIR = path.join(__dirname, 'submissions');
@@ -143,9 +145,6 @@ app.use((req, res, next) => {
   next();
 });
 */
-
-app.post("*", require("body-parser").urlencoded({extended: true}));
-
 
 function readLabList(labFolder) {
     return new Promise((resolve, reject) => {

@@ -2229,28 +2229,315 @@ $$
          help="When all coefficients are divided by a factor, ΔG° is divided by the same factor.">
   kJ/mol <div class="feedback" id="pDG1FB" name="pDG1FB"></div>
 </li>
+<hr>
 
+<h4>Guided Problem</h4>
 
+<li>
+  The following reaction is <b>endothermic</b>. Which change will shift the equilibrium to the <b>right</b>?
+  <br><br>
+
+  N<sub>2</sub>O<sub>4</sub> (g) ⇌ 2 NO<sub>2</sub> (g)
+  <br><br>
+
+  <b>Use these ideas to guide your reasoning:</b>
+  <ul>
+    <li>Endothermic reactions absorb heat (treat heat like a reactant)</li>
+    <li>Exothermic reactions produce heat (treat heat as a product)</li>
+    <li>Increasing temperature shifts equilibrium away from the side that has heat
+      <ul>
+        <li>Toward the product in endothermic reactions</li>
+        <li>Toward the reactant in exothermic reactions</li>
+      </ul>
+    </li>
+    <li>Decreasing temperature shifts equilibrium toward the side that has heat
+      <ul>
+        <li>Toward the reactant in endothermic reactions</li>
+        <li>Toward the product in exothermic reactions</li>
+      </ul>
+    </li>
+    <li>Increasing pressure favors the side with fewer moles of gas</li>
+    <li>Decreasing pressure favors the side with more moles of gas</li>
+    <li>Increasing volume lowers the pressure</li>
+    <li>Decreasing volume increases the pressure</li>
+    <li>Catalysts do not have an effect on equilibrium, they only make you reach equilibrium faster</li>
+  </ul>
+
+  <br>
+
+  Which change shifts equilibrium to the <b>right</b>?
+
+  <br><br>
+
+  Answer:
+  <select id="gEQ2" name="gEQ2" class="calc" formula="B"
+          help="For an endothermic reaction, decide how adding heat or changing pressure affects the direction of the reaction.">
+    <option value="">Choose</option>
+    <option value="A">Lowering the temperature</option>
+    <option value="B">Raising the temperature</option>
+    <option value="C">Increasing pressure</option>
+    <option value="D">All of the above</option>
+    <option value="E">None of the above</option>
+  </select>
+
+  <div class="feedback" id="gEQ2FB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  The following reaction is <b>exothermic</b>. Which change will shift the equilibrium to the <b>left</b>?
+  <br><br>
+
+  H<sub>2</sub> (g) + I<sub>2</sub> (g) ⇌ 2 HI (g)
+  <br><br>
+
+  Answer:
+  <select id="pEQ2" name="pEQ2" class="calc" formula="B">
+    <option value="">Choose</option>
+    <option value="A">Lowering the temperature</option>
+    <option value="B">Raising the temperature</option>
+    <option value="C">Adding a catalyst</option>
+    <option value="D">Increasing volume</option>
+    <option value="E">None of the above</option>
+  </select>
+
+  <div class="feedback" id="pEQ2FB"></div>
+
+</li>
 
 <hr>
 
+<h4>Guided Problem</h4>
+
+<li>
+  The K<sub>p</sub> for the reaction below is 8.45 × 10<sup>−6</sup> at 260°C.
+  <br><br>
+
+  2 NO (g) + Cl<sub>2</sub> (g) ⇌ 2 NOCl (g)
+  <br><br>
+
+  At equilibrium:
+  <br>
+  P<sub>NO</sub> = <input class="num display-value" id="PNO" name="PNO" random="true" data-original="5.44e-5" randomPercent="50%" readonly> atm
+  P<sub>Cl₂</sub> = <input class="num display-value" id="PCl2" name="PCl2" random="true" data-original="5.44e-5" randomPercent="50%" readonly>
+  atm  
+  <br><br>
+
+  Find the partial pressure of NOCl.
+  <br><br>
+
+  <b>Step 1: Substitute into the K<sub>p</sub> expression</b>
+  <br><br>
+
+ $K_p =  \frac{P_{NOCl}^2}{P_{NO}^2 \times P_{Cl_2}} = 8.45 × 10^{−6}$<br><br>
+
+  <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+            $P_{NOCl}^2$
+          </div>
+
+          <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+          <!-- Denominator -->
+          <div style="padding: 2px 5px;">
+            <input type="number" step="any" class="calc" id="PNOPCl2" name="PNOPCl2" formula="${PNO}^2*${PCl2}" help="Enter $P_{NO}^2 \times P_{Cl_2}$ using the given values." style="width: 80px;"><div class="feedback" id="PNOPCl2FB" name="PNOPCl2FB"></div>
+          </div>
+        </div> = $8.45 × 10^{−6}$
+
+  <br><br>
+
+  <b>Step 2: Solve for $P_{NOCl}^2$</b>
+  <br><br>
+
+  $P_{NOCl}^2$ =
+  <input type="number" step="any" class="calc" id="PNOPCl2Kp" name="PNOPCl2Kp"
+         formula="${PNO}^2*${PCl2}*8.45*10^−6"
+         help="Enter $P_{NO}^2 \times P_{Cl_2} \times K_p$ using the given values.">
+  atm²
+  <div class="feedback" id="PNOPCl2KpFB"></div>
+
+  <br><br>
+
+  <b>Step 3: Solve for $P_{NOCl}$</b>
+  <br><br>
+
+  $P_{NOCl}$ =
+  <input type="number" step="any" class="calc" id="PNOCl" name="PNOCl"
+         formula="sqrt(${PNO}^2*${PCl2}*8.45*10^−6)"
+         help="Take the square root of $P_{NOCl}^2$.">
+  atm
+  <div class="feedback" id="PNOClFB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  The K<sub>p</sub> for the reaction below is 3.60 × 10<sup>−5</sup>.
+  <br><br>
+
+  N<sub>2</sub> (g) + 3 H<sub>2</sub> (g) ⇌ 2 NH<sub>3</sub> (g)
+  <br><br>
+
+  At equilibrium:
+  <br>
+  P<sub>N<sub>2</sub></sub> = <input class="num display-value" id="PN2" name="PN2" random="true" data-original="2.00e-3" randomPercent="50%" readonly> atm
+  P<sub>H<sub>2</sub></sub> = <input class="num display-value" id="PH2" name="PH2" random="true" data-original="2.00e-3" randomPercent="50%" readonly>
+  atm  
+  <br><br>
+
+  Find the partial pressure of NH<sub>3</sub>.
+  <br><br>
+
+  P<sub>NH₃</sub> =
+  <input type="number" step="any" class="calc" id="pKP3" name="pKP3"
+         formula="sqrt(3.60e-5*${PN2}*(${PH2})^3)"
+    help="Substitue into the K<sub>p</sub> epression, solve for $P_{NH_3}^2$, solve for $P_{NH_3}$"
+    
+    >
+  atm
+  <div class="feedback" id="pKP3FB"></div>
+
+</li>
+
+  <h4>Guided Problem</h4>
+
+<li>
+  What is the equilibrium constant expression for the reaction below?
+  <br><br>
+
+  CH<sub>4</sub> (g) + CO<sub>2</sub> (g) ⇌ 2 CO (g) + 2 H<sub>2</sub> (g)
+  <br><br>
+
+  K = 
+
+<div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator 1 -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+  <select id="gKN1" name="gKN1" class="calc" formula="[CO]^2"
+          help="Choose the correct product with the correct exponent.">
+    <option value="">Choose</option>
+    <option value="[CH4]">[CH₄]</option>
+    <option value="[CO]">[CO]</option>
+    <option value="[CH4]^2">[CH₄]²</option>
+    <option value="[CO]^2">[CO]²</option>
+  </select>
+
+  ×
+
+  <!-- Numerator (set 2) -->
+  <select id="gKN2" name="gKN2" class="calc" formula="[H2]2"
+          help="Choose the second product.">
+    <option value="">Choose</option>
+    <option value="[H2]">[H₂]</option>
+    <option value="[H2]2">[H₂]²</option>
+    <option value="[CO2]">[CO₂]</option>
+    <option value="[CO2]^2">[CO₂]²</option>
+  </select>
+            <div class="feedback" id="gKN1FB"></div>
+  <div class="feedback" id="gKN2FB"></div>
+          </div>
+
+<!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+  <!-- Denominator (same sets as numerator) -->
+  <div style="padding: 2px 5px;">
+  <select id="gKD1" name="gKD1" class="calc" formula="[CH4]">
+    <option value="">Choose</option>
+    <option value="[CH4]">[CH₄]</option>
+    <option value="[CO]">[CO]</option>
+    <option value="[CH4]^2">[CH₄]²</option>
+    <option value="[CO]^2">[CO]²</option>
+  </select>
+
+  ×
+
+  <select id="gKD2" name="gKD2" class="calc" formula="[CO2]">
+    <option value="">Choose</option>
+    <option value="[H2]">[H₂]</option>
+    <option value="[H2]2">[H₂]²</option>
+    <option value="[CO2]">[CO₂]</option>
+    <option value="[CO2]^2">[CO₂]²</option>
+  </select>
+    <div class="feedback" id="gKD1FB"></div>
+  <div class="feedback" id="gKD2FB"></div>
+  </div>
 
 
+  
+  
+</div>
+</li>
 
+<h4>Practice Problem</h4>
 
+<li>
+  What is the equilibrium constant expression for the reaction below?
+  <br><br>
 
+  2 HCl (g) + F<sub>2</sub> (g) ⇌ 2 HF (g) + Cl<sub>2</sub> (g)
+  <br><br>
 
+  K = 
 
+<div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator 1 -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+  <select id="pKN1" name="pKN1" class="calc" formula="[HF]^2">
+    <option value="">Choose</option>
+    <option value="[HCl]">[HCl]</option>
+    <option value="[HF]">[HF]</option>
+    <option value="[HF]^2">[HF]²</option>
+  </select>
 
+  ×
 
+  <!-- Numerator (set 2) -->
+  <select id="pKN2" name="pKN2" class="calc" formula="[Cl2]">
+    <option value="">Choose</option>
+    <option value="[F2]">[F₂]</option>
+    <option value="[F2]^2">[F₂]²</option>
+    <option value="[Cl2]">[Cl₂]</option>
+    <option value="[Cl2]^2">[Cl₂]²</option>
+  </select>
+            <div class="feedback" id="pKN1FB"></div>
+  <div class="feedback" id="pKN2FB"></div>
+          </div>
 
+ <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+  
+<div style="padding: 2px 5px;">
+  <!-- Denominator (same sets as numerator) -->
+  <div style="padding: 2px 5px;">
+  <select id="pKD1" name="pKD1" class="calc" formula="[HCl]^2">
+    <option value="">Choose</option>
+    <option value="[HCl]">[HCl]</option>
+    <option value="[HCl]^2">[HCl]²</option>
+    <option value="[HF]">[HF]</option>
+  </select>
 
+  ×
 
+  <select id="pKD2" name="pKD2" class="calc" formula="[F2]">
+    <option value="">Choose</option>
+    <option value="[F2]">[F₂]</option>
+    <option value="[F2]^2">[F₂]²</option>
+    <option value="[Cl2]">[Cl₂]</option>
+    <option value="[Cl2]^2">[Cl₂]²</option>
+  </select>
+    <div class="feedback" id="pKD1FB"></div>
+  <div class="feedback" id="pKD2FB"></div>
+  </div>
+</div> 
+</div>
 
-
-
-
-
+</li>
 
   
 </ol>
