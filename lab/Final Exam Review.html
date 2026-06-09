@@ -2331,12 +2331,12 @@ $$
   <b>Step 1: Substitute into the K<sub>p</sub> expression</b>
   <br><br>
 
- $K_p =  \frac{P_{NOCL}^2}{P_{NO}^2 \times P_{Cl_2}} = 8.45 × 10^{−6}$<br><br>
+ $K_p =  \frac{P_{NOCl}^2}{P_{NO}^2 \times P_{Cl_2}} = 8.45 × 10^{−6}$<br><br>
 
   <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
           <!-- Numerator -->
           <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
-            $P_{NOCL}^2$
+            $P_{NOCl}^2$
           </div>
 
           <!-- Fraction Bar -->
@@ -2344,49 +2344,33 @@ $$
 
           <!-- Denominator -->
           <div style="padding: 2px 5px;">
-            <input type="number" step="any" class="calc" id="5gden" name="5gden" formula="180.16" help="What is the molar mass of ?" style="width: 80px;"> g <div class="feedback" id="5gdenFB" name="5gdenFB"></div>
+            <input type="number" step="any" class="calc" id="PNOPCl2" name="PNOPCl2" formula="${PNO}^2*${PCl2}" help="Enter $P_{NO}^2 \times P_{Cl_2}$ using the given values." style="width: 80px;"><div class="feedback" id="PNOPCl2FB" name="PNOPCl2FB"></div>
           </div>
         </div> = $8.45 × 10^{−6}$
-    
-  <input type="text" class="calc" id="gKPsub" name="gKPsub"
-         formula="(x^2)/((5.44e-5)^2*(5.44e-5))"
-         help="Kp = (products)/(reactants), each raised to their coefficients. Substitute the known pressures.">
-  <div class="feedback" id="gKPsubFB"></div>
 
   <br><br>
 
-  <b>Step 2: Solve for x²</b>
+  <b>Step 2: Solve for $P_{NOCl}^2$</b>
   <br><br>
 
-  x² =
-  <input type="number" step="any" class="calc" id="gKPxsq" name="gKPxsq"
-         formula="8.45e-6*(5.44e-5)^3"
-         help="Multiply both sides by the denominator to isolate x².">
+  $P_{NOCl}^2$ =
+  <input type="number" step="any" class="calc" id="PNOPCl2Kp" name="PNOPCl2Kp"
+         formula="${PNO}^2*${PCl2}*8.45*10^−6"
+         help="Enter $P_{NO}^2 \times P_{Cl_2} \times K_p$ using the given values.">
   atm²
-  <div class="feedback" id="gKPxsqFB"></div>
+  <div class="feedback" id="PNOPCl2KpFB"></div>
 
   <br><br>
 
-  <b>Step 3: Solve for x</b>
+  <b>Step 3: Solve for $P_{NOCl}$</b>
   <br><br>
 
-  x =
-  <input type="number" step="any" class="calc" id="gKPx" name="gKPx"
-         formula="sqrt(8.45e-6*(5.44e-5)^3)"
-         help="Take the square root of x².">
+  $P_{NOCl}$ =
+  <input type="number" step="any" class="calc" id="PNOCl" name="PNOCl"
+         formula="sqrt(${PNO}^2*${PCl2}*8.45×10^−6)"
+         help="Take the square root of $P_{NOCl}^2$.">
   atm
-  <div class="feedback" id="gKPxFB"></div>
-
-  <br><br>
-
-  <b>Step 4: Final Answer</b>
-  <br><br>
-
-  P<sub>NOCl</sub> =
-  <input type="number" step="any" class="calc" id="gKPans" name="gKPans"
-         formula="sqrt(8.45e-6*(5.44e-5)^3)">
-  atm
-  <div class="feedback" id="gKPansFB"></div>
+  <div class="feedback" id="PNOClFB"></div>
 
 </li>
 
@@ -2401,8 +2385,9 @@ $$
 
   At equilibrium:
   <br>
-  P<sub>N₂</sub> = 2.00 × 10<sup>−3</sup> atm  
-  P<sub>H₂</sub> = 2.00 × 10<sup>−3</sup> atm  
+  P<sub>N<sub>2</sub></sub> = <input class="num display-value" id="PN2" name="PN2" random="true" data-original="2.00e-3" randomPercent="50%" readonly> atm
+  P<sub>H<sub>2</sub></sub> = <input class="num display-value" id="PH2" name="PH2" random="true" data-original="2.00e-3" randomPercent="50%" readonly>
+  atm  
   <br><br>
 
   Find the partial pressure of NH<sub>3</sub>.
@@ -2410,7 +2395,7 @@ $$
 
   P<sub>NH₃</sub> =
   <input type="number" step="any" class="calc" id="pKP3" name="pKP3"
-         formula="sqrt(3.60e-5*(2.00e-3)*(2.00e-3)^3)">
+         formula="sqrt(3.60e-5*${PN2}*(${PH2})^3)">
   atm
   <div class="feedback" id="pKP3FB"></div>
 
