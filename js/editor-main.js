@@ -1746,7 +1746,8 @@ function htmlLinter() {
             from: pos,
             to: line.to,
             severity: "error",
-            message: firstLine
+            message: firstLine,
+            class: "my-error-underline"
           });
 
         } else {

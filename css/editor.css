@@ -98,7 +98,8 @@ html, body {
   white-space: nowrap;
 }
 
-.cm-diagnostic-error {
+.cm-editor .my-error-underline {
   text-decoration: underline wavy red;
+  text-decoration-thickness: 2px;
 }
 
