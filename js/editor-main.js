@@ -1721,27 +1721,50 @@ async function formatHTML() {
 
 function htmlLinter() {
   return linter(view => {
-    const text = view.state.doc.toString();
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(text, "text/html");
-
     const diagnostics = [];
+    const text = view.state.doc.toString();
 
-    // Detect parser errors
-    const errors = doc.querySelectorAll("parsererror");
-
-    errors.forEach(err => {
-      diagnostics.push({
-        from: 0,
-        to: view.state.doc.length,
-        severity: "error",
-        message: "Invalid HTML structure"
+    try {
+      prettier.format(text, {
+        parser: "html",
+        plugins: [parserHtml]
       });
-    });
+
+    } catch (err) {
+      if (err.message) {
+        const firstLine = err.message.split("\n")[0];
+        const match = err.message.match(/\((\d+):(\d+)\)/);
+
+        if (match) {
+          const lineNum = Number(match[1]);
+          const colNum = Number(match[2]);
+
+          const line = view.state.doc.line(lineNum);
+          const pos = line.from + colNum - 1;
+
+          diagnostics.push({
+            from: pos,
+            to: line.to,
+            severity: "error",
+            message: firstLine
+          });
+
+        } else {
+          // fallback
+          diagnostics.push({
+            from: 0,
+            to: 1,
+            severity: "error",
+            message: firstLine
+          });
+        }
+      }
+    }
 
     return diagnostics;
   });
 }
+
 
 
 

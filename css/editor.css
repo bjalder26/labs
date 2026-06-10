@@ -97,3 +97,8 @@ html, body {
 #button-group button {
   white-space: nowrap;
 }
+
+.cm-diagnostic-error {
+  text-decoration: underline wavy red;
+}
+
