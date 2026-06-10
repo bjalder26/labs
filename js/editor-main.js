@@ -1721,16 +1721,16 @@ async function formatHTML() {
 
 function htmlLinter() {
   return linter(view => {
-    const diagnostics = [];
     const text = view.state.doc.toString();
 
-    try {
-      prettier.format(text, {
-        parser: "html",
-        plugins: [parserHtml]
-      });
+    return prettier.format(text, {
+      parser: "html",
+      plugins: [parserHtml]
+    })
+    .then(() => []) // ✅ no errors
+    .catch(err => {
+      const diagnostics = [];
 
-    } catch (err) {
       if (err.message) {
         const firstLine = err.message.split("\n")[0];
         const match = err.message.match(/\((\d+):(\d+)\)/);
@@ -1749,20 +1749,11 @@ function htmlLinter() {
             message: firstLine,
             class: "my-error-underline"
           });
-
-        } else {
-          // fallback
-          diagnostics.push({
-            from: 0,
-            to: 1,
-            severity: "error",
-            message: firstLine
-          });
         }
       }
-    }
 
-    return diagnostics;
+      return diagnostics;
+    });
   });
 }
 
