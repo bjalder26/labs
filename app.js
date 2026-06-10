@@ -17,7 +17,11 @@ require('dotenv').config();
 
 // create a new express server
 var app = express();
-app.use(express.json())
+
+
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
+
 
 const ADMIN_PASSWORD = 'trouble2maker'; // password for downloading and deleting directories
 const SUBMISSIONS_DIR = path.join(__dirname, 'submissions');
@@ -115,16 +119,6 @@ app.post('/upload-image', studentUpload.single('image'), (req, res) => {
   }
 });
 
-
-
-app.use(express.urlencoded({ // increases the limit on what is sent via url not sure if this is needed anymore
-  limit: '50mb',
-  extended: true, // not sure about
-  parameterLimit: 50000
-}));
-app.use(express.json({limit: '50mb'})); // increases the limit on what is sent
-
-
 var sessions = {};
 
 function capitalizeEveryWord(str) {
@@ -143,9 +137,6 @@ app.use((req, res, next) => {
   next();
 });
 */
-
-app.post("*", require("body-parser").urlencoded({extended: true}));
-
 
 function readLabList(labFolder) {
     return new Promise((resolve, reject) => {
@@ -570,9 +561,11 @@ app.get('/dev', (req, res) => {
 });
 
 
-app.post('/save', (req, res) => {
+app.post('/save', 
+    // express.json({ limit: '100mb' }),
+    (req, res) => {
 
-  const obj = JSON.parse(JSON.stringify(req.body));
+  const obj = req.body;
 
   let userName = obj.userName;
   let labName = obj.labName;
