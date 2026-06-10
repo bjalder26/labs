@@ -1,637 +1,1879 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <title>Final Exam Review General Chemistry II</title><!-- Title -->
-    <link rel="stylesheet" href="../css/lab.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+    <title>Final Exam Review General Chemistry II</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
     <style>
-      hr { 
-          height: 3px;
-          background-color: blue;
-          } 
-      div[id$="DIV"] {
-        width: 70px !important;
+            hr {
+                height: 3px;
+                background-color: blue;
+                }
+            div[id$="DIV"] {
+              width: 70px !important;
+            }
+            body {
+        user-select: none;
       }
-      body {
-  user-select: none;
-}
     </style>
   </head>
 
   <body onload="onLoad()">
-  <script type="text/javascript">
+    <script type="text/javascript">
       //PARAMS**GO**HERE
     </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
-    <h1 id="title" >Final Exam Review General Chemistry II</h1> <!-- Title -->
-    Name: <div id="name"></div><br>
-   
+    <h1 id="title">Final Exam Review General Chemistry II</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
     <form id="labdataform" action="/save" method="post" target="_self">
-      <input type="text" id="labName" name="labName" style="display:none">
-      <input type="text" id="userName" name="userName" style="display:none">
-  <!-- Beginning -->
-<ol>
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+      <ol>
+        <h4>Guided problem</h4>
 
-<h4>Guided problem</h4>
+        <li>
+          In liquid NH<sub>3</sub> (ammonia), which intermolecular forces are
+          present?
+        </li>
 
-<li>In liquid NH<sub>3</sub> (ammonia), which intermolecular forces are present?</li>
+        <h5>Step 1: Draw the Lewis structure</h5>
+        Nitrogen has
+        <input
+          type="number"
+          class="calc"
+          id="1NVE"
+          name="1NVE"
+          step="any"
+          formula="5"
+          help="Look at the group nitrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."
+        />
+        <div class="feedback" id="1NVEFB" name="1NVEFB"></div>
+        valence electrons<br />
+        Each hydrogen has
+        <input
+          type="number"
+          class="calc"
+          id="1HVE"
+          name="1HVE"
+          step="any"
+          formula="1"
+          help="Look at the group hydrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."
+        />
+        <div class="feedback" id="1HVEFB" name="1HVEFB"></div>
+        valence electron Total valence electrons =
+        <input
+          type="number"
+          class="calc"
+          id="1TVE"
+          name="1TVE"
+          step="any"
+          formula="8"
+          help="Add together all the valence electrons [5 + (3 × 1)]."
+        />
+        <div class="feedback" id="1TVEFB" name="1TVEFB"></div>
+        valence electrons<br />
 
-<h5>Step 1: Draw the Lewis structure</h5>
-Nitrogen has <input type="number" class="calc" id="1NVE" name="1NVE" step="any" formula="5" help="Look at the group nitrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."><div class="feedback" id="1NVEFB" name="1NVEFB"></div> valence electrons<br>
-Each hydrogen has <input type="number" class="calc" id="1HVE" name="1HVE" step="any" formula="1" help="Look at the group hydrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."><div class="feedback" id="1HVEFB" name="1HVEFB"></div> valence electron
-Total valence electrons = <input type="number" class="calc" id="1TVE" name="1TVE" step="any" formula="8" help="Add together all the valence electrons [5 + (3 × 1)]."><div class="feedback" id="1TVEFB" name="1TVEFB"></div> valence electrons<br>
+        Structure:<br />
+        <img src="/images/ammonia_lewis.jpg" alt="ammonia Lewis structure" />
 
-Structure:<br>
-  <img src="/images/ammonia_lewis.jpg" alt="ammonia Lewis structure">
-  
-<h5>Step 2: Count electron domains</h5>
-&nbsp; &nbsp;<input type="number" class="calc" id="1BD" name="1BD" step="any" formula="3" help="Count the number of bonding domains in the structure.  Single, double, or triple bonds count as one bonding domain."><div class="feedback" id="1BDFB" name="1BDFB"></div> bonding domains<br>
-+ <input type="number" class="calc" id="1LP" name="1LP" step="any" formula="1" help="Count the number of lone pairs (non-bonding pairs) in the structure."><div class="feedback" id="1LPFB" name="1LPFB"></div> lone pair<br>
-= <input type="number" class="calc" id="1TED" name="1TED" step="any" formula="4" help="Add the bonding domains and lone pair to get the total electron domains."><div class="feedback" id="1TEDFB" name="1TEDFB"></div> total electron domains
+        <h5>Step 2: Count electron domains</h5>
+        &nbsp; &nbsp;<input
+          type="number"
+          class="calc"
+          id="1BD"
+          name="1BD"
+          step="any"
+          formula="3"
+          help="Count the number of bonding domains in the structure.  Single, double, or triple bonds count as one bonding domain."
+        />
+        <div class="feedback" id="1BDFB" name="1BDFB"></div>
+        bonding domains<br />
+        +
+        <input
+          type="number"
+          class="calc"
+          id="1LP"
+          name="1LP"
+          step="any"
+          formula="1"
+          help="Count the number of lone pairs (non-bonding pairs) in the structure."
+        />
+        <div class="feedback" id="1LPFB" name="1LPFB"></div>
+        lone pair<br />
+        =
+        <input
+          type="number"
+          class="calc"
+          id="1TED"
+          name="1TED"
+          step="any"
+          formula="4"
+          help="Add the bonding domains and lone pair to get the total electron domains."
+        />
+        <div class="feedback" id="1TEDFB" name="1TEDFB"></div>
+        total electron domains
 
-<h5>Step 3: Determine molecular shape</h5>
-Electron geometry: 
-<select id="1EDG" name="1EDG" class="calc" formula="Tetrahedral" help="The electron domain geometry is based on the total number of electron domains.  2=linear, 3=trigonal planar, 4=tetrahedral, 5=trigonal bipyramidal, 6=octahedral">
-  <option value="">Choose an option</option>
-  <option value="Linear">Linear</option>
-  <option value="Trigonal planar">Trigonal planar</option>
-  <option value="Tetrahedral">Tetrahedral</option>
-  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
-  <option value="Octahedral">Octahedral</option>
-</select>
-<div class="feedback" id="1EDGFB" name="1EDGFB"></div><br>
+        <h5>Step 3: Determine molecular shape</h5>
+        Electron geometry:
+        <select
+          id="1EDG"
+          name="1EDG"
+          class="calc"
+          formula="Tetrahedral"
+          help="The electron domain geometry is based on the total number of electron domains.  2=linear, 3=trigonal planar, 4=tetrahedral, 5=trigonal bipyramidal, 6=octahedral"
+        >
+          <option value="">Choose an option</option>
+          <option value="Linear">Linear</option>
+          <option value="Trigonal planar">Trigonal planar</option>
+          <option value="Tetrahedral">Tetrahedral</option>
+          <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+          <option value="Octahedral">Octahedral</option>
+        </select>
+        <div class="feedback" id="1EDGFB" name="1EDGFB"></div>
+        <br />
 
-Molecular shape: 
-<select id="1MS" name="1MS" class="calc" formula="Trigonal pyramidal" help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal.">
-  <option value="">Choose an option</option>
-  <option value="Linear">Linear</option>
-  <option value="Trigonal planar">Trigonal planar</option>
-  <option value="Bent">Bent</option>
-  <option value="Tetrahedral">Tetrahedral</option>
-  <option value="Trigonal pyramidal">Trigonal pyramidal</option>
-  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
-  <option value="See saw (or saw horse)">See saw (or saw horse)</option>
-  <option value="T-shaped">T-shaped</option>
-  <option value="Octahedral">Octahedral</option>
-  <option value="Square pyramidal">Square pyramidal</option>
-  <option value="Square planar">Square planar</option>
-</select>
-<div class="feedback" id="1MSFB" name="1MSFB"></div><br>
+        Molecular shape:
+        <select
+          id="1MS"
+          name="1MS"
+          class="calc"
+          formula="Trigonal pyramidal"
+          help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal."
+        >
+          <option value="">Choose an option</option>
+          <option value="Linear">Linear</option>
+          <option value="Trigonal planar">Trigonal planar</option>
+          <option value="Bent">Bent</option>
+          <option value="Tetrahedral">Tetrahedral</option>
+          <option value="Trigonal pyramidal">Trigonal pyramidal</option>
+          <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+          <option value="See saw (or saw horse)">See saw (or saw horse)</option>
+          <option value="T-shaped">T-shaped</option>
+          <option value="Octahedral">Octahedral</option>
+          <option value="Square pyramidal">Square pyramidal</option>
+          <option value="Square planar">Square planar</option>
+        </select>
+        <div class="feedback" id="1MSFB" name="1MSFB"></div>
+        <br />
 
-<h5>Step 4: Determine polarity</h5>
-N is more electronegative than H<br>
-Shape is 
-<select id="1sym" name="1sym" class="calc" formula="asymmetrical" help="Linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral, and square planar are symmetrical shapes.">
-  <option value="">Choose an option</option>
-  <option value="symmetrical">symmetrical</option>
-  <option value="asymmetrical">asymmetrical</option>
-</select>
-<div class="feedback" id="1symFB" name="1symFB"></div><br>
+        <h5>Step 4: Determine polarity</h5>
+        N is more electronegative than H<br />
+        Shape is
+        <select
+          id="1sym"
+          name="1sym"
+          class="calc"
+          formula="asymmetrical"
+          help="Linear, trigonal planar, tetrahedral, trigonal bipyramidal, octahedral, and square planar are symmetrical shapes."
+        >
+          <option value="">Choose an option</option>
+          <option value="symmetrical">symmetrical</option>
+          <option value="asymmetrical">asymmetrical</option>
+        </select>
+        <div class="feedback" id="1symFB" name="1symFB"></div>
+        <br />
 
-Ammonia is
+        Ammonia is
 
-  <select id="1polar" name="1polar" class="calc" formula="polar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
-  <option value="">Choose an option</option>
-  <option value="polar">polar</option>
-  <option value="nonpolar">nonpolar</option>
-</select>
-<div class="feedback" id="1polarFB" name="1polarFB"></div>
+        <select
+          id="1polar"
+          name="1polar"
+          class="calc"
+          formula="polar"
+          help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar."
+        >
+          <option value="">Choose an option</option>
+          <option value="polar">polar</option>
+          <option value="nonpolar">nonpolar</option>
+        </select>
+        <div class="feedback" id="1polarFB" name="1polarFB"></div>
 
-<h5>Step 5: Determine intermolecular forces</h5>
-Dispersion forces?
-<select id="1Disp" name="1Disp" class="calc" formula="Yes" help="Everything has dispersion forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="1DispFB" name="1DispFB"></div>
-<br>
-Dipole-dipole forces?
-<select id="1Dipole" name="1Dipole" class="calc" formula="Yes" help="Polar molecules will have dipole-dipole forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="1DipoleFB" name="1DipoleFB"></div>  
-  <br>
-Hydrogen bonding?
-  <select id="1Hbond" name="1Hbond" class="calc" formula="Yes" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="1HbondFB" name="1HbondFB"></div>  
-  <br>
-Ion-dipole?
-  <select id="1IonD" name="1IonD" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="1IonDFB" name="1IonDFB"></div>  
-  <br>
-  <br>
-  
-<h4>Practice problem</h4>  
-<li>
-In liquid CO₂ (carbon dioxide), which intermolecular forces are present?<br>
-</li>
-Dispersion forces?
-  
-<select id="2Disp" name="2Disp" class="calc" formula="Yes" help="Everything has dispersion forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="2DispFB" name="2DispFB"></div>
-<br>
-Dipole-dipole forces?
-<select id="2Dipole" name="2Dipole" class="calc" formula="No" help="Polar molecules will have dipole-dipole forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="2DipoleFB" name="2DipoleFB"></div>  
-  <br>
-Hydrogen bonding?
-  <select id="2Hbond" name="2Hbond" class="calc" formula="No" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="2HbondFB" name="2HbondFB"></div>  
-  <br>
-Ion-dipole?
-  <select id="2IonD" name="2IonD" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="2IonDFB" name="2IonDFB"></div>  
-<br>
-  <br>
-Put the steps required to solve this type of problem in order:
-  <br>
-Step 1:
-  <select id="2step1" name="2step1" class="calc" formula="Draw the Lewis structure" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Count electron domains">Count electron domains</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-</select>
-<div class="feedback" id="2step1FB" name="2step1FB"></div>   
-<br>
-Step 2:
-    <select id="2step2" name="2step2" class="calc" formula="Count electron domains" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Count electron domains">Count electron domains</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-</select>
-<div class="feedback" id="2step2FB" name="2step2FB"></div>  
-<br>
-  Step 3:
-    <select id="2step3" name="2step3" class="calc" formula="Determine molecular shape" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Count electron domains">Count electron domains</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-</select>
-<div class="feedback" id="2step3FB" name="2step3FB"></div>  
-<br>
-  Step 4:
-    <select id="2step4" name="2step4" class="calc" formula="Determine polarity" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Count electron domains">Count electron domains</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-</select>
-<div class="feedback" id="2step4FB" name="2step4FB"></div>  
-<br>
-  Step 5:
-    <select id="2step5" name="2step5" class="calc" formula="Determine intermolecular forces" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Count electron domains">Count electron domains</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Draw the Lewis structure">Draw the Lewis structure</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-</select>
-<div class="feedback" id="2step5FB" name="2step5FB"></div>  
-  
-<hr>
-  <br>
-  <h4>Guided problem</h4>  
-<li>
-  List the compounds below in decreasing boiling point order (i.e. decreasing intermolecular forces order).<br>
-NH<sub>3</sub>  CH<sub>4</sub>  HF
-</li>
-<h4>Step-by-step solution</h4>
-<h5>Step 1: Draw Lewis structures & count electron domains</h5>
+        <h5>Step 5: Determine intermolecular forces</h5>
+        Dispersion forces?
+        <select
+          id="1Disp"
+          name="1Disp"
+          class="calc"
+          formula="Yes"
+          help="Everything has dispersion forces"
+        >
+          <option value="">Choose an option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="feedback" id="1DispFB" name="1DispFB"></div>
+        <br />
+        Dipole-dipole forces?
+        <select
+          id="1Dipole"
+          name="1Dipole"
+          class="calc"
+          formula="Yes"
+          help="Polar molecules will have dipole-dipole forces"
+        >
+          <option value="">Choose an option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="feedback" id="1DipoleFB" name="1DipoleFB"></div>
+        <br />
+        Hydrogen bonding?
+        <select
+          id="1Hbond"
+          name="1Hbond"
+          class="calc"
+          formula="Yes"
+          help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?"
+        >
+          <option value="">Choose an option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="feedback" id="1HbondFB" name="1HbondFB"></div>
+        <br />
+        Ion-dipole?
+        <select
+          id="1IonD"
+          name="1IonD"
+          class="calc"
+          formula="No"
+          help="Ion-dipole are forces between ions and polar molecules."
+        >
+          <option value="">Choose an option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="feedback" id="1IonDFB" name="1IonDFB"></div>
+        <br />
+        <br />
 
-CH<sub>4</sub> (methane)<br>
-<img src="/images/methane_lewis.jpg" height="200px" alt="CH4 (methane) Lewis structure"><br>
+        <h4>Practice problem</h4>
+        <li>
+          In liquid CO₂ (carbon dioxide), which intermolecular forces are
+          present?<br />
+        </li>
+        Dispersion forces?
 
+        <select
+          id="2Disp"
+          name="2Disp"
+          class="calc"
+          formula="Yes"
+          help="Everything has dispersion forces"
+        >
+          <option value="">Choose an option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="feedback" id="2DispFB" name="2DispFB"></div>
+        <br />
+        Dipole-dipole forces?
+        <select
+          id="2Dipole"
+          name="2Dipole"
+          class="calc"
+          formula="No"
+          help="Polar molecules will have dipole-dipole forces"
+        >
+          <option value="">Choose an option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="feedback" id="2DipoleFB" name="2DipoleFB"></div>
+        <br />
+        Hydrogen bonding?
+        <select
+          id="2Hbond"
+          name="2Hbond"
+          class="calc"
+          formula="No"
+          help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?"
+        >
+          <option value="">Choose an option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="feedback" id="2HbondFB" name="2HbondFB"></div>
+        <br />
+        Ion-dipole?
+        <select
+          id="2IonD"
+          name="2IonD"
+          class="calc"
+          formula="No"
+          help="Ion-dipole are forces between ions and polar molecules."
+        >
+          <option value="">Choose an option</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <div class="feedback" id="2IonDFB" name="2IonDFB"></div>
+        <br />
+        <br />
+        Put the steps required to solve this type of problem in order:
+        <br />
+        Step 1:
+        <select
+          id="2step1"
+          name="2step1"
+          class="calc"
+          formula="Draw the Lewis structure"
+          help="Review the steps in the problem above if you are not sure of the order."
+        >
+          <option value="">Choose an option</option>
+          <option value="Count electron domains">Count electron domains</option>
+          <option value="Determine polarity">Determine polarity</option>
+          <option value="Draw the Lewis structure">
+            Draw the Lewis structure
+          </option>
+          <option value="Determine intermolecular forces">
+            Determine intermolecular forces
+          </option>
+          <option value="Determine molecular shape">
+            Determine molecular shape
+          </option>
+        </select>
+        <div class="feedback" id="2step1FB" name="2step1FB"></div>
+        <br />
+        Step 2:
+        <select
+          id="2step2"
+          name="2step2"
+          class="calc"
+          formula="Count electron domains"
+          help="Review the steps in the problem above if you are not sure of the order."
+        >
+          <option value="">Choose an option</option>
+          <option value="Count electron domains">Count electron domains</option>
+          <option value="Determine polarity">Determine polarity</option>
+          <option value="Draw the Lewis structure">
+            Draw the Lewis structure
+          </option>
+          <option value="Determine intermolecular forces">
+            Determine intermolecular forces
+          </option>
+          <option value="Determine molecular shape">
+            Determine molecular shape
+          </option>
+        </select>
+        <div class="feedback" id="2step2FB" name="2step2FB"></div>
+        <br />
+        Step 3:
+        <select
+          id="2step3"
+          name="2step3"
+          class="calc"
+          formula="Determine molecular shape"
+          help="Review the steps in the problem above if you are not sure of the order."
+        >
+          <option value="">Choose an option</option>
+          <option value="Count electron domains">Count electron domains</option>
+          <option value="Determine polarity">Determine polarity</option>
+          <option value="Draw the Lewis structure">
+            Draw the Lewis structure
+          </option>
+          <option value="Determine intermolecular forces">
+            Determine intermolecular forces
+          </option>
+          <option value="Determine molecular shape">
+            Determine molecular shape
+          </option>
+        </select>
+        <div class="feedback" id="2step3FB" name="2step3FB"></div>
+        <br />
+        Step 4:
+        <select
+          id="2step4"
+          name="2step4"
+          class="calc"
+          formula="Determine polarity"
+          help="Review the steps in the problem above if you are not sure of the order."
+        >
+          <option value="">Choose an option</option>
+          <option value="Count electron domains">Count electron domains</option>
+          <option value="Determine polarity">Determine polarity</option>
+          <option value="Draw the Lewis structure">
+            Draw the Lewis structure
+          </option>
+          <option value="Determine intermolecular forces">
+            Determine intermolecular forces
+          </option>
+          <option value="Determine molecular shape">
+            Determine molecular shape
+          </option>
+        </select>
+        <div class="feedback" id="2step4FB" name="2step4FB"></div>
+        <br />
+        Step 5:
+        <select
+          id="2step5"
+          name="2step5"
+          class="calc"
+          formula="Determine intermolecular forces"
+          help="Review the steps in the problem above if you are not sure of the order."
+        >
+          <option value="">Choose an option</option>
+          <option value="Count electron domains">Count electron domains</option>
+          <option value="Determine polarity">Determine polarity</option>
+          <option value="Draw the Lewis structure">
+            Draw the Lewis structure
+          </option>
+          <option value="Determine intermolecular forces">
+            Determine intermolecular forces
+          </option>
+          <option value="Determine molecular shape">
+            Determine molecular shape
+          </option>
+        </select>
+        <div class="feedback" id="2step5FB" name="2step5FB"></div>
 
-PH<sub>3</sub> (phosphorus trihydride)<br>
-<img src="/images/PH3_lewis.jpg" height="180px" alt="PH3 (phosphorous trihydride) Lewis structure"><br>
+        <hr />
+        <br />
+        <h4>Guided problem</h4>
+        <li>
+          List the compounds below in decreasing boiling point order (i.e.
+          decreasing intermolecular forces order).<br />
+          NH<sub>3</sub>  CH<sub>4</sub>  HF
+        </li>
+        <h4>Step-by-step solution</h4>
+        <h5>Step 1: Draw Lewis structures & count electron domains</h5>
 
+        CH<sub>4</sub>
+        (methane)<br />
+        <img
+          src="/images/methane_lewis.jpg"
+          height="200px"
+          alt="CH4 (methane) Lewis structure"
+        /><br />
 
-HF (hydrogen fluoride)<br>
-<img src="/images/hydrogen_fluoride_Lewis.jpg" height="100px" alt="HF (hydrogen fluoride Lewis structure">
+        PH<sub>3</sub>
+        (phosphorus trihydride)<br />
+        <img
+          src="/images/PH3_lewis.jpg"
+          height="180px"
+          alt="PH3 (phosphorous trihydride) Lewis structure"
+        /><br />
 
-<h5>Step 2: Determine molecular shape</h5>
-CH<sub>4</sub>:
-  <select id="3MS1" name="3MS1" class="calc" formula="Tetrahedral" help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal.">
-  <option value="">Choose an option</option>
-  <option value="Linear">Linear</option>
-  <option value="Trigonal planar">Trigonal planar</option>
-  <option value="Bent">Bent</option>
-  <option value="Tetrahedral">Tetrahedral</option>
-  <option value="Trigonal pyramidal">Trigonal pyramidal</option>
-  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
-  <option value="See saw (or saw horse)">See saw (or saw horse)</option>
-  <option value="T-shaped">T-shaped</option>
-  <option value="Octahedral">Octahedral</option>
-  <option value="Square pyramidal">Square pyramidal</option>
-  <option value="Square planar">Square planar</option>
-</select>
-<div class="feedback" id="3MS1FB" name="3MS1FB"></div><br>
-PH<sub>3</sub>:
-  <select id="3MS2" name="3MS2" class="calc" formula="Trigonal pyramidal" help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal.">
-  <option value="">Choose an option</option>
-  <option value="Linear">Linear</option>
-  <option value="Trigonal planar">Trigonal planar</option>
-  <option value="Bent">Bent</option>
-  <option value="Tetrahedral">Tetrahedral</option>
-  <option value="Trigonal pyramidal">Trigonal pyramidal</option>
-  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
-  <option value="See saw (or saw horse)">See saw (or saw horse)</option>
-  <option value="T-shaped">T-shaped</option>
-  <option value="Octahedral">Octahedral</option>
-  <option value="Square pyramidal">Square pyramidal</option>
-  <option value="Square planar">Square planar</option>
-</select>
-<div class="feedback" id="3MS2FB" name="3MS2FB"></div><br>
-  
-HF:
-  <select id="3MS3" name="3MS3" class="calc" formula="Linear" help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal.">
-  <option value="">Choose an option</option>
-  <option value="Linear">Linear</option>
-  <option value="Trigonal planar">Trigonal planar</option>
-  <option value="Bent">Bent</option>
-  <option value="Tetrahedral">Tetrahedral</option>
-  <option value="Trigonal pyramidal">Trigonal pyramidal</option>
-  <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
-  <option value="See saw (or saw horse)">See saw (or saw horse)</option>
-  <option value="T-shaped">T-shaped</option>
-  <option value="Octahedral">Octahedral</option>
-  <option value="Square pyramidal">Square pyramidal</option>
-  <option value="Square planar">Square planar</option>
-</select>
-<div class="feedback" id="3MS3FB" name="3MS3FB"></div><br>
-  
-<h5>Step 3: Determine polarity</h5>
-CH<sub>4</sub>:
-  <select id="3polar1" name="3polar1" class="calc" formula="nonpolar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
-  <option value="">Choose an option</option>
-  <option value="polar">Polar</option>
-  <option value="nonpolar">Nonpolar</option>
-</select>
-<div class="feedback" id="3polar1FB" name="3polar1FB"></div><br>
-PH<sub>3</sub>:
-  <select id="3polar2" name="3polar2" class="calc" formula="polar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
-  <option value="">Choose an option</option>
-  <option value="polar">Polar</option>
-  <option value="nonpolar">Nonpolar</option>
-</select>
-<div class="feedback" id="3polar2FB" name="3polar2FB"></div><br>
+        HF (hydrogen fluoride)<br />
+        <img
+          src="/images/hydrogen_fluoride_Lewis.jpg"
+          height="100px"
+          alt="HF (hydrogen fluoride Lewis structure"
+        />
 
+        <h5>Step 2: Determine molecular shape</h5>
+        CH<sub>4</sub>:
+        <select
+          id="3MS1"
+          name="3MS1"
+          class="calc"
+          formula="Tetrahedral"
+          help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal."
+        >
+          <option value="">Choose an option</option>
+          <option value="Linear">Linear</option>
+          <option value="Trigonal planar">Trigonal planar</option>
+          <option value="Bent">Bent</option>
+          <option value="Tetrahedral">Tetrahedral</option>
+          <option value="Trigonal pyramidal">Trigonal pyramidal</option>
+          <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+          <option value="See saw (or saw horse)">See saw (or saw horse)</option>
+          <option value="T-shaped">T-shaped</option>
+          <option value="Octahedral">Octahedral</option>
+          <option value="Square pyramidal">Square pyramidal</option>
+          <option value="Square planar">Square planar</option>
+        </select>
+        <div class="feedback" id="3MS1FB" name="3MS1FB"></div>
+        <br />
+        PH<sub>3</sub>:
+        <select
+          id="3MS2"
+          name="3MS2"
+          class="calc"
+          formula="Trigonal pyramidal"
+          help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal."
+        >
+          <option value="">Choose an option</option>
+          <option value="Linear">Linear</option>
+          <option value="Trigonal planar">Trigonal planar</option>
+          <option value="Bent">Bent</option>
+          <option value="Tetrahedral">Tetrahedral</option>
+          <option value="Trigonal pyramidal">Trigonal pyramidal</option>
+          <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+          <option value="See saw (or saw horse)">See saw (or saw horse)</option>
+          <option value="T-shaped">T-shaped</option>
+          <option value="Octahedral">Octahedral</option>
+          <option value="Square pyramidal">Square pyramidal</option>
+          <option value="Square planar">Square planar</option>
+        </select>
+        <div class="feedback" id="3MS2FB" name="3MS2FB"></div>
+        <br />
 
-HF:
-  <select id="3polar3" name="3polar3" class="calc" formula="polar" help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar.">
-  <option value="">Choose an option</option>
-  <option value="polar">Polar</option>
-  <option value="nonpolar">Nonpolar</option>
-</select>
-<div class="feedback" id="3polar3FB" name="3polar3FB"></div><br>
+        HF:
+        <select
+          id="3MS3"
+          name="3MS3"
+          class="calc"
+          formula="Linear"
+          help="The molecular shape is based on the number of electron domains and the number of those electron domains that are lone pairs.  For example, 5 electron domains with 1 lone pair is square pyramidal."
+        >
+          <option value="">Choose an option</option>
+          <option value="Linear">Linear</option>
+          <option value="Trigonal planar">Trigonal planar</option>
+          <option value="Bent">Bent</option>
+          <option value="Tetrahedral">Tetrahedral</option>
+          <option value="Trigonal pyramidal">Trigonal pyramidal</option>
+          <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+          <option value="See saw (or saw horse)">See saw (or saw horse)</option>
+          <option value="T-shaped">T-shaped</option>
+          <option value="Octahedral">Octahedral</option>
+          <option value="Square pyramidal">Square pyramidal</option>
+          <option value="Square planar">Square planar</option>
+        </select>
+        <div class="feedback" id="3MS3FB" name="3MS3FB"></div>
+        <br />
 
-<h5>Step 4: Determine intermolecular forces</h5>
-CH<sub>4</sub>:
-  <ul>
-<li>Dispersion forces? <select id="3DispCH4" name="3DispCH4" class="calc" formula="Yes" help="Everything has dispersion forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3DispCH4FB" name="3DispCH4FB"></div>
-  </li>
-<li>
-Dipole-dipole forces?
-<select id="3DipoleCH4" name="3DipoleCH4" class="calc" formula="No" help="Polar molecules will have dipole-dipole forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3DipoleCH4FB" name="3DipoleCH4FB"></div>  
-  </li>
-    <li>
-Hydrogen bonding?
-  <select id="3HbondCH4" name="3HbondCH4" class="calc" formula="No" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3HbondCH4FB" name="3HbondCH4FB"></div>  
-  <br>
-<li>Ion-dipole?
-  <select id="3IonDCH4" name="3IonDCH4" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3IonDCH4FB" name="3IonDCH4FB"></div> 
-    </li>
-  </ul>
-  PH<sub>3</sub>:
-  <ul>
-<li>Dispersion forces? <select id="3DispPH3" name="3DispPH3" class="calc" formula="Yes" help="Everything has dispersion forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3DispPH3FB" name="3DispPH3FB"></div>
-  </li>
-<li>
-Dipole-dipole forces?
-<select id="3DipolePH3" name="3DipolePH3" class="calc" formula="Yes" help="Polar molecules will have dipole-dipole forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3DipolePH3FB" name="3DipolePH3FB"></div>  
-  </li>
-    <li>
-Hydrogen bonding?
-  <select id="3HbondPH3" name="3HbondPH3" class="calc" formula="No" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3HbondPH3FB" name="3HbondPH3FB"></div>  
-  <br>
-<li>Ion-dipole?
-  <select id="3IonDPH3" name="3IonDPH3" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3IonDPH3FB" name="3IonDPH3FB"></div> 
-    </li>
- </ul>  
+        <h5>Step 3: Determine polarity</h5>
+        CH<sub>4</sub>:
+        <select
+          id="3polar1"
+          name="3polar1"
+          class="calc"
+          formula="nonpolar"
+          help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar."
+        >
+          <option value="">Choose an option</option>
+          <option value="polar">Polar</option>
+          <option value="nonpolar">Nonpolar</option>
+        </select>
+        <div class="feedback" id="3polar1FB" name="3polar1FB"></div>
+        <br />
+        PH<sub>3</sub>:
+        <select
+          id="3polar2"
+          name="3polar2"
+          class="calc"
+          formula="polar"
+          help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar."
+        >
+          <option value="">Choose an option</option>
+          <option value="polar">Polar</option>
+          <option value="nonpolar">Nonpolar</option>
+        </select>
+        <div class="feedback" id="3polar2FB" name="3polar2FB"></div>
+        <br />
 
-  HF:
-  <ul>
-<li>Dispersion forces? <select id="3DispHF" name="3DispHF" class="calc" formula="Yes" help="Everything has dispersion forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3DispHFFB" name="3DispHFFB"></div>
-  </li>
-<li>
-Dipole-dipole forces?
-<select id="3DipoleHF" name="3DipoleHF" class="calc" formula="Yes" help="Polar molecules will have dipole-dipole forces">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3DipoleHFFB" name="3DipoleHFFB"></div>  
-  </li>
-    <li>
-Hydrogen bonding?
-  <select id="3HbondHF" name="3HbondHF" class="calc" formula="Yes" help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3HbondHFFB" name="3HbondHFFB"></div>  
-  <br>
-<li>Ion-dipole?
-  <select id="3IonDHF" name="3IonDHF" class="calc" formula="No" help="Ion-dipole are forces between ions and polar molecules.">
-  <option value="">Choose an option</option>
-  <option value="Yes">Yes</option>
-  <option value="No">No</option>
-</select>
-<div class="feedback" id="3IonDHFFB" name="3IonDHFFB"></div> 
-    </li>
-  </ul>
+        HF:
+        <select
+          id="3polar3"
+          name="3polar3"
+          class="calc"
+          formula="polar"
+          help="If either there are elements with different electronegativities attached to the central atoms, or the shape is assymetrical, then the molecule will be polar."
+        >
+          <option value="">Choose an option</option>
+          <option value="polar">Polar</option>
+          <option value="nonpolar">Nonpolar</option>
+        </select>
+        <div class="feedback" id="3polar3FB" name="3polar3FB"></div>
+        <br />
 
+        <h5>Step 4: Determine intermolecular forces</h5>
+        CH<sub>4</sub>:
+        <ul>
+          <li>
+            Dispersion forces?
+            <select
+              id="3DispCH4"
+              name="3DispCH4"
+              class="calc"
+              formula="Yes"
+              help="Everything has dispersion forces"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3DispCH4FB" name="3DispCH4FB"></div>
+          </li>
+          <li>
+            Dipole-dipole forces?
+            <select
+              id="3DipoleCH4"
+              name="3DipoleCH4"
+              class="calc"
+              formula="No"
+              help="Polar molecules will have dipole-dipole forces"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3DipoleCH4FB" name="3DipoleCH4FB"></div>
+          </li>
+          <li>
+            Hydrogen bonding?
+            <select
+              id="3HbondCH4"
+              name="3HbondCH4"
+              class="calc"
+              formula="No"
+              help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3HbondCH4FB" name="3HbondCH4FB"></div>
+            <br />
+          </li>
 
+          <li>
+            Ion-dipole?
+            <select
+              id="3IonDCH4"
+              name="3IonDCH4"
+              class="calc"
+              formula="No"
+              help="Ion-dipole are forces between ions and polar molecules."
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3IonDCH4FB" name="3IonDCH4FB"></div>
+          </li>
+        </ul>
+        PH<sub>3</sub>:
+        <ul>
+          <li>
+            Dispersion forces?
+            <select
+              id="3DispPH3"
+              name="3DispPH3"
+              class="calc"
+              formula="Yes"
+              help="Everything has dispersion forces"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3DispPH3FB" name="3DispPH3FB"></div>
+          </li>
+          <li>
+            Dipole-dipole forces?
+            <select
+              id="3DipolePH3"
+              name="3DipolePH3"
+              class="calc"
+              formula="Yes"
+              help="Polar molecules will have dipole-dipole forces"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3DipolePH3FB" name="3DipolePH3FB"></div>
+          </li>
+          <li>
+            Hydrogen bonding?
+            <select
+              id="3HbondPH3"
+              name="3HbondPH3"
+              class="calc"
+              formula="No"
+              help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3HbondPH3FB" name="3HbondPH3FB"></div>
+            <br />
+          </li>
 
+          <li>
+            Ion-dipole?
+            <select
+              id="3IonDPH3"
+              name="3IonDPH3"
+              class="calc"
+              formula="No"
+              help="Ion-dipole are forces between ions and polar molecules."
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3IonDPH3FB" name="3IonDPH3FB"></div>
+          </li>
+        </ul>
 
-<h5>Step 5: Compare strength of intermolecular forces</h5>
+        HF:
+        <ul>
+          <li>
+            Dispersion forces?
+            <select
+              id="3DispHF"
+              name="3DispHF"
+              class="calc"
+              formula="Yes"
+              help="Everything has dispersion forces"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3DispHFFB" name="3DispHFFB"></div>
+          </li>
+          <li>
+            Dipole-dipole forces?
+            <select
+              id="3DipoleHF"
+              name="3DipoleHF"
+              class="calc"
+              formula="Yes"
+              help="Polar molecules will have dipole-dipole forces"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3DipoleHFFB" name="3DipoleHFFB"></div>
+          </li>
+          <li>
+            Hydrogen bonding?
+            <select
+              id="3HbondHF"
+              name="3HbondHF"
+              class="calc"
+              formula="Yes"
+              help="Does it have a hydrogen attached to a nitrogen, oxygen, or fluorine?"
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3HbondHFFB" name="3HbondHFFB"></div>
+            <br />
+          </li>
 
-Strongest intermolecular forces/highest boiling point:
-  
-<select id="3IMF1" name="3IMF1" class="calc" formula="HF" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
-  <option value="">Choose an option</option>
-  <option value="CH4">CH₄</option>
-  <option value="PH3">PH₃</option>
-  <option value="HF">HF</option>
-</select>
-<div class="feedback" id="3IMF1FB" name="3IMF1FB"></div>
-  <br>
+          <li>
+            Ion-dipole?
+            <select
+              id="3IonDHF"
+              name="3IonDHF"
+              class="calc"
+              formula="No"
+              help="Ion-dipole are forces between ions and polar molecules."
+            >
+              <option value="">Choose an option</option>
+              <option value="Yes">Yes</option>
+              <option value="No">No</option>
+            </select>
+            <div class="feedback" id="3IonDHFFB" name="3IonDHFFB"></div>
+          </li>
+        </ul>
 
-Medium intermolecular forces/medium boiling point:
-  <select id="3IMF2" name="3IMF2" class="calc" formula="PH3" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
-  <option value="">Choose an option</option>
-  <option value="CH4">CH₄</option>
-  <option value="PH3">PH₃</option>
-  <option value="HF">HF</option>
-</select>
-<div class="feedback" id="3IMF2FB" name="3IMF2FB"></div>
-  <br>
-Weakest intermolecular forces/lowest boiling point:
-  <select id="3IMF3" name="3IMF3" class="calc" formula="CH4" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
-  <option value="">Choose an option</option>
-  <option value="CH4">CH₄</option>
-  <option value="PH3">PH₃</option>
-  <option value="HF">HF</option>
-</select>
-<div class="feedback" id="3IMF3FB" name="3IMF3FB"></div>
-  <br>
-  <br>
-  <h4>Practice Problem</h4>
-  <li>List the compounds below in decreasing boiling point order (i.e. decreasing intermolecular forces order).<br>
-H₂O  CO₂  H₂S<br>
-Highest boiling point:
-<select id="4IMF1" name="4IMF1" class="calc" formula="H2O" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
-  <option value="">Choose an option</option>
-  <option value="H2O">H₂O</option>
-  <option value="CO2">CO₂</option>
-  <option value="H2S">H₂S</option>
-</select>
-<div class="feedback" id="4IMF1FB" name="4IMF1FB"></div>
-  <br>
-Medium boiling point:
-  <select id="4IMF2" name="4IMF2" class="calc" formula="H2S" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
-  <option value="">Choose an option</option>
-  <option value="H2O">H₂O</option>
-  <option value="CO2">CO₂</option>
-  <option value="H2S">H₂S</option>
-</select>
-<div class="feedback" id="4IMF2FB" name="4IMF2FB"></div>
-  <br>
-Lowest boiling point:
-  <select id="4IMF3" name="4IMF3" class="calc" formula="CO2" help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces.">
-  <option value="">Choose an option</option>
-  <option value="H2O">H₂O</option>
-  <option value="CO2">CO₂</option>
-  <option value="H2S">H₂S</option>
-</select>
-<div class="feedback" id="4IMF3FB" name="4IMF3FB"></div>
-  <br><br>
-Put the steps required to solve this type of problem in order:
-  <br>
-Step 1:
-  <select id="4step1" name="4step1" class="calc" formula="Draw Lewis structures & count electron domains" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
-</select>
-<div class="feedback" id="4step1FB" name="4step1FB"></div>   
-<br>
-    Step 2:
-  <select id="4step2" name="4step2" class="calc" formula="Determine molecular shape" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
-</select>
-<div class="feedback" id="4step2FB" name="4step2FB"></div>   
-<br>
-    Step 3:
-  <select id="4step3" name="4step3" class="calc" formula="Determine polarity" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
-</select>
-<div class="feedback" id="4step3FB" name="4step3FB"></div>   
-<br>
-    Step 4:
-  <select id="4step4" name="4step4" class="calc" formula="Determine intermolecular forces" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
-</select>
-<div class="feedback" id="4step4FB" name="4step4FB"></div>   
-<br>
-    Step 5:
-  <select id="4step5" name="4step5" class="calc" formula="Compare strength of intermolecular forces" help="Review the steps in the problem above if you are not sure of the order.">
-  <option value="">Choose an option</option>
-  <option value="Determine polarity">Determine polarity</option>
-  <option value="Determine molecular shape">Determine molecular shape</option>
-  <option value="Compare strength of intermolecular forces">Compare strength of intermolecular forces</option>
-  <option value="Determine intermolecular forces">Determine intermolecular forces</option>
-  <option value="Draw Lewis structures & count electron domains">Draw Lewis structures & count electron domains</option>
-</select>
-<div class="feedback" id="4step5FB" name="4step5FB"></div>   
-<br>
+        <h5>Step 5: Compare strength of intermolecular forces</h5>
 
-    
-<hr>
-    <h4>Guided Problem</h4>
-<li>  What is the osmotic pressure of a solution formed by dissolving 
-    <input class="num display-value" id="5Mass" name="5Mass" random="true" data-original="60" randomPercent="50%" readonly> mg of glucose (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, 180.16 g/mol) 
-    in enough water to make <input class="num display-value" id="5Vol" name="5Vol" random="true" data-original="0.4" randomPercent="50%" readonly>00 L of solution at <input class="num display-value" id="5Temp" name="5Temp" random="true" data-original="20" randomPercent="50%" readonly> °C in atm?
-  <h4>Step-by-step solution</h4>
+        Strongest intermolecular forces/highest boiling point:
 
-  <p><b>Step 1: Use the osmotic pressure formula</b></p>
-  <p>Π = MRT</p>
+        <select
+          id="3IMF1"
+          name="3IMF1"
+          class="calc"
+          formula="HF"
+          help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces."
+        >
+          <option value="">Choose an option</option>
+          <option value="CH4">CH₄</option>
+          <option value="PH3">PH₃</option>
+          <option value="HF">HF</option>
+        </select>
+        <div class="feedback" id="3IMF1FB" name="3IMF1FB"></div>
+        <br />
 
-  <p>
-    i = Van't Hoff Factor (1 for non-electrolytes that are not strong acids)<br>
-    M = molarity (mol/L)<br>
-    R = 0.08206 L·atm/mol·K<br>
-    T = temperature in Kelvin
-  </p>
+        Medium intermolecular forces/medium boiling point:
+        <select
+          id="3IMF2"
+          name="3IMF2"
+          class="calc"
+          formula="PH3"
+          help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces."
+        >
+          <option value="">Choose an option</option>
+          <option value="CH4">CH₄</option>
+          <option value="PH3">PH₃</option>
+          <option value="HF">HF</option>
+        </select>
+        <div class="feedback" id="3IMF2FB" name="3IMF2FB"></div>
+        <br />
+        Weakest intermolecular forces/lowest boiling point:
+        <select
+          id="3IMF3"
+          name="3IMF3"
+          class="calc"
+          formula="CH4"
+          help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces."
+        >
+          <option value="">Choose an option</option>
+          <option value="CH4">CH₄</option>
+          <option value="PH3">PH₃</option>
+          <option value="HF">HF</option>
+        </select>
+        <div class="feedback" id="3IMF3FB" name="3IMF3FB"></div>
+        <br />
+        <br />
+        <h4>Practice Problem</h4>
+        <li>
+          List the compounds below in decreasing boiling point order (i.e.
+          decreasing intermolecular forces order).<br />
+          H₂O  CO₂  H₂S<br />
+          Highest boiling point:
+          <select
+            id="4IMF1"
+            name="4IMF1"
+            class="calc"
+            formula="H2O"
+            help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces."
+          >
+            <option value="">Choose an option</option>
+            <option value="H2O">H₂O</option>
+            <option value="CO2">CO₂</option>
+            <option value="H2S">H₂S</option>
+          </select>
+          <div class="feedback" id="4IMF1FB" name="4IMF1FB"></div>
+          <br />
+          Medium boiling point:
+          <select
+            id="4IMF2"
+            name="4IMF2"
+            class="calc"
+            formula="H2S"
+            help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces."
+          >
+            <option value="">Choose an option</option>
+            <option value="H2O">H₂O</option>
+            <option value="CO2">CO₂</option>
+            <option value="H2S">H₂S</option>
+          </select>
+          <div class="feedback" id="4IMF2FB" name="4IMF2FB"></div>
+          <br />
+          Lowest boiling point:
+          <select
+            id="4IMF3"
+            name="4IMF3"
+            class="calc"
+            formula="CO2"
+            help="Compare the types of intermolecular forces, then if there are two with only dispersion forces, then compare which has the most dispersion forces."
+          >
+            <option value="">Choose an option</option>
+            <option value="H2O">H₂O</option>
+            <option value="CO2">CO₂</option>
+            <option value="H2S">H₂S</option>
+          </select>
+          <div class="feedback" id="4IMF3FB" name="4IMF3FB"></div>
+          <br /><br />
+          Put the steps required to solve this type of problem in order:
+          <br />
+          Step 1:
+          <select
+            id="4step1"
+            name="4step1"
+            class="calc"
+            formula="Draw Lewis structures & count electron domains"
+            help="Review the steps in the problem above if you are not sure of the order."
+          >
+            <option value="">Choose an option</option>
+            <option value="Determine polarity">Determine polarity</option>
+            <option value="Determine molecular shape">
+              Determine molecular shape
+            </option>
+            <option value="Compare strength of intermolecular forces">
+              Compare strength of intermolecular forces
+            </option>
+            <option value="Determine intermolecular forces">
+              Determine intermolecular forces
+            </option>
+            <option value="Draw Lewis structures & count electron domains">
+              Draw Lewis structures & count electron domains
+            </option>
+          </select>
+          <div class="feedback" id="4step1FB" name="4step1FB"></div>
+          <br />
+          Step 2:
+          <select
+            id="4step2"
+            name="4step2"
+            class="calc"
+            formula="Determine molecular shape"
+            help="Review the steps in the problem above if you are not sure of the order."
+          >
+            <option value="">Choose an option</option>
+            <option value="Determine polarity">Determine polarity</option>
+            <option value="Determine molecular shape">
+              Determine molecular shape
+            </option>
+            <option value="Compare strength of intermolecular forces">
+              Compare strength of intermolecular forces
+            </option>
+            <option value="Determine intermolecular forces">
+              Determine intermolecular forces
+            </option>
+            <option value="Draw Lewis structures & count electron domains">
+              Draw Lewis structures & count electron domains
+            </option>
+          </select>
+          <div class="feedback" id="4step2FB" name="4step2FB"></div>
+          <br />
+          Step 3:
+          <select
+            id="4step3"
+            name="4step3"
+            class="calc"
+            formula="Determine polarity"
+            help="Review the steps in the problem above if you are not sure of the order."
+          >
+            <option value="">Choose an option</option>
+            <option value="Determine polarity">Determine polarity</option>
+            <option value="Determine molecular shape">
+              Determine molecular shape
+            </option>
+            <option value="Compare strength of intermolecular forces">
+              Compare strength of intermolecular forces
+            </option>
+            <option value="Determine intermolecular forces">
+              Determine intermolecular forces
+            </option>
+            <option value="Draw Lewis structures & count electron domains">
+              Draw Lewis structures & count electron domains
+            </option>
+          </select>
+          <div class="feedback" id="4step3FB" name="4step3FB"></div>
+          <br />
+          Step 4:
+          <select
+            id="4step4"
+            name="4step4"
+            class="calc"
+            formula="Determine intermolecular forces"
+            help="Review the steps in the problem above if you are not sure of the order."
+          >
+            <option value="">Choose an option</option>
+            <option value="Determine polarity">Determine polarity</option>
+            <option value="Determine molecular shape">
+              Determine molecular shape
+            </option>
+            <option value="Compare strength of intermolecular forces">
+              Compare strength of intermolecular forces
+            </option>
+            <option value="Determine intermolecular forces">
+              Determine intermolecular forces
+            </option>
+            <option value="Draw Lewis structures & count electron domains">
+              Draw Lewis structures & count electron domains
+            </option>
+          </select>
+          <div class="feedback" id="4step4FB" name="4step4FB"></div>
+          <br />
+          Step 5:
+          <select
+            id="4step5"
+            name="4step5"
+            class="calc"
+            formula="Compare strength of intermolecular forces"
+            help="Review the steps in the problem above if you are not sure of the order."
+          >
+            <option value="">Choose an option</option>
+            <option value="Determine polarity">Determine polarity</option>
+            <option value="Determine molecular shape">
+              Determine molecular shape
+            </option>
+            <option value="Compare strength of intermolecular forces">
+              Compare strength of intermolecular forces
+            </option>
+            <option value="Determine intermolecular forces">
+              Determine intermolecular forces
+            </option>
+            <option value="Draw Lewis structures & count electron domains">
+              Draw Lewis structures & count electron domains
+            </option>
+          </select>
+          <div class="feedback" id="4step5FB" name="4step5FB"></div>
+          <br />
 
-  <p><b>Step 2: Convert mass to moles</b></p>
-  <input type="number" class="calc" id="5Mass2" name="5Mass2" step="any" style="width: 80px" formula="${5Mass}" help="What mass in mg was given above?"> mg <div class="feedback" id="5Mass2FB" name="5Mass2FB"></div> x 
-  
-<div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
-          <!-- Numerator -->
-          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
-            <input type="number" step="any" class="calc" id="5gnumb" name="5gnumb" formula="1" help="What is the gram to mg ratio?" style="width: 80px">g <div class="feedback" id="5gnumbFB" name="5gnumbFB"></div>
+          <hr />
+          <h4>Guided Problem</h4>
+        </li>
+
+        <li>
+          What is the osmotic pressure of a solution formed by dissolving
+          <input
+            class="num display-value"
+            id="5Mass"
+            name="5Mass"
+            random="true"
+            data-original="60"
+            randomPercent="50%"
+            readonly
+          />
+          mg of glucose (C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, 180.16 g/mol)
+          in enough water to make
+          <input
+            class="num display-value"
+            id="5Vol"
+            name="5Vol"
+            random="true"
+            data-original="0.4"
+            randomPercent="50%"
+            readonly
+          />00 L of solution at
+          <input
+            class="num display-value"
+            id="5Temp"
+            name="5Temp"
+            random="true"
+            data-original="20"
+            randomPercent="50%"
+            readonly
+          />
+          °C in atm?
+          <h4>Step-by-step solution</h4>
+
+          <p><b>Step 1: Use the osmotic pressure formula</b></p>
+          <p>Π = MRT</p>
+
+          <p>
+            i = Van't Hoff Factor (1 for non-electrolytes that are not strong
+            acids)<br />
+            M = molarity (mol/L)<br />
+            R = 0.08206 L·atm/mol·K<br />
+            T = temperature in Kelvin
+          </p>
+
+          <p><b>Step 2: Convert mass to moles</b></p>
+          <input
+            type="number"
+            class="calc"
+            id="5Mass2"
+            name="5Mass2"
+            step="any"
+            style="width: 80px"
+            formula="${5Mass}"
+            help="What mass in mg was given above?"
+          />
+          mg
+          <div class="feedback" id="5Mass2FB" name="5Mass2FB"></div>
+          x
+
+          <div
+            style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;"
+          >
+            <!-- Numerator -->
+            <div
+              style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;"
+            >
+              <input
+                type="number"
+                step="any"
+                class="calc"
+                id="5gnumb"
+                name="5gnumb"
+                formula="1"
+                help="What is the gram to mg ratio?"
+                style="width: 80px"
+              />g
+              <div class="feedback" id="5gnumbFB" name="5gnumbFB"></div>
+            </div>
+
+            <!-- Fraction Bar -->
+            <div
+              style="width: 100%; height: 1.5px; background-color: black;"
+            ></div>
+
+            <!-- Denominator -->
+            <div style="padding: 2px 5px;">
+              <input
+                type="number"
+                step="any"
+                class="calc"
+                id="5mgden"
+                name="5mgden"
+                formula="1000"
+                help="What is the gram to mg ratio?"
+                style="width: 80px;"
+              />
+              mg
+              <div class="feedback" id="5mgdenFB" name="5mgdenFB"></div>
+            </div>
           </div>
 
-          <!-- Fraction Bar -->
-          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+          x
+          <div
+            style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;"
+          >
+            <!-- Numerator -->
+            <div
+              style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;"
+            >
+              <input
+                type="number"
+                step="any"
+                class="calc"
+                id="5MolNumb"
+                name="5MolNumb"
+                formula="1"
+                help="What is the molar mass of C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>?"
+                style="width: 80px"
+              />mol
+              <div class="feedback" id="5MolNumbFB" name="5MolNumbFB"></div>
+            </div>
 
-          <!-- Denominator -->
-          <div style="padding: 2px 5px;">
-            <input type="number" step="any" class="calc" id="5mgden" name="5mgden" formula="1000" help="What is the gram to mg ratio?" style="width: 80px;"> mg <div class="feedback" id="5mgdenFB" name="5mgdenFB"></div>
+            <!-- Fraction Bar -->
+            <div
+              style="width: 100%; height: 1.5px; background-color: black;"
+            ></div>
+
+            <!-- Denominator -->
+            <div style="padding: 2px 5px;">
+              <input
+                type="number"
+                step="any"
+                class="calc"
+                id="5gden"
+                name="5gden"
+                formula="180.16"
+                help="What is the molar mass of ?"
+                style="width: 80px;"
+              />
+              g
+              <div class="feedback" id="5gdenFB" name="5gdenFB"></div>
+            </div>
+          </div>
+          =
+
+          <input
+            type="number"
+            class="calc"
+            id="5molGlu"
+            name="5molGlu"
+            step="any"
+            style="width: 80px;"
+            formula="${5Mass}/1000/180.16"
+            help="Take the mg of C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, convert to grams, then convert to mol."
+          />
+          mol
+          <div class="feedback" id="5molGluFB" name="5molGluFB"></div>
+
+          <p><b>Step 3: Find molarity</b></p>
+
+          M =
+
+          <div
+            style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;"
+          >
+            <!-- Numerator -->
+            <div
+              style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;"
+            >
+              <input
+                type="number"
+                step="any"
+                class="num calc"
+                id="5molGlu2"
+                name="5molGlu2"
+                formula="${5Mass}/1000/180.16"
+                help="Use the moles you calculated above."
+                style="width: 80px"
+              />mol
+              <div class="feedback" id="5molGlu2FB" name="5molGlu2FB"></div>
+            </div>
+
+            <!-- Fraction Bar -->
+            <div
+              style="width: 100%; height: 1.5px; background-color: black;"
+            ></div>
+
+            <!-- Denominator -->
+            <div style="padding: 2px 5px;">
+              <input
+                type="number"
+                step="any"
+                class="num calc"
+                id="5VolDen"
+                name="5VolDen"
+                formula="${5Vol}"
+                help="Use the volume given in the question stem."
+                style="width: 80px;"
+              />
+              L
+              <div class="feedback" id="5VolDenFB" name="5VolDenFB"></div>
+            </div>
+          </div>
+          =
+          <input
+            type="number"
+            class="num calc"
+            id="5M"
+            name="5M"
+            step="any"
+            formula="${5molGlu2}/${5VolDen}"
+            help="Divide the moles of glucose solution by the liters."
+          />
+          <div class="feedback" id="5MFB" name="5MFB"></div>
+          M
+
+          <p><b>Step 4: Convert temperature to Kelvin</b></p>
+          T =
+          <input
+            type="number"
+            class="num calc"
+            id="5Temp2"
+            name="5Temp2"
+            step="any"
+            formula="${5Temp}"
+            help="Get the temperature in °C from the question stem above."
+          />
+          °C
+          <div class="feedback" id="5Temp2FB" name="5Temp2FB"></div>
+          + 273.15 =
+          <input
+            type="number"
+            class="num calc"
+            id="5TempK"
+            name="5TempK"
+            step="any"
+            formula="${5Temp}+273.15"
+            help="Add 273.15 to get the answer in K."
+          />
+          <div class="feedback" id="5TempKFB" name="5TempKFB"></div>
+          K
+
+          <p><b>Step 5: Calculate osmotic pressure</b></p>
+          Π = iMRT<br />
+          Π = (1)(<input
+            type="number"
+            class="calc"
+            id="5M2"
+            name="5M2"
+            step="any"
+            formula="${5molGlu2}/${5VolDen}"
+            help="Same molarity as above."
+          />
+          $\frac{mol}{L}$)(0.08206 $\frac{L-atm}{mol-K}$)(<input
+            type="number"
+            class="calc"
+            id="5TempK2"
+            name="5TempK2"
+            step="any"
+            formula="${5Temp}+273.15"
+            help="Same as the temperature in K calculated above."
+          />
+          K)
+          <div class="feedback" id="5M2FB" name="5M2FB"></div>
+          <div class="feedback" id="5TempK2FB" name="5TempK2FB"></div>
+          <br />
+          Π =
+          <input
+            type="number"
+            class="num calc"
+            id="5OP"
+            name="5OP"
+            step="any"
+            formula="${5molGlu2}/${5VolDen}*0.08206*(${5Temp}+273.15)"
+            help="Π = MRT"
+          />
+          atm
+          <div class="feedback" id="5OPFB" name="5OPFB"></div>
+        </li>
+        <h4>Practice Problem</h4>
+        <li>
+          The osmotic pressure of a solution formed by dissolving
+          <b
+            ><input
+              class="num display-value"
+              id="6MgUrea"
+              name="6MgUrea"
+              random="true"
+              data-original="10.0"
+              randomPercent="50%"
+              readonly
+            />
+            mg of urea (CH<sub>4</sub>N<sub>2</sub>O, 60.06 g/mol)</b
+          >
+          in enough water to make
+          <b
+            ><input
+              class="num display-value"
+              id="6L"
+              name="6L"
+              random="true"
+              data-original="0.2"
+              randomPercent="50%"
+              readonly
+            />00 L</b
+          >
+          of solution at
+          <b
+            ><input
+              class="num display-value"
+              id="6TC"
+              name="6TC"
+              random="true"
+              data-original="25"
+              randomPercent="25%"
+              readonly
+            />°C</b
+          >
+          is _____ atm. <br />
+          Π =
+          <input
+            type="number"
+            class="calc"
+            id="6OP"
+            name="6OP"
+            step="any"
+            formula="${6MgUrea}/1000/60.06/${6L}*0.08206*(${6TC}+273.15)"
+            help="Convert all of your units, calculate the molarity of Urea, and use the osmotic pressure formula."
+          />
+          <div class="feedback" id="6OPFB" name="6OPFB"></div>
+        </li>
+        <br /><br />
+        <hr />
+        <h4>Guided Problem</h4>
+        <li>
+          <div>
+            What do we call a solution that contains the
+            <b>maximum amount of solute</b> that can dissolve at a given
+            temperature?
+
+            <h4>Step-by-step reasoning</h4>
+
+            <p><b>Step 1: Identify key phrases</b></p>
+            <p>
+              “Maximum amount of solute” and “at a given temperature” indicate
+              that the solution is holding as much solute as possible under
+              those conditions.
+            </p>
+
+            <p><b>Step 2: Recall solution types</b></p>
+            <ul>
+              <li><b>Unsaturated</b> → less than the maximum amount</li>
+              <li><b>Saturated</b> → exactly the maximum amount</li>
+              <li>
+                <b>Supersaturated</b> → more than normally possible (unstable)
+              </li>
+            </ul>
+
+            <p><b>Step 3: Select the correct term</b></p>
+
+            <select
+              id="sol1"
+              name="sol1"
+              class="calc"
+              formula="saturated"
+              help="Look at step two to see how the solution types are defined."
+            >
+              <option value="">Choose an option</option>
+              <option value="concentrated">A concentrated solution</option>
+              <option value="dilute">A dilute solution</option>
+              <option value="saturated">A saturated solution</option>
+              <option value="aqueous">An aqueous solution</option>
+            </select>
+
+            <div class="feedback" id="sol1FB" name="sol1FB"></div>
+          </div>
+        </li>
+        <h4>Practice Problem</h4>
+        <li>
+          <p>
+            What is a solution called when it contains less than the maximum
+            amount of solute that can dissolve at a given temperature?
+          </p>
+
+          <select
+            id="solMax1"
+            name="solMax1"
+            class="calc"
+            formula="unsaturated"
+            help="Look at step two to see how the solution types are defined."
+          >
+            <option value="">Choose an option</option>
+            <option value="concentrated">A concentrated solution</option>
+            <option value="supersaturated">A supersaturated solution</option>
+            <option value="saturated">A saturated solution</option>
+            <option value="unsaturated">An unsaturated solution</option>
+            <option value="homogeneous">A homogeneous solution</option>
+          </select>
+          <div class="feedback" id="solMax1FB" name="solMax1FB"></div>
+        </li>
+        <hr />
+        <!-- ==== 9 & 10 === -->
+        <h4>Guided Problem</h4>
+
+        <li>
+          What is the change in boiling point of a solution made by dissolving
+          <input
+            class="num display-value"
+            id="bpMass"
+            name="bpMass"
+            random="true"
+            data-original="28.6"
+            randomPercent="40%"
+            readonly
+          />
+          g of calcium chloride (CaCl<sub>2</sub>, 110.98 g/mol) in
+          <input
+            class="num display-value"
+            id="bpWater"
+            name="bpWater"
+            random="true"
+            data-original="825"
+            randomPercent="40%"
+            readonly
+          />
+          g of water? Assume ideal behavior. Estimate the van ’t Hoff factor for
+          CaCl<sub>2</sub> based on how many ions are in the chemical formula.
+          K<sub>b</sub> for water is 0.512 °C/m.
+        </li>
+
+        <h4>Step-by-step reasoning</h4>
+
+        <p><b>Step 1: Identify the correct formula</b></p>
+        <p>Boiling point elevation is calculated using:</p>
+
+        <p>ΔT<sub>b</sub> = iK<sub>b</sub>m</p>
+
+        <p>
+          i = van ’t Hoff factor<br />
+          K<sub>b</sub> = boiling point elevation constant<br />
+          m = molality (mol solute / kg solvent)
+        </p>
+
+        <p><b>Step 2: Identify the estimated Van't Hoff Factor</b></p>
+        Van't Hoff factor for CaCl<sub>2</sub>:
+        <input
+          type="number"
+          class="calc"
+          id="9VH"
+          name="9VH"
+          step="any"
+          formula="3"
+          help="Add the number of cations and anions in the chemical formula for CaCl<sub>2</sub>."
+        />
+        <div class="feedback" id="9VHFB" name="9VHFB"></div>
+
+        <p><b>Step 3: Convert grams of solute to moles</b></p>
+
+        <input
+          type="number"
+          class="calc"
+          id="bpMassConfirm"
+          name="bpMassConfirm"
+          step="any"
+          formula="${bpMass}"
+          help="Use the mass of CaCl2 given in the problem."
+        />
+        g
+        <div class="feedback" id="bpMassConfirmFB" name="bpMassConfirmFB"></div>
+
+        ×
+
+        <div
+          style="display:inline-flex; flex-direction:column; align-items:center; font-family:'Times New Roman', serif;"
+        >
+          <div style="padding:2px 5px;">
+            <input
+              type="number"
+              class="calc"
+              id="bpMolNum"
+              name="bpMolNum"
+              step="any"
+              formula="1"
+              help="There is 1 mole in 1 mole."
+            />
+            mol
+            <div class="feedback" id="bpMolNumFB" name="bpMolNumFB"></div>
+          </div>
+          <div style="width:100%; height:1.5px; background-color:black;"></div>
+          <div style="padding:2px 5px;">
+            <input
+              type="number"
+              class="calc"
+              id="bpMolDen"
+              name="bpMolDen"
+              step="any"
+              formula="110.98"
+              help="Use the molar mass of CaCl2."
+            />
+            g
+            <div class="feedback" id="bpMolDenFB" name="bpMolDenFB"></div>
           </div>
         </div>
-        
-x 
-<div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
-          <!-- Numerator -->
-          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
-            <input type="number" step="any" class="calc" id="5MolNumb" name="5MolNumb" formula="1" help="What is the molar mass of C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>?" style="width: 80px">mol <div class="feedback" id="5MolNumbFB" name="5MolNumbFB"></div>
+
+        =
+
+        <input
+          type="number"
+          class="calc num"
+          id="bpMoles"
+          name="bpMoles"
+          step="any"
+          style="width:80px;"
+          formula="${bpMass}/110.98"
+          help="Divide grams of CaCl2 by its molar mass to get moles."
+        />
+        mol
+        <div class="feedback" id="bpMolesFB" name="bpMolesFB"></div>
+
+        <p><b>Step 4: Convert grams of water to kilograms</b></p>
+
+        <input
+          type="number"
+          class="calc"
+          id="bpWaterConfirm"
+          name="bpWaterConfirm"
+          step="any"
+          formula="${bpWater}"
+          help="Use the mass of water given in the problem."
+        />
+        g
+        <div
+          class="feedback"
+          id="bpWaterConfirmFB"
+          name="bpWaterConfirmFB"
+        ></div>
+
+        ÷ 1000 =
+
+        <input
+          type="number"
+          class="calc num"
+          id="bpWaterKG"
+          name="bpWaterKG"
+          step="any"
+          formula="${bpWater}/1000"
+          help="Divide grams of water by 1000 to convert to kilograms."
+        />
+        kg
+        <div class="feedback" id="bpWaterKGFB" name="bpWaterKGFB"></div>
+
+        <p><b>Step 5: Calculate molality</b></p>
+
+        <input
+          type="number"
+          class="calc num"
+          id="bpMolality"
+          name="bpMolality"
+          step="any"
+          formula="${bpMoles}/${bpWaterKG}"
+          help="Molality is moles of solute divided by kilograms of solvent."
+        />
+        m
+        <div class="feedback" id="bpMolalityFB" name="bpMolalityFB"></div>
+
+        <p><b>Step 6: Calculate the boiling point change</b></p>
+
+        ΔT<sub>b</sub>
+        =
+
+        <input
+          type="number"
+          class="calc"
+          id="bpDelta"
+          name="bpDelta"
+          step="any"
+          formula="3*0.512*${bpMolality}"
+          help="Use ΔTb = iKb·m with i = 3 and Kb = 0.512 °C/m."
+        />
+        °C
+        <div class="feedback" id="bpDeltaFB" name="bpDeltaFB"></div>
+        <h4>Practice Problem</h4>
+        <li>
+          What is the change in boiling point of a solution made by dissolving
+          <input
+            class="num display-value"
+            id="bpMass2"
+            name="bpMass2"
+            random="true"
+            data-original="34.2"
+            randomPercent="40%"
+            readonly
+          />
+          g of lithium chloride (LiCl, 42.39 g/mol) in
+          <input
+            class="num display-value"
+            id="bpWater2"
+            name="bpWater2"
+            random="true"
+            data-original="690."
+            randomPercent="40%"
+            readonly
+          />
+          g of water?
+          <br />
+          Estimate the van ’t Hoff factor for LiCl based on how many ions are in
+          the chemical formula. K<sub>b</sub> for water is 0.512 °C/m.
+          <br />
+
+          ΔT<sub>b</sub> =
+          <input
+            type="number"
+            class="calc"
+            id="bpDelta2"
+            name="bpDelta2"
+            step="any"
+            formula="2*0.512*((${bpMass2}/42.39)/(${bpWater2}/1000))"
+            help="Convert grams to moles and kilograms, calculate molality, then apply ΔTb = iKb·m."
+          />
+          °C
+          <div class="feedback" id="bpDelta2FB" name="bpDelta2FB"></div>
+        </li>
+
+        <hr />
+        <!-- 11 and 12 -->
+        <h4>Guided Problem</h4>
+
+        <li>
+          The Henry’s law constant for nitrogen gas (N<sub>2</sub>) dissolved in
+          water is
+          <b>6.4 × 10<sup>−4</sup> M/atm</b> at 25 °C. <br /><br />
+          When the partial pressure of nitrogen above a sample of water is
+          <input
+            class="num display-value"
+            id="henP"
+            name="henP"
+            random="true"
+            data-original="0.423"
+            randomPercent="40%"
+            readonly
+          />
+          atm, what is the concentration of nitrogen dissolved in the water?
+        </li>
+
+        <h4>Step-by-step reasoning</h4>
+
+        <p><b>Step 1: Identify the correct equation</b></p>
+
+        <p>Henry’s Law:</p>
+
+        <p>C = K<sub>H</sub>P</p>
+
+        <p>
+          C = concentration of dissolved gas (M)<br />
+          K<sub>H</sub> = Henry’s law constant (M/atm)<br />
+          P = partial pressure of the gas (atm)
+        </p>
+
+        <p><b>Step 2: Identify the Henry’s law constant</b></p>
+
+        K<sub>H</sub>
+        =
+        <input
+          type="number"
+          class="calc"
+          id="henKH"
+          name="henKH"
+          step="any"
+          formula="6.4e-4"
+          help="Use the Henry’s law constant given in the problem."
+        />
+        M/atm
+        <div class="feedback" id="henKHFB" name="henKHFB"></div>
+
+        <p><b>Step 3: Identify the partial pressure</b></p>
+
+        P =
+        <input
+          type="number"
+          class="calc"
+          id="henPConfirm"
+          name="henPConfirm"
+          step="any"
+          formula="${henP}"
+          help="Use the partial pressure of nitrogen given in the problem."
+        />
+        atm
+        <div class="feedback" id="henPConfirmFB" name="henPConfirmFB"></div>
+
+        <p><b>Step 4: Calculate the concentration of dissolved gas</b></p>
+
+        C =
+        <input
+          type="number"
+          class="calc"
+          id="henC"
+          name="henC"
+          step="any"
+          formula="6.4e-4*${henP}"
+          help="Multiply the Henry’s law constant by the partial pressure."
+        />
+        M
+        <div class="feedback" id="henCFB" name="henCFB"></div>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          The Henry’s law constant for oxygen gas (O<sub>2</sub>) dissolved in
+          water is
+          <b>1.3 × 10<sup>−3</sup> M/atm</b> at 25 °C. <br /><br />
+          What is the concentration of oxygen dissolved in water when the
+          partial pressure of oxygen above the solution is
+          <input
+            class="num display-value"
+            id="henP2"
+            name="henP2"
+            random="true"
+            data-original="0.615"
+            randomPercent="40%"
+            readonly
+          />
+          atm? <br /><br />
+          Assume the Henry’s law constant remains valid over this temperature
+          range.
+          <br /><br />
+
+          C =
+          <input
+            type="number"
+            class="calc"
+            id="henC2"
+            name="henC2"
+            step="any"
+            formula="1.3e-3*${henP2}"
+            help="Use C = KHP. Multiply the Henry’s law constant by the partial pressure."
+          />
+          M
+          <div class="feedback" id="henC2FB" name="henC2FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          An aqueous solution is
+          <input
+            class="num display-value"
+            id="mmMolal"
+            name="mmMolal"
+            random="true"
+            data-original="0.52"
+            randomPercent="40%"
+            readonly
+          />
+          m potassium bromide (KBr, 119.0 g/mol).
+          <br /><br />
+          What is the molarity of the solution if the density of the aqueous
+          solution is
+          <input
+            class="num display-value"
+            id="mmDen"
+            name="mmDen"
+            random="true"
+            data-original="1.16"
+            randomPercent="20%"
+            readonly
+          />
+          g/mL?
+        </li>
+
+        <h4>Step-by-step reasoning</h4>
+
+        <p><b>Step 1: Recall the definitions</b></p>
+        <p>
+          Molality (m) = moles of solute per kilogram of solvent<br />
+          Molarity (M) = moles of solute per liter of solution
+        </p>
+
+        <p><b>Step 2: Start with 1.00 kg of solvent</b></p>
+        <p>
+          Using 1.00 kg of solvent makes the molality definition easy to apply.
+        </p>
+
+        <p><b>Step 3: Calculate moles of solute</b></p>
+
+        <input
+          type="number"
+          class="calc"
+          id="mmMolalConfirm"
+          name="mmMolalConfirm"
+          step="any"
+          formula="${mmMolal}"
+          help="Use the molality given in the problem."
+        />
+        mol
+        <div
+          class="feedback"
+          id="mmMolalConfirmFB"
+          name="mmMolalConfirmFB"
+        ></div>
+
+        <p>
+          This is the number of moles of KBr present when 1.00 kg of solvent is
+          used.
+        </p>
+
+        <p><b>Step 4: Calculate the mass of solute</b></p>
+
+        <input
+          type="number"
+          class="calc"
+          id="mmSolMoles"
+          name="mmSolMoles"
+          step="any"
+          formula="${mmMolal}"
+          help="Use the number of moles calculated above."
+        />
+        mol
+        <div class="feedback" id="mmSolMolesFB" name="mmSolMolesFB"></div>
+
+        ×
+
+        <div
+          style="display:inline-flex; flex-direction:column; align-items:center; font-family:'Times New Roman', serif;"
+        >
+          <div style="padding:2px 5px;">
+            <input
+              type="number"
+              class="calc"
+              id="mmMolNum"
+              name="mmMolNum"
+              step="any"
+              formula="119.0"
+              help="Use the molar mass of KBr."
+            />
+            g
+            <div class="feedback" id="mmMolNumFB" name="mmMolNumFB"></div>
           </div>
-
-          <!-- Fraction Bar -->
-          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
-
-          <!-- Denominator -->
-          <div style="padding: 2px 5px;">
-            <input type="number" step="any" class="calc" id="5gden" name="5gden" formula="180.16" help="What is the molar mass of ?" style="width: 80px;"> g <div class="feedback" id="5gdenFB" name="5gdenFB"></div>
-          </div>
-        </div>
-= 
-
-  <input type="number" class="calc" id="5molGlu" name="5molGlu" step="any" style="width: 80px;" formula="${5Mass}/1000/180.16" help="Take the mg of C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>, convert to grams, then convert to mol."> mol <div class="feedback" id="5molGluFB" name="5molGluFB"></div>
-
-  <p><b>Step 3: Find molarity</b></p>
-
-  M = 
-
-  <div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
-          <!-- Numerator -->
-          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
-            <input type="number" step="any" class="num calc" id="5molGlu2" name="5molGlu2" formula="${5Mass}/1000/180.16" help="Use the moles you calculated above." style="width: 80px">mol <div class="feedback" id="5molGlu2FB" name="5molGlu2FB"></div>
-          </div>
-
-          <!-- Fraction Bar -->
-          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
-
-          <!-- Denominator -->
-          <div style="padding: 2px 5px;">
-            <input type="number" step="any" class="num calc" id="5VolDen" name="5VolDen" formula="${5Vol}" help="Use the volume given in the question stem." style="width: 80px;"> L <div class="feedback" id="5VolDenFB" name="5VolDenFB"></div>
+          <div style="width:100%; height:1.5px; background-color:black;"></div>
+          <div style="padding:2px 5px;">
+            <input
+              type="number"
+              class="calc"
+              id="mmMolDen"
+              name="mmMolDen"
+              step="any"
+              formula="1"
+            />
+            mol
+            <div class="feedback" id="mmMolDenFB" name="mmMolDenFB"></div>
           </div>
         </div>
 =
@@ -2539,9 +3781,1277 @@ $$
 
 </li>
 
-  
-</ol>
-<!-- end -->
+        <select
+          id="bimol2"
+          name="bimol2"
+          class="calc"
+          formula="k[A]^3"
+          help="A termolecular reaction has an overall order of 3."
+        >
+          <option value="">Choose an option</option>
+          <option value="k[A]^3">Rate = k[A]<sup>3</sup></option>
+          <option value="k[A]^2">Rate = k[A]<sup>2</sup></option>
+          <option value="k[A]^2[B]^2">
+            Rate = k[A]<sup>2</sup>[B]<sup>2</sup>
+          </option>
+          <option value="k">Rate = k</option>
+        </select>
+
+        <div class="feedback" id="bimol2FB" name="bimol2FB"></div>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+        <p>
+          Which law of thermodynamics states that the total entropy of the
+          universe increases for any spontaneous process?
+        </p>
+
+        <li>
+          <b>Reference: Laws of Thermodynamics</b>
+          <ul>
+            <li>
+              <b>Zeroth Law:</b> If two systems are each in thermal equilibrium
+              with a third system, they are in thermal equilibrium with each
+              other.
+            </li>
+            <li>
+              <b>First Law:</b> Energy cannot be created or destroyed, only
+              transferred or converted from one form to another.
+            </li>
+            <li>
+              <b>Second Law:</b> The total entropy of the universe increases for
+              any spontaneous process.
+            </li>
+            <li>
+              <b>Third Law:</b> The entropy of a perfect crystalline substance
+              is zero at absolute zero temperature.
+            </li>
+          </ul>
+        </li>
+
+        <select
+          id="thermo2"
+          name="thermo2"
+          class="calc"
+          formula="second"
+          help="The second law describes the natural tendency toward increased entropy."
+        >
+          <option value="">Choose an option</option>
+          <option value="zeroth">Zeroth Law</option>
+          <option value="first">First Law</option>
+          <option value="second">Second Law</option>
+          <option value="third">Third Law</option>
+        </select>
+
+        <div class="feedback" id="thermo2FB" name="thermo2FB"></div>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Which law of thermodynamics states that the entropy of a perfect
+          crystalline substance is zero at absolute zero temperature?
+        </li>
+
+        <select
+          id="thermo3"
+          name="thermo3"
+          class="calc"
+          formula="third"
+          help="This law defines the entropy reference point at absolute zero."
+        >
+          <option value="">Choose an option</option>
+          <option value="zeroth">Zeroth Law</option>
+          <option value="first">First Law</option>
+          <option value="second">Second Law</option>
+          <option value="third">Third Law</option>
+        </select>
+
+        <div class="feedback" id="thermo3FB" name="thermo3FB"></div>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          <div>
+            Consider the following reaction at constant pressure. Use the
+            information below to determine the value of ΔS<sub>surr</sub> at
+            <input
+              class="num display-value"
+              id="Tsurr1"
+              name="Tsurr1"
+              random="true"
+              data-original="450"
+              randomPercent="20%"
+              readonly
+            />
+            K. Then predict whether or not this reaction will be spontaneous at
+            this temperature.
+            <br /><br />
+
+            2 KClO<sub>3</sub>(s) ➞ 2 KCl(s) + 3 O<sub>2</sub>(g), ΔH = −89.4 kJ
+
+            <h4>Step-by-step reasoning</h4>
+            <p><b>Step 1: Convert enthalpy change into J.</b></p>
+            ΔH =
+            <input
+              type="number"
+              class="calc"
+              id="dH1"
+              name="dH1"
+              step="any"
+              formula="-89400"
+              help="Convert kJ to J by multiplying by 1000."
+            />
+            J
+            <div class="feedback" id="dH1FB" name="dH1FB"></div>
+
+            <p>
+              <b>Step 2: Calculate the entropy change of the surroundings</b>
+            </p>
+
+            <p>$ \Delta S_{\text{surr}} = -\frac{\Delta H_{sys}}{T} $</p>
+
+            ΔS<sub>surr</sub> =
+            <input
+              type="number"
+              class="calc"
+              id="dSsurr1"
+              name="dSsurr1"
+              step="any"
+              formula="-(-89400)/${Tsurr1}"
+              help="Divide −ΔH by the temperature in Kelvin."
+            />
+            J/K
+            <div class="feedback" id="dSsurr1FB" name="dSsurr1FB"></div>
+
+            <p><b>Step 3: Consider the entropy change of the system</b></p>
+
+            <p>
+              This reaction produces gas from solids, so the entropy of the
+              system increases (ΔS<sub>sys</sub> &gt; 0).
+            </p>
+
+            ΔS<sub>uni</sub> = ΔS<sub>sys</sub> + ΔS<sub>surr</sub><br />
+            If the ΔS<sub>uni</sub> is positive, then the reaction is
+            spontaneous. If the ΔS<sub>uni</sub> is negative, then the reaction
+            is nonspontaneous.<br />
+            Since both ΔS<sub>sys</sub> and ΔS<sub>surr</sub> are positive, the
+            reaction is
+            <select
+              id="29Sp"
+              name="29Sp"
+              class="calc"
+              formula="spontaneous"
+              help="If the ΔS<sub>uni</sub> is positive, then the reaction is spontaneous.  If the ΔS<sub>uni</sub> is negative, then the reaction is nonspontaneous."
+            >
+              <option value="">Choose an option</option>
+              <option value="spontaneous">spontaneous</option>
+              <option value="spontaneous">nonspontaneous</option>
+            </select>
+            <div class="feedback" id="29SpFB" name="29SpFB"></div>
+            at this temperature.
+          </div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Consider the following reaction at constant pressure. Determine the
+          value of ΔS<sub>surr</sub> at
+          <input
+            class="num display-value"
+            id="Tsurr2"
+            name="Tsurr2"
+            random="true"
+            data-original="525"
+            randomPercent="20%"
+            readonly
+          />
+          K. Then predict whether or not the reaction will be spontaneous at
+          this temperature.
+          <br /><br />
+
+          2 NO<sub>2</sub>(g) ➞ N<sub>2</sub>O<sub>4</sub>(g)
+          <br /><br />
+
+          ΔH = +57.2 kJ
+          <br /><br />
+
+          ΔS<sub>surr</sub> =
+          <input
+            type="number"
+            class="calc"
+            id="dSsurr2"
+            name="dSsurr2"
+            step="any"
+            formula="-(57200)/${Tsurr2}"
+            help="Use ΔSsurr = −ΔH/T. Remember to convert kJ to J."
+          />
+          J/K
+          <div class="feedback" id="dSsurr2FB" name="dSsurr2FB"></div>
+
+          <br /><br />
+
+          Based on the reaction, the entropy of the system decreases (fewer
+          moles of gas).
+          <br /><br />
+
+          This reaction is
+          <select
+            id="spon2"
+            name="spon2"
+            class="calc"
+            formula="not spontaneous"
+            help="Both ΔSsys and ΔSsurr are negative, so the reaction is nonspontaneous."
+          >
+            <option value="">Choose an option</option>
+            <option value="spontaneous">spontaneous</option>
+            <option value="not spontaneous">not spontaneous</option>
+          </select>
+
+          <div class="feedback" id="spon2FB" name="spon2FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          For each of the following reactions, determine whether the entropy
+          change (ΔS) is <b>positive</b> or <b>negative</b>. <br /><br />
+          Use the following ideas to guide your reasoning:
+          <ul>
+            <li>Producing more moles of gas increases entropy (ΔS &gt; 0)</li>
+            <li>Producing fewer moles of gas decreases entropy (ΔS &lt; 0)</li>
+            <li>Gas → liquid → solid decreases entropy</li>
+            <li>Solid → liquid → gas increases entropy</li>
+          </ul>
+
+          <br />
+
+          <b>(a)</b>
+          N<sub>2</sub>O<sub>4</sub>(g) ➞ 2 NO<sub>2</sub>(g)<br />
+          ΔS is
+          <select
+            id="gDH1"
+            name="gDH1"
+            class="calc"
+            formula="positive"
+            help="Compare the number of moles of gas before and after the reaction."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="gDH1FB" name="gDH1FB"></div>
+
+          <br /><br />
+
+          <b>(b)</b>
+          2 NO<sub>2</sub>(g) ➞ N<sub>2</sub>O<sub>4</sub>(g)<br />
+          ΔS is
+          <select
+            id="gDH2"
+            name="gDH2"
+            class="calc"
+            formula="negative"
+            help="Compare the number of moles of gas before and after the reaction."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="gDH2FB" name="gDH2FB"></div>
+
+          <br /><br />
+
+          <b>(c)</b>
+          H<sub>2</sub>O(g) ➞ H<sub>2</sub>O(l)<br />
+          ΔS is
+          <select
+            id="gDH3"
+            name="gDH3"
+            class="calc"
+            formula="negative"
+            help="A gas became a liquid."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="gDH3FB" name="gDH3FB"></div>
+
+          <br /><br />
+
+          <b>(d)</b>
+          H<sub>2</sub>O(s) ➞ H<sub>2</sub>O(l)<br />
+          ΔS is
+          <select
+            id="gDH4"
+            name="gDH4"
+            class="calc"
+            formula="positive"
+            help="A liquid became a gas"
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="gDH4FB" name="gDH4FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          For each of the following reactions, determine whether the entropy
+          change (ΔS) is <b>positive</b> or <b>negative</b>. <br /><br />
+
+          <b>(a)</b>
+          2 SO<sub>3</sub>(g) ➞ 2 SO<sub>2</sub>(g) + O<sub>2</sub>(g)<br />
+          ΔS is
+          <select
+            id="pDH1"
+            name="pDH1"
+            class="calc"
+            formula="positive"
+            help="Compare the total number of moles of gas on each side of the equation."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="pDH1FB" name="pDH1FB"></div>
+
+          <br /><br />
+
+          <b>(b)</b>
+          2 NH<sub>3</sub>(g) ➞ N<sub>2</sub>(g) + 3 H<sub>2</sub>(g)<br />
+          ΔS is
+          <select
+            id="pDH2"
+            name="pDH2"
+            class="calc"
+            formula="positive"
+            help="Compare the total number of moles of gas on each side of the equation."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="pDH2FB" name="pDH2FB"></div>
+
+          <br /><br />
+
+          <b>(c)</b>
+          CO<sub>2</sub>(g) ➞ CO<sub>2</sub>(s)<br />
+          ΔS is
+          <select
+            id="pDH3"
+            name="pDH3"
+            class="calc"
+            formula="negative"
+            help="Gas to solid."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="pDH3FB" name="pDH3FB"></div>
+
+          <br /><br />
+
+          <b>(d)</b>
+          Br<sub>2</sub>(l) ➞ Br<sub>2</sub>(g)<br />
+          ΔS is
+          <select
+            id="pDH4"
+            name="pDH4"
+            class="calc"
+            formula="positive"
+            help="Vaporization produces gas from liquid."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="pDH4FB" name="pDH4FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          <div>
+            Calculate the value of ΔS°<sub>rxn</sub> at 25 °C for the following
+            reaction: <br /><br />
+
+            2 SO<sub>2</sub>(g) + O<sub>2</sub>(g) ➞ 2 SO<sub>3</sub>(g)
+            <br /><br />
+
+            The standard molar entropies are given below.
+
+            <table border="1" cellpadding="6" cellspacing="0">
+              <tr>
+                <th>Substance</th>
+                <th>S° (J/mol·K)</th>
+              </tr>
+              <tr>
+                <td>SO<sub>2</sub>(g)</td>
+                <td>248.2</td>
+              </tr>
+              <tr>
+                <td>O<sub>2</sub>(g)</td>
+                <td>205.2</td>
+              </tr>
+              <tr>
+                <td>SO<sub>3</sub>(g)</td>
+                <td>256.8</td>
+              </tr>
+            </table>
+
+            <h4>Step-by-step reasoning</h4>
+
+            <p>
+              <b>Step 1: Write the ΔS°<sub>rxn</sub> expression</b>
+            </p>
+
+            <p>
+              $$ \Delta S^\circ_{\text{rxn}} = \sum nS^\circ_{\text{products}} -
+              \sum nS^\circ_{\text{reactants}} $$
+            </p>
+
+            <p><b>Step 2: Calculate total entropy of products</b></p>
+
+            <input
+              type="number"
+              class="calc"
+              id="gProd1"
+              name="gProd1"
+              step="any"
+              formula="2*256.8"
+              range="2%"
+              help="Multiply the entropy of each product by its coefficient, then add."
+            />
+            J/K
+            <div class="feedback" id="gProd1FB" name="gProd1FB"></div>
+
+            <p><b>Step 3: Calculate total entropy of reactants</b></p>
+
+            <input
+              type="number"
+              class="calc"
+              id="gReact1"
+              name="gReact1"
+              step="any"
+              formula="2*248.2+205.2"
+              help="Multiply each reactant entropy by its coefficient, then add."
+            />
+            J/K
+            <div class="feedback" id="gReact1FB" name="gReact1FB"></div>
+
+            <p>
+              <b>Step 4: Calculate ΔS°<sub>rxn</sub></b>
+            </p>
+
+            ΔS°<sub>rxn</sub> =
+            <input
+              type="number"
+              class="calc"
+              id="gDS1"
+              name="gDS1"
+              step="any"
+              formula="(2*256.8)-(2*248.2+205.2)"
+              help="Subtract the total reactant entropy from the total product entropy."
+            />
+            J/K
+            <div class="feedback" id="gDS1FB" name="gDS1FB"></div>
+          </div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Calculate the value of ΔS°<sub>rxn</sub> at 25 °C for the reaction
+          below: <br /><br />
+
+          N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ➞ 2 NH<sub>3</sub>(g)
+          <br /><br />
+
+          The standard molar entropies are given below.
+        </li>
+
+        <table border="1" cellpadding="6" cellspacing="0">
+          <tr>
+            <th>Substance</th>
+            <th>S° (J/mol·K)</th>
+          </tr>
+          <tr>
+            <td>N<sub>2</sub>(g)</td>
+            <td>191.5</td>
+          </tr>
+          <tr>
+            <td>H<sub>2</sub>(g)</td>
+            <td>130.6</td>
+          </tr>
+          <tr>
+            <td>NH<sub>3</sub>(g)</td>
+            <td>192.8</td>
+          </tr>
+        </table>
+
+        ΔS°<sub>rxn</sub>
+        =
+        <input
+          type="number"
+          class="calc"
+          id="pDS1"
+          name="pDS1"
+          step="any"
+          formula="(2*192.8)-(191.5+3*130.6)"
+          help="Use ΔS°rxn = ΣnS°products − ΣnS°reactants."
+        />
+        J/K
+        <div class="feedback" id="pDS1FB" name="pDS1FB"></div>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          For each of the following state changes, determine whether the entropy
+          change (ΔS) and the enthalpy change (ΔH) are <b>positive</b>,
+          <b>negative</b>, or <b>zero</b>. <br /><br />
+
+          Use the following ideas to guide your reasoning:
+          <ul>
+            <li>Gas &gt; liquid &gt; solid in entropy</li>
+            <li>Solid → liquid → gas absorbs energy (ΔH &gt; 0)</li>
+            <li>Gas → liquid → solid releases energy (ΔH &lt; 0)</li>
+            <li>No phase change → ΔH and ΔS are zero</li>
+          </ul>
+
+          <br />
+
+          <b>(a)</b>
+          CO<sub>2</sub>(s) ➞ CO<sub>2</sub>(g) (sublimation)
+          <br />
+          ΔS is
+          <select
+            id="gS1"
+            name="gS1"
+            class="calc"
+            formula="positive"
+            help="Compare the disorder of a solid and a gas."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="gS1FB"></div>
+          ΔH is
+          <select
+            id="gH1"
+            name="gH1"
+            class="calc"
+            formula="positive"
+            help="Decide whether energy must be absorbed or released during this phase change."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="gH1FB"></div>
+
+          <br /><br />
+
+          <b>(b)</b>
+          Br<sub>2</sub>(g) ➞ Br<sub>2</sub>(l) (condensation)
+          <br />
+          ΔS is
+          <select
+            id="gS2"
+            name="gS2"
+            class="calc"
+            formula="negative"
+            help="Consider how particle freedom changes when a gas becomes a liquid."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="gS2FB"></div>
+          ΔH is
+          <select
+            id="gH2"
+            name="gH2"
+            class="calc"
+            formula="negative"
+            help="Think about whether heat is released or absorbed."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="gH2FB"></div>
+
+          <br /><br />
+
+          <b>(c)</b>
+          I<sub>2</sub>(s) ➞ I<sub>2</sub>(l) (melting)
+          <br />
+          ΔS is
+          <select
+            id="gS3"
+            name="gS3"
+            class="calc"
+            formula="positive"
+            help="Compare particle motion in a solid versus a liquid."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="gS3FB"></div>
+          ΔH is
+          <select
+            id="gH3"
+            name="gH3"
+            class="calc"
+            formula="positive"
+            help="Decide whether energy is required to overcome intermolecular forces."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="gH3FB"></div>
+
+          <br /><br />
+
+          <b>(d)</b>
+          Ne(g) ➞ Ne(g)
+          <br />
+          ΔS is
+          <select
+            id="gS4"
+            name="gS4"
+            class="calc"
+            formula="zero"
+            help="Ask whether anything about the system has changed."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="gS4FB"></div>
+          ΔH is
+          <select
+            id="gH4"
+            name="gH4"
+            class="calc"
+            formula="zero"
+            help="No phase or chemical change occurs."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="gH4FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          For each of the following state changes, determine whether the entropy
+          change (ΔS) and the enthalpy change (ΔH) are <b>positive</b>,
+          <b>negative</b>, or <b>zero</b>. <br /><br />
+
+          <b>(a)</b>
+          NH<sub>3</sub>(l) ➞ NH<sub>3</sub>(g)
+          <br />
+          ΔS is
+          <select id="pS1" name="pS1" class="calc" formula="positive">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="pS1FB"></div>
+          ΔH is
+          <select id="pH1" name="pH1" class="calc" formula="positive">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="pH1FB"></div>
+
+          <br /><br />
+
+          <b>(b)</b>
+          CO<sub>2</sub>(g) ➞ CO<sub>2</sub>(s)
+          <br />
+          ΔS is
+          <select id="pS2" name="pS2" class="calc" formula="negative">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="pS2FB"></div>
+          ΔH is
+          <select id="pH2" name="pH2" class="calc" formula="negative">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="pH2FB"></div>
+
+          <br /><br />
+
+          <b>(c)</b>
+          Hg(l) ➞ Hg(l)
+          <br />
+          ΔS is
+          <select id="pS3" name="pS3" class="calc" formula="zero">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="pS3FB"></div>
+          ΔH is
+          <select id="pH3" name="pH3" class="calc" formula="zero">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="pH3FB"></div>
+
+          <br /><br />
+
+          <b>(d)</b>
+          Cl<sub>2</sub>(g) ➞ Cl<sub>2</sub>(l)
+          <br />
+          ΔS is
+          <select id="pS4" name="pS4" class="calc" formula="negative">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="pS4FB"></div>
+          ΔH is
+          <select id="pH4" name="pH4" class="calc" formula="negative">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="pH4FB"></div>
+        </li>
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Given the following chemical equation:
+          <br /><br />
+
+          N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ➞ 2 NH<sub>3</sub>(g) ΔG°<sub
+            >rxn</sub
+          >
+          = −33.2 kJ/mol <br /><br />
+
+          Calculate the value of ΔG°<sub>rxn</sub> for the reaction below.
+          <br /><br />
+
+          3 N<sub>2</sub>(g) + 9 H<sub>2</sub>(g) ➞ 6 NH<sub>3</sub>(g)
+
+          <h4>Step-by-step reasoning</h4>
+
+          <p><b>Step 1: Compare the two equations</b></p>
+          <p>
+            The second equation is obtained by multiplying the first equation by
+            3.
+          </p>
+
+          <p>
+            <b
+              >Step 2: Apply the same factor to ΔG°<sub>rxn</sub> since ΔG is an
+              extensive property.</b
+            >
+          </p>
+
+          ΔG°<sub>rxn</sub> =
+          <input
+            type="number"
+            class="calc"
+            id="gDG1"
+            name="gDG1"
+            step="any"
+            formula="-33.2*3"
+            help="When a reaction is multiplied by a factor, ΔG° is multiplied by the same factor."
+          />
+          kJ/mol
+          <div class="feedback" id="gDG1FB" name="gDG1FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Given the following chemical equation:
+          <br /><br />
+
+          4 Al(s) + 3 O<sub>2</sub>(g) ➞ 2 Al<sub>2</sub>O<sub>3</sub>(s)
+          ΔG°<sub>rxn</sub> = −1582 kJ/mol <br /><br />
+
+          Calculate the value of ΔG°<sub>rxn</sub> for the reaction below.
+          <br /><br />
+
+          2 Al(s) +
+          <span style="font-family: serif;">3/2</span> O<sub>2</sub>(g) ➞
+          Al<sub>2</sub>O<sub>3</sub>(s) <br /><br />
+
+          ΔG°<sub>rxn</sub> =
+          <input
+            type="number"
+            class="calc"
+            id="pDG1"
+            name="pDG1"
+            step="any"
+            formula="-1582/2"
+            help="When all coefficients are divided by a factor, ΔG° is divided by the same factor."
+          />
+          kJ/mol
+          <div class="feedback" id="pDG1FB" name="pDG1FB"></div>
+        </li>
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          The following reaction is <b>endothermic</b>. Which change will shift
+          the equilibrium to the <b>right</b>? <br /><br />
+
+          N<sub>2</sub>O<sub>4</sub> (g) ⇌ 2 NO<sub>2</sub> (g) <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>
+              Endothermic reactions absorb heat (treat heat like a reactant)
+            </li>
+            <li>Exothermic reactions produce heat (treat heat as a product)</li>
+            <li>
+              Increasing temperature shifts equilibrium away from the side that
+              has heat
+              <ul>
+                <li>Toward the product in endothermic reactions</li>
+                <li>Toward the reactant in exothermic reactions</li>
+              </ul>
+            </li>
+            <li>
+              Decreasing temperature shifts equilibrium toward the side that has
+              heat
+              <ul>
+                <li>Toward the reactant in endothermic reactions</li>
+                <li>Toward the product in exothermic reactions</li>
+              </ul>
+            </li>
+            <li>Increasing pressure favors the side with fewer moles of gas</li>
+            <li>Decreasing pressure favors the side with more moles of gas</li>
+            <li>Increasing volume lowers the pressure</li>
+            <li>Decreasing volume increases the pressure</li>
+            <li>
+              Catalysts do not have an effect on equilibrium, they only make you
+              reach equilibrium faster
+            </li>
+          </ul>
+
+          <br />
+
+          Which change shifts equilibrium to the <b>right</b>?
+
+          <br /><br />
+
+          Answer:
+          <select
+            id="gEQ2"
+            name="gEQ2"
+            class="calc"
+            formula="B"
+            help="For an endothermic reaction, decide how adding heat or changing pressure affects the direction of the reaction."
+          >
+            <option value="">Choose</option>
+            <option value="A">Lowering the temperature</option>
+            <option value="B">Raising the temperature</option>
+            <option value="C">Increasing pressure</option>
+            <option value="D">All of the above</option>
+            <option value="E">None of the above</option>
+          </select>
+
+          <div class="feedback" id="gEQ2FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          The following reaction is <b>exothermic</b>. Which change will shift
+          the equilibrium to the <b>left</b>? <br /><br />
+
+          H<sub>2</sub> (g) + I<sub>2</sub> (g) ⇌ 2 HI (g) <br /><br />
+
+          Answer:
+          <select id="pEQ2" name="pEQ2" class="calc" formula="B">
+            <option value="">Choose</option>
+            <option value="A">Lowering the temperature</option>
+            <option value="B">Raising the temperature</option>
+            <option value="C">Adding a catalyst</option>
+            <option value="D">Increasing volume</option>
+            <option value="E">None of the above</option>
+          </select>
+
+          <div class="feedback" id="pEQ2FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          The K<sub>p</sub> for the reaction below is 8.45 × 10<sup>−6</sup> at
+          260°C. <br /><br />
+
+          2 NO (g) + Cl<sub>2</sub> (g) ⇌ 2 NOCl (g) <br /><br />
+
+          At equilibrium:
+          <br />
+          P<sub>NO</sub> =
+          <input
+            class="num display-value"
+            id="PNO"
+            name="PNO"
+            random="true"
+            data-original="5.44e-5"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>Cl₂</sub> =
+          <input
+            class="num display-value"
+            id="PCl2"
+            name="PCl2"
+            random="true"
+            data-original="5.44e-5"
+            randomPercent="50%"
+            readonly
+          />
+          atm
+          <br /><br />
+
+          Find the partial pressure of NOCl.
+          <br /><br />
+
+          <b>Step 1: Substitute into the K<sub>p</sub> expression</b>
+          <br /><br />
+
+          $K_p = \frac{P_{NOCl}^2}{P_{NO}^2 \times P_{Cl_2}} = 8.45 ×
+          10^{−6}$<br /><br />
+
+          <div
+            style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;"
+          >
+            <!-- Numerator -->
+            <div
+              style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;"
+            >
+              $P_{NOCl}^2$
+            </div>
+
+            <!-- Fraction Bar -->
+            <div
+              style="width: 100%; height: 1.5px; background-color: black;"
+            ></div>
+
+            <!-- Denominator -->
+            <div style="padding: 2px 5px;">
+              <input
+                type="number"
+                step="any"
+                class="calc"
+                id="PNOPCl2"
+                name="PNOPCl2"
+                formula="${PNO}^2*${PCl2}"
+                help="Enter $P_{NO}^2 \times P_{Cl_2}$ using the given values."
+                style="width: 80px;"
+              />
+              <div class="feedback" id="PNOPCl2FB" name="PNOPCl2FB"></div>
+            </div>
+          </div>
+          = $8.45 × 10^{−6}$
+
+          <br /><br />
+
+          <b>Step 2: Solve for $P_{NOCl}^2$</b>
+          <br /><br />
+
+          $P_{NOCl}^2$ =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="PNOPCl2Kp"
+            name="PNOPCl2Kp"
+            formula="${PNO}^2*${PCl2}*8.45*10^-6"
+            help="Enter $P_{NO}^2 \times P_{Cl_2} \times K_p$ using the given values."
+          />
+          atm²
+          <div class="feedback" id="PNOPCl2KpFB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Solve for $P_{NOCl}$</b>
+          <br /><br />
+
+          $P_{NOCl}$ =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="PNOCl"
+            name="PNOCl"
+            formula="sqrt(${PNO}^2*${PCl2}*8.45*10^-6)"
+            help="Take the square root of $P_{NOCl}^2$."
+          />
+          atm
+          <div class="feedback" id="PNOClFB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          The K<sub>p</sub> for the reaction below is 3.60 × 10<sup>−5</sup>.
+          <br /><br />
+
+          N<sub>2</sub> (g) + 3 H<sub>2</sub> (g) ⇌ 2 NH<sub>3</sub> (g)
+          <br /><br />
+
+          At equilibrium:
+          <br />
+          P<sub>N<sub>2</sub></sub> =
+          <input
+            class="num display-value"
+            id="PN2"
+            name="PN2"
+            random="true"
+            data-original="2.00e-3"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>H<sub>2</sub></sub> =
+          <input
+            class="num display-value"
+            id="PH2"
+            name="PH2"
+            random="true"
+            data-original="2.00e-3"
+            randomPercent="50%"
+            readonly
+          />
+          atm
+          <br /><br />
+
+          Find the partial pressure of NH<sub>3</sub>.
+          <br /><br />
+
+          P<sub>NH₃</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pKP3"
+            name="pKP3"
+            formula="sqrt(3.60e-5*${PN2}*(${PH2})^3)"
+            help="Substitue into the K<sub>p</sub> epression, solve for $P_{NH_3}^2$, solve for $P_{NH_3}$"
+          />
+          atm
+          <div class="feedback" id="pKP3FB"></div>
+        </li>
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          What is the equilibrium constant expression for the reaction below?
+          <br /><br />
+
+          CH<sub>4</sub> (g) + CO<sub>2</sub> (g) ⇌ 2 CO (g) + 2 H<sub>2</sub>
+          (g) <br /><br />
+
+          K =
+
+          <div
+            style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;"
+          >
+            <!-- Numerator 1 -->
+            <div
+              style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;"
+            >
+              <select
+                id="gKN1"
+                name="gKN1"
+                class="calc"
+                formula="[CO]^2"
+                help="Choose the correct product with the correct exponent."
+              >
+                <option value="">Choose</option>
+                <option value="[CH4]">[CH₄]</option>
+                <option value="[CO]">[CO]</option>
+                <option value="[CH4]^2">[CH₄]²</option>
+                <option value="[CO]^2">[CO]²</option>
+              </select>
+
+              ×
+
+              <!-- Numerator (set 2) -->
+              <select
+                id="gKN2"
+                name="gKN2"
+                class="calc"
+                formula="[H2]2"
+                help="Choose the second product."
+              >
+                <option value="">Choose</option>
+                <option value="[H2]">[H₂]</option>
+                <option value="[H2]2">[H₂]²</option>
+                <option value="[CO2]">[CO₂]</option>
+                <option value="[CO2]^2">[CO₂]²</option>
+              </select>
+              <div class="feedback" id="gKN1FB"></div>
+              <div class="feedback" id="gKN2FB"></div>
+            </div>
+
+            <!-- Fraction Bar -->
+            <div
+              style="width: 100%; height: 1.5px; background-color: black;"
+            ></div>
+
+            <!-- Denominator (same sets as numerator) -->
+            <div style="padding: 2px 5px;">
+              <select id="gKD1" name="gKD1" class="calc" formula="[CH4]">
+                <option value="">Choose</option>
+                <option value="[CH4]">[CH₄]</option>
+                <option value="[CO]">[CO]</option>
+                <option value="[CH4]^2">[CH₄]²</option>
+                <option value="[CO]^2">[CO]²</option>
+              </select>
+
+              ×
+
+              <select id="gKD2" name="gKD2" class="calc" formula="[CO2]">
+                <option value="">Choose</option>
+                <option value="[H2]">[H₂]</option>
+                <option value="[H2]2">[H₂]²</option>
+                <option value="[CO2]">[CO₂]</option>
+                <option value="[CO2]^2">[CO₂]²</option>
+              </select>
+              <div class="feedback" id="gKD1FB"></div>
+              <div class="feedback" id="gKD2FB"></div>
+            </div>
+          </div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          What is the equilibrium constant expression for the reaction below?
+          <br /><br />
+
+          2 HCl (g) + F<sub>2</sub> (g) ⇌ 2 HF (g) + Cl<sub>2</sub> (g)
+          <br /><br />
+
+          K =
+
+          <div
+            style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;"
+          >
+            <!-- Numerator 1 -->
+            <div
+              style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;"
+            >
+              <select id="pKN1" name="pKN1" class="calc" formula="[HF]^2">
+                <option value="">Choose</option>
+                <option value="[HCl]">[HCl]</option>
+                <option value="[HF]">[HF]</option>
+                <option value="[HF]^2">[HF]²</option>
+              </select>
+
+              ×
+
+              <!-- Numerator (set 2) -->
+              <select id="pKN2" name="pKN2" class="calc" formula="[Cl2]">
+                <option value="">Choose</option>
+                <option value="[F2]">[F₂]</option>
+                <option value="[F2]^2">[F₂]²</option>
+                <option value="[Cl2]">[Cl₂]</option>
+                <option value="[Cl2]^2">[Cl₂]²</option>
+              </select>
+              <div class="feedback" id="pKN1FB"></div>
+              <div class="feedback" id="pKN2FB"></div>
+            </div>
+
+            <!-- Fraction Bar -->
+            <div
+              style="width: 100%; height: 1.5px; background-color: black;"
+            ></div>
+
+            <div style="padding: 2px 5px;">
+              <!-- Denominator (same sets as numerator) -->
+              <div style="padding: 2px 5px;">
+                <select id="pKD1" name="pKD1" class="calc" formula="[HCl]^2">
+                  <option value="">Choose</option>
+                  <option value="[HCl]">[HCl]</option>
+                  <option value="[HCl]^2">[HCl]²</option>
+                  <option value="[HF]">[HF]</option>
+                </select>
+
+                ×
+
+                <select id="pKD2" name="pKD2" class="calc" formula="[F2]">
+                  <option value="">Choose</option>
+                  <option value="[F2]">[F₂]</option>
+                  <option value="[F2]^2">[F₂]²</option>
+                  <option value="[Cl2]">[Cl₂]</option>
+                  <option value="[Cl2]^2">[Cl₂]²</option>
+                </select>
+                <div class="feedback" id="pKD1FB"></div>
+                <div class="feedback" id="pKD2FB"></div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ol>
+      <!-- end -->
       <!-- title -->
       <div id="button_bar">
         <button
@@ -2590,5 +5100,5 @@ $$
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script src="../js/lab.js"></script>
-</body>
+  </body>
 </html>
