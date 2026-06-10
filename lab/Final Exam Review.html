@@ -2355,7 +2355,7 @@ $$
 
   $P_{NOCl}^2$ =
   <input type="number" step="any" class="calc" id="PNOPCl2Kp" name="PNOPCl2Kp"
-         formula="${PNO}^2*${PCl2}*8.45*10^−6"
+         formula="${PNO}^2*${PCl2}*8.45*10^-6"
          help="Enter $P_{NO}^2 \times P_{Cl_2} \times K_p$ using the given values.">
   atm²
   <div class="feedback" id="PNOPCl2KpFB"></div>
@@ -2367,7 +2367,7 @@ $$
 
   $P_{NOCl}$ =
   <input type="number" step="any" class="calc" id="PNOCl" name="PNOCl"
-         formula="sqrt(${PNO}^2*${PCl2}*8.45*10^−6)"
+         formula="sqrt(${PNO}^2*${PCl2}*8.45*10^-6)"
          help="Take the square root of $P_{NOCl}^2$.">
   atm
   <div class="feedback" id="PNOClFB"></div>
@@ -2401,6 +2401,141 @@ $$
     >
   atm
   <div class="feedback" id="pKP3FB"></div>
+
+</li>
+
+  <h4>Guided Problem</h4>
+
+<li>
+  What is the equilibrium constant expression for the reaction below?
+  <br><br>
+
+  CH<sub>4</sub> (g) + CO<sub>2</sub> (g) ⇌ 2 CO (g) + 2 H<sub>2</sub> (g)
+  <br><br>
+
+  K = 
+
+<div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator 1 -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+  <select id="gKN1" name="gKN1" class="calc" formula="[CO]^2"
+          help="Choose the correct product with the correct exponent.">
+    <option value="">Choose</option>
+    <option value="[CH4]">[CH₄]</option>
+    <option value="[CO]">[CO]</option>
+    <option value="[CH4]^2">[CH₄]²</option>
+    <option value="[CO]^2">[CO]²</option>
+  </select>
+
+  ×
+
+  <!-- Numerator (set 2) -->
+  <select id="gKN2" name="gKN2" class="calc" formula="[H2]2"
+          help="Choose the second product.">
+    <option value="">Choose</option>
+    <option value="[H2]">[H₂]</option>
+    <option value="[H2]2">[H₂]²</option>
+    <option value="[CO2]">[CO₂]</option>
+    <option value="[CO2]^2">[CO₂]²</option>
+  </select>
+            <div class="feedback" id="gKN1FB"></div>
+  <div class="feedback" id="gKN2FB"></div>
+          </div>
+
+<!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+
+  <!-- Denominator (same sets as numerator) -->
+  <div style="padding: 2px 5px;">
+  <select id="gKD1" name="gKD1" class="calc" formula="[CH4]">
+    <option value="">Choose</option>
+    <option value="[CH4]">[CH₄]</option>
+    <option value="[CO]">[CO]</option>
+    <option value="[CH4]^2">[CH₄]²</option>
+    <option value="[CO]^2">[CO]²</option>
+  </select>
+
+  ×
+
+  <select id="gKD2" name="gKD2" class="calc" formula="[CO2]">
+    <option value="">Choose</option>
+    <option value="[H2]">[H₂]</option>
+    <option value="[H2]2">[H₂]²</option>
+    <option value="[CO2]">[CO₂]</option>
+    <option value="[CO2]^2">[CO₂]²</option>
+  </select>
+    <div class="feedback" id="gKD1FB"></div>
+  <div class="feedback" id="gKD2FB"></div>
+  </div>
+
+
+  
+  
+</div>
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  What is the equilibrium constant expression for the reaction below?
+  <br><br>
+
+  2 HCl (g) + F<sub>2</sub> (g) ⇌ 2 HF (g) + Cl<sub>2</sub> (g)
+  <br><br>
+
+  K = 
+
+<div style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;">
+          <!-- Numerator 1 -->
+          <div style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;">
+  <select id="pKN1" name="pKN1" class="calc" formula="[HF]^2">
+    <option value="">Choose</option>
+    <option value="[HCl]">[HCl]</option>
+    <option value="[HF]">[HF]</option>
+    <option value="[HF]^2">[HF]²</option>
+  </select>
+
+  ×
+
+  <!-- Numerator (set 2) -->
+  <select id="pKN2" name="pKN2" class="calc" formula="[Cl2]">
+    <option value="">Choose</option>
+    <option value="[F2]">[F₂]</option>
+    <option value="[F2]^2">[F₂]²</option>
+    <option value="[Cl2]">[Cl₂]</option>
+    <option value="[Cl2]^2">[Cl₂]²</option>
+  </select>
+            <div class="feedback" id="pKN1FB"></div>
+  <div class="feedback" id="pKN2FB"></div>
+          </div>
+
+ <!-- Fraction Bar -->
+          <div style="width: 100%; height: 1.5px; background-color: black;"></div>
+  
+<div style="padding: 2px 5px;">
+  <!-- Denominator (same sets as numerator) -->
+  <div style="padding: 2px 5px;">
+  <select id="pKD1" name="pKD1" class="calc" formula="[HCl]^2">
+    <option value="">Choose</option>
+    <option value="[HCl]">[HCl]</option>
+    <option value="[HCl]^2">[HCl]²</option>
+    <option value="[HF]">[HF]</option>
+  </select>
+
+  ×
+
+  <select id="pKD2" name="pKD2" class="calc" formula="[F2]">
+    <option value="">Choose</option>
+    <option value="[F2]">[F₂]</option>
+    <option value="[F2]^2">[F₂]²</option>
+    <option value="[Cl2]">[Cl₂]</option>
+    <option value="[Cl2]^2">[Cl₂]²</option>
+  </select>
+    <div class="feedback" id="pKD1FB"></div>
+  <div class="feedback" id="pKD2FB"></div>
+  </div>
+</div> 
+</div>
 
 </li>
 
