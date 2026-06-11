@@ -74,6 +74,7 @@
           help="Look at the group hydrogen is in on the periodic table.  1a = 1 valence electron, 2a = 2 valence electrons..."
         />
         <div class="feedback" id="1HVEFB" name="1HVEFB"></div>
+        <br />
         valence electron Total valence electrons =
         <input
           type="number"
@@ -82,7 +83,7 @@
           name="1TVE"
           step="any"
           formula="8"
-          help="Add together all the valence electrons [5 + (3 × 1)]."
+          help="Add together all the valence electrons <br>[5 + (3 × 1)]."
         />
         <div class="feedback" id="1TVEFB" name="1TVEFB"></div>
         valence electrons<br />
@@ -134,7 +135,7 @@
           name="1EDG"
           class="calc"
           formula="Tetrahedral"
-          help="The electron domain geometry is based on the total number of electron domains.  2=linear, 3=trigonal planar, 4=tetrahedral, 5=trigonal bipyramidal, 6=octahedral"
+          help="The electron domain geometry is based on the total number of electron domains.  <br>2=linear<br>3=trigonal planar<br>4=tetrahedral<br>5=trigonal bipyramidal<br>6=octahedral"
         >
           <option value="">Choose an option</option>
           <option value="Linear">Linear</option>
@@ -2323,7 +2324,7 @@
 
             <p><b>Step 2: Identify the exponents in the rate law</b></p>
 
-            [X]<sup>2</sup> contributes an order of
+            [X]<sup>3</sup> contributes an order of
             <input
               type="number"
               class="calc"
@@ -3520,14 +3521,14 @@
           </select>
           <div class="feedback" id="pS2FB"></div>
           ΔH is
-          <select id="pH2" name="pH2" class="calc" formula="negative">
+          <select id="pH2-3" name="pH2-3" class="calc" formula="negative">
             <option value="">Choose</option>
             <option value="positive">positive</option>
             <option value="negative">negative</option>
             <option value="zero">zero</option>
           </select>
 
-          <div class="feedback" id="pH2FB"></div>
+          <div class="feedback" id="pH2-3FB"></div>
 
           <br /><br />
 
@@ -3827,7 +3828,7 @@
             class="calc"
             id="PNOPCl2Kp"
             name="PNOPCl2Kp"
-            formula="${PNO}^2*${PCl2}*8.45*10^−6"
+            formula="${PNO}^2*${PCl2}*8.45*10^-6"
             help="Enter $P_{NO}^2 \times P_{Cl_2} \times K_p$ using the given values."
           />
           atm²
@@ -3845,7 +3846,7 @@
             class="calc"
             id="PNOCl"
             name="PNOCl"
-            formula="sqrt(${PNO}^2*${PCl2}*8.45*10^−6)"
+            formula="sqrt(${PNO}^2*${PCl2}*8.45*10^-6)"
             help="Take the square root of $P_{NOCl}^2$."
           />
           atm
@@ -3903,6 +3904,7 @@
           <div class="feedback" id="pKP3FB"></div>
         </li>
 
+        <hr />
         <h4>Guided Problem</h4>
 
         <li>
@@ -4053,6 +4055,721 @@
               </div>
             </div>
           </div>
+        </li>
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Consider the reaction:
+          <br /><br />
+
+          A (g) + B (g) ⇌ C (g)
+          <br /><br />
+
+          Initially, the container has measurable amounts of A and B, but
+          <b>no C is present</b>. <br /><br />
+
+          <b>Step 1: Identify what appears in the numerator of Q<sub>c</sub></b>
+          <br /><br />
+
+          The numerator contains:
+          <select
+            id="gQ1"
+            name="gQ1"
+            class="calc"
+            formula="products"
+            help="Products always go in the numerator of Q."
+          >
+            <option value="">Choose</option>
+            <option value="reactants">reactants</option>
+            <option value="products">products</option>
+          </select>
+          <div class="feedback" id="gQ1FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Determine the value of the numerator</b>
+          <br /><br />
+
+          Since no product is present, the numerator is:
+          <select
+            id="gQ2"
+            name="gQ2"
+            class="calc"
+            formula="zero"
+            help="If no product exists, its concentration is 0."
+          >
+            <option value="">Choose</option>
+            <option value="1">1</option>
+            <option value="-1">-1</option>
+            <option value="infinity">∞ (infinity)</option>
+            <option value="zero">0</option>
+          </select>
+          <div class="feedback" id="gQ2FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Determine the value of Q<sub>c</sub></b>
+          <br /><br />
+
+          Q<sub>c</sub> =
+          <select
+            id="gQ3"
+            name="gQ3"
+            class="calc"
+            formula="zero"
+            help="Q = (products)/(reactants). If the numerator is zero, the entire value is zero."
+          >
+            <option value="">Choose</option>
+            <option value="zero">0</option>
+            <option value="1">1</option>
+            <option value="infinity">∞ (infinity)</option>
+            <option value="-1">-1</option>
+          </select>
+          <div class="feedback" id="gQ3FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Consider the reaction:
+          <br /><br />
+
+          2 SO<sub>2</sub> (g) + O<sub>2</sub> (g) ⇌ 2 SO<sub>3</sub> (g)
+          <br /><br />
+
+          A reaction vessel contains only products at nonzero concentrations. No
+          SO<sub>2</sub> or O<sub>2</sub> is present. <br /><br />
+
+          What is the value of Q<sub>c</sub>?
+          <br /><br />
+
+          Q<sub>c</sub> =
+          <select id="pQ1" name="pQ1" class="calc" formula="infinity">
+            <option value="">Choose</option>
+            <option value="0">0</option>
+            <option value="1">1</option>
+            <option value="infinity">∞ (infinity)</option>
+            <option value="-1">-1</option>
+          </select>
+
+          <div class="feedback" id="pQ1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          The equilibrium constant is given for one of the reactions below.
+          Determine the value of the missing equilibrium constant,
+          K<sub>c2</sub>.
+          <br /><br />
+
+          H<sub>2</sub> (g) + Br<sub>2</sub> (g) ⇌ 2 HBr (g) K<sub>c1</sub> =
+          <input
+            class="num display-value"
+            id="Kc1"
+            name="Kc1"
+            random="true"
+            data-original="42.5"
+            randomPercent="50%"
+            readonly
+          />
+          <br /><br />
+
+          5 H<sub>2</sub> (g) + 5 Br<sub>2</sub> (g) ⇌ 10 HBr (g) K<sub>c2</sub>
+          = ? <br /><br />
+
+          <b>Use these rules to guide your reasoning:</b>
+          <ul>
+            <li>
+              If a reaction is <b>multiplied by a factor n</b>, then the
+              equilibrium constant becomes <b>K<sup>n</sup></b>
+            </li>
+            <li>
+              If a reaction is <b>divided by a factor n</b>, then the
+              equilibrium constant becomes <b>K<sup>1/n</sup></b>
+            </li>
+            <li>
+              If a reaction is <b>reversed</b>, the new equilibrium constant
+              becomes <b>1/K</b>
+            </li>
+            <li>
+              Only changes to the <b>coefficients</b> affect K (not the
+              substances themselves)
+            </li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Compare the two equations</b>
+          <br /><br />
+
+          The second equation is obtained by multiplying the first equation by:
+          <input
+            type="number"
+            class="calc"
+            id="gKfactor"
+            name="gKfactor"
+            formula="5"
+            help="Compare all coefficients in the second equation to the first."
+          />
+          <div class="feedback" id="gKfactorFB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Apply the appropriate rule</b>
+          <br /><br />
+
+          K<sub>c2</sub> =
+          <input
+            type="text"
+            class="calc"
+            id="gKexpr"
+            name="gKexpr"
+            formula="${Kc1}^5"
+            help="When coefficients are multiplied by n, raise K to the power n."
+          />
+          <div class="feedback" id="gKexprFB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          The equilibrium constant is given for one of the reactions below.
+          Determine the value of K<sub>c2</sub>.
+          <br /><br />
+
+          N<sub>2</sub> (g) + 3 H<sub>2</sub> (g) ⇌ 2 NH<sub>3</sub> (g) K<sub
+            >c1</sub
+          >
+          =
+          <input
+            class="num display-value"
+            id="pKc1"
+            name="pKc1"
+            random="true"
+            data-original="8.20"
+            randomPercent="50%"
+            readonly
+          />
+          <br /><br />
+
+          3 N<sub>2</sub> (g) + 9 H<sub>2</sub> (g) ⇌ 6 NH<sub>3</sub> (g) K<sub
+            >c2</sub
+          >
+          = ? <br /><br />
+
+          K<sub>c2</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pKfinal"
+            name="pKfinal"
+            formula="${pKc1}^3"
+          />
+          <div class="feedback" id="pKfinalFB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Identify the change that will <b>always</b> shift the equilibrium to
+          the <b>left</b>. <br /><br />
+
+          <b>Use these rules to guide your reasoning:</b>
+          <ul>
+            <li>
+              Adding a <b>reactant</b> shifts equilibrium to the <b>right</b>
+            </li>
+            <li>
+              Adding a <b>product</b> shifts equilibrium to the <b>left</b>
+            </li>
+            <li>
+              Temperature changes depend on whether the reaction is
+              <b>endothermic or exothermic</b>
+            </li>
+            <li>
+              Pressure changes depend on the <b>number of moles of gas</b> on
+              each side
+            </li>
+            <li>
+              "Always" means the shift must happen
+              <b>regardless of the reaction details</b>
+            </li>
+          </ul>
+
+          <br />
+
+          <b
+            >Step 1: Which type of change depends on the reaction being
+            endothermic or exothermic?</b
+          >
+          <br /><br />
+
+          <select
+            id="gEQC1"
+            name="gEQC1"
+            class="calc"
+            formula="temperature"
+            help="Temperature effects depend on whether heat is a reactant or a product."
+          >
+            <option value="">Choose</option>
+            <option value="pressure">Pressure</option>
+            <option value="temperature">Temperature</option>
+            <option value="adding product">Adding product</option>
+          </select>
+          <div class="feedback" id="gEQC1FB"></div>
+
+          <br /><br />
+
+          <b
+            >Step 2: Which type of change depends on the number of gas moles?</b
+          >
+          <br /><br />
+
+          <select
+            id="gEQC2"
+            name="gEQC2"
+            class="calc"
+            formula="pressure"
+            help="Pressure only shifts equilibrium if the number of moles of gas changes."
+          >
+            <option value="">Choose</option>
+            <option value="pressure">Pressure</option>
+            <option value="adding reactant">Adding reactant</option>
+            <option value="adding product">Adding product</option>
+          </select>
+          <div class="feedback" id="gEQC2FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Which change will ALWAYS shift equilibrium to the left?</b>
+          <br /><br />
+
+          <select
+            id="gEQC3"
+            name="gEQC3"
+            class="calc"
+            formula="A"
+            help="Only one change consistently forces the reaction in one direction regardless of conditions."
+          >
+            <option value="">Choose</option>
+            <option value="A">Adding product</option>
+            <option value="B">Increasing temperature</option>
+            <option value="C">Decreasing pressure</option>
+            <option value="D">Adding reactant</option>
+          </select>
+          <div class="feedback" id="gEQC3FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>
+              Adding product increases the product concentration, so the system
+              shifts left to consume it.
+            </li>
+            <li>
+              Temperature changes depend on reaction type, so they are not
+              always predictable.
+            </li>
+            <li>
+              Pressure changes depend on gas mole differences, so they are not
+              always predictable.
+            </li>
+            <li>Adding reactants shifts equilibrium to the right, not left.</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Identify the change that will <b>always</b> shift the equilibrium to
+          the <b>right</b>. <br /><br />
+
+          <select id="pEQC1" name="pEQC1" class="calc" formula="D">
+            <option value="">Choose</option>
+            <option value="A">Adding product</option>
+            <option value="B">Decreasing temperature</option>
+            <option value="C">Increasing pressure</option>
+            <option value="D">Adding reactant</option>
+          </select>
+
+          <div class="feedback" id="pEQC1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Consider the following reaction:
+          <br /><br />
+
+          Xe (g) + 2 F<sub>2</sub> (g) ⇌ XeF<sub>4</sub> (g) <br /><br />
+
+          Initial pressures:
+          <br />
+          P<sub>Xe</sub> =
+          <input
+            class="num display-value"
+            id="gXe"
+            name="gXe"
+            random="true"
+            data-original="5.78"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>F₂</sub> =
+          <input
+            class="num display-value"
+            id="gF2"
+            name="gF2"
+            random="true"
+            data-original="5.58"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>XeF₄</sub> = 0 atm <br /><br />
+
+          At equilibrium:
+          <br />
+          P<sub>Xe</sub> = 4.25 atm <br /><br />
+
+          Find K<sub>p</sub>.
+          <br /><br />
+
+          <b>Use these steps to guide your reasoning:</b>
+          <ul>
+            <li>Find the change in Xe to determine x</li>
+            <li>Use stoichiometry to find changes in F₂ and XeF₄</li>
+            <li>Determine equilibrium pressures</li>
+            <li>Substitute into the K<sub>p</sub> expression</li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Calculate the change in Xe (x)</b>
+          <br /><br />
+
+          x =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gX"
+            name="gX"
+            formula="${gXe}-4.25"
+            help="x is the amount of Xe that reacted: initial − equilibrium."
+          />
+          atm
+          <div class="feedback" id="gXFB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Determine equilibrium pressures of the other gases</b>
+
+          <br /><br />
+
+          P<sub>F₂</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gPF2eq"
+            name="gPF2eq"
+            formula="${gF2}-2*(${gXe}-4.25)"
+            help="F₂ changes by −2x due to the coefficient."
+          />
+          atm
+          <div class="feedback" id="gPF2eqFB"></div>
+
+          <br /><br />
+
+          P<sub>XeF₄</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gPXeF4"
+            name="gPXeF4"
+            formula="${gXe}-4.25"
+            help="XeF₄ increases by +x."
+          />
+          atm
+          <div class="feedback" id="gPXeF4FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Substitute into K<sub>p</sub></b>
+          <br /><br />
+
+          K<sub>p</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gKp"
+            name="gKp"
+            formula="(${gXe}-4.25)/(4.25*(${gF2}-2*(${gXe}-4.25))^2)"
+            help="Kp = (products)/(reactants), each raised to their coefficients."
+          />
+          <div class="feedback" id="gKpFB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Consider the reaction:
+          <br /><br />
+
+          N<sub>2</sub> (g) + 3 H<sub>2</sub> (g) ⇌ 2 NH<sub>3</sub> (g)
+          <br /><br />
+
+          Initial pressures:
+          <br />
+          P<sub>N₂</sub> =
+          <input
+            class="num display-value"
+            id="pN2-2"
+            name="pN2-2"
+            random="true"
+            data-original="4.60"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>H₂</sub> =
+          <input
+            class="num display-value"
+            id="pH2-2"
+            name="pH2-2"
+            random="true"
+            data-original="6.20"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>NH₃</sub> = 0 atm <br /><br />
+
+          At equilibrium:
+          <br />
+          P<sub>N₂</sub> = 3.15 atm <br /><br />
+
+          Find K<sub>p</sub>.
+          <br /><br />
+
+          K<sub>p</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pKp"
+            name="pKp"
+            formula="(2*(${pN2-2}-3.15))^2/(3.15*(${pH2-2}-3*(${pN2-2}-3.15))^3)"
+          />
+          <div class="feedback" id="pKpFB"></div>
+        </li>
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Consider the following reaction:
+          <br /><br />
+
+          SO<sub>2</sub> (g) + NO<sub>2</sub> (g) ⇌ SO<sub>3</sub> (g) + NO (g)
+          <br /><br />
+
+          Initial pressures:
+          <br />
+          P<sub>SO₂</sub> =
+          <input
+            class="num display-value"
+            id="gSO2"
+            name="gSO2"
+            random="true"
+            data-original="6.20"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>NO₂</sub> =
+          <input
+            class="num display-value"
+            id="gNO2"
+            name="gNO2"
+            random="true"
+            data-original="5.50"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>SO₃</sub> = 0 atm P<sub>NO</sub> = 0 atm <br /><br />
+
+          At equilibrium:
+          <br />
+          P<sub>SO₂</sub> =
+
+          <input
+            class="num display-value"
+            id="gSO2eq"
+            name="gSO2eq"
+            random="true"
+            data-original="1.37"
+            randomPercent="50%"
+            readonly
+          />
+
+          <br /><br />
+
+          Find K<sub>p</sub>.
+          <br /><br />
+
+          <b>Use these steps to guide your reasoning:</b>
+          <ul>
+            <li>Find the change in SO₂ to determine x</li>
+            <li>Use stoichiometry to determine changes in the other gases</li>
+            <li>Calculate equilibrium pressures</li>
+            <li>Substitute into the K<sub>p</sub> expression</li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Calculate x</b>
+          <br /><br />
+
+          x =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gX-2"
+            name="gX-2"
+            formula="${gSO2}-${gSO2eq}"
+            help="x equals the amount of SO₂ that reacted: initial − equilibrium."
+          />
+          atm
+          <div class="feedback" id="gX-2FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Determine equilibrium pressures</b>
+          <br /><br />
+
+          P<sub>NO₂</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gPNO2eq"
+            name="gPNO2eq"
+            formula="${gNO2}-(${gSO2}-${gSO2eq})"
+            help="NO₂ changes by −x (same coefficient as SO₂)."
+          />
+          atm
+          <div class="feedback" id="gPNO2eqFB"></div>
+
+          <br /><br />
+
+          P<sub>SO₃</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gPSO3"
+            name="gPSO3"
+            formula="${gSO2}-${gSO2eq}"
+            help="SO₃ increases by +x."
+          />
+          atm
+          <div class="feedback" id="gPSO3FB"></div>
+
+          <br /><br />
+
+          P<sub>NO</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gPNO"
+            name="gPNO"
+            formula="${gSO2}-${gSO2eq}"
+            help="NO increases by +x."
+          />
+          atm
+          <div class="feedback" id="gPNOFB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Calculate K<sub>p</sub></b>
+          <br /><br />
+
+          K<sub>p</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gKp-2"
+            name="gKp-2"
+            formula="((${gSO2}-${gSO2eq})^2)/(${gSO2eq}*(${gNO2}-(${gSO2}-${gSO2eq})))"
+            help="Kp = (products)/(reactants), each raised to their coefficients."
+          />
+          <div class="feedback" id="gKp-2FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Consider the reaction:
+          <br /><br />
+
+          N<sub>2</sub> (g) + 3 H<sub>2</sub> (g) ⇌ 2 NH<sub>3</sub> (g)
+          <br /><br />
+
+          Initial pressures:
+          <br />
+          P<sub>N₂</sub> =
+          <input
+            class="num display-value"
+            id="pN2"
+            name="pN2"
+            random="true"
+            data-original="4.60"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>H₂</sub> =
+          <input
+            class="num display-value"
+            id="pH2"
+            name="pH2"
+            random="true"
+            data-original="6.20"
+            randomPercent="50%"
+            readonly
+          />
+          atm P<sub>NH₃</sub> = 0 atm <br /><br />
+
+          At equilibrium:
+          <br />
+          P<sub>N₂</sub> = 3.15 atm <br /><br />
+
+          Find K<sub>p</sub>.
+          <br /><br />
+
+          K<sub>p</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pKp-2"
+            name="pKp-2"
+            formula="(2*(${pN2}-3.15))^2/(3.15*(${pH2}-3*(${pN2}-3.15))^3)"
+          />
+          <div class="feedback" id="pKp-2FB"></div>
         </li>
       </ol>
       <!-- end -->
