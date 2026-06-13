@@ -138,6 +138,320 @@
 
 </li>
 
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Calculate the pOH of a solution at 25°C.
+  <br><br>
+
+  [H<sub>3</sub>O<sup>+</sup>] =
+  <input class="num display-value" id="gH3O" name="gH3O"
+         random="true" data-original="2.19e-3" randomPercent="50%" readonly>
+  M
+  <br><br>
+
+  <b>Use these relationships:</b>
+  <ul>
+    <li>pH = −log[H<sub>3</sub>O<sup>+</sup>]</li>
+    <li>pOH = 14 − pH</li>
+    <li>Therefore: pOH = 14 + log[H<sub>3</sub>O<sup>+</sup>]</li>
+  </ul>
+
+  <br>
+
+  <b>Step 1: Calculate pH</b>
+  <br><br>
+
+  pH =
+  <input type="number" step="any" class="calc" id="gpH" name="gpH"
+         formula="-log10(${gH3O})"
+         help="Use pH = −log[H₃O⁺].">
+  <div class="feedback" id="gpHFB"></div>
+
+  <br><br>
+
+  <b>Step 2: Calculate pOH</b>
+  <br><br>
+
+  pOH =
+  <input type="number" step="any" class="calc" id="gpOH" name="gpOH"
+         formula="14-(-log10(${gH3O}))"
+         help="Use pOH = 14 − pH.">
+  <div class="feedback" id="gpOHFB"></div>
+
+  <br><br>
+
+  <b>Final Answer:</b>
+  <br><br>
+
+  pOH =
+  <input type="number" step="any" class="calc" id="gFinal" name="gFinal"
+         formula="14+log10(${gH3O})">
+  <div class="feedback" id="gFinalFB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Calculate the pOH of a solution at 25°C.
+  <br><br>
+
+  [H<sub>3</sub>O<sup>+</sup>] =
+  <input class="num display-value" id="pH3O" name="pH3O"
+         random="true" data-original="4.75e-4" randomPercent="50%" readonly>
+  M
+  <br><br>
+
+  pOH =
+  <input type="number" step="any" class="calc" id="pFinal" name="pFinal"
+         formula="14+log10(${pH3O})">
+  <div class="feedback" id="pFinalFB"></div>
+
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Calculate the percent ionization of a monoprotic weak acid (HA).
+  <br><br>
+
+  HA ⇌ H<sup>+</sup> + A<sup>−</sup>
+  <br><br>
+
+  Initial concentration:
+  <br>
+  [HA] = 
+  <input class="num display-value" id="gHA" name="gHA"
+         random="true" data-original="0.222" randomPercent="50%" readonly> M
+  <br><br>
+
+  K<sub>a</sub> =
+  <input class="num display-value" id="gKa" name="gKa"
+         random="true" data-original="2.77e-5" randomPercent="50%" readonly>
+  <br><br>
+
+  <b>Step 1: Complete the ICE table</b>
+  <br><br>
+
+  <table border="1" cellpadding="6">
+    <tr>
+      <th></th>
+      <th>HA</th>
+      <th>H⁺</th>
+      <th>A⁻</th>
+    </tr>
+
+    <tr>
+      <td><b>I</b></td>
+      <td><input class="calc" id="gI1" name="gI1" formula="${gHA}" help="Initial HA is given.">
+<div class="feedback" id="gI1FB" name="gI1FB"></div></td>
+      <td><input class="calc" id="gI2" name="gI2" formula="0">
+<div class="feedback" id="gI2FB" name="gI2FB"></div></td>
+      <td><input class="calc" id="gI3" name="gI3" formula="0">
+<div class="feedback" id="gI3FB" name="gI3FB"></div></td>
+    </tr>
+
+    <tr>
+      <td><b>C</b></td>
+      <td><input class="calc" id="gC1" name="gC1" formula="-x" help="HA decreases by x.">
+<div class="feedback" id="gC1FB" name="gC1FB"></div></td>
+      <td><input class="calc" id="gC2" name="gC2" formula="x">
+<div class="feedback" id="gC2FB" name="gC2FB"></div></td>
+      <td><input class="calc" id="gC3" name="gC3" formula="x">
+<div class="feedback" id="gC3FB" name="gC3FB"></div></td>
+    </tr>
+
+    <tr>
+      <td><b>E</b></td>
+      <td><input class="calc" id="gE1" name="gE1" formula="${gHA}-x">
+<div class="feedback" id="gE1FB" name="gE1FB"></div></td>
+      <td><input class="calc" id="gE2" name="gE2" formula="x">
+<div class="feedback" id="gE2FB" name="gE2FB"></div></td>
+      <td><input class="calc" id="gE3" name="gE3" formula="x">
+<div class="feedback" id="gE3FB" name="gE3FB"></div></td>
+    </tr>
+  </table>
+
+  <br><br>
+
+  <b>Step 2: Write the K<sub>a</sub> expression</b>
+  <br><br>
+
+  K<sub>a</sub> =
+  <input type="text" class="calc" id="gKaExpr" name="gKaExpr"
+         formula="(x*x)/(${gHA}-x)"
+         help="Products over reactant using equilibrium values.">
+  <div class="feedback" id="gKaExprFB"></div>
+
+  <br><br>
+
+  <b>Step 3: Check small x assumption</b>
+  <br><br>
+
+  [HA]/K<sub>a</sub> =
+  <input type="number" step="any" class="calc" id="gCheck" name="gCheck"
+         formula="${gHA}/${gKa}"
+         help="Divide initial concentration by Ka.">
+  <div class="feedback" id="gCheckFB"></div>
+
+  <br><br>
+
+  Can the small x approximation be used?
+  <select id="gSmallX" name="gSmallX" class="calc" formula="yes"
+          help="If [HA]/Ka > 400, the approximation is valid.">
+    <option value="">Choose</option>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+  </select>
+  <div class="feedback" id="gSmallXFB"></div>
+
+  <br><br>
+
+  <b>Step 4: Solve for x</b>
+  <br><br>
+
+  x =
+  <input type="number" step="any" class="calc" id="gX" name="gX"
+         formula="sqrt(${gKa}*${gHA})"
+         help="If using small x: Ka ≈ x²/[HA]. Solve for x.">
+  M
+  <div class="feedback" id="gXFB"></div>
+
+  <br><br>
+
+  <b>Step 5: Calculate percent ionization</b>
+  <br><br>
+
+  % ionization =
+  <input type="number" step="any" class="calc" id="gPercent" name="gPercent"
+         formula="(sqrt(${gKa}*${gHA})/${gHA})*100"
+         help="(x / initial) × 100">
+  %
+  <div class="feedback" id="gPercentFB"></div>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Calculate the percent ionization of a monoprotic weak acid (HA).
+  <br><br>
+
+  Initial concentration:
+  <br>
+  [HA] =
+  <input class="num display-value" id="pHA" name="pHA"
+         random="true" data-original="0.150" randomPercent="50%" readonly> M
+  <br><br>
+
+  K<sub>a</sub> =
+  <input class="num display-value" id="pKa" name="pKa"
+         random="true" data-original="1.25e-6" randomPercent="50%" readonly>
+  <br><br>
+
+  % ionization =
+  <input type="number" step="any" class="calc" id="pPercent" name="pPercent"
+         formula="(sqrt(${pKa}*${pHA})/${pHA})*100">
+  %
+  <div class="feedback" id="pPercentFB"></div>
+
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Which of the following is a <b>Brønsted–Lowry base</b>?
+  <br><br>
+
+  A) CO<sub>2</sub>  
+  B) HNO<sub>3</sub>  
+  C) Mg(OH)<sub>2</sub>  
+  D) C<sub>2</sub>H<sub>6</sub>  
+  E) None of the above  
+  <br><br>
+
+  <b>Use these ideas to guide your reasoning:</b>
+  <ul>
+    <li>A <b>Brønsted–Lowry base</b> accepts H<sup>+</sup></li>
+    <li>In general chemistry, many bases contain <b>OH</b>.  The one exception you should memorize is NH<sub>3</sub>.</li>
+    <li>Acids are often written with <b>H first</b></li>
+  </ul>
+
+  <br>
+
+  <b>Step 1: Which substance contains OH?</b>
+  <br><br>
+
+  <select id="gBase1" name="gBase1" class="calc" formula="Mg(OH)2"
+          help="Identify the compound that contains the hydroxide (OH) group.">
+    <option value="">Choose</option>
+    <option value="CO2">CO₂</option>
+    <option value="HNO3">HNO₃</option>
+    <option value="Mg(OH)2">Mg(OH)₂</option>
+    <option value="C2H6">C₂H₆</option>
+  </select>
+  <div class="feedback" id="gBase1FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Identify the base</b>
+  <br><br>
+
+  <select id="gBase2" name="gBase2" class="calc" formula="C"
+          help="Compounds with OH are typically bases in general chemistry.">
+    <option value="">Choose</option>
+    <option value="A">CO₂</option>
+    <option value="B">HNO₃</option>
+    <option value="C">Mg(OH)₂</option>
+    <option value="D">C₂H₆</option>
+    <option value="E">None of the above</option>
+  </select>
+  <div class="feedback" id="gBase2FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>Mg(OH)₂ contains hydroxide (OH), which is characteristic of many bases.</li>
+    <li>HNO₃ begins with H, so it is an acid.</li>
+    <li>CO₂ and C₂H₆ do not function as bases in this context.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Which of the following is a <b>Brønsted–Lowry base</b>?
+  <br><br>
+
+  A) H₂SO₄  
+  B) KOH  
+  C) CH₄  
+  D) SO₂  
+  E) None of the above  
+  <br><br>
+
+  <select id="pBase1" name="pBase1" class="calc" formula="B">
+    <option value="">Choose</option>
+    <option value="A">H₂SO₄</option>
+    <option value="B">KOH</option>
+    <option value="C">CH₄</option>
+    <option value="D">SO₂</option>
+    <option value="E">None of the above</option>
+  </select>
+
+  <div class="feedback" id="pBase1FB"></div>
+
+</li>
+
 
 
      <!-- End -->
