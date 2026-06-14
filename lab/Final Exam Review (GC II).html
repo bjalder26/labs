@@ -1,0 +1,1664 @@
+<html>
+  <head>
+    <title>Final Exam Review (GC II)</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title">Final Exam Review (GC II)</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+      <ol>
+        <h4>Guided Problem</h4>
+
+        <li>
+          Identify the strongest acid.
+          <br />
+
+          A) HClO B) HClO<sub>2</sub> C) HClO<sub>3</sub> D) HClO<sub>4</sub>
+          <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>These are <b>oxoacids</b> (acids containing oxygen)</li>
+            <li>
+              For oxoacids with the same central atom,
+              <b>more oxygen atoms = stronger acid</b>
+            </li>
+            <li>
+              More oxygen atoms means:
+              <ul>
+                <li>Greater electron withdrawal from the O–H bond</li>
+                <li>More stable conjugate base</li>
+              </ul>
+            </li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Identify the central atom in each acid</b>
+          <br />
+
+          The central atom is:
+          <select
+            id="gAcid1"
+            name="gAcid1"
+            class="calc"
+            formula="Cl"
+            help="All acids listed contain the same central atom."
+          >
+            <option value="">Choose</option>
+            <option value="H">H</option>
+            <option value="Cl">Cl</option>
+            <option value="O">O</option>
+          </select>
+          <div class="feedback" id="gAcid1FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: What determines strength for these acids?</b>
+          <br />
+
+          Acid strength increases with:
+          <select
+            id="gAcid2"
+            name="gAcid2"
+            class="calc"
+            formula="more oxygen"
+            help="For oxoacids with the same central atom, compare the number of oxygen atoms."
+          >
+            <option value="">Choose</option>
+            <option value="more hydrogen">more hydrogen</option>
+            <option value="more oxygen">more oxygen</option>
+            <option value="larger molecule">larger molecule</option>
+          </select>
+          <div class="feedback" id="gAcid2FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Identify the strongest acid</b>
+          <br />
+
+          <select
+            id="gAcid3"
+            name="gAcid3"
+            class="calc"
+            formula="D"
+            help="Choose the acid with the greatest number of oxygen atoms."
+          >
+            <option value="">Choose</option>
+            <option value="A">HClO</option>
+            <option value="B">HClO₂</option>
+            <option value="C">HClO₃</option>
+            <option value="D">HClO₄</option>
+          </select>
+          <div class="feedback" id="gAcid3FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>
+              All acids share the same central atom (Cl), so we compare oxygen
+              count.
+            </li>
+            <li>
+              More oxygen atoms increase electron withdrawal and stabilize the
+              conjugate base.
+            </li>
+            <li>
+              HClO₄ has the most oxygen atoms, so it is the strongest acid.
+            </li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Identify the <b>weakest</b> acid.
+          <br />
+
+          A) HBrO B) HBrO<sub>2</sub> C) HBrO<sub>3</sub> D) HBrO<sub>4</sub>
+          <br />
+
+          <select id="pAcid1" name="pAcid1" class="calc" formula="A">
+            <option value="">Choose</option>
+            <option value="A">HBrO</option>
+            <option value="B">HBrO₂</option>
+            <option value="C">HBrO₃</option>
+            <option value="D">HBrO₄</option>
+          </select>
+
+          <div class="feedback" id="pAcid1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Calculate the pOH of a solution at 25°C.
+          <br /><br />
+
+          [H<sub>3</sub>O<sup>+</sup>] =
+          <input
+            class="num display-value"
+            id="gH3O"
+            name="gH3O"
+            random="true"
+            data-original="2.19e-3"
+            randomPercent="50%"
+            readonly
+          />
+          M
+          <br /><br />
+
+          <b>Use these relationships:</b>
+          <ul>
+            <li>pH = −log[H<sub>3</sub>O<sup>+</sup>]</li>
+            <li>pOH = 14 − pH</li>
+            <li>Therefore: pOH = 14 + log[H<sub>3</sub>O<sup>+</sup>]</li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Calculate pH</b>
+          <br /><br />
+
+          pH =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gpH"
+            name="gpH"
+            formula="-log10(${gH3O})"
+            help="Use pH = −log[H₃O⁺]."
+          />
+          <div class="feedback" id="gpHFB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Calculate pOH</b>
+          <br /><br />
+
+          pOH =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gpOH"
+            name="gpOH"
+            formula="14-(-log10(${gH3O}))"
+            help="Use pOH = 14 − pH."
+          />
+          <div class="feedback" id="gpOHFB"></div>
+
+          <br /><br />
+
+          <b>Final Answer:</b>
+          <br /><br />
+
+          pOH =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gFinal"
+            name="gFinal"
+            formula="14+log10(${gH3O})"
+          />
+          <div class="feedback" id="gFinalFB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Calculate the pOH of a solution at 25°C.
+          <br /><br />
+
+          [H<sub>3</sub>O<sup>+</sup>] =
+          <input
+            class="num display-value"
+            id="pH3O"
+            name="pH3O"
+            random="true"
+            data-original="4.75e-4"
+            randomPercent="50%"
+            readonly
+          />
+          M
+          <br /><br />
+
+          pOH =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pFinal"
+            name="pFinal"
+            formula="14+log10(${pH3O})"
+          />
+          <div class="feedback" id="pFinalFB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Calculate the percent ionization of a monoprotic weak acid (HA).
+          <br /><br />
+
+          HA ⇌ H<sup>+</sup> + A<sup>−</sup> <br /><br />
+
+          Initial concentration:
+          <br />
+          [HA] =
+          <input
+            class="num display-value"
+            id="gHA"
+            name="gHA"
+            random="true"
+            data-original="0.222"
+            randomPercent="50%"
+            readonly
+          />
+          M <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            class="num display-value"
+            id="gKa"
+            name="gKa"
+            random="true"
+            data-original="2.77e-5"
+            randomPercent="50%"
+            readonly
+          />
+          <br /><br />
+
+          <b>Step 1: Complete the ICE table</b>
+          <br /><br />
+
+          <table border="1" cellpadding="6">
+            <tr>
+              <th></th>
+              <th>HA</th>
+              <th>H⁺</th>
+              <th>A⁻</th>
+            </tr>
+
+            <tr>
+              <td><b>I</b></td>
+              <td>
+                <input
+                  class="calc"
+                  id="gI1"
+                  name="gI1"
+                  formula="${gHA}"
+                  help="Initial HA is given."
+                />
+                <div class="feedback" id="gI1FB" name="gI1FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gI2" name="gI2" formula="0" />
+                <div class="feedback" id="gI2FB" name="gI2FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gI3" name="gI3" formula="0" />
+                <div class="feedback" id="gI3FB" name="gI3FB"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><b>C</b></td>
+              <td>
+                <input
+                  class="calc"
+                  id="gC1"
+                  name="gC1"
+                  formula="-x"
+                  help="HA decreases by x."
+                />
+                <div class="feedback" id="gC1FB" name="gC1FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gC2" name="gC2" formula="x" />
+                <div class="feedback" id="gC2FB" name="gC2FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gC3" name="gC3" formula="x" />
+                <div class="feedback" id="gC3FB" name="gC3FB"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><b>E</b></td>
+              <td>
+                <input
+                  class="calc"
+                  id="gE1-2"
+                  name="gE1-2"
+                  formula="${gHA}-x"
+                />
+                <div class="feedback" id="gE1-2FB" name="gE1-2FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gE2" name="gE2" formula="x" />
+                <div class="feedback" id="gE2FB" name="gE2FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gE3" name="gE3" formula="x" />
+                <div class="feedback" id="gE3FB" name="gE3FB"></div>
+              </td>
+            </tr>
+          </table>
+
+          <br /><br />
+
+          <b>Step 2: Write the K<sub>a</sub> expression</b>
+          <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            type="text"
+            class="calc"
+            id="gKaExpr"
+            name="gKaExpr"
+            formula="(x*x)/(${gHA}-x)"
+            help="Products over reactant using equilibrium values."
+          />
+          <div class="feedback" id="gKaExprFB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Check small x assumption</b>
+          <br /><br />
+
+          [HA]/K<sub>a</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gCheck"
+            name="gCheck"
+            formula="${gHA}/${gKa}"
+            help="Divide initial concentration by Ka."
+          />
+          <div class="feedback" id="gCheckFB"></div>
+
+          <br /><br />
+
+          Can the small x approximation be used?
+          <select
+            id="gSmallX"
+            name="gSmallX"
+            class="calc"
+            formula="yes"
+            help="If [HA]/Ka > 400, the approximation is valid."
+          >
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <div class="feedback" id="gSmallXFB"></div>
+
+          <br /><br />
+
+          <b>Step 4: Solve for x</b>
+          <br /><br />
+
+          x =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gX"
+            name="gX"
+            formula="sqrt(${gKa}*${gHA})"
+            help="If using small x: Ka ≈ x²/[HA]. Solve for x."
+          />
+          M
+          <div class="feedback" id="gXFB"></div>
+
+          <br /><br />
+
+          <b>Step 5: Calculate percent ionization</b>
+          <br /><br />
+
+          % ionization =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gPercent"
+            name="gPercent"
+            formula="(sqrt(${gKa}*${gHA})/${gHA})*100"
+            help="(x / initial) × 100"
+          />
+          %
+          <div class="feedback" id="gPercentFB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Calculate the percent ionization of a monoprotic weak acid (HA).
+          <br /><br />
+
+          Initial concentration:
+          <br />
+          [HA] =
+          <input
+            class="num display-value"
+            id="pHA"
+            name="pHA"
+            random="true"
+            data-original="0.150"
+            randomPercent="50%"
+            readonly
+          />
+          M <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            class="num display-value"
+            id="pKa"
+            name="pKa"
+            random="true"
+            data-original="1.25e-6"
+            randomPercent="50%"
+            readonly
+          />
+          <br /><br />
+
+          % ionization =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pPercent"
+            name="pPercent"
+            formula="(sqrt(${pKa}*${pHA})/${pHA})*100"
+          />
+          %
+          <div class="feedback" id="pPercentFB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Which of the following is a <b>Brønsted–Lowry base</b>? <br /><br />
+
+          A) CO<sub>2</sub> B) HNO<sub>3</sub> C) Mg(OH)<sub>2</sub> D)
+          C<sub>2</sub>H<sub>6</sub>
+          E) None of the above
+          <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>A <b>Brønsted–Lowry base</b> accepts H<sup>+</sup></li>
+            <li>
+              In general chemistry, many bases contain <b>OH</b>. The one
+              exception you should memorize is NH<sub>3</sub>.
+            </li>
+            <li>Acids are often written with <b>H first</b></li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Which substance contains OH?</b>
+          <br /><br />
+
+          <select
+            id="gBase1"
+            name="gBase1"
+            class="calc"
+            formula="Mg(OH)2"
+            help="Identify the compound that contains the hydroxide (OH) group."
+          >
+            <option value="">Choose</option>
+            <option value="CO2">CO₂</option>
+            <option value="HNO3">HNO₃</option>
+            <option value="Mg(OH)2">Mg(OH)₂</option>
+            <option value="C2H6">C₂H₆</option>
+          </select>
+          <div class="feedback" id="gBase1FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Identify the base</b>
+          <br /><br />
+
+          <select
+            id="gBase2"
+            name="gBase2"
+            class="calc"
+            formula="C"
+            help="Compounds with OH are typically bases in general chemistry."
+          >
+            <option value="">Choose</option>
+            <option value="A">CO₂</option>
+            <option value="B">HNO₃</option>
+            <option value="C">Mg(OH)₂</option>
+            <option value="D">C₂H₆</option>
+            <option value="E">None of the above</option>
+          </select>
+          <div class="feedback" id="gBase2FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>
+              Mg(OH)₂ contains hydroxide (OH), which is characteristic of many
+              bases.
+            </li>
+            <li>HNO₃ begins with H, so it is an acid.</li>
+            <li>CO₂ and C₂H₆ do not function as bases in this context.</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Which of the following is a <b>Brønsted–Lowry base</b>? <br /><br />
+
+          A) H₂SO₄ B) KOH C) CH₄ D) SO₂ E) None of the above
+          <br /><br />
+
+          <select id="pBase1" name="pBase1" class="calc" formula="B">
+            <option value="">Choose</option>
+            <option value="A">H₂SO₄</option>
+            <option value="B">KOH</option>
+            <option value="C">CH₄</option>
+            <option value="D">SO₂</option>
+            <option value="E">None of the above</option>
+          </select>
+
+          <div class="feedback" id="pBase1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          What is the [CH<sub>3</sub>CO<sub>2</sub><sup>−</sup>] /
+          [CH<sub>3</sub>CO<sub>2</sub>H] ratio needed to make a buffer with the
+          following pH? <br /><br />
+
+          pH =
+          <input
+            class="num display-value"
+            id="gpH-2"
+            name="gpH-2"
+            random="true"
+            data-original="6.17"
+            randomPercent="10%"
+            readonly
+          />
+          <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            class="num display-value"
+            id="gKa-2"
+            name="gKa"
+            random="true"
+            data-original="1.8e-5"
+            randomPercent="20%"
+            readonly
+          />
+          <br /><br />
+
+          <b>Use this relationship:</b>
+          <ul>
+            <li>pH = pK<sub>a</sub> + log([A<sup>−</sup>]/[HA])</li>
+            <li>
+              Rearranged: [A<sup>−</sup>]/[HA] = 10<sup
+                >(pH − pK<sub>a</sub>)</sup
+              >
+            </li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Calculate pK<sub>a</sub></b>
+          <br /><br />
+
+          pK<sub>a</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gpKa"
+            name="gpKa"
+            formula="-log(${gKa-2})"
+            help="pKa = −log(Ka)"
+          />
+          <div class="feedback" id="gpKaFB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Calculate the ratio</b>
+          <br /><br />
+
+          [A<sup>−</sup>]/[HA] =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gRatio"
+            name="gRatio"
+            formula="10^(${gpH-2}-(-log(${gKa-2})))"
+            help="Use 10^(pH − pKa)"
+          />
+          <div class="feedback" id="gRatioFB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Express as a ratio</b>
+          <br /><br />
+
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gRatio2"
+            name="gRatio2"
+            formula="10^(${gpH-2}-(-log10(${gKa-2})))"
+          />
+          : 1
+
+          <br />
+
+          <div class="feedback" id="gRatio1FB"></div>
+          <div class="feedback" id="gRatio2FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>First calculate pK<sub>a</sub> from K<sub>a</sub>.</li>
+            <li>
+              Then find the ratio using 10<sup>(pH − pK<sub>a</sub>)</sup>.
+            </li>
+            <li>If the ratio is greater than 1, express as x : 1.</li>
+            <li>If the ratio is less than 1, express as 1 : x.</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          What is the [A<sup>−</sup>] / [HA] ratio for the following buffer?
+          <br /><br />
+
+          pH =
+          <input
+            class="num display-value"
+            id="ppH"
+            name="ppH"
+            random="true"
+            data-original="4.40"
+            randomPercent="10%"
+            readonly
+          />
+          <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            class="num display-value"
+            id="pKa2"
+            name="pKa2"
+            random="true"
+            data-original="3.5e-5"
+            randomPercent="20%"
+            readonly
+          />
+          <br /><br />
+
+          1 :
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pRatio"
+            name="pRatio"
+            formula="(10^(${ppH}-(-log10(${pKa2}))))^-1"
+          />
+
+          <div class="feedback" id="pRatioFB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          <div>
+            Determine the correct cell notation for the redox reaction below.
+            <br /><br />
+
+            Zn(s) + Cu<sub>2</sub><sup>+</sup>(aq) ➞ Zn<sup>2+</sup>(aq) + Cu(s)
+            <br /><br />
+
+            <b>Use these ideas to guide your reasoning:</b>
+            <ul>
+              <li>Oxidation occurs at the <b>anode</b> (loss of electrons)</li>
+              <li>
+                Reduction occurs at the <b>cathode</b> (gain of electrons)
+              </li>
+              <li>
+                Anode is written on the <b>left</b>, cathode on the <b>right</b>
+              </li>
+              <li>
+                Format:
+                <ul>
+                  <li>anode on the left, cathode on the right</li>
+                  <li>
+                    | indicates a change in state (e.g. solid | aqueous or
+                    aqueous | solid)
+                  </li>
+                  <li>|| represents the salt bridge</li>
+                  <li>Example: <b>anode | ion || ion | solid</b></li>
+                </ul>
+              </li>
+            </ul>
+
+            <br />
+
+            <b>Step 1: Identify oxidation</b>
+            <br /><br />
+
+            Which species is oxidized?
+            <select
+              id="gCell1"
+              name="gCell1"
+              class="calc"
+              formula="Zn"
+              help="Oxidation is loss of electrons."
+            >
+              <option value="">Choose</option>
+              <option value="Zn">Zn</option>
+              <option value="Cu2+">Cu²⁺</option>
+            </select>
+            <div class="feedback" id="gCell1FB"></div>
+
+            <br /><br />
+
+            <b>Step 2: Identify reduction</b>
+            <br /><br />
+
+            Which species is reduced?
+            <select
+              id="gCell2"
+              name="gCell2"
+              class="calc"
+              formula="Cu2+"
+              help="Reduction is gain of electrons."
+            >
+              <option value="">Choose</option>
+              <option value="Zn">Zn</option>
+              <option value="Cu2+">Cu²⁺</option>
+            </select>
+            <div class="feedback" id="gCell2FB"></div>
+
+            <br /><br />
+
+            <b>Step 3: Choose the correct cell notation</b>
+            <br /><br />
+
+            <select
+              id="gCell3"
+              name="gCell3"
+              class="calc"
+              formula="D"
+              help="Anode (oxidation) is on the left, cathode (reduction) on the right."
+            >
+              <option value="">Choose</option>
+              <option value="A">Zn²⁺(aq) ∣ Zn(s) || Cu(s) ∣ Cu²⁺(aq)</option>
+              <option value="B">Cu²⁺(aq) ∣ Cu(s) || Zn(s) ∣ Zn²⁺(aq)</option>
+              <option value="C">Zn(s) ∣ Cu(s) || Zn²⁺(aq) ∣ Cu²⁺(aq)</option>
+              <option value="D">Zn(s) ∣ Zn²⁺(aq) || Cu²⁺(aq) ∣ Cu(s)</option>
+            </select>
+            <div class="feedback" id="gCell3FB"></div>
+
+            <br /><br />
+
+            <b>Explanation:</b>
+            <ul>
+              <li>Zn is oxidized to Zn²⁺, so it is the anode (left side).</li>
+              <li>Cu²⁺ is reduced to Cu, so it is the cathode (right side).</li>
+              <li>
+                Zn(s) and Zn²⁺(aq) are not in the same state, so there is a |
+                between them.
+              </li>
+              <li>
+                Cu²⁺(aq) and Cu(s) are not in the same state, so there is a |
+                between them.
+              </li>
+              <li>
+                There is a salt bridge between the ions so there must be a ||
+                between them.
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Determine the correct cell notation for the redox reaction below.
+          <br /><br />
+
+          Fe(s) + Ag<sup>+</sup>(aq) ➞ Fe<sup>2+</sup>(aq) + Ag(s)
+          <br /><br />
+
+          <select id="pCell1" name="pCell1" class="calc" formula="D">
+            <option value="">Choose</option>
+            <option value="A">Fe²⁺(aq) ∣ Fe(s) || Ag(s) ∣ Ag⁺(aq)</option>
+            <option value="B">Ag⁺(aq) ∣ Ag(s) || Fe(s) ∣ Fe²⁺(aq)</option>
+            <option value="C">Fe(s) ∣ Ag(s) || Fe²⁺(aq) ∣ Ag⁺(aq)</option>
+            <option value="D">Fe(s) ∣ Fe²⁺(aq) || Ag⁺(aq) ∣ Ag(s)</option>
+          </select>
+
+          <div class="feedback" id="pCell1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Use the tabulated half-cell potentials to calculate the equilibrium
+          constant (K) for the following reaction at 25 °C.
+          <br /><br />
+
+          Zn(s) + Cu<sup>2+</sup>(aq) ➞ Zn<sup>2+</sup>(aq) + Cu(s)
+          <br /><br />
+
+          <b>Standard Reduction Potentials:</b>
+          <br /><br />
+
+          <table>
+            <thead>
+              <tr>
+                <th>Reduction Half-Reaction</th>
+                <th>E° (V)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Cu<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Cu(s)</td>
+                <td>0.34</td>
+              </tr>
+              <tr>
+                <td>Fe<sup>3+</sup>(aq) + 3e<sup>-</sup> &rarr; Fe(s)</td>
+                <td>-0.04</td>
+              </tr>
+              <tr>
+                <td>Pb<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Pb(s)</td>
+                <td>-0.13</td>
+              </tr>
+              <tr>
+                <td>Sn<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Sn(s)</td>
+                <td>-0.14</td>
+              </tr>
+              <tr>
+                <td>Ni<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Ni(s)</td>
+                <td>-0.26</td>
+              </tr>
+              <tr>
+                <td>Zn<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Zn(s)</td>
+                <td>-0.76</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br /><br />
+
+          <b>Use these relationships:</b>
+          <ul>
+            <li>
+              E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub>
+            </li>
+            <li>$E°_{cell} = \frac{0.0592V}{n}logK$</li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Calculate E°<sub>cell</sub></b>
+          <br /><br />
+
+          E°<sub>cell</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gEcell"
+            name="gEcell"
+            formula="0.34 - (-0.76)"
+            help="E°cell = E°cathode − E°anode."
+          />
+          V
+          <div class="feedback" id="gEcellFB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Calculate log K</b>
+          <br /><br />
+
+          log K =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gLogK"
+            name="gLogK"
+            formula="(2*(0.34 - (-0.76)))/0.0592"
+            help="Use n = number of electrons transferred (2)."
+          />
+          <div class="feedback" id="gLogKFB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Calculate K</b>
+          <br /><br />
+
+          K =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gK"
+            name="gK"
+            formula="10^((2*(0.34 - (-0.76)))/0.0592)"
+            help="K = 10^(log K)"
+          />
+          <div class="feedback" id="gKFB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>Cu²⁺ is reduced (cathode), Zn is oxidized (anode).</li>
+            <li>E°cell = 0.34 − (−0.76) = 1.10 V.</li>
+            <li>n = 2 electrons transferred.</li>
+            <li>use $E°_{cell} = \frac{0.0592V}{n}logK$, and solve for k</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Use the tabulated half-cell potentials (above) to calculate the
+          equilibrium constant (K) for the following reaction at 25°C under
+          standard conditions.
+          <br /><br />
+
+          Fe(s) + Cu<sup>2+</sup>(aq) ➞ Fe<sup>2+</sup>(aq) + Cu(s)
+          <br /><br />
+
+          K =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pK"
+            name="pK"
+            formula="10^((2*(0.34 - (-0.44)))/0.0592)"
+          />
+          <div class="feedback" id="pKFB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Determine which of the following reactions is
+          <b>spontaneous at 25 ºC under standard conditions</b>. <br /><br />
+
+          <table border="1" cellpadding="6">
+            <tr>
+              <th>Half Reaction</th>
+              <th>Reduction Potential (V)</th>
+            </tr>
+            <tr>
+              <td>Au<sup>3+</sup>(aq) + 3e<sup>-</sup> ➞ Au(s)</td>
+              <td>1.50</td>
+            </tr>
+            <tr>
+              <td>Br<sub>2</sub>(l) + 2e<sup>-</sup> ➞ 2Br<sup>-</sup>(aq)</td>
+              <td>1.07</td>
+            </tr>
+            <tr>
+              <td>I<sub>2</sub>(s) + 2e<sup>-</sup> ➞ 2I<sup>-</sup>(aq)</td>
+              <td>0.54</td>
+            </tr>
+            <tr>
+              <td>Cu<sup>2+</sup>(aq) + 2e<sup>-</sup> ➞ Cu(s)</td>
+              <td>0.34</td>
+            </tr>
+            <tr>
+              <td>Fe<sup>3+</sup>(aq) + 3e<sup>-</sup> ➞ Fe(s)</td>
+              <td>-0.04</td>
+            </tr>
+            <tr>
+              <td>Pb<sup>2+</sup>(aq) + 2e<sup>-</sup> ➞ Pb(s)</td>
+              <td>-0.13</td>
+            </tr>
+            <tr>
+              <td>Sn<sup>2+</sup>(aq) + 2e<sup>-</sup> ➞ Sn(s)</td>
+              <td>-0.14</td>
+            </tr>
+            <tr>
+              <td>Ni<sup>2+</sup>(aq) + 2e<sup>-</sup> ➞ Ni(s)</td>
+              <td>-0.26</td>
+            </tr>
+            <tr>
+              <td>Zn<sup>2+</sup>(aq) + 2e<sup>-</sup> ➞ Zn(s)</td>
+              <td>-0.76</td>
+            </tr>
+            <tr>
+              <td>Cr<sup>2+</sup>(aq) + 2e<sup>-</sup> ➞ Cr(s)</td>
+              <td>-0.91</td>
+            </tr>
+            <tr>
+              <td>Al<sup>3+</sup>(aq) + 3e<sup>-</sup> ➞ Al(s)</td>
+              <td>-1.66</td>
+            </tr>
+            <tr>
+              <td>Mg<sup>2+</sup>(aq) + 2e<sup>-</sup> ➞ Mg(s)</td>
+              <td>-2.37</td>
+            </tr>
+            <tr>
+              <td>Li<sup>+</sup>(aq) + e<sup>-</sup> ➞ Li(s)</td>
+              <td>-3.04</td>
+            </tr>
+          </table>
+
+          <br />
+
+          <b>Use these rules:</b>
+          <ul>
+            <li>
+              E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub>
+            </li>
+            <li>The species with the higher reduction potential is reduced</li>
+            <li>If E°<sub>cell</sub> &gt; 0 → spontaneous</li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Calculate E°<sub>cell</sub> for each reaction</b>
+          <br /><br />
+
+          A) Zn(s) + Cu<sup>2+</sup>(aq) ➞ Zn<sup>2+</sup>(aq) + Cu(s) E° =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gE1"
+            name="gE1"
+            formula="0.34 - (-0.76)"
+            help="Cu²⁺ is reduced, Zn is oxidized."
+          />
+          V
+          <div class="feedback" id="gE1FB"></div>
+
+          <br /><br />
+
+          B) Pb(s) + Ni<sup>2+</sup>(aq) ➞ Pb<sup>2+</sup>(aq) + Ni(s) E° =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gE2-2"
+            name="gE2-2"
+            formula="-0.26 - (-0.13)"
+            help="Ni²⁺ is reduced, Pb is oxidized."
+          />
+          V
+          <div class="feedback" id="gE2-2FB"></div>
+
+          <br /><br />
+
+          C) Fe(s) + Zn<sup>2+</sup>(aq) ➞ Fe<sup>2+</sup>(aq) + Zn(s) E° =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gE3-2"
+            name="gE3-2"
+            formula="-0.76 - (-0.04)"
+            help="Zn²⁺ is reduced, Fe is oxidized."
+          />
+          V
+          <div class="feedback" id="gE3-2FB"></div>
+
+          <br /><br />
+
+          D) Cu(s) + Pb<sup>2+</sup>(aq) ➞ Cu<sup>2+</sup>(aq) + Pb(s) E° =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gE4"
+            name="gE4"
+            formula="-0.13 - 0.34"
+            help="Pb²⁺ is reduced, Cu is oxidized."
+          />
+          V
+          <div class="feedback" id="gE4FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Identify the spontaneous reaction</b>
+          <br /><br />
+
+          <select
+            id="gSpFinal"
+            name="gSpFinal"
+            class="calc"
+            formula="A"
+            help="The spontaneous reaction has E°cell > 0."
+          >
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">None of the above</option>
+          </select>
+
+          <div class="feedback" id="gSpFinalFB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>(A) gives E° = +1.10 V → spontaneous</li>
+            <li>All other reactions give negative E° → nonspontaneous</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Determine which of the following reactions is
+          <b>spontaneous at 25 ºC under standard conditions</b>. <br /><br />
+          A) 3Cu<sup>2+</sup>(aq) + 2Au(s) ➞ 3Cu(s) + 2Au<sup>3+</sup>(aq)
+          <br />
+          B) Sn(s) + Pb<sup>2+</sup>(aq) ➞ Sn<sup>2+</sup>(aq) + Pb(s)
+          <br />
+          C) Ni(s) + Zn<sup>2+</sup>(aq) ➞ Ni<sup>2+</sup>(aq) + Zn(s)
+          <br />
+          D) Au(s) + Cu<sup>2+</sup>(aq) ➞ Au<sup>3+</sup>(aq) + Cu(s)
+          <br />
+          E) None of the above
+          <br /><br />
+
+          <select id="pSp1" name="pSp1" class="calc" formula="B">
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+          </select>
+
+          <div class="feedback" id="pSp1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Consider the galvanic cell:
+          <br /><br />
+
+          Cu(s) | Cu<sup>2+</sup>(aq) || Ag<sup>+</sup>(aq) | Ag(s)
+          <br /><br />
+
+          Which change would cause the cell potential to <b>increase</b> (become
+          more positive)? <br /><br />
+
+          <b>Use the Nernst equation:</b>
+          <br /><br />
+
+          $E = E° − \frac{0.0592\ V}{n} log\ Q$
+          <br /><br />
+
+          For this type of cell:
+          <br /><br />
+
+          $E = E° − \frac{0.0592\ V}{n} log\ \frac{[Cu^{2+}]}{[Ag^+]}$ <br />
+
+          <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>
+              E increases if the second term becomes <b>more negative</b> (i.e.
+              subtracting a negative number adds to E)
+            </li>
+            <li>This happens if <b>log Q is negative</b></li>
+            <li>log Q is negative when Q &lt; 1</li>
+            <li>$Q = \frac{[Cu^{2+}]}{[Ag+]}$</li>
+            <li>
+              Q will be negative when [Cu<sup>2+</sup>] &lt; [Ag<sup>+</sup>]
+            </li>
+            <li>
+              We're looking for an answer where [Cu<sup>2+</sup>] decreases or
+              [Ag<sup>+</sup>] increases
+            </li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Identify the anode and cathode</b>
+          <br /><br />
+
+          The anode is:
+          <select
+            id="gN1"
+            name="gN1"
+            class="calc"
+            formula="Cu"
+            help="Oxidation occurs at the anode."
+          >
+            <option value="">Choose</option>
+            <option value="Cu">Cu</option>
+            <option value="Ag">Ag</option>
+          </select>
+          <div class="feedback" id="gN1FB"></div>
+
+          <br /><br />
+
+          The cathode is:
+          <select
+            id="gN2"
+            name="gN2"
+            class="calc"
+            formula="Ag"
+            help="Reduction occurs at the cathode."
+          >
+            <option value="">Choose</option>
+            <option value="Cu">Cu</option>
+            <option value="Ag">Ag</option>
+          </select>
+          <div class="feedback" id="gN2FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Write Q</b>
+          <br /><br />
+
+          $Q = \frac{[Cu^{2+}]}{[Ag+]}$
+
+          <br /><br />
+
+          <b>Step 3: When does E increase?</b>
+          <br /><br />
+
+          For E to increase in the Nernst equation, log Q must be:
+          <select
+            id="gN4"
+            name="gN4"
+            class="calc"
+            formula="negative"
+            help="Because it is subtracted in the equation."
+          >
+            <option value="">Choose</option>
+            <option value="positive">Positive</option>
+            <option value="negative">Negative</option>
+          </select>
+
+          <div class="feedback" id="gN4FB"></div>
+
+          <br /><br />
+
+          <b>Step 4: log Q is negative when Q is: </b>
+          <select
+            id="gN7"
+            name="gN7"
+            class="calc"
+            formula="Less than 1"
+            help="The log of a number greater than 1 is positive.  The log of a number less than 1 is negative."
+          >
+            <option value="">Choose</option>
+            <option value="Greater than 1">Greater than 1</option>
+            <option value="Less than 1">Less than 1</option>
+          </select>
+          <div class="feedback" id="gN7FB"></div>
+          <br /><br />
+
+          <b>Step 5: How do we make Q smaller than 1?</b>
+          <br /><br />
+
+          Q decreases if:
+          <select
+            id="gN5"
+            name="gN5"
+            class="calc"
+            formula="cathode up or anode down"
+            help="Decrease numerator or increase denominator."
+          >
+            <option value="">Choose</option>
+            <option value="anode up or cathode down">
+              Increase anode or decrease cathode concentration
+            </option>
+            <option value="cathode up or anode down">
+              Increase cathode or decrease anode concentration
+            </option>
+          </select>
+
+          <div class="feedback" id="gN5FB"></div>
+
+          <br /><br />
+
+          <b>Step 5: Choose the correct change</b>
+          <br /><br />
+
+          A) Increase [Ag⁺]
+          <br />
+          B) Increase mass of Cu(s)
+          <br />
+          C) Increase [Cu²⁺]
+          <br />
+          D) Decrease [Ag⁺]
+          <br />
+          E) None of the above
+          <br /><br />
+
+          <select
+            id="gN6"
+            name="gN6"
+            class="calc"
+            formula="A"
+            help="Increase cathode concentration or decrease anode concentration."
+          >
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+          </select>
+
+          <div class="feedback" id="gN6FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>$Q = \frac{[Cu^{2+}]}{[Ag+]}$</li>
+            <li>To increase E, Q must be less than 1</li>
+            <li>This happens when [Cu²⁺] decreases or [Ag⁺] increases</li>
+            <li>Only increasing [Ag⁺] satisfies this condition</li>
+            <li>Changing solids has no effect on Q</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Consider the galvanic cell:
+          <br /><br />
+
+          Fe(s) | Fe<sup>2+</sup>(aq) || Cu<sup>2+</sup>(aq) | Cu(s)
+          <br /><br />
+
+          Which change would cause the cell potential to decrease?
+          <br /><br />
+
+          A) Decrease [Cu²⁺]
+          <br />
+          B) Decrease [Fe²⁺]
+          <br />
+          C) Decrease mass of Fe(s)
+          <br />
+          D) Increase [Cu²⁺]
+          <br />
+          E) None of the above
+          <br /><br />
+
+          <select id="pN1" name="pN1" class="calc" formula="A">
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+          </select>
+
+          <div class="feedback" id="pN1FB"></div>
+        </li>
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          A galvanic cell consists of one half-cell that contains Ni (s) and
+          Ni<sup>2+</sup> (aq), and one half-cell that contains Ag (s) and
+          Ag<sup>+</sup> (aq). What species are produced at the electrodes under
+          standard conditions? <br /><br />
+
+          Ni<sup>2+</sup>(aq) + 2 e<sup>-</sup> → Ni(s), E° = -0.26 V
+          <br />
+          Ag<sup>+</sup>(aq) + e<sup>-</sup> → Ag(s), E° = +0.80 V <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>
+              The half-reaction with the
+              <b>higher reduction potential</b> occurs at the cathode
+            </li>
+            <li>
+              Reduction occurs at the <b>cathode</b> (solid metal is formed)
+            </li>
+            <li>Oxidation occurs at the <b>anode</b> (ions are formed)</li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Identify the cathode</b>
+          <br /><br />
+
+          Which species is reduced?
+          <select
+            id="gGalv1"
+            name="gGalv1"
+            class="calc"
+            formula="Ag"
+            help="The more positive reduction potential is reduced."
+          >
+            <option value="">Choose</option>
+            <option value="Ni">Ni</option>
+            <option value="Ag">Ag</option>
+          </select>
+          <div class="feedback" id="gGalv1FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Determine what forms at the cathode</b>
+          <br /><br />
+
+          At the cathode, the product is:
+          <select
+            id="gGalv2"
+            name="gGalv2"
+            class="calc"
+            formula="Ag(s)"
+            help="Reduction produces the solid metal."
+          >
+            <option value="">Choose</option>
+            <option value="Ni(s)">Ni(s)</option>
+            <option value="Ag(s)">Ag(s)</option>
+          </select>
+          <div class="feedback" id="gGalv2FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Identify the anode</b>
+          <br /><br />
+
+          Which species is oxidized?
+          <select
+            id="gGalv1-2"
+            name="gGalv1-2"
+            class="calc"
+            formula="Ni"
+            help="The less positive reduction potential is oxidized."
+          >
+            <option value="">Choose</option>
+            <option value="Ni">Ni</option>
+            <option value="Ag">Ag</option>
+          </select>
+          <div class="feedback" id="gGalv1-2FB"></div>
+
+          <br /><br />
+
+          <b>Step 4: Determine what forms at the anode</b>
+          <br /><br />
+
+          At the anode, the product is:
+          <select
+            id="gGalv3"
+            name="gGalv3"
+            class="calc"
+            formula="Ni2+"
+            help="Oxidation produces ions."
+          >
+            <option value="">Choose</option>
+            <option value="Ni2+">Ni²⁺</option>
+            <option value="Ag+">Ag⁺</option>
+          </select>
+          <div class="feedback" id="gGalv3FB"></div>
+
+          <br /><br />
+
+          <b>Step 5: Choose the correct answer</b>
+          <br /><br />
+
+          A) Ni(s) is formed at the cathode, and Ag⁺(aq) is formed at the anode
+          <br />
+          B) Ag(s) is formed at the cathode, and Ni²⁺(aq) is formed at the anode
+          <br />
+          C) Ni²⁺(aq) is formed at the cathode, and Ag(s) is formed at the anode
+          <br />
+          D) Ag⁺(aq) is formed at the cathode, and Ni(s) is formed at the anode
+          <br /><br />
+
+          <select id="gGalv4" name="gGalv4" class="calc" formula="B">
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+
+          <div class="feedback" id="gGalv4FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>
+              Ag⁺ has the higher reduction potential (+0.80 V), so it is
+              reduced.
+            </li>
+            <li>Reduction occurs at the cathode → Ag(s) is formed.</li>
+            <li>Ni is oxidized → Ni²⁺ is formed at the anode.</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          A galvanic cell consists of one half-cell that contains Zn (s) and
+          Zn<sup>2+</sup> (aq), and one half-cell that contains Cu (s) and
+          Cu<sup>2+</sup> (aq). What species are produced at the electrodes
+          under standard conditions? <br /><br />
+
+          Zn<sup>2+</sup>(aq) + 2 e<sup>-</sup> → Zn(s), E° = -0.76 V
+          <br />
+          Cu<sup>2+</sup>(aq) + 2 e<sup>-</sup> → Cu(s), E° = +0.34 V
+          <br /><br />
+
+          A) Zn(s) is formed at the cathode, and Cu²⁺(aq) is formed at the anode
+          <br />
+          B) Cu(s) is formed at the cathode, and Zn²⁺(aq) is formed at the anode
+          <br />
+          C) Zn²⁺(aq) is formed at the cathode, and Cu(s) is formed at the anode
+          <br />
+          D) Cu²⁺(aq) is formed at the cathode, and Zn(s) is formed at the anode
+          <br /><br />
+
+          <select id="pGalv1" name="pGalv1" class="calc" formula="B">
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+
+          <div class="feedback" id="pGalv1FB"></div>
+        </li>
+      </ol>
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
