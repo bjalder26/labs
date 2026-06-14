@@ -1632,6 +1632,337 @@
 
           <div class="feedback" id="pGalv1FB"></div>
         </li>
+
+        <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  What is the unknown particle emitted, represented by $_{?}^{?}X$?
+  <br><br>
+
+  $_{15}^{32}P ➞ _{?}^{?}X + _{16}^{32}S$
+  <br><br>
+
+  <b>Use these ideas to guide your reasoning:</b>
+  <ul>
+    <li>Mass number (top) must be conserved</li>
+    <li>Atomic number (bottom) must be conserved</li>
+  </ul>
+
+  <br>
+
+  <b>Step 1: Compare mass numbers</b>
+  <br><br>
+
+  32 → ? + 32  
+  <br>
+  The missing particle must have mass:
+  <br>
+  <input type="number" class="calc" id="gNuc1" name="gNuc1" formula="0"
+         help="Subtract product mass numbers from reactant.">
+  <div class="feedback" id="gNuc1FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Compare atomic numbers</b>
+  <br><br>
+
+  15 → ? + 16  
+  <br>
+  The missing particle must have charge:
+  <br>
+  <input type="number" class="calc" id="gNuc2" name="gNuc2" formula="-1"
+         help="15 = X + 16, solve for X.">
+  <div class="feedback" id="gNuc2FB"></div>
+
+  <br><br>
+
+  <b>Step 3: Identify the particle</b>
+  <br><br>
+
+  A particle that mass and charge:
+  <select id="gNuc3" name="gNuc3" class="calc" formula="B"
+          help="Match mass number and charge.">
+    <option value="">Choose</option>
+    <option value="A">Gamma particle</option>
+    <option value="B">Beta particle (electron)</option>
+    <option value="C">Positron</option>
+    <option value="D">Alpha particle</option>
+  </select>
+
+  <div class="feedback" id="gNuc3FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>Mass number does not change → particle has mass 0</li>
+    <li>Atomic number increases by 1 → particle must have −1 charge</li>
+    <li>This corresponds to a β⁻ (beta particle)</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  What is the unknown particle emitted, represented by $_{?}^{?}X$?
+  <br><br>
+  $_{29}^{64}Cu ➞ _{?}^{?}X + _{28}^{28}Ni$
+  <br><br>
+
+  <select id="pNuc1" name="pNuc1" class="calc" formula="C">
+    <option value="">Choose</option>
+    <option value="A">Gamma particle</option>
+    <option value="B">Beta particle (electron)</option>
+    <option value="C">Positron</option>
+    <option value="D">Alpha particle</option>
+  </select>
+
+  <div class="feedback" id="pNuc1FB"></div>
+
+</li>
+
+        <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Which of the following represents a gamma particle?
+  <br><br>
+
+  <b>Use this chart to guide your reasoning:</b>
+<table>
+  <thead>
+    <tr>
+      <th>Particle Name</th>
+      <th>Mass Number</th>
+      <th>Charge</th>
+      <th>Symbol</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Alpha particle</td>
+      <td>4</td>
+      <td>+2</td>
+      <td>$^{4}_{2}\alpha$ or $^{4}_{2}\text{He}$</td>
+    </tr>
+    <tr>
+      <td>Beta particle (Electron)</td>
+      <td>0</td>
+      <td>-1</td>
+      <td>$^{\ \ \ 0}_{-1}\beta$ or $^{\ \ \ 0}_{-1}\text{e}$</td>
+    </tr>
+    <tr>
+      <td>Positron</td>
+      <td>0</td>
+      <td>+1</td>
+      <td>$^{\ \ \ 0}_{+1}\beta$ or $^{\ \ \ 0}_{+1}\text{e}$</td>
+    </tr>
+    <tr>
+      <td>Gamma ray</td>
+      <td>0</td>
+      <td>0</td>
+      <td>$\gamma$ or $^{0}_{0}\gamma$</td>
+    </tr>
+  </tbody>
+</table>
+
+
+  <br>
+
+  <b>Step 1: Identify the correct mass number</b>
+  <br><br>
+
+  A gamma particle has a mass number of:
+  <select id="gRad1" name="gRad1" class="calc" formula="0">
+    <option value="">Choose</option>
+    <option value="4">4</option>
+    <option value="1">1</option>
+    <option value="0">0</option>
+  </select>
+
+  <div class="feedback" id="gRad1FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Identify the correct charge</b>
+  <br><br>
+
+  A gamma particle has an atomic number of:
+  <select id="gRad2" name="gRad2" class="calc" formula="0">
+    <option value="">Choose</option>
+    <option value="2">2</option>
+    <option value="-1">-1</option>
+    <option value="0">0</option>
+  </select>
+
+  <div class="feedback" id="gRad2FB"></div>
+
+  <br><br>
+
+  <b>Step 3: Identify the correct symbol</b>
+  <br><br>
+
+  A) $^{4}_{2}\text{He}$<br>
+  B) $^{\ \ \ 0}_{-1}\text{e}$<br>
+  C) $^{\ \ \ 0}_{+1}\text{e}$<br>
+  D) $^{0}_{0}\gamma$<br>
+
+  <select id="gRad3" name="gRad3" class="calc" formula="D">
+    <option value="">Choose</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+  </select>
+
+  <div class="feedback" id="gRad3FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>Gamma radiation has no mass and no charge</li>
+    <li>The greek letter for gamma is γ</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Which of the following represents an alpha particle?
+  <br>
+
+  A) $^{4}_{2}\text{He}$<br>
+  B) $^{\ \ \ 0}_{-1}\text{e}$<br>
+  C) $^{\ \ \ 0}_{+1}\text{e}$<br>
+  D) $^{0}_{0}\gamma$<br>
+  <br>
+
+  <select id="pRad1" name="pRad1" class="calc" formula="A">
+    <option value="">Choose</option>
+    <option value="A">A</option>
+    <option value="B">B</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+  </select>
+
+  <div class="feedback" id="pRad1FB"></div>
+
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Cesium-137 is a radioactive isotope with a half-life of 30.2 years.
+  <br><br>
+
+  If 
+  <input class="num display-value" id="gInitial" name="gInitial"
+         random="true" data-original="96.0" randomPercent="50%" readonly> mg
+  of cesium-137 is initially present, how long will it take for the amount to decrease to 
+  <input class="num display-value" id="gFinal-2" name="gFinal-2"
+         random="true" data-original="12.0" randomPercent="50%" readonly> mg?
+  <br><br>
+
+  <b>Step 1: Calculate the decay constant (k)</b><br>
+  $k = \frac{ln(2)}{t_{\frac{1}{2}}}$
+  <ul>
+    <li>k = decay constant</li>
+    <li>$t_{\frac{1}{2}}$ = half-life</li>
+  </ul>
+  <br><br>
+
+  k =
+  <input type="number" step="any" class="calc" id="gk" name="gk"
+         formula="0.693/30.2"
+         help="k = 0.693 / half-life">
+  yr<sup>-1</sup>
+
+  <div class="feedback" id="gkFB"></div>
+
+  <br><br>
+
+  <b>Step 2: Use the decay equation</b>
+  <br><br>
+
+  A = A₀ e<sup>−kt</sup>
+  <ul>
+    <li>A = amount at end time</li>
+    <li>A₀ = amount at beginning time</li>
+    <li>k = decay constant</li>
+    <li>t = time that has passed</li>
+  </ul>
+  <br><br>
+
+  <b>Step 3: First solve for e<sup>−kt</sup></b><br>
+  e<sup>−kt</sup> =
+  <input type="number" step="any" class="calc" id="e-kt" name="e-kt"
+         formula="${gFinal-2}/${gInitial}"
+         help="final mass divided by initial mass">
+  <div class="feedback" id="e-ktFB"></div>
+
+  <br><br>
+  <b>Step 4: Take a natural log of both sides to solve for -kt</b><br>
+  −kt =
+  <input type="number" step="any" class="calc" id="negkt" name="negkt"
+         formula="ln(${gFinal-2}/${gInitial})"
+         help="Natural log of final mass divided by initial mass">
+  <div class="feedback" id="negktFB"></div>
+
+  <br><br>
+
+  <b>Step 5: Divide both sides by -K to solve for time</b>
+  <br><br>
+
+  t =
+  <input type="number" step="any" class="calc" id="gTime" name="gTime"
+         formula="ln(${gInitial}/${gFinal-2})/(0.693/30.2)"
+         help="t = ln(A0/A) / k">
+  years
+
+  <div class="feedback" id="gTimeFB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>First convert half-life into decay constant using k = 0.693 / t½.</li>
+    <li>Use the exponential decay equation A = A₀e⁻ᵏᵗ.</li>
+    <li>Rearrange to solve for time: t = ln(A₀/A) / k.</li>
+  </ul>
+
+</li>    
+
+        <h4>Practice Problem</h4>
+
+<li>
+  Strontium-90 has a half-life of 28.8 years.
+  <br><br>
+
+  If 
+  <input class="num display-value" id="pInitial" name="pInitial"
+         random="true" data-original="75.0" randomPercent="50%" readonly> mg
+  is initially present, how long will it take for the amount to decrease to 
+  <input class="num display-value" id="pFinal-2" name="pFinal-2"
+         random="true" data-original="9.38" randomPercent="50%" readonly> mg?
+  <br><br>
+
+  t =
+  <input type="number" step="any" class="calc" id="pTime" name="pTime"
+         formula="ln(${pInitial}/${pFinal-2})/(0.693/28.8)">
+  years
+
+  <div class="feedback" id="pTimeFB"></div>
+
+</li>
+        
       </ol>
       <!-- End -->
       <div id="button_bar">
