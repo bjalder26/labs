@@ -452,6 +452,326 @@
 
 </li>
 
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  What is the [CH<sub>3</sub>CO<sub>2</sub><sup>−</sup>] / [CH<sub>3</sub>CO<sub>2</sub>H] ratio needed to make a buffer with the following pH?
+  <br><br>
+
+  pH =
+  <input class="num display-value" id="gpH-2" name="gpH-2"
+         random="true" data-original="6.17" randomPercent="10%" readonly>
+  <br><br>
+
+  K<sub>a</sub> =
+  <input class="num display-value" id="gKa-2" name="gKa"
+         random="true" data-original="1.8e-5" randomPercent="20%" readonly>
+  <br><br>
+
+  <b>Use this relationship:</b>
+  <ul>
+    <li>pH = pK<sub>a</sub> + log([A<sup>−</sup>]/[HA])</li>
+    <li>Rearranged: [A<sup>−</sup>]/[HA] = 10<sup>(pH − pK<sub>a</sub>)</sup></li>
+  </ul>
+
+  <br>
+
+  <b>Step 1: Calculate pK<sub>a</sub></b>
+  <br><br>
+
+  pK<sub>a</sub> =
+  <input type="number" step="any" class="calc" id="gpKa" name="gpKa"
+         formula="-log(${gKa-2})"
+         help="pKa = −log(Ka)">
+  <div class="feedback" id="gpKaFB"></div>
+
+  <br><br>
+
+  <b>Step 2: Calculate the ratio</b>
+  <br><br>
+
+  [A<sup>−</sup>]/[HA] =
+  <input type="number" step="any" class="calc" id="gRatio" name="gRatio"
+         formula="10^(${gpH-2}-(-log(${gKa-2})))"
+         help="Use 10^(pH − pKa)">
+  <div class="feedback" id="gRatioFB"></div>
+
+  <br><br>
+
+  <b>Step 3: Express as a ratio</b>
+  <br><br>
+
+  <input type="number" step="any" class="calc" id="gRatio2" name="gRatio2"
+         formula="10^(${gpH-2}-(-log10(${gKa-2})))">
+  : 1
+
+  <br>
+
+  <div class="feedback" id="gRatio1FB"></div>
+  <div class="feedback" id="gRatio2FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>First calculate pK<sub>a</sub> from K<sub>a</sub>.</li>
+    <li>Then find the ratio using 10<sup>(pH − pK<sub>a</sub>)</sup>.</li>
+    <li>If the ratio is greater than 1, express as x : 1.</li>
+    <li>If the ratio is less than 1, express as 1 : x.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  What is the [A<sup>−</sup>] / [HA] ratio for the following buffer?
+  <br><br>
+
+  pH =
+  <input class="num display-value" id="ppH" name="ppH"
+         random="true" data-original="4.40" randomPercent="10%" readonly>
+  <br><br>
+
+  K<sub>a</sub> =
+  <input class="num display-value" id="pKa2" name="pKa2"
+         random="true" data-original="3.5e-5" randomPercent="20%" readonly>
+  <br><br>
+
+  1 : <input type="number" step="any" class="calc" id="pRatio" name="pRatio"
+         formula="(10^(${ppH}-(-log10(${pKa2}))))^-1">
+
+  <div class="feedback" id="pRatioFB"></div>
+
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Determine the correct cell notation for the redox reaction below.
+  <br><br>
+
+  Zn (s) + Cu<sub>2</sub><sup>+</sup> (aq) ➞ Zn<sup>2+</sup> (aq) + Cu (s)
+  <br><br>
+
+  <b>Use these ideas to guide your reasoning:</b>
+  <ul>
+    <li>Oxidation occurs at the <b>anode</b> (loss of electrons)</li>
+    <li>Reduction occurs at the <b>cathode</b> (gain of electrons)</li>
+    <li>Anode is written on the <b>left</b>, cathode on the <b>right</b></li>
+    <li>Format: 
+      <ul>
+        <li>anode on the left, cathode on the right</li>
+        <li>| indicates a change in state (e.g. solid | aqueous or aqueous | solid)</li>
+        <li>|| represents the salt bridge</li>
+        <li>Example: <b>anode | ion || ion | solid</b></li></li>
+      </ul>
+  </ul>
+
+  <br>
+
+  <b>Step 1: Identify oxidation</b>
+  <br><br>
+
+  Which species is oxidized?
+  <select id="gCell1" name="gCell1" class="calc" formula="Zn"
+          help="Oxidation is loss of electrons.">
+    <option value="">Choose</option>
+    <option value="Zn">Zn</option>
+    <option value="Cu2+">Cu²⁺</option>
+  </select>
+  <div class="feedback" id="gCell1FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Identify reduction</b>
+  <br><br>
+
+  Which species is reduced?
+  <select id="gCell2" name="gCell2" class="calc" formula="Cu2+"
+          help="Reduction is gain of electrons.">
+    <option value="">Choose</option>
+    <option value="Zn">Zn</option>
+    <option value="Cu2+">Cu²⁺</option>
+  </select>
+  <div class="feedback" id="gCell2FB"></div>
+
+  <br><br>
+
+  <b>Step 3: Choose the correct cell notation</b>
+  <br><br>
+
+  <select id="gCell3" name="gCell3" class="calc" formula="D"
+          help="Anode (oxidation) is on the left, cathode (reduction) on the right.">
+    <option value="">Choose</option>
+    <option value="A">Zn²⁺(aq) ∣ Zn(s) || Cu(s) ∣ Cu²⁺(aq)</option>
+    <option value="B">Cu²⁺(aq) ∣ Cu(s) || Zn(s) ∣ Zn²⁺(aq)</option>
+    <option value="C">Zn(s) ∣ Cu(s) || Zn²⁺(aq) ∣ Cu²⁺(aq)</option>
+    <option value="D">Zn(s) ∣ Zn²⁺(aq) || Cu²⁺(aq) ∣ Cu(s)</option>
+  </select>
+  <div class="feedback" id="gCell3FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>Zn is oxidized to Zn²⁺, so it is the anode (left side).</li>
+    <li>Cu²⁺ is reduced to Cu, so it is the cathode (right side).</li>
+    <li>Zn(s) and Zn²⁺(aq) are not in the same state, so there is a | between them.</li>
+    <li>Cu²⁺(aq) and Cu(s) are not in the same state, so there is a | between them.</li>
+    <li>There is a salt bridge between the ions so there must be a || between them.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Determine the correct cell notation for the redox reaction below.
+  <br><br>
+
+  Fe (s) + Ag<sup>+</sup> (aq) ➞ Fe<sup>2+</sup> (aq) + Ag (s)
+  <br><br>
+
+  <select id="pCell1" name="pCell1" class="calc" formula="D">
+    <option value="">Choose</option>
+    <option value="A">Fe²⁺(aq) ∣ Fe(s) || Ag(s) ∣ Ag⁺(aq)</option>
+    <option value="B">Ag⁺(aq) ∣ Ag(s) || Fe(s) ∣ Fe²⁺(aq)</option>
+    <option value="C">Fe(s) ∣ Ag(s) || Fe²⁺(aq) ∣ Ag⁺(aq)</option>
+    <option value="D">Fe(s) ∣ Fe²⁺(aq) || Ag⁺(aq) ∣ Ag(s)</option>
+  </select>
+
+  <div class="feedback" id="pCell1FB"></div>
+
+</li>
+
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  Use the tabulated half-cell potentials to calculate the equilibrium constant (K) for the following reaction at 25 °C.
+  <br><br>
+
+  Zn (s) + Cu<sup>2+</sup> (aq) ➞ Zn<sup>2+</sup> (aq) + Cu (s)
+  <br><br>
+
+  <b>Standard Reduction Potentials:</b>
+  <br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Reduction Half-Reaction</th>
+      <th>E° (V)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Cu<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Cu(s)</td>
+      <td>0.34</td>
+    </tr>
+    <tr>
+      <td>Fe<sup>3+</sup>(aq) + 3e<sup>-</sup> &rarr; Fe(s)</td>
+      <td>-0.04</td>
+    </tr>
+    <tr>
+      <td>Pb<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Pb(s)</td>
+      <td>-0.13</td>
+    </tr>
+    <tr>
+      <td>Sn<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Sn(s)</td>
+      <td>-0.14</td>
+    </tr>
+    <tr>
+      <td>Ni<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Ni(s)</td>
+      <td>-0.26</td>
+    </tr>
+    <tr>
+      <td>Zn<sup>2+</sup>(aq) + 2e<sup>-</sup> &rarr; Zn(s)</td>
+      <td>-0.76</td>
+    </tr>
+  </tbody>
+</table>
+ 
+  <br><br>
+
+  <b>Use these relationships:</b>
+  <ul>
+    <li>E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub></li>
+    <li>
+      $E°_{cell} = \frac{0.0592V}{n}logK$
+    </li>
+  </ul>
+
+  <br>
+
+  <b>Step 1: Calculate E°<sub>cell</sub></b>
+  <br><br>
+
+  E°<sub>cell</sub> =
+  <input type="number" step="any" class="calc" id="gEcell" name="gEcell"
+         formula="0.34 - (-0.76)"
+         help="E°cell = E°cathode − E°anode.">
+  V
+  <div class="feedback" id="gEcellFB"></div>
+
+  <br><br>
+
+  <b>Step 2: Calculate log K</b>
+  <br><br>
+
+  log K =
+  <input type="number" step="any" class="calc" id="gLogK" name="gLogK"
+         formula="(2*(0.34 - (-0.76)))/0.0592"
+         help="Use n = number of electrons transferred (2).">
+  <div class="feedback" id="gLogKFB"></div>
+
+  <br><br>
+
+  <b>Step 3: Calculate K</b>
+  <br><br>
+
+  K =
+  <input type="number" step="any" class="calc" id="gK" name="gK"
+         formula="10^((2*(0.34 - (-0.76)))/0.0592)"
+         help="K = 10^(log K)">
+  <div class="feedback" id="gKFB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>Cu²⁺ is reduced (cathode), Zn is oxidized (anode).</li>
+    <li>E°cell = 0.34 − (−0.76) = 1.10 V.</li>
+    <li>n = 2 electrons transferred.</li>
+    <li>log K = (nE°)/0.0592 → large positive value → K &gt;&gt; 1.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  Use the tabulated half-cell potentials (above) to calculate the equilibrium constant (K) for the following reaction at 25°C under standard conditions.
+  <br><br>
+
+  Fe (s) + Cu<sup>2+</sup> (aq) ➞ Fe<sup>2+</sup> (aq) + Cu (s)
+  <br><br>
+
+
+
+  K =
+  <input type="number" step="any" class="calc" id="pK" name="pK"
+         formula="10^((2*(0.34 - (-0.44)))/0.0592)">
+  <div class="feedback" id="pKFB"></div>
+
+</li>
+
 
 
      <!-- End -->
