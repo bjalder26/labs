@@ -18,6 +18,18 @@
       //PARAMS**GO**HERE
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+      hr {
+        height: 3px;
+        background-color: blue;
+      }
+      div[id$="DIV"] {
+        width: 70px !important;
+      }
+      body {
+        user-select: none;
+      }
+    </style>
     <h1 id="title">Final Exam Review (GC II)</h1>
     <!-- Title -->
     Name:
@@ -295,7 +307,7 @@
             data-original="2.77e-5"
             randomPercent="50%"
             readonly
-          />
+          /> = $\frac{[H^+]_{eq}[A^-]_{eq}}{[HA]_{eq}}$
           <br /><br />
 
           <b>Step 1: Complete the ICE table</b>
@@ -344,11 +356,14 @@
                 <div class="feedback" id="gC1FB" name="gC1FB"></div>
               </td>
               <td>
-                <input class="calc" id="gC2" name="gC2" formula="x" />
+                <input class="calc" id="gC2" name="gC2" formula="+x"
+                  help="H<sup>+</sup>increases by x."
+                  />
                 <div class="feedback" id="gC2FB" name="gC2FB"></div>
               </td>
               <td>
-                <input class="calc" id="gC3" name="gC3" formula="x" />
+                <input class="calc" id="gC3" name="gC3" formula="+x" 
+                  help="A<sup>-</sup>increases by x."/>
                 <div class="feedback" id="gC3FB" name="gC3FB"></div>
               </td>
             </tr>
@@ -386,10 +401,42 @@
             class="calc"
             id="gKaExpr"
             name="gKaExpr"
-            formula="(x*x)/(${gHA}-x)"
-            help="Products over reactant using equilibrium values."
+            formula="${gKa}"
+            help="Use the K<sub>a</sub> value above."
           />
           <div class="feedback" id="gKaExprFB"></div>
+          = 
+
+          <div
+              style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;"
+            >
+              <!-- Numerator -->
+              <div
+                style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;"
+              >
+                $X^2$
+              </div>
+
+              <!-- Fraction Bar -->
+              <div
+                style="width: 100%; height: 1.5px; background-color: black;"
+              ></div>
+
+              <!-- Denominator -->
+              <div style="padding: 2px 5px;">
+                <input
+                  type="text"
+                  step="any"
+                  class="calc"
+                  id="Gden5"
+                  name="Gden5"
+                  formula="${gHA}-x"
+                  help="What is the $[HA]_{eq}$ from the ICE table?"
+                  style="width: 80px;"
+                />
+                <div class="feedback" id="Gden5FB" name="Gden5FB"></div>
+              </div>
+            </div>
 
           <br /><br />
 
@@ -694,9 +741,6 @@
           />
           : 1
 
-          <br />
-
-          <div class="feedback" id="gRatio1FB"></div>
           <div class="feedback" id="gRatio2FB"></div>
 
           <br /><br />
@@ -805,6 +849,8 @@
             >
               <option value="">Choose</option>
               <option value="Zn">Zn</option>
+              <option value="Zn2+">Zn²⁺</option>
+              <option value="Cu">Cu</option>
               <option value="Cu2+">Cu²⁺</option>
             </select>
             <div class="feedback" id="gCell1FB"></div>
@@ -824,6 +870,8 @@
             >
               <option value="">Choose</option>
               <option value="Zn">Zn</option>
+              <option value="Zn2+">Zn²⁺</option>
+              <option value="Cu">Cu</option>
               <option value="Cu2+">Cu²⁺</option>
             </select>
             <div class="feedback" id="gCell2FB"></div>
@@ -1149,15 +1197,15 @@
 
           <br /><br />
 
-          C) Fe(s) + Zn<sup>2+</sup>(aq) ➞ Fe<sup>2+</sup>(aq) + Zn(s) E° =
+          C) Ni(s) + Zn<sup>2+</sup>(aq) ➞ Ni<sup>2+</sup>(aq) + Zn(s) E° =
           <input
             type="number"
             step="any"
             class="calc"
             id="gE3-2"
             name="gE3-2"
-            formula="-0.76 - (-0.04)"
-            help="Zn²⁺ is reduced, Fe is oxidized."
+            formula="-0.76 - (-0.26)"
+            help="Zn²⁺ is reduced, Ni is oxidized."
           />
           V
           <div class="feedback" id="gE3-2FB"></div>
