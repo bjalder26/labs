@@ -1,0 +1,761 @@
+<html>
+  <head>
+    <title>Chapter 19 Extra Credit</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+            hr {
+                height: 3px;
+                background-color: blue;
+                }
+            div[id$="DIV"] {
+              width: 70px !important;
+            }
+            body {
+        user-select: none;
+      }
+    </style>
+    <h1 id="title">Chapter 19 Extra Credit</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+      <ol>
+        <h4>Guided Problem</h4>
+
+        <li>
+          What is the unknown particle emitted, represented by $_{?}^{?}X$?
+          <br /><br />
+
+          $_{15}^{32}P ➞ _{?}^{?}X + _{16}^{32}S$
+          <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>Mass number (top) must be conserved</li>
+            <li>Atomic number (bottom) must be conserved</li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Compare mass numbers</b>
+          <br /><br />
+
+          32 → ? + 32
+          <br />
+          The missing particle must have mass:
+          <br />
+          <input
+            type="number"
+            class="calc"
+            id="gNuc1"
+            name="gNuc1"
+            formula="0"
+            help="Subtract product mass numbers from reactant."
+          />
+          <div class="feedback" id="gNuc1FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Compare atomic numbers</b>
+          <br /><br />
+
+          15 → ? + 16
+          <br />
+          The missing particle must have charge:
+          <br />
+          <input
+            type="number"
+            class="calc"
+            id="gNuc2"
+            name="gNuc2"
+            formula="-1"
+            help="15 = X + 16, solve for X."
+          />
+          <div class="feedback" id="gNuc2FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Identify the particle</b>
+          <br /><br />
+
+          A particle that mass and charge:
+          <select
+            id="gNuc3"
+            name="gNuc3"
+            class="calc"
+            formula="B"
+            help="Match mass number and charge."
+          >
+            <option value="">Choose</option>
+            <option value="A">Gamma particle</option>
+            <option value="B">Beta particle (electron)</option>
+            <option value="C">Positron</option>
+            <option value="D">Alpha particle</option>
+          </select>
+
+          <div class="feedback" id="gNuc3FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>Mass number does not change → particle has mass 0</li>
+            <li>Atomic number increases by 1 → particle must have −1 charge</li>
+            <li>This corresponds to a β⁻ (beta particle)</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          What is the unknown particle emitted, represented by $_{?}^{?}X$?
+          <br /><br />
+          $_{29}^{64}Cu ➞ _{?}^{?}X + _{28}^{28}Ni$
+          <br /><br />
+
+          <select id="pNuc1" name="pNuc1" class="calc" formula="C">
+            <option value="">Choose</option>
+            <option value="A">Gamma particle</option>
+            <option value="B">Beta particle (electron)</option>
+            <option value="C">Positron</option>
+            <option value="D">Alpha particle</option>
+          </select>
+
+          <div class="feedback" id="pNuc1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Which of the following represents a gamma particle?
+          <br /><br />
+
+          <b>Use this chart to guide your reasoning:</b>
+          <table>
+            <thead>
+              <tr>
+                <th>Particle Name</th>
+                <th>Mass Number</th>
+                <th>Charge</th>
+                <th>Symbol</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alpha particle</td>
+                <td>4</td>
+                <td>+2</td>
+                <td>$^{4}_{2}\alpha$ or $^{4}_{2}\text{He}$</td>
+              </tr>
+              <tr>
+                <td>Beta particle (Electron)</td>
+                <td>0</td>
+                <td>-1</td>
+                <td>$^{\ \ \ 0}_{-1}\beta$ or $^{\ \ \ 0}_{-1}\text{e}$</td>
+              </tr>
+              <tr>
+                <td>Positron</td>
+                <td>0</td>
+                <td>+1</td>
+                <td>$^{\ \ \ 0}_{+1}\beta$ or $^{\ \ \ 0}_{+1}\text{e}$</td>
+              </tr>
+              <tr>
+                <td>Gamma ray</td>
+                <td>0</td>
+                <td>0</td>
+                <td>$\gamma$ or $^{0}_{0}\gamma$</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br />
+
+          <b>Step 1: Identify the correct mass number</b>
+          <br /><br />
+
+          A gamma particle has a mass number of:
+          <select id="gRad1" name="gRad1" class="calc" formula="0">
+            <option value="">Choose</option>
+            <option value="4">4</option>
+            <option value="1">1</option>
+            <option value="0">0</option>
+          </select>
+
+          <div class="feedback" id="gRad1FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Identify the correct charge</b>
+          <br /><br />
+
+          A gamma particle has an atomic number of:
+          <select id="gRad2" name="gRad2" class="calc" formula="0">
+            <option value="">Choose</option>
+            <option value="2">2</option>
+            <option value="-1">-1</option>
+            <option value="0">0</option>
+          </select>
+
+          <div class="feedback" id="gRad2FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Identify the correct symbol</b>
+          <br /><br />
+
+          A) $^{4}_{2}\text{He}$<br />
+          B) $^{\ \ \ 0}_{-1}\text{e}$<br />
+          C) $^{\ \ \ 0}_{+1}\text{e}$<br />
+          D) $^{0}_{0}\gamma$<br />
+
+          <select id="gRad3" name="gRad3" class="calc" formula="D">
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+
+          <div class="feedback" id="gRad3FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>Gamma radiation has no mass and no charge</li>
+            <li>The greek letter for gamma is γ</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Which of the following represents an alpha particle?
+          <br />
+
+          A) $^{4}_{2}\text{He}$<br />
+          B) $^{\ \ \ 0}_{-1}\text{e}$<br />
+          C) $^{\ \ \ 0}_{+1}\text{e}$<br />
+          D) $^{0}_{0}\gamma$<br />
+          <br />
+
+          <select id="pRad1" name="pRad1" class="calc" formula="A">
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+          </select>
+
+          <div class="feedback" id="pRad1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Cesium-137 is a radioactive isotope with a half-life of 30.2 years.
+          <br /><br />
+
+          If
+          <input
+            class="num display-value"
+            id="gInitial"
+            name="gInitial"
+            random="true"
+            data-original="96.0"
+            randomPercent="50%"
+            readonly
+          />
+          mg of cesium-137 is initially present, how long will it take for the
+          amount to decrease to
+          <input
+            class="num display-value"
+            id="gFinal-2"
+            name="gFinal-2"
+            random="true"
+            data-original="12.0"
+            randomPercent="50%"
+            readonly
+          />
+          mg? <br /><br />
+
+          <b>Step 1: Calculate the decay constant (k)</b><br />
+          $k = \frac{ln(2)}{t_{\frac{1}{2}}}$
+          <ul>
+            <li>k = decay constant</li>
+            <li>$t_{\frac{1}{2}}$ = half-life</li>
+          </ul>
+          <br /><br />
+
+          k =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gk"
+            name="gk"
+            formula="0.693/30.2"
+            help="k = 0.693 / half-life"
+          />
+          yr<sup>-1</sup>
+
+          <div class="feedback" id="gkFB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Use the decay equation</b>
+          <br /><br />
+
+          A = A₀ e<sup>−kt</sup>
+          <ul>
+            <li>A = amount at end time</li>
+            <li>A₀ = amount at beginning time</li>
+            <li>k = decay constant</li>
+            <li>t = time that has passed</li>
+          </ul>
+          <br /><br />
+
+          <b>Step 3: First solve for e<sup>−kt</sup></b
+          ><br />
+          e<sup>−kt</sup> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="e-kt"
+            name="e-kt"
+            formula="${gFinal-2}/${gInitial}"
+            help="final mass divided by initial mass"
+          />
+          <div class="feedback" id="e-ktFB"></div>
+
+          <br /><br />
+          <b>Step 4: Take a natural log of both sides to solve for -kt</b><br />
+          −kt =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="negkt"
+            name="negkt"
+            formula="ln(${gFinal-2}/${gInitial})"
+            help="Natural log of final mass divided by initial mass"
+          />
+          <div class="feedback" id="negktFB"></div>
+
+          <br /><br />
+
+          <b>Step 5: Divide both sides by -K to solve for time</b>
+          <br /><br />
+
+          t =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gTime"
+            name="gTime"
+            formula="ln(${gInitial}/${gFinal-2})/(0.693/30.2)"
+            help="t = ln(A0/A) / k"
+          />
+          years
+
+          <div class="feedback" id="gTimeFB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>
+              First convert half-life into decay constant using k = 0.693 / t½.
+            </li>
+            <li>Use the exponential decay equation A = A₀e⁻ᵏᵗ.</li>
+            <li>Rearrange to solve for time: t = ln(A₀/A) / k.</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Strontium-90 has a half-life of 28.8 years.
+          <br /><br />
+
+          If
+          <input
+            class="num display-value"
+            id="pInitial"
+            name="pInitial"
+            random="true"
+            data-original="75.0"
+            randomPercent="50%"
+            readonly
+          />
+          mg is initially present, how long will it take for the amount to
+          decrease to
+          <input
+            class="num display-value"
+            id="pFinal-2"
+            name="pFinal-2"
+            random="true"
+            data-original="9.38"
+            randomPercent="50%"
+            readonly
+          />
+          mg? <br /><br />
+
+          t =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pTime"
+            name="pTime"
+            formula="ln(${pInitial}/${pFinal-2})/(0.693/28.8)"
+          />
+          years
+
+          <div class="feedback" id="pTimeFB"></div>
+        </li>
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Fluorine-18 has a half-life of 110. minutes.
+          <br /><br />
+
+          If a patient is injected with
+          <input
+            class="num display-value"
+            id="gInitial27"
+            name="gInitial27"
+            random="true"
+            data-original="272.0"
+            randomPercent="50%"
+            readonly
+          />
+          mg, how many mg would remain after
+          <input
+            class="num display-value"
+            id="gHours27"
+            name="gHours27"
+            random="true"
+            data-original="5.80"
+            randomPercent="30%"
+            readonly
+          />
+          hours? <br /><br />
+
+          <b>Step 1: Convert time to minutes</b>
+          <br /><br />
+
+          Time =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gTimeMin27"
+            name="gTimeMin27"
+            formula="${gHours27}*60"
+            help="Convert hours to minutes."
+          />
+          minutes
+
+          <div class="feedback" id="gTimeMin27FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Calculate the decay constant</b>
+          <br /><br />
+
+          k =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gk27"
+            name="gk27"
+            formula="0.693/110"
+            help="k = 0.693 / half-life"
+          />
+          min<sup>-1</sup>
+
+          <div class="feedback" id="gk27FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Calculate remaining mass</b>
+          <br /><br />
+
+          A =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gFinal27"
+            name="gFinal27"
+            formula="${gInitial27}*exp(-(0.693/110)*(${gHours27}*60))"
+            help="Use A = A₀e^(-kt)"
+          />
+          mg
+
+          <div class="feedback" id="gFinal27FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>Convert time to minutes so units match the half-life.</li>
+            <li>Calculate k using $k = \frac{ln(2)}{t_{\frac{1}{2}}}$</li>
+            <li>
+              Substitute into $A = A₀e^{-kt}$ to find the remaining amount.
+            </li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Fluorine-18 has a half-life of 110. minutes.
+          <br /><br />
+
+          If a patient is injected with
+          <input
+            class="num display-value"
+            id="pInitial28"
+            name="pInitial28"
+            random="true"
+            data-original="310.0"
+            randomPercent="50%"
+            readonly
+          />
+          mg, how many mg would remain after
+          <input
+            class="num display-value"
+            id="pHours28"
+            name="pHours28"
+            random="true"
+            data-original="4.25"
+            randomPercent="30%"
+            readonly
+          />
+          hours? <br /><br />
+
+          A =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pFinal28"
+            name="pFinal28"
+            formula="${pInitial28}*e^(-(ln(2)/110)*(${pHours28}*60))"
+          />
+          mg
+
+          <div class="feedback" id="pFinal28FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          If $_{38}^{89}Sr$ undergoes alpha decay, what is the resulting
+          daughter nuclide?
+          <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>
+              <b>Alpha decay:</b>
+              <ul>
+                <li>emits: $^4_2He$</li>
+                <li>mass: −4</li>
+                <li>atomic number: −2</li>
+              </ul>
+            </li>
+            <li>
+              <b>Beta decay:</b>
+              <ul>
+                <li>emits: $^{\ \ \ 0}_{-1}β$ or $^{\ \ \ 0}_{-1}e$</li>
+                <li>mass: no change</li>
+                <li>atomic number: +1</li>
+              </ul>
+            </li>
+            <li>
+              <b>Positron emission:</b>
+              <ul>
+                <li>emits: $^{\ \ \ 0}_{+1}β$ or $^{\ \ \ 0}_{+1}e$</li>
+                <li>mass: no change</li>
+                <li>atomic number: -1</li>
+              </ul>
+            </li>
+            <li>
+              <b>Electron capture:</b>
+              <ul>
+                <li>captures: $^{\ \ \ 0}_{-1}β$ or $^{\ \ \ 0}_{-1}e$</li>
+                <li>mass: no change</li>
+                <li>atomic number: -1</li>
+              </ul>
+            </li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Subtract mass numbers</b>
+          <br /><br />
+
+          New mass number =
+          <input
+            type="number"
+            class="calc"
+            id="gMass29"
+            name="gMass29"
+            formula="89-4"
+            help="Alpha decay decreases mass number by 4."
+          />
+
+          <div class="feedback" id="gMass29FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Subtract atomic numbers</b>
+          <br /><br />
+
+          New atomic number =
+          <input
+            type="number"
+            class="calc"
+            id="gAtomic29"
+            name="gAtomic29"
+            formula="38-2"
+            help="Alpha decay decreases atomic number by 2."
+          />
+
+          <div class="feedback" id="gAtomic29FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Identify the element</b>
+          <br /><br />
+
+          Atomic number 36 corresponds to:
+          <select id="gElem29" name="gElem29" class="calc" formula="Kr">
+            <option value="">Choose</option>
+            <option value="Rb">Rb</option>
+            <option value="Kr">Kr</option>
+            <option value="Br">Br</option>
+          </select>
+
+          <div class="feedback" id="gElem29FB"></div>
+
+          <br /><br />
+
+          <b>Step 4: Choose the correct daughter nuclide</b>
+          <br /><br />
+          A) $_{39}^{89}Yr$<br />
+          B) $_{38}^{85}Sr$<br />
+          C) $_{37}^{89}Rb$<br />
+          D) $_{36}^{85}Kr$<br />
+          E) $_{34}^{85}Se$<br />
+
+          <select id="gFinal29" name="gFinal29" class="calc" formula="D">
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+          </select>
+          <div class="feedback" id="gFinal29FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>Alpha decay emits $^4_2He$</li>
+            <li>Mass decreases by 4</li>
+            <li>Atomic number decreases by 4</li>
+            <li>
+              Use the periodic table to look up the element by mass number
+            </li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          If $^{58}_{27}Co$ undergoes electron capture, what is the resulting
+          daughter nuclide?
+          <br /><br />
+          A) $_{28}^{58}Ni$<br />
+          B) $_{25}^{54}Mn$<br />
+          C) $_{26}^{58}Fe$<br />
+          D) $_{28}^{59}Ni$<br />
+          E) $_{26}^{57}Fe$<br />
+
+          <select id="pFinal30" name="pFinal30" class="calc" formula="C">
+            <option value="">Choose</option>
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+          </select>
+          <div class="feedback" id="pFinal30FB"></div>
+        </li>
+      </ol>
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
