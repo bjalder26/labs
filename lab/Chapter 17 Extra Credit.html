@@ -1,0 +1,689 @@
+<html>
+  <head>
+    <title>Chapter 17 Extra Credit</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+            hr {
+                height: 3px;
+                background-color: blue;
+                }
+            div[id$="DIV"] {
+              width: 70px !important;
+            }
+            body {
+        user-select: none;
+      }
+    </style>
+    <h1 id="title">Chapter 17 Extra Credit</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+      <ol>
+        <h4>Guided Problem</h4>
+
+        <li>
+          Identify the strongest acid.
+          <br />
+
+          A) HClO B) HClO<sub>2</sub> C) HClO<sub>3</sub> D) HClO<sub>4</sub>
+          <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>These are <b>oxoacids</b> (acids containing oxygen)</li>
+            <li>
+              For oxoacids with the same central atom,
+              <b>more oxygen atoms = stronger acid</b>
+            </li>
+            <li>
+              More oxygen atoms means:
+              <ul>
+                <li>Greater electron withdrawal from the O–H bond</li>
+                <li>More stable conjugate base</li>
+              </ul>
+            </li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Identify the central atom in each acid</b>
+          <br />
+
+          The central atom is:
+          <select
+            id="gAcid1"
+            name="gAcid1"
+            class="calc"
+            formula="Cl"
+            help="All acids listed contain the same central atom."
+          >
+            <option value="">Choose</option>
+            <option value="H">H</option>
+            <option value="Cl">Cl</option>
+            <option value="O">O</option>
+          </select>
+          <div class="feedback" id="gAcid1FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: What determines strength for these acids?</b>
+          <br />
+
+          Acid strength increases with:
+          <select
+            id="gAcid2"
+            name="gAcid2"
+            class="calc"
+            formula="more oxygen"
+            help="For oxoacids with the same central atom, compare the number of oxygen atoms."
+          >
+            <option value="">Choose</option>
+            <option value="more hydrogen">more hydrogen</option>
+            <option value="more oxygen">more oxygen</option>
+            <option value="larger molecule">larger molecule</option>
+          </select>
+          <div class="feedback" id="gAcid2FB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Identify the strongest acid</b>
+          <br />
+
+          <select
+            id="gAcid3"
+            name="gAcid3"
+            class="calc"
+            formula="D"
+            help="Choose the acid with the greatest number of oxygen atoms."
+          >
+            <option value="">Choose</option>
+            <option value="A">HClO</option>
+            <option value="B">HClO₂</option>
+            <option value="C">HClO₃</option>
+            <option value="D">HClO₄</option>
+          </select>
+          <div class="feedback" id="gAcid3FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>
+              All acids share the same central atom (Cl), so we compare oxygen
+              count.
+            </li>
+            <li>
+              More oxygen atoms increase electron withdrawal and stabilize the
+              conjugate base.
+            </li>
+            <li>
+              HClO₄ has the most oxygen atoms, so it is the strongest acid.
+            </li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Identify the <b>weakest</b> acid.
+          <br />
+
+          A) HBrO B) HBrO<sub>2</sub> C) HBrO<sub>3</sub> D) HBrO<sub>4</sub>
+          <br />
+
+          <select id="pAcid1" name="pAcid1" class="calc" formula="A">
+            <option value="">Choose</option>
+            <option value="A">HBrO</option>
+            <option value="B">HBrO₂</option>
+            <option value="C">HBrO₃</option>
+            <option value="D">HBrO₄</option>
+          </select>
+
+          <div class="feedback" id="pAcid1FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Calculate the pOH of a solution at 25°C.
+          <br /><br />
+
+          [H<sub>3</sub>O<sup>+</sup>] =
+          <input
+            class="num display-value"
+            id="gH3O"
+            name="gH3O"
+            random="true"
+            data-original="2.19e-3"
+            randomPercent="50%"
+            readonly
+          />
+          M
+          <br /><br />
+
+          <b>Use these relationships:</b>
+          <ul>
+            <li>pH = −log[H<sub>3</sub>O<sup>+</sup>]</li>
+            <li>pOH = 14 − pH</li>
+            <li>Therefore: pOH = 14 + log[H<sub>3</sub>O<sup>+</sup>]</li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Calculate pH</b>
+          <br /><br />
+
+          pH =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gpH"
+            name="gpH"
+            formula="-log10(${gH3O})"
+            help="Use pH = −log[H₃O⁺]."
+          />
+          <div class="feedback" id="gpHFB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Calculate pOH</b>
+          <br /><br />
+
+          pOH =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gpOH"
+            name="gpOH"
+            formula="14-(-log10(${gH3O}))"
+            help="Use pOH = 14 − pH."
+          />
+          <div class="feedback" id="gpOHFB"></div>
+
+          <br /><br />
+
+          <b>Final Answer:</b>
+          <br /><br />
+
+          pOH =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gFinal"
+            name="gFinal"
+            formula="14+log10(${gH3O})"
+          />
+          <div class="feedback" id="gFinalFB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Calculate the pOH of a solution at 25°C.
+          <br /><br />
+
+          [H<sub>3</sub>O<sup>+</sup>] =
+          <input
+            class="num display-value"
+            id="pH3O"
+            name="pH3O"
+            random="true"
+            data-original="4.75e-4"
+            randomPercent="50%"
+            readonly
+          />
+          M
+          <br /><br />
+
+          pOH =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pFinal"
+            name="pFinal"
+            formula="14+log10(${pH3O})"
+          />
+          <div class="feedback" id="pFinalFB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Calculate the percent ionization of a monoprotic weak acid (HA).
+          <br /><br />
+
+          HA ⇌ H<sup>+</sup> + A<sup>−</sup> <br /><br />
+
+          Initial concentration:
+          <br />
+          [HA] =
+          <input
+            class="num display-value"
+            id="gHA"
+            name="gHA"
+            random="true"
+            data-original="0.222"
+            randomPercent="50%"
+            readonly
+          />
+          M <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            class="num display-value"
+            id="gKa"
+            name="gKa"
+            random="true"
+            data-original="2.77e-5"
+            randomPercent="50%"
+            readonly
+          />
+          = $\frac{[H^+]_{eq}[A^-]_{eq}}{[HA]_{eq}}$ <br /><br />
+
+          <b>Step 1: Complete the ICE table</b>
+          <br /><br />
+
+          <table border="1" cellpadding="6">
+            <tr>
+              <th></th>
+              <th>HA</th>
+              <th>H⁺</th>
+              <th>A⁻</th>
+            </tr>
+
+            <tr>
+              <td><b>I</b></td>
+              <td>
+                <input
+                  class="calc"
+                  id="gI1"
+                  name="gI1"
+                  formula="${gHA}"
+                  help="Initial HA is given."
+                />
+                <div class="feedback" id="gI1FB" name="gI1FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gI2" name="gI2" formula="0" />
+                <div class="feedback" id="gI2FB" name="gI2FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gI3" name="gI3" formula="0" />
+                <div class="feedback" id="gI3FB" name="gI3FB"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><b>C</b></td>
+              <td>
+                <input
+                  class="calc"
+                  id="gC1"
+                  name="gC1"
+                  formula="-x"
+                  help="HA decreases by x."
+                />
+                <div class="feedback" id="gC1FB" name="gC1FB"></div>
+              </td>
+              <td>
+                <input
+                  class="calc"
+                  id="gC2"
+                  name="gC2"
+                  formula="+x"
+                  help="H<sup>+</sup>increases by x."
+                />
+                <div class="feedback" id="gC2FB" name="gC2FB"></div>
+              </td>
+              <td>
+                <input
+                  class="calc"
+                  id="gC3"
+                  name="gC3"
+                  formula="+x"
+                  help="A<sup>-</sup>increases by x."
+                />
+                <div class="feedback" id="gC3FB" name="gC3FB"></div>
+              </td>
+            </tr>
+
+            <tr>
+              <td><b>E</b></td>
+              <td>
+                <input
+                  class="calc"
+                  id="gE1-2"
+                  name="gE1-2"
+                  formula="${gHA}-x"
+                />
+                <div class="feedback" id="gE1-2FB" name="gE1-2FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gE2" name="gE2" formula="x" />
+                <div class="feedback" id="gE2FB" name="gE2FB"></div>
+              </td>
+              <td>
+                <input class="calc" id="gE3" name="gE3" formula="x" />
+                <div class="feedback" id="gE3FB" name="gE3FB"></div>
+              </td>
+            </tr>
+          </table>
+
+          <br /><br />
+
+          <b>Step 2: Write the K<sub>a</sub> expression</b>
+          <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            type="text"
+            class="calc"
+            id="gKaExpr"
+            name="gKaExpr"
+            formula="${gKa}"
+            help="Use the K<sub>a</sub> value above."
+          />
+          <div class="feedback" id="gKaExprFB"></div>
+          =
+
+          <div
+            style="display: inline-flex; flex-direction: column; align-items: center; vertical-align: middle; font-family: 'Times New Roman', serif;"
+          >
+            <!-- Numerator -->
+            <div
+              style="padding: 2px 5px; display: flex; align-items: center; gap: 5px;"
+            >
+              $X^2$
+            </div>
+
+            <!-- Fraction Bar -->
+            <div
+              style="width: 100%; height: 1.5px; background-color: black;"
+            ></div>
+
+            <!-- Denominator -->
+            <div style="padding: 2px 5px;">
+              <input
+                type="text"
+                step="any"
+                class="calc"
+                id="Gden5"
+                name="Gden5"
+                formula="${gHA}-x"
+                help="What is the $[HA]_{eq}$ from the ICE table?"
+                style="width: 80px;"
+              />
+              <div class="feedback" id="Gden5FB" name="Gden5FB"></div>
+            </div>
+          </div>
+
+          <br /><br />
+
+          <b>Step 3: Check small x assumption</b>
+          <br /><br />
+
+          [HA]/K<sub>a</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gCheck"
+            name="gCheck"
+            formula="${gHA}/${gKa}"
+            help="Divide initial concentration by Ka."
+          />
+          <div class="feedback" id="gCheckFB"></div>
+
+          <br /><br />
+
+          Can the small x approximation be used?
+          <select
+            id="gSmallX"
+            name="gSmallX"
+            class="calc"
+            formula="yes"
+            help="If [HA]/Ka > 400, the approximation is valid."
+          >
+            <option value="">Choose</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+          <div class="feedback" id="gSmallXFB"></div>
+
+          <br /><br />
+
+          <b>Step 4: Solve for x</b>
+          <br /><br />
+
+          x =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gX"
+            name="gX"
+            formula="sqrt(${gKa}*${gHA})"
+            help="If using small x: Ka ≈ x²/[HA]. Solve for x."
+          />
+          M
+          <div class="feedback" id="gXFB"></div>
+
+          <br /><br />
+
+          <b>Step 5: Calculate percent ionization</b>
+          <br /><br />
+
+          % ionization =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gPercent"
+            name="gPercent"
+            formula="(sqrt(${gKa}*${gHA})/${gHA})*100"
+            help="(x / initial) × 100"
+          />
+          %
+          <div class="feedback" id="gPercentFB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Calculate the percent ionization of a monoprotic weak acid (HA).
+          <br /><br />
+
+          Initial concentration:
+          <br />
+          [HA] =
+          <input
+            class="num display-value"
+            id="pHA"
+            name="pHA"
+            random="true"
+            data-original="0.150"
+            randomPercent="50%"
+            readonly
+          />
+          M <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            class="num display-value"
+            id="pKa"
+            name="pKa"
+            random="true"
+            data-original="1.25e-6"
+            randomPercent="50%"
+            readonly
+          />
+          <br /><br />
+
+          % ionization =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pPercent"
+            name="pPercent"
+            formula="(sqrt(${pKa}*${pHA})/${pHA})*100"
+          />
+          %
+          <div class="feedback" id="pPercentFB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Which of the following is a <b>Brønsted–Lowry base</b>? <br /><br />
+
+          A) CO<sub>2</sub> B) HNO<sub>3</sub> C) Mg(OH)<sub>2</sub> D)
+          C<sub>2</sub>H<sub>6</sub>
+          E) None of the above
+          <br /><br />
+
+          <b>Use these ideas to guide your reasoning:</b>
+          <ul>
+            <li>A <b>Brønsted–Lowry base</b> accepts H<sup>+</sup></li>
+            <li>
+              In general chemistry, many bases contain <b>OH</b>. The one
+              exception you should memorize is NH<sub>3</sub>.
+            </li>
+            <li>Acids are often written with <b>H first</b></li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Which substance contains OH?</b>
+          <br /><br />
+
+          <select
+            id="gBase1"
+            name="gBase1"
+            class="calc"
+            formula="Mg(OH)2"
+            help="Identify the compound that contains the hydroxide (OH) group."
+          >
+            <option value="">Choose</option>
+            <option value="CO2">CO₂</option>
+            <option value="HNO3">HNO₃</option>
+            <option value="Mg(OH)2">Mg(OH)₂</option>
+            <option value="C2H6">C₂H₆</option>
+          </select>
+          <div class="feedback" id="gBase1FB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Identify the base</b>
+          <br /><br />
+
+          <select
+            id="gBase2"
+            name="gBase2"
+            class="calc"
+            formula="C"
+            help="Compounds with OH are typically bases in general chemistry."
+          >
+            <option value="">Choose</option>
+            <option value="A">CO₂</option>
+            <option value="B">HNO₃</option>
+            <option value="C">Mg(OH)₂</option>
+            <option value="D">C₂H₆</option>
+            <option value="E">None of the above</option>
+          </select>
+          <div class="feedback" id="gBase2FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>
+              Mg(OH)₂ contains hydroxide (OH), which is characteristic of many
+              bases.
+            </li>
+            <li>HNO₃ begins with H, so it is an acid.</li>
+            <li>CO₂ and C₂H₆ do not function as bases in this context.</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Which of the following is a <b>Brønsted–Lowry base</b>? <br /><br />
+
+          A) H₂SO₄ B) KOH C) CH₄ D) SO₂ E) None of the above
+          <br /><br />
+
+          <select id="pBase1" name="pBase1" class="calc" formula="B">
+            <option value="">Choose</option>
+            <option value="A">H₂SO₄</option>
+            <option value="B">KOH</option>
+            <option value="C">CH₄</option>
+            <option value="D">SO₂</option>
+            <option value="E">None of the above</option>
+          </select>
+
+          <div class="feedback" id="pBase1FB"></div>
+        </li>
+      </ol>
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
