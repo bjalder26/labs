@@ -1,0 +1,899 @@
+<html>
+  <head>
+    <title>Chapter 14 Extra Credit</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+            hr {
+                height: 3px;
+                background-color: blue;
+                }
+            div[id$="DIV"] {
+              width: 70px !important;
+            }
+            body {
+        user-select: none;
+      }
+    </style>
+    <h1 id="title">Chapter 14 Extra Credit</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+<ol>
+        <h4>Guided Problem</h4>
+
+        <li>
+          A reaction is studied at two different temperatures. At
+          <input
+            class="num display-value"
+            id="arrT1"
+            name="arrT1"
+            random="true"
+            data-original="345"
+            randomPercent="15%"
+            readonly
+          />
+          K, the rate constant is
+          <input
+            class="num display-value"
+            id="arrK1"
+            name="arrK1"
+            random="true"
+            data-original="2.1e4"
+            randomPercent="40%"
+            readonly
+          />
+          M<sup>−1</sup>s<sup>−1</sup>. At
+          <input
+            class="num display-value"
+            id="arrT2"
+            name="arrT2"
+            random="true"
+            data-original="160"
+            randomPercent="15%"
+            readonly
+          />
+          K, the rate constant is
+          <input
+            class="num display-value"
+            id="arrK2"
+            name="arrK2"
+            random="true"
+            data-original="7.4"
+            randomPercent="40%"
+            readonly
+          />
+          M<sup>−1</sup>s<sup>−1</sup>.<br />
+
+          What is the activation energy for this reaction?
+        </li>
+
+        <h4>Step-by-step reasoning</h4>
+
+        <p><b>Step 1: Write the two‑point Arrhenius equation</b></p>
+
+        <p>
+          $\ln\!\left(\frac{k_1}{k_2}\right) =
+          \frac{E_a}{R}\left(\frac{1}{T_2}-\frac{1}{T_1}\right)$
+        </p>
+
+        <p>
+          E<sub>a</sub> = activation energy<br />
+          R = 8.3145 $\frac{J}{mol·K}$ or 0.0083145 $\frac{kJ}{mol·K}$<br />
+          T = temperature in Kelvin
+        </p>
+
+        <p>
+          <b>Step 2: Identify k<sub>1</sub> and k<sub>2</sub></b>
+        </p>
+
+        k<sub>1</sub>
+        =
+        <input
+          type="number"
+          class="calc num"
+          id="arrK1C"
+          name="arrK1C"
+          step="any"
+          formula="if(${arrK2} == ${arrK2} ; ${arrK1}||${arrK2} ; ${arrK1}||${arrK2})"
+          help="Use the rate constant at the higher temperature."
+        />
+        <div class="feedback" id="arrK1CFB" name="arrK1CFB"></div>
+        <br />
+        k<sub>2</sub>
+        =
+        <input
+          type="number"
+          class="calc num"
+          id="arrK2C"
+          name="arrK2C"
+          step="any"
+          formula="if(${arrK1C} == ${arrK1} ; ${arrK2} ; ${arrK1})"
+          help="Use the rate constant at the lower temperature."
+        />
+        <div class="feedback" id="arrK2CFB" name="arrK2CFB"></div>
+
+        <p>
+          <b>Step 3: Take the natural logarithm of the rate constant ratio</b>
+        </p>
+
+        $ln\left(\frac{k_1}{k_2}\right)$ =
+        <input
+          type="number"
+          class="calc num"
+          id="arrLn"
+          name="arrLn"
+          step="any"
+          formula="ln(${arrK1C}/${arrK2C})"
+          help="Divide the K<sub>1</sub> by the K<sub>2</sub>, then take ln."
+        />
+        <div class="feedback" id="arrLnFB" name="arrLnFB"></div>
+
+        <p><b>Step 4: Calculate the temperature term</b></p>
+
+        $\left(\frac{1}{T_2}-\frac{1}{T_1}\right)$ =
+        <input
+          type="number"
+          class="calc num"
+          id="arrTempTerm"
+          name="arrTempTerm"
+          step="any"
+          formula="if(${arrK1C} == ${arrK1} ; 1/${arrT2}-1/${arrT1} ; 1/${arrT1}-1/${arrT2})"
+          help="Temperatures must be in Kelvin and T<sub>1</sub> must be the temperature for K<sub>1</sub> and T<sub>2</sub> must be the temperature for K<sub>2</sub>"
+        />
+        <div class="feedback" id="arrTempTermFB" name="arrTempTermFB"></div>
+
+        <p><b>Step 5: Solve for the activation energy</b></p>
+
+        E<sub>a</sub>
+        =
+
+        <input
+          type="number"
+          class="calc"
+          id="arrEa"
+          name="arrEa"
+          step="any"
+          formula="(0.0083145*${arrLn})/${arrTempTerm}"
+          help="Rearrange the Arrhenius equation and use R = 0.0083145 kJ/(mol·K)."
+        />
+        kJ/mol
+
+        <div class="feedback" id="arrEaFB" name="arrEaFB"></div>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          At
+          <input
+            class="num display-value"
+            id="arrT1b"
+            name="arrT1b"
+            random="true"
+            data-original="372"
+            randomPercent="15%"
+            readonly
+          />
+          K, a reaction has a rate constant of
+          <input
+            class="num display-value"
+            id="arrK1b"
+            name="arrK1b"
+            random="true"
+            data-original="3.4e4"
+            randomPercent="40%"
+            readonly
+          />
+          M<sup>−1</sup>s<sup>−1</sup>. At
+          <input
+            class="num display-value"
+            id="arrT2b"
+            name="arrT2b"
+            random="true"
+            data-original="185"
+            randomPercent="15%"
+            readonly
+          />
+          K, the rate constant is
+          <input
+            class="num display-value"
+            id="arrK2b"
+            name="arrK2b"
+            random="true"
+            data-original="11.2"
+            randomPercent="40%"
+            readonly
+          />
+          M<sup>−1</sup>s<sup>−1</sup>.
+          <br />
+
+          What is the activation energy for this reaction?
+          <br /><br />
+
+          E<sub>a</sub> =
+          <input
+            type="number"
+            class="calc"
+            id="arrEab"
+            name="arrEab"
+            step="any"
+            formula="(0.008314*ln(${arrK1b}/${arrK2b}))/((1/${arrT2b})-(1/${arrT1b}))"
+            help="Use the two‑point Arrhenius equation. Make sure the larger rate constant corresponds to the higher temperature."
+          />
+          kJ/mol
+
+          <div class="feedback" id="arrEabFB" name="arrEabFB"></div>
+        </li>
+        <!-- ==== 15 and 16 === -->
+        <hr />
+        <h4>Guided Problem</h4>
+
+        <li>
+          <p>
+            The graph below shows how the concentration of a reactant changes
+            over time.
+          </p>
+          <img
+            src="/images/44.jpg"
+            height="250"
+            alt="Concentration vs Time"
+            title="Concentration vs Time"
+          />
+
+          <h4>Step-by-step reasoning</h4>
+
+          <p><b>Step 1: Identify what is plotted</b></p>
+          <p>The graph plots <b>concentration vs. time</b>.</p>
+
+          <p><b>Step 2: Recall how reaction order affects graph shape</b></p>
+          <ul>
+            <li>
+              <b>Zeroth order:</b> concentration decreases linearly with time
+            </li>
+            <li>
+              <b>First order:</b> natural log of concentration decreases
+              linearly with time
+            </li>
+            <li>
+              <b>Second order:</b> $\frac{1}{concentration}$ increases linearly
+              with time
+            </li>
+          </ul>
+
+          <p><b>Step 3: Match the graph to the reaction order</b></p>
+
+          <select
+            id="rxOrder1"
+            name="rxOrder1"
+            class="calc"
+            formula="zeroth"
+            help="For a concentration vs. time graph, a straight line indicates a zeroth-order reaction."
+          >
+            <option value="">Choose an option</option>
+            <option value="zeroth">Zeroth order</option>
+            <option value="first">First order</option>
+            <option value="second">Second order</option>
+            <option value="cannot">Cannot be determined</option>
+          </select>
+
+          <div class="feedback" id="rxOrder1FB" name="rxOrder1FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          <p>
+            What is the order of the reaction represented by the graph below?
+          </p>
+
+          <img
+            src="/images/46.jpg"
+            height="250"
+            alt="one over concentration vs time"
+            title="1/Concentration vs Time"
+          />
+          <br />
+          <select
+            id="rxOrder2"
+            name="rxOrder2"
+            class="calc"
+            formula="second"
+            help="Determine the reaction order by examining the shape of the concentration vs. time graph."
+          >
+            <option value="">Choose an option</option>
+            <option value="zeroth">Zeroth order</option>
+            <option value="first">First order</option>
+            <option value="second">Second order</option>
+            <option value="cannot">Cannot be determined</option>
+          </select>
+
+          <div class="feedback" id="rxOrder2FB" name="rxOrder2FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          <div>
+            Consider the following reaction and rate law:
+            <br /><br />
+
+            2 X + 5 Y ➞ 3 Z
+            <br /><br />
+
+            Rate = k[X]<sup>3</sup>[Y]<sup>2</sup>
+            <h4>Step-by-step reasoning</h4>
+
+            <p>
+              <b>Step 1: Recall how overall reaction order is determined</b>
+            </p>
+            <p>
+              The overall order of a reaction is the
+              <b>sum of the exponents</b> on the concentration terms in the rate
+              law.
+            </p>
+
+            <p><b>Step 2: Identify the exponents in the rate law</b></p>
+
+            [X]<sup>3</sup> contributes an order of
+            <input
+              type="number"
+              class="calc"
+              id="rxXOrd"
+              name="rxXOrd"
+              step="any"
+              formula="3"
+              help="The exponent on [X] is the reaction order with respect to X."
+            />
+            <div class="feedback" id="rxXOrdFB" name="rxXOrdFB"></div>
+            <br />
+
+            [Y]<sup>2</sup> contributes an order of
+            <input
+              type="number"
+              class="calc"
+              id="rxYOrd"
+              name="rxYOrd"
+              step="any"
+              formula="2"
+              help="The exponent on [Y] is the reaction order with respect to Y."
+            />
+            <div class="feedback" id="rxYOrdFB" name="rxYOrdFB"></div>
+
+            <p><b>Step 3: Add the individual orders</b></p>
+
+            Overall order =
+            <input
+              type="number"
+              class="calc"
+              id="rxTotalOrd"
+              name="rxTotalOrd"
+              step="any"
+              formula="5"
+              help="Add the exponents from the rate law."
+            />
+            <div class="feedback" id="rxTotalOrdFB" name="rxTotalOrdFB"></div>
+          </div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          What is the overall order of the following reaction, based on its rate
+          law?
+          <br /><br />
+
+          X + Y ➞ Z
+          <br /><br />
+
+          Rate = k[X]<sup>3</sup>[Y]
+          <br /><br />
+
+          Overall reaction order =
+          <input
+            type="number"
+            class="calc"
+            id="rxTotalOrd2"
+            name="rxTotalOrd2"
+            step="any"
+            formula="4"
+            help="The overall order is the sum of the exponents in the rate law."
+          />
+          <div class="feedback" id="rxTotalOrd2FB" name="rxTotalOrd2FB"></div>
+        </li>
+
+        <hr />
+        <!-- 21 and 22 -->
+        <h4>Guided Problem</h4>
+
+        <li>
+          <div>
+            Given the following balanced equation, determine the rate of
+            reaction with respect to [SO<sub>2</sub>]:
+            <br /><br />
+
+            2 SO<sub>2</sub>(g) + O<sub>2</sub>(g) ➞ 2 SO<sub>3</sub>(g)
+
+            <h4>Step-by-step reasoning</h4>
+
+            <p><b>Step 1: Recall how reaction rate is defined</b></p>
+            <p>
+              The rate of reaction is related to the change in concentration of
+              each species divided by its stoichiometric coefficient. If the
+              species is a reactant, we multiply by negative one since the
+              change in concentration will be negative whereas rate is always
+              positive.
+            </p>
+
+            <p>
+              for aA + bB ➞ cC + dD<br />
+              The rate with respect to A would be written as:<br />
+              $Rate = \frac{-1}{a} \times \frac{\Delta [A]}{\Delta t}$<br />
+              The rate with respect to C would be written as:<br />
+              $Rate = \frac{1}{c} \times \frac{\Delta [C]}{\Delta t}$
+            </p>
+
+            <p>
+              <b>Step 2: Identify the coefficient of SO<sub>2</sub></b>
+            </p>
+
+            The coefficient of SO<sub>2</sub> is
+            <input
+              type="number"
+              class="calc"
+              id="so2coef"
+              name="so2coef"
+              step="any"
+              formula="2"
+              help="Use the coefficient of SO2 from the balanced chemical equation."
+            />
+            <div class="feedback" id="so2coefFB" name="so2coefFB"></div>
+
+            <p>
+              <b
+                >Step 3: Write the rate expression with respect to SO<sub
+                  >2</sub
+                ></b
+              >
+            </p>
+
+            Rate =
+
+            <div
+              style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-family:'Times New Roman', serif;"
+            >
+              <!-- Numerator -->
+              <div
+                style="padding:2px 5px; display:flex; align-items:center; gap:5px;"
+              >
+                <input
+                  type="number"
+                  class="calc"
+                  id="RNum"
+                  name="RNum"
+                  step="any"
+                  formula="-1"
+                  help="Reactants will have a negative one, and products will have a positive one."
+                  style="width:70px;"
+                />
+                <div class="feedback" id="RNumFB" name="RNumFB"></div>
+              </div>
+
+              <!-- Fraction Bar -->
+              <div
+                style="width:100%; height:1.5px; background-color:black;"
+              ></div>
+
+              <!-- Denominator -->
+              <div
+                style="padding:2px 5px; display:flex; align-items:center; gap:5px;"
+              >
+                <input
+                  type="number"
+                  class="calc"
+                  id="so2ratecoef"
+                  name="so2ratecoef"
+                  step="any"
+                  formula="2"
+                  help="The coefficient of SO2 from the balanced equation."
+                  style="width:70px;"
+                />
+                <div
+                  class="feedback"
+                  id="so2ratecoefFB"
+                  name="so2ratecoefFB"
+                ></div>
+              </div>
+            </div>
+
+            ×
+
+            <div
+              style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-family:'Times New Roman', serif;"
+            >
+              <!-- Numerator -->
+              <div
+                style="padding:2px 5px; display:flex; align-items:center; gap:5px;"
+              >
+                Δ
+                <input
+                  type="text"
+                  class="calc sub"
+                  id="RConc"
+                  name="RConc"
+                  formula="[SO2]"
+                  help="Input the formula for the reactant or product surrounded by brackets (e.g. [H2O])."
+                  style="width:70px;"
+                />
+                <div id="RConcDIV"></div>
+                <div class="feedback" id="RConcFB" name="RConcFB"></div>
+              </div>
+
+              <!-- Fraction Bar -->
+              <div
+                style="width:100%; height:1.5px; background-color:black;"
+              ></div>
+
+              <!-- Denominator -->
+              <div style="padding:2px 5px; text-align:center;">Δt</div>
+            </div>
+          </div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Given the following balanced equation, determine the rate of reaction
+          with respect to [NO<sub>2</sub>]:
+          <br /><br />
+
+          2 N<sub>2</sub>O<sub>5</sub>(g) ➞ 4 NO<sub>2</sub>(g) +
+          O<sub>2</sub>(g)
+          <br /><br />
+
+          Rate =
+
+          <div
+            style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-family:'Times New Roman', serif;"
+          >
+            <!-- Numerator -->
+            <div
+              style="padding:2px 5px; display:flex; align-items:center; gap:5px;"
+            >
+              <input
+                type="number"
+                class="calc"
+                id="RNum2"
+                name="RNum2"
+                step="any"
+                formula="1"
+                help="Products will have a positive one, since their concentration increases."
+                style="width:70px;"
+              />
+              <div class="feedback" id="RNum2FB" name="RNum2FB"></div>
+            </div>
+
+            <!-- Fraction Bar -->
+            <div
+              style="width:100%; height:1.5px; background-color:black;"
+            ></div>
+
+            <!-- Denominator -->
+            <div
+              style="padding:2px 5px; display:flex; align-items:center; gap:5px;"
+            >
+              <input
+                type="number"
+                class="calc"
+                id="no2coef"
+                name="no2coef"
+                step="any"
+                formula="4"
+                help="Use the coefficient of NO2 from the balanced equation."
+                style="width:70px;"
+              />
+              <div class="feedback" id="no2coefFB" name="no2coefFB"></div>
+            </div>
+          </div>
+
+          ×
+
+          <div
+            style="display:inline-flex; flex-direction:column; align-items:center; vertical-align:middle; font-family:'Times New Roman', serif;"
+          >
+            <!-- Numerator -->
+            <div
+              style="padding:2px 5px; display:flex; align-items:center; gap:5px;"
+            >
+              Δ
+              <input
+                type="text"
+                class="calc sub"
+                id="RConc2"
+                name="RConc2"
+                formula="[NO2]"
+                help="Input the formula for the product surrounded by brackets (e.g. [CO2])."
+                style="width:70px;"
+              />
+              <div id="RConc2DIV"></div>
+              <div class="feedback" id="RConc2FB" name="RConc2FB"></div>
+            </div>
+
+            <!-- Fraction Bar -->
+            <div
+              style="width:100%; height:1.5px; background-color:black;"
+            ></div>
+
+            <!-- Denominator -->
+            <div style="padding:2px 5px; text-align:center;">Δt</div>
+          </div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          For the reaction below, the rate of <b>disappearance</b> of
+          NO<sub>2</sub>(g) is
+          <input
+            class="num display-value"
+            id="rrRate1"
+            name="rrRate1"
+            random="true"
+            data-original="0.084"
+            randomPercent="40%"
+            readonly
+          />
+          M/s.
+          <br /><br />
+
+          2 NO<sub>2</sub>(g) ➞ 2 NO(g) + O<sub>2</sub>(g)
+          <br /><br />
+
+          What is the rate of <b>appearance</b> of O<sub>2</sub>?
+        </li>
+
+        <h4>Step-by-step reasoning</h4>
+
+        <p><b>Step 1: Write the rate relationship using coefficients</b></p>
+
+        <p>
+          $ \text{Rate} = -\frac{1}{2}\,\frac{\Delta[\text{NO}_2]}{\Delta t} =
+          \frac{1}{1}\,\frac{\Delta[\text{O}_2]}{\Delta t} $
+        </p>
+
+        <p><b>Step 2: Use the stoichiometric ratio</b></p>
+
+        <p>
+          For every 2 moles of NO<sub>2</sub> consumed, 1 mole of O<sub>2</sub>
+          is produced.
+        </p>
+
+        <p>
+          <b>Step 3: Calculate the rate of appearance of O<sub>2</sub></b>
+        </p>
+
+        Rate of appearance of O<sub>2</sub>
+        =
+
+        <input
+          type="number"
+          class="calc"
+          id="rrAns1"
+          name="rrAns1"
+          step="any"
+          formula="${rrRate1}/2"
+          help="Divide the rate of disappearance of NO2 by 2, based on the coefficients."
+        />
+        M/s
+
+        <div class="feedback" id="rrAns1FB" name="rrAns1FB"></div>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          For the reaction below, the rate of <b>appearance</b> of
+          NO<sub>2</sub>(g) is
+          <input
+            class="num display-value"
+            id="rrRate2"
+            name="rrRate2"
+            random="true"
+            data-original="0.147"
+            randomPercent="40%"
+            readonly
+          />
+          M/s.
+          <br /><br />
+
+          2 N<sub>2</sub>O<sub>5</sub>(g) ➞ 4 NO<sub>2</sub>(g) +
+          O<sub>2</sub>(g)
+          <br /><br />
+
+          What is the rate of <b>disappearance</b> of
+          N<sub>2</sub>O<sub>5</sub>?
+        </li>
+
+        $ \text{Rate} = \frac{1}{4}\,\frac{\Delta[\text{NO}_2]}{\Delta t} =
+        -\frac{1}{2}\,\frac{\Delta[\text{N}_2\text{O}_5]}{\Delta t} $
+        <br />
+
+        Rate of disappearance of N<sub>2</sub>O<sub>5</sub>
+        =
+        <input
+          type="number"
+          class="calc"
+          id="rrAns2"
+          name="rrAns2"
+          step="any"
+          formula="${rrRate2}*(2/4)"
+          help="Use the stoichiometric ratio between NO2 and N2O5 from the balanced equation."
+        />
+        M/s
+        <div class="feedback" id="rrAns2FB" name="rrAns2FB"></div>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Which of the following rate laws represents a
+          <b>unimolecular</b> primary reaction?
+        </li>
+
+        <h4>Step-by-step reasoning</h4>
+
+        <p><b>Step 1: Recall the definitions</b></p>
+        <p>For primary reactions:</p>
+
+        <ul>
+          <li>
+            A <b>uni</b>molecular reaction has an overall order of <b>1</b>.
+          </li>
+          <ul>
+            <li>(e.g. Rate = k[A])</li>
+          </ul>
+          <li>
+            A <b>bi</b>molecular reaction has an overall order of <b>2</b>.
+          </li>
+          <ul>
+            <li>(e.g. Rate = k[A]<sup>2</sup>, or Rate = k[A][B])</li>
+          </ul>
+          <li>
+            A <b>ter</b>molecular reaction has an overall order of <b>3</b>.
+          </li>
+          <ul>
+            <li>
+              (e.g. Rate = k[A]<sup>3</sup>, or Rate = k[A]<sup>2</sup>[B], or
+              Rate = K[A][B][C])
+            </li>
+          </ul>
+        </ul>
+        <br />
+        This means the
+        <b>sum of the exponents</b>
+        in the rate law is 1.
+
+        <p><b>Step 2: Examine each rate law</b></p>
+
+        <select
+          id="bimol1"
+          name="bimol1"
+          class="calc"
+          formula="k[A]"
+          help="A unimolecular rate law has an overall order of 1."
+        >
+          <option value="">Choose an option</option>
+          <option value="k[A]">Rate = k[A]</option>
+          <option value="k[A][B]">Rate = k[A][B]</option>
+          <option value="k[A]^2[B]">Rate = k[A]<sup>2</sup>[B]</option>
+          <option value="k">Rate = k</option>
+        </select>
+
+        <div class="feedback" id="bimol1FB" name="bimol1FB"></div>
+
+        <h4>Practice Problem</h4>
+
+        <li>What rate law corresponds to a <b>termolecular</b> reaction?</li>
+
+        <select
+          id="bimol2"
+          name="bimol2"
+          class="calc"
+          formula="k[A]^3"
+          help="A termolecular reaction has an overall order of 3."
+        >
+          <option value="">Choose an option</option>
+          <option value="k[A]^3">Rate = k[A]<sup>3</sup></option>
+          <option value="k[A]^2">Rate = k[A]<sup>2</sup></option>
+          <option value="k[A]^2[B]^2">
+            Rate = k[A]<sup>2</sup>[B]<sup>2</sup>
+          </option>
+          <option value="k">Rate = k</option>
+        </select>
+
+        <div class="feedback" id="bimol2FB" name="bimol2FB"></div>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+        <p>
+          Which law of thermodynamics states that the total entropy of the
+          universe increases for any spontaneous process?
+        </p>
+
+        <li>
+          <b>Reference: Laws of Thermodynamics</b>
+          <ul>
+            <li>
+              <b>Zeroth Law:</b> If two systems are each in thermal equilibrium
+              with a third system, they are in thermal equilibrium with each
+              other.
+            </li>
+            <li>
+              <b>First Law:</b> Energy cannot be created or destroyed, only
+              transferred or converted from one form to another.
+            </li>
+            <li>
+              <b>Second Law:</b> The total entropy of the universe increases for
+              any spontaneous process.
+            </li>
+            <li>
+              <b>Third Law:</b> The entropy of a perfect crystalline substance
+              is zero at absolute zero temperature.
+            </li>
+          </ul>
+        </li>      
+</ol>
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
