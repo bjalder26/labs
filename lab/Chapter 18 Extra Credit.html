@@ -1,0 +1,220 @@
+<html>
+  <head>
+    <title>Chapter 17 Extra Credit</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+            hr {
+                height: 3px;
+                background-color: blue;
+                }
+            div[id$="DIV"] {
+              width: 70px !important;
+            }
+            body {
+        user-select: none;
+      }
+    </style>
+    <h1 id="title">Chapter 17 Extra Credit</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+      <ol>
+        <h4>Guided Problem</h4>
+
+        <li>
+          What is the [CH<sub>3</sub>CO<sub>2</sub><sup>−</sup>] /
+          [CH<sub>3</sub>CO<sub>2</sub>H] ratio needed to make a buffer with the
+          following pH? <br /><br />
+
+          pH =
+          <input
+            class="num display-value"
+            id="gpH-2"
+            name="gpH-2"
+            random="true"
+            data-original="6.17"
+            randomPercent="10%"
+            readonly
+          />
+          <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            class="num display-value"
+            id="gKa-2"
+            name="gKa"
+            random="true"
+            data-original="1.8e-5"
+            randomPercent="20%"
+            readonly
+          />
+          <br /><br />
+
+          <b>Use this relationship:</b>
+          <ul>
+            <li>pH = pK<sub>a</sub> + log([A<sup>−</sup>]/[HA])</li>
+            <li>
+              Rearranged: [A<sup>−</sup>]/[HA] = 10<sup
+                >(pH − pK<sub>a</sub>)</sup
+              >
+            </li>
+          </ul>
+
+          <br />
+
+          <b>Step 1: Calculate pK<sub>a</sub></b>
+          <br /><br />
+
+          pK<sub>a</sub> =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gpKa"
+            name="gpKa"
+            formula="-log(${gKa-2})"
+            help="pKa = −log(Ka)"
+          />
+          <div class="feedback" id="gpKaFB"></div>
+
+          <br /><br />
+
+          <b>Step 2: Calculate the ratio</b>
+          <br /><br />
+
+          [A<sup>−</sup>]/[HA] =
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gRatio"
+            name="gRatio"
+            formula="10^(${gpH-2}-(-log(${gKa-2})))"
+            help="Use 10^(pH − pKa)"
+          />
+          <div class="feedback" id="gRatioFB"></div>
+
+          <br /><br />
+
+          <b>Step 3: Express as a ratio</b>
+          <br /><br />
+
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="gRatio2"
+            name="gRatio2"
+            formula="10^(${gpH-2}-(-log10(${gKa-2})))"
+          />
+          : 1
+
+          <div class="feedback" id="gRatio2FB"></div>
+
+          <br /><br />
+
+          <b>Explanation:</b>
+          <ul>
+            <li>First calculate pK<sub>a</sub> from K<sub>a</sub>.</li>
+            <li>
+              Then find the ratio using 10<sup>(pH − pK<sub>a</sub>)</sup>.
+            </li>
+            <li>If the ratio is greater than 1, express as x : 1.</li>
+            <li>If the ratio is less than 1, express as 1 : x.</li>
+          </ul>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          What is the [A<sup>−</sup>] / [HA] ratio for the following buffer?
+          <br /><br />
+
+          pH =
+          <input
+            class="num display-value"
+            id="ppH"
+            name="ppH"
+            random="true"
+            data-original="4.40"
+            randomPercent="10%"
+            readonly
+          />
+          <br /><br />
+
+          K<sub>a</sub> =
+          <input
+            class="num display-value"
+            id="pKa2"
+            name="pKa2"
+            random="true"
+            data-original="3.5e-5"
+            randomPercent="20%"
+            readonly
+          />
+          <br /><br />
+
+          1 :
+          <input
+            type="number"
+            step="any"
+            class="calc"
+            id="pRatio"
+            name="pRatio"
+            formula="(10^(${ppH}-(-log10(${pKa2}))))^-1"
+          />
+
+          <div class="feedback" id="pRatioFB"></div>
+        </li>
+      </ol>
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
