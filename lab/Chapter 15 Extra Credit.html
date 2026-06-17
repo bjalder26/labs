@@ -1,0 +1,920 @@
+<html>
+  <head>
+    <title>Chapter 15 Extra Credit</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+            hr {
+                height: 3px;
+                background-color: blue;
+                }
+            div[id$="DIV"] {
+              width: 70px !important;
+            }
+            body {
+        user-select: none;
+      }
+    </style>
+    <h1 id="title">Chapter 15 Extra Credit</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+      <ol>
+        <h4>Guided Problem</h4>
+        <p>
+          Which law of thermodynamics states that the total entropy of the
+          universe increases for any spontaneous process?
+        </p>
+
+        <li>
+          <b>Reference: Laws of Thermodynamics</b>
+          <ul>
+            <li>
+              <b>Zeroth Law:</b> If two systems are each in thermal equilibrium
+              with a third system, they are in thermal equilibrium with each
+              other.
+            </li>
+            <li>
+              <b>First Law:</b> Energy cannot be created or destroyed, only
+              transferred or converted from one form to another.
+            </li>
+            <li>
+              <b>Second Law:</b> The total entropy of the universe increases for
+              any spontaneous process.
+            </li>
+            <li>
+              <b>Third Law:</b> The entropy of a perfect crystalline substance
+              is zero at absolute zero temperature.
+            </li>
+          </ul>
+        </li>
+
+        <select
+          id="thermo2"
+          name="thermo2"
+          class="calc"
+          formula="second"
+          help="The second law describes the natural tendency toward increased entropy."
+        >
+          <option value="">Choose an option</option>
+          <option value="zeroth">Zeroth Law</option>
+          <option value="first">First Law</option>
+          <option value="second">Second Law</option>
+          <option value="third">Third Law</option>
+        </select>
+
+        <div class="feedback" id="thermo2FB" name="thermo2FB"></div>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Which law of thermodynamics states that the entropy of a perfect
+          crystalline substance is zero at absolute zero temperature?
+        </li>
+
+        <select
+          id="thermo3"
+          name="thermo3"
+          class="calc"
+          formula="third"
+          help="This law defines the entropy reference point at absolute zero."
+        >
+          <option value="">Choose an option</option>
+          <option value="zeroth">Zeroth Law</option>
+          <option value="first">First Law</option>
+          <option value="second">Second Law</option>
+          <option value="third">Third Law</option>
+        </select>
+
+        <div class="feedback" id="thermo3FB" name="thermo3FB"></div>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          <div>
+            Consider the following reaction at constant pressure. Use the
+            information below to determine the value of ΔS<sub>surr</sub> at
+            <input
+              class="num display-value"
+              id="Tsurr1"
+              name="Tsurr1"
+              random="true"
+              data-original="450"
+              randomPercent="20%"
+              readonly
+            />
+            K. Then predict whether or not this reaction will be spontaneous at
+            this temperature.
+            <br /><br />
+
+            2 KClO<sub>3</sub>(s) ➞ 2 KCl(s) + 3 O<sub>2</sub>(g), ΔH = −89.4 kJ
+
+            <h4>Step-by-step reasoning</h4>
+            <p><b>Step 1: Convert enthalpy change into J.</b></p>
+            ΔH =
+            <input
+              type="number"
+              class="calc"
+              id="dH1"
+              name="dH1"
+              step="any"
+              formula="-89400"
+              help="Convert kJ to J by multiplying by 1000."
+            />
+            J
+            <div class="feedback" id="dH1FB" name="dH1FB"></div>
+
+            <p>
+              <b>Step 2: Calculate the entropy change of the surroundings</b>
+            </p>
+
+            <p>$ \Delta S_{\text{surr}} = -\frac{\Delta H_{sys}}{T} $</p>
+
+            ΔS<sub>surr</sub> =
+            <input
+              type="number"
+              class="calc"
+              id="dSsurr1"
+              name="dSsurr1"
+              step="any"
+              formula="-(-89400)/${Tsurr1}"
+              help="Divide −ΔH by the temperature in Kelvin."
+            />
+            J/K
+            <div class="feedback" id="dSsurr1FB" name="dSsurr1FB"></div>
+
+            <p><b>Step 3: Consider the entropy change of the system</b></p>
+
+            <p>
+              This reaction produces gas from solids, so the entropy of the
+              system increases (ΔS<sub>sys</sub> &gt; 0).
+            </p>
+
+            ΔS<sub>uni</sub> = ΔS<sub>sys</sub> + ΔS<sub>surr</sub><br />
+            If the ΔS<sub>uni</sub> is positive, then the reaction is
+            spontaneous. If the ΔS<sub>uni</sub> is negative, then the reaction
+            is nonspontaneous.<br />
+            Since both ΔS<sub>sys</sub> and ΔS<sub>surr</sub> are positive, the
+            reaction is
+            <select
+              id="29Sp"
+              name="29Sp"
+              class="calc"
+              formula="spontaneous"
+              help="If the ΔS<sub>uni</sub> is positive, then the reaction is spontaneous.  If the ΔS<sub>uni</sub> is negative, then the reaction is nonspontaneous."
+            >
+              <option value="">Choose an option</option>
+              <option value="spontaneous">spontaneous</option>
+              <option value="spontaneous">nonspontaneous</option>
+            </select>
+            <div class="feedback" id="29SpFB" name="29SpFB"></div>
+            at this temperature.
+          </div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Consider the following reaction at constant pressure. Determine the
+          value of ΔS<sub>surr</sub> at
+          <input
+            class="num display-value"
+            id="Tsurr2"
+            name="Tsurr2"
+            random="true"
+            data-original="525"
+            randomPercent="20%"
+            readonly
+          />
+          K. Then predict whether or not the reaction will be spontaneous at
+          this temperature.
+          <br /><br />
+
+          2 NO<sub>2</sub>(g) ➞ N<sub>2</sub>O<sub>4</sub>(g)
+          <br /><br />
+
+          ΔH = +57.2 kJ
+          <br /><br />
+
+          ΔS<sub>surr</sub> =
+          <input
+            type="number"
+            class="calc"
+            id="dSsurr2"
+            name="dSsurr2"
+            step="any"
+            formula="-(57200)/${Tsurr2}"
+            help="Use ΔSsurr = −ΔH/T. Remember to convert kJ to J."
+          />
+          J/K
+          <div class="feedback" id="dSsurr2FB" name="dSsurr2FB"></div>
+
+          <br /><br />
+
+          Based on the reaction, the entropy of the system decreases (fewer
+          moles of gas).
+          <br /><br />
+
+          This reaction is
+          <select
+            id="spon2"
+            name="spon2"
+            class="calc"
+            formula="not spontaneous"
+            help="Both ΔSsys and ΔSsurr are negative, so the reaction is nonspontaneous."
+          >
+            <option value="">Choose an option</option>
+            <option value="spontaneous">spontaneous</option>
+            <option value="not spontaneous">not spontaneous</option>
+          </select>
+
+          <div class="feedback" id="spon2FB" name="spon2FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          For each of the following reactions, determine whether the entropy
+          change (ΔS) is <b>positive</b> or <b>negative</b>. <br /><br />
+          Use the following ideas to guide your reasoning:
+          <ul>
+            <li>Producing more moles of gas increases entropy (ΔS &gt; 0)</li>
+            <li>Producing fewer moles of gas decreases entropy (ΔS &lt; 0)</li>
+            <li>Gas → liquid → solid decreases entropy</li>
+            <li>Solid → liquid → gas increases entropy</li>
+          </ul>
+
+          <br />
+
+          <b>(a)</b>
+          N<sub>2</sub>O<sub>4</sub>(g) ➞ 2 NO<sub>2</sub>(g)<br />
+          ΔS is
+          <select
+            id="gDH1"
+            name="gDH1"
+            class="calc"
+            formula="positive"
+            help="Compare the number of moles of gas before and after the reaction."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="gDH1FB" name="gDH1FB"></div>
+
+          <br /><br />
+
+          <b>(b)</b>
+          2 NO<sub>2</sub>(g) ➞ N<sub>2</sub>O<sub>4</sub>(g)<br />
+          ΔS is
+          <select
+            id="gDH2"
+            name="gDH2"
+            class="calc"
+            formula="negative"
+            help="Compare the number of moles of gas before and after the reaction."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="gDH2FB" name="gDH2FB"></div>
+
+          <br /><br />
+
+          <b>(c)</b>
+          H<sub>2</sub>O(g) ➞ H<sub>2</sub>O(l)<br />
+          ΔS is
+          <select
+            id="gDH3"
+            name="gDH3"
+            class="calc"
+            formula="negative"
+            help="A gas became a liquid."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="gDH3FB" name="gDH3FB"></div>
+
+          <br /><br />
+
+          <b>(d)</b>
+          H<sub>2</sub>O(s) ➞ H<sub>2</sub>O(l)<br />
+          ΔS is
+          <select
+            id="gDH4"
+            name="gDH4"
+            class="calc"
+            formula="positive"
+            help="A liquid became a gas"
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="gDH4FB" name="gDH4FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          For each of the following reactions, determine whether the entropy
+          change (ΔS) is <b>positive</b> or <b>negative</b>. <br /><br />
+
+          <b>(a)</b>
+          2 SO<sub>3</sub>(g) ➞ 2 SO<sub>2</sub>(g) + O<sub>2</sub>(g)<br />
+          ΔS is
+          <select
+            id="pDH1"
+            name="pDH1"
+            class="calc"
+            formula="positive"
+            help="Compare the total number of moles of gas on each side of the equation."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="pDH1FB" name="pDH1FB"></div>
+
+          <br /><br />
+
+          <b>(b)</b>
+          2 NH<sub>3</sub>(g) ➞ N<sub>2</sub>(g) + 3 H<sub>2</sub>(g)<br />
+          ΔS is
+          <select
+            id="pDH2"
+            name="pDH2"
+            class="calc"
+            formula="positive"
+            help="Compare the total number of moles of gas on each side of the equation."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="pDH2FB" name="pDH2FB"></div>
+
+          <br /><br />
+
+          <b>(c)</b>
+          CO<sub>2</sub>(g) ➞ CO<sub>2</sub>(s)<br />
+          ΔS is
+          <select
+            id="pDH3"
+            name="pDH3"
+            class="calc"
+            formula="negative"
+            help="Gas to solid."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="pDH3FB" name="pDH3FB"></div>
+
+          <br /><br />
+
+          <b>(d)</b>
+          Br<sub>2</sub>(l) ➞ Br<sub>2</sub>(g)<br />
+          ΔS is
+          <select
+            id="pDH4"
+            name="pDH4"
+            class="calc"
+            formula="positive"
+            help="Vaporization produces gas from liquid."
+          >
+            <option value="">Choose an option</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+          </select>
+          <div class="feedback" id="pDH4FB" name="pDH4FB"></div>
+        </li>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          <div>
+            Calculate the value of ΔS°<sub>rxn</sub> at 25 °C for the following
+            reaction: <br /><br />
+
+            2 SO<sub>2</sub>(g) + O<sub>2</sub>(g) ➞ 2 SO<sub>3</sub>(g)
+            <br /><br />
+
+            The standard molar entropies are given below.
+
+            <table border="1" cellpadding="6" cellspacing="0">
+              <tr>
+                <th>Substance</th>
+                <th>S° (J/mol·K)</th>
+              </tr>
+              <tr>
+                <td>SO<sub>2</sub>(g)</td>
+                <td>248.2</td>
+              </tr>
+              <tr>
+                <td>O<sub>2</sub>(g)</td>
+                <td>205.2</td>
+              </tr>
+              <tr>
+                <td>SO<sub>3</sub>(g)</td>
+                <td>256.8</td>
+              </tr>
+            </table>
+
+            <h4>Step-by-step reasoning</h4>
+
+            <p>
+              <b>Step 1: Write the ΔS°<sub>rxn</sub> expression</b>
+            </p>
+
+            <p>
+              $$ \Delta S^\circ_{\text{rxn}} = \sum nS^\circ_{\text{products}} -
+              \sum nS^\circ_{\text{reactants}} $$
+            </p>
+
+            <p><b>Step 2: Calculate total entropy of products</b></p>
+
+            <input
+              type="number"
+              class="calc"
+              id="gProd1"
+              name="gProd1"
+              step="any"
+              formula="2*256.8"
+              range="2%"
+              help="Multiply the entropy of each product by its coefficient, then add."
+            />
+            J/K
+            <div class="feedback" id="gProd1FB" name="gProd1FB"></div>
+
+            <p><b>Step 3: Calculate total entropy of reactants</b></p>
+
+            <input
+              type="number"
+              class="calc"
+              id="gReact1"
+              name="gReact1"
+              step="any"
+              formula="2*248.2+205.2"
+              help="Multiply each reactant entropy by its coefficient, then add."
+            />
+            J/K
+            <div class="feedback" id="gReact1FB" name="gReact1FB"></div>
+
+            <p>
+              <b>Step 4: Calculate ΔS°<sub>rxn</sub></b>
+            </p>
+
+            ΔS°<sub>rxn</sub> =
+            <input
+              type="number"
+              class="calc"
+              id="gDS1"
+              name="gDS1"
+              step="any"
+              formula="(2*256.8)-(2*248.2+205.2)"
+              help="Subtract the total reactant entropy from the total product entropy."
+            />
+            J/K
+            <div class="feedback" id="gDS1FB" name="gDS1FB"></div>
+          </div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Calculate the value of ΔS°<sub>rxn</sub> at 25 °C for the reaction
+          below: <br /><br />
+
+          N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ➞ 2 NH<sub>3</sub>(g)
+          <br /><br />
+
+          The standard molar entropies are given below.
+        </li>
+
+        <table border="1" cellpadding="6" cellspacing="0">
+          <tr>
+            <th>Substance</th>
+            <th>S° (J/mol·K)</th>
+          </tr>
+          <tr>
+            <td>N<sub>2</sub>(g)</td>
+            <td>191.5</td>
+          </tr>
+          <tr>
+            <td>H<sub>2</sub>(g)</td>
+            <td>130.6</td>
+          </tr>
+          <tr>
+            <td>NH<sub>3</sub>(g)</td>
+            <td>192.8</td>
+          </tr>
+        </table>
+
+        ΔS°<sub>rxn</sub>
+        =
+        <input
+          type="number"
+          class="calc"
+          id="pDS1"
+          name="pDS1"
+          step="any"
+          formula="(2*192.8)-(191.5+3*130.6)"
+          help="Use ΔS°rxn = ΣnS°products − ΣnS°reactants."
+        />
+        J/K
+        <div class="feedback" id="pDS1FB" name="pDS1FB"></div>
+
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          For each of the following state changes, determine whether the entropy
+          change (ΔS) and the enthalpy change (ΔH) are <b>positive</b>,
+          <b>negative</b>, or <b>zero</b>. <br /><br />
+
+          Use the following ideas to guide your reasoning:
+          <ul>
+            <li>Gas &gt; liquid &gt; solid in entropy</li>
+            <li>Solid → liquid → gas absorbs energy (ΔH &gt; 0)</li>
+            <li>Gas → liquid → solid releases energy (ΔH &lt; 0)</li>
+            <li>No phase change → ΔH and ΔS are zero</li>
+          </ul>
+
+          <br />
+
+          <b>(a)</b>
+          CO<sub>2</sub>(s) ➞ CO<sub>2</sub>(g) (sublimation)
+          <br />
+          ΔS is
+          <select
+            id="gS1"
+            name="gS1"
+            class="calc"
+            formula="positive"
+            help="Compare the disorder of a solid and a gas."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="gS1FB"></div>
+          ΔH is
+          <select
+            id="gH1"
+            name="gH1"
+            class="calc"
+            formula="positive"
+            help="Decide whether energy must be absorbed or released during this phase change."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="gH1FB"></div>
+
+          <br /><br />
+
+          <b>(b)</b>
+          Br<sub>2</sub>(g) ➞ Br<sub>2</sub>(l) (condensation)
+          <br />
+          ΔS is
+          <select
+            id="gS2"
+            name="gS2"
+            class="calc"
+            formula="negative"
+            help="Consider how particle freedom changes when a gas becomes a liquid."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="gS2FB"></div>
+          ΔH is
+          <select
+            id="gH2"
+            name="gH2"
+            class="calc"
+            formula="negative"
+            help="Think about whether heat is released or absorbed."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="gH2FB"></div>
+
+          <br /><br />
+
+          <b>(c)</b>
+          I<sub>2</sub>(s) ➞ I<sub>2</sub>(l) (melting)
+          <br />
+          ΔS is
+          <select
+            id="gS3"
+            name="gS3"
+            class="calc"
+            formula="positive"
+            help="Compare particle motion in a solid versus a liquid."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="gS3FB"></div>
+          ΔH is
+          <select
+            id="gH3"
+            name="gH3"
+            class="calc"
+            formula="positive"
+            help="Decide whether energy is required to overcome intermolecular forces."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="gH3FB"></div>
+
+          <br /><br />
+
+          <b>(d)</b>
+          Ne(g) ➞ Ne(g)
+          <br />
+          ΔS is
+          <select
+            id="gS4"
+            name="gS4"
+            class="calc"
+            formula="zero"
+            help="Ask whether anything about the system has changed."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="gS4FB"></div>
+          ΔH is
+          <select
+            id="gH4"
+            name="gH4"
+            class="calc"
+            formula="zero"
+            help="No phase or chemical change occurs."
+          >
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="gH4FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          For each of the following state changes, determine whether the entropy
+          change (ΔS) and the enthalpy change (ΔH) are <b>positive</b>,
+          <b>negative</b>, or <b>zero</b>. <br /><br />
+
+          <b>(a)</b>
+          NH<sub>3</sub>(l) ➞ NH<sub>3</sub>(g)
+          <br />
+          ΔS is
+          <select id="pS1" name="pS1" class="calc" formula="positive">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="pS1FB"></div>
+          ΔH is
+          <select id="pH1" name="pH1" class="calc" formula="positive">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="pH1FB"></div>
+
+          <br /><br />
+
+          <b>(b)</b>
+          CO<sub>2</sub>(g) ➞ CO<sub>2</sub>(s)
+          <br />
+          ΔS is
+          <select id="pS2" name="pS2" class="calc" formula="negative">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="pS2FB"></div>
+          ΔH is
+          <select id="pH2-3" name="pH2-3" class="calc" formula="negative">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="pH2-3FB"></div>
+
+          <br /><br />
+
+          <b>(c)</b>
+          Hg(l) ➞ Hg(l)
+          <br />
+          ΔS is
+          <select id="pS3" name="pS3" class="calc" formula="zero">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="pS3FB"></div>
+          ΔH is
+          <select id="pH3" name="pH3" class="calc" formula="zero">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="pH3FB"></div>
+
+          <br /><br />
+
+          <b>(d)</b>
+          Cl<sub>2</sub>(g) ➞ Cl<sub>2</sub>(l)
+          <br />
+          ΔS is
+          <select id="pS4" name="pS4" class="calc" formula="negative">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+          <div class="feedback" id="pS4FB"></div>
+          ΔH is
+          <select id="pH4" name="pH4" class="calc" formula="negative">
+            <option value="">Choose</option>
+            <option value="positive">positive</option>
+            <option value="negative">negative</option>
+            <option value="zero">zero</option>
+          </select>
+
+          <div class="feedback" id="pH4FB"></div>
+        </li>
+        <hr />
+
+        <h4>Guided Problem</h4>
+
+        <li>
+          Given the following chemical equation:
+          <br /><br />
+
+          N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ➞ 2 NH<sub>3</sub>(g) ΔG°<sub
+            >rxn</sub
+          >
+          = −33.2 kJ/mol <br /><br />
+
+          Calculate the value of ΔG°<sub>rxn</sub> for the reaction below.
+          <br /><br />
+
+          3 N<sub>2</sub>(g) + 9 H<sub>2</sub>(g) ➞ 6 NH<sub>3</sub>(g)
+
+          <h4>Step-by-step reasoning</h4>
+
+          <p><b>Step 1: Compare the two equations</b></p>
+          <p>
+            The second equation is obtained by multiplying the first equation by
+            3.
+          </p>
+
+          <p>
+            <b
+              >Step 2: Apply the same factor to ΔG°<sub>rxn</sub> since ΔG is an
+              extensive property.</b
+            >
+          </p>
+
+          ΔG°<sub>rxn</sub> =
+          <input
+            type="number"
+            class="calc"
+            id="gDG1"
+            name="gDG1"
+            step="any"
+            formula="-33.2*3"
+            help="When a reaction is multiplied by a factor, ΔG° is multiplied by the same factor."
+          />
+          kJ/mol
+          <div class="feedback" id="gDG1FB" name="gDG1FB"></div>
+        </li>
+
+        <h4>Practice Problem</h4>
+
+        <li>
+          Given the following chemical equation:
+          <br /><br />
+
+          4 Al(s) + 3 O<sub>2</sub>(g) ➞ 2 Al<sub>2</sub>O<sub>3</sub>(s)
+          ΔG°<sub>rxn</sub> = −1582 kJ/mol <br /><br />
+
+          Calculate the value of ΔG°<sub>rxn</sub> for the reaction below.
+          <br /><br />
+
+          2 Al(s) +
+          <span style="font-family: serif;">3/2</span> O<sub>2</sub>(g) ➞
+          Al<sub>2</sub>O<sub>3</sub>(s) <br /><br />
+
+          ΔG°<sub>rxn</sub> =
+          <input
+            type="number"
+            class="calc"
+            id="pDG1"
+            name="pDG1"
+            step="any"
+            formula="-1582/2"
+            help="When all coefficients are divided by a factor, ΔG° is divided by the same factor."
+          />
+          kJ/mol
+          <div class="feedback" id="pDG1FB" name="pDG1FB"></div>
+        </li>
+      </ol>
+
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
