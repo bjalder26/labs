@@ -14,6 +14,8 @@ const archiver = require('archiver');
 const fetch = require('node-fetch') // npm install node-fetch@2
 const base64 = require('js-base64').Base64 // npm install js-base64
 require('dotenv').config();
+const crypto = require('crypto');
+const oauthSignature = require('oauth-sign')
 
 // create a new express server
 var app = express();
@@ -511,28 +513,105 @@ app.get("/:lab/:name", async (req, res) => {
 	
 });
 
-app.get("/score/:sessionID/:score", (req, res) => {
+const crypto = require('crypto');
+const oauthSignature = require('oauth-sign');
 
-	var session = sessions[req.params.sessionID];
-	var score = req.params.score;
-	var resp = `Your score of ${score}% has been recorded`;
+app.get("/score/:sessionID/:score", async (req, res) => {
 
-  
-	session.outcome_service.send_replace_result(score/100, (err, isValid) => {
-    if (err) {
-        console.error('Error:', err);
-        resp += `<br/>Update failed: ${err.message || err}`;
-    } else if (!isValid) {
-        console.warn('Invalid response');
-        resp += `<br/>Update failed: Invalid response`;
+  const session = sessions[req.params.sessionID];
+
+  if (!session) {
+    return res.send("Invalid session");
+  }
+
+  const score = Number(req.params.score);
+  const normalizedScore = score / 100;
+
+  let resp = `Your score of ${score}% has been recorded`;
+
+  const sourcedid = session.result_sourcedid?.trim() || session.sourcedid?.trim();
+  const serviceUrl = session.outcome_service_url?.trim() || session.outcomeUrl?.trim();
+
+  if (!sourcedid || !serviceUrl) {
+    return res.send(resp + "<br/>Missing LTI launch data");
+  }
+
+  // ✅ Build XML
+  const body = `<?xml version="1.0" encoding="UTF-8"?>
+<imsx_POXEnvelopeRequest>
+  <imsx_POXHeader>
+    <imsx_POXRequestHeaderInfo>
+      <imsx_version>V1.0</imsx_version>
+      <imsx_messageIdentifier>${Date.now()}</imsx_messageIdentifier>
+    </imsx_POXRequestHeaderInfo>
+  </imsx_POXHeader>
+  <imsx_POXBody>
+    <replaceResultRequest>
+      <resultRecord>
+        <sourcedGUID>
+          <sourcedId>${sourcedid}</sourcedId>
+        </sourcedGUID>
+        <result>
+          <resultScore>
+            <language>en</language>
+            <textString>${normalizedScore}</textString>
+          </resultScore>
+        </result>
+      </resultRecord>
+    </replaceResultRequest>
+  </imsx_POXBody>
+</imsx_POXEnvelopeRequest>`;
+
+  // ✅ OAuth setup
+  const oauthData = {
+    oauth_consumer_key: 'top',
+    oauth_nonce: crypto.randomBytes(16).toString('hex'),
+    oauth_signature_method: 'HMAC-SHA1',
+    oauth_timestamp: Math.floor(Date.now() / 1000),
+    oauth_version: '1.0'
+  };
+
+  oauthData.oauth_signature = oauthSignature.hmacsign(
+    'POST',
+    serviceUrl,
+    oauthData,
+    'secret',
+    ''
+  );
+
+  const authHeader = 'OAuth ' + Object.keys(oauthData)
+    .map(k => `${k}="${encodeURIComponent(oauthData[k])}"`)
+    .join(', ');
+
+  try {
+    const response = await fetch(serviceUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/xml',
+        'Authorization': authHeader,
+        'User-Agent': 'VTT-labs/1.0'
+      },
+      body
+    });
+
+    const text = await response.text();
+
+    console.log('Canvas response status:', response.status);
+    console.log('Canvas response body:', text);
+
+    if (!response.ok) {
+      resp += `<br/>Update failed (see logs)`;
     } else {
-        resp += '<br/>Update successful';
+      resp += `<br/>Update successful`;
     }
 
-		res.send(resp);
-	}); 
+  } catch (err) {
+    console.error('Send error:', err);
+    resp += `<br/>Update failed (internal error)`;
+  }
 
-});    // app.get("/score...")
+  res.send(resp);
+});   // app.get("/score...")
 
 // Route for the root path — always blocks refresh
 app.get('/', (req, res) => {
