@@ -362,56 +362,123 @@ app.get("/instructor", (req, res) => {
 	
 });       // app.post("/");
 
-app.get('/noscore/:passed', (req, res) => {
+app.get('/noscore/:passed', async (req, res) => {
     
-    let passed = decodeURI(req.params.passed);
-    passed = JSON.parse(passed);
-    const labName = passed.labName
-    const name = passed.name;
-    const sessionID = passed.sessionID;
-    //const { labName, name, sessionID } = decodeURI(req.params.passed);
-    var session = sessions[sessionID];
+  let passed = decodeURI(req.params.passed);
+  passed = JSON.parse(passed);
 
-    let resp = '';
-  
-    const encodedLabName = encodeURIComponent(labName);
-let passedInfo = {};
-  passedInfo.labName = labName;
-  passedInfo.name = name;
-  passedInfo.sessionID = sessionID;
-    
-    passedInfo = encodeURIComponent(JSON.stringify(passedInfo));
+  const labName = passed.labName;
+  const name = passed.name;
+  const sessionID = passed.sessionID;
 
- const baseUrl = `${req.protocol}://${req.get('host')}`;
+  const session = sessions[sessionID];
 
-const dynamicUrl = `${baseUrl}/dynamic-content/${passedInfo}`;
- 
-    session.outcome_service.send_replace_result_with_url(1, dynamicUrl, (err, isValid) => {
-        if (err) {
-            console.error('Error:', err);
-            resp += `<br/>Update failed: ${err.message || err}`;
-            return res.send(resp);
-        } else if (!isValid) {
-            console.warn('Invalid response');
-            resp += `Update failed: Close this window, return to Canvas, and resubmit assignment.`;
-            return res.send(resp);
-        } else {
-            resp += 'Assignment submitted.  Close this window and check your submission in Canvas.';
-            
-            // Now delete the score
-            session.outcome_service.send_delete_result((err, result) => {
-                if (err) {
-                    console.error('Error:', err);
-                    resp += `<br/>Delete failed. Score erroneously entered.  Instructor will manually correct assignment grade. <br> ${err.message || err}`;
-                } else {
-                    resp += '<br/>Instructor will manually grade assignment.';
-                }
-                
-         
-                res.send(resp);
-            });
-        }
+  let resp = '';
+
+  // ✅ Build dynamic URL
+  let passedInfo = {
+    labName,
+    name,
+    sessionID
+  };
+
+  const encodedPassed = encodeURIComponent(JSON.stringify(passedInfo));
+  const baseUrl = `${req.protocol}://${req.get('host')}`;
+  const dynamicUrl = `${baseUrl}/dynamic-content/${encodedPassed}`;
+
+  try {
+    const sourcedid = session.body.lis_result_sourcedid?.trim();
+    const serviceUrl = session.body.lis_outcome_service_url?.trim();
+
+    if (!sourcedid || !serviceUrl) {
+      console.log('Missing LTI data');
+      resp += '<br/>Missing LTI launch data';
+      return res.send(resp);
+    }
+
+    // ✅ Build XML (URL submission)
+    const body = `<?xml version="1.0" encoding="UTF-8"?>
+<imsx_POXEnvelopeRequest>
+  <imsx_POXHeader>
+    <imsx_POXRequestHeaderInfo>
+      <imsx_version>V1.0</imsx_version>
+      <imsx_messageIdentifier>${Date.now()}</imsx_messageIdentifier>
+    </imsx_POXRequestHeaderInfo>
+  </imsx_POXHeader>
+  <imsx_POXBody>
+    <replaceResultRequest>
+      <resultRecord>
+        <sourcedGUID>
+          <sourcedId>${sourcedid}</sourcedId>
+        </sourcedGUID>
+        <result>
+          <resultScore>
+            <language>en</language>
+            <textString>0</textString>
+          </resultScore>
+          <resultData>
+            <ltiLaunchUrl>${dynamicUrl}</ltiLaunchUrl>
+          </resultData>
+        </result>
+      </resultRecord>
+    </replaceResultRequest>
+  </imsx_POXBody>
+</imsx_POXEnvelopeRequest>`;
+
+    // ✅ OAuth signing
+    const oauthData = {
+      oauth_consumer_key: 'top',
+      oauth_nonce: crypto.randomBytes(16).toString('hex'),
+      oauth_signature_method: 'HMAC-SHA1',
+      oauth_timestamp: Math.floor(Date.now() / 1000),
+      oauth_version: '1.0'
+    };
+
+    oauthData.oauth_signature = oauthSignature.hmacsign(
+      'POST',
+      serviceUrl,
+      oauthData,
+      'secret',
+      ''
+    );
+
+    const authHeader = 'OAuth ' + Object.keys(oauthData)
+      .map(k => `${k}="${encodeURIComponent(oauthData[k])}"`)
+      .join(', ');
+
+    // ✅ Send to Canvas
+    const response = await fetch(serviceUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/xml',
+        'Authorization': authHeader,
+        'User-Agent': 'VTT-labs/1.0'
+      },
+      body
     });
+
+    const text = await response.text();
+
+    console.log('Canvas response status:', response.status);
+    console.log('Canvas response body:', text);
+
+    if (!response.ok) {
+      console.error('Error submitting URL to Canvas');
+      resp += `<br/>Update failed. Close this window and resubmit.`;
+      return res.send(resp);
+    }
+
+    // ✅ Success response (same behavior as before)
+    resp += 'Assignment submitted. Close this window and check your submission in Canvas.';
+    resp += '<br/>Instructor will manually grade assignment.';
+
+    return res.send(resp);
+
+  } catch (err) {
+    console.error('Error:', err);
+    resp += `<br/>Unexpected error: ${err.message || err}`;
+    return res.send(resp);
+  }
 });
 
 app.get('/dynamic-content/:passed', (req, res) => {
