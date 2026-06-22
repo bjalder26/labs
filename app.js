@@ -362,7 +362,6 @@ app.get("/instructor", (req, res) => {
 	
 });       // app.post("/");
 
-
 app.get('/noscore/:passed', (req, res) => {
     
     let passed = decodeURI(req.params.passed);
@@ -512,9 +511,6 @@ app.get("/:lab/:name", async (req, res) => {
 	   // lmsDate.valid_request
 	
 });
-
-const crypto = require('crypto');
-const oauthSignature = require('oauth-sign');
 
 app.get("/score/:sessionID/:score", async (req, res) => {
 
