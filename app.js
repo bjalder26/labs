@@ -414,7 +414,6 @@ app.get('/noscore/:passed', async (req, res) => {
         <result>
             <resultData>
               <url>${dynamicUrl}</url>
-              <text/html>${dynamicUrl}</text/html>
             </resultData>
         </result>
       </resultRecord>
