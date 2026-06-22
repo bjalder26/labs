@@ -412,12 +412,8 @@ app.get('/noscore/:passed', async (req, res) => {
           <sourcedId>${sourcedid}</sourcedId>
         </sourcedGUID>
         <result>
-          <resultScore>
-            <language>en</language>
-            <textString>0</textString>
-          </resultScore>
           <resultData>
-            <ltiLaunchUrl>${dynamicUrl}</ltiLaunchUrl>
+            <text>${dynamicUrl}</text>
           </resultData>
         </result>
       </resultRecord>
