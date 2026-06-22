@@ -485,6 +485,10 @@ app.get("/:lab/:name", async (req, res) => {
 			}	
 			
 		labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
+        labHtml = labHtml.replace(
+          "</head>",
+          `<style>#button_bar { display: flex !important; }</style></head>`
+        );
 		dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
 	
 
