@@ -504,7 +504,11 @@ app.get('/dynamic-content/:passed', (req, res) => {
         `);
 
     // Serve the generated HTML
-    res.setHeader("Content-Type", "text/html");
+    res.set({
+      "Content-Type": "text/html",
+      "Content-Security-Policy": "frame-ancestors 'self' https://*.instructure.com https://*.canvaslms.com;",
+      "Cache-Control": "no-store"
+    });
     res.send(sendMe);
 });
 
