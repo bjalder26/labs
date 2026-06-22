@@ -413,7 +413,7 @@ app.get('/noscore/:passed', async (req, res) => {
         </sourcedGUID>
         <result>
           <resultData>
-            <text>${dynamicUrl}</text>
+            <url>${dynamicUrl}</url>
           </resultData>
         </result>
       </resultRecord>
