@@ -525,8 +525,8 @@ app.get("/score/:sessionID/:score", async (req, res) => {
 
   let resp = `Your score of ${score}% has been recorded`;
 
-  const sourcedid = session.result_sourcedid?.trim() || session.sourcedid?.trim();
-  const serviceUrl = session.outcome_service_url?.trim() || session.outcomeUrl?.trim();
+  const sourcedid = session.body.lis_result_sourcedid?.trim();
+  const serviceUrl = session.body.lis_outcome_service_url?.trim();
 
   if (!sourcedid || !serviceUrl) {
     return res.send(resp + "<br/>Missing LTI launch data");
