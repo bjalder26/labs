@@ -16,6 +16,7 @@ const base64 = require('js-base64').Base64 // npm install js-base64
 require('dotenv').config();
 const crypto = require('crypto');
 const oauthSignature = require('oauth-sign')
+const puppeteer = require('puppeteer');
 
 // create a new express server
 var app = express();
@@ -46,6 +47,7 @@ app.use('/submissions', express.static(__dirname + '/submissions/'));
 app.use('/js', express.static(__dirname + '/js/'));
 app.use('/css', express.static(__dirname + '/css/'));
 app.use('/lab', express.static(path.join(__dirname, 'lab')));
+app.use('/submissions/rendered', express.static(path.join(__dirname, 'submissions/rendered')));
 
 // I believe this allows for http vs https only
 app.enable('trust proxy');
@@ -362,105 +364,51 @@ app.get("/instructor", (req, res) => {
 	
 });       // app.post("/");
 
-app.get('/rendered-content/:passed', (req, res) => {
-  let passed = decodeURIComponent(req.params.passed);
-  passed = JSON.parse(passed);
-
-  const { labName, name, sessionID } = passed;
-
-  const baseUrl = `${req.protocol}://${req.get('host')}`;
-  const dynamicUrl = `${baseUrl}/dynamic-content/${encodeURIComponent(JSON.stringify(passed))}`;
-
-  // ✅ Load lab template
-  const labHtml = fs.readFileSync(
-    __dirname + "/lab/" + labName + ".html",
-    "utf8"
-  );
-
-  // ✅ Load student data
-  const dataFile = fs.readFileSync(
-    __dirname + "/submissions/" + labName + "_" + name + ".txt",
-    "utf8"
-  );
-
-  // ✅ Render full lab
-  const renderedLab = labHtml.replace("//PARAMS**GO**HERE", `
-      var userName = '${name}';
-      var dataFile = ${dataFile};
-      var labName = '${labName}';
-      var params = {
-          sessionID: "${sessionID}",
-          user: "${name}"
-      };
-  `);
-
-  const html = `
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    iframe {
-      width: 100%;
-      height: 400px; /* ✅ real visible iframe */
-      border: none;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- ✅ FULL content -->
-  ${renderedLab}
-
-  <!-- ✅ visible iframe (trigger) -->
-  <iframe src="${dynamicUrl}" title="iframe trigger">
-
-</body>
-</html>
-`;
-
-  res.set({
-    "Content-Type": "text/html",
-    "Cache-Control": "no-store",
-    "Content-Security-Policy": "frame-ancestors 'self' https://*.instructure.com https://*.canvaslms.com;"
+async function generateRenderedHTML(url) {
+  const browser = await puppeteer.launch({
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
   });
 
-  res.send(html);
-});
+  const page = await browser.newPage();
+
+  await page.goto(url, {
+    waitUntil: 'networkidle0',
+    timeout: 30000
+  });
+
+  // ✅ Give your lab time to fully render
+  await page.waitForTimeout(1500);
+
+  const html = await page.content();
+
+  await browser.close();
+
+  return html;
+}
 
 app.get('/noscore/:passed', async (req, res) => {
-    
-  let passed = decodeURIComponent(req.params.passed);
-  passed = JSON.parse(passed);
-
-  const labName = passed.labName;
-  const name = passed.name;
-  const sessionID = passed.sessionID;
-
-  const session = sessions[sessionID];
-
   let resp = '';
 
-  // ✅ Build dynamic URL
-  let passedInfo = {
-    labName,
-    name,
-    sessionID
-  };
-
-  const encodedPassed = encodeURIComponent(JSON.stringify(passedInfo));
-  const baseUrl = `${req.protocol}://${req.get('host')}`;
-  const dynamicUrl = `${baseUrl}/dynamic-content/${encodedPassed}`;
-  const renderedUrl = `${baseUrl}/rendered-content/${encodedPassed}`;
-
   try {
-    const sourcedid = session.body.lis_result_sourcedid?.trim();
-    const serviceUrl = session.body.lis_outcome_service_url?.trim();
+    // ✅ Parse input
+    let passed = decodeURIComponent(req.params.passed);
+    passed = JSON.parse(passed);
+
+    const labName = passed.labName;
+    const name = passed.name;
+    const sessionID = passed.sessionID;
+
+    const session = sessions[sessionID];
+
+    // ✅ Build dynamic URL (student’s actual lab)
+    const passedInfo = { labName, name, sessionID };
+    const encodedPassed = encodeURIComponent(JSON.stringify(passedInfo));
+    const baseUrl = `${req.protocol}://${req.get('host')}`;
+    const dynamicUrl = `${baseUrl}/dynamic-content/${encodedPassed}`;
+
+    // ✅ Get LTI info
+    const sourcedid = session?.body?.lis_result_sourcedid?.trim();
+    const serviceUrl = session?.body?.lis_outcome_service_url?.trim();
 
     if (!sourcedid || !serviceUrl) {
       console.log('Missing LTI data');
@@ -468,7 +416,22 @@ app.get('/noscore/:passed', async (req, res) => {
       return res.send(resp);
     }
 
-    // ✅ Build XML (URL submission)
+    // ✅ Ensure output directory exists
+    const renderDir = `${__dirname}/submissions/rendered`;
+    if (!fs.existsSync(renderDir)) {
+      fs.mkdirSync(renderDir, { recursive: true });
+    }
+
+    // ✅ Generate fully rendered HTML (THIS is the key)
+    const renderedHtml = await generateRenderedHTML(dynamicUrl);
+
+    // ✅ Save snapshot
+    const renderPath = `${renderDir}/${sessionID}.html`;
+    fs.writeFileSync(renderPath, renderedHtml);
+
+    const renderedUrl = `${baseUrl}/submissions/rendered/${sessionID}.html`;
+
+    // ✅ Build XML
     const body = `<?xml version="1.0" encoding="UTF-8"?>
 <imsx_POXEnvelopeRequest>
   <imsx_POXHeader>
@@ -484,9 +447,9 @@ app.get('/noscore/:passed', async (req, res) => {
           <sourcedId>${sourcedid}</sourcedId>
         </sourcedGUID>
         <result>
-            <resultData>
-              <url>${renderedUrl}</url>
-            </resultData>
+          <resultData>
+            <url>${renderedUrl}</url>
+          </resultData>
         </result>
       </resultRecord>
     </replaceResultRequest>
@@ -536,7 +499,7 @@ app.get('/noscore/:passed', async (req, res) => {
       return res.send(resp);
     }
 
-    // ✅ Success response (same behavior as before)
+    // ✅ Success message
     resp += 'Assignment submitted. Close this window and check your submission in Canvas.';
     resp += '<br/>Instructor will manually grade assignment.';
 
