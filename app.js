@@ -377,11 +377,13 @@ app.get('/rendered-content/:passed', (req, res) => {
   <head>
     <meta charset="UTF-8">
     <title>${labName} Submission</title>
+
     <style>
       body {
         font-family: Arial, sans-serif;
         padding: 20px;
       }
+
       iframe {
         width: 100%;
         height: 600px;
@@ -389,10 +391,9 @@ app.get('/rendered-content/:passed', (req, res) => {
         border-radius: 6px;
         margin-top: 10px;
       }
+
       a {
-        display: inline-block;
-        margin: 10px 0;
-        font-weight: bold;
+        font-size: 14px;
       }
     </style>
   </head>
@@ -401,16 +402,15 @@ app.get('/rendered-content/:passed', (req, res) => {
     <h2>${labName}</h2>
     <p><strong>Student:</strong> ${name}</p>
 
-    <h3>Submission Link</h3>  
+    <p>
+      Having trouble viewing?
+      <a href="${dynamicUrl}" target="_blank">Open in a new tab</a>
+    </p>
+
     <iframe src="${dynamicUrl}" title="Student submission preview">
       Your browser does not support iframes.
-      ${dynamicUrl}">Open submission</a>
+      <a href="${dynamicUrl}" target="_blank">Open submission</a>
     </iframe>
-      Open full submission in new tab
-    </a>
-
-    <h3>Live Preview</h3>
-    <iframe src="${dynamicUrl}"></iframe>
 
   </body>
   </html>
