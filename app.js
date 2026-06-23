@@ -368,62 +368,39 @@ app.get('/rendered-content/:passed', (req, res) => {
 
   const { labName, name, sessionID } = passed;
 
-  const baseUrl = `${req.protocol}://${req.get('host')}`;
-  const dynamicUrl = `${baseUrl}/dynamic-content/${encodeURIComponent(JSON.stringify(passed))}`;
+  // ✅ Load lab template
+  const labHtml = fs.readFileSync(
+    __dirname + "/lab/" + labName + ".html",
+    "utf8"
+  );
 
-  const html = `
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>${labName} Submission</title>
+  // ✅ Load student submission data
+  const dataFile = fs.readFileSync(
+    __dirname + "/submissions/" + labName + "_" + name + ".txt",
+    "utf8"
+  );
 
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-      }
+  // ✅ Inject variables (same as your dynamic route)
+  const renderedLab = labHtml.replace("//PARAMS**GO**HERE", `
+      var userName = '${name}';
+      var dataFile = ${dataFile};
+      var labName = '${labName}';
+      var params = {
+          sessionID: "${sessionID}",
+          user: "${name}"
+      };
+  `);
 
-      iframe {
-        width: 100%;
-        height: 600px;
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        margin-top: 10px;
-      }
-
-      a {
-        font-size: 14px;
-      }
-    </style>
-  </head>
-  <body>
-
-    <h2>${labName}</h2>
-    <p><strong>Student:</strong> ${name}</p>
-
-    <p>
-      Having trouble viewing?
-      <a href="${dynamicUrl}" target="_blank">Open in a new tab</a>
-    </p>
-
-    <iframe src="${dynamicUrl}" title="Student submission preview">
-      Your browser does not support iframes.
-      <a href="${dynamicUrl}" target="_blank">Open submission</a>
-    </iframe>
-
-  </body>
-  </html>
-  `;
-
+  // ✅ Send FULL rendered HTML (no iframe)
   res.set({
     "Content-Type": "text/html",
     "Cache-Control": "no-store",
     "Content-Security-Policy": "frame-ancestors 'self' https://*.instructure.com https://*.canvaslms.com;"
   });
 
-  res.send(html);
+  res.send(renderedLab);
 });
+
 
 app.get('/noscore/:passed', async (req, res) => {
     
@@ -477,7 +454,7 @@ app.get('/noscore/:passed', async (req, res) => {
         </sourcedGUID>
         <result>
             <resultData>
-              <url>${dynamicUrl}</url>
+              <url>${renderedUrl}</url>
             </resultData>
         </result>
       </resultRecord>
