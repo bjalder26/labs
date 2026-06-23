@@ -395,38 +395,34 @@ app.get('/rendered-content/:passed', (req, res) => {
   `);
 
   const html = `
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>${labName} Submission</title>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
 
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-      }
+    iframe {
+      width: 100%;
+      height: 400px; /* ✅ real visible iframe */
+      border: none;
+    }
+  </style>
+</head>
+<body>
 
-      /* ✅ tiny visible iframe trigger */
-      .preview-trigger {
-        width: 100%;
-        height: 40px; /* small sliver */
-        border: none;
-        opacity: 0.05; /* barely visible but NOT hidden */
-      }
-    </style>
-  </head>
-  <body>
+  <!-- ✅ FULL content -->
+  ${renderedLab}
 
-    <!-- ✅ FULL LAB CONTENT -->
-    ${renderedLab}
+  <!-- ✅ visible iframe (trigger) -->
+  ${dynamicUrl}
 
-    <!-- ✅ Trigger iframe (do NOT hide completely) -->
-    <iframe class="preview-trigger" src="${dynamicUrl}"></iframe>
-
-  </body>
-  </html>
-  `;
+</body>
+</html>
+`;
 
   res.set({
     "Content-Type": "text/html",
