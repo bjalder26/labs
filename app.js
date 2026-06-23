@@ -371,17 +371,19 @@ app.get('/rendered-content/:passed', (req, res) => {
   const baseUrl = `${req.protocol}://${req.get('host')}`;
   const dynamicUrl = `${baseUrl}/dynamic-content/${encodeURIComponent(JSON.stringify(passed))}`;
 
-  // ✅ Load full rendered lab (your existing logic)
+  // ✅ Load lab template
   const labHtml = fs.readFileSync(
     __dirname + "/lab/" + labName + ".html",
     "utf8"
   );
 
+  // ✅ Load student data
   const dataFile = fs.readFileSync(
     __dirname + "/submissions/" + labName + "_" + name + ".txt",
     "utf8"
   );
 
+  // ✅ Render full lab
   const renderedLab = labHtml.replace("//PARAMS**GO**HERE", `
       var userName = '${name}';
       var dataFile = ${dataFile};
@@ -392,8 +394,7 @@ app.get('/rendered-content/:passed', (req, res) => {
       };
   `);
 
-  // ✅ Inject a tiny invisible iframe (the trigger)
-  const finalHtml = `
+  const html = `
   <!DOCTYPE html>
   <html>
   <head>
@@ -406,23 +407,22 @@ app.get('/rendered-content/:passed', (req, res) => {
         padding: 0;
       }
 
-      /* ✅ Completely hidden trigger iframe */
+      /* ✅ tiny visible iframe trigger */
       .preview-trigger {
-        width: 1px;
-        height: 1px;
-        opacity: 0;
-        position: absolute;
-        pointer-events: none;
+        width: 100%;
+        height: 40px; /* small sliver */
+        border: none;
+        opacity: 0.05; /* barely visible but NOT hidden */
       }
     </style>
   </head>
   <body>
 
-    <!-- ✅ This triggers Canvas preview generation -->
-    <iframe class="preview-trigger" src="${dynamicUrl}"></iframe>
-
-    <!-- ✅ This is the actual content (FULL PAGE) -->
+    <!-- ✅ FULL LAB CONTENT -->
     ${renderedLab}
+
+    <!-- ✅ Trigger iframe (do NOT hide completely) -->
+    <iframe class="preview-trigger" src="${dynamicUrl}"></iframe>
 
   </body>
   </html>
@@ -434,7 +434,7 @@ app.get('/rendered-content/:passed', (req, res) => {
     "Content-Security-Policy": "frame-ancestors 'self' https://*.instructure.com https://*.canvaslms.com;"
   });
 
-  res.send(finalHtml);
+  res.send(html);
 });
 
 app.get('/noscore/:passed', async (req, res) => {
