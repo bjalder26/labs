@@ -362,9 +362,72 @@ app.get("/instructor", (req, res) => {
 	
 });       // app.post("/");
 
+app.get('/rendered-content/:passed', (req, res) => {
+  let passed = decodeURIComponent(req.params.passed);
+  passed = JSON.parse(passed);
+
+  const { labName, name, sessionID } = passed;
+
+  const baseUrl = `${req.protocol}://${req.get('host')}`;
+  const dynamicUrl = `${baseUrl}/dynamic-content/${encodeURIComponent(JSON.stringify(passed))}`;
+
+  const html = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>${labName} Submission</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      iframe {
+        width: 100%;
+        height: 600px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-top: 10px;
+      }
+      a {
+        display: inline-block;
+        margin: 10px 0;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h2>${labName}</h2>
+    <p><strong>Student:</strong> ${name}</p>
+
+    <h3>Submission Link</h3>  
+    <iframe src="${dynamicUrl}" title="Student submission preview">
+      Your browser does not support iframes.
+      ${dynamicUrl}">Open submission</a>
+    </iframe>
+      Open full submission in new tab
+    </a>
+
+    <h3>Live Preview</h3>
+    <iframe src="${dynamicUrl}"></iframe>
+
+  </body>
+  </html>
+  `;
+
+  res.set({
+    "Content-Type": "text/html",
+    "Cache-Control": "no-store",
+    "Content-Security-Policy": "frame-ancestors 'self' https://*.instructure.com https://*.canvaslms.com;"
+  });
+
+  res.send(html);
+});
+
 app.get('/noscore/:passed', async (req, res) => {
     
-  let passed = decodeURI(req.params.passed);
+  let passed = decodeURIComponent(req.params.passed);
   passed = JSON.parse(passed);
 
   const labName = passed.labName;
@@ -385,6 +448,7 @@ app.get('/noscore/:passed', async (req, res) => {
   const encodedPassed = encodeURIComponent(JSON.stringify(passedInfo));
   const baseUrl = `${req.protocol}://${req.get('host')}`;
   const dynamicUrl = `${baseUrl}/dynamic-content/${encodedPassed}`;
+  const renderedUrl = `${baseUrl}/rendered-content/${encodedPassed}`;
 
   try {
     const sourcedid = session.body.lis_result_sourcedid?.trim();
@@ -413,7 +477,7 @@ app.get('/noscore/:passed', async (req, res) => {
         </sourcedGUID>
         <result>
             <resultData>
-              <url>${dynamicUrl}</url>
+              <url>${renderedUrl}</url>
             </resultData>
         </result>
       </resultRecord>
@@ -479,7 +543,7 @@ app.get('/noscore/:passed', async (req, res) => {
 
 app.get('/dynamic-content/:passed', (req, res) => {
   
-   let passed = decodeURI(req.params.passed);
+   let passed = decodeURIComponent(req.params.passed);
     passed = JSON.parse(passed);
     const labName = passed.labName;
     const name = passed.name;
