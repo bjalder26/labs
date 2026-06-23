@@ -16,7 +16,6 @@ const base64 = require('js-base64').Base64 // npm install js-base64
 require('dotenv').config();
 const crypto = require('crypto');
 const oauthSignature = require('oauth-sign')
-const puppeteer = require('puppeteer');
 
 // create a new express server
 var app = express();
@@ -47,7 +46,6 @@ app.use('/submissions', express.static(__dirname + '/submissions/'));
 app.use('/js', express.static(__dirname + '/js/'));
 app.use('/css', express.static(__dirname + '/css/'));
 app.use('/lab', express.static(path.join(__dirname, 'lab')));
-app.use('/submissions/rendered', express.static(path.join(__dirname, 'submissions/rendered')));
 
 // I believe this allows for http vs https only
 app.enable('trust proxy');
@@ -364,28 +362,6 @@ app.get("/instructor", (req, res) => {
 	
 });       // app.post("/");
 
-async function generateRenderedHTML(url) {
-  const browser = await puppeteer.launch({
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
-  });
-
-  const page = await browser.newPage();
-
-  await page.goto(url, {
-    waitUntil: 'networkidle0',
-    timeout: 30000
-  });
-
-  // ✅ Give your lab time to fully render
-  await page.waitForTimeout(1500);
-
-  const html = await page.content();
-
-  await browser.close();
-
-  return html;
-}
-
 app.get('/noscore/:passed', async (req, res) => {
   let resp = '';
 
@@ -400,7 +376,7 @@ app.get('/noscore/:passed', async (req, res) => {
 
     const session = sessions[sessionID];
 
-    // ✅ Build dynamic URL (student’s actual lab)
+    // ✅ Build dynamic URL (THIS is what you submit)
     const passedInfo = { labName, name, sessionID };
     const encodedPassed = encodeURIComponent(JSON.stringify(passedInfo));
     const baseUrl = `${req.protocol}://${req.get('host')}`;
@@ -416,22 +392,7 @@ app.get('/noscore/:passed', async (req, res) => {
       return res.send(resp);
     }
 
-    // ✅ Ensure output directory exists
-    const renderDir = `${__dirname}/submissions/rendered`;
-    if (!fs.existsSync(renderDir)) {
-      fs.mkdirSync(renderDir, { recursive: true });
-    }
-
-    // ✅ Generate fully rendered HTML (THIS is the key)
-    const renderedHtml = await generateRenderedHTML(dynamicUrl);
-
-    // ✅ Save snapshot
-    const renderPath = `${renderDir}/${sessionID}.html`;
-    fs.writeFileSync(renderPath, renderedHtml);
-
-    const renderedUrl = `${baseUrl}/submissions/rendered/${sessionID}.html`;
-
-    // ✅ Build XML
+    // ✅ Build XML (BACK TO SIMPLE VERSION)
     const body = `<?xml version="1.0" encoding="UTF-8"?>
 <imsx_POXEnvelopeRequest>
   <imsx_POXHeader>
@@ -448,7 +409,7 @@ app.get('/noscore/:passed', async (req, res) => {
         </sourcedGUID>
         <result>
           <resultData>
-            <url>${renderedUrl}</url>
+            <url>${dynamicUrl}</url>
           </resultData>
         </result>
       </resultRecord>

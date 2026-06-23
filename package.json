@@ -17,7 +17,6 @@
     "multer": "^2.0.1",
     "node-fetch": "^2.6.9",
     "oauth-sign": "^0.9.0",
-    "puppeteer": "^24.43.1",
     "rimraf": "^5.0.10",
     "uuid4": "^2.0.3"
   },
