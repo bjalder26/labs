@@ -368,19 +368,20 @@ app.get('/rendered-content/:passed', (req, res) => {
 
   const { labName, name, sessionID } = passed;
 
-  // ✅ Load lab template
+  const baseUrl = `${req.protocol}://${req.get('host')}`;
+  const dynamicUrl = `${baseUrl}/dynamic-content/${encodeURIComponent(JSON.stringify(passed))}`;
+
+  // ✅ Load full rendered lab (your existing logic)
   const labHtml = fs.readFileSync(
     __dirname + "/lab/" + labName + ".html",
     "utf8"
   );
 
-  // ✅ Load student submission data
   const dataFile = fs.readFileSync(
     __dirname + "/submissions/" + labName + "_" + name + ".txt",
     "utf8"
   );
 
-  // ✅ Inject variables (same as your dynamic route)
   const renderedLab = labHtml.replace("//PARAMS**GO**HERE", `
       var userName = '${name}';
       var dataFile = ${dataFile};
@@ -391,16 +392,50 @@ app.get('/rendered-content/:passed', (req, res) => {
       };
   `);
 
-  // ✅ Send FULL rendered HTML (no iframe)
+  // ✅ Inject a tiny invisible iframe (the trigger)
+  const finalHtml = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <title>${labName} Submission</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      /* ✅ Completely hidden trigger iframe */
+      .preview-trigger {
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ✅ This triggers Canvas preview generation -->
+    <iframe class="preview-trigger" src="${dynamicUrl}"></iframe>
+
+    <!-- ✅ This is the actual content (FULL PAGE) -->
+    ${renderedLab}
+
+  </body>
+  </html>
+  `;
+
   res.set({
     "Content-Type": "text/html",
     "Cache-Control": "no-store",
     "Content-Security-Policy": "frame-ancestors 'self' https://*.instructure.com https://*.canvaslms.com;"
   });
 
-  res.send(renderedLab);
+  res.send(finalHtml);
 });
-
 
 app.get('/noscore/:passed', async (req, res) => {
     
