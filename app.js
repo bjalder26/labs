@@ -418,7 +418,7 @@ app.get('/rendered-content/:passed', (req, res) => {
   ${renderedLab}
 
   <!-- ✅ visible iframe (trigger) -->
-  ${dynamicUrl}
+  <iframe src="${dynamicUrl}" title="iframe trigger">
 
 </body>
 </html>
