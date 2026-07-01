@@ -294,7 +294,7 @@
         <tr>
           <td>1</td>
           <td>
-            <input type="number" step="any" class="num" id="y1" name="y1" />
+            <input type="number" step="any" class="absorbance graph num" id="y1" name="y1" />
           </td>
           <td>0.0040<input type="hidden" class="absorbance graph" id="x1" name="x1" value="0.0040"/>
           </td>
@@ -302,32 +302,44 @@
         <tr>
           <td>2</td>
           <td>
-            <input type="number" step="any" class="num" id="y2" name="y2" />
+            <input type="number" step="any" class="absorbance graph num" id="y2" name="y2" />
           </td>
           <td>0.0080<input type="hidden" class="absorbance graph" id="x2" name="x2" value="0.0080"/></td>
         </tr>
         <tr>
           <td>3</td>
           <td>
-            <input type="number" step="any" class="num" id="y3" name="y3" />
+            <input type="number" step="any" class="absorbance graph num" id="y3" name="y3" />
           </td>
           <td>0.0120<input type="hidden" class="absorbance graph" id="x3" name="x3" value="0.0120"/></td>
         </tr>
         <tr>
           <td>4</td>
           <td>
-            <input type="number" step="any" class="num" id="y4" name="y4" />
+            <input type="number" step="any" class="absorbance graph num" id="y4" name="y4" />
           </td>
           <td>0.0160<input type="hidden" class="absorbance graph" id="x4" name="x4" value="0.0160"/></td>
         </tr>
         <tr>
           <td>5</td>
           <td>
-            <input type="number" step="any" class="num" id="y5" name="y5" />
+            <input type="number" step="any" class="absorbance graph num" id="y5" name="y5" />
           </td>
           <td>0.0200</td>
         </tr>
       </table>
+
+<div class="canvas centered">
+  <canvas id="absorbance graph" onclick="updateGraph('absorbance graph')" title="Absorbance vs Concentration (M)"></canvas>
+</div><br>
+
+<div class="centered">
+  Formula for the best fit line: y =&nbsp;
+  <div class="num" id="absorbance slope"></div>
+  x&nbsp;<label class="absorbance plus">&nbsp;+&nbsp;</label>
+  <div class="num" id="absorbance intercept"></div>
+</div><br>
+
 
       <h3>Part 3: Calibration and Wavelength Selection</h3>
       <ol start="5">
