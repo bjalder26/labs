@@ -59,6 +59,19 @@
             <li>The rate law expression</li>
             <li>The rate constant, $k$</li>
           </ul>
+      <p>
+In addition, this experiment relies on Beer’s Law:
+</p>
+
+<p>
+$A = \varepsilon \ell c$
+</p>
+
+<p>
+where absorbance ($A$) is directly proportional to concentration ($c$). 
+By first creating a calibration curve of absorbance vs. concentration, you will be able to convert absorbance data into concentration and determine reaction rates in units of molarity per second.
+</p>
+``
 
           <hr />
 
@@ -68,27 +81,43 @@
             <li>
               A general rate law has the form:
               <p>$\text{Rate} = k[A]^m[B]^n$</p>
-              What do the exponents $m$ and $n$ represent?
+              Which letter represents the order of the reaction with respect to A?<br>
+              
+<select id="pl1" name="pl1" class="calc" formula="m" help="The order of reaction with respect to reactant \(A\) is the exponent to which the concentration of \(A\) is raised in the rate law. ">
+  <option value="">Choose an option</option>
+  <option value="k">k</option>
+  <option value="A">A</option>
+  <option value="m">m</option>
+  <option value="B">B</option>
+  <option value="n">n</option>
+</select>
+<div class="feedback" id="pl1FB" name="pl1FB"></div>
+
+              
             </li>
 
             <li>
               If doubling $[A]$ doubles the rate, what is the order with respect
               to A?<br />
-              If doubling $[A]$ quadruples the rate, what is the order?
+              <input type="number" class="calc" id="pl1order1" name="pl1order1" step="any" formula="1" help="Think about the exponent: what power must you raise 2 to so that the answer is 2?"><div class="feedback" id="pl1order1FB" name="pl1order1FB"></div><br>
+              If doubling $[A]$ quadruples the rate, what is the order with respect
+              to A?<br>
+              <input type="number" class="calc" id="pl1order2" name="pl1order2" step="any" formula="2" help="Think about the exponent: what power must you raise 2 to so that the answer is 4?"><div class="feedback" id="pl1order2FB" name="pl1order2FB"></div><br>
             </li>
 
             <li>
               <b>Dilution Practice:</b><br />
               If 20.0 mL of 0.020 M KI is mixed to make a total volume of 40.0
               mL, what is the new KI concentration?
+              <input type="number" class="calc" id="pl3" name="pl3" step="any" formula="0.010" help="Use the formula M<sub>1</sub>V<sub>1</sub>  = M<sub>2</sub>V<sub>2</sub> to solve for the final concentration of KI."> M<div class="feedback" id="pl3FB" name="pl3FB"></div>
             </li>
 
             <li>
               <b>Initial Rate from a Trendline:</b><br />
-              A student obtains the best-fit line:
+              In an absorbance vs. time graph, a student obtains the best-fit line with the following slope-intercept formula:
               <p>$A = (0.0032)t + 0.015$</p>
-              What is the initial rate of the reaction? Explain which part of
-              the equation you used.
+              What is the initial rate of the reaction?
+              <input type="number" class="calc" id="pl4" name="pl4" step="any" formula="0.0032"><div class="feedback" id="pl4FB" name="pl4FB"></div>
             </li>
 
             <li>
@@ -132,7 +161,32 @@
             <li>Tap <b>File → New</b>.</li>
           </ol>
 
-          <h3>Part 2: Calibration and Wavelength Selection</h3>
+      <h3>Part 2: Preparing an Absorbance vs. Concentration Curve.</h3>
+      <h3>Preparing Standard Solutions</h3>
+
+<p>
+Use the provided stock solution to prepare the following standards. Each solution should have a total volume of 10.0 mL.
+</p>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Solution</th>
+    <th>Stock Solution (mL)</th>
+    <th>Distilled Water (mL)</th>
+    <th>Concentration (M)</th>
+  </tr>
+  <tr><td>1</td><td>2.0</td><td>8.0</td><td>0.0040</td></tr>
+  <tr><td>2</td><td>4.0</td><td>6.0</td><td>0.0080</td></tr>
+  <tr><td>3</td><td>6.0</td><td>4.0</td><td>0.0120</td></tr>
+  <tr><td>4</td><td>8.0</td><td>2.0</td><td>0.0160</td></tr>
+  <tr><td>5</td><td>10.0</td><td>0.0</td><td>0.0200</td></tr>
+</table>
+
+<p>
+Assume the stock solution has a concentration of $0.0200\ \text{M}$. Show one calculation to verify a concentration.
+</p>
+
+          <h3>Part 3: Calibration and Wavelength Selection</h3>
           <ol start="5">
             <li>Fill a cuvette ¾ full with distilled water (blank).</li>
             <li>
