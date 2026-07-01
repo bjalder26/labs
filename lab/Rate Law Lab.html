@@ -123,14 +123,28 @@ By first creating a calibration curve of absorbance vs. concentration, you will 
             <li>
               <b>Rate Constant Practice:</b><br />
               A reaction follows:
-              <p>$\text{/p> Given:</p>
+              <p>Given:</p>
 
               <ul>
                 <li>Rate = $2.0 \times 10^{-4}$ M/s</li>
                 <li>$[A] = 0.10$ M</li>
                 <li>$[B] = 0.20$ M</li>
+                <li>$\text{Rate} = k[A]^2[B]^1$</li>
               </ul>
-              Calculate $k$ (include units).
+              Calculate $k$ and select the correct units.
+              $k =$ <input type="number" class="calc" id="pl5" name="pl5" step="any" formula="(2.0*10^-4)/(0.1^2*0.2)" help="Solve the rate law formula above for k.">
+              
+<select id="pl5units" name="pl5units" class="calc" formula="M-2s-1" help="A and B have units of M and rate always has units of $\fract{M}{s}$">
+  <option value="">Choose an option</option>
+  <option value="Ms-1">M s<sup>⁻¹</sup></option>
+  <option value="s-1">s<sup>⁻¹</sup></option>
+  <option value="M-1s-1">M<sup>⁻¹</sup> s<sup>⁻¹</sup></option>
+  <option value="M-2s-1">M<sup>⁻²</sup> s<sup>⁻¹</sup></option>
+</select>
+<div class="feedback" id="pl5FB" name="pl5FB"></div> 
+<div class="feedback" id="pl5unitsFB" name="pl5unitsFB"></div>
+
+              
             </li>
           </ol>
 
@@ -140,13 +154,14 @@ By first creating a calibration curve of absorbance vs. concentration, you will 
           <ul>
             <li>LabQuest 3</li>
             <li>Vernier Go Direct SpectroVis Plus spectrophotometer</li>
-            <li>5 × 50–100 mL beakers</li>
+            <li>10 × 50–100 mL beakers</li>
             <li>3 × 25 mL graduated cylinders</li>
             <li>Plastic transfer pipets</li>
-            <li>Cuvettes</li>
+            <li>10 × Cuvettes</li>
             <li>0.020 M KI solution (~100 mL)</li>
             <li>0.020 M FeCl₃ solution (~100 mL)</li>
             <li>Distilled water (~60 mL)</li>
+            <li>2 × 10 mL graduated cylinders</li>
           </ul>
 
           <hr />
@@ -171,7 +186,7 @@ Use the provided stock solution to prepare the following standards. Each solutio
 <table border="1" cellpadding="5">
   <tr>
     <th>Solution</th>
-    <th>Stock Solution (mL)</th>
+    <th>0.0200 M Stock Solution (mL)</th>
     <th>Distilled Water (mL)</th>
     <th>Concentration (M)</th>
   </tr>
@@ -183,8 +198,23 @@ Use the provided stock solution to prepare the following standards. Each solutio
 </table>
 
 <p>
-Assume the stock solution has a concentration of $0.0200\ \text{M}$. Show one calculation to verify a concentration.
+The stock solution has a concentration of $0.0200\ \text{M}\ (0.0400 \ \text{N})$.
 </p>
+
+<h3>Calibration Measurements</h3>
+
+<table border="1" cellpadding="5">
+  <tr>
+    <th>Solution</th>
+    <th>Concentration (M)</th>
+    <th>Absorbance</th>
+  </tr>
+  <tr><td>1</td><td>0.0040</td><td></td></tr>
+  <tr><td>2</td><td>0.0080</td><td></td></tr>
+  <tr><td>3</td><td>0.0120</td><td></td></tr>
+  <tr><td>4</td><td>0.0160</td><td></td></tr>
+  <tr><td>5</td><td>0.0200</td><td></td></tr>
+</table>
 
           <h3>Part 3: Calibration and Wavelength Selection</h3>
           <ol start="5">
@@ -197,9 +227,10 @@ Assume the stock solution has a concentration of $0.0200\ \text{M}$. Show one ca
               Determine $\lambda_{max}$:
               <ul>
                 <li>Insert FeCl₃ solution</li>
-                <li>Tap the <b>Collect</b> button</li>
+                <li>Tap the <b>Collect</b> button (green arrow)</li>
                 <li>Identify the peak wavelength</li>
-                <li>Record $\lambda_{max}$ below</li>
+                <li>Record $\lambda_{max}$ (wavelength with the maximum absorbance) below</li>
+                $\lambda_{max} =$ <input type="text" class="num" id="wavelength" name="wavelength"> nm
               </ul>
             </li>
             <li>
@@ -272,7 +303,7 @@ Assume the stock solution has a concentration of $0.0200\ \text{M}$. Show one ca
               <ul>
                 <li>Fill cuvette (~¾ full)</li>
                 <li>Insert into spectrophotometer</li>
-                <li>Tap <b>Collect</b> to begin data</li>
+                <li>Tap <b>Collect</b> (green arrow) to begin data</li>
               </ul>
             </li>
             <li>Allow data collection to finish.</li>
