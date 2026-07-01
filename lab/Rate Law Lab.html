@@ -288,44 +288,44 @@
       <table border="1" cellpadding="5">
         <tr>
           <th>Solution</th>
-          <th>Absorbance</th>
-          <th>Concentration (M)</th>
+          <th><label id="absorbance y-axis">Absorbance</label></th>
+          <th><label id="absorbance x-axis">Concentration (M)</th>
         </tr>
         <tr>
           <td>1</td>
           <td>
-            <input type="number" step="any" class="absorbance graph num" id="y1" name="y1" />
+            <input type="number" step="any" class="absorbance graph num" id="y0" name="y0" />
           </td>
-          <td>0.0040<input type="hidden" class="absorbance graph" id="x1" name="x1" value="0.0040"/>
+          <td>0.0040<input type="hidden" class="absorbance graph" id="x0" name="x0" value="0.0040"/>
           </td>
         </tr>
         <tr>
           <td>2</td>
           <td>
-            <input type="number" step="any" class="absorbance graph num" id="y2" name="y2" />
+            <input type="number" step="any" class="absorbance graph num" id="y1" name="y1" />
           </td>
-          <td>0.0080<input type="hidden" class="absorbance graph" id="x2" name="x2" value="0.0080"/></td>
+          <td>0.0080<input type="hidden" class="absorbance graph" id="x1" name="x1" value="0.0080"/></td>
         </tr>
         <tr>
           <td>3</td>
           <td>
-            <input type="number" step="any" class="absorbance graph num" id="y3" name="y3" />
+            <input type="number" step="any" class="absorbance graph num" id="y2" name="y2" />
           </td>
-          <td>0.0120<input type="hidden" class="absorbance graph" id="x3" name="x3" value="0.0120"/></td>
+          <td>0.0120<input type="hidden" class="absorbance graph" id="x2" name="x2" value="0.0120"/></td>
         </tr>
         <tr>
           <td>4</td>
           <td>
-            <input type="number" step="any" class="absorbance graph num" id="y4" name="y4" />
+            <input type="number" step="any" class="absorbance graph num" id="y3" name="y3" />
           </td>
-          <td>0.0160<input type="hidden" class="absorbance graph" id="x4" name="x4" value="0.0160"/></td>
+          <td>0.0160<input type="hidden" class="absorbance graph" id="x3" name="x3" value="0.0160"/></td>
         </tr>
         <tr>
           <td>5</td>
           <td>
-            <input type="number" step="any" class="absorbance graph num" id="y5" name="y5" />
+            <input type="number" step="any" class="absorbance graph num" id="y4" name="y4" />
           </td>
-          <td>0.0200</td>
+          <td>0.0200<input type="hidden" class="absorbance graph" id="x4" name="x4" value="0.0200"/</td>
         </tr>
       </table>
 
@@ -339,7 +339,6 @@
   x&nbsp;<label class="absorbance plus">&nbsp;+&nbsp;</label>
   <div class="num" id="absorbance intercept"></div>
 </div><br>
-
 
       <h3>Part 3: Calibration and Wavelength Selection</h3>
       <ol start="5">
