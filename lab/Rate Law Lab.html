@@ -1,1 +1,337 @@
+<html>
+  <head>
+    <title>Rate Law Lab</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title">Rate Law Lab: Determining Reaction Order</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+
+          <h2>Background</h2>
+          <p>
+            Chemical kinetics is the study of how fast reactions occur and what
+            factors influence their rates. One important goal is to determine a
+            <b>rate law</b>, which shows how rate depends on reactant
+            concentrations.
+          </p>
+
+          <p>In this experiment, iodide ions react with iron(III) ions:</p>
+
+          <p>
+            $2I^- (aq) + 2Fe^{3+} (aq) \rightarrow I_2 (aq) + 2Fe^{2+} (aq)$
+          </p>
+
+          <p>
+            As the reaction proceeds, the solution changes from
+            <b>pale yellow to a darker brown/orange color</b> due to the
+            formation of iodine ($I_2$). This color change is monitored using a
+            Vernier Go Direct SpectroVis Plus spectrophotometer.
+          </p>
+
+          <p>
+            You will measure how fast absorbance increases over time to
+            determine:
+          </p>
+          <ul>
+            <li>Reaction order for each reactant</li>
+            <li>The rate law expression</li>
+            <li>The rate constant, $k$</li>
+          </ul>
+
+          <hr />
+
+          <h2>Pre-Lab Questions</h2>
+
+          <ol>
+            <li>
+              A general rate law has the form:
+              <p>$\text{Rate} = k[A]^m[B]^n$</p>
+              What do the exponents $m$ and $n$ represent?
+            </li>
+
+            <li>
+              If doubling $[A]$ doubles the rate, what is the order with respect
+              to A?<br />
+              If doubling $[A]$ quadruples the rate, what is the order?
+            </li>
+
+            <li>
+              <b>Dilution Practice:</b><br />
+              If 20.0 mL of 0.020 M KI is mixed to make a total volume of 40.0
+              mL, what is the new KI concentration?
+            </li>
+
+            <li>
+              <b>Initial Rate from a Trendline:</b><br />
+              A student obtains the best-fit line:
+              <p>$A = (0.0032)t + 0.015$</p>
+              What is the initial rate of the reaction? Explain which part of
+              the equation you used.
+            </li>
+
+            <li>
+              <b>Rate Constant Practice:</b><br />
+              A reaction follows:
+              <p>$\text{/p> Given:</p>
+
+              <ul>
+                <li>Rate = $2.0 \times 10^{-4}$ M/s</li>
+                <li>$[A] = 0.10$ M</li>
+                <li>$[B] = 0.20$ M</li>
+              </ul>
+              Calculate $k$ (include units).
+            </li>
+          </ol>
+
+          <hr />
+
+          <h2>Materials</h2>
+          <ul>
+            <li>LabQuest 3</li>
+            <li>Vernier Go Direct SpectroVis Plus spectrophotometer</li>
+            <li>5 × 50–100 mL beakers</li>
+            <li>3 × 25 mL graduated cylinders</li>
+            <li>Plastic transfer pipets</li>
+            <li>Cuvettes</li>
+            <li>0.020 M KI solution (~100 mL)</li>
+            <li>0.020 M FeCl₃ solution (~100 mL)</li>
+            <li>Distilled water (~60 mL)</li>
+          </ul>
+
+          <hr />
+
+          <h2>Procedure</h2>
+
+          <h3>Part 1: Setup</h3>
+          <ol>
+            <li>Put on goggles.</li>
+            <li>Obtain all materials.</li>
+            <li>Connect the SpectroVis Plus to the LabQuest 3 using USB.</li>
+            <li>Tap <b>File → New</b>.</li>
+          </ol>
+
+          <h3>Part 2: Calibration and Wavelength Selection</h3>
+          <ol start="5">
+            <li>Fill a cuvette ¾ full with distilled water (blank).</li>
+            <li>
+              Select <b>Sensors → Calibrate → Spectrometer</b> and complete
+              calibration.
+            </li>
+            <li>
+              Determine $\lambda_{max}$:
+              <ul>
+                <li>Insert FeCl₃ solution</li>
+                <li>Tap the <b>Collect</b> button</li>
+                <li>Identify the peak wavelength</li>
+                <li>Record $\lambda_{max}$ below</li>
+              </ul>
+            </li>
+            <li>
+              Set the wavelength:
+              <ul>
+                <li>Switch to absorbance mode</li>
+                <li>
+                  Enter $\lambda_{max}$ so only that wavelength is measured
+                </li>
+              </ul>
+            </li>
+            <li>
+              Set time-based collection:
+              <ul>
+                <li>Rate: 1 sample/second</li>
+                <li>Duration: 200 seconds</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>Part 3: Reaction Trials</h3>
+
+          <table border="1" cellpadding="5">
+            <tr>
+              <th>Trial</th>
+              <th>FeCl₃ (mL)</th>
+              <th>KI (mL)</th>
+              <th>H₂O (mL)</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>20.0</td>
+              <td>20.0</td>
+              <td>0.0</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>20.0</td>
+              <td>10.0</td>
+              <td>10.0</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>10.0</td>
+              <td>20.0</td>
+              <td>10.0</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>15.0</td>
+              <td>10.0</td>
+              <td>15.0</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>10.0</td>
+              <td>15.0</td>
+              <td>15.0</td>
+            </tr>
+          </table>
+
+          <h3>Part 4: Collecting Data</h3>
+          <ol start="10">
+            <li>Measure KI, FeCl₃, and water.</li>
+            <li>Add water (if used) to KI first.</li>
+            <li>Prepare the cuvette and LabQuest.</li>
+            <li>Add FeCl₃ to KI and swirl.</li>
+            <li>
+              Immediately:
+              <ul>
+                <li>Fill cuvette (~¾ full)</li>
+                <li>Insert into spectrophotometer</li>
+                <li>Tap <b>Collect</b> to begin data</li>
+              </ul>
+            </li>
+            <li>Allow data collection to finish.</li>
+          </ol>
+
+          <h3>Part 5: Determining Initial Rate</h3>
+          <ol start="16">
+            <li>
+              Select an early linear region of the graph by dragging across it.
+            </li>
+            <li>
+              Tap <b>Analyze → Curve Fit</b><br />
+              Select <b>Linear</b>
+            </li>
+            <li>The slope of the line is the initial rate.</li>
+            <li>Use the same time interval for all trials.</li>
+          </ol>
+
+          <hr />
+
+          <h2>Data Table</h2>
+
+          <table border="1" cellpadding="5">
+            <tr>
+              <th>Trial</th>
+              <th>[FeCl₃] (M)</th>
+              <th>[KI] (M)</th>
+              <th>Initial Rate</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </table>
+
+          <hr />
+
+          <h2>Analysis</h2>
+
+          <ol>
+            <li>Calculate concentrations after mixing. Show one example.</li>
+            <li>
+              Determine reaction orders for KI and FeCl₃ and justify your
+              answer.
+            </li>
+            <li>Write the rate law.</li>
+            <li>Calculate $k$ (include units).</li>
+          </ol>
+
+          <hr />
+
+          <h2>Conclusion</h2>
+
+          <p>Summarize:</p>
+          <ul>
+            <li>Reaction orders</li>
+            <li>Final rate law</li>
+            <li>Value of $k$</li>
+            <li>Sources of error</li>
+          </ul>
+
+<!-- End --> 
+       <div id="button_bar"> 
+        <button type="submit" title="save" class="large material-icons" id="savebutton" onclick="saveData()">save</button>
+        <button onclick="toPrint()" title="print" class="large material-icons">print</button> 
+        <button type="button" class="hidden" onclick="submitAssignment(window.labName, window.userName, params.sessionID)" style="height: 83%">Submit</button >&nbsp; 
+        <div class="vcenter hidden" style="display: none;"> 
+          <label for="score">Score: </label> 
+          <div id="score" style="display: inline">0</div>% 
+        </div> 
+      </div> 
+    </form> 
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="../js/lab.js"></script> 
+  </body> 
+</html> 
