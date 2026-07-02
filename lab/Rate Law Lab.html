@@ -476,20 +476,6 @@
             <td>20.0</td>
             <td>10.0</td>
           </tr>
-          <!--
-          <tr>
-            <td>4</td>
-            <td>15.0</td>
-            <td>10.0</td>
-            <td>15.0</td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>10.0</td>
-            <td>15.0</td>
-            <td>15.0</td>
-          </tr>
-          -->
         </table>
 
         <h3>Part 4: Collecting Data</h3>
@@ -517,7 +503,10 @@
         </li>
         <li>The slope of the line is the Δ Absorbance/s.</li>
         <li>Use the same time interval for all trials.</li>
-        <li>Use your Absorbance vs. Concentration best fit line equation to convert from Δ Absorbance/s (Y) to Δ M/s (X).</li>
+        <li>
+          Use your Absorbance vs. Concentration best fit line equation to
+          convert from Δ Absorbance/s (Y) to Δ M/s (X).
+        </li>
 
         <hr />
 
@@ -529,83 +518,234 @@
             <th>[FeCl₃] (M)</th>
             <th>[KI] (M)</th>
             <th>Δ Absorbance/s</th>
-            <th>Initial Rate (Δ M/s) </th>
+            <th>Initial Rate (Δ M/s)</th>
           </tr>
           <tr>
             <td>1</td>
             <td>0.010</td>
             <td>0.010</td>
-            <td><input type="number" step="any" class="num" id="t1abs" name="t1abs"></td>
             <td>
-              <input type="number" class="num calc" id="t1rate" name="t1rate" step="any" formula="(${t1abs}-${absorbance intercept})/${absorbance slope}" help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "><div class="feedback" id="t1rateFB" name="t1rateFB"></div>
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="t1abs"
+                name="t1abs"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="num calc"
+                id="t1rate"
+                name="t1rate"
+                step="any"
+                formula="(${t1abs}-${absorbance intercept})/${absorbance slope}"
+                help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "
+              />
+              <div class="feedback" id="t1rateFB" name="t1rateFB"></div>
             </td>
           </tr>
           <tr>
             <td>2</td>
             <td>0.010</td>
             <td>0.005</td>
-            <td><input type="number" step="any" class="num" id="t2abs" name="t2abs"></td>
             <td>
-              <input type="number" class="num calc" id="t2rate" name="t2rate" step="any" formula="(${t2abs}-${absorbance intercept})/${absorbance slope}" help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "><div class="feedback" id="t2rateFB" name="t2rateFB"></div>
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="t2abs"
+                name="t2abs"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="num calc"
+                id="t2rate"
+                name="t2rate"
+                step="any"
+                formula="(${t2abs}-${absorbance intercept})/${absorbance slope}"
+                help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "
+              />
+              <div class="feedback" id="t2rateFB" name="t2rateFB"></div>
             </td>
           </tr>
           <tr>
             <td>3</td>
             <td>0.005</td>
             <td>0.010</td>
-            <td><input type="number" step="any" class="num" id="t3abs" name="t3abs"></td>
             <td>
-              <input type="number" class="num calc" id="t3rate" name="t3rate" step="any" formula="(${t3abs}-${absorbance intercept})/${absorbance slope}" help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "><div class="feedback" id="t3rateFB" name="t3rateFB"></div>
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="t3abs"
+                name="t3abs"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="num calc"
+                id="t3rate"
+                name="t3rate"
+                step="any"
+                formula="(${t3abs}-${absorbance intercept})/${absorbance slope}"
+                help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "
+              />
+              <div class="feedback" id="t3rateFB" name="t3rateFB"></div>
             </td>
           </tr>
-          <!--
-          <tr>
-            <td>4</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          -->
         </table>
 
         <hr />
 
         <h2>Analysis</h2>
         <li>
-          What are the reaction orders for KI and FeCl<sub>3</sub>.
-        </li>
-        <li>
+          What are the reaction orders for KI and FeCl<sub>3</sub> .
           <ul>
             <li>
-              Order of reaction with respect to KI:
-              
+              Order of reaction with respect to FeCl<sub>3</sub>:
+              <input
+                type="number"
+                class="num calc"
+                id="ORFeCl3"
+                name="ORFeCl3"
+                step="any"
+                formula="log(${t1rate}/${t3rate})/log(2)"
+                help="Divide the rate law for the first reaction by the rate law of the third reaction and solve for the order of the reaction with respect to FeCl<sub>3</sub>."
+                range="50%"
+              />
+              <div class="feedback" id="ORFeCl3FB" name="ORFeCl3FB"></div>
             </li>
             <li>
-              Order of reaction with respect to FeCl<sub>3</sub>: 
+              Order of reaction with respect to KI:
+              <input
+                type="number"
+                class="num calc"
+                id="ORKI"
+                name="ORKI"
+                step="any"
+                formula="log(${t1rate}/${t2rate})/log(2)"
+                help="Divide the rate law for the first reaction by the rate law of the second reaction and solve for the order of the reaction with respect to KI."
+                range="50%"
+              />
+              <div class="feedback" id="ORKIFB" name="ORKIFB"></div>
             </li>
           </ul>
         </li>
-        <li>Write the rate law.</li>
-        <li>Calculate $k$ (include units).</li>
+        <li>
+          <div>
+            Substitue in the [FeCl<sub>3</sub>], [KI], orders with respect to
+            FeCl<sub>3</sub> and KI, and initial rate from the first trial into
+            the generaic rate law ($\text{Rate} = k[FeCl_{3}]^m[KI]^n$).<br />
+            <input
+              type="number"
+              class="num calc"
+              id="t1rate2"
+              name="t1rate2"
+              step="any"
+              formula="${t1rate}"
+              help="This number should already be in your chart above."
+              style="width:75px"
+            />
+            = $k$ (
+            <input
+              type="number"
+              class="num calc"
+              id="t1MFeCl3"
+              name="t1MFeCl3"
+              step="any"
+              formula="0.010"
+              help="This number should already be in your chart above."
+              style="width:75px"
+            />
+            )
+            <sup>
+              <input
+                type="number"
+                class="num calc"
+                id="ORFeCl3-2"
+                name="ORFeCl3-2"
+                step="any"
+                formula="${ORFeCl3}"
+                help="You should have the respect to FeCl<sub>3</sub> above."
+                style="width: 30px; font-size: 0.5em; vertical-align: super; position: relative; top: -0.3em; border: 1px solid #ccc; text-align: center;"
+              />
+            </sup>
+            (
+            <input
+              type="number"
+              class="num calc"
+              id="t1MKI"
+              name="t1MKI"
+              step="any"
+              formula="0.010"
+              help="This number should already be in your chart above."
+              style="width:75px"
+            />
+            )
+            <sup>
+              <input
+                type="number"
+                class="num calc"
+                id="ORKI-2"
+                name="ORKI-2"
+                step="any"
+                formula="${ORKI}"
+                help="You should have the respect to FeCl<sub>3</sub> above."
+                style="width: 30px; font-size: 0.5em; vertical-align: super; position: relative; top: -0.3em; border: 1px solid #ccc; text-align: center;"
+              />
+            </sup>
+
+            <div class="feedback" id="t1rate2FB" name="t1rate2FB"></div>
+
+            <div class="feedback" id="t1MFeCl3FB" name="t1MFeCl3FB"></div>
+            <div class="feedback" id="ORFeCl3-2FB" name="ORFeCl3-2FB"></div>
+            <div class="feedback" id="t1MKIFB" name="t1MKIFB"></div>
+            <div
+              class="feedback"
+              id="ORKI-2FB"
+              name="ORKI-2FB"
+              range="0.5"
+            ></div>
+          </div>
+        </li>
+        <li>
+          Calculate $k$ (include units).
+          <ul>
+            <li>
+              k =
+              <input
+                type="number"
+                class="calc"
+                id="kvalue"
+                name="kvalue"
+                step="any"
+                formula="${t1rate2}/(${t1MFeCl3}^${ORFeCl3-2}*${t1MKI}^${ORKI-2})"
+                help="Use the formula above and solve for k."
+              />
+              <select
+                id="kunits"
+                name="kunits"
+                class="calc"
+                formula="M-1s-1"
+                help="A and B have units of M and rate always has units of $\frac{M}{s}$"
+              >
+                <option value="">Choose an option</option>
+                <option value="Ms-1">M s<sup>⁻¹</sup></option>
+                <option value="s-1">s<sup>⁻¹</sup></option>
+                <option value="M-1s-1">M<sup>⁻¹</sup> s<sup>⁻¹</sup></option>
+                <option value="M-2s-1">M<sup>⁻²</sup> s<sup>⁻¹</sup></option>
+              </select>
+              <div class="feedback" id="kunitsFB" name="kunitsFB"></div>
+              <div class="feedback" id="kvalueFB" name="kvalueFB"></div>
+            </li>
+          </ul>
+        </li>
       </ol>
-
-      <hr />
-
-      <h2>Conclusion</h2>
-
-      <p>Summarize:</p>
-      <ul>
-        <li>Reaction orders</li>
-        <li>Final rate law</li>
-        <li>Value of $k$</li>
-        <li>Sources of error</li>
-      </ul>
 
       <!-- End -->
       <div id="button_bar">
