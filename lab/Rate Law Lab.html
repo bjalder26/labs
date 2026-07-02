@@ -1,1 +1,796 @@
+<html>
+  <head>
+    <title>Rate Law Lab</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title">Rate Law Lab: Determining Reaction Order</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+
+      <h2>Background</h2>
+      <p>
+        Chemical kinetics is the study of how fast reactions occur and what
+        factors influence their rates. One important goal is to determine a
+        <b>rate law</b>, which shows how rate depends on reactant
+        concentrations.
+      </p>
+
+      <p>In this experiment, iodide ions react with iron(III) ions:</p>
+
+      <p>$2I^- (aq) + 2Fe^{3+} (aq) \rightarrow I_2 (aq) + 2Fe^{2+} (aq)$</p>
+
+      <p>
+        As the reaction proceeds, the solution changes from
+        <b>pale yellow to a darker brown/orange color</b> due to the formation
+        of iodine ($I_2$). This color change is monitored using a Vernier Go
+        Direct SpectroVis Plus spectrophotometer.
+      </p>
+
+      <p>
+        You will measure how fast absorbance increases over time to determine:
+      </p>
+      <ul>
+        <li>Reaction order for each reactant</li>
+        <li>The rate law expression</li>
+        <li>The rate constant, $k$</li>
+      </ul>
+      <p>In addition, this experiment relies on Beer’s Law:</p>
+
+      <p>$A = \varepsilon \ell c$</p>
+
+      <p>
+        where absorbance ($A$) is directly proportional to concentration ($c$).
+        By first creating a calibration curve of absorbance vs. concentration,
+        you will be able to convert absorbance data into concentration and
+        determine reaction rates in units of molarity per second.
+      </p>
+
+      <hr />
+
+      <h2>Pre-Lab Questions</h2>
+      <div>
+        <ol>
+          <li>
+            A general rate law has the form:
+            <p>$\text{Rate} = k[A]^m[B]^n$</p>
+            Which letter represents the order of the reaction with respect to
+            A?<br />
+
+            <select
+              id="pl1"
+              name="pl1"
+              class="calc"
+              formula="m"
+              help="The order of reaction with respect to reactant \(A\) is the exponent to which the concentration of \(A\) is raised in the rate law. "
+            >
+              <option value="">Choose an option</option>
+              <option value="k">k</option>
+              <option value="A">A</option>
+              <option value="m">m</option>
+              <option value="B">B</option>
+              <option value="n">n</option>
+            </select>
+            <div class="feedback" id="pl1FB" name="pl1FB"></div>
+          </li>
+
+          <li>
+            If doubling $[A]$ doubles the rate, what is the order with respect
+            to A?<br />
+            <input
+              type="number"
+              class="calc"
+              id="pl1order1"
+              name="pl1order1"
+              step="any"
+              formula="1"
+              help="Think about the exponent: what power must you raise 2 to so that the answer is 2?"
+            />
+            <div class="feedback" id="pl1order1FB" name="pl1order1FB"></div>
+            <br />
+            If doubling $[A]$ quadruples the rate, what is the order with
+            respect to A?<br />
+            <input
+              type="number"
+              class="calc"
+              id="pl1order2"
+              name="pl1order2"
+              step="any"
+              formula="2"
+              help="Think about the exponent: what power must you raise 2 to so that the answer is 4?"
+            />
+            <div class="feedback" id="pl1order2FB" name="pl1order2FB"></div>
+            <br />
+          </li>
+
+          <li>
+            <b>Dilution Practice:</b><br />
+            If 20.0 mL of 0.020 M KI is mixed to make a total volume of 40.0 mL,
+            what is the new KI concentration?<br />
+            <input
+              type="number"
+              class="calc"
+              id="pl3"
+              name="pl3"
+              step="any"
+              formula="0.010"
+              help="Use the formula M<sub>1</sub>V<sub>1</sub>  = M<sub>2</sub>V<sub>2</sub> to solve for the final concentration of KI."
+            />
+            M
+            <div class="feedback" id="pl3FB" name="pl3FB"></div>
+          </li>
+
+          <li>
+            <b>Initial Rate from a Trendline:</b><br />
+            In a concentration vs. time graph for first few minutes of a
+            reaction, a student obtains the best-fit line with the following
+            slope-intercept formula. The measured concentration is the molarity
+            of a product with a stoichiometric coefficient of 1.
+            <p>$C = (0.0032)t + 0.015$</p>
+            What is the initial rate of the reaction?
+            <input
+              type="number"
+              class="calc"
+              id="pl4"
+              name="pl4"
+              step="any"
+              formula="0.0032"
+              help="In the equation above, the slope would be the molarity of product produced per second, which would make it the initial rate of the reaction."
+            />
+            M/s
+            <div class="feedback" id="pl4FB" name="pl4FB"></div>
+          </li>
+
+          <li>
+            <b>Rate Constant Practice:</b><br />
+            A reaction follows:
+            <p>Given:</p>
+
+            <ul>
+              <li>Rate = $2.0 \times 10^{-4}$ M/s</li>
+              <li>$[A] = 0.10$ M</li>
+              <li>$[B] = 0.20$ M</li>
+              <li>$\text{Rate} = k[A]^2[B]^1$</li>
+            </ul>
+            Calculate $k$ and select the correct units. $k =$
+            <input
+              type="number"
+              class="calc"
+              id="pl5"
+              name="pl5"
+              step="any"
+              formula="(2.0*10^-4)/(0.1^2*0.2)"
+              help="Solve the rate law formula above for k."
+            />
+
+            <select
+              id="pl5units"
+              name="pl5units"
+              class="calc"
+              formula="M-2s-1"
+              help="A and B have units of M and rate always has units of $\frac{M}{s}$"
+            >
+              <option value="">Choose an option</option>
+              <option value="Ms-1">M s<sup>⁻¹</sup></option>
+              <option value="s-1">s<sup>⁻¹</sup></option>
+              <option value="M-1s-1">M<sup>⁻¹</sup> s<sup>⁻¹</sup></option>
+              <option value="M-2s-1">M<sup>⁻²</sup> s<sup>⁻¹</sup></option>
+            </select>
+            <div class="feedback" id="pl5FB" name="pl5FB"></div>
+            <div class="feedback" id="pl5unitsFB" name="pl5unitsFB"></div>
+          </li>
+        </ol>
+      </div>
+      <hr />
+
+      <h2>Materials</h2>
+      <ul>
+        <li>LabQuest 3</li>
+        <li>Vernier Go Direct SpectroVis Plus spectrophotometer</li>
+        <li>8 × 50–100 mL beakers</li>
+        <li>3 × 25 mL graduated cylinders</li>
+        <li>Plastic transfer pipets</li>
+        <li>8 × Cuvettes</li>
+        <li>0.020 M KI solution (~100 mL)</li>
+        <li>0.020 M FeCl₃ solution (~100 mL)</li>
+        <li>Distilled water (~60 mL)</li>
+        <li>2 × 10 mL graduated cylinders</li>
+      </ul>
+
+      <hr />
+
+      <h2>Procedure</h2>
+
+      <h3>Part 1: Setup</h3>
+      <ol>
+        <li>Put on goggles.</li>
+        <li>Obtain all materials.</li>
+        <li>Connect the SpectroVis Plus to the LabQuest 3 using USB.</li>
+        <li>Tap <b>File → New</b>.</li>
+
+        <h3>Part 2: Preparing an Absorbance vs. Concentration Curve.</h3>
+        <h3>Preparing Standard Solutions</h3>
+
+        <p>
+          Use the provided stock solution to prepare the following standards.
+          Each solution should have a total volume of 10.0 mL.
+        </p>
+
+        <table border="1" cellpadding="5">
+          <tr>
+            <th>Solution</th>
+            <th>0.0200 M Stock Solution (mL)</th>
+            <th>Distilled Water (mL)</th>
+            <th>Concentration (M)</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>2.0</td>
+            <td>8.0</td>
+            <td>0.0040</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>4.0</td>
+            <td>6.0</td>
+            <td>0.0080</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>6.0</td>
+            <td>4.0</td>
+            <td>0.0120</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>8.0</td>
+            <td>2.0</td>
+            <td>0.0160</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>10.0</td>
+            <td>0.0</td>
+            <td>0.0200</td>
+          </tr>
+        </table>
+
+        <p>
+          The stock solution has a concentration of $0.0200\ \text{M}\ (0.0400 \
+          \text{N})$.
+        </p>
+
+        <h3>Calibration Measurements</h3>
+
+        <table border="1" cellpadding="5">
+          <tr>
+            <th>Solution</th>
+            <th><label id="absorbance y-axis">Absorbance</label></th>
+            <th><label id="absorbance x-axis">Concentration (M)</label></th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="absorbance graph num"
+                id="y0"
+                name="y0"
+              />
+            </td>
+            <td>
+              0.0040<input
+                type="hidden"
+                class="absorbance graph"
+                id="x0"
+                name="x0"
+                value="0.0040"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="absorbance graph num"
+                id="y1"
+                name="y1"
+              />
+            </td>
+            <td>
+              0.0080<input
+                type="hidden"
+                class="absorbance graph"
+                id="x1"
+                name="x1"
+                value="0.0080"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="absorbance graph num"
+                id="y2"
+                name="y2"
+              />
+            </td>
+            <td>
+              0.0120<input
+                type="hidden"
+                class="absorbance graph"
+                id="x2"
+                name="x2"
+                value="0.0120"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="absorbance graph num"
+                id="y3"
+                name="y3"
+              />
+            </td>
+            <td>
+              0.0160<input
+                type="hidden"
+                class="absorbance graph"
+                id="x3"
+                name="x3"
+                value="0.0160"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="absorbance graph num"
+                id="y4"
+                name="y4"
+              />
+            </td>
+            <td>
+              0.0200<input
+                type="hidden"
+                class="absorbance graph"
+                id="x4"
+                name="x4"
+                value="0.0200"
+              />
+            </td>
+          </tr>
+        </table>
+
+        <div class="canvas centered">
+          <canvas
+            id="absorbance graph"
+            onclick="updateGraph('absorbance graph')"
+            title="Absorbance vs Concentration (M)"
+          ></canvas>
+        </div>
+        <br />
+
+        <div class="centered">
+          Formula for the best fit line: y =&nbsp;
+          <div class="num" id="absorbance slope"></div>
+          x&nbsp;<label class="absorbance plus">&nbsp;+&nbsp;</label>
+          <div class="num" id="absorbance intercept"></div>
+        </div>
+        <br />
+
+        <h3>Part 3: Calibration and Wavelength Selection</h3>
+        <li>Fill a cuvette ¾ full with distilled water (blank).</li>
+        <li>
+          Select <b>Sensors → Calibrate → Spectrometer</b> and complete
+          calibration.
+        </li>
+        <li>
+          Determine $\lambda_{max}$:
+          <ul>
+            <li>Insert FeCl₃ solution</li>
+            <li>Tap the <b>Collect</b> button (green arrow)</li>
+            <li>Identify the peak wavelength</li>
+            <li>
+              Record $\lambda_{max}$ (wavelength with the maximum absorbance)
+              below
+            </li>
+            $\lambda_{max} =$
+            <input type="text" class="num" id="wavelength" name="wavelength" />
+            nm
+          </ul>
+        </li>
+        <li>
+          Set the wavelength:
+          <ul>
+            <li>Switch to absorbance mode</li>
+            <li>Enter $\lambda_{max}$ so only that wavelength is measured</li>
+          </ul>
+        </li>
+        <li>
+          Set time-based collection:
+          <ul>
+            <li>Rate: 1 sample/second</li>
+            <li>Duration: 200 seconds</li>
+          </ul>
+        </li>
+
+        <h3>Part 3: Reaction Trials</h3>
+
+        <table border="1" cellpadding="5">
+          <tr>
+            <th>Trial</th>
+            <th>FeCl₃ (mL)</th>
+            <th>KI (mL)</th>
+            <th>H₂O (mL)</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>20.0</td>
+            <td>20.0</td>
+            <td>0.0</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>20.0</td>
+            <td>10.0</td>
+            <td>10.0</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>10.0</td>
+            <td>20.0</td>
+            <td>10.0</td>
+          </tr>
+        </table>
+
+        <h3>Part 4: Collecting Data</h3>
+        <li>Measure KI, FeCl₃, and water.</li>
+        <li>Add water (if used) to KI first.</li>
+        <li>Prepare the cuvette and LabQuest.</li>
+        <li>Add FeCl₃ to KI and swirl.</li>
+        <li>
+          Immediately:
+          <ul>
+            <li>Fill cuvette (~¾ full)</li>
+            <li>Insert into spectrophotometer</li>
+            <li>Tap <b>Collect</b> (green arrow) to begin data</li>
+          </ul>
+        </li>
+        <li>Allow data collection to finish.</li>
+
+        <h3>Part 5: Determining Initial Rate</h3>
+        <li>
+          Select an early linear region of the graph by dragging across it.
+        </li>
+        <li>
+          Tap <b>Analyze → Curve Fit</b><br />
+          Select <b>Linear</b>
+        </li>
+        <li>The slope of the line is the Δ Absorbance/s.</li>
+        <li>Use the same time interval for all trials.</li>
+        <li>
+          Use your Absorbance vs. Concentration best fit line equation to
+          convert from Δ Absorbance/s (Y) to Δ M/s (X).
+        </li>
+
+        <hr />
+
+        <h2>Data Table</h2>
+
+        <table border="1" cellpadding="5">
+          <tr>
+            <th>Trial</th>
+            <th>[FeCl₃] (M)</th>
+            <th>[KI] (M)</th>
+            <th>Δ Absorbance/s</th>
+            <th>Initial Rate (Δ M/s)</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>0.010</td>
+            <td>0.010</td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="t1abs"
+                name="t1abs"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="num calc"
+                id="t1rate"
+                name="t1rate"
+                step="any"
+                formula="(${t1abs}-${absorbance intercept})/${absorbance slope}"
+                help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "
+              />
+              <div class="feedback" id="t1rateFB" name="t1rateFB"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>0.010</td>
+            <td>0.005</td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="t2abs"
+                name="t2abs"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="num calc"
+                id="t2rate"
+                name="t2rate"
+                step="any"
+                formula="(${t2abs}-${absorbance intercept})/${absorbance slope}"
+                help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "
+              />
+              <div class="feedback" id="t2rateFB" name="t2rateFB"></div>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>0.005</td>
+            <td>0.010</td>
+            <td>
+              <input
+                type="number"
+                step="any"
+                class="num"
+                id="t3abs"
+                name="t3abs"
+              />
+            </td>
+            <td>
+              <input
+                type="number"
+                class="num calc"
+                id="t3rate"
+                name="t3rate"
+                step="any"
+                formula="(${t3abs}-${absorbance intercept})/${absorbance slope}"
+                help="If $Y = mX + b$, then $X = \frac{Y-b}{m}$ "
+              />
+              <div class="feedback" id="t3rateFB" name="t3rateFB"></div>
+            </td>
+          </tr>
+        </table>
+
+        <hr />
+
+        <h2>Analysis</h2>
+        <li>
+          What are the reaction orders for KI and FeCl<sub>3</sub> .
+          <ul>
+            <li>
+              Order of reaction with respect to FeCl<sub>3</sub>:
+              <input
+                type="number"
+                class="num calc"
+                id="ORFeCl3"
+                name="ORFeCl3"
+                step="any"
+                formula="log(${t1rate}/${t3rate})/log(2)"
+                help="Divide the rate law for the first reaction by the rate law of the third reaction and solve for the order of the reaction with respect to FeCl<sub>3</sub>."
+                range="50%"
+              />
+              <div class="feedback" id="ORFeCl3FB" name="ORFeCl3FB"></div>
+            </li>
+            <li>
+              Order of reaction with respect to KI:
+              <input
+                type="number"
+                class="num calc"
+                id="ORKI"
+                name="ORKI"
+                step="any"
+                formula="log(${t1rate}/${t2rate})/log(2)"
+                help="Divide the rate law for the first reaction by the rate law of the second reaction and solve for the order of the reaction with respect to KI."
+                range="50%"
+              />
+              <div class="feedback" id="ORKIFB" name="ORKIFB"></div>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <div>
+            Substitue in the [FeCl<sub>3</sub>], [KI], orders with respect to
+            FeCl<sub>3</sub> and KI, and initial rate from the first trial into
+            the generaic rate law ($\text{Rate} = k[FeCl_{3}]^m[KI]^n$).<br />
+            <input
+              type="number"
+              class="num calc"
+              id="t1rate2"
+              name="t1rate2"
+              step="any"
+              formula="${t1rate}"
+              help="This number should already be in your chart above."
+              style="width:75px"
+            />
+            = $k$ (
+            <input
+              type="number"
+              class="num calc"
+              id="t1MFeCl3"
+              name="t1MFeCl3"
+              step="any"
+              formula="0.010"
+              help="This number should already be in your chart above."
+              style="width:75px"
+            />
+            )
+            <sup>
+              <input
+                type="number"
+                class="num calc"
+                id="ORFeCl3-2"
+                name="ORFeCl3-2"
+                step="any"
+                formula="${ORFeCl3}"
+                help="You should have the respect to FeCl<sub>3</sub> above."
+                style="width: 30px; font-size: 0.5em; vertical-align: super; position: relative; top: -0.3em; border: 1px solid #ccc; text-align: center;"
+              />
+            </sup>
+            (
+            <input
+              type="number"
+              class="num calc"
+              id="t1MKI"
+              name="t1MKI"
+              step="any"
+              formula="0.010"
+              help="This number should already be in your chart above."
+              style="width:75px"
+            />
+            )
+            <sup>
+              <input
+                type="number"
+                class="num calc"
+                id="ORKI-2"
+                name="ORKI-2"
+                step="any"
+                formula="${ORKI}"
+                help="You should have the respect to FeCl<sub>3</sub> above."
+                style="width: 30px; font-size: 0.5em; vertical-align: super; position: relative; top: -0.3em; border: 1px solid #ccc; text-align: center;"
+              />
+            </sup>
+
+            <div class="feedback" id="t1rate2FB" name="t1rate2FB"></div>
+
+            <div class="feedback" id="t1MFeCl3FB" name="t1MFeCl3FB"></div>
+            <div class="feedback" id="ORFeCl3-2FB" name="ORFeCl3-2FB"></div>
+            <div class="feedback" id="t1MKIFB" name="t1MKIFB"></div>
+            <div
+              class="feedback"
+              id="ORKI-2FB"
+              name="ORKI-2FB"
+              range="0.5"
+            ></div>
+          </div>
+        </li>
+        <li>
+          Calculate $k$ (include units).
+          <ul>
+            <li>
+              k =
+              <input
+                type="number"
+                class="calc"
+                id="kvalue"
+                name="kvalue"
+                step="any"
+                formula="${t1rate2}/(${t1MFeCl3}^${ORFeCl3-2}*${t1MKI}^${ORKI-2})"
+                help="Use the formula above and solve for k."
+              />
+              <select
+                id="kunits"
+                name="kunits"
+                class="calc"
+                formula="M-1s-1"
+                help="A and B have units of M and rate always has units of $\frac{M}{s}$"
+              >
+                <option value="">Choose an option</option>
+                <option value="Ms-1">M s<sup>⁻¹</sup></option>
+                <option value="s-1">s<sup>⁻¹</sup></option>
+                <option value="M-1s-1">M<sup>⁻¹</sup> s<sup>⁻¹</sup></option>
+                <option value="M-2s-1">M<sup>⁻²</sup> s<sup>⁻¹</sup></option>
+              </select>
+              <div class="feedback" id="kunitsFB" name="kunitsFB"></div>
+              <div class="feedback" id="kvalueFB" name="kvalueFB"></div>
+            </li>
+          </ul>
+        </li>
+      </ol>
+
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button
+          type="button"
+          class="hidden"
+          onclick="submitAssignment(window.labName, window.userName, params.sessionID)"
+          style="height: 83%"
+        >
+          Submit</button
+        >&nbsp;
+        <div class="vcenter hidden" style="display: none;">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
