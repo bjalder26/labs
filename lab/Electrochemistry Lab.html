@@ -1,1 +1,781 @@
+<html>
+  <head>
+    <title>Electrochemical Cell Lab</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title">Electrochemical Cell Lab</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+
+      <h1>
+        Electrochemical Cells: Predicting Anodes, Cathodes, and Cell Potentials
+      </h1>
+
+      <h2>Purpose</h2>
+
+      <p>
+        In this investigation, you will use standard reduction potentials to
+        predict:
+      </p>
+
+      <ul>
+        <li>Which electrode will be the anode</li>
+        <li>Which electrode will be the cathode</li>
+        <li>The voltage produced by an electrochemical cell</li>
+      </ul>
+
+      <p>
+        You will then construct several electrochemical cells, measure their
+        voltages, and compare your predictions to the experimental results.
+      </p>
+
+      <p>Finally, you will investigate whether cell potentials are additive.</p>
+
+      <h2>Background</h2>
+
+      <p>
+        An electrochemical (or galvanic) cell converts chemical energy into
+        electrical energy through a spontaneous redox reaction.
+      </p>
+
+      <p>Every electrochemical cell contains two electrodes:</p>
+
+      <ul>
+        <li><strong>Anode</strong>: the electrode where oxidation occurs</li>
+        <li><strong>Cathode</strong>: the electrode where reduction occurs</li>
+      </ul>
+
+      <p>
+        Electrons are released at the anode and travel through the external wire
+        to the cathode. Therefore:
+      </p>
+
+      <p><strong>Electrons flow from the anode to the cathode.</strong></p>
+
+      <p>
+        The flow of electrons through the wire is what produces an electric
+        current.
+      </p>
+
+      <h3>Standard Reduction Potentials</h3>
+
+      <p>
+        Different substances have different tendencies to gain electrons. These
+        tendencies are represented by their standard reduction potentials.
+      </p>
+
+      <p>
+        A larger (more positive) reduction potential means a species is more
+        likely to be reduced.
+      </p>
+
+      <p>The standard reduction potentials used in this lab are shown below.</p>
+
+      <table>
+        <tr>
+          <th>Half-Cell</th>
+          <th>Standard Reduction Potential, E° (V)</th>
+        </tr>
+        <tr>
+          <td>Cu²⁺ + 2e⁻ → Cu</td>
+          <td>+0.34</td>
+        </tr>
+        <tr>
+          <td>Pb²⁺ + 2e⁻ → Pb</td>
+          <td>−0.13</td>
+        </tr>
+        <tr>
+          <td>Fe²⁺ + 2e⁻ → Fe</td>
+          <td>−0.44</td>
+        </tr>
+        <tr>
+          <td>Zn²⁺ + 2e⁻ → Zn</td>
+          <td>−0.76</td>
+        </tr>
+      </table>
+
+      <h3>Determining the Anode and Cathode</h3>
+
+      <p>To determine which electrode is the cathode and which is the anode:</p>
+
+      <ol>
+        <li>Compare the two reduction potentials.</li>
+        <li>
+          The electrode with the more positive reduction potential is the
+          <strong>cathode</strong>.
+        </li>
+        <li>
+          The electrode with the less positive (or more negative) reduction
+          potential is the <strong>anode</strong>.
+        </li>
+      </ol>
+
+      <h4>Example: Zn/Cu Cell</h4>
+
+      <ul>
+        <li>Cu²⁺/Cu = +0.34 V</li>
+        <li>Zn²⁺/Zn = −0.76 V</li>
+      </ul>
+
+      <p>Since copper has the more positive reduction potential:</p>
+
+      <ul>
+        <li>Copper is the <strong>cathode</strong>.</li>
+        <li>Zinc is the <strong>anode</strong>.</li>
+      </ul>
+
+      <h3>Calculating Cell Potential</h3>
+
+      <p>The standard cell potential is calculated using:</p>
+
+      <div class="equation">
+        E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub>
+      </div>
+
+      <h4>Example: Zn/Cu Cell</h4>
+
+      <div class="equation">E°<sub>cell</sub> = 0.34 − (−0.76)</div>
+
+      <div class="equation">E°<sub>cell</sub> = 1.10 V</div>
+
+      <p>
+        A positive cell potential indicates a spontaneous electrochemical cell.
+      </p>
+
+      <h3>Using the Voltmeter</h3>
+
+      <p>After predicting the anode and cathode:</p>
+
+      <ul>
+        <li>
+          Connect the <strong>red lead</strong> of the voltmeter to the
+          predicted <b>cathode</b>.
+        </li>
+        <li>
+          Connect the <strong>black lead</strong> of the voltmeter to the
+          predicted <b>anode</b>.
+        </li>
+      </ul>
+
+      <p>
+        If your prediction is correct, the voltmeter should display a positive
+        voltage.
+      </p>
+
+      <p>If the voltmeter displays a negative voltage:</p>
+
+      <ul>
+        <li>Reverse the leads.</li>
+        <li>The electrode you connected to the red lead is the cathode.</li>
+        <li>The electrode you connected to the black lead is the anode.</li>
+      </ul>
+
+      <p>
+        The sign of the voltage can therefore be used to check your prediction.
+      </p>
+
+      <h3>Cell Potentials Are Additive</h3>
+
+      <p>
+        Because cell potentials are differences between electrode potentials,
+        they can be added in certain situations.
+      </p>
+
+      <div class="equation">
+        E<sub>Zn/Cu</sub> = E<sub>Zn/Pb</sub> + E<sub>Pb/Cu</sub>
+      </div>
+
+      <p>You will test this relationship using your experimental data.</p>
+
+      <h2>Materials</h2>
+
+      <ul>
+        <li>Copper electrode</li>
+        <li>Zinc electrode</li>
+        <li>Iron electrode</li>
+        <li>Lead electrode</li>
+        <li>
+          0.50 M solutions of copper nitrate, zinc nitrate, iron(III) nitrate,
+          and lead(II) nitrate
+        </li>
+        <li>Electric chemical cell with a porous cup</li>
+        <li>Digital multimeter</li>
+        <li>Connecting wires</li>
+      </ul>
+
+      <h2>Pre-Lab Predictions</h2>
+
+      <p>For each cell:</p>
+
+      <ol>
+        <li>Identify the cathode using the reduction potentials.</li>
+        <li>Identify the anode using the reduction potentials.</li>
+        <li>Calculate the predicted cell potential.</li>
+      </ol>
+
+      <table>
+        <tr>
+          <th>Cell</th>
+          <th>Predicted Anode</th>
+          <th>Predicted Cathode</th>
+          <th>Predicted E°<sub>cell</sub> (V)</th>
+        </tr>
+        <tr>
+          <td>Zn/Cu</td>
+          <td>
+            <select
+              id="PAZnCu"
+              name="PAZnCu"
+              class="calc"
+              formula="Zn"
+              help="The anode will have the lower reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Zn">Zn</option>
+            </select>
+            <div class="feedback" id="PAZnCuFB" name="PAZnCuFB"></div>
+          </td>
+          <td>
+            <select
+              id="PCZnCu"
+              name="PCZnCu"
+              class="calc"
+              formula="Cu"
+              help="The cathode will have the higher reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Zn">Zn</option>
+            </select>
+            <div class="feedback" id="PCZnCuFB" name="PCZnCuFB"></div>
+          </td>
+          <td>
+            <input type="number" class="calc" id="PEZnCu" name="PEZnCu" step="any" formula="1.1" help="E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub>"><div class="feedback" id="PEZnCuFB" name="PEZnCuFB"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>Fe/Cu</td>
+          <td>
+            <select
+              id="PAFeCu"
+              name="PAFeCu"
+              class="calc"
+              formula="Fe"
+              help="The anode will have the lower reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Fe">Fe</option>
+            </select>
+            <div class="feedback" id="PAFeCuFB" name="PAFeCuFB"></div>
+          </td>
+          <td>
+            <select
+              id="PCFeCu"
+              name="PCFeCu"
+              class="calc"
+              formula="Cu"
+              help="The cathode will have the higher reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Fe">Fe</option>
+            </select>
+            <div class="feedback" id="PCFeCuFB" name="PCFeCuFB"></div>
+          </td>
+          <td>
+            <input type="number" class="calc" id="PEFeCu" name="PEFeCu" step="any" formula="0.78" help="E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub>"><div class="feedback" id="PEFeCuFB" name="PEFeCuFB"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>Pb/Cu</td>
+          <td>
+            <select
+              id="PAPbCu"
+              name="PAPbCu"
+              class="calc"
+              formula="Pb"
+              help="The anode will have the lower reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Pb">Pb</option>
+            </select>
+            <div class="feedback" id="PAPbCuFB" name="PAPbCuFB"></div>
+          </td>
+          <td>
+            <select
+              id="PCPbCu"
+              name="PCPbCu"
+              class="calc"
+              formula="Cu"
+              help="The cathode will have the higher reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Pb">Pb</option>
+            </select>
+            <div class="feedback" id="PCPbCuFB" name="PCPbCuFB"></div>
+          </td>
+          <td>
+            <input type="number" class="calc" id="PEPbCu" name="PEPbCu" step="any" formula="0.47" help="E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub>"><div class="feedback" id="PEPbCuFB" name="PEPbCuFB"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>Zn/Pb</td>
+          <td>
+            <select
+              id="PAZnPb"
+              name="PAZnPb"
+              class="calc"
+              formula="Zn"
+              help="The anode will have the lower reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Pb">Pb</option>
+              <option value="Zn">Zn</option>
+            </select>
+            <div class="feedback" id="PAZnPbFB" name="PAZnPbFB"></div>
+          </td>
+          <td>
+            <select
+              id="PCZnPb"
+              name="PCZnPb"
+              class="calc"
+              formula="Pb"
+              help="The cathode will have the higher reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Pb">Pb</option>
+              <option value="Zn">Zn</option>
+            </select>
+            <div class="feedback" id="PCZnPbFB" name="PCZnPbFB"></div>
+          </td>
+          <td>
+            <input type="number" class="calc" id="PEZnPb" name="PEZnPb" step="any" formula="0.63" help="E°<sub>cell</sub> = E°<sub>cathode</sub> − E°<sub>anode</sub>"><div class="feedback" id="PEZnPbFB" name="PEZnPbFB"></div>
+          </td>
+        </tr>
+      </table>
+
+      <h2>Procedure</h2>
+
+      <h3>Part A: Zn/Cu Cell</h3>
+
+      <ol>
+        <li>
+          Assemble the Zn/Cu electrochemical cell using the porous cup.
+          <ul>
+            <li>
+              Place the Zn<sup>2+</sup> solution in the pourous cup, and the
+              Cu<sup>2+</sup> solution in the container outside of the pourous
+              cup.
+            </li>
+          </ul>
+        </li>
+        <li>
+          Place each metal electrode into the solution containing its ions.
+        </li>
+        <li>Connect the red voltmeter lead to the predicted cathode.</li>
+        <li>Connect the black voltmeter lead to the predicted anode.</li>
+        <li>Observe the voltage displayed on the meter.</li>
+        <li>If the reading is negative, reverse the leads.</li>
+        <li>Record the final voltage and electrode assignments.</li>
+      </ol>
+
+      <h3>Part B: Fe/Cu Cell</h3>
+
+      <ol>
+        <li>Assemble the Fe/Cu electrochemical cell.</li>
+        <li>Connect the voltmeter using your predicted cathode and anode.</li>
+        <li>Observe the voltage.</li>
+        <li>If necessary, reverse the leads.</li>
+        <li>Record the final voltage and electrode assignments.</li>
+      </ol>
+
+      <h3>Part C: Pb/Cu Cell</h3>
+
+      <ol>
+        <li>Assemble the Pb/Cu electrochemical cell.</li>
+        <li>Connect the voltmeter using your predicted cathode and anode.</li>
+        <li>Observe the voltage.</li>
+        <li>If necessary, reverse the leads.</li>
+        <li>Record the final voltage and electrode assignments.</li>
+      </ol>
+
+      <h3>Part D: Zn/Pb Cell</h3>
+
+      <ol>
+        <li>
+          Assemble the Zn/Pb electrochemical cell.
+          <ul>
+            <li>
+              Keep the Pb<sup>2+</sup> solution in the pourous cup, and add the Zn<sup>2+</sup> solution to the surrounding container this time.
+            </li>
+          </ul>
+        </li>
+        <li>Connect the voltmeter using your predicted cathode and anode.</li>
+        <li>Observe the voltage.</li>
+        <li>If necessary, reverse the leads.</li>
+        <li>Record the final voltage and electrode assignments.</li>
+        <li>Keep this electrochemical cell for the next part, but disconnect the electrodes until you're ready to continue.</li>
+      </ol>
+
+      <h2>Data Table</h2>
+
+      <table>
+        <tr>
+          <th>Cell</th>
+          <th>Actual Anode</th>
+          <th>Actual Cathode</th>
+          <th>Measured Cell Potential (V)</th>
+        </tr>
+        <tr>
+          <td>Zn/Cu</td>
+          <td>
+            <select
+              id="AAZnCu"
+              name="AAZnCu"
+              class="calc"
+              formula="Zn"
+              help="The anode will have the lower reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Zn">Zn</option>
+            </select>
+            <div class="feedback" id="AAZnCuFB" name="AAZnCuFB"></div>
+          </td>
+          <td>
+            <select
+              id="ACZnCu"
+              name="ACZnCu"
+              class="calc"
+              formula="Cu"
+              help="The cathode will have the higher reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Zn">Zn</option>
+            </select>
+            <div class="feedback" id="ACZnCuFB" name="ACZnCuFB"></div>
+          </td>
+          <td>
+            <input type="number" class="num" id="AEZnCu" name="AEZnCu" step="any">
+          </td>
+        </tr>
+        <tr>
+          <td>Fe/Cu</td>
+          <td>
+            <select
+              id="AAFeCu"
+              name="AAFeCu"
+              class="calc"
+              formula="Fe"
+              help="The anode will have the lower reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Fe">Fe</option>
+            </select>
+            <div class="feedback" id="AAFeCuFB" name="AAFeCuFB"></div>
+          </td>
+          <td>
+            <select
+              id="ACFeCu"
+              name="ACFeCu"
+              class="calc"
+              formula="Cu"
+              help="The cathode will have the higher reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Fe">Fe</option>
+            </select>
+            <div class="feedback" id="ACFeCuFB" name="ACFeCuFB"></div>
+          </td>
+          <td>
+            <input type="number" class="num" id="AEFeCu" name="AEFeCu" step="any">
+          </td>
+        </tr>
+        <tr>
+          <td>Pb/Cu</td>
+          <td>
+            <select
+              id="AAPbCu"
+              name="AAPbCu"
+              class="calc"
+              formula="Pb"
+              help="The anode will have the lower reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Pb">Pb</option>
+            </select>
+            <div class="feedback" id="AAPbCuFB" name="AAPbCuFB"></div>
+          </td>
+          <td>
+            <select
+              id="ACPbCu"
+              name="ACPbCu"
+              class="calc"
+              formula="Cu"
+              help="The cathode will have the higher reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Cu">Cu</option>
+              <option value="Pb">Pb</option>
+            </select>
+            <div class="feedback" id="ACPbCuFB" name="ACPbCuFB"></div>
+          </td>
+          <td>
+            <input type="number" class="num" id="AEPbCu" name="AEPbCu" step="any">
+          </td>
+        </tr>
+        <tr>
+          <td>Zn/Pb</td>
+          <td>
+            <select
+              id="AAZnPb"
+              name="AAZnPb"
+              class="calc"
+              formula="Zn"
+              help="The anode will have the lower reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Pb">Pb</option>
+              <option value="Zn">Zn</option>
+            </select>
+            <div class="feedback" id="AAZnPbFB" name="AAZnPbFB"></div>
+          </td>
+          <td>
+            <select
+              id="ACZnPb"
+              name="ACZnPb"
+              class="calc"
+              formula="Pb"
+              help="The cathode will have the higher reduction potential."
+            >
+              <option value="">Choose an option</option>
+              <option value="Pb">Pb</option>
+              <option value="Zn">Zn</option>
+            </select>
+            <div class="feedback" id="ACZnPbFB" name="ACZnPbFB"></div>
+          </td>
+          <td>
+            <input type="number" class="num" id="AEZnPb" name="AEZnPb" step="any">
+          </td>
+        </tr>
+      </table>
+
+      <h2>Part E: Effect of Concentration on Cell Potential</h2>
+
+<h3>Background</h3>
+
+<p>
+So far, all cell potentials have been calculated using standard reduction potentials, which assume standard conditions. In real electrochemical cells, the concentrations of ions can affect the cell potential.
+</p>
+
+<p>
+This relationship is described by the <strong>Nernst Equation</strong>.
+</p>
+
+
+$E = E° − \frac{0.0592}{n} log\left(\frac{[anode]}{[cathode]}\right)$
+
+
+<p>
+where:
+</p>
+
+<ul>
+    <li><strong>E</strong> = cell potential under actual conditions</li>
+    <li><strong>E°</strong> = standard cell potential</li>
+    <li><strong>n</strong> = number of electrons transferred</li>
+    <li><strong>[anode]</strong> = concentration at the the anode</li>
+    <li><strong>[cathode]</strong> = concentration at the the cathode</li>
+</ul>
+
+<p>
+Changing ion concentrations changes the value of $\frac{[anode]}{[cathode]}$ and therefore changes the cell potential. In this activity, you will investigate how dilution affects the voltage of an electrochemical cell.
+</p>
+
+<h3>Procedure</h3>
+
+<ol>
+    <li>Using the same Zn/Pb electrochemical cell from the alst part, measure and record the initial cell potential.</li>
+    <li>Add distilled water to the Zn<sup>2+</sup> solution.</li>
+    <li>Stir gently with a glass stirring rod.</li>
+    <li>Measure and record the new cell potential.</li>
+    <li>Add distilled water to the Pb<sup>2+</sup> solution.</li>
+    <li>Stir gently.</li>
+    <li>Measure and record the cell potential again.</li>
+</ol>
+
+<h3>Data Table</h3>
+
+<table>
+    <tr>
+        <th>Condition</th>
+        <th>Measured Cell Potential (V)</th>
+    </tr>
+    <tr>
+        <td>Initial Solution</td>
+        <td>
+          <input type="number" step="any" class="num" id="Isol" name="Isol">
+        </td>
+    </tr>
+    <tr>
+        <td>After Zn<sup>2+</sup> Dilution</td>
+        <td>
+          <input type="number" step="any" class="num" id="Idil" name="Isol">
+        </td>
+    </tr>
+    <tr>
+        <td>After Pb<sup>2+</sup> Dilution</td>
+        <td>
+          <input type="number" step="any" class="num" id="Secdil" name="Isol">
+        </td>
+    </tr>
+</table>
+
+      <h2>Analysis</h2>
+
+      <h3>Part 1: Ranking the Metals</h3>
+
+      <p>
+        Using both the reduction potentials and your experimental results, rank
+        the metals from most easily oxidized to least easily oxidized.
+      </p>
+Most easily oxidized:
+      
+<select id="Ox1" name="Ox1" class="calc" formula="Zn" help="Which metal produced the highest cell potential when it was the anode?">
+  <option value="">Choose an option</option>
+  <option value="Cu">Cu</option>
+  <option value="Fe">Fe</option>
+  <option value="Pb">Pb</option>
+  <option value="Zn">Zn</option>
+</select>
+<div class="feedback" id="Ox1FB" name="Ox1FB"></div>
+      <br>
+2nd most easily oxidized:
+      <select id="Ox2" name="Ox2" class="calc" formula="Fe" help="Which metal produced the second highest cell potential when it was the anode and copper was the cathode?">
+  <option value="">Choose an option</option>
+  <option value="Cu">Cu</option>
+  <option value="Fe">Fe</option>
+  <option value="Pb">Pb</option>
+  <option value="Zn">Zn</option>
+</select>
+<div class="feedback" id="Ox2FB" name="Ox2FB"></div>
+      <br>
+3rd most easily oxidized:
+      <select id="Ox3" name="Ox3" class="calc" formula="Pb" help="Which metal produced the third highest cell potential when it was the anode and copper was the cathode?">
+  <option value="">Choose an option</option>
+  <option value="Cu">Cu</option>
+  <option value="Fe">Fe</option>
+  <option value="Pb">Pb</option>
+  <option value="Zn">Zn</option>
+</select>
+<div class="feedback" id="Ox3FB" name="Ox3FB"></div>
+      <br>
+4th most easily oxidized:
+      <select id="Ox4" name="Ox4" class="calc" formula="Cu" help="Which metal produced the highest cell potential when it was the cathode?">
+  <option value="">Choose an option</option>
+  <option value="Cu">Cu</option>
+  <option value="Fe">Fe</option>
+  <option value="Pb">Pb</option>
+  <option value="Zn">Zn</option>
+</select>
+<div class="feedback" id="Ox4FB" name="Ox4FB"></div>
+      <br>
+      
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+
+      <h3>Part 3: Testing Additivity</h3>
+
+      E<sub>Zn/Pb</sub> = <input type="number" class="num calc" id="AEZnPb2" name="AEZnPb2" step="any" formula="${AEZnPb}" help="Get the number from your data table in part D."><div class="feedback" id="AEZnPb2FB" name="AEZnPb2FB"></div><br>
+      
+      E<sub>Pb/Cu</sub> = <input type="number" class="num calc" id="AEPbCu2" name="AEPbCu2" step="any" formula="${AEPbCu}" help="Get the number from your data table in part D."><div class="feedback" id="AEPbCu2FB" name="AEPbCu2FB"></div><br>
+  
+
+      E<sub>Zn/Pb</sub> + E<sub>Pb/Cu</sub> = <input type="number" class="calc" id="sum" name="sum" step="any" formula="${AEZnPb2}+${AEPbCu2}" help="Add the E<sub>Zn/Pb</sub> and E<sub>Pb/Cu</sub>"><div class="feedback" id="sumFB" name="sumFB"></div><br>
+
+      E<sub>Zn/Cu</sub> = <input type="number" class="num calc" id="AEZnCu2" name="AEZnCu2" step="any" formula="${AEZnCu}" help="Get the number from your data table in part D."><div class="feedback" id="AEZnCu2FB" name="AEZnCu2FB"></div><br>
+
+      <p>How do these values compare?</p>
+<textarea class="text essay" id="compare" name="compare"></textarea><br>
+
+
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <div class="answer-line"></div>
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button
+          type="button"
+          class="hidden"
+          onclick="submitAssignment(window.labName, window.userName, params.sessionID)"
+          style="height: 83%"
+        >
+          Submit</button
+        >&nbsp;
+        <div class="vcenter hidden" style="display: none;">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script type="text/javascript">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+        TeX: {
+          extensions: ["mhchem.js"]
+        }
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
