@@ -16,6 +16,8 @@ const base64 = require('js-base64').Base64 // npm install js-base64
 require('dotenv').config();
 const crypto = require('crypto');
 const oauthSignature = require('oauth-sign')
+const { parseLaunch, submitResult, getAccessToken } = require("@bjalder26/lti-core"); // for lti 1.3
+const jwt = require("jsonwebtoken");
 
 // create a new express server
 var app = express();
@@ -341,6 +343,161 @@ app.post("/", async (req, res) => {
 });
        // app.post("/");
 
+app.post("/launch", async (req, res) => {
+
+    const isFake = req.body.fake_launch === 'true';
+    const sessionID = uuid();
+
+    let lmsData = { body: {} };
+
+    // ✅ reuse your existing function
+    async function proceedWithLaunch(lmsData) {
+        try {
+            const name = lmsData.body.lis_person_name_full.replaceAll("'", "");
+            let labHtml = '';
+            let dataFile = {};
+            let labName = '';
+
+            const labFolder = './lab';
+            let labList;
+
+            try {
+                labList = await readLabList(labFolder);
+            } catch (error) {
+                console.error(error);
+                res.send("Error reading lab list.");
+                return;
+            }
+
+            if (labList.includes(lmsData.body.resource_link_title.toLowerCase())) {
+                labName = capitalizeEveryWord(lmsData.body.resource_link_title);
+
+                const filepath = path.join(__dirname, 'submissions', `${labName}_${name}.txt`);
+
+                if (!fs.existsSync(filepath)) {
+                    fs.writeFileSync(filepath, '{}', 'utf8');
+                }
+
+                labHtml = fs.readFileSync(
+                    path.join(__dirname, "lab", `${labName}.html`),
+                    "utf8"
+                );
+
+                dataFile = fs.readFileSync(filepath, "utf8");
+
+            } else {
+                labHtml = 'Invalid title';
+            }
+
+            labHtml = labHtml.replace('</head>', '<style>#button_bar{display:flex;}</style></head>');
+
+            var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
+                `
+                var userName = '${name}';
+                var dataFile = ${dataFile};
+                var labName = '${labName}';
+                var params = {
+                    sessionID: "${sessionID}",
+                    user: "${name}"
+                };
+                `
+            );
+
+            res.setHeader("Content-Type", "text/html");
+            res.send(sendMe);
+
+        } catch(err) {
+            console.error('Error during launch:', err);
+            res.status(500).send('Internal Server Error');
+        }
+    }
+
+    // ✅ FAKE launch still works
+    if (isFake) { 
+        lmsData.body = req.body;
+        //sessions[sessionID] = lmsData;
+        sessions[sessionID] = {
+            body: lmsData.body,
+            ltiVersion: "1.3",
+            userId: "test-user",
+            lineItem: "https://httpbin.org/anything",
+            accessToken: "test"
+          };
+        proceedWithLaunch(lmsData);
+        return;
+    }
+
+    // ✅ ✅ NEW: LTI 1.3 path
+    if (req.body.id_token) {
+
+        try {
+            const launch = parseLaunch(req.body.id_token);
+
+            // ✅ Build a "fake 1.1-shaped body" so your code keeps working
+            lmsData.body = {
+                lis_person_name_full: "Student", // optional fallback
+                resource_link_title: "labname",  // 🔹 will be fixed below
+                custom_canvas_assignment_title: "labname"
+            };
+
+            // ✅ Better: extract real values if available
+            const token = launch.rawToken;
+
+            lmsData.body.lis_person_name_full =
+                token["name"] ||
+                token["https://purl.imsglobal.org/spec/lti/claim/custom"]?.name ||
+                "Student";
+
+            lmsData.body.resource_link_title =
+                token["https://purl.imsglobal.org/spec/lti/claim/resource_link"]?.title ||
+                "lab";
+
+            lmsData.body.custom_canvas_assignment_title =
+                lmsData.body.resource_link_title;
+
+            //if(tokenUrl) {console.log("Token URL:", tokenUrl);} // delete later
+            //if(clientId) {console.log("Client ID:", clientId);} // delete later
+
+            const accessToken = "test"; // delete later
+
+            /* final version
+
+            const accessToken = await getAccessToken({
+              clientId: process.env.LTI_CLIENT_ID,
+              tokenUrl: launch.rawToken.iss + "/login/oauth2/token",
+              privateKey: process.env.LTI_PRIVATE_KEY,
+              scopes: [
+                "https://purl.imsglobal.org/spec/lti-ags/scope/score"
+              ]
+            });
+            */
+
+            // ✅ Store LTI 1.3 session data
+            sessions[sessionID] = {
+                body: lmsData.body,
+
+                ltiVersion: "1.3",
+                userId: launch.userId,
+                lineItem: launch.lineItem,
+                accessToken
+            };
+
+            console.log("LTI 1.3 session:", sessions[sessionID]);
+
+            proceedWithLaunch(lmsData);
+
+        } catch (err) {
+            console.error("LTI 1.3 launch failed:", err);
+            res.status(500).send("Launch failed");
+        }
+
+        return;
+    }
+
+    // ✅ fallback if neither
+    res.send("Invalid launch request");
+});
+
 // Route to get lab list
 app.get('/labList', async (req, res) => {
   const labList = await readLabList(__dirname + '/lab');
@@ -528,6 +685,56 @@ app.get('/fakelaunch/:labTitle', (req, res) => {
   res.send(html);
 });
 
+// We'll need the LTI_CLIENT_ID from the administrator I guess.
+app.post("/login", (req, res) => {
+  const params = new URLSearchParams({
+    response_type: "id_token",
+    client_id: process.env.LTI_CLIENT_ID,
+    redirect_uri: req.body.target_link_uri,
+    login_hint: req.body.login_hint,
+    scope: "openid",
+    response_mode: "form_post",
+    nonce: Math.random().toString(36),
+    state: Math.random().toString(36),
+    prompt: "none"
+  });
+
+  const redirect = `${req.body.iss}/api/lti/authorize_redirect?${params.toString()}`;
+  res.redirect(redirect);
+});
+
+app.get('/fakelaunch13/:labTitle', (req, res) => {
+  const labTitle = decodeURIComponent(req.params.labTitle);
+
+  const jwt = require("jsonwebtoken");
+
+  const fakeToken = jwt.sign({
+    sub: "test-user",
+    name: "Tester",
+
+    "https://purl.imsglobal.org/spec/lti/claim/resource_link": {
+      title: labTitle
+    },
+
+    "https://purl.imsglobal.org/spec/lti-ags/claim/endpoint": {
+      lineitem: "https://httpbin.org/anything"
+    },
+
+    iss: "https://fake.canvas.com"
+  }, "secret");
+
+  const html = `
+    <form id="launchForm" action="/launch" method="post">
+      <input type="hidden" name="id_token" value="${fakeToken}" />
+    </form>
+    <script>
+      document.getElementById('launchForm').submit();
+    </script>
+  `;
+
+  res.send(html);
+});
+
 app.get("/:lab/:name", async (req, res) => {	
 
 
@@ -700,6 +907,70 @@ app.get('/dev', (req, res) => {
     links += '</ul>';
     res.send(links);
   });
+});
+
+app.get("/score13/:sessionID/:score", async (req, res) => {
+
+sessions["test"] = { // for testing purposes, delete later
+  userId: "123",
+  accessToken: "test",
+  lineItem: "https://httpbin.org/anything"
+};
+
+  const session = sessions[req.params.sessionID];
+
+  if (!session) {
+    return res.send("Invalid session");
+  }
+
+  const score = Number(req.params.score);
+  const normalizedScore = score; // you can keep percent style if you want
+
+  let resp = `Your score of ${score}% has been recorded`;
+
+  const lineItem = session.lineItem;
+  const accessToken = session.accessToken;
+  const userId = session.userId;
+
+  if (!lineItem || !accessToken || !userId) {
+    return res.send(resp + "<br/>Missing LTI 1.3 data");
+  }
+
+  const body = {
+    userId,
+    scoreGiven: score,
+    scoreMaximum: 100,
+    activityProgress: "Completed",
+    gradingProgress: "FullyGraded"
+  };
+
+  try {
+    const response = await fetch(lineItem + "/scores", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/vnd.ims.lis.v1.score+json"
+      },
+      body: JSON.stringify(body)
+    });
+
+    const text = await response.text();
+
+    console.log("Canvas response status:", response.status);
+    console.log("Canvas response body:", text);
+
+    if (!response.ok) {
+      resp += `<br/>Update failed (see logs)`;
+    } else {
+      resp += `<br/>Update successful`;
+    }
+
+  } catch (err) {
+    console.error("Send error:", err);
+    resp += `<br/>Update failed (internal error)`;
+  }
+
+  res.send(resp);
 });
 
 
