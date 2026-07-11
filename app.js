@@ -38,6 +38,8 @@ const OWNER = 'bjalder26'
 const REPO = 'labs'
 const MAIN_BRANCH = 'main'
 
+const CLIENTS_FILE = path.join(__dirname, "clients.json"); // lti 1.3
+
 
 // Serve the uploads directory statically
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
@@ -432,6 +434,10 @@ app.post("/launch", async (req, res) => {
 
         try {
             const launch = parseLaunch(req.body.id_token);
+            console.log("Launch issuer:", launch.rawToken.iss);
+            console.log("Launch:", launch);
+            console.log("Line Item:", launch.lineItem);
+
 
             // ✅ Build a "fake 1.1-shaped body" so your code keeps working
             lmsData.body = {
@@ -458,19 +464,39 @@ app.post("/launch", async (req, res) => {
             //if(tokenUrl) {console.log("Token URL:", tokenUrl);} // delete later
             //if(clientId) {console.log("Client ID:", clientId);} // delete later
 
-            const accessToken = "test"; // delete later
+            /// const accessToken = "test"; // this was for testing
 
-            /* final version
+            const iss = launch.rawToken.iss.replace(/\/$/, "");
+
+            const clients = loadClients();
+
+            const clientId = clients[iss]?.clientId;
+
+            if (!clientId) {
+                throw new Error(`No client ID registered for issuer: ${iss}`);
+            }
+
+            const privateKey = fs.readFileSync(
+                path.join(__dirname, "config", "private.key"),
+                "utf8"
+            );
+
+            console.log("Requesting access token with:");
+            console.log("Issuer:", iss);
+            console.log("Client ID:", clientId);
+            console.log("Token URL:", `${iss}/login/oauth2/token`);
 
             const accessToken = await getAccessToken({
-              clientId: process.env.LTI_CLIENT_ID,
-              tokenUrl: launch.rawToken.iss + "/login/oauth2/token",
-              privateKey: process.env.LTI_PRIVATE_KEY,
-              scopes: [
-                "https://purl.imsglobal.org/spec/lti-ags/scope/score"
-              ]
+                clientId,
+                tokenUrl: `${iss}/login/oauth2/token`,
+                privateKey,
+                scopes: [
+                    "https://purl.imsglobal.org/spec/lti-ags/scope/score",
+                    "https://purl.imsglobal.org/spec/lti-ags/scope/lineitem",
+                    "https://purl.imsglobal.org/spec/lti-ags/scope/result.readonly"
+                ]
             });
-            */
+            
 
             // ✅ Store LTI 1.3 session data
             sessions[sessionID] = {
@@ -484,7 +510,7 @@ app.post("/launch", async (req, res) => {
 
             console.log("LTI 1.3 session:", sessions[sessionID]);
 
-            proceedWithLaunch(lmsData);
+            await proceedWithLaunch(lmsData);
 
         } catch (err) {
             console.error("LTI 1.3 launch failed:", err);
@@ -512,11 +538,11 @@ app.get('/students/:labName', (req, res) => {
     res.json(students);
 });
 
-app.get("/instructor", (req, res) => {	
-		let instructorHtml = fs.readFileSync(__dirname + "/html/instructor.html", "utf8");
-		res.setHeader("Content-Type", "text/html");
-		res.send(instructorHtml);
-	
+app.get("/instructor", (req, res) => {  
+        let instructorHtml = fs.readFileSync(__dirname + "/html/instructor.html", "utf8");
+        res.setHeader("Content-Type", "text/html");
+        res.send(instructorHtml);
+    
 });       // app.post("/");
 
 app.get('/noscore/:passed', async (req, res) => {
@@ -686,10 +712,23 @@ app.get('/fakelaunch/:labTitle', (req, res) => {
 });
 
 // We'll need the LTI_CLIENT_ID from the administrator I guess.
-app.post("/login", (req, res) => {
+app.post("/login", (req, res) => { // lti 1.3
+
+  const iss = req.body.iss.trim().replace(/\/$/, "");
+
+  const clients = loadClients();
+
+  const clientId = clients[iss]?.clientId;
+
+  if (!clientId) {
+    return res
+      .status(400)
+      .send("Unknown Canvas instance. Please register first.");
+  }
+
   const params = new URLSearchParams({
     response_type: "id_token",
-    client_id: process.env.LTI_CLIENT_ID,
+    client_id: clientId,
     redirect_uri: req.body.target_link_uri,
     login_hint: req.body.login_hint,
     scope: "openid",
@@ -699,7 +738,9 @@ app.post("/login", (req, res) => {
     prompt: "none"
   });
 
-  const redirect = `${req.body.iss}/api/lti/authorize_redirect?${params.toString()}`;
+  const redirect =
+    `${iss}/api/lti/authorize_redirect?${params.toString()}`;
+
   res.redirect(redirect);
 });
 
@@ -733,57 +774,6 @@ app.get('/fakelaunch13/:labTitle', (req, res) => {
   `;
 
   res.send(html);
-});
-
-app.get("/:lab/:name", async (req, res) => {	
-
-
-    let name =  decodeURIComponent(req.params.name);
-		
-		let labHtml = '';
-		let dataFile = {};
-		let labName =  decodeURIComponent(req.params.lab);
-		let lower = labName.toLowerCase();
-    
-    const labList = await readLabList(__dirname + '/lab'); //here
-  
-		if(labList.includes(lower)) {
-		labName = capitalizeEveryWord(labName);
-		// creates user data file if it doesn't exist *** make this a function? ***
-		if (!fs.existsSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt')){
-			fs.writeFileSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt', '{}', 'utf8');
-			}	
-			
-		labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
-        labHtml = labHtml.replace(
-          "</head>",
-          `<style>#button_bar { display: flex !important; }</style></head>`
-        );
-		dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
-	
-
-		} else {
-      labHtml = 'Invalid title or student';
-		  labHtml += 'Invalid title: ' + labName + "<br>" + lower + "<br>labList: " + labList;
-      labHtml += '<br>name: ' + name;
-		}
-		
-		var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
-				`
-						var userName = '${name}';
-						var dataFile = ${dataFile};
-						var labName = '${labName}';
-						var params = {
-						user: "${name}"
-					};
-				`);
-
-        
-
-		res.setHeader("Content-Type", "text/html");
-		res.send(sendMe);
-	   // lmsDate.valid_request
-	
 });
 
 app.get("/score/:sessionID/:score", async (req, res) => {
@@ -994,13 +984,6 @@ app.post('/save',
   }
   res.json({ success: true });
 });
-
-// start server on the specified port and binding host
-const port = process.env.PORT || 3000;
-app.listen(port, '0.0.0.0', () => {
-  console.log(`Server listening on port ${port}`);
-});
-
 
 app.post('/admin/delete-submissions', (req, res) => {
   const { password } = req.body;
@@ -1519,4 +1502,330 @@ app.post('/upload-editor-image', editorUpload.single('image'), async (req, res) 
     console.error(err);
     res.status(500).json({ error: err.message });
   }
+});
+
+app.get("/register", (req, res) => {
+  res.send(`
+    <h2>Register Canvas Instance</h2>
+    <p>
+      After creating an LTI 1.3 Developer Key in Canvas,
+      enter your Canvas URL and Client ID below.
+    </p>
+    <form action="/register" method="POST">
+      <label for="issuer">Canvas URL (issuer):</label><br>
+      <input
+        type="url"
+        id="issuer"
+        name="iss"
+        width="300px"
+        placeholder="https://school.instructure.com"
+        required
+      ><br><br>
+
+      <label for="client_id">Client ID:</label><br>
+      <input
+        type="text"
+        id="client_id"
+        name="client_id"
+        required
+      ><br><br>
+
+      <button type="submit">Register</button>
+    </form>
+  `);
+});
+
+// ======================= LTI 1.3 =====================
+
+app.get("/privacy", (req, res) => { // LTI 1.3
+  res.send(`
+    <h1>Privacy Policy</h1>
+
+    <p>
+      This application processes user identity,
+      assignment context, and submission data
+      necessary to provide instructional activities
+      and communicate results to the learning
+      management system.
+    </p>
+
+    <p>
+      Official grades remain stored within Canvas.
+      All data is archived and deleted from servers between semesters.
+    </p>
+  `);
+});
+
+app.get("/terms", (req, res) => {
+  res.send(`
+    <h1>Terms of Service</h1>
+
+    <p>
+      This application is provided for educational
+      use. Users are responsible for compliance
+      with their institution's policies.
+    </p>
+  `);
+});
+
+app.post("/register", (req, res) => { // lti 1.3
+  let { iss, client_id } = req.body;
+
+  if (!iss || !client_id) {
+    return res.status(400).send("Missing issuer URL or client ID.");
+  }
+
+  // Normalize issuer URL
+  iss = iss.trim().replace(/\/$/, "");
+  client_id = client_id.trim();
+
+  let clients = loadClients();
+
+  // Prevent overwrite
+  if (clients[iss]) {
+    return res.send(`
+      <h2>Canvas Instance Already Registered</h2>
+      <p><strong>Issuer:</strong> ${iss}</p>
+      <p><strong>Client ID:</strong> ${clients[iss].clientId}</p>
+      <p><strong>Registered:</strong> ${clients[iss].registered}</p>
+    `);
+  }
+
+  clients[iss] = {
+    clientId: client_id,
+    registered: new Date().toISOString()
+  };
+
+  saveClients(clients);
+
+  res.send(`
+    <h2>Registration Successful</h2>
+    <p><strong>Issuer:</strong> ${iss}</p>
+    <p><strong>Client ID:</strong> ${client_id}</p>
+  `);
+});
+
+function ensureKeys() { // lti 1.3
+
+  const configDir = path.join(__dirname, 'config');
+  if (!fs.existsSync(configDir)) {
+    fs.mkdirSync(configDir, { recursive: true });
+  }
+
+  const publicKeyPath = path.join(configDir, 'public.key');
+  const privateKeyPath = path.join(configDir, 'private.key');
+
+  const publicExists = fs.existsSync(publicKeyPath);
+  const privateExists = fs.existsSync(privateKeyPath);
+
+  if (publicExists && privateExists) {
+    console.log('Using existing RSA keys.');
+    return;
+  }
+
+  console.log('Generating RSA keys...');
+
+  const { publicKey, privateKey } = crypto.generateKeyPairSync('rsa', {
+    modulusLength: 2048,
+    publicKeyEncoding: {
+      type: 'spki',
+      format: 'pem'
+    },
+    privateKeyEncoding: {
+      type: 'pkcs8',
+      format: 'pem'
+    }
+  });
+
+  fs.writeFileSync(publicKeyPath, publicKey);
+  fs.writeFileSync(privateKeyPath, privateKey);
+
+  console.log('RSA keys generated.');
+}
+
+function ensureClientsFile() { // lti 1.3
+
+  if (!fs.existsSync(CLIENTS_FILE)) {
+
+    fs.writeFileSync(
+      CLIENTS_FILE,
+      JSON.stringify({}, null, 2)
+    );
+
+    console.log("Created clients.json");
+  }
+}
+
+function loadClients() { // lti 1.3
+
+  ensureClientsFile();
+
+  return JSON.parse(
+    fs.readFileSync(CLIENTS_FILE, "utf8")
+  );
+}
+
+function saveClients(clients) { // lti 1.3
+
+  fs.writeFileSync(
+    CLIENTS_FILE,
+    JSON.stringify(clients, null, 2)
+  );
+}
+
+ensureKeys();
+ensureClientsFile();
+
+function getPublicKey() { // lti 1.3
+  return fs.readFileSync(
+    path.join(__dirname, "config", "public.key"),
+    "utf8"
+  );
+}
+
+app.get("/.well-known/jwks.json", (req, res) => { // lti 1.3
+
+  const publicKeyPem = getPublicKey();
+
+  const jwk = crypto
+    .createPublicKey(publicKeyPem)
+    .export({
+      format: "jwk"
+    });
+
+  jwk.kid = "main";
+  jwk.use = "sig";
+  jwk.alg = "RS256";
+
+  res.json({
+    keys: [jwk]
+  });
+});
+
+app.get("/lti-config", (req, res) => {
+
+  const baseUrl = `${req.protocol}://${req.get("host")}`;
+
+  const config = {
+    title: "Labs",
+    description: "Interactive educational labs with LTI 1.3 Advantage integration",
+
+    oidc_initiation_url: `${baseUrl}/login`,
+
+    target_link_uri: `${baseUrl}/launch`,
+
+    public_jwk_url: `${baseUrl}/.well-known/jwks.json`,
+
+    scopes: [
+      "https://purl.imsglobal.org/spec/lti-ags/scope/score",
+      "https://purl.imsglobal.org/spec/lti-ags/scope/lineitem",
+      "https://purl.imsglobal.org/spec/lti-ags/scope/result.readonly",
+      "https://purl.imsglobal.org/spec/lti-nrps/scope/contextmembership.readonly"
+    ],
+
+    extensions: [
+      {
+        platform: "canvas.instructure.com",
+        settings: {
+          placements: [
+            {
+              placement: "assignment_selection",
+              message_type: "LtiResourceLinkRequest",
+              target_link_uri: `${baseUrl}/launch`
+            }
+          ]
+        }
+      }
+    ]
+  };
+
+  res.send(`
+    <h1>LTI 1.3 Advantage Setup</h1>
+
+    <p>
+      To install this tool in Canvas:
+    </p>
+
+    <ol>
+      <li>Open Canvas Admin.</li>
+      <li>Go to <strong>Developer Keys</strong>.</li>
+      <li>Choose <strong>+ Developer Key → LTI Key</strong>.</li>
+      <li>Select <strong>Paste JSON</strong>.</li>
+      <li>Copy and paste the configuration below.</li>
+      <li>Save the Developer Key.</li>
+      <li>Copy the generated Client ID.</li>
+      <li>
+        Visit
+        <a href="${baseUrl}/register">
+          ${baseUrl}/register
+        </a>.
+      </li>
+      <li>Enter your Canvas URL and Client ID.</li>
+      <li>Install the app in Canvas using the Client ID.</li>
+    </ol>
+
+    <h2>Configuration JSON</h2>
+
+    <textarea
+      readonly
+      style="width:100%;height:500px;font-family:monospace;"
+    >${JSON.stringify(config, null, 2)}</textarea>
+  `);
+});
+
+// ===================== end lti 1.3 =====================
+
+app.get("/:lab/:name", async (req, res) => { // this is too broad
+    let name =  decodeURIComponent(req.params.name);
+        
+        let labHtml = '';
+        let dataFile = {};
+        let labName =  decodeURIComponent(req.params.lab);
+        let lower = labName.toLowerCase();
+    
+    const labList = await readLabList(__dirname + '/lab'); //here
+  
+        if(labList.includes(lower)) {
+        labName = capitalizeEveryWord(labName);
+        // creates user data file if it doesn't exist *** make this a function? ***
+        if (!fs.existsSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt')){
+            fs.writeFileSync(__dirname + '/submissions/' + labName + '_' + name  +  '.txt', '{}', 'utf8');
+            }   
+            
+        labHtml = fs.readFileSync(__dirname + "/lab/" + labName + ".html", "utf8");
+        labHtml = labHtml.replace(
+          "</head>",
+          `<style>#button_bar { display: flex !important; }</style></head>`
+        );
+        dataFile = fs.readFileSync(__dirname + "/submissions/" + labName + "_" + name  +  ".txt", "utf8");
+    
+
+        } else {
+      labHtml = 'Invalid title or student';
+          labHtml += 'Invalid title: ' + labName + "<br>" + lower + "<br>labList: " + labList;
+      labHtml += '<br>name: ' + name;
+        }
+        
+        var sendMe = labHtml.toString().replace("//PARAMS**GO**HERE",
+                `
+                        var userName = '${name}';
+                        var dataFile = ${dataFile};
+                        var labName = '${labName}';
+                        var params = {
+                        user: "${name}"
+                    };
+                `);
+
+        
+
+        res.setHeader("Content-Type", "text/html");
+        res.send(sendMe);
+       // lmsDate.valid_request
+    
+});
+
+// start server on the specified port and binding host
+const port = process.env.PORT || 3000;
+app.listen(port, '0.0.0.0', () => {
+  console.log(`Server listening on port ${port}`);
 });
