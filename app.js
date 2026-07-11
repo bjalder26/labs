@@ -331,8 +331,20 @@ app.post("/", async (req, res) => {
         return;
     }
 
+    // working here
+    console.log("=== LTI 1.1 DEBUG ===");
+    console.log("Content-Type:", req.headers["content-type"]);
+    console.log("Consumer Key:", req.body.oauth_consumer_key);
+    console.log("Launch URL:", req.protocol + "://" + req.get("host") + req.originalUrl);
+    console.log("Body keys:", Object.keys(req.body));
+    // working here
+
     lmsData.valid_request(req, async (err, isValid) => {
+        
         if (!isValid) {
+            console.error("LTI validation failed:");
+            console.error(err);
+
             res.send("Invalid request: " + err);
             return;
         }
