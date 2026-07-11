@@ -1,1 +1,175 @@
+<html>
+  <head>
+    <title>Final Exam Review</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <h1 id="title">Final Exam Review</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  What is the VSEPR shape (electron domain geometry) of NH<sub>3</sub>?
+  <br><br>
+
+  <b>Use these steps to guide your reasoning:</b>
+  <ul>
+    <li>Count the number of electron domains around the central atom.</li>
+    <li>Each bond counts as one electron domain.</li>
+    <li>Each lone pair counts as one electron domain.</li>
+    <li>The electron-domain geometry is determined by the total number of electron domains.</li>
+  </ul>
+
+  <br>
+
+  <b>Step 1: Identify the central atom</b>
+  <br><br>
+
+  The central atom is:
+  <select id="gCenter1" name="gCenter1" class="calc" formula="N" help="The atom that needs to make the most bonds to fulfil their outer electron shell is generally the central atom.  When a central atom gets more than an octet is the exception.">
+    <option value="">Choose</option>
+    <option value="N">N</option>
+    <option value="H">H</option>
+  </select>
+
+  <div class="feedback" id="gCenter1FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Count the bonded atoms</b>
+  <br><br>
+
+  Number of N–H bonds:
+  <input type="number" class="calc" id="gBonds1" name="gBonds1"
+         formula="3"
+         help="Count the atoms attached to the central atom.">
+
+  <div class="feedback" id="gBonds1FB"></div>
+
+  <br><br>
+
+  <b>Step 3: Count the lone pairs on nitrogen</b>
+  <br><br>
+
+  Number of lone pairs:
+  <input type="number" class="calc" id="gLonePairs1" name="gLonePairs1"
+         formula="1"
+         help="Nitrogen has 5 valence electrons.  Subtract out the valence electrons used to make bonds.  That will give you the non-bonding electrons.  Every 2 non-bonding electrons forms a lone pair of electrons.">
+
+  <div class="feedback" id="gLonePairs1FB"></div>
+
+  <br><br>
+
+  <b>Step 4: Count total electron domains</b>
+  <br><br>
+
+  Total electron domains =
+  <input type="number" class="calc" id="gDomains1" name="gDomains1"
+         formula="4"
+         help="Electron domains = bonds + lone pairs.">
+
+  <div class="feedback" id="gDomains1FB"></div>
+
+  <br><br>
+
+  <b>Step 5: Determine the electron-domain geometry</b>
+  <br><br>
+
+  <select id="gShape1" name="gShape1" class="calc" formula="Tetrahedral"
+    help="<p>The VSPER shape (electron domain geometry) depends only on the total number of electron domains.</p>2: linear<br>3: trigonal planaer<br>4: tetrahedral<br>5: trigonal bipyramidal<br>6: octahedral"
+    >
+    <option value="">Choose</option>
+    <option value="Linear">Linear</option>
+    <option value="Bent">Bent</option>
+    <option value="Trigonal planar">Trigonal planar</option>
+    <option value="Tetrahedral">Tetrahedral</option>
+  </select>
+
+  <div class="feedback" id="gShape1FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>NH₃ has 3 bonding domains and 1 lone pair.</li>
+    <li>That gives a total of 4 electron domains.</li>
+    <li>Four electron domains correspond to a tetrahedral electron-domain geometry.</li>
+    <li>The molecular shape is trigonal pyramidal, but the electron-domain geometry is tetrahedral.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  What is the VSEPR shape (electron domain geometry) of CO<sub>2</sub>?
+  <br><br>
+
+  <select id="pShape1" name="pShape1" class="calc" formula="A"
+    help="<p>The VSPER shape (electron domain geometry) depends only on the total number of electron domains.</p>2: linear<br>3: trigonal planaer<br>4: tetrahedral<br>5: trigonal bipyramidal<br>6: octahedral"
+    >
+    <option value="">Choose</option>
+    <option value="A">Linear</option>
+    <option value="B">Tetrahedral</option>
+    <option value="C">Bent</option>
+    <option value="D">Trigonal planar</option>
+  </select>
+
+  <div class="feedback" id="pShape1FB"></div>
+
+</li>
+      
+
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
