@@ -18,6 +18,18 @@
       //PARAMS**GO**HERE
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+      hr {
+        height: 3px;
+        background-color: blue;
+      }
+      div[id$="DIV"] {
+        width: 70px !important;
+      }
+      body {
+        user-select: none;
+      }
+    </style>
     <h1 id="title">Final Exam Review</h1>
     <!-- Title -->
     Name:
@@ -1041,6 +1053,127 @@ Determine whether each species is <b>paramagnetic</b> or <b>diamagnetic</b>.
          help="Determine the limiting reagent and use the mole ratio between O₂ and H₂O.">
 
   <div class="feedback" id="pH2O20FB"></div>
+
+</li>
+
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+
+An unknown compound contains only carbon and hydrogen. When it undergoes combustion analysis, it produces 41.708 g of CO<sub>2</sub> and 21.348 g of H<sub>2</sub>O.
+
+<br><br>
+
+The molar mass of the compound is 58.1 g/mol.
+
+<br><br>
+
+What is the molecular formula of the compound?
+
+<br><br>
+
+<b>Step 1: Determine the empirical formula</b>
+
+<br><br>
+
+Empirical formula:
+
+<select id="gEmp21" name="gEmp21" class="calc" formula="CH2"
+        help="Convert CO₂ to moles of carbon and H₂O to moles of hydrogen, then determine the simplest whole-number ratio.">
+  <option value="">Choose</option>
+  <option value="CH">CH</option>
+  <option value="CH2">CH₂</option>
+  <option value="CH3">CH₃</option>
+  <option value="CH4">CH₄</option>
+</select>
+
+<div class="feedback" id="gEmp21FB"></div>
+
+<br><br>
+
+<b>Step 2: Determine the empirical formula mass</b>
+
+<br><br>
+
+Empirical formula mass =
+<input type="number" step="any" class="calc" id="gEFM21" name="gEFM21"
+       formula="14.03"
+       help="CH₂ has a mass of 12.01 + 2(1.01) = 14.03 g/mol.">
+
+g/mol
+
+<div class="feedback" id="gEFM21FB"></div>
+
+<br><br>
+
+<b>Step 3: Determine the multiplier</b>
+
+<br><br>
+
+Multiplier =
+<input type="number" step="any" class="calc" id="gMult21" name="gMult21"
+       formula="58.1/14.03"
+       help="Divide the molecular mass by the empirical formula mass.">
+
+<div class="feedback" id="gMult21FB"></div>
+
+<br><br>
+
+<b>Step 4: Determine the molecular formula</b>
+
+<br><br>
+
+<select id="gMF21" name="gMF21" class="calc" formula="C4H8"
+        help="Multiply all subscripts in the empirical formula by the nearest whole-number multiplier.">
+  <option value="">Choose</option>
+  <option value="CH2">CH₂</option>
+  <option value="C2H4">C₂H₄</option>
+  <option value="C3H6">C₃H₆</option>
+  <option value="C4H8">C₄H₈</option>
+</select>
+
+<div class="feedback" id="gMF21FB"></div>
+
+<br><br>
+
+<b>Explanation:</b>
+<ul>
+  <li>The combustion data gives an empirical formula of CH<sub>2</sub>.</li>
+  <li>The empirical formula mass is 14.03 g/mol.</li>
+  <li>58.1 ÷ 14.03 ≈ 4.</li>
+  <li>Multiply all subscripts in CH<sub>2</sub> by 4 to obtain C<sub>4</sub>H<sub>8</sub>.</li>
+</ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+
+An unknown compound contains only carbon and hydrogen. When it undergoes combustion analysis, it produces 88.02 g of CO<sub>2</sub> and 45.04 g of H<sub>2</sub>O.
+
+<br><br>
+
+The molar mass of the compound is 30.1 g/mol.
+
+<br><br>
+
+What is the molecular formula of the compound?
+
+<br><br>
+
+<select id="pMF22" name="pMF22" class="calc" formula="C2H6"
+        help="Determine the empirical formula from the combustion data, then use the molar mass to find the molecular formula.">
+  <option value="">Choose</option>
+  <option value="CH4">CH₄</option>
+  <option value="C2H6">C₂H₆</option>
+  <option value="C3H8">C₃H₈</option>
+  <option value="C4H10">C₄H₁₀</option>
+</select>
+
+<div class="feedback" id="pMF22FB"></div>
 
 </li>
 
