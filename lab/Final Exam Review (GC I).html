@@ -640,6 +640,410 @@ Determine whether each species is <b>paramagnetic</b> or <b>diamagnetic</b>.
 
 </li>      
 
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  How many grams of NaCl can be formed from
+  <input class="num display-value" id="gMoles11" name="gMoles11"
+         random="true" data-original="2.40" randomPercent="50%" readonly>
+  moles of Cl<sub>2</sub>?
+  Assume an excess of NaI.
+  <br><br>
+
+  2 NaI + Cl<sub>2</sub> ➞ 2 NaCl + I<sub>2</sub>
+  <br><br>
+
+  <b>Step 1: Determine the mole ratio</b>
+  <br><br>
+
+  For every 1 mole of Cl<sub>2</sub>, how many moles of NaCl are produced?
+  <br><br>
+
+  <input type="number" step="any" class="calc" id="gRatio11" name="gRatio11"
+         formula="2"
+         help="Use the coefficients from the balanced equation.">
+
+  <div class="feedback" id="gRatio11FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Calculate moles of NaCl produced</b>
+  <br><br>
+
+  Moles NaCl =
+  <input type="number" step="any" class="calc" id="gNaClMoles11" name="gNaClMoles11"
+         formula="${gMoles11}*2"
+         help="Multiply the given moles by the mole ratio.">
+
+  <div class="feedback" id="gNaClMoles11FB"></div>
+
+  <br><br>
+
+  <b>Step 3: Convert moles of NaCl to grams</b>
+  <br><br>
+
+  Molar mass of NaCl =
+  <input type="number" step="any" class="calc" id="gMM11" name="gMM11"
+         formula="58.44"
+         help="NaCl = 22.99 + 35.45 = 58.44 g/mol">
+
+  g/mol
+
+  <div class="feedback" id="gMM11FB"></div>
+
+  <br><br>
+
+  <b>Step 4: Calculate grams of NaCl</b>
+  <br><br>
+
+  grams NaCl =
+  <input type="number" step="any" class="calc" id="gGrams11" name="gGrams11"
+         formula="${gMoles11}*2*58.44"
+         help="grams = moles × molar mass">
+
+  <div class="feedback" id="gGrams11FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>Use the balanced equation to obtain the mole ratio.</li>
+    <li>Convert moles of Cl<sub>2</sub> to moles of NaCl.</li>
+    <li>Convert moles of NaCl to grams using its molar mass.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  How many grams of MgO can be formed from
+  <input class="num display-value" id="pMoles12" name="pMoles12"
+         random="true" data-original="3.20" randomPercent="50%" readonly>
+  moles of O<sub>2</sub>?
+  Assume an excess of Mg.
+  <br><br>
+
+  2 Mg + O<sub>2</sub> ➞ 2 MgO
+  <br><br>
+
+  grams MgO =
+  <input type="number" step="any" class="calc" id="pGrams12" name="pGrams12"
+         formula="${pMoles12}*2*40.30"
+         help="Use the mole ratio to find moles of MgO, then multiply by the molar mass of MgO (40.30 g/mol).">
+
+  <div class="feedback" id="pGrams12FB"></div>
+
+</li>
+
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  How many molecules of CO<sub>2</sub> can be produced when
+  <input class="num display-value" id="gMass13" name="gMass13"
+         random="true" data-original="22.0" randomPercent="50%" readonly>
+  g of C<sub>2</sub>H<sub>6</sub> reacts with excess oxygen?
+  <br><br>
+
+  2 C<sub>2</sub>H<sub>6</sub> + 7 O<sub>2</sub> ➞ 4 CO<sub>2</sub> + 6 H<sub>2</sub>O
+  <br><br>
+
+  <b>Step 1: Convert grams of C<sub>2</sub>H<sub>6</sub> to moles</b>
+  <br><br>
+
+  Molar mass of C<sub>2</sub>H<sub>6</sub> =
+  <input type="number" step="any" class="calc" id="gMM13" name="gMM13"
+         formula="30.07"
+         help="C₂H₆ = 2(12.01) + 6(1.008) = 30.07 g/mol.">
+  g/mol
+
+  <div class="feedback" id="gMM13FB"></div>
+
+  <br><br>
+
+  Moles of C<sub>2</sub>H<sub>6</sub> =
+  <input type="number" step="any" class="calc" id="gMoles13" name="gMoles13"
+         formula="${gMass13}/30.07"
+         help="moles = grams ÷ molar mass">
+
+  <div class="feedback" id="gMoles13FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Use the mole ratio to find moles of CO<sub>2</sub></b>
+  <br><br>
+
+  Moles of CO<sub>2</sub> =
+  <input type="number" step="any" class="calc" id="gCO2Moles13" name="gCO2Moles13"
+         formula="(${gMass13}/30.07)*(4/2)"
+         help="Use the coefficients from the balanced equation: 2 mol C₂H₆ produces 4 mol CO₂.">
+
+  <div class="feedback" id="gCO2Moles13FB"></div>
+
+  <br><br>
+
+  <b>Step 3: Convert moles of CO<sub>2</sub> to molecules</b>
+  <br><br>
+
+  Molecules of CO<sub>2</sub> =
+  <input type="number" step="any" class="calc" id="gMolecules13" name="gMolecules13"
+         formula="((${gMass13}/30.07)*(4/2))*6.022e23"
+         help="Multiply moles by Avogadro's number, 6.022 × 10²³ molecules/mol.">
+
+  <div class="feedback" id="gMolecules13FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>Convert grams of reactant to moles.</li>
+    <li>Use the mole ratio from the balanced equation.</li>
+    <li>Convert moles of product to molecules using Avogadro's number.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  How many molecules of H<sub>2</sub>O can be produced when
+  <input class="num display-value" id="pMass14" name="pMass14"
+         random="true" data-original="18.0" randomPercent="50%" readonly>
+  g of H<sub>2</sub> reacts with excess oxygen?
+  <br><br>
+
+  2 H<sub>2</sub> + O<sub>2</sub> ➞ 2 H<sub>2</sub>O
+  <br><br>
+
+  Molecules of H<sub>2</sub>O =
+  <input type="number" step="any" class="calc" id="pMolecules14" name="pMolecules14"
+         formula="(${pMass14}/2.016)*6.022e23"
+         help="Convert grams of H₂ to moles, use the mole ratio, then convert moles of H₂O to molecules.">
+
+  <div class="feedback" id="pMolecules14FB"></div>
+</li>
+
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  An unknown compound contains only carbon and hydrogen. When it undergoes combustion analysis, it produces
+  132.03 g of CO<sub>2</sub> and 54.05 g of H<sub>2</sub>O.
+  <br><br>
+
+  What is the empirical formula of the compound?
+  <br><br>
+
+  <b>Step 1: Convert CO<sub>2</sub> to moles of carbon</b>
+  <br><br>
+
+  Moles CO<sub>2</sub> =
+  <input type="number" step="any" class="calc" id="gMolCO217" name="gMolCO217"
+         formula="132.03/44.01"
+         help="Divide the mass of CO₂ by its molar mass, 44.01 g/mol.">
+
+  <div class="feedback" id="gMolCO217FB"></div>
+
+  <br><br>
+
+  Moles C =
+  <input type="number" step="any" class="calc" id="gMolC17" name="gMolC17"
+         formula="132.03/44.01"
+         help="Each mole of CO₂ contains one mole of carbon atoms.">
+
+  <div class="feedback" id="gMolC17FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Convert H<sub>2</sub>O to moles of hydrogen</b>
+  <br><br>
+
+  Moles H<sub>2</sub>O =
+  <input type="number" step="any" class="calc" id="gMolH2O17" name="gMolH2O17"
+         formula="54.05/18.015"
+         help="Divide the mass of H₂O by its molar mass, 18.015 g/mol.">
+
+  <div class="feedback" id="gMolH2O17FB"></div>
+
+  <br><br>
+
+  Moles H =
+  <input type="number" step="any" class="calc" id="gMolH17" name="gMolH17"
+         formula="2*(54.05/18.015)"
+         help="Each mole of H₂O contains two moles of hydrogen atoms.">
+
+  <div class="feedback" id="gMolH17FB"></div>
+
+  <br><br>
+
+  <b>Step 3: Divide by the smaller number of moles</b>
+  <br><br>
+
+  Carbon ratio =
+  <input type="number" step="any" class="calc" id="gCRatio17" name="gCRatio17"
+         formula="1"
+         help="Divide the moles of carbon by the smaller mole value.">
+
+  <div class="feedback" id="gCRatio17FB"></div>
+
+  <br><br>
+
+  Hydrogen ratio =
+  <input type="number" step="any" class="calc" id="gHRatio17" name="gHRatio17"
+         formula="(2*(54.05/18.015))/(132.03/44.01)"
+         help="Divide the moles of hydrogen by the smaller mole value.">
+
+  <div class="feedback" id="gHRatio17FB"></div>
+
+  <br><br>
+
+  <b>Step 4: Determine the empirical formula</b>
+  <br><br>
+
+  Empirical formula:
+  <input type="text" class="calc" id="gEmp17" name="gEmp17"
+         formula="CH2"
+         help="Use the simplest whole-number mole ratio.">
+
+  <div class="feedback" id="gEmp17FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>132.03 g CO₂ corresponds to 3.00 mol C.</li>
+    <li>54.05 g H₂O corresponds to 6.00 mol H.</li>
+    <li>The ratio of C:H is 1:2.</li>
+    <li>The empirical formula is CH<sub>2</sub>.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  An unknown compound contains only carbon and hydrogen. When it undergoes combustion analysis, it produces
+  88.02 g of CO<sub>2</sub> and 18.015 g of H<sub>2</sub>O.
+  <br><br>
+
+  What is the empirical formula?
+  <br><br>
+
+  Empirical formula:
+  <input type="text" class="calc" id="pEmp18" name="pEmp18"
+         formula="CH"
+         help="Convert CO₂ to moles of carbon, H₂O to moles of hydrogen, then determine the simplest whole-number ratio.">
+
+  <div class="feedback" id="pEmp18FB"></div>
+
+</li>
+
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+  What is the theoretical yield, in moles of CO<sub>2</sub>, from the reaction of
+
+  <input class="num display-value" id="gC2H619" name="gC2H619"
+         random="true" data-original="18.0" randomPercent="10%" readonly>
+  moles of C<sub>2</sub>H<sub>6</sub>
+
+  with
+
+  <input class="num display-value" id="gO219" name="gO219"
+         random="true" data-original="32.0" randomPercent="10%" readonly>
+  moles of O<sub>2</sub>?
+  <br><br>
+
+  2 C<sub>2</sub>H<sub>6</sub> + 7 O<sub>2</sub> ➞ 4 CO<sub>2</sub> + 6 H<sub>2</sub>O
+
+  <br><br>
+
+  <b>Step 1: Determine how much O<sub>2</sub> is required to consume all the C<sub>2</sub>H<sub>6</sub></b>
+  <br><br>
+
+  Required moles O<sub>2</sub> =
+  <input type="number" step="any" class="calc" id="gRequiredO219" name="gRequiredO219"
+         formula="${gC2H619}*(7/2)"
+         help="Use the mole ratio 7 mol O₂ : 2 mol C₂H₆.">
+
+  <div class="feedback" id="gRequiredO219FB"></div>
+
+  <br><br>
+
+  <b>Step 2: Identify the limiting reagent</b>
+  <br><br>
+
+  Limiting reagent:
+
+  <select id="gLimit19" name="gLimit19" class="calc" formula="O2"
+          help="Compare the amount of O₂ available with the amount required.">
+    <option value="">Choose</option>
+    <option value="C2H6">C₂H₆</option>
+    <option value="O2">O₂</option>
+  </select>
+
+  <div class="feedback" id="gLimit19FB"></div>
+
+  <br><br>
+
+  <b>Step 3: Convert moles of O<sub>2</sub> to moles of CO<sub>2</sub></b>
+  <br><br>
+
+  Moles CO<sub>2</sub> =
+  <input type="number" step="any" class="calc" id="gCO219" name="gCO219"
+         formula="${gO219}*(4/7)"
+         help="Use the mole ratio 7 mol O₂ : 4 mol CO₂.">
+
+  <div class="feedback" id="gCO219FB"></div>
+
+  <br><br>
+
+  <b>Explanation:</b>
+  <ul>
+    <li>First determine the limiting reagent.</li>
+    <li>O₂ is limiting because there is less O₂ than required.</li>
+    <li>Use the stoichiometric ratio between O₂ and CO₂.</li>
+    <li>The theoretical yield is based on the limiting reagent.</li>
+  </ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+  What is the theoretical yield, in moles of H<sub>2</sub>O, from the reaction of
+
+  <input class="num display-value" id="pCH420" name="pCH420"
+         random="true" data-original="14.0" randomPercent="10%" readonly>
+  moles of CH<sub>4</sub>
+
+  with
+
+  <input class="num display-value" id="pO220" name="pO220"
+         random="true" data-original="22.0" randomPercent="10%" readonly>
+  moles of O<sub>2</sub>?
+  <br><br>
+
+  CH<sub>4</sub> + 2 O<sub>2</sub> ➞ CO<sub>2</sub> + 2 H<sub>2</sub>O
+
+  <br><br>
+
+  Moles H<sub>2</sub>O =
+  <input type="number" step="any" class="calc" id="pH2O20" name="pH2O20"
+         formula="${pO220}"
+         help="Determine the limiting reagent and use the mole ratio between O₂ and H₂O.">
+
+  <div class="feedback" id="pH2O20FB"></div>
+
+</li>
+
       <!-- End -->
       <div id="button_bar">
         <button
