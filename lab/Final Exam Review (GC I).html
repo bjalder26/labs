@@ -1177,6 +1177,121 @@ What is the molecular formula of the compound?
 
 </li>
 
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+
+What is the limiting reactant when
+
+<input class="num display-value" id="gZnS23" name="gZnS23"
+       random="true" data-original="10.8" randomPercent="20%" readonly>
+
+moles of ZnS react with
+
+<input class="num display-value" id="gAlP23" name="gAlP23"
+       random="true" data-original="11.8" randomPercent="20%" readonly>
+
+moles of AlP?
+
+<br><br>
+
+3 ZnS + 2 AlP ➞ Zn<sub>3</sub>P<sub>2</sub> + Al<sub>2</sub>S<sub>3</sub>
+
+<br><br>
+
+<b>Step 1: Determine how many moles of AlP are required to react with all of the ZnS</b>
+
+<br><br>
+
+Required moles AlP =
+
+<input type="number" step="any" class="calc" id="gRequired23" name="gRequired23"
+       formula="${gZnS23}*(2/3)"
+       help="Use the mole ratio 2 mol AlP : 3 mol ZnS.">
+
+<div class="feedback" id="gRequired23FB"></div>
+
+<br><br>
+
+<b>Step 2: Compare the required amount with the amount available</b>
+
+<br><br>
+
+Is there enough AlP present to consume all of the ZnS?
+
+<br><br>
+
+<select id="gEnough23" name="gEnough23" class="calc" formula="Yes"
+        help="Compare the required moles of AlP with the moles actually available.">
+  <option value="">Choose</option>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+
+<div class="feedback" id="gEnough23FB"></div>
+
+<br><br>
+
+<b>Step 3: Identify the limiting reactant</b>
+
+<br><br>
+
+<select id="gLimit23" name="gLimit23" class="calc" formula="ZnS"
+        help="The limiting reactant is consumed first and determines the amount of product formed.">
+  <option value="">Choose</option>
+  <option value="ZnS">ZnS</option>
+  <option value="AlP">AlP</option>
+</select>
+
+<div class="feedback" id="gLimit23FB"></div>
+
+<br><br>
+
+<b>Explanation:</b>
+<ul>
+  <li>Use the coefficients in the balanced equation to compare reactants.</li>
+  <li>Determine how much AlP is needed to react with all the ZnS.</li>
+  <li>Since enough AlP is present, ZnS is consumed first.</li>
+  <li>Therefore, ZnS is the limiting reactant.</li>
+</ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+
+What is the limiting reactant when
+
+<input class="num display-value" id="pFe24" name="pFe24"
+       random="true" data-original="8.00" randomPercent="20%" readonly>
+
+moles of Fe react with
+
+<input class="num display-value" id="pO224" name="pO224"
+       random="true" data-original="4.00" randomPercent="20%" readonly>
+
+moles of O<sub>2</sub>?
+
+<br><br>
+
+4 Fe + 3 O<sub>2</sub> ➞ 2 Fe<sub>2</sub>O<sub>3</sub>
+
+<br><br>
+
+<select id="pLimit24" name="pLimit24" class="calc" formula="O2"
+        help="Compare the available mole ratio to the stoichiometric ratio from the balanced equation.">
+  <option value="">Choose</option>
+  <option value="Fe">Fe</option>
+  <option value="O2">O₂</option>
+</select>
+
+<div class="feedback" id="pLimit24FB"></div>
+
+</li>
+
       <!-- End -->
       <div id="button_bar">
         <button
