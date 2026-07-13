@@ -2958,6 +2958,151 @@ Use the solubility table provided above to determine the <b>net ionic equation</
 
 </li>
 
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+
+Determine the specific heat capacity of a metal alloy that requires
+
+<input class="num display-value" id="gQ41" name="gQ41"
+       random="true" data-original="55.3" randomPercent="30%" readonly>
+
+kJ to raise the temperature of
+
+<input class="num display-value" id="gMass41" name="gMass41"
+       random="true" data-original="189" randomPercent="30%" readonly>
+
+g of the alloy from
+
+<input class="num display-value" id="gT141" name="gT141"
+       random="true" data-original="298" randomPercent="10%" readonly>
+
+K to
+
+<input class="num display-value" id="gT241" name="gT241"
+       random="true" data-original="402" randomPercent="10%" readonly>
+
+K.
+
+<br><br>
+
+<b>Use the equation:</b>
+
+<br><br>
+
+q = mcΔT
+
+<br><br>
+
+where:
+<ul>
+  <li>q = heat (J)</li>
+  <li>m = mass (g)</li>
+  <li>c = specific heat capacity (J/g·K)</li>
+  <li>ΔT = temperature change (K)</li>
+</ul>
+
+<br>
+
+<b>Step 1: Convert kJ to J</b>
+
+<br><br>
+
+q =
+
+<input type="number" step="any" class="calc" id="gQJ41" name="gQJ41"
+       formula="${gQ41}*1000"
+       help="Multiply kJ by 1000 to convert to J.">
+
+J
+
+<div class="feedback" id="gQJ41FB"></div>
+
+<br><br>
+
+<b>Step 2: Calculate ΔT</b>
+
+<br><br>
+
+ΔT =
+
+<input type="number" step="any" class="calc" id="gDT41" name="gDT41"
+       formula="${gT241}-${gT141}"
+       help="Subtract the initial temperature from the final temperature.">
+
+K
+
+<div class="feedback" id="gDT41FB"></div>
+
+<br><br>
+
+<b>Step 3: Solve for the specific heat capacity</b>
+
+<br><br>
+
+c =
+
+<input type="number" step="any" class="calc" id="gC41" name="gC41"
+       formula="(${gQ41}*1000)/(${gMass41}*(${gT241}-${gT141}))"
+       help="Use c = q/(mΔT).">
+
+J/g·K
+
+<div class="feedback" id="gC41FB"></div>
+
+<br><br>
+
+<b>Explanation:</b>
+<ul>
+  <li>Convert the heat from kJ to J.</li>
+  <li>Calculate the temperature change.</li>
+  <li>Substitute into c = q/(mΔT).</li>
+</ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+
+Determine the specific heat capacity of a metal alloy that requires
+
+<input class="num display-value" id="pQ42" name="pQ42"
+       random="true" data-original="42.8" randomPercent="30%" readonly>
+
+kJ to raise the temperature of
+
+<input class="num display-value" id="pMass42" name="pMass42"
+       random="true" data-original="156" randomPercent="30%" readonly>
+
+g of the alloy from
+
+<input class="num display-value" id="pT142" name="pT142"
+       random="true" data-original="285" randomPercent="10%" readonly>
+
+K to
+
+<input class="num display-value" id="pT242" name="pT242"
+       random="true" data-original="395" randomPercent="10%" readonly>
+
+K.
+
+<br><br>
+
+Specific heat capacity =
+
+<input type="number" step="any" class="calc" id="pC42" name="pC42"
+       formula="(${pQ42}*1000)/(${pMass42}*(${pT242}-${pT142}))"
+       help="Convert kJ to J, calculate ΔT, then use c = q/(mΔT).">
+
+J/g·K
+
+<div class="feedback" id="pC42FB"></div>
+
+</li>
+
       <!-- End -->
       <div id="button_bar">
         <button
