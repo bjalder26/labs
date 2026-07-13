@@ -2736,6 +2736,228 @@
         <div class="feedback" id="pMolarity36FB"></div>
       </li>
 
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+
+What element is undergoing reduction (if any) in the following reaction?
+
+<br><br>
+
+Zn(s) + CuSO<sub>4</sub>(aq) → ZnSO<sub>4</sub>(aq) + Cu(s)
+
+<br><br>
+
+<b>Use these steps to guide your reasoning:</b>
+
+<ul>
+  <li>An element is reduced when its oxidation state decreases (the oxidation state is literally reduced).</li>
+  <li>An element is oxidized when its oxidation state increases.</li>
+  <li>Elements in their elemental form have an oxidation state of 0.</li>
+</ul>
+
+<br>
+
+<b>Step 1: Determine the oxidation state of Zn on each side of the equation</b>
+
+<br><br>
+
+Oxidation state of Zn in Zn(s):
+
+<input type="number" class="calc" id="gZnOx37a" name="gZnOx37a"
+       formula="0"
+       help="Any element in its elemental form has an oxidation state of 0.">
+
+<div class="feedback" id="gZnOx37aFB"></div>
+
+<br><br>
+
+Oxidation state of Zn in ZnSO<sub>4</sub>:
+
+<input type="number" class="calc" id="gZnOx37b" name="gZnOx37b"
+       formula="2"
+       help="Sulfate has a charge of 2−, so Zn must be 2+.">
+
+<div class="feedback" id="gZnOx37bFB"></div>
+
+<br><br>
+
+<b>Step 2: Determine the oxidation state of Cu on each side of the equation</b>
+
+<br><br>
+
+Oxidation state of Cu in CuSO<sub>4</sub>:
+
+<input type="number" class="calc" id="gCuOx37a" name="gCuOx37a"
+       formula="2"
+       help="Sulfate has a charge of 2−, so Cu must be 2+.">
+
+<div class="feedback" id="gCuOx37aFB"></div>
+
+<br><br>
+
+Oxidation state of Cu in Cu(s):
+
+<input type="number" class="calc" id="gCuOx37b" name="gCuOx37b"
+       formula="0"
+       help="Any element in its elemental form has an oxidation state of 0.">
+
+<div class="feedback" id="gCuOx37bFB"></div>
+
+<br><br>
+
+<b>Step 3: Which element has a decrease in oxidation state?</b>
+
+<br><br>
+
+<select id="gReduced37" name="gReduced37" class="calc" formula="Cu"
+        help="Reduction corresponds to a decrease in oxidation state.">
+  <option value="">Choose</option>
+  <option value="Zn">Zn</option>
+  <option value="Cu">Cu</option>
+  <option value="Neither">Neither</option>
+</select>
+
+<div class="feedback" id="gReduced37FB"></div>
+
+<br><br>
+
+<b>Explanation:</b>
+<ul>
+  <li>Zn changes from 0 to +2, so Zn is oxidized.</li>
+  <li>Cu changes from +2 to 0, so Cu is reduced.</li>
+  <li>The element undergoing reduction is Cu.</li>
+</ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+
+What element is undergoing reduction (if any) in the following reaction?
+
+<br><br>
+
+2 Al(s) + 3 Pb(NO<sub>3</sub>)<sub>2</sub>(aq) → 2 Al(NO<sub>3</sub>)<sub>3</sub>(aq) + 3 Pb(s)
+
+<br><br>
+
+<select id="pReduced38" name="pReduced38" class="calc" formula="Pb"
+        help="Find the element whose oxidation state decreases during the reaction.">
+  <option value="">Choose</option>
+  <option value="Al">Al</option>
+  <option value="Pb">Pb</option>
+  <option value="N">N</option>
+  <option value="O">O</option>
+  <option value="Neither">Neither</option>
+</select>
+
+<div class="feedback" id="pReduced38FB"></div>
+
+</li>
+
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+
+Use the solubility table provided above to determine the <b>net ionic equation</b> for the reaction that occurs when aqueous solutions of Ba(NO<sub>3</sub>)<sub>2</sub> and K<sub>2</sub>SO<sub>4</sub> are mixed.
+
+
+
+<br><br>
+
+<b>Step 1: Identify the precipitate</b>
+
+<br><br>
+
+Which product is insoluble according to the solubility table?
+
+<br><br>
+
+<select id="gPrecip39a" name="gPrecip39a" class="calc" formula="BaSO4"
+        help="Most sulfates are soluble, but Ba2+ is an important exception.">
+  <option value="">Choose</option>
+  <option value="KNO3">KNO₃</option>
+  <option value="BaSO4">BaSO₄</option>
+</select>
+
+<div class="feedback" id="gPrecip39aFB"></div>
+
+<br><br>
+
+<b>Step 2: Identify the spectator ions</b>
+
+<br><br>
+
+<select id="gSpectator39b" name="gSpectator39b" class="calc" formula="K and NO3"
+        help="Spectator ions remain unchanged on both sides of the reaction.">
+  <option value="">Choose</option>
+  <option value="Ba and SO4">Ba²⁺ and SO₄²⁻</option>
+  <option value="K and NO3">K⁺ and NO₃⁻</option>
+</select>
+
+<div class="feedback" id="gSpectator39bFB"></div>
+    <br><br>
+    <b>Step 3: Write out the chemical equation.</b>
+  <br><br>
+
+Ba(NO<sub>3</sub>)<sub>2</sub>(aq) + K<sub>2</sub>SO<sub>4</sub>(aq) → BaSO<sub>4</sub>(s) + 2 KNO<sub>3</sub>(aq)
+
+<br><br>
+
+<b>Step 4: Write the net ionic equation</b>
+
+<br><br>
+
+<select id="gNet39c" name="gNet39c" class="calc" formula="B"
+        help="Remove spectator ions and keep only the ions that form the precipitate.">
+  <option value="">Choose</option>
+  <option value="A">K⁺(aq) + NO₃⁻(aq) → KNO₃(aq)</option>
+  <option value="B">Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)</option>
+  <option value="C">Ba(NO₃)₂(aq) + K₂SO₄(aq) → BaSO₄(s) + 2KNO₃(aq)</option>
+  <option value="D">Ba²⁺(aq) + 2NO₃⁻(aq) → Ba(NO₃)₂(aq)</option>
+</select>
+
+<div class="feedback" id="gNet39cFB"></div>
+
+<br><br>
+
+<b>Explanation:</b>
+<ul>
+  <li>BaSO<sub>4</sub> is insoluble because Ba<sup>2+</sup> is an exception to the sulfate rule.</li>
+  <li>K<sup>+</sup> and NO<sub>3</sub><sup>−</sup> are spectator ions.</li>
+  <li>The net ionic equation contains only the ions that form the precipitate.</li>
+  <li>Ba<sup>2+</sup>(aq) + SO<sub>4</sub><sup>2−</sup>(aq) → BaSO<sub>4</sub>(s)</li>
+</ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+
+Use the solubility table provided above to determine the <b>net ionic equation</b> for the reaction that occurs when aqueous solutions of Pb(NO<sub>3</sub>)<sub>2</sub> and KI are mixed.
+
+<br><br>
+
+<select id="pNet40" name="pNet40" class="calc" formula="C"
+        help="Identify the insoluble product and remove spectator ions.">
+  <option value="">Choose</option>
+  <option value="A">K⁺(aq) + NO₃⁻(aq) → KNO₃(aq)</option>
+  <option value="B">Pb²⁺(aq) + 2NO₃⁻(aq) → Pb(NO₃)₂(aq)</option>
+  <option value="C">Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)</option>
+  <option value="D">2K⁺(aq) + 2I⁻(aq) → 2KI(aq)</option>
+</select>
+
+<div class="feedback" id="pNet40FB"></div>
+
+</li>
+
       <!-- End -->
       <div id="button_bar">
         <button
