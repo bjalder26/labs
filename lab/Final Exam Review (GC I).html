@@ -3103,6 +3103,244 @@ J/g·K
 
 </li>
 
+<hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+
+What are the signs on q (heat) and w (work) for a system that has <b>work done on it by the surroundings</b> and is <b>giving off heat to the surroundings</b>?
+
+<br><br>
+
+<b>Use these sign conventions:</b>
+
+<ul>
+  <li>q is positive when heat enters the system.</li>
+  <li>q is negative when heat leaves the system.</li>
+  <li>w is positive when work is done on the system.</li>
+  <li>w is negative when the system does work on the surroundings.</li>
+</ul>
+
+<br>
+
+<b>Step 1: Determine the sign of q</b>
+
+<br><br>
+
+Heat is being given off to the surroundings.
+
+<br><br>
+
+<select id="gHeat43" name="gHeat43" class="calc" formula="-"
+        help="Heat leaving the system means q is negative.">
+  <option value="">Choose</option>
+  <option value="+">Positive (+)</option>
+  <option value="-">Negative (-)</option>
+</select>
+
+<div class="feedback" id="gHeat43FB"></div>
+
+<br><br>
+
+<b>Step 2: Determine the sign of w</b>
+
+<br><br>
+
+Work is being done on the system by the surroundings.
+
+<br><br>
+
+<select id="gWork43" name="gWork43" class="calc" formula="+"
+        help="Work done on the system corresponds to a positive value of w.">
+  <option value="">Choose</option>
+  <option value="+">Positive (+)</option>
+  <option value="-">Negative (-)</option>
+</select>
+
+<div class="feedback" id="gWork43FB"></div>
+
+<br><br>
+
+<b>Step 3: Choose the correct combination</b>
+
+<br><br>
+
+<select id="gSigns43" name="gSigns43" class="calc" formula="B"
+        help="Combine the signs you found for q and w.">
+  <option value="">Choose</option>
+  <option value="A">q = +, w = +</option>
+  <option value="B">q = -, w = +</option>
+  <option value="C">q = +, w = -</option>
+  <option value="D">q = -, w = -</option>
+</select>
+
+<div class="feedback" id="gSigns43FB"></div>
+
+<br><br>
+
+<b>Explanation:</b>
+
+<ul>
+  <li>Heat leaving the system means q is negative.</li>
+  <li>Work done on the system means w is positive.</li>
+  <li>Therefore, q = − and w = +.</li>
+</ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+
+What are the signs on q (heat) and w (work) for a system that has <b>work done by the system on the surroundings</b> and is <b>absorbing heat from the surroundings</b>?
+
+<br><br>
+
+<select id="pSigns44" name="pSigns44" class="calc" formula="C"
+        help="Determine the sign of q from the heat flow and the sign of w from the work flow.">
+  <option value="">Choose</option>
+  <option value="A">q = +, w = +</option>
+  <option value="B">q = -, w = +</option>
+  <option value="C">q = +, w = -</option>
+  <option value="D">q = -, w = -</option>
+</select>
+
+<div class="feedback" id="pSigns44FB"></div>
+
+</li>      
+
+
+      <hr>
+
+<h4>Guided Problem</h4>
+
+<li>
+
+A
+
+<input class="num display-value" id="gMass45" name="gMass45"
+       random="true" data-original="4.80" randomPercent="10%" readonly>
+
+g sample of ethanol (C<sub>2</sub>H<sub>5</sub>OH, molar mass = 46.07 g/mol) was combusted in a bomb calorimeter.
+
+If the temperature rose by
+
+<input class="num display-value" id="gTemp45" name="gTemp45"
+       random="true" data-original="31.5" randomPercent="10%" readonly>
+
+°C, determine the heat capacity of the calorimeter.
+
+For this problem, the water is considered part of the calorimeter, so assume all heat released by the reaction is absorbed by the calorimeter.
+
+<br><br>
+
+C<sub>2</sub>H<sub>5</sub>OH(l) + 3 O<sub>2</sub>(g) → 2 CO<sub>2</sub>(g) + 3 H<sub>2</sub>O(l)
+
+<br><br>
+
+ΔH°<sub>rxn</sub> = -1367 kJ/mol
+
+<br><br>
+
+<b>Step 1: Calculate moles of ethanol combusted</b>
+
+<br><br>
+
+Moles ethanol =
+
+<input type="number" step="any" class="calc" id="gMoles45" name="gMoles45"
+       formula="${gMass45}/46.07"
+       help="moles = grams ÷ molar mass">
+
+<div class="feedback" id="gMoles45FB"></div>
+
+<br><br>
+
+<b>Step 2: Calculate the heat released</b>
+
+<br><br>
+
+q =
+
+<input type="number" step="any" class="calc" id="gHeat45" name="gHeat45"
+       formula="(${gMass45}/46.07)*1367"
+       help="Multiply the moles of ethanol by the magnitude of ΔHrxn.">
+
+kJ
+
+<div class="feedback" id="gHeat45FB"></div>
+
+<br><br>
+
+<b>Step 3: Use q = CΔT to solve for the calorimeter heat capacity</b>
+
+<br><br>
+
+C =
+
+<input type="number" step="any" class="calc" id="gCal45" name="gCal45"
+       formula="((${gMass45}/46.07)*1367)/${gTemp45}"
+       help="Use C = q/ΔT.">
+
+kJ/°C
+
+<div class="feedback" id="gCal45FB"></div>
+
+<br><br>
+
+<b>Explanation:</b>
+<ul>
+  <li>Convert the sample mass to moles.</li>
+  <li>Use ΔH°<sub>rxn</sub> to determine the heat released.</li>
+  <li>Since all heat is absorbed by the calorimeter, q = CΔT.</li>
+  <li>Solve for C by dividing the heat absorbed by the temperature change.</li>
+</ul>
+
+</li>
+
+<h4>Practice Problem</h4>
+
+<li>
+
+A
+
+<input class="num display-value" id="pMass46" name="pMass46"
+       random="true" data-original="5.60" randomPercent="10%" readonly>
+
+g sample of methanol (CH<sub>3</sub>OH, molar mass = 32.04 g/mol) was combusted in a bomb calorimeter.
+
+If the temperature rose by
+
+<input class="num display-value" id="pTemp46" name="pTemp46"
+       random="true" data-original="27.8" randomPercent="10%" readonly>
+
+°C, determine the heat capacity of the calorimeter.
+
+Assume all heat released by the reaction is absorbed by the calorimeter.
+
+<br><br>
+
+2 CH<sub>3</sub>OH(l) + 3 O<sub>2</sub>(g) → 2 CO<sub>2</sub>(g) + 4 H<sub>2</sub>O(l)
+
+<br><br>
+
+ΔH°<sub>rxn</sub> = -1450 kJ for the reaction as written
+
+<br><br>
+
+Heat capacity =
+
+<input type="number" step="any" class="calc" id="pCal46" name="pCal46"
+       formula="(((${pMass46}/32.04)*(1450/2)))/${pTemp46}"
+       help="Convert grams of methanol to moles, calculate the heat released using ΔHrxn, then use C = q/ΔT.">
+
+kJ/°C
+
+<div class="feedback" id="pCal46FB"></div>
+
+</li>
+
       <!-- End -->
       <div id="button_bar">
         <button
