@@ -3741,6 +3741,836 @@
         <div class="feedback" id="pFinal50FB"></div>
       </li>
 
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        Calcium is dissolved in hydrochloric acid producing hydrogen gas.
+
+        <br /><br />
+
+        If
+
+        <input
+          class="num display-value"
+          id="gVolume53"
+          name="gVolume53"
+          random="true"
+          data-original="2.92"
+          randomPercent="20%"
+          readonly
+        />
+
+        L of gas is collected at 25.0°C and has a total pressure of
+
+        <input
+          class="num display-value"
+          id="gPressure53"
+          name="gPressure53"
+          random="true"
+          data-original="772"
+          randomPercent="3%"
+          readonly
+        />
+
+        mm Hg, what mass of hydrogen is produced?
+
+        <br /><br />
+
+        Ca(s) + 2 HCl(aq) → CaCl<sub>2</sub>(aq) + H<sub>2</sub>(g)
+
+        <br /><br />
+
+        A useful water vapor pressure table is provided above.
+
+        <br /><br />
+
+        <b>Step 1: Determine the partial pressure of H<sub>2</sub></b>
+
+        <br /><br />
+
+        At 25.0°C, the vapor pressure of water is 23.8 mm Hg.
+
+        <br /><br />
+
+        P<sub>H₂</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gPH253"
+          name="gPH253"
+          formula="${gPressure53}-23.8"
+          help="Subtract the vapor pressure of water from the total pressure."
+        />
+
+        mm Hg
+
+        <div class="feedback" id="gPH253FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Convert pressure to atmospheres</b>
+
+        <br /><br />
+
+        P =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gPatm53"
+          name="gPatm53"
+          formula="(${gPressure53}-23.8)/760"
+          help="Divide mm Hg by 760 mm Hg/atm."
+        />
+
+        atm
+
+        <div class="feedback" id="gPatm53FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Use the ideal gas law to calculate moles of H<sub>2</sub></b>
+
+        <br /><br />
+
+        PV = nRT
+
+        <br /><br />
+
+        n =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles53"
+          name="gMoles53"
+          formula="(((${gPressure53}-23.8)/760)*${gVolume53})/(0.08206*298.15)"
+          help="Use n = PV/(RT), where T = 298.15 K and R = 0.08206 L·atm/mol·K."
+        />
+
+        mol
+
+        <div class="feedback" id="gMoles53FB"></div>
+
+        <br /><br />
+
+        <b>Step 4: Convert moles of H<sub>2</sub> to grams</b>
+
+        <br /><br />
+
+        Mass H<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMassH253"
+          name="gMassH253"
+          formula="(((${gPressure53}-23.8)/760)*${gVolume53})/(0.08206*298.15)*2.016"
+          help="Multiply moles of H₂ by its molar mass, 2.016 g/mol."
+        />
+
+        g
+
+        <div class="feedback" id="gMassH253FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>
+            The collected gas contains both H<sub>2</sub> and water vapor.
+          </li>
+          <li>
+            Subtract the vapor pressure of water to find the pressure of
+            hydrogen.
+          </li>
+          <li>Use the ideal gas law to determine the moles of hydrogen.</li>
+          <li>Convert moles of hydrogen to grams using its molar mass.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Zinc is dissolved in hydrochloric acid producing hydrogen gas.
+
+        <br /><br />
+
+        If
+
+        <input
+          class="num display-value"
+          id="pVolume54"
+          name="pVolume54"
+          random="true"
+          data-original="3.15"
+          randomPercent="20%"
+          readonly
+        />
+
+        L of gas is collected at 25.0°C and has a total pressure of
+
+        <input
+          class="num display-value"
+          id="pPressure54"
+          name="pPressure54"
+          random="true"
+          data-original="768"
+          randomPercent="3%"
+          readonly
+        />
+
+        mm Hg, what mass of hydrogen is produced?
+
+        <br /><br />
+
+        Zn(s) + H<sub>2</sub>SO<sub>4</sub>(aq) → ZnSO<sub>4</sub>(aq) +
+        H<sub>2</sub>(g)
+
+        <br /><br />
+
+        Mass H<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pMassH254"
+          name="pMassH254"
+          formula="(((${pPressure54}-23.8)/760)*${pVolume54})/(0.08206*298.15)*2.016"
+          help="Subtract the vapor pressure of water (23.8 mm Hg), use PV = nRT to find moles of H₂, then convert to grams."
+        />
+
+        g
+
+        <div class="feedback" id="pMassH254FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        The rate of effusion of hydrogen gas (H<sub>2</sub>) to an unknown gas
+        is 4.000.
+
+        <br /><br />
+
+        What is the unknown gas?
+
+        <br /><br />
+
+        <b>Use Graham's Law:</b>
+
+        <br /><br />
+
+        $\frac{Rate_{H_₂}}{Rate_{unknown}}$ =
+        $\sqrt{\frac{M_{unknown}}{M_{H_₂}}}$ = 4.000
+
+        <br /><br />
+
+        <b>Step 1: Square both sides</b>
+
+        <br /><br />
+
+        $\frac{M_{unknown}}{M_{H_2}}$ =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gRatio55"
+          name="gRatio55"
+          formula="16"
+          help="Square the effusion-rate ratio."
+        />
+
+        <div class="feedback" id="gRatio55FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Calculate the molar mass of the unknown gas</b>
+
+        <br /><br />
+
+        M<sub>unknown</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMM55"
+          name="gMM55"
+          formula="16*2.016"
+          help="Multiply the ratio by the molar mass of H₂ (2.016 g/mol)."
+        />
+
+        g/mol
+
+        <div class="feedback" id="gMM55FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Identify the gas</b>
+
+        <br /><br />
+
+        <select
+          id="gGas55"
+          name="gGas55"
+          class="calc"
+          formula="B"
+          help="Choose the gas whose molar mass is closest to the calculated value."
+        >
+          <option value="">Choose</option>
+          <option value="A">He (4.00 g/mol)</option>
+          <option value="B">O₂ (32.00 g/mol)</option>
+          <option value="C">N₂ (28.02 g/mol)</option>
+          <option value="D">Ne (20.18 g/mol)</option>
+          <option value="E">Ar (39.95 g/mol)</option>
+          <option value="F">CO₂ (44.01 g/mol)</option>
+          <option value="G">Cl₂ (70.90 g/mol)</option>
+          <option value="H">Kr (83.80 g/mol)</option>
+        </select>
+
+        <div class="feedback" id="gGas55FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Square the rate ratio: 4.000<sup>2</sup> = 16.</li>
+          <li>
+            Multiply by the molar mass of hydrogen: 16 × 2.016 = 32.26 g/mol.
+          </li>
+          <li>The closest choice is O<sub>2</sub> (32.00 g/mol).</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        The rate of effusion of hydrogen gas (H<sub>2</sub>) to an unknown gas
+        is 5.93.
+
+        <br /><br />
+
+        What is the unknown gas?
+
+        <br /><br />
+
+        <select
+          id="pGas56"
+          name="pGas56"
+          class="calc"
+          formula="G"
+          help="Use Graham's Law to determine the molar mass of the unknown gas, then choose the closest match."
+        >
+          <option value="">Choose</option>
+          <option value="A">He (4.00 g/mol)</option>
+          <option value="B">O₂ (32.00 g/mol)</option>
+          <option value="C">N₂ (28.02 g/mol)</option>
+          <option value="D">Ne (20.18 g/mol)</option>
+          <option value="E">Ar (39.95 g/mol)</option>
+          <option value="F">CO₂ (44.01 g/mol)</option>
+          <option value="G">Cl₂ (70.90 g/mol)</option>
+          <option value="H">Kr (83.80 g/mol)</option>
+        </select>
+
+        <div class="feedback" id="pGas56FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What pressure (in atm) will
+
+        <input
+          class="num display-value"
+          id="gMass57"
+          name="gMass57"
+          random="true"
+          data-original="18.5"
+          randomPercent="25%"
+          readonly
+        />
+
+        g of N<sub>2</sub> exert in a
+
+        <input
+          class="num display-value"
+          id="gVolume57"
+          name="gVolume57"
+          random="true"
+          data-original="5.20"
+          randomPercent="25%"
+          readonly
+        />
+
+        L container at
+
+        <input
+          class="num display-value"
+          id="gTemp57"
+          name="gTemp57"
+          random="true"
+          data-original="72"
+          randomPercent="20%"
+          readonly
+        />
+
+        °C?
+
+        <br /><br />
+
+        <b>Step 1: Convert grams of N<sub>2</sub> to moles</b>
+
+        <br /><br />
+
+        Moles N<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles57"
+          name="gMoles57"
+          formula="${gMass57}/28.02"
+          help="Use moles = grams ÷ molar mass. The molar mass of N₂ is 28.02 g/mol."
+        />
+
+        <div class="feedback" id="gMoles57FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Convert temperature to Kelvin</b>
+
+        <br /><br />
+
+        Temperature =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gTempK57"
+          name="gTempK57"
+          formula="${gTemp57}+273.15"
+          help="Convert °C to K using K = °C + 273.15."
+        />
+
+        K
+
+        <div class="feedback" id="gTempK57FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Use the ideal gas law</b>
+
+        <br /><br />
+
+        PV = nRT
+
+        <br /><br />
+
+        Solve for pressure:
+
+        <br /><br />
+
+        P =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gPressure57"
+          name="gPressure57"
+          formula="((${gMass57}/28.02)*0.08206*(${gTemp57}+273.15))/${gVolume57}"
+          help="Use P = nRT/V with R = 0.08206 L·atm/mol·K."
+        />
+
+        atm
+
+        <div class="feedback" id="gPressure57FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Convert grams to moles using the molar mass.</li>
+          <li>Convert the temperature to Kelvin.</li>
+          <li>Substitute into the ideal gas law and solve for pressure.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What pressure (in atm) will
+
+        <input
+          class="num display-value"
+          id="pMass58"
+          name="pMass58"
+          random="true"
+          data-original="22.0"
+          randomPercent="25%"
+          readonly
+        />
+
+        g of O<sub>2</sub> exert in a
+
+        <input
+          class="num display-value"
+          id="pVolume58"
+          name="pVolume58"
+          random="true"
+          data-original="6.00"
+          randomPercent="25%"
+          readonly
+        />
+
+        L container at
+
+        <input
+          class="num display-value"
+          id="pTemp58"
+          name="pTemp58"
+          random="true"
+          data-original="85"
+          randomPercent="20%"
+          readonly
+        />
+
+        °C?
+
+        <br /><br />
+
+        Pressure =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pPressure58"
+          name="pPressure58"
+          formula="((${pMass58}/32.00)*0.08206*(${pTemp58}+273.15))/${pVolume58}"
+          help="Convert grams of O₂ to moles, convert °C to K, then use the ideal gas law: P = nRT/V."
+        />
+
+        atm
+
+        <div class="feedback" id="pPressure58FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        If a sample of
+
+        <input
+          class="num display-value"
+          id="gMoles59"
+          name="gMoles59"
+          random="true"
+          data-original="0.250"
+          randomPercent="30%"
+          readonly
+        />
+
+        moles of Ar occupies
+
+        <input
+          class="num display-value"
+          id="gVolume59"
+          name="gVolume59"
+          random="true"
+          data-original="7.20"
+          randomPercent="30%"
+          readonly
+        />
+
+        L under certain conditions, what volume (in L) will
+
+        <input
+          class="num display-value"
+          id="gMolesFinal59"
+          name="gMolesFinal59"
+          random="true"
+          data-original="0.900"
+          randomPercent="30%"
+          readonly
+        />
+
+        moles occupy under the same conditions?
+
+        <br /><br />
+
+        <b>Step 1: Identify the relationship</b>
+
+        <br /><br />
+
+        At constant temperature and pressure:
+
+        <br /><br />
+
+        V<sub>1</sub>/n<sub>1</sub> = V<sub>2</sub>/n<sub>2</sub>
+
+        <br /><br />
+
+        <b>Step 2: Rearrange the equation</b>
+
+        <br /><br />
+
+        V<sub>2</sub> =
+
+        <input
+          type="text"
+          class="calc"
+          id="gFormula59"
+          name="gFormula59"
+          formula="V1*n2/n1"
+          help="Solve V1/n1 = V2/n2 for V2."
+        />
+
+        <div class="feedback" id="gFormula59FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Calculate the final volume</b>
+
+        <br /><br />
+
+        V<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gVolumeFinal59"
+          name="gVolumeFinal59"
+          formula="${gVolume59}*${gMolesFinal59}/${gMoles59}"
+          help="Use V2 = V1 × n2 ÷ n1."
+        />
+
+        L
+
+        <div class="feedback" id="gVolumeFinal59FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>
+            Since the conditions remain constant, volume is directly
+            proportional to moles.
+          </li>
+          <li>This is Avogadro's Law.</li>
+          <li>
+            Use V<sub>1</sub>/n<sub>1</sub> = V<sub>2</sub>/n<sub>2</sub> and
+            solve for V<sub>2</sub>.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        If a sample of
+
+        <input
+          class="num display-value"
+          id="pMoles60"
+          name="pMoles60"
+          random="true"
+          data-original="0.180"
+          randomPercent="30%"
+          readonly
+        />
+
+        moles of Xe occupies
+
+        <input
+          class="num display-value"
+          id="pVolume60"
+          name="pVolume60"
+          random="true"
+          data-original="5.60"
+          randomPercent="30%"
+          readonly
+        />
+
+        L under certain conditions, what volume (in L) will
+
+        <input
+          class="num display-value"
+          id="pMolesFinal60"
+          name="pMolesFinal60"
+          random="true"
+          data-original="0.820"
+          randomPercent="30%"
+          readonly
+        />
+
+        moles occupy under the same conditions?
+
+        <br /><br />
+
+        V<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pVolumeFinal60"
+          name="pVolumeFinal60"
+          formula="${pVolume60}*${pMolesFinal60}/${pMoles60}"
+          help="Use Avogadro's Law: V1/n1 = V2/n2."
+        />
+
+        L
+
+        <div class="feedback" id="pVolumeFinal60FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        A 0.330 g sample of an unknown halogen occupies 125.0 mL at 350 K and
+        1.50 atm.
+
+        <br /><br />
+
+        What is the identity of the halogen?
+
+        <br /><br />
+
+        <b>Step 1: Use the ideal gas law to determine the number of moles</b>
+
+        <br /><br />
+
+        PV = nRT
+
+        <br /><br />
+
+        n =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles61"
+          name="gMoles61"
+          formula="(1.50*0.125)/(0.08206*350)"
+          help="Use n = PV/(RT). Remember to convert 125.0 mL to 0.1250 L."
+        />
+
+        mol
+
+        <div class="feedback" id="gMoles61FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Calculate the molar mass</b>
+
+        <br /><br />
+
+        Molar mass =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMM61"
+          name="gMM61"
+          formula="0.330/((1.50*0.125)/(0.08206*350))"
+          help="Molar mass = mass ÷ moles."
+        />
+
+        g/mol
+
+        <div class="feedback" id="gMM61FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Identify the halogen</b>
+
+        <br /><br />
+
+        <select
+          id="gHalogen61"
+          name="gHalogen61"
+          class="calc"
+          formula="Cl2"
+          help="Compare your molar mass to the molar masses of the halogen molecules."
+        >
+          <option value="">Choose</option>
+          <option value="F2">F₂</option>
+          <option value="Cl2">Cl₂</option>
+          <option value="Br2">Br₂</option>
+          <option value="I2">I₂</option>
+          <option value="At2">At₂</option>
+        </select>
+
+        <div class="feedback" id="gHalogen61FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>The ideal gas law gives approximately 0.00653 mol.</li>
+          <li>The molar mass is approximately 50.5 g/mol.</li>
+          <li>
+            The closest halogen molecule is Cl<sub>2</sub> (70.90 g/mol). Since
+            halogens exist as diatomic molecules, chlorine is the best match
+            among the choices.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        A 1.39 g sample of an unknown halogen occupies 150.0 mL at 400 K and
+        1.20 atm.
+
+        <br /><br />
+
+        What is the identity of the halogen?
+
+        <br /><br />
+
+        <select
+          id="pHalogen62"
+          name="pHalogen62"
+          class="calc"
+          formula="Br2"
+          help="Use the ideal gas law to find the number of moles, calculate the molar mass, then identify the closest halogen molecule."
+        >
+          <option value="">Choose</option>
+          <option value="F2">F₂</option>
+          <option value="Cl2">Cl₂</option>
+          <option value="Br2">Br₂</option>
+          <option value="I2">I₂</option>
+          <option value="At2">At₂</option>
+        </select>
+
+        <div class="feedback" id="pHalogen62FB"></div>
+      </li>
+
       <!-- End -->
       <div id="button_bar">
         <button
