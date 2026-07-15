@@ -1115,38 +1115,50 @@
 
       <li>
         An unknown compound contains only carbon and hydrogen. When it undergoes
-        combustion analysis, it produces 132.03 g of CO<sub>2</sub> and 54.05 g
-        of H<sub>2</sub>O. <br /><br />
+        combustion analysis, it produces 82.04 g of CO<sub>2</sub> and 25.18 g
+        of H<sub>2</sub>O.
 
-        What is the empirical formula of the compound?
         <br /><br />
 
-        <b>Step 1: Convert CO<sub>2</sub> to moles of carbon</b>
+        What is the empirical formula of the compound?
+
+        <br /><br />
+
+        <b
+          >Step 1: Convert grams of CO<sub>2</sub> to moles of CO<sub>2</sub></b
+        >
+
         <br /><br />
 
         Moles CO<sub>2</sub> =
+
         <input
           type="number"
           step="any"
           class="calc"
           id="gMolCO217"
           name="gMolCO217"
-          formula="132.03/44.01"
-          help="Divide the mass of CO₂ by its molar mass, 44.01 g/mol."
+          formula="82.04/44.01"
+          help="Divide grams of CO₂ by 44.01 g/mol."
         />
 
         <div class="feedback" id="gMolCO217FB"></div>
 
         <br /><br />
 
+        <b>Step 2: Convert moles of CO<sub>2</sub> to moles of carbon atoms</b>
+
+        <br /><br />
+
         Moles C =
+
         <input
           type="number"
           step="any"
           class="calc"
           id="gMolC17"
           name="gMolC17"
-          formula="132.03/44.01"
+          formula="82.04/44.01"
           help="Each mole of CO₂ contains one mole of carbon atoms."
         />
 
@@ -1154,32 +1166,43 @@
 
         <br /><br />
 
-        <b>Step 2: Convert H<sub>2</sub>O to moles of hydrogen</b>
+        <b
+          >Step 3: Convert grams of H<sub>2</sub>O to moles of H<sub>2</sub>O</b
+        >
+
         <br /><br />
 
         Moles H<sub>2</sub>O =
+
         <input
           type="number"
           step="any"
           class="calc"
           id="gMolH2O17"
           name="gMolH2O17"
-          formula="54.05/18.015"
-          help="Divide the mass of H₂O by its molar mass, 18.015 g/mol."
+          formula="25.18/18.015"
+          help="Divide grams of H₂O by 18.015 g/mol."
         />
 
         <div class="feedback" id="gMolH2O17FB"></div>
 
         <br /><br />
 
+        <b
+          >Step 4: Convert moles of H<sub>2</sub>O to moles of hydrogen atoms</b
+        >
+
+        <br /><br />
+
         Moles H =
+
         <input
           type="number"
           step="any"
           class="calc"
           id="gMolH17"
           name="gMolH17"
-          formula="2*(54.05/18.015)"
+          formula="2*(25.18/18.015)"
           help="Each mole of H₂O contains two moles of hydrogen atoms."
         />
 
@@ -1187,10 +1210,12 @@
 
         <br /><br />
 
-        <b>Step 3: Divide by the smaller number of moles</b>
+        <b>Step 5: Divide both values by the smaller number of moles</b>
+
         <br /><br />
 
         Carbon ratio =
+
         <input
           type="number"
           step="any"
@@ -1198,7 +1223,7 @@
           id="gCRatio17"
           name="gCRatio17"
           formula="1"
-          help="Divide the moles of carbon by the smaller mole value."
+          help="Divide the moles of carbon by the smaller value."
         />
 
         <div class="feedback" id="gCRatio17FB"></div>
@@ -1206,69 +1231,75 @@
         <br /><br />
 
         Hydrogen ratio =
+
         <input
           type="number"
           step="any"
           class="calc"
           id="gHRatio17"
           name="gHRatio17"
-          formula="(2*(54.05/18.015))/(132.03/44.01)"
-          help="Divide the moles of hydrogen by the smaller mole value."
+          formula="(2*(25.18/18.015))/(82.04/44.01)"
+          help="Divide the moles of hydrogen by the smaller value."
         />
 
         <div class="feedback" id="gHRatio17FB"></div>
 
         <br /><br />
 
-        <b>Step 4: Determine the empirical formula</b>
+        <b
+          >Step 6: If the ratio is not a whole number, multiply all ratios by
+          the appropriate value</b
+        >
+
         <br /><br />
 
-        Empirical formula:
+        <table border="1" cellpadding="4">
+          <tr>
+            <th>Decimal Part</th>
+            <th>Multiply By</th>
+          </tr>
+          <tr>
+            <td>0.50</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>0.33 or 0.67</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>0.25 or 0.75</td>
+            <td>4</td>
+          </tr>
+        </table>
+
+        <br />
+
+        Multiplier =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMultiplier17"
+          name="gMultiplier17"
+          formula="2"
+          help="The hydrogen ratio is approximately 1.5, so multiply all ratios by 2."
+        />
+
+        <div class="feedback" id="gMultiplier17FB"></div>
+
+        <br /><br />
+
+        <b>Step 7: Determine the empirical formula</b>
+
+        <br /><br />
+
         <select
           id="gEmp17"
           name="gEmp17"
           class="calc"
-          formula="CH2"
-          help="Use the simplest whole-number mole ratio."
-        >
-          <option value="">Choose</option>
-          <option value="CH">CH</option>
-          <option value="CH2">CH₂</option>
-          <option value="CH3">CH₃</option>
-          <option value="CH4">CH₄</option>
-        </select>
-
-        <div class="feedback" id="gEmp17FB"></div>
-
-        <br /><br />
-
-        <b>Explanation:</b>
-        <ul>
-          <li>132.03 g CO₂ corresponds to 3.00 mol C.</li>
-          <li>54.05 g H₂O corresponds to 6.00 mol H.</li>
-          <li>The ratio of C:H is 1:2.</li>
-          <li>The empirical formula is CH<sub>2</sub>.</li>
-        </ul>
-      </li>
-
-      <h4>Practice Problem</h4>
-
-      <li>
-        An unknown compound contains only carbon and hydrogen. When it undergoes
-        combustion analysis, it produces 88.02 g of CO<sub>2</sub> and 18.015 g
-        of H<sub>2</sub>O. <br /><br />
-
-        What is the empirical formula?
-        <br /><br />
-
-        Empirical formula:
-
-        <select
-          id="pEmp18"
-          name="pEmp18"
-          class="calc"
-          formula="CH"
-          help="Convert CO₂ to moles of carbon, H₂O to moles of hydrogen, then determine the simplest whole-number ratio."
+          formula="C2H3"
+          help="After multiplying by 2, the ratio becomes approximately 2:3."
         >
           <option value="">Choose</option>
           <option value="CH">CH</option>
@@ -1276,9 +1307,55 @@
           <option value="CH3">CH₃</option>
           <option value="CH4">CH₄</option>
           <option value="C2H3">C₂H₃</option>
-          <option value="C2H4">C₂H₄</option>
           <option value="C2H5">C₂H₅</option>
-          <option value="C2H6">C₂H₆</option>
+          <option value="C3H4">C₃H₄</option>
+          <option value="C3H5">C₃H₅</option>
+        </select>
+
+        <div class="feedback" id="gEmp17FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+
+        <ul>
+          <li>Moles C ≈ 1.864</li>
+          <li>Moles H ≈ 2.796</li>
+          <li>Ratio ≈ 1 : 1.5</li>
+          <li>Multiply by 2 → 2 : 3</li>
+          <li>Empirical formula = C<sub>2</sub>H<sub>3</sub></li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        An unknown compound contains only carbon and hydrogen. When it undergoes
+        combustion analysis, it produces 73.50 g of CO<sub>2</sub> and 37.62 g
+        of H<sub>2</sub>O.
+
+        <br /><br />
+
+        What is the empirical formula?
+
+        <br /><br />
+
+        <select
+          id="pEmp18"
+          name="pEmp18"
+          class="calc"
+          formula="C2H5"
+          help="Convert CO₂ to moles of carbon, H₂O to moles of hydrogen, divide by the smallest value, apply a multiplier if needed, and determine the empirical formula."
+        >
+          <option value="">Choose</option>
+          <option value="CH">CH</option>
+          <option value="CH2">CH₂</option>
+          <option value="CH3">CH₃</option>
+          <option value="CH4">CH₄</option>
+          <option value="C2H3">C₂H₃</option>
+          <option value="C2H5">C₂H₅</option>
+          <option value="C3H4">C₃H₄</option>
+          <option value="C3H5">C₃H₅</option>
         </select>
 
         <div class="feedback" id="pEmp18FB"></div>
