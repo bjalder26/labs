@@ -1047,7 +1047,7 @@
 
         <br /><br />
 
-        <b>Step 3: Convert moles of CO<sub>2</sub> to molecules</b>
+        <b>Step 3: Convert moles of CO<sub>2</sub> to molecules (use e instead of x10, for example 6.022e23 instead of 6.002 x 10<sup>23</sup></b>
         <br /><br />
 
         Molecules of CO<sub>2</sub> =
@@ -1221,14 +1221,14 @@
         <br /><br />
 
         Empirical formula:
-        <input
-          type="text"
-          class="calc"
-          id="gEmp17"
-          name="gEmp17"
-          formula="CH2"
-          help="Use the simplest whole-number mole ratio."
-        />
+        <select id="gEmp17" name="gEmp17" class="calc" formula="CH2"
+        help="Use the simplest whole-number mole ratio.">
+  <option value="">Choose</option>
+  <option value="CH">CH</option>
+  <option value="CH2">CH₂</option>
+  <option value="CH3">CH₃</option>
+  <option value="CH4">CH₄</option>
+</select>
 
         <div class="feedback" id="gEmp17FB"></div>
 
@@ -1254,14 +1254,20 @@
         <br /><br />
 
         Empirical formula:
-        <input
-          type="text"
-          class="calc"
-          id="pEmp18"
-          name="pEmp18"
-          formula="CH"
-          help="Convert CO₂ to moles of carbon, H₂O to moles of hydrogen, then determine the simplest whole-number ratio."
-        />
+        
+<select id="pEmp18" name="pEmp18" class="calc" formula="CH"
+        help="Convert CO₂ to moles of carbon, H₂O to moles of hydrogen, then determine the simplest whole-number ratio.">
+  <option value="">Choose</option>
+  <option value="CH">CH</option>
+  <option value="CH2">CH₂</option>
+  <option value="CH3">CH₃</option>
+  <option value="CH4">CH₄</option>
+  <option value="C2H3">C₂H₃</option>
+  <option value="C2H4">C₂H₄</option>
+  <option value="C2H5">C₂H₅</option>
+  <option value="C2H6">C₂H₆</option>
+</select>
+
 
         <div class="feedback" id="pEmp18FB"></div>
       </li>
@@ -2086,16 +2092,17 @@
 
         <br /><br />
 
-        HNO<sub>3</sub>(aq) + KOH(aq) → KNO<sub>3</sub>(aq) + H<sub>2</sub>O(l)
+        2 C<sub>2</sub>H<sub>2</sub> + 5 O<sub>2</sub> → 4 CO<sub>2</sub> + 2
+        H<sub>2</sub>O
 
         <br /><br />
 
         <select
-          id="pType30a"
-          name="pType30a"
+          id="pType30c"
+          name="pType30c"
           class="calc"
-          formula="Acid-base"
-          help="Look for an acid reacting with a base."
+          formula="Combustion"
+          help="Hydrocarbon + oxygen indicates combustion."
         >
           <option value="">Choose</option>
           <option value="Acid-base">Acid-base</option>
@@ -2105,7 +2112,8 @@
           <option value="None of these">None of these</option>
         </select>
 
-        <div class="feedback" id="pType30aFB"></div>
+        <div class="feedback" id="pType30cFB"></div>
+        
 
         <br /><br />
 
@@ -2140,17 +2148,16 @@
 
         <br /><br />
 
-        2 C<sub>2</sub>H<sub>2</sub> + 5 O<sub>2</sub> → 4 CO<sub>2</sub> + 2
-        H<sub>2</sub>O
+        HNO<sub>3</sub>(aq) + KOH(aq) → KNO<sub>3</sub>(aq) + H<sub>2</sub>O(l)
 
         <br /><br />
 
         <select
-          id="pType30c"
-          name="pType30c"
+          id="pType30a"
+          name="pType30a"
           class="calc"
-          formula="Combustion"
-          help="Hydrocarbon + oxygen indicates combustion."
+          formula="Acid-base"
+          help="Look for an acid reacting with a base."
         >
           <option value="">Choose</option>
           <option value="Acid-base">Acid-base</option>
@@ -2160,7 +2167,7 @@
           <option value="None of these">None of these</option>
         </select>
 
-        <div class="feedback" id="pType30cFB"></div>
+        <div class="feedback" id="pType30aFB"></div>
 
         <br /><br />
 
@@ -4333,18 +4340,7 @@
 
         <br /><br />
 
-        V<sub>2</sub> =
-
-        <input
-          type="text"
-          class="calc"
-          id="gFormula59"
-          name="gFormula59"
-          formula="V1*n2/n1"
-          help="Solve V1/n1 = V2/n2 for V2."
-        />
-
-        <div class="feedback" id="gFormula59FB"></div>
+        $V_2 = \frac{V_1\ \times\ n_2}{n_1}$
 
         <br /><br />
 
@@ -4557,7 +4553,7 @@
           id="pHalogen62"
           name="pHalogen62"
           class="calc"
-          formula="Br2"
+          formula="I2"
           help="Use the ideal gas law to find the number of moles, calculate the molar mass, then identify the closest halogen molecule."
         >
           <option value="">Choose</option>
