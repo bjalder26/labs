@@ -1,1 +1,4834 @@
+<html>
+  <head>
+    <title>Final Exam Review</title>
+    <!-- Title -->
+    <link rel="stylesheet" href="../css/lab.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
 
+  <body onload="onLoad()">
+    <script type="text/javascript">
+      //PARAMS**GO**HERE
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+      hr {
+        height: 3px;
+        background-color: blue;
+      }
+      div[id$="DIV"] {
+        width: 70px !important;
+      }
+      body {
+        user-select: none;
+      }
+    </style>
+    <h1 id="title">Final Exam Review</h1>
+    <!-- Title -->
+    Name:
+    <div id="name"></div>
+    <br />
+
+    <form id="labdataform" action="/save" method="post" target="_self">
+      <input type="text" id="labName" name="labName" style="display:none" />
+      <input type="text" id="userName" name="userName" style="display:none" />
+      <!-- Beginning -->
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What is the VSEPR shape (electron domain geometry) of NH<sub>3</sub>?
+        <br /><br />
+
+        <b>Use these steps to guide your reasoning:</b>
+        <ul>
+          <li>Count the number of electron domains around the central atom.</li>
+          <li>Each bond counts as one electron domain.</li>
+          <li>Each lone pair counts as one electron domain.</li>
+          <li>
+            The electron-domain geometry is determined by the total number of
+            electron domains.
+          </li>
+        </ul>
+
+        <br />
+
+        <b>Step 1: Identify the central atom</b>
+        <br /><br />
+
+        The central atom is:
+        <select
+          id="gCenter1"
+          name="gCenter1"
+          class="calc"
+          formula="N"
+          help="The atom that needs to make the most bonds to fulfil their outer electron shell is generally the central atom.  When a central atom gets more than an octet is the exception."
+        >
+          <option value="">Choose</option>
+          <option value="N">N</option>
+          <option value="H">H</option>
+        </select>
+
+        <div class="feedback" id="gCenter1FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Count the bonded atoms</b>
+        <br /><br />
+
+        Number of N–H bonds:
+        <input
+          type="number"
+          class="calc"
+          id="gBonds1"
+          name="gBonds1"
+          formula="3"
+          help="Count the atoms attached to the central atom."
+        />
+
+        <div class="feedback" id="gBonds1FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Count the lone pairs on nitrogen</b>
+        <br /><br />
+
+        Number of lone pairs:
+        <input
+          type="number"
+          class="calc"
+          id="gLonePairs1"
+          name="gLonePairs1"
+          formula="1"
+          help="Nitrogen has 5 valence electrons.  Subtract out the valence electrons used to make bonds.  That will give you the non-bonding electrons.  Every 2 non-bonding electrons forms a lone pair of electrons."
+        />
+
+        <div class="feedback" id="gLonePairs1FB"></div>
+
+        <br /><br />
+
+        <b>Step 4: Count total electron domains</b>
+        <br /><br />
+
+        Total electron domains =
+        <input
+          type="number"
+          class="calc"
+          id="gDomains1"
+          name="gDomains1"
+          formula="4"
+          help="Electron domains = bonds + lone pairs."
+        />
+
+        <div class="feedback" id="gDomains1FB"></div>
+
+        <br /><br />
+
+        <b>Step 5: Determine the electron-domain geometry</b>
+        <br /><br />
+
+        <select
+          id="gShape1"
+          name="gShape1"
+          class="calc"
+          formula="Tetrahedral"
+          help="<p>The VSPER shape (electron domain geometry) depends only on the total number of electron domains.</p>2: linear<br>3: trigonal planaer<br>4: tetrahedral<br>5: trigonal bipyramidal<br>6: octahedral"
+        >
+          <option value="">Choose</option>
+          <option value="Linear">Linear</option>
+          <option value="Bent">Bent</option>
+          <option value="Trigonal planar">Trigonal planar</option>
+          <option value="Tetrahedral">Tetrahedral</option>
+        </select>
+
+        <div class="feedback" id="gShape1FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>NH₃ has 3 bonding domains and 1 lone pair.</li>
+          <li>That gives a total of 4 electron domains.</li>
+          <li>
+            Four electron domains correspond to a tetrahedral electron-domain
+            geometry.
+          </li>
+          <li>
+            The molecular shape is trigonal pyramidal, but the electron-domain
+            geometry is tetrahedral.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What is the VSEPR shape (electron domain geometry) of CO<sub>2</sub>?
+        <br /><br />
+
+        <select
+          id="pShape1"
+          name="pShape1"
+          class="calc"
+          formula="A"
+          help="<p>The VSPER shape (electron domain geometry) depends only on the total number of electron domains.</p>2: linear<br>3: trigonal planaer<br>4: tetrahedral<br>5: trigonal bipyramidal<br>6: octahedral"
+        >
+          <option value="">Choose</option>
+          <option value="A">Linear</option>
+          <option value="B">Tetrahedral</option>
+          <option value="C">Bent</option>
+          <option value="D">Trigonal planar</option>
+        </select>
+
+        <div class="feedback" id="pShape1FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        Which orbitals overlap in the carbon-hydrogen bonds in
+        C<sub>2</sub>H<sub>4</sub>?
+        <br /><br />
+
+        <b>Use these steps to guide your reasoning:</b>
+        <ul>
+          <li>Determine the number of electron domains around each carbon.</li>
+          <li>
+            Use the electron domains to determine the carbon's hybridization.
+          </li>
+          <li>Hydrogen always contributes a 1s orbital.</li>
+          <li>
+            The C-H bond is formed by overlap of the carbon hybrid orbital and
+            the hydrogen 1s orbital.
+          </li>
+        </ul>
+
+        <br />
+
+        <b>Step 1: How many electron domains does each carbon have?</b>
+        <br /><br />
+
+        <select
+          id="gDomains2"
+          name="gDomains2"
+          class="calc"
+          formula="3"
+          help="Add together the number of lone pairs and bonded atoms on EACH carbon.  So, in this case only 2 hydrogens will bond to each carbon, and remember that double or triple bonds are still only 1 electron domain."
+        >
+          <option value="">Choose</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+        </select>
+
+        <div class="feedback" id="gDomains2FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: What hybridization corresponds to 3 electron domains?</b>
+        <br /><br />
+
+        <select
+          id="gHybrid2"
+          name="gHybrid2"
+          class="calc"
+          formula="sp2"
+          help="<p>The superscripts (assuming an unwritten superscript is a 1) should add up to the number of electron domains. Thus,</p> 2 electron domains: sp<br>3 electron domains: sp<sub>2</sub><br>4 electron domains: sp<sub>3</sub>d<br>5 electron domains: <br>6 electron domains:sp<sub>3</sub>d<sub>2</sub>"
+        >
+          <option value="">Choose</option>
+          <option value="sp">sp</option>
+          <option value="sp2">sp²</option>
+          <option value="sp3">sp³</option>
+          <option value="sp3d">sp³d</option>
+          <option value="sp3d2">sp³d²</option>
+        </select>
+
+        <div class="feedback" id="gHybrid2FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: What orbital does hydrogen contribute?</b>
+        <br /><br />
+
+        <select id="gHydrogen2" name="gHydrogen2" class="calc" formula="s">
+          <option value="">Choose</option>
+          <option value="s">s</option>
+          <option value="p">p</option>
+        </select>
+
+        <div class="feedback" id="gHydrogen2FB"></div>
+
+        <br /><br />
+
+        <b>Step 4: Identify the orbitals that overlap in the C-H bonds</b>
+        <br /><br />
+
+        <select id="gOverlap2" name="gOverlap2" class="calc" formula="B">
+          <option value="">Choose</option>
+          <option value="A">sp and s</option>
+          <option value="B">sp² and s</option>
+          <option value="C">sp³ and s</option>
+          <option value="D">p and s</option>
+        </select>
+
+        <div class="feedback" id="gOverlap2FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>
+            Each carbon in C<sub>2</sub>H<sub>4</sub> has 3 electron domains.
+          </li>
+          <li>
+            Three electron domains correspond to sp<sub>2</sub> hybridization.
+          </li>
+          <li>Hydrogen contributes a 1s orbital.</li>
+          <li>
+            Therefore, each C-H bond is formed by overlap of an sp<sub>2</sub>
+            orbital and an s orbital.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Which orbitals overlap in the carbon-hydrogen bonds in
+        C<sub>2</sub>H<sub>2</sub>?
+        <br /><br />
+
+        <select id="pOverlap2" name="pOverlap2" class="calc" formula="sp">
+          <option value="">Choose</option>
+          <option value="sp">sp and s</option>
+          <option value="sp2">sp² and s</option>
+          <option value="sp3">sp³ and s</option>
+          <option value="sp3d">sp³d and s</option>
+          <option value="sp3d2">sp³d² and s</option>
+        </select>
+
+        <div class="feedback" id="pOverlap2FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What is the molecular shape of CO<sub>2</sub>?
+        <br /><br />
+
+        <b>Use these steps to guide your reasoning:</b>
+        <ul>
+          <li>Identify the central atom.</li>
+          <li>Count the electron domains around the central atom.</li>
+          <li>Use VSEPR theory to determine the molecular shape.</li>
+          <li>Double bonds count as one electron domain.</li>
+        </ul>
+
+        <br />
+
+        <b>Step 1: Identify the central atom</b>
+        <br /><br />
+
+        <select
+          id="gCenter5"
+          name="gCenter5"
+          class="calc"
+          formula="C"
+          help="Generally the atom that needs the most bonds to fill its valence electron shell is the central atom.  The exception is when the central atom forms more than an octet."
+        >
+          <option value="">Choose</option>
+          <option value="C">C</option>
+          <option value="O">O</option>
+        </select>
+
+        <div class="feedback" id="gCenter5FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Count the electron domains around the central atom</b>
+        <br /><br />
+
+        Number of electron domains:
+        <input
+          type="number"
+          class="calc"
+          id="gDomains5"
+          name="gDomains5"
+          formula="2"
+          help="Each double bond counts as one electron domain."
+        />
+
+        <div class="feedback" id="gDomains5FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Determine the molecular shape</b>
+        <br /><br />
+
+        <select
+          id="gShape5"
+          name="gShape5"
+          class="calc"
+          formula="Linear"
+          help="The molecular shape is based on the number of electron domains and lone pairs"
+        >
+          <option value="">Choose</option>
+          <option value="Linear">Linear</option>
+          <option value="Bent">Bent</option>
+          <option value="Trigonal planar">Trigonal planar</option>
+          <option value="Tetrahedral">Tetrahedral</option>
+        </select>
+
+        <div class="feedback" id="gShape5FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Carbon is the central atom.</li>
+          <li>
+            Carbon has two electron domains because each C=O double bond counts
+            as one domain.
+          </li>
+          <li>Two electron domains arrange themselves 180° apart.</li>
+          <li>Therefore, CO<sub>2</sub> has a linear molecular shape.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What is the molecular shape of BF<sub>3</sub>?
+        <br /><br />
+
+        <select
+          id="pShape6"
+          name="pShape6"
+          class="calc"
+          formula="C"
+          help="The molecular shape is based on the number of electron domains and lone pairs"
+        >
+          <option value="">Choose</option>
+          <option value="A">Linear</option>
+          <option value="B">Bent</option>
+          <option value="C">Trigonal planar</option>
+          <option value="D">Tetrahedral</option>
+        </select>
+
+        <div class="feedback" id="pShape6FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        Is XeF<sub>4</sub> polar or nonpolar? <br /><br />
+
+        <b>Use these steps to guide your reasoning:</b>
+        <ul>
+          <li>Determine the molecular shape.</li>
+          <li>Determine whether the bond dipoles cancel.</li>
+          <li>If all bond dipoles cancel, the molecule is nonpolar.</li>
+          <li>If the bond dipoles do not cancel, the molecule is polar.</li>
+        </ul>
+
+        <br />
+
+        <b>Step 1: How many electron domains surround the Xe atom?</b>
+        <br /><br />
+
+        <input
+          type="number"
+          class="calc"
+          id="gDomains7"
+          name="gDomains7"
+          formula="6"
+          help="XeF4 has 4 bonding domains and 2 lone pairs around Xe."
+        />
+
+        <div class="feedback" id="gDomains7FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: What is the molecular shape of XeF<sub>4</sub>?</b>
+        <br /><br />
+
+        <select
+          id="gShape7"
+          name="gShape7"
+          class="calc"
+          formula="Square planar"
+          help="Four bonds and two opposite lone pairs give a square planar molecular shape."
+        >
+          <option value="">Choose</option>
+          <option value="Tetrahedral">Tetrahedral</option>
+          <option value="Trigonal bipyramidal">Trigonal bipyramidal</option>
+          <option value="Square planar">Square planar</option>
+          <option value="Seesaw">Seesaw</option>
+        </select>
+
+        <div class="feedback" id="gShape7FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Do the Xe-F bond dipoles cancel?</b>
+        <br /><br />
+
+        <select
+          id="gDipoles7"
+          name="gDipoles7"
+          class="calc"
+          formula="Yes"
+          help="Because the molecule is symmetrical, the bond dipoles cancel."
+        >
+          <option value="">Choose</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <div class="feedback" id="gDipoles7FB"></div>
+
+        <br /><br />
+
+        <b>Step 4: Is XeF<sub>4</sub> polar or nonpolar?</b>
+        <br /><br />
+
+        <select
+          id="gPolarity7"
+          name="gPolarity7"
+          class="calc"
+          formula="Nonpolar"
+          help="If the bond dipoles cancel completely, the molecule is nonpolar."
+        >
+          <option value="">Choose</option>
+          <option value="Polar">Polar</option>
+          <option value="Nonpolar">Nonpolar</option>
+        </select>
+
+        <div class="feedback" id="gPolarity7FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>XeF<sub>4</sub> has 6 electron domains around xenon.</li>
+          <li>The electron-domain geometry is octahedral.</li>
+          <li>
+            The molecular shape is square planar because two positions contain
+            lone pairs.
+          </li>
+          <li>
+            The square planar arrangement is symmetric, so the Xe-F bond dipoles
+            cancel.
+          </li>
+          <li>Therefore, XeF<sub>4</sub> is nonpolar.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Is CO<sub>2</sub> polar or nonpolar?
+        <br />
+        <select
+          id="pPolarity8"
+          name="pPolarity8"
+          class="calc"
+          formula="B"
+          help="Consider both the molecular shape and whether the bond dipoles cancel."
+        >
+          <option value="">Choose</option>
+          <option value="A">Polar</option>
+          <option value="B">Nonpolar</option>
+        </select>
+
+        <div class="feedback" id="pPolarity8FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        Use the molecular orbital diagram shown below for B<sub>2</sub>,
+        C<sub>2</sub>, and N<sub>2</sub>. <br />
+
+        <img
+          src="/images/small_atom_MO_diagram.png"
+          alt="small atom molecular orbital diagram"
+          height="450px"
+        />
+
+        <br /><br />
+
+        Determine the total number of valence electrons and whether each species
+        is <b>paramagnetic</b> or <b>diamagnetic</b>.
+
+        <br /><br />
+
+        <b>B<sub>2</sub><sup>-</sup></b>
+
+        <br /><br />
+
+        Valence electrons =
+        <input
+          type="number"
+          class="calc"
+          id="gValence9a"
+          name="gValence9a"
+          formula="7"
+          help="Each B contributes 3 valence electrons. The negative charge adds one more electron."
+        />
+
+        <div class="feedback" id="gValence9aFB"></div>
+
+        <br /><br />
+
+        <select
+          id="gMO9a"
+          name="gMO9a"
+          class="calc"
+          formula="Paramagnetic"
+          help="Determine whether any electrons remain unpaired after filling the MO diagram."
+        >
+          <option value="">Choose</option>
+          <option value="Paramagnetic">Paramagnetic</option>
+          <option value="Diamagnetic">Diamagnetic</option>
+        </select>
+
+        <div class="feedback" id="gMO9aFB"></div>
+
+        <br /><br />
+
+        <b>BC<sup>2-</sup></b>
+
+        <br /><br />
+
+        Valence electrons =
+        <input
+          type="number"
+          class="calc"
+          id="gValence9b"
+          name="gValence9b"
+          formula="9"
+          help="B contributes 3 valence electrons, C contributes 4, and the 2− charge adds two electrons."
+        />
+
+        <div class="feedback" id="gValence9bFB"></div>
+
+        <br /><br />
+
+        <select
+          id="gMO9b"
+          name="gMO9b"
+          class="calc"
+          formula="Paramagnetic"
+          help="Fill the molecular orbitals and determine whether all electrons are paired."
+        >
+          <option value="">Choose</option>
+          <option value="Paramagnetic">Paramagnetic</option>
+          <option value="Diamagnetic">Diamagnetic</option>
+        </select>
+
+        <div class="feedback" id="gMO9bFB"></div>
+
+        <br /><br />
+
+        <b>C<sub>2</sub><sup>2-</sup></b>
+
+        <br /><br />
+
+        Valence electrons =
+        <input
+          type="number"
+          class="calc"
+          id="gValence9c"
+          name="gValence9c"
+          formula="10"
+          help="Each carbon contributes 4 valence electrons and the 2− charge adds two more."
+        />
+
+        <div class="feedback" id="gValence9cFB"></div>
+
+        <br /><br />
+
+        <select
+          id="gMO9c"
+          name="gMO9c"
+          class="calc"
+          formula="Diamagnetic"
+          help="Determine whether all electrons are paired after filling the molecular orbitals."
+        >
+          <option value="">Choose</option>
+          <option value="Paramagnetic">Paramagnetic</option>
+          <option value="Diamagnetic">Diamagnetic</option>
+        </select>
+
+        <div class="feedback" id="gMO9cFB"></div>
+
+        <br /><br />
+
+        <b>CN<sup>+</sup></b>
+
+        <br /><br />
+
+        Valence electrons =
+        <input
+          type="number"
+          class="calc"
+          id="gValence9d"
+          name="gValence9d"
+          formula="8"
+          help="N contributes 5 valence electrons, C contributes 4, and the positive charge removes one electron."
+        />
+
+        <div class="feedback" id="gValence9dFB"></div>
+
+        <br /><br />
+
+        <select
+          id="gMO9d"
+          name="gMO9d"
+          class="calc"
+          formula="Diamagnetic"
+          help="Fill the molecular orbitals and determine whether any unpaired electrons are present."
+        >
+          <option value="">Choose</option>
+          <option value="Paramagnetic">Paramagnetic</option>
+          <option value="Diamagnetic">Diamagnetic</option>
+        </select>
+
+        <div class="feedback" id="gMO9dFB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>
+            B<sub>2</sub><sup>-</sup> has 7 valence electrons and contains an
+            unpaired electron, making it paramagnetic.
+          </li>
+          <li>
+            BC<sup>2-</sup> has 9 valence electrons and all electrons are
+            paired, making it paramagnetic.
+          </li>
+          <li>
+            C<sub>2</sub><sup>2-</sup> has 10 valence electrons and all
+            electrons are paired, making it diamagnetic.
+          </li>
+          <li>
+            NC<sup>+</sup> has 8 valence electrons and contains an unpaired
+            electron, making it diamagnetic.
+          </li>
+          <li>
+            Note, while an odd number of valence electrons will always be
+            paramagnetic, an even number can be diamagnetic or paramagnetic
+            depending on whether or not there is an unpaired electron in the
+            molecular orbitals.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Use the molecular orbital diagram for O<sub>2</sub> and F<sub>2</sub>
+        (σ2p below π2p).<br />
+        <img
+          src="/images/large_atom_MO_diagram.png"
+          alt="large atom molecular orbital diagram"
+          height="400px"
+        />
+
+        <br /><br />
+
+        Determine whether each species is <b>paramagnetic</b> or
+        <b>diamagnetic</b>.
+
+        <br /><br />
+
+        <b>O<sub>2</sub><sup>+</sup></b>
+
+        <br /><br />
+
+        <select
+          id="pMO10a"
+          name="pMO10a"
+          class="calc"
+          formula="Paramagnetic"
+          help="Determine whether any electrons remain unpaired in the MO diagram."
+        >
+          <option value="">Choose</option>
+          <option value="Paramagnetic">Paramagnetic</option>
+          <option value="Diamagnetic">Diamagnetic</option>
+        </select>
+
+        <div class="feedback" id="pMO10aFB"></div>
+
+        <br /><br />
+
+        <b>O<sub>2</sub><sup>2-</sup></b>
+
+        <br /><br />
+
+        <select
+          id="pMO10b"
+          name="pMO10b"
+          class="calc"
+          formula="Diamagnetic"
+          help="Count electrons and determine whether all electrons are paired."
+        >
+          <option value="">Choose</option>
+          <option value="Paramagnetic">Paramagnetic</option>
+          <option value="Diamagnetic">Diamagnetic</option>
+        </select>
+
+        <div class="feedback" id="pMO10bFB"></div>
+
+        <br /><br />
+
+        <b>F<sub>2</sub></b>
+
+        <br /><br />
+
+        <select
+          id="pMO10c"
+          name="pMO10c"
+          class="calc"
+          formula="Diamagnetic"
+          help="Fill the molecular orbitals and classify the species."
+        >
+          <option value="">Choose</option>
+          <option value="Paramagnetic">Paramagnetic</option>
+          <option value="Diamagnetic">Diamagnetic</option>
+        </select>
+
+        <div class="feedback" id="pMO10cFB"></div>
+
+        <br /><br />
+
+        <b>O<sub>2</sub></b>
+
+        <br /><br />
+
+        <select
+          id="pMO10d"
+          name="pMO10d"
+          class="calc"
+          formula="Paramagnetic"
+          help="O₂ is the classic example of a paramagnetic molecule."
+        >
+          <option value="">Choose</option>
+          <option value="Paramagnetic">Paramagnetic</option>
+          <option value="Diamagnetic">Diamagnetic</option>
+        </select>
+
+        <div class="feedback" id="pMO10dFB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        How many grams of NaCl can be formed from
+        <input
+          class="num display-value"
+          id="gMoles11"
+          name="gMoles11"
+          random="true"
+          data-original="2.40"
+          randomPercent="50%"
+          readonly
+        />
+        moles of Cl<sub>2</sub>? Assume an excess of NaI.
+        <br /><br />
+
+        2 NaI + Cl<sub>2</sub> ➞ 2 NaCl + I<sub>2</sub> <br /><br />
+
+        <b>Step 1: Determine the mole ratio</b>
+        <br /><br />
+
+        For every 1 mole of Cl<sub>2</sub>, how many moles of NaCl are produced?
+        <br /><br />
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gRatio11"
+          name="gRatio11"
+          formula="2"
+          help="Use the coefficients from the balanced equation."
+        />
+
+        <div class="feedback" id="gRatio11FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Calculate moles of NaCl produced</b>
+        <br /><br />
+
+        Moles NaCl =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gNaClMoles11"
+          name="gNaClMoles11"
+          formula="${gMoles11}*2"
+          help="Multiply the given moles by the mole ratio."
+        />
+
+        <div class="feedback" id="gNaClMoles11FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Convert moles of NaCl to grams</b>
+        <br /><br />
+
+        Molar mass of NaCl =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMM11"
+          name="gMM11"
+          formula="58.44"
+          help="NaCl = 22.99 + 35.45 = 58.44 g/mol"
+        />
+
+        g/mol
+
+        <div class="feedback" id="gMM11FB"></div>
+
+        <br /><br />
+
+        <b>Step 4: Calculate grams of NaCl</b>
+        <br /><br />
+
+        grams NaCl =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gGrams11"
+          name="gGrams11"
+          formula="${gMoles11}*2*58.44"
+          help="grams = moles × molar mass"
+        />
+
+        <div class="feedback" id="gGrams11FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Use the balanced equation to obtain the mole ratio.</li>
+          <li>Convert moles of Cl<sub>2</sub> to moles of NaCl.</li>
+          <li>Convert moles of NaCl to grams using its molar mass.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        How many grams of MgO can be formed from
+        <input
+          class="num display-value"
+          id="pMoles12"
+          name="pMoles12"
+          random="true"
+          data-original="3.20"
+          randomPercent="50%"
+          readonly
+        />
+        moles of O<sub>2</sub>? Assume an excess of Mg.
+        <br /><br />
+
+        2 Mg + O<sub>2</sub> ➞ 2 MgO <br /><br />
+
+        grams MgO =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pGrams12"
+          name="pGrams12"
+          formula="${pMoles12}*2*40.30"
+          help="Use the mole ratio to find moles of MgO, then multiply by the molar mass of MgO (40.30 g/mol)."
+        />
+
+        <div class="feedback" id="pGrams12FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        How many molecules of CO<sub>2</sub> can be produced when
+        <input
+          class="num display-value"
+          id="gMass13"
+          name="gMass13"
+          random="true"
+          data-original="22.0"
+          randomPercent="50%"
+          readonly
+        />
+        g of C<sub>2</sub>H<sub>6</sub> reacts with excess oxygen? <br /><br />
+
+        2 C<sub>2</sub>H<sub>6</sub> + 7 O<sub>2</sub> ➞ 4 CO<sub>2</sub> + 6
+        H<sub>2</sub>O <br /><br />
+
+        <b>Step 1: Convert grams of C<sub>2</sub>H<sub>6</sub> to moles</b>
+        <br /><br />
+
+        Molar mass of C<sub>2</sub>H<sub>6</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMM13"
+          name="gMM13"
+          formula="30.07"
+          help="C₂H₆ = 2(12.01) + 6(1.008) = 30.07 g/mol."
+        />
+        g/mol
+
+        <div class="feedback" id="gMM13FB"></div>
+
+        <br /><br />
+
+        Moles of C<sub>2</sub>H<sub>6</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles13"
+          name="gMoles13"
+          formula="${gMass13}/30.07"
+          help="moles = grams ÷ molar mass"
+        />
+
+        <div class="feedback" id="gMoles13FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Use the mole ratio to find moles of CO<sub>2</sub></b>
+        <br /><br />
+
+        Moles of CO<sub>2</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gCO2Moles13"
+          name="gCO2Moles13"
+          formula="(${gMass13}/30.07)*(4/2)"
+          help="Use the coefficients from the balanced equation: 2 mol C₂H₆ produces 4 mol CO₂."
+        />
+
+        <div class="feedback" id="gCO2Moles13FB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 3: Convert moles of CO<sub>2</sub> to molecules (use e instead
+          of x10, for example 6.022e23 instead of 6.002 x 10<sup>23</sup></b
+        >
+        <br /><br />
+
+        Molecules of CO<sub>2</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolecules13"
+          name="gMolecules13"
+          formula="((${gMass13}/30.07)*(4/2))*6.022e23"
+          help="Multiply moles by Avogadro's number, 6.022 × 10²³ molecules/mol."
+        />
+
+        <div class="feedback" id="gMolecules13FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Convert grams of reactant to moles.</li>
+          <li>Use the mole ratio from the balanced equation.</li>
+          <li>
+            Convert moles of product to molecules using Avogadro's number.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        How many molecules of H<sub>2</sub>O can be produced when
+        <input
+          class="num display-value"
+          id="pMass14"
+          name="pMass14"
+          random="true"
+          data-original="18.0"
+          randomPercent="50%"
+          readonly
+        />
+        g of H<sub>2</sub> reacts with excess oxygen? <br /><br />
+
+        2 H<sub>2</sub> + O<sub>2</sub> ➞ 2 H<sub>2</sub>O <br /><br />
+
+        Molecules of H<sub>2</sub>O =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pMolecules14"
+          name="pMolecules14"
+          formula="(${pMass14}/2.016)*6.022e23"
+          help="Convert grams of H₂ to moles, use the mole ratio, then convert moles of H₂O to molecules."
+        />
+
+        <div class="feedback" id="pMolecules14FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        An unknown compound contains only carbon and hydrogen. When it undergoes
+        combustion analysis, it produces 82.04 g of CO<sub>2</sub> and 25.18 g
+        of H<sub>2</sub>O.
+
+        <br /><br />
+
+        What is the empirical formula of the compound?
+
+        <br /><br />
+
+        <b
+          >Step 1: Convert grams of CO<sub>2</sub> to moles of CO<sub>2</sub></b
+        >
+
+        <br /><br />
+
+        Moles CO<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolCO217"
+          name="gMolCO217"
+          formula="82.04/44.01"
+          help="Divide grams of CO₂ by 44.01 g/mol."
+        />
+
+        <div class="feedback" id="gMolCO217FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Convert moles of CO<sub>2</sub> to moles of carbon atoms</b>
+
+        <br /><br />
+
+        Moles C =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolC17"
+          name="gMolC17"
+          formula="82.04/44.01"
+          help="Each mole of CO₂ contains one mole of carbon atoms."
+        />
+
+        <div class="feedback" id="gMolC17FB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 3: Convert grams of H<sub>2</sub>O to moles of H<sub>2</sub>O</b
+        >
+
+        <br /><br />
+
+        Moles H<sub>2</sub>O =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolH2O17"
+          name="gMolH2O17"
+          formula="25.18/18.015"
+          help="Divide grams of H₂O by 18.015 g/mol."
+        />
+
+        <div class="feedback" id="gMolH2O17FB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 4: Convert moles of H<sub>2</sub>O to moles of hydrogen atoms</b
+        >
+
+        <br /><br />
+
+        Moles H =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolH17"
+          name="gMolH17"
+          formula="2*(25.18/18.015)"
+          help="Each mole of H₂O contains two moles of hydrogen atoms."
+        />
+
+        <div class="feedback" id="gMolH17FB"></div>
+
+        <br /><br />
+
+        <b>Step 5: Divide both values by the smaller number of moles</b>
+
+        <br /><br />
+
+        Carbon ratio =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gCRatio17"
+          name="gCRatio17"
+          formula="1"
+          help="Divide the moles of carbon by the smaller value."
+        />
+
+        <div class="feedback" id="gCRatio17FB"></div>
+
+        <br /><br />
+
+        Hydrogen ratio =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gHRatio17"
+          name="gHRatio17"
+          formula="(2*(25.18/18.015))/(82.04/44.01)"
+          help="Divide the moles of hydrogen by the smaller value."
+        />
+
+        <div class="feedback" id="gHRatio17FB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 6: If the ratio is not a whole number, multiply all ratios by
+          the appropriate value</b
+        >
+
+        <br /><br />
+
+        <table border="1" cellpadding="4">
+          <tr>
+            <th>Decimal Part</th>
+            <th>Multiply By</th>
+          </tr>
+          <tr>
+            <td>0.50</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>0.33 or 0.67</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>0.25 or 0.75</td>
+            <td>4</td>
+          </tr>
+        </table>
+
+        <br />
+
+        Multiplier =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMultiplier17"
+          name="gMultiplier17"
+          formula="2"
+          help="The hydrogen ratio is approximately 1.5, so multiply all ratios by 2."
+        />
+
+        <div class="feedback" id="gMultiplier17FB"></div>
+
+        <br /><br />
+
+        <b>Step 7: Determine the empirical formula</b>
+
+        <br /><br />
+
+        <select
+          id="gEmp17"
+          name="gEmp17"
+          class="calc"
+          formula="C2H3"
+          help="After multiplying by 2, the ratio becomes approximately 2:3."
+        >
+          <option value="">Choose</option>
+          <option value="CH">CH</option>
+          <option value="CH2">CH₂</option>
+          <option value="CH3">CH₃</option>
+          <option value="CH4">CH₄</option>
+          <option value="C2H3">C₂H₃</option>
+          <option value="C2H5">C₂H₅</option>
+          <option value="C3H4">C₃H₄</option>
+          <option value="C3H5">C₃H₅</option>
+        </select>
+
+        <div class="feedback" id="gEmp17FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+
+        <ul>
+          <li>Moles C ≈ 1.864</li>
+          <li>Moles H ≈ 2.796</li>
+          <li>Ratio ≈ 1 : 1.5</li>
+          <li>Multiply by 2 → 2 : 3</li>
+          <li>Empirical formula = C<sub>2</sub>H<sub>3</sub></li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        An unknown compound contains only carbon and hydrogen. When it undergoes
+        combustion analysis, it produces 73.50 g of CO<sub>2</sub> and 37.62 g
+        of H<sub>2</sub>O.
+
+        <br /><br />
+
+        What is the empirical formula?
+
+        <br /><br />
+
+        <select
+          id="pEmp18"
+          name="pEmp18"
+          class="calc"
+          formula="C2H5"
+          help="Convert CO₂ to moles of carbon, H₂O to moles of hydrogen, divide by the smallest value, apply a multiplier if needed, and determine the empirical formula."
+        >
+          <option value="">Choose</option>
+          <option value="CH">CH</option>
+          <option value="CH2">CH₂</option>
+          <option value="CH3">CH₃</option>
+          <option value="CH4">CH₄</option>
+          <option value="C2H3">C₂H₃</option>
+          <option value="C2H5">C₂H₅</option>
+          <option value="C3H4">C₃H₄</option>
+          <option value="C3H5">C₃H₅</option>
+        </select>
+
+        <div class="feedback" id="pEmp18FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What is the theoretical yield, in moles of CO<sub>2</sub>, from the
+        reaction of
+
+        <input
+          class="num display-value"
+          id="gC2H619"
+          name="gC2H619"
+          random="true"
+          data-original="18.0"
+          randomPercent="10%"
+          readonly
+        />
+        moles of C<sub>2</sub>H<sub>6</sub>
+
+        with
+
+        <input
+          class="num display-value"
+          id="gO219"
+          name="gO219"
+          random="true"
+          data-original="32.0"
+          randomPercent="10%"
+          readonly
+        />
+        moles of O<sub>2</sub>?
+        <br /><br />
+
+        2 C<sub>2</sub>H<sub>6</sub> + 7 O<sub>2</sub> ➞ 4 CO<sub>2</sub> + 6
+        H<sub>2</sub>O
+
+        <br /><br />
+
+        <b
+          >Step 1: Determine how much O<sub>2</sub> is required to consume all
+          the C<sub>2</sub>H<sub>6</sub></b
+        >
+        <br /><br />
+
+        Required moles O<sub>2</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gRequiredO219"
+          name="gRequiredO219"
+          formula="${gC2H619}*(7/2)"
+          help="Use the mole ratio 7 mol O₂ : 2 mol C₂H₆."
+        />
+
+        <div class="feedback" id="gRequiredO219FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Identify the limiting reagent</b>
+        <br /><br />
+
+        Limiting reagent:
+
+        <select
+          id="gLimit19"
+          name="gLimit19"
+          class="calc"
+          formula="O2"
+          help="Compare the amount of O₂ available with the amount required."
+        >
+          <option value="">Choose</option>
+          <option value="C2H6">C₂H₆</option>
+          <option value="O2">O₂</option>
+        </select>
+
+        <div class="feedback" id="gLimit19FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Convert moles of O<sub>2</sub> to moles of CO<sub>2</sub></b>
+        <br /><br />
+
+        Moles CO<sub>2</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gCO219"
+          name="gCO219"
+          formula="${gO219}*(4/7)"
+          help="Use the mole ratio 7 mol O₂ : 4 mol CO₂."
+        />
+
+        <div class="feedback" id="gCO219FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>First determine the limiting reagent.</li>
+          <li>O₂ is limiting because there is less O₂ than required.</li>
+          <li>Use the stoichiometric ratio between O₂ and CO₂.</li>
+          <li>The theoretical yield is based on the limiting reagent.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What is the theoretical yield, in moles of H<sub>2</sub>O, from the
+        reaction of
+
+        <input
+          class="num display-value"
+          id="pCH420"
+          name="pCH420"
+          random="true"
+          data-original="14.0"
+          randomPercent="10%"
+          readonly
+        />
+        moles of CH<sub>4</sub>
+
+        with
+
+        <input
+          class="num display-value"
+          id="pO220"
+          name="pO220"
+          random="true"
+          data-original="22.0"
+          randomPercent="10%"
+          readonly
+        />
+        moles of O<sub>2</sub>?
+        <br /><br />
+
+        CH<sub>4</sub> + 2 O<sub>2</sub> ➞ CO<sub>2</sub> + 2 H<sub>2</sub>O
+
+        <br /><br />
+
+        Moles H<sub>2</sub>O =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pH2O20"
+          name="pH2O20"
+          formula="${pO220}"
+          help="Determine the limiting reagent and use the mole ratio between O₂ and H₂O."
+        />
+
+        <div class="feedback" id="pH2O20FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        An unknown compound contains only carbon and hydrogen. When it undergoes
+        combustion analysis, it produces 27.35 g of CO<sub>2</sub> and 8.393 g
+        of H<sub>2</sub>O.
+
+        <br /><br />
+
+        The molar mass of the compound is 54.1 g/mol.
+
+        <br /><br />
+
+        What is the molecular formula of the compound?
+
+        <br /><br />
+
+        <b>Step 1: Convert CO<sub>2</sub> to moles of CO<sub>2</sub></b>
+
+        <br /><br />
+
+        Moles CO<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolCO221"
+          name="gMolCO221"
+          formula="27.35/44.01"
+          help="Divide grams of CO₂ by 44.01 g/mol."
+        />
+
+        <div class="feedback" id="gMolCO221FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Convert moles of CO<sub>2</sub> to moles of carbon atoms</b>
+
+        <br /><br />
+
+        Moles C =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolC21"
+          name="gMolC21"
+          formula="27.35/44.01"
+          help="Each mole of CO₂ contains one mole of carbon atoms."
+        />
+
+        <div class="feedback" id="gMolC21FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Convert H<sub>2</sub>O to moles of H<sub>2</sub>O</b>
+
+        <br /><br />
+
+        Moles H<sub>2</sub>O =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolH2O21"
+          name="gMolH2O21"
+          formula="8.393/18.015"
+          help="Divide grams of H₂O by 18.015 g/mol."
+        />
+
+        <div class="feedback" id="gMolH2O21FB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 4: Convert moles of H<sub>2</sub>O to moles of hydrogen atoms</b
+        >
+
+        <br /><br />
+
+        Moles H =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolH21"
+          name="gMolH21"
+          formula="2*(8.393/18.015)"
+          help="Each mole of H₂O contains two moles of hydrogen atoms."
+        />
+
+        <div class="feedback" id="gMolH21FB"></div>
+
+        <br /><br />
+
+        <b>Step 5: Divide by the smaller number of moles</b>
+
+        <br /><br />
+
+        Carbon ratio =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gCRatio21"
+          name="gCRatio21"
+          formula="1"
+          help="Divide the moles of carbon by the smaller value."
+        />
+
+        <div class="feedback" id="gCRatio21FB"></div>
+
+        <br /><br />
+
+        Hydrogen ratio =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gHRatio21"
+          name="gHRatio21"
+          formula="(2*(8.393/18.015))/(27.35/44.01)"
+          help="Divide the moles of hydrogen by the smaller value."
+        />
+
+        <div class="feedback" id="gHRatio21FB"></div>
+
+        <br /><br />
+
+        <b>Step 6: Use a multiplier if needed</b>
+
+        <br /><br />
+
+        <table border="1" cellpadding="4">
+          <tr>
+            <th>Decimal Part</th>
+            <th>Multiply By</th>
+          </tr>
+          <tr>
+            <td>0.50</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>0.33 or 0.67</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>0.25 or 0.75</td>
+            <td>4</td>
+          </tr>
+        </table>
+
+        <br />
+
+        Multiplier =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gRatioMult21"
+          name="gRatioMult21"
+          formula="2"
+          help="The ratio is approximately 1 : 1.5, so multiply by 2."
+        />
+
+        <div class="feedback" id="gRatioMult21FB"></div>
+
+        <br /><br />
+
+        <b>Step 7: Determine the empirical formula</b>
+
+        <br /><br />
+
+        <select
+          id="gEmp21"
+          name="gEmp21"
+          class="calc"
+          formula="C2H3"
+          help="After multiplying by 2, the ratio becomes 2:3."
+        >
+          <option value="">Choose</option>
+          <option value="CH">CH</option>
+          <option value="CH2">CH₂</option>
+          <option value="CH3">CH₃</option>
+          <option value="C2H3">C₂H₃</option>
+          <option value="C2H5">C₂H₅</option>
+          <option value="C3H4">C₃H₄</option>
+        </select>
+
+        <div class="feedback" id="gEmp21FB"></div>
+
+        <br /><br />
+
+        <b>Step 8: Calculate the empirical formula mass</b>
+
+        <br /><br />
+
+        Empirical formula mass =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gEFM21"
+          name="gEFM21"
+          formula="27.05"
+          help="C₂H₃ = 2(12.01)+3(1.008)=27.05 g/mol."
+        />
+
+        g/mol
+
+        <div class="feedback" id="gEFM21FB"></div>
+
+        <br /><br />
+
+        <b>Step 9: Determine the molecular formula multiplier</b>
+
+        <br /><br />
+
+        Multiplier =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMult21"
+          name="gMult21"
+          formula="2"
+          help="54.1 ÷ 27.05 ≈ 2."
+        />
+
+        <div class="feedback" id="gMult21FB"></div>
+
+        <br /><br />
+
+        <b>Step 10: Determine the molecular formula</b>
+
+        <br /><br />
+
+        <select
+          id="gMF21"
+          name="gMF21"
+          class="calc"
+          formula="C4H6"
+          help="Multiply all subscripts in C₂H₃ by 2."
+        >
+          <option value="">Choose</option>
+          <option value="C2H3">C₂H₃</option>
+          <option value="C3H5">C₃H₅</option>
+          <option value="C4H6">C₄H₆</option>
+          <option value="C4H8">C₄H₈</option>
+          <option value="C5H8">C₅H₈</option>
+        </select>
+
+        <div class="feedback" id="gMF21FB"></div>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        An unknown compound contains only carbon and hydrogen. When it undergoes
+        combustion analysis, it produces 73.50 g of CO<sub>2</sub> and 37.62 g
+        of H<sub>2</sub>O.
+
+        <br /><br />
+
+        The molar mass of the compound is 58.1 g/mol.
+
+        <br /><br />
+
+        What is the molecular formula?
+
+        <br /><br />
+
+        <select
+          id="pMF22"
+          name="pMF22"
+          class="calc"
+          formula="C4H10"
+          help="Determine the empirical formula first, then use the molar mass to find the molecular formula."
+        >
+          <option value="">Choose</option>
+          <option value="C2H5">C₂H₅</option>
+          <option value="C3H8">C₃H₈</option>
+          <option value="C4H10">C₄H₁₀</option>
+          <option value="C5H12">C₅H₁₂</option>
+          <option value="C6H14">C₆H₁₄</option>
+        </select>
+
+        <div class="feedback" id="pMF22FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What is the limiting reactant when
+
+        <input
+          class="num display-value"
+          id="gZnS23"
+          name="gZnS23"
+          random="true"
+          data-original="10.8"
+          randomPercent="20%"
+          readonly
+        />
+
+        moles of ZnS react with
+
+        <input
+          class="num display-value"
+          id="gAlP23"
+          name="gAlP23"
+          random="true"
+          data-original="11.8"
+          randomPercent="20%"
+          readonly
+        />
+
+        moles of AlP?
+
+        <br /><br />
+
+        3 ZnS + 2 AlP ➞ Zn<sub>3</sub>P<sub>2</sub> + Al<sub>2</sub>S<sub
+          >3</sub
+        >
+
+        <br /><br />
+
+        <b
+          >Step 1: Determine how many moles of AlP are required to react with
+          all of the ZnS</b
+        >
+
+        <br /><br />
+
+        Required moles AlP =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gRequired23"
+          name="gRequired23"
+          formula="${gZnS23}*(2/3)"
+          help="Use the mole ratio 2 mol AlP : 3 mol ZnS."
+        />
+
+        <div class="feedback" id="gRequired23FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Compare the required amount with the amount available</b>
+
+        <br /><br />
+
+        Is there enough AlP present to consume all of the ZnS?
+
+        <br /><br />
+
+        <select
+          id="gEnough23"
+          name="gEnough23"
+          class="calc"
+          formula="Yes"
+          help="Compare the required moles of AlP with the moles actually available."
+        >
+          <option value="">Choose</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+
+        <div class="feedback" id="gEnough23FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Identify the limiting reactant</b>
+
+        <br /><br />
+
+        <select
+          id="gLimit23"
+          name="gLimit23"
+          class="calc"
+          formula="ZnS"
+          help="The limiting reactant is consumed first and determines the amount of product formed."
+        >
+          <option value="">Choose</option>
+          <option value="ZnS">ZnS</option>
+          <option value="AlP">AlP</option>
+        </select>
+
+        <div class="feedback" id="gLimit23FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>
+            Use the coefficients in the balanced equation to compare reactants.
+          </li>
+          <li>Determine how much AlP is needed to react with all the ZnS.</li>
+          <li>Since enough AlP is present, ZnS is consumed first.</li>
+          <li>Therefore, ZnS is the limiting reactant.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What is the limiting reactant when
+
+        <input
+          class="num display-value"
+          id="pFe24"
+          name="pFe24"
+          random="true"
+          data-original="8.00"
+          randomPercent="20%"
+          readonly
+        />
+
+        moles of Fe react with
+
+        <input
+          class="num display-value"
+          id="pO224"
+          name="pO224"
+          random="true"
+          data-original="4.00"
+          randomPercent="20%"
+          readonly
+        />
+
+        moles of O<sub>2</sub>?
+
+        <br /><br />
+
+        4 Fe + 3 O<sub>2</sub> ➞ 2 Fe<sub>2</sub>O<sub>3</sub>
+
+        <br /><br />
+
+        <select
+          id="pLimit24"
+          name="pLimit24"
+          class="calc"
+          formula="O2"
+          help="Compare the available mole ratio to the stoichiometric ratio from the balanced equation."
+        >
+          <option value="">Choose</option>
+          <option value="Fe">Fe</option>
+          <option value="O2">O₂</option>
+        </select>
+
+        <div class="feedback" id="pLimit24FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        <img
+          src="/images/Solubility_Table.png"
+          alt="Solubility Table"
+          height="400px"
+        /><br />
+
+        Use the solubility table provided above to determine whether each
+        compound is <b>soluble</b> or <b>insoluble</b> in water.
+
+        <br /><br />
+
+        <b>KNO<sub>3</sub></b>
+
+        <br /><br />
+
+        <select
+          id="gSol27a"
+          name="gSol27a"
+          class="calc"
+          formula="Soluble"
+          help="Nitrates (NO₃⁻) are soluble in water."
+        >
+          <option value="">Choose</option>
+          <option value="Soluble">Soluble</option>
+          <option value="Insoluble">Insoluble</option>
+        </select>
+
+        <div class="feedback" id="gSol27aFB"></div>
+
+        <br /><br />
+
+        <b>AgCl</b>
+
+        <br /><br />
+
+        <select
+          id="gSol27b"
+          name="gSol27b"
+          class="calc"
+          formula="Insoluble"
+          help="Most chlorides are soluble except those containing Ag⁺, Hg₂²⁺, or Pb²⁺."
+        >
+          <option value="">Choose</option>
+          <option value="Soluble">Soluble</option>
+          <option value="Insoluble">Insoluble</option>
+        </select>
+
+        <div class="feedback" id="gSol27bFB"></div>
+
+        <br /><br />
+
+        <b>(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub></b>
+
+        <br /><br />
+
+        <select
+          id="gSol27c"
+          name="gSol27c"
+          class="calc"
+          formula="Soluble"
+          help="Phosphates are usually insoluble, but ammonium compounds are soluble."
+        >
+          <option value="">Choose</option>
+          <option value="Soluble">Soluble</option>
+          <option value="Insoluble">Insoluble</option>
+        </select>
+
+        <div class="feedback" id="gSol27cFB"></div>
+
+        <br /><br />
+
+        <b>BaSO<sub>4</sub></b>
+
+        <br /><br />
+
+        <select
+          id="gSol27d"
+          name="gSol27d"
+          class="calc"
+          formula="Insoluble"
+          help="Most sulfates are soluble except those containing Ba²⁺, Sr²⁺, Pb²⁺, Ag⁺, or Hg₂²⁺."
+        >
+          <option value="">Choose</option>
+          <option value="Soluble">Soluble</option>
+          <option value="Insoluble">Insoluble</option>
+        </select>
+
+        <div class="feedback" id="gSol27dFB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>KNO₃ is soluble because all nitrates are soluble.</li>
+          <li>
+            AgCl is insoluble because Ag⁺ is an exception to the chloride rule.
+          </li>
+          <li>(NH₄)₃PO₄ is soluble because ammonium compounds are soluble.</li>
+          <li>
+            BaSO₄ is insoluble because Ba²⁺ is an exception to the sulfate rule.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Use the solubility table provided above to determine whether each
+        compound is <b>soluble</b> or <b>insoluble</b> in water.
+
+        <br /><br />
+
+        <b>Na<sub>2</sub>CO<sub>3</sub></b>
+
+        <br /><br />
+
+        <select
+          id="pSol28a"
+          name="pSol28a"
+          class="calc"
+          formula="Soluble"
+          help="Carbonates are usually insoluble, but compounds containing alkali metals are soluble."
+        >
+          <option value="">Choose</option>
+          <option value="Soluble">Soluble</option>
+          <option value="Insoluble">Insoluble</option>
+        </select>
+
+        <div class="feedback" id="pSol28aFB"></div>
+
+        <br /><br />
+
+        <b>PbI<sub>2</sub></b>
+
+        <br /><br />
+
+        <select
+          id="pSol28b"
+          name="pSol28b"
+          class="calc"
+          formula="Insoluble"
+          help="Most iodides are soluble except those containing Pb²⁺, Ag⁺, and Hg₂²⁺."
+        >
+          <option value="">Choose</option>
+          <option value="Soluble">Soluble</option>
+          <option value="Insoluble">Insoluble</option>
+        </select>
+
+        <div class="feedback" id="pSol28bFB"></div>
+
+        <br /><br />
+
+        <b>KOH</b>
+
+        <br /><br />
+
+        <select
+          id="pSol28c"
+          name="pSol28c"
+          class="calc"
+          formula="Soluble"
+          help="Hydroxides are usually insoluble, but alkali metal hydroxides are soluble."
+        >
+          <option value="">Choose</option>
+          <option value="Soluble">Soluble</option>
+          <option value="Insoluble">Insoluble</option>
+        </select>
+
+        <div class="feedback" id="pSol28cFB"></div>
+
+        <br /><br />
+
+        <b>MgS</b>
+
+        <br /><br />
+
+        <select
+          id="pSol28d"
+          name="pSol28d"
+          class="calc"
+          formula="Insoluble"
+          help="Sulfides are generally insoluble unless paired with alkali metals or ammonium."
+        >
+          <option value="">Choose</option>
+          <option value="Soluble">Soluble</option>
+          <option value="Insoluble">Insoluble</option>
+        </select>
+
+        <div class="feedback" id="pSol28dFB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        Determine the reaction type for each reaction below.
+
+        <br /><br />
+
+        <b>Reaction 1</b>
+
+        <br /><br />
+
+        2 HCl(aq) + Mg(OH)<sub>2</sub>(aq) → 2 H<sub>2</sub>O(l) +
+        MgCl<sub>2</sub>(aq)
+
+        <br /><br />
+
+        <select
+          id="gType29a"
+          name="gType29a"
+          class="calc"
+          formula="Acid-base"
+          help="An acid reacts with a base to produce water and a salt."
+        >
+          <option value="">Choose</option>
+          <option value="Acid-base">Acid-base</option>
+          <option value="Combustion">Combustion</option>
+          <option value="Precipitation">Precipitation</option>
+          <option value="Redox">Redox</option>
+          <option value="None of these">None of these</option>
+        </select>
+
+        <div class="feedback" id="gType29aFB"></div>
+
+        <br /><br />
+
+        <b>Reaction 2</b>
+
+        <br /><br />
+
+        CaCl<sub>2</sub>(aq) + Na<sub>2</sub>CO<sub>3</sub>(aq) →
+        CaCO<sub>3</sub>(s) + 2 NaCl(aq)
+
+        <br /><br />
+
+        <select
+          id="gType29b"
+          name="gType29b"
+          class="calc"
+          formula="Precipitation"
+          help="Look for the formation of an insoluble solid from aqueous reactants."
+        >
+          <option value="">Choose</option>
+          <option value="Acid-base">Acid-base</option>
+          <option value="Combustion">Combustion</option>
+          <option value="Precipitation">Precipitation</option>
+          <option value="Redox">Redox</option>
+          <option value="None of these">None of these</option>
+        </select>
+
+        <div class="feedback" id="gType29bFB"></div>
+
+        <br /><br />
+
+        <b>Reaction 3</b>
+
+        <br /><br />
+
+        C<sub>3</sub>H<sub>8</sub> + 5 O<sub>2</sub> → 3 CO<sub>2</sub> + 4
+        H<sub>2</sub>O
+
+        <br /><br />
+
+        <select
+          id="gType29c"
+          name="gType29c"
+          class="calc"
+          formula="Combustion"
+          help="A hydrocarbon reacting with oxygen is a combustion reaction."
+        >
+          <option value="">Choose</option>
+          <option value="Acid-base">Acid-base</option>
+          <option value="Combustion">Combustion</option>
+          <option value="Precipitation">Precipitation</option>
+          <option value="Redox">Redox</option>
+          <option value="None of these">None of these</option>
+        </select>
+
+        <div class="feedback" id="gType29cFB"></div>
+
+        <br /><br />
+
+        <b>Reaction 4</b>
+
+        <br /><br />
+
+        2 Mg(s) + O<sub>2</sub>(g) → 2 MgO(s)
+
+        <br /><br />
+
+        <select
+          id="gType29d"
+          name="gType29d"
+          class="calc"
+          formula="Redox"
+          help="This is a combination reaction involving elements in their elemental forms."
+        >
+          <option value="">Choose</option>
+          <option value="Acid-base">Acid-base</option>
+          <option value="Combustion">Combustion</option>
+          <option value="Precipitation">Precipitation</option>
+          <option value="Redox">Redox</option>
+          <option value="None of these">None of these</option>
+        </select>
+
+        <div class="feedback" id="gType29dFB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Acid-base reactions produce water and a salt.</li>
+          <li>Precipitation reactions produce an insoluble solid.</li>
+          <li>
+            The combustion reactions you should recognize involve a hydrocarbon
+            reacting with O<sub>2</sub> to produce CO<sub>2</sub> and
+            H<sub>2</sub>O or hydrogen reacting with O<sub>2</sub> to produce
+            H<sub>2</sub>O.
+          </li>
+          <li>
+            For this course, redox reactions are identified as combination or
+            decomposition reactions involving elements in their elemental form.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Determine the reaction type for each reaction below.
+
+        <br /><br />
+
+        <b>Reaction 1</b>
+
+        <br /><br />
+
+        2 C<sub>2</sub>H<sub>2</sub> + 5 O<sub>2</sub> → 4 CO<sub>2</sub> + 2
+        H<sub>2</sub>O
+
+        <br /><br />
+
+        <select
+          id="pType30c"
+          name="pType30c"
+          class="calc"
+          formula="Combustion"
+          help="Hydrocarbon + oxygen indicates combustion."
+        >
+          <option value="">Choose</option>
+          <option value="Acid-base">Acid-base</option>
+          <option value="Combustion">Combustion</option>
+          <option value="Precipitation">Precipitation</option>
+          <option value="Redox">Redox</option>
+          <option value="None of these">None of these</option>
+        </select>
+
+        <div class="feedback" id="pType30cFB"></div>
+
+        <br /><br />
+
+        <b>Reaction 2</b>
+
+        <br /><br />
+
+        AgNO<sub>3</sub>(aq) + NaCl(aq) → AgCl(s) + NaNO<sub>3</sub>(aq)
+
+        <br /><br />
+
+        <select
+          id="pType30b"
+          name="pType30b"
+          class="calc"
+          formula="Precipitation"
+          help="Look for the formation of an insoluble solid."
+        >
+          <option value="">Choose</option>
+          <option value="Acid-base">Acid-base</option>
+          <option value="Combustion">Combustion</option>
+          <option value="Precipitation">Precipitation</option>
+          <option value="Redox">Redox</option>
+          <option value="None of these">None of these</option>
+        </select>
+
+        <div class="feedback" id="pType30bFB"></div>
+
+        <br /><br />
+
+        <b>Reaction 3</b>
+
+        <br /><br />
+
+        HNO<sub>3</sub>(aq) + KOH(aq) → KNO<sub>3</sub>(aq) + H<sub>2</sub>O(l)
+
+        <br /><br />
+
+        <select
+          id="pType30a"
+          name="pType30a"
+          class="calc"
+          formula="Acid-base"
+          help="Look for an acid reacting with a base."
+        >
+          <option value="">Choose</option>
+          <option value="Acid-base">Acid-base</option>
+          <option value="Combustion">Combustion</option>
+          <option value="Precipitation">Precipitation</option>
+          <option value="Redox">Redox</option>
+          <option value="None of these">None of these</option>
+        </select>
+
+        <div class="feedback" id="pType30aFB"></div>
+
+        <br /><br />
+
+        <b>Reaction 4</b>
+
+        <br /><br />
+
+        2 KClO<sub>3</sub>(s) → 2 KCl(s) + 3 O<sub>2</sub>(g)
+
+        <br /><br />
+
+        <select
+          id="pType30d"
+          name="pType30d"
+          class="calc"
+          formula="Redox"
+          help="This decomposition reaction produces elemental oxygen (oxidation number 0)."
+        >
+          <option value="">Choose</option>
+          <option value="Acid-base">Acid-base</option>
+          <option value="Combustion">Combustion</option>
+          <option value="Precipitation">Precipitation</option>
+          <option value="Redox">Redox</option>
+          <option value="None of these">None of these</option>
+        </select>
+
+        <div class="feedback" id="pType30dFB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        According to the following reaction, what volume (in mL) of
+        <input
+          class="num display-value"
+          id="gMolarity31"
+          name="gMolarity31"
+          random="true"
+          data-original="0.250"
+          randomPercent="20%"
+          readonly
+        />
+        M AgNO<sub>3</sub> solution is required to react exactly with
+
+        <input
+          class="num display-value"
+          id="gVolume31"
+          name="gVolume31"
+          random="true"
+          data-original="24.0"
+          randomPercent="20%"
+          readonly
+        />
+        mL of
+
+        <input
+          class="num display-value"
+          id="gMolarityPb31"
+          name="gMolarityPb31"
+          random="true"
+          data-original="0.180"
+          randomPercent="20%"
+          readonly
+        />
+        M PbCl<sub>2</sub> solution?
+
+        <br /><br />
+
+        2 AgNO<sub>3</sub>(aq) + PbCl<sub>2</sub>(aq) → 2 AgCl(s) +
+        Pb(NO<sub>3</sub>)<sub>2</sub>(aq)
+
+        <br /><br />
+
+        <b>Step 1: Convert mL of PbCl<sub>2</sub> solution to liters</b>
+
+        <br /><br />
+
+        Volume =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gLiters31"
+          name="gLiters31"
+          formula="${gVolume31}/1000"
+          help="Divide mL by 1000 to convert to liters."
+        />
+
+        L
+
+        <div class="feedback" id="gLiters31FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Calculate moles of PbCl<sub>2</sub></b>
+
+        <br /><br />
+
+        Moles PbCl<sub>2</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolesPb31"
+          name="gMolesPb31"
+          formula="(${gVolume31}/1000)*${gMolarityPb31}"
+          help="moles = M × L"
+        />
+
+        <div class="feedback" id="gMolesPb31FB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 3: Use the mole ratio to find moles of AgNO<sub>3</sub>
+          needed</b
+        >
+
+        <br /><br />
+
+        Moles AgNO<sub>3</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolesAg31"
+          name="gMolesAg31"
+          formula="((${gVolume31}/1000)*${gMolarityPb31})*2"
+          help="Use the stoichiometric ratio: 2 mol AgNO₃ per 1 mol PbCl₂."
+        />
+
+        <div class="feedback" id="gMolesAg31FB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 4: Calculate the volume of AgNO<sub>3</sub> solution required</b
+        >
+
+        <br /><br />
+
+        Volume AgNO<sub>3</sub> =
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gAnswer31"
+          name="gAnswer31"
+          formula="(((${gVolume31}/1000)*${gMolarityPb31})*2)/${gMolarity31}*1000"
+          help="Use V = moles ÷ molarity, then convert liters to milliliters."
+        />
+
+        mL
+
+        <div class="feedback" id="gAnswer31FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Convert the given volume to liters.</li>
+          <li>Use molarity to calculate moles of PbCl<sub>2</sub>.</li>
+          <li>
+            Use the balanced equation to determine moles of AgNO<sub>3</sub>
+            needed.
+          </li>
+          <li>
+            Use the molarity of AgNO<sub>3</sub> to calculate the required
+            volume.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        According to the following reaction, what volume (in mL) of
+
+        <input
+          class="num display-value"
+          id="pMolarity32"
+          name="pMolarity32"
+          random="true"
+          data-original="0.320"
+          randomPercent="20%"
+          readonly
+        />
+
+        M Na<sub>2</sub>SO<sub>4</sub> solution is required to react exactly
+        with
+
+        <input
+          class="num display-value"
+          id="pVolume32"
+          name="pVolume32"
+          random="true"
+          data-original="18.5"
+          randomPercent="20%"
+          readonly
+        />
+
+        mL of
+
+        <input
+          class="num display-value"
+          id="pMolarityBa32"
+          name="pMolarityBa32"
+          random="true"
+          data-original="0.220"
+          randomPercent="20%"
+          readonly
+        />
+
+        M BaCl<sub>2</sub> solution?
+
+        <br /><br />
+
+        Na<sub>2</sub>SO<sub>4</sub>(aq) + BaCl<sub>2</sub>(aq) →
+        BaSO<sub>4</sub>(s) + 2 NaCl(aq)
+
+        <br /><br />
+
+        Volume Na<sub>2</sub>SO<sub>4</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pAnswer32"
+          name="pAnswer32"
+          formula="(((${pVolume32}/1000)*${pMolarityBa32})/${pMolarity32})*1000"
+          help="Calculate moles of BaCl₂, use the 1:1 mole ratio, then divide by the molarity of Na₂SO₄ and convert to mL."
+        />
+
+        mL
+
+        <div class="feedback" id="pAnswer32FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What is the oxidation state of the indicated element in each compound?
+
+        <br /><br />
+
+        <b
+          >Step 1: Find the oxidation state of C in CO<sub>3</sub
+          ><sup>2−</sup></b
+        >
+
+        <br /><br />
+
+        Use the following rules:
+        <ul>
+          <li>
+            The sum of all oxidation states must equal the overall charge.
+            <ul>
+              <li>Thus Al<sup>3+</sup> has an oxidation state of +3.</li>
+              <li>H<sub>2</sub> has an oxidation state of 0.</li>
+            </ul>
+          </li>
+          <li>Fluorine always takes an oxidation state of -1 in a compound.</li>
+          <li>
+            Hydrogen either takes a +1 or -1 oxidation state in a compound.
+            <ul>
+              <li>Assume +1 if hydrogen is attached to nonmetals</li>
+              <li>Assume -1 if hydrogen is attached to a metal</li>
+            </ul>
+          </li>
+          <li>
+            Oxygen is usually −2 but there are 2 exceptions.
+            <ul>
+              <li>
+                In OF<sub>2</sub> oxygen has a +2 oxidation state (i.e. apply
+                the fluorine rule first)
+              </li>
+              <li>
+                In H<sub>2</sub>O<sub>2</sub> oxygen has a -1 oxidation state
+                (i.e. apply the hydrogen rule first)
+              </li>
+            </ul>
+          </li>
+          <li></li>
+        </ul>
+
+        <br />
+
+        Oxidation state of C =
+
+        <input
+          type="number"
+          class="calc"
+          id="gOx33a"
+          name="gOx33a"
+          formula="4"
+          help="Three oxygens contribute a total of −6. The ion has a charge of −2, so carbon must be +4."
+        />
+
+        <div class="feedback" id="gOx33aFB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 2: Find the oxidation state of S in SO<sub>4</sub
+          ><sup>2−</sup></b
+        >
+
+        <br /><br />
+
+        Oxidation state of S =
+
+        <input
+          type="number"
+          class="calc"
+          id="gOx33b"
+          name="gOx33b"
+          formula="6"
+          help="Four oxygens contribute a total of −8. The ion has a charge of −2, so sulfur must be +6."
+        />
+
+        <div class="feedback" id="gOx33bFB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 3: Find the oxidation state of N in NO<sub>3</sub
+          ><sup>−</sup></b
+        >
+
+        <br /><br />
+
+        Oxidation state of N =
+
+        <input
+          type="number"
+          class="calc"
+          id="gOx33c"
+          name="gOx33c"
+          formula="5"
+          help="Three oxygens contribute a total of −6. The ion has a charge of −1, so nitrogen must be +5."
+        />
+
+        <div class="feedback" id="gOx33cFB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Write the oxidation state of oxygen as −2.</li>
+          <li>Multiply by the number of oxygen atoms.</li>
+          <li>Set the total equal to the overall charge of the ion.</li>
+          <li>Solve for the unknown oxidation state.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Determine the oxidation state of the indicated element in each species.
+
+        <br /><br />
+
+        <b>Cr in Cr<sub>2</sub>O<sub>7</sub><sup>2−</sup></b>
+
+        <br /><br />
+
+        Oxidation state of Cr =
+
+        <input
+          type="number"
+          class="calc"
+          id="pOx34a"
+          name="pOx34a"
+          formula="6"
+          help="Use oxygen = −2 and make the sum equal −2."
+        />
+
+        <div class="feedback" id="pOx34aFB"></div>
+
+        <br /><br />
+
+        <b>Mn in MnO<sub>4</sub><sup>−</sup></b>
+
+        <br /><br />
+
+        Oxidation state of Mn =
+
+        <input
+          type="number"
+          class="calc"
+          id="pOx34b"
+          name="pOx34b"
+          formula="7"
+          help="Use oxygen = −2 and make the sum equal −1."
+        />
+
+        <div class="feedback" id="pOx34bFB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What would be the molarity of a solution formed by dissolving
+
+        <input
+          class="num display-value"
+          id="gGrams35"
+          name="gGrams35"
+          random="true"
+          data-original="24.9"
+          randomPercent="30%"
+          readonly
+        />
+
+        g of NaCl in enough water to yield
+
+        <input
+          class="num display-value"
+          id="gVol35"
+          name="gVol35"
+          random="true"
+          data-original="2"
+          randomPercent="30%"
+          readonly
+        />00.0 mL of solution?
+
+        <br /><br />
+
+        <b>Step 1: Calculate the molar mass of NaCl</b>
+
+        <br /><br />
+
+        Molar mass =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMM35"
+          name="gMM35"
+          formula="58.44"
+          help="NaCl = 22.99 + 35.45 = 58.44 g/mol."
+        />
+
+        g/mol
+
+        <div class="feedback" id="gMM35FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Convert grams to moles</b>
+
+        <br /><br />
+
+        Moles NaCl =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles35"
+          name="gMoles35"
+          formula="${gGrams35}/58.44"
+          help="moles = grams ÷ molar mass"
+        />
+
+        <div class="feedback" id="gMoles35FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Convert the volume to liters</b>
+
+        <br /><br />
+
+        Volume =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gLiters35"
+          name="gLiters35"
+          formula="(${gVol35}*100)/1000"
+          help="The displayed volume is hundreds of mL. Convert mL to L by dividing by 1000."
+        />
+
+        L
+
+        <div class="feedback" id="gLiters35FB"></div>
+
+        <br /><br />
+
+        <b>Step 4: Calculate the molarity</b>
+
+        <br /><br />
+
+        Molarity =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMolarity35"
+          name="gMolarity35"
+          formula="(${gGrams35}/58.44)/((${gVol35}*100)/1000)"
+          help="M = moles ÷ liters"
+        />
+
+        M
+
+        <div class="feedback" id="gMolarity35FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Convert grams of solute to moles.</li>
+          <li>Convert the solution volume to liters.</li>
+          <li>Use M = moles/L.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What would be the molarity of a solution formed by dissolving
+
+        <input
+          class="num display-value"
+          id="pGrams36"
+          name="pGrams36"
+          random="true"
+          data-original="31.2"
+          randomPercent="30%"
+          readonly
+        />
+
+        g of KNO<sub>3</sub> in enough water to yield
+
+        <input
+          class="num display-value"
+          id="pVol36"
+          name="pVol36"
+          random="true"
+          data-original="3"
+          randomPercent="30%"
+          readonly
+        />00.0 mL of solution?
+
+        <br /><br />
+
+        Molarity =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pMolarity36"
+          name="pMolarity36"
+          formula="(${pGrams36}/101.11)/((${pVol36}*100)/1000)"
+          help="Convert grams of KNO₃ to moles using its molar mass (101.11 g/mol), convert the volume to liters, then calculate M = moles/L."
+        />
+
+        M
+
+        <div class="feedback" id="pMolarity36FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What element is undergoing reduction (if any) in the following reaction?
+
+        <br /><br />
+
+        Zn(s) + CuSO<sub>4</sub>(aq) → ZnSO<sub>4</sub>(aq) + Cu(s)
+
+        <br /><br />
+
+        <b>Use these steps to guide your reasoning:</b>
+
+        <ul>
+          <li>
+            An element is reduced when its oxidation state decreases (the
+            oxidation state is literally reduced).
+          </li>
+          <li>An element is oxidized when its oxidation state increases.</li>
+          <li>
+            Elements in their elemental form have an oxidation state of 0.
+          </li>
+        </ul>
+
+        <br />
+
+        <b
+          >Step 1: Determine the oxidation state of Zn on each side of the
+          equation</b
+        >
+
+        <br /><br />
+
+        Oxidation state of Zn in Zn(s):
+
+        <input
+          type="number"
+          class="calc"
+          id="gZnOx37a"
+          name="gZnOx37a"
+          formula="0"
+          help="Any element in its elemental form has an oxidation state of 0."
+        />
+
+        <div class="feedback" id="gZnOx37aFB"></div>
+
+        <br /><br />
+
+        Oxidation state of Zn in ZnSO<sub>4</sub>:
+
+        <input
+          type="number"
+          class="calc"
+          id="gZnOx37b"
+          name="gZnOx37b"
+          formula="2"
+          help="Sulfate has a charge of 2−, so Zn must be 2+."
+        />
+
+        <div class="feedback" id="gZnOx37bFB"></div>
+
+        <br /><br />
+
+        <b
+          >Step 2: Determine the oxidation state of Cu on each side of the
+          equation</b
+        >
+
+        <br /><br />
+
+        Oxidation state of Cu in CuSO<sub>4</sub>:
+
+        <input
+          type="number"
+          class="calc"
+          id="gCuOx37a"
+          name="gCuOx37a"
+          formula="2"
+          help="Sulfate has a charge of 2−, so Cu must be 2+."
+        />
+
+        <div class="feedback" id="gCuOx37aFB"></div>
+
+        <br /><br />
+
+        Oxidation state of Cu in Cu(s):
+
+        <input
+          type="number"
+          class="calc"
+          id="gCuOx37b"
+          name="gCuOx37b"
+          formula="0"
+          help="Any element in its elemental form has an oxidation state of 0."
+        />
+
+        <div class="feedback" id="gCuOx37bFB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Which element has a decrease in oxidation state?</b>
+
+        <br /><br />
+
+        <select
+          id="gReduced37"
+          name="gReduced37"
+          class="calc"
+          formula="Cu"
+          help="Reduction corresponds to a decrease in oxidation state."
+        >
+          <option value="">Choose</option>
+          <option value="Zn">Zn</option>
+          <option value="Cu">Cu</option>
+          <option value="Neither">Neither</option>
+        </select>
+
+        <div class="feedback" id="gReduced37FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Zn changes from 0 to +2, so Zn is oxidized.</li>
+          <li>Cu changes from +2 to 0, so Cu is reduced.</li>
+          <li>The element undergoing reduction is Cu.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What element is undergoing reduction (if any) in the following reaction?
+
+        <br /><br />
+
+        2 Al(s) + 3 Pb(NO<sub>3</sub>)<sub>2</sub>(aq) → 2
+        Al(NO<sub>3</sub>)<sub>3</sub>(aq) + 3 Pb(s)
+
+        <br /><br />
+
+        <select
+          id="pReduced38"
+          name="pReduced38"
+          class="calc"
+          formula="Pb"
+          help="Find the element whose oxidation state decreases during the reaction."
+        >
+          <option value="">Choose</option>
+          <option value="Al">Al</option>
+          <option value="Pb">Pb</option>
+          <option value="N">N</option>
+          <option value="O">O</option>
+          <option value="Neither">Neither</option>
+        </select>
+
+        <div class="feedback" id="pReduced38FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        Use the solubility table provided above to determine the
+        <b>net ionic equation</b> for the reaction that occurs when aqueous
+        solutions of Ba(NO<sub>3</sub>)<sub>2</sub> and K<sub>2</sub>SO<sub
+          >4</sub
+        >
+        are mixed.
+
+        <br /><br />
+
+        <b>Step 1: Identify the precipitate</b>
+
+        <br /><br />
+
+        Which product is insoluble according to the solubility table?
+
+        <br /><br />
+
+        <select
+          id="gPrecip39a"
+          name="gPrecip39a"
+          class="calc"
+          formula="BaSO4"
+          help="Most sulfates are soluble, but Ba2+ is an important exception."
+        >
+          <option value="">Choose</option>
+          <option value="KNO3">KNO₃</option>
+          <option value="BaSO4">BaSO₄</option>
+        </select>
+
+        <div class="feedback" id="gPrecip39aFB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Identify the spectator ions</b>
+
+        <br /><br />
+
+        <select
+          id="gSpectator39b"
+          name="gSpectator39b"
+          class="calc"
+          formula="K and NO3"
+          help="Spectator ions remain unchanged on both sides of the reaction."
+        >
+          <option value="">Choose</option>
+          <option value="Ba and SO4">Ba²⁺ and SO₄²⁻</option>
+          <option value="K and NO3">K⁺ and NO₃⁻</option>
+        </select>
+
+        <div class="feedback" id="gSpectator39bFB"></div>
+        <br /><br />
+        <b>Step 3: Write out the chemical equation.</b>
+        <br /><br />
+
+        Ba(NO<sub>3</sub>)<sub>2</sub>(aq) + K<sub>2</sub>SO<sub>4</sub>(aq) →
+        BaSO<sub>4</sub>(s) + 2 KNO<sub>3</sub>(aq)
+
+        <br /><br />
+
+        <b>Step 4: Write the net ionic equation</b>
+
+        <br /><br />
+
+        <select
+          id="gNet39c"
+          name="gNet39c"
+          class="calc"
+          formula="B"
+          help="Remove spectator ions and keep only the ions that form the precipitate."
+        >
+          <option value="">Choose</option>
+          <option value="A">K⁺(aq) + NO₃⁻(aq) → KNO₃(aq)</option>
+          <option value="B">Ba²⁺(aq) + SO₄²⁻(aq) → BaSO₄(s)</option>
+          <option value="C">
+            Ba(NO₃)₂(aq) + K₂SO₄(aq) → BaSO₄(s) + 2KNO₃(aq)
+          </option>
+          <option value="D">Ba²⁺(aq) + 2NO₃⁻(aq) → Ba(NO₃)₂(aq)</option>
+        </select>
+
+        <div class="feedback" id="gNet39cFB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>
+            BaSO<sub>4</sub> is insoluble because Ba<sup>2+</sup> is an
+            exception to the sulfate rule.
+          </li>
+          <li>
+            K<sup>+</sup> and NO<sub>3</sub><sup>−</sup> are spectator ions.
+          </li>
+          <li>
+            The net ionic equation contains only the ions that form the
+            precipitate.
+          </li>
+          <li>
+            Ba<sup>2+</sup>(aq) + SO<sub>4</sub><sup>2−</sup>(aq) →
+            BaSO<sub>4</sub>(s)
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Use the solubility table provided above to determine the
+        <b>net ionic equation</b> for the reaction that occurs when aqueous
+        solutions of Pb(NO<sub>3</sub>)<sub>2</sub> and KI are mixed.
+
+        <br /><br />
+
+        <select
+          id="pNet40"
+          name="pNet40"
+          class="calc"
+          formula="C"
+          help="Identify the insoluble product and remove spectator ions."
+        >
+          <option value="">Choose</option>
+          <option value="A">K⁺(aq) + NO₃⁻(aq) → KNO₃(aq)</option>
+          <option value="B">Pb²⁺(aq) + 2NO₃⁻(aq) → Pb(NO₃)₂(aq)</option>
+          <option value="C">Pb²⁺(aq) + 2I⁻(aq) → PbI₂(s)</option>
+          <option value="D">2K⁺(aq) + 2I⁻(aq) → 2KI(aq)</option>
+        </select>
+
+        <div class="feedback" id="pNet40FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        Determine the specific heat capacity of a metal alloy that requires
+
+        <input
+          class="num display-value"
+          id="gQ41"
+          name="gQ41"
+          random="true"
+          data-original="55.3"
+          randomPercent="30%"
+          readonly
+        />
+
+        kJ to raise the temperature of
+
+        <input
+          class="num display-value"
+          id="gMass41"
+          name="gMass41"
+          random="true"
+          data-original="189"
+          randomPercent="30%"
+          readonly
+        />
+
+        g of the alloy from
+
+        <input
+          class="num display-value"
+          id="gT141"
+          name="gT141"
+          random="true"
+          data-original="298"
+          randomPercent="10%"
+          readonly
+        />
+
+        K to
+
+        <input
+          class="num display-value"
+          id="gT241"
+          name="gT241"
+          random="true"
+          data-original="402"
+          randomPercent="10%"
+          readonly
+        />
+
+        K.
+
+        <br /><br />
+
+        <b>Use the equation:</b>
+
+        <br /><br />
+
+        q = mcΔT
+
+        <br /><br />
+
+        where:
+        <ul>
+          <li>q = heat (J)</li>
+          <li>m = mass (g)</li>
+          <li>c = specific heat capacity (J/g·K)</li>
+          <li>ΔT = temperature change (K)</li>
+        </ul>
+
+        <br />
+
+        <b>Step 1: Convert kJ to J</b>
+
+        <br /><br />
+
+        q =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gQJ41"
+          name="gQJ41"
+          formula="${gQ41}*1000"
+          help="Multiply kJ by 1000 to convert to J."
+        />
+
+        J
+
+        <div class="feedback" id="gQJ41FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Calculate ΔT</b>
+
+        <br /><br />
+
+        ΔT =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gDT41"
+          name="gDT41"
+          formula="${gT241}-${gT141}"
+          help="Subtract the initial temperature from the final temperature."
+        />
+
+        K
+
+        <div class="feedback" id="gDT41FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Solve for the specific heat capacity</b>
+
+        <br /><br />
+
+        c =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gC41"
+          name="gC41"
+          formula="(${gQ41}*1000)/(${gMass41}*(${gT241}-${gT141}))"
+          help="Use c = q/(mΔT)."
+        />
+
+        J/g·K
+
+        <div class="feedback" id="gC41FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Convert the heat from kJ to J.</li>
+          <li>Calculate the temperature change.</li>
+          <li>Substitute into c = q/(mΔT).</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Determine the specific heat capacity of a metal alloy that requires
+
+        <input
+          class="num display-value"
+          id="pQ42"
+          name="pQ42"
+          random="true"
+          data-original="42.8"
+          randomPercent="30%"
+          readonly
+        />
+
+        kJ to raise the temperature of
+
+        <input
+          class="num display-value"
+          id="pMass42"
+          name="pMass42"
+          random="true"
+          data-original="156"
+          randomPercent="30%"
+          readonly
+        />
+
+        g of the alloy from
+
+        <input
+          class="num display-value"
+          id="pT142"
+          name="pT142"
+          random="true"
+          data-original="285"
+          randomPercent="10%"
+          readonly
+        />
+
+        K to
+
+        <input
+          class="num display-value"
+          id="pT242"
+          name="pT242"
+          random="true"
+          data-original="395"
+          randomPercent="10%"
+          readonly
+        />
+
+        K.
+
+        <br /><br />
+
+        Specific heat capacity =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pC42"
+          name="pC42"
+          formula="(${pQ42}*1000)/(${pMass42}*(${pT242}-${pT142}))"
+          help="Convert kJ to J, calculate ΔT, then use c = q/(mΔT)."
+        />
+
+        J/g·K
+
+        <div class="feedback" id="pC42FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What are the signs on q (heat) and w (work) for a system that has
+        <b>work done on it by the surroundings</b> and is
+        <b>giving off heat to the surroundings</b>?
+
+        <br /><br />
+
+        <b>Use these sign conventions:</b>
+
+        <ul>
+          <li>q is positive when heat enters the system.</li>
+          <li>q is negative when heat leaves the system.</li>
+          <li>w is positive when work is done on the system.</li>
+          <li>w is negative when the system does work on the surroundings.</li>
+        </ul>
+
+        <br />
+
+        <b>Step 1: Determine the sign of q</b>
+
+        <br /><br />
+
+        Heat is being given off to the surroundings.
+
+        <br /><br />
+
+        <select
+          id="gHeat43"
+          name="gHeat43"
+          class="calc"
+          formula="-"
+          help="Heat leaving the system means q is negative."
+        >
+          <option value="">Choose</option>
+          <option value="+">Positive (+)</option>
+          <option value="-">Negative (-)</option>
+        </select>
+
+        <div class="feedback" id="gHeat43FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Determine the sign of w</b>
+
+        <br /><br />
+
+        Work is being done on the system by the surroundings.
+
+        <br /><br />
+
+        <select
+          id="gWork43"
+          name="gWork43"
+          class="calc"
+          formula="+"
+          help="Work done on the system corresponds to a positive value of w."
+        >
+          <option value="">Choose</option>
+          <option value="+">Positive (+)</option>
+          <option value="-">Negative (-)</option>
+        </select>
+
+        <div class="feedback" id="gWork43FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Choose the correct combination</b>
+
+        <br /><br />
+
+        <select
+          id="gSigns43"
+          name="gSigns43"
+          class="calc"
+          formula="B"
+          help="Combine the signs you found for q and w."
+        >
+          <option value="">Choose</option>
+          <option value="A">q = +, w = +</option>
+          <option value="B">q = -, w = +</option>
+          <option value="C">q = +, w = -</option>
+          <option value="D">q = -, w = -</option>
+        </select>
+
+        <div class="feedback" id="gSigns43FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+
+        <ul>
+          <li>Heat leaving the system means q is negative.</li>
+          <li>Work done on the system means w is positive.</li>
+          <li>Therefore, q = − and w = +.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What are the signs on q (heat) and w (work) for a system that has
+        <b>work done by the system on the surroundings</b> and is
+        <b>absorbing heat from the surroundings</b>?
+
+        <br /><br />
+
+        <select
+          id="pSigns44"
+          name="pSigns44"
+          class="calc"
+          formula="C"
+          help="Determine the sign of q from the heat flow and the sign of w from the work flow."
+        >
+          <option value="">Choose</option>
+          <option value="A">q = +, w = +</option>
+          <option value="B">q = -, w = +</option>
+          <option value="C">q = +, w = -</option>
+          <option value="D">q = -, w = -</option>
+        </select>
+
+        <div class="feedback" id="pSigns44FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        A
+
+        <input
+          class="num display-value"
+          id="gMass45"
+          name="gMass45"
+          random="true"
+          data-original="4.80"
+          randomPercent="10%"
+          readonly
+        />
+
+        g sample of ethanol (C<sub>2</sub>H<sub>5</sub>OH, molar mass = 46.07
+        g/mol) was combusted in a bomb calorimeter. If the temperature rose by
+
+        <input
+          class="num display-value"
+          id="gTemp45"
+          name="gTemp45"
+          random="true"
+          data-original="31.5"
+          randomPercent="10%"
+          readonly
+        />
+
+        °C, determine the heat capacity of the calorimeter. For this problem,
+        the water is considered part of the calorimeter, so assume all heat
+        released by the reaction is absorbed by the calorimeter.
+
+        <br /><br />
+
+        C<sub>2</sub>H<sub>5</sub>OH(l) + 3 O<sub>2</sub>(g) → 2
+        CO<sub>2</sub>(g) + 3 H<sub>2</sub>O(l)
+
+        <br /><br />
+
+        ΔH°<sub>rxn</sub> = -1367 kJ/mol
+
+        <br /><br />
+
+        <b>Step 1: Calculate moles of ethanol combusted</b>
+
+        <br /><br />
+
+        Moles ethanol =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles45"
+          name="gMoles45"
+          formula="${gMass45}/46.07"
+          help="moles = grams ÷ molar mass"
+        />
+
+        <div class="feedback" id="gMoles45FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Calculate the heat released</b>
+
+        <br /><br />
+
+        q =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gHeat45"
+          name="gHeat45"
+          formula="(${gMass45}/46.07)*1367"
+          help="Multiply the moles of ethanol by the magnitude of ΔHrxn."
+        />
+
+        kJ
+
+        <div class="feedback" id="gHeat45FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Use q = CΔT to solve for the calorimeter heat capacity</b>
+
+        <br /><br />
+
+        C =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gCal45"
+          name="gCal45"
+          formula="((${gMass45}/46.07)*1367)/${gTemp45}"
+          help="Use C = q/ΔT."
+        />
+
+        kJ/°C
+
+        <div class="feedback" id="gCal45FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Convert the sample mass to moles.</li>
+          <li>Use ΔH°<sub>rxn</sub> to determine the heat released.</li>
+          <li>Since all heat is absorbed by the calorimeter, q = CΔT.</li>
+          <li>
+            Solve for C by dividing the heat absorbed by the temperature change.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        A
+
+        <input
+          class="num display-value"
+          id="pMass46"
+          name="pMass46"
+          random="true"
+          data-original="5.60"
+          randomPercent="10%"
+          readonly
+        />
+
+        g sample of methanol (CH<sub>3</sub>OH, molar mass = 32.04 g/mol) was
+        combusted in a bomb calorimeter. If the temperature rose by
+
+        <input
+          class="num display-value"
+          id="pTemp46"
+          name="pTemp46"
+          random="true"
+          data-original="27.8"
+          randomPercent="10%"
+          readonly
+        />
+
+        °C, determine the heat capacity of the calorimeter. Assume all heat
+        released by the reaction is absorbed by the calorimeter.
+
+        <br /><br />
+
+        2 CH<sub>3</sub>OH(l) + 3 O<sub>2</sub>(g) → 2 CO<sub>2</sub>(g) + 4
+        H<sub>2</sub>O(l)
+
+        <br /><br />
+
+        ΔH°<sub>rxn</sub> = -1450 kJ for the reaction as written
+
+        <br /><br />
+
+        Heat capacity =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pCal46"
+          name="pCal46"
+          formula="(((${pMass46}/32.04)*(1450/2)))/${pTemp46}"
+          help="Convert grams of methanol to moles, calculate the heat released using ΔHrxn, then use C = q/ΔT."
+        />
+
+        kJ/°C
+
+        <div class="feedback" id="pCal46FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What is the final temperature of an iron sample (specific heat capacity
+        = 0.449 J/g-°C) that has a mass of
+
+        <input
+          class="num display-value"
+          id="gMass49"
+          name="gMass49"
+          random="true"
+          data-original="275"
+          randomPercent="20%"
+          readonly
+        />
+
+        g and an initial temperature of
+
+        <input
+          class="num display-value"
+          id="gTemp49"
+          name="gTemp49"
+          random="true"
+          data-original="355"
+          randomPercent="10%"
+          readonly
+        />
+
+        K, if it loses
+
+        <input
+          class="num display-value"
+          id="gHeat49"
+          name="gHeat49"
+          random="true"
+          data-original="5.20"
+          randomPercent="20%"
+          readonly
+        />
+
+        kJ of heat?
+
+        <br /><br />
+
+        <b>Step 1: Convert the heat from kJ to J</b>
+
+        <br /><br />
+
+        q =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gQ49"
+          name="gQ49"
+          formula="-${gHeat49}*1000"
+          help="The sample loses heat, so q is negative. Convert kJ to J by multiplying by 1000."
+        />
+
+        J
+
+        <div class="feedback" id="gQ49FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Use the equation q = mcΔT</b>
+
+        <br /><br />
+
+        ΔT =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gDT49"
+          name="gDT49"
+          formula="(-${gHeat49}*1000)/(${gMass49}*0.449)"
+          help="Rearrange q = mcΔT to ΔT = q/(mc)."
+        />
+
+        °C
+
+        <div class="feedback" id="gDT49FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Calculate the final temperature</b>
+
+        <br /><br />
+
+        T<sub>final</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gFinal49"
+          name="gFinal49"
+          formula="${gTemp49}+((-${gHeat49}*1000)/(${gMass49}*0.449))"
+          help="The final temperature equals the initial temperature plus ΔT. Because heat is lost, ΔT is negative."
+        />
+
+        K
+
+        <div class="feedback" id="gFinal49FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Heat is lost, so q is negative.</li>
+          <li>Use q = mcΔT to calculate the temperature change.</li>
+          <li>
+            Add ΔT to the initial temperature to obtain the final temperature.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What is the final temperature of a copper sample (specific heat capacity
+        = 0.385 J/g-°C) that has a mass of
+
+        <input
+          class="num display-value"
+          id="pMass50"
+          name="pMass50"
+          random="true"
+          data-original="320"
+          randomPercent="20%"
+          readonly
+        />
+
+        g and an initial temperature of
+
+        <input
+          class="num display-value"
+          id="pTemp50"
+          name="pTemp50"
+          random="true"
+          data-original="405"
+          randomPercent="10%"
+          readonly
+        />
+
+        K, if it loses
+
+        <input
+          class="num display-value"
+          id="pHeat50"
+          name="pHeat50"
+          random="true"
+          data-original="6.40"
+          randomPercent="20%"
+          readonly
+        />
+
+        kJ of heat?
+
+        <br /><br />
+
+        T<sub>final</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pFinal50"
+          name="pFinal50"
+          formula="${pTemp50}+((-${pHeat50}*1000)/(${pMass50}*0.385))"
+          help="Convert the heat to joules, calculate ΔT using q = mcΔT, then add ΔT to the initial temperature."
+        />
+
+        K
+
+        <div class="feedback" id="pFinal50FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        Calcium is dissolved in hydrochloric acid producing hydrogen gas.
+
+        <br /><br />
+
+        If
+
+        <input
+          class="num display-value"
+          id="gVolume53"
+          name="gVolume53"
+          random="true"
+          data-original="2.92"
+          randomPercent="20%"
+          readonly
+        />
+
+        L of gas is collected at 25.0°C and has a total pressure of
+
+        <input
+          class="num display-value"
+          id="gPressure53"
+          name="gPressure53"
+          random="true"
+          data-original="772"
+          randomPercent="3%"
+          readonly
+        />
+
+        mm Hg, what mass of hydrogen is produced?
+
+        <br /><br />
+
+        Ca(s) + 2 HCl(aq) → CaCl<sub>2</sub>(aq) + H<sub>2</sub>(g)
+
+        <br /><br />
+
+        A useful water vapor pressure table is provided above.
+
+        <br /><br />
+
+        <b>Step 1: Determine the partial pressure of H<sub>2</sub></b>
+
+        <br /><br />
+
+        At 25.0°C, the vapor pressure of water is 23.8 mm Hg.
+
+        <br /><br />
+
+        P<sub>H₂</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gPH253"
+          name="gPH253"
+          formula="${gPressure53}-23.8"
+          help="Subtract the vapor pressure of water from the total pressure."
+        />
+
+        mm Hg
+
+        <div class="feedback" id="gPH253FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Convert pressure to atmospheres</b>
+
+        <br /><br />
+
+        P =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gPatm53"
+          name="gPatm53"
+          formula="(${gPressure53}-23.8)/760"
+          help="Divide mm Hg by 760 mm Hg/atm."
+        />
+
+        atm
+
+        <div class="feedback" id="gPatm53FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Use the ideal gas law to calculate moles of H<sub>2</sub></b>
+
+        <br /><br />
+
+        PV = nRT
+
+        <br /><br />
+
+        n =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles53"
+          name="gMoles53"
+          formula="(((${gPressure53}-23.8)/760)*${gVolume53})/(0.08206*298.15)"
+          help="Use n = PV/(RT), where T = 298.15 K and R = 0.08206 L·atm/mol·K."
+        />
+
+        mol
+
+        <div class="feedback" id="gMoles53FB"></div>
+
+        <br /><br />
+
+        <b>Step 4: Convert moles of H<sub>2</sub> to grams</b>
+
+        <br /><br />
+
+        Mass H<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMassH253"
+          name="gMassH253"
+          formula="(((${gPressure53}-23.8)/760)*${gVolume53})/(0.08206*298.15)*2.016"
+          help="Multiply moles of H₂ by its molar mass, 2.016 g/mol."
+        />
+
+        g
+
+        <div class="feedback" id="gMassH253FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>
+            The collected gas contains both H<sub>2</sub> and water vapor.
+          </li>
+          <li>
+            Subtract the vapor pressure of water to find the pressure of
+            hydrogen.
+          </li>
+          <li>Use the ideal gas law to determine the moles of hydrogen.</li>
+          <li>Convert moles of hydrogen to grams using its molar mass.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        Zinc is dissolved in hydrochloric acid producing hydrogen gas.
+
+        <br /><br />
+
+        If
+
+        <input
+          class="num display-value"
+          id="pVolume54"
+          name="pVolume54"
+          random="true"
+          data-original="3.15"
+          randomPercent="20%"
+          readonly
+        />
+
+        L of gas is collected at 25.0°C and has a total pressure of
+
+        <input
+          class="num display-value"
+          id="pPressure54"
+          name="pPressure54"
+          random="true"
+          data-original="768"
+          randomPercent="3%"
+          readonly
+        />
+
+        mm Hg, what mass of hydrogen is produced?
+
+        <br /><br />
+
+        Zn(s) + H<sub>2</sub>SO<sub>4</sub>(aq) → ZnSO<sub>4</sub>(aq) +
+        H<sub>2</sub>(g)
+
+        <br /><br />
+
+        Mass H<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pMassH254"
+          name="pMassH254"
+          formula="(((${pPressure54}-23.8)/760)*${pVolume54})/(0.08206*298.15)*2.016"
+          help="Subtract the vapor pressure of water (23.8 mm Hg), use PV = nRT to find moles of H₂, then convert to grams."
+        />
+
+        g
+
+        <div class="feedback" id="pMassH254FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        The rate of effusion of hydrogen gas (H<sub>2</sub>) to an unknown gas
+        is 4.000.
+
+        <br /><br />
+
+        What is the unknown gas?
+
+        <br /><br />
+
+        <b>Use Graham's Law:</b>
+
+        <br /><br />
+
+        $\frac{Rate_{H_₂}}{Rate_{unknown}}$ =
+        $\sqrt{\frac{M_{unknown}}{M_{H_₂}}}$ = 4.000
+
+        <br /><br />
+
+        <b>Step 1: Square both sides</b>
+
+        <br /><br />
+
+        $\frac{M_{unknown}}{M_{H_2}}$ =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gRatio55"
+          name="gRatio55"
+          formula="16"
+          help="Square the effusion-rate ratio."
+        />
+
+        <div class="feedback" id="gRatio55FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Calculate the molar mass of the unknown gas</b>
+
+        <br /><br />
+
+        M<sub>unknown</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMM55"
+          name="gMM55"
+          formula="16*2.016"
+          help="Multiply the ratio by the molar mass of H₂ (2.016 g/mol)."
+        />
+
+        g/mol
+
+        <div class="feedback" id="gMM55FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Identify the gas</b>
+
+        <br /><br />
+
+        <select
+          id="gGas55"
+          name="gGas55"
+          class="calc"
+          formula="B"
+          help="Choose the gas whose molar mass is closest to the calculated value."
+        >
+          <option value="">Choose</option>
+          <option value="A">He (4.00 g/mol)</option>
+          <option value="B">O₂ (32.00 g/mol)</option>
+          <option value="C">N₂ (28.02 g/mol)</option>
+          <option value="D">Ne (20.18 g/mol)</option>
+          <option value="E">Ar (39.95 g/mol)</option>
+          <option value="F">CO₂ (44.01 g/mol)</option>
+          <option value="G">Cl₂ (70.90 g/mol)</option>
+          <option value="H">Kr (83.80 g/mol)</option>
+        </select>
+
+        <div class="feedback" id="gGas55FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Square the rate ratio: 4.000<sup>2</sup> = 16.</li>
+          <li>
+            Multiply by the molar mass of hydrogen: 16 × 2.016 = 32.26 g/mol.
+          </li>
+          <li>The closest choice is O<sub>2</sub> (32.00 g/mol).</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        The rate of effusion of hydrogen gas (H<sub>2</sub>) to an unknown gas
+        is 5.93.
+
+        <br /><br />
+
+        What is the unknown gas?
+
+        <br /><br />
+
+        <select
+          id="pGas56"
+          name="pGas56"
+          class="calc"
+          formula="G"
+          help="Use Graham's Law to determine the molar mass of the unknown gas, then choose the closest match."
+        >
+          <option value="">Choose</option>
+          <option value="A">He (4.00 g/mol)</option>
+          <option value="B">O₂ (32.00 g/mol)</option>
+          <option value="C">N₂ (28.02 g/mol)</option>
+          <option value="D">Ne (20.18 g/mol)</option>
+          <option value="E">Ar (39.95 g/mol)</option>
+          <option value="F">CO₂ (44.01 g/mol)</option>
+          <option value="G">Cl₂ (70.90 g/mol)</option>
+          <option value="H">Kr (83.80 g/mol)</option>
+        </select>
+
+        <div class="feedback" id="pGas56FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        What pressure (in atm) will
+
+        <input
+          class="num display-value"
+          id="gMass57"
+          name="gMass57"
+          random="true"
+          data-original="18.5"
+          randomPercent="25%"
+          readonly
+        />
+
+        g of N<sub>2</sub> exert in a
+
+        <input
+          class="num display-value"
+          id="gVolume57"
+          name="gVolume57"
+          random="true"
+          data-original="5.20"
+          randomPercent="25%"
+          readonly
+        />
+
+        L container at
+
+        <input
+          class="num display-value"
+          id="gTemp57"
+          name="gTemp57"
+          random="true"
+          data-original="72"
+          randomPercent="20%"
+          readonly
+        />
+
+        °C?
+
+        <br /><br />
+
+        <b>Step 1: Convert grams of N<sub>2</sub> to moles</b>
+
+        <br /><br />
+
+        Moles N<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles57"
+          name="gMoles57"
+          formula="${gMass57}/28.02"
+          help="Use moles = grams ÷ molar mass. The molar mass of N₂ is 28.02 g/mol."
+        />
+
+        <div class="feedback" id="gMoles57FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Convert temperature to Kelvin</b>
+
+        <br /><br />
+
+        Temperature =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gTempK57"
+          name="gTempK57"
+          formula="${gTemp57}+273.15"
+          help="Convert °C to K using K = °C + 273.15."
+        />
+
+        K
+
+        <div class="feedback" id="gTempK57FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Use the ideal gas law</b>
+
+        <br /><br />
+
+        PV = nRT
+
+        <br /><br />
+
+        Solve for pressure:
+
+        <br /><br />
+
+        P =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gPressure57"
+          name="gPressure57"
+          formula="((${gMass57}/28.02)*0.08206*(${gTemp57}+273.15))/${gVolume57}"
+          help="Use P = nRT/V with R = 0.08206 L·atm/mol·K."
+        />
+
+        atm
+
+        <div class="feedback" id="gPressure57FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>Convert grams to moles using the molar mass.</li>
+          <li>Convert the temperature to Kelvin.</li>
+          <li>Substitute into the ideal gas law and solve for pressure.</li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        What pressure (in atm) will
+
+        <input
+          class="num display-value"
+          id="pMass58"
+          name="pMass58"
+          random="true"
+          data-original="22.0"
+          randomPercent="25%"
+          readonly
+        />
+
+        g of O<sub>2</sub> exert in a
+
+        <input
+          class="num display-value"
+          id="pVolume58"
+          name="pVolume58"
+          random="true"
+          data-original="6.00"
+          randomPercent="25%"
+          readonly
+        />
+
+        L container at
+
+        <input
+          class="num display-value"
+          id="pTemp58"
+          name="pTemp58"
+          random="true"
+          data-original="85"
+          randomPercent="20%"
+          readonly
+        />
+
+        °C?
+
+        <br /><br />
+
+        Pressure =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pPressure58"
+          name="pPressure58"
+          formula="((${pMass58}/32.00)*0.08206*(${pTemp58}+273.15))/${pVolume58}"
+          help="Convert grams of O₂ to moles, convert °C to K, then use the ideal gas law: P = nRT/V."
+        />
+
+        atm
+
+        <div class="feedback" id="pPressure58FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        If a sample of
+
+        <input
+          class="num display-value"
+          id="gMoles59"
+          name="gMoles59"
+          random="true"
+          data-original="0.250"
+          randomPercent="30%"
+          readonly
+        />
+
+        moles of Ar occupies
+
+        <input
+          class="num display-value"
+          id="gVolume59"
+          name="gVolume59"
+          random="true"
+          data-original="7.20"
+          randomPercent="30%"
+          readonly
+        />
+
+        L under certain conditions, what volume (in L) will
+
+        <input
+          class="num display-value"
+          id="gMolesFinal59"
+          name="gMolesFinal59"
+          random="true"
+          data-original="0.900"
+          randomPercent="30%"
+          readonly
+        />
+
+        moles occupy under the same conditions?
+
+        <br /><br />
+
+        <b>Step 1: Identify the relationship</b>
+
+        <br /><br />
+
+        At constant temperature and pressure:
+
+        <br /><br />
+
+        V<sub>1</sub>/n<sub>1</sub> = V<sub>2</sub>/n<sub>2</sub>
+
+        <br /><br />
+
+        <b>Step 2: Rearrange the equation</b>
+
+        <br /><br />
+
+        $V_2 = \frac{V_1\ \times\ n_2}{n_1}$
+
+        <br /><br />
+
+        <b>Step 3: Calculate the final volume</b>
+
+        <br /><br />
+
+        V<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gVolumeFinal59"
+          name="gVolumeFinal59"
+          formula="${gVolume59}*${gMolesFinal59}/${gMoles59}"
+          help="Use V2 = V1 × n2 ÷ n1."
+        />
+
+        L
+
+        <div class="feedback" id="gVolumeFinal59FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>
+            Since the conditions remain constant, volume is directly
+            proportional to moles.
+          </li>
+          <li>This is Avogadro's Law.</li>
+          <li>
+            Use V<sub>1</sub>/n<sub>1</sub> = V<sub>2</sub>/n<sub>2</sub> and
+            solve for V<sub>2</sub>.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        If a sample of
+
+        <input
+          class="num display-value"
+          id="pMoles60"
+          name="pMoles60"
+          random="true"
+          data-original="0.180"
+          randomPercent="30%"
+          readonly
+        />
+
+        moles of Xe occupies
+
+        <input
+          class="num display-value"
+          id="pVolume60"
+          name="pVolume60"
+          random="true"
+          data-original="5.60"
+          randomPercent="30%"
+          readonly
+        />
+
+        L under certain conditions, what volume (in L) will
+
+        <input
+          class="num display-value"
+          id="pMolesFinal60"
+          name="pMolesFinal60"
+          random="true"
+          data-original="0.820"
+          randomPercent="30%"
+          readonly
+        />
+
+        moles occupy under the same conditions?
+
+        <br /><br />
+
+        V<sub>2</sub> =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="pVolumeFinal60"
+          name="pVolumeFinal60"
+          formula="${pVolume60}*${pMolesFinal60}/${pMoles60}"
+          help="Use Avogadro's Law: V1/n1 = V2/n2."
+        />
+
+        L
+
+        <div class="feedback" id="pVolumeFinal60FB"></div>
+      </li>
+
+      <hr />
+
+      <h4>Guided Problem</h4>
+
+      <li>
+        A 0.330 g sample of an unknown halogen occupies 125.0 mL at 350 K and
+        1.50 atm.
+
+        <br /><br />
+
+        What is the identity of the halogen?
+
+        <br /><br />
+
+        <b>Step 1: Use the ideal gas law to determine the number of moles</b>
+
+        <br /><br />
+
+        PV = nRT
+
+        <br /><br />
+
+        n =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMoles61"
+          name="gMoles61"
+          formula="(1.50*0.125)/(0.08206*350)"
+          help="Use n = PV/(RT). Remember to convert 125.0 mL to 0.1250 L."
+        />
+
+        mol
+
+        <div class="feedback" id="gMoles61FB"></div>
+
+        <br /><br />
+
+        <b>Step 2: Calculate the molar mass</b>
+
+        <br /><br />
+
+        Molar mass =
+
+        <input
+          type="number"
+          step="any"
+          class="calc"
+          id="gMM61"
+          name="gMM61"
+          formula="0.330/((1.50*0.125)/(0.08206*350))"
+          help="Molar mass = mass ÷ moles."
+        />
+
+        g/mol
+
+        <div class="feedback" id="gMM61FB"></div>
+
+        <br /><br />
+
+        <b>Step 3: Identify the halogen</b>
+
+        <br /><br />
+
+        <select
+          id="gHalogen61"
+          name="gHalogen61"
+          class="calc"
+          formula="Cl2"
+          help="Compare your molar mass to the molar masses of the halogen molecules."
+        >
+          <option value="">Choose</option>
+          <option value="F2">F₂</option>
+          <option value="Cl2">Cl₂</option>
+          <option value="Br2">Br₂</option>
+          <option value="I2">I₂</option>
+          <option value="At2">At₂</option>
+        </select>
+
+        <div class="feedback" id="gHalogen61FB"></div>
+
+        <br /><br />
+
+        <b>Explanation:</b>
+        <ul>
+          <li>The ideal gas law gives approximately 0.00653 mol.</li>
+          <li>The molar mass is approximately 50.5 g/mol.</li>
+          <li>
+            The closest halogen molecule is Cl<sub>2</sub> (70.90 g/mol). Since
+            halogens exist as diatomic molecules, chlorine is the best match
+            among the choices.
+          </li>
+        </ul>
+      </li>
+
+      <h4>Practice Problem</h4>
+
+      <li>
+        A 1.39 g sample of an unknown halogen occupies 150.0 mL at 400 K and
+        1.20 atm.
+
+        <br /><br />
+
+        What is the identity of the halogen?
+
+        <br /><br />
+
+        <select
+          id="pHalogen62"
+          name="pHalogen62"
+          class="calc"
+          formula="I2"
+          help="Use the ideal gas law to find the number of moles, calculate the molar mass, then identify the closest halogen molecule."
+        >
+          <option value="">Choose</option>
+          <option value="F2">F₂</option>
+          <option value="Cl2">Cl₂</option>
+          <option value="Br2">Br₂</option>
+          <option value="I2">I₂</option>
+          <option value="At2">At₂</option>
+        </select>
+
+        <div class="feedback" id="pHalogen62FB"></div>
+      </li>
+
+      <!-- End -->
+      <div id="button_bar">
+        <button
+          type="submit"
+          title="save"
+          class="large material-icons"
+          id="savebutton"
+          onclick="saveData()"
+        >
+          save
+        </button>
+        <button onclick="toPrint()" title="print" class="large material-icons">
+          print
+        </button>
+        <button type="button" onclick="submitScore()" style="height: 83%">
+          Submit</button
+        >&nbsp;
+        <div class="vcenter">
+          <label for="score">Score: </label>
+          <div id="score" style="display: inline">0</div>
+          %
+        </div>
+      </div>
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/lab.js"></script>
+  </body>
+</html>
