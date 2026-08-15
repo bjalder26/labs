@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <title>Evaluating the Cost-Effectiveness of Antacids Lab</title>
@@ -29,412 +29,1106 @@
       <input type="text" id="labName" name="labName" style="display: none" />
       <input type="text" id="userName" name="userName" style="display: none" />
       <!-- Beginning -->
-<h3>Objectives:</h3>
-In this exercise, two commercially available antacids are evaluated and compared by:
-<ul>
-  <li>Determining the number of moles of  H+ neutralized per gram of each antacid.</li>
-  <li>Calculating the cost effectiveness of each antacid.</li>
-</ul>
- <h3>Background:</h3>     
-Acid indigestion is a common ailment caused by the overproduction of stomach acid (HCl).
-      Over-the-counter antacids provide some relief from the symptoms of acid indigestion. They are generally made up of some mixture of weak bases 
-      such as $\ce{Mg(OH)2}$,  $\ce{Al(OH)3}$, and $\ce{CaCO3}$
-  that can react with HCl as shown in these net ionic equations:<br><br>
-<div class="center">      
-$\ce{H+(aq) + OH^{−}(aq)⟶H2O(l)}$ (1)<br>
-$\ce{2H+(aq) + CO2^{3-}(aq)⟶H2O(l) + CO2(g)}$ (2)<br>
-</div><br>
-      
-      In this exercise, <b>titration</b> will be used to determine the number of moles of H<sup>+</sup> neutralized per gram of antacid. 
-      In the “back-titration,” a portion of antacid will be mixed with an excess of HCl. The  H<sup>+</sup>
-  that has not reacted with the antacid is then titrated with standardized NaOH
-  in the presence of the indicator bromophenol blue to a blue end point.<br>
+      <h3>Objectives:</h3>
+      In this exercise, two commercially available antacids are evaluated and
+      compared by:
+      <ul>
+        <li>
+          Determining the number of moles of H+ neutralized per gram of each
+          antacid.
+        </li>
+        <li>Calculating the cost effectiveness of each antacid.</li>
+      </ul>
+      <h3>Background:</h3>
+      Acid indigestion is a common ailment caused by the overproduction of
+      stomach acid (HCl). Over-the-counter antacids provide some relief from the
+      symptoms of acid indigestion. They are generally made up of some mixture
+      of weak bases such as $\ce{Mg(OH)2}$, $\ce{Al(OH)3}$, and $\ce{CaCO3}$
+      that can react with HCl as shown in these net ionic equations:<br /><br />
+      <div class="center">
+        $\ce{H+(aq) + OH^{−}(aq)⟶H2O(l)}$ (1)<br />
+        $\ce{2H+(aq) + CO2^{3-}(aq)⟶H2O(l) + CO2(g)}$ (2)<br />
+      </div>
+      <br />
 
-      The <b>end point</b>, is defined as the volume of  OH<sup>-</sup>
-  needed to see a color change. Because only the tiniest excess of OH<sup>-</sup> over H<sup>+</sup>
-      can cause the color change of an indicator, the end point is a close approximation of the <b>equivalence point</b>. 
-      (The difference between the end point and the equivalence point is known as the <b>titration error</b>. At the equivalence point, 
-      the number of moles of  OH<sup>-</sup> added is equal to the number of moles of excess H<sup>+</sup>
-  that had not been neutralized by the antacid. By knowing the total moles of HCl
-  added, one can then calculate the number of moles of H<sup>+</sup> neutralized by the antacid.<br><br>
-<div class="center">
-Total moles of H<sup>+</sup> = moles of H<sup>+</sup> neutralized by antacid + moles of H<sup>+</sup> neutralized by NaOH (3)  
-      </div><br>
+      In this exercise, <b>titration</b> will be used to determine the number of
+      moles of H<sup>+</sup> neutralized per gram of antacid. In the
+      “back-titration,” a portion of antacid will be mixed with an excess of
+      HCl. The H<sup>+</sup> that has not reacted with the antacid is then
+      titrated with standardized NaOH in the presence of the indicator
+      bromophenol blue to a blue end point.<br />
 
-Because the antacid includes both OH<sup>-</sup> and  $\ce{CO2^{3-}}$, it is not possible to calculate 
-      the number of moles of each of these ion species independently. Instead, the number of  H<sup>+</sup>
-  neutralized by the antacid is found. The amount of antacid required to neutralize one mole of H<sup>+</sup>
-      neutralized is said to be one <b>“equivalent.”</b><br><br>
+      The <b>end point</b>, is defined as the volume of OH<sup>-</sup> needed to
+      see a color change. Because only the tiniest excess of OH<sup>-</sup> over
+      H<sup>+</sup> can cause the color change of an indicator, the end point is
+      a close approximation of the <b>equivalence point</b>. (The difference
+      between the end point and the equivalence point is known as the
+      <b>titration error</b>. At the equivalence point, the number of moles of
+      OH<sup>-</sup> added is equal to the number of moles of excess H<sup
+        >+</sup
+      >
+      that had not been neutralized by the antacid. By knowing the total moles
+      of HCl added, one can then calculate the number of moles of H<sup>+</sup>
+      neutralized by the antacid.<br /><br />
+      <div class="center">
+        Total moles of H<sup>+</sup> = moles of H<sup>+</sup> neutralized by
+        antacid + moles of H<sup>+</sup> neutralized by NaOH (3)
+      </div>
+      <br />
 
-<div class="center">
-  total equivalent of antacid = total mole of H<sup>+</sup> neutralized (4)
-      </div><br>
-The more cost effective antacid is the one that costs less per equivalent of acid it neutralizes.
+      Because the antacid includes both OH<sup>-</sup> and $\ce{CO2^{3-}}$, it
+      is not possible to calculate the number of moles of each of these ion
+      species independently. Instead, the number of H<sup>+</sup> neutralized by
+      the antacid is found. The amount of antacid required to neutralize one
+      mole of H<sup>+</sup> neutralized is said to be one <b>“equivalent.”</b
+      ><br /><br />
 
-<h3>Materials and Equipment</h3>
-<ul>
-  
-<li>Antacid tablets – Rolaids®, Tums®, etc. It is preferable to use tablets that are white and have no added flavor.</li>
-<li>Mortar and pestle</li>
-<li>Two Ehrlenmeyer flasks and at least two 100 mL beakers</li>
-<li>Bunsen burner</li>
-<li>Ring stand with ring clamp and wire gauze</li>
-<li>Standardized HCl solution – about 0.2M</li> <!-- originally 0.1-->
-<li>Standardized NaOH solution – about 0.2M</li> <!-- originally 0.1-->
-<li>Bromophenol blue indicator solution</li>
-<li>Two Burets*</li>
-  <li>Labels</li>
-      </ul>  
- 
+      <div class="center">
+        total equivalent of antacid = total mole of H<sup>+</sup> neutralized
+        (4)
+      </div>
+      <br />
+      The more cost effective antacid is the one that costs less per equivalent
+      of acid it neutralizes.
+
+      <h3>Materials and Equipment</h3>
+      <ul>
+        <li>
+          Antacid tablets – Rolaids®, Tums®, etc. It is preferable to use
+          tablets that are white and have no added flavor.
+        </li>
+        <li>Mortar and pestle</li>
+        <li>Two Ehrlenmeyer flasks and at least two 100 mL beakers</li>
+        <li>Bunsen burner</li>
+        <li>Ring stand with ring clamp and wire gauze</li>
+        <li>Standardized HCl solution – about 0.2M</li>
+        <!-- originally 0.1-->
+        <li>Standardized NaOH solution – about 0.2M</li>
+        <!-- originally 0.1-->
+        <li>Bromophenol blue indicator solution</li>
+        <li>Two Burets*</li>
+        <li>Labels</li>
+      </ul>
+
       <h3>Safety</h3>
       <ul>
         <li>Wear goggles at all times during this experiment.</li>
-        <li>Take care in handling both  HCl and  NaOH. Should either of these solutions come in contact with skin or eyes, rinse thoroughly with water.</li>
-        <li>Allow enough time for the boiled antacid solution to come to room temperature before touching it.</li>
+        <li>
+          Take care in handling both HCl and NaOH. Should either of these
+          solutions come in contact with skin or eyes, rinse thoroughly with
+          water.
+        </li>
+        <li>
+          Allow enough time for the boiled antacid solution to come to room
+          temperature before touching it.
+        </li>
       </ul>
-      
-<h3>Part A: Preparation of Antacid Sample</h3>
-<ol>
-<li>Choose an antacid and record its name in table 1. With a mortar and pestle, crush one tablet of antacid to as fine a powder as possible.</li>
-  <li>Weigh out between 0.3 – 0.4 g of the powdered antacid into a pre-weighed Erlenmeyer flask (250 mL). Record the mass of the antacid sample to 0.001g.</li>
-</ol>
 
-            <h4>Table 1: Mass of Antacid</h4>
-<table>
-  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
-  <tr>
-  <td>Antacid Name</td><td><input type="text" class="text" id="antacidName1" name="antacidName1"/></td><td><input type="text" class="text" id="antacidName2" name="antacidName2"/></td>
-  </tr>
-  <tr>
-  <td>Mass of empty flask (g)</td><td><input type="number" class="num" id="flaskMass1" name="flaskMass1" step="any"/></td><td><input type="number" class="num" id="flaskMass2" name="flaskMass2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Mass of flask &amp;	antacid (g)</td><td><input type="number" class="num" id="flaskMass&Antacid1" name="flaskMass&Antacid1" step="any"/></td><td><input type="number" class="num" id="flaskMass&Antacid2" name="flaskMass&Antacid2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Mass of antacid (g)</td>
-    <td><input type="number" class="num calc" id="antacidMass1" name="antacidMass1" step="any" 
-    formula="${flaskMass&Antacid1}-${flaskMass1}" help="Subtract the mass of the flask from the mass of the flask & antacid"/>
-      <div class="feedback" id="antacidMass1FB" name="antacidMass1FB"></div>
-    </td>
-    <td>
-    <input type="number" class="num calc" id="antacidMass2" name="antacidMass2" step="any" 
-    formula="${flaskMass&Antacid2}-${flaskMass2}" help="Subtract the mass of the flask from the mass of the flask & antacid"/>
-      <div class="feedback" id="antacidMass2FB" name="antacidMass2FB"></div>
-    </td>
-  </tr>
-      </table>
-      
-<h3>Part B: Preparation of Burets</h3>
-<ol>
-<li><strike>Obtain two burets from the stockroom and, with soap and water, wash them with a brush. 
-  Rinse them well with deionized water (When the buret is cleaned properly, there should be no water droplets clinging to the inside of the buret.) 
-  One buret will be filled with the standardized HCl and the other with standardized NaOH. 
-  Label them accordingly and record their concentrations as indicated on the label.</strike></li>
-<li>It is important that the concentration of the acid and base are not diluted with any of the water left over from cleaning. 
-  So, before filling the burets, rinse them well with at least two 4-mL portions of either HCl or NaOH depending on which will go into the buret.</li>
-<li>Using a beaker, fill the burets with HCl and NaOH (respectively). Note that bubbles take up space (volume), so make sure to dislodge any bubbles 
-  that might be stuck in the tip of the buret by lightly tapping the tip or by letting a portion of the solution run rapidly through the tip. 
-  Record the initial buret readings for both HCl and NaOH.</li>
-</ol>
-      <h3>Part C: Addition of excess  HCl to the antacid</h3>
-<ol>
-      <!-- originally 40mL and 20mL -->
-<li>Record the initial volume of HCl in the buret and add approximately 20 mL of standardized HCl to the prepared antacid sample (you can add this volume quickly - we will go past the end point regardless). 
-  Record the final volume of HCl in the buret to 0.01 mL.</li>
-<li>In order to dissolve as much as of the antacid as possible and to drive off as much dissolved $\ce{CO2}$ as possible, 
-  gently boil the mixture of antacid +  HCl for about two minutes. Cool the mixture to room temperature. 
-  There may be a significant amount of substances that are not dissolved in your mixture. 
-  Because the active ingredients of an antacid are quite water soluble, the solids will not affect the results. 
-  The solids are a mixture of inactive ingredients such as the coating and some binding compounds.</li>
-<li>Add 6 - 8 drops of bromophenol blue indicator solution. The solution should be yellow if there is excess  H<sup>+</sup>
-  in solution. If the solution is green, blue, or a mixture of both green and blue, there is excess  OH<sup>-</sup>
-  in solution and more HCl must be added 
-  <b>only add more HCL if the solution is blue or green, otherwiste skip the rest of this step</b>. 
-  From the buret, add about 10 ml of HCl, again recording to 0.01 mL. Make sure there is enough HCl
-  in the buret. Remember, it is not possible to measure the volume of HCl if the level drops below the 50.00 mL mark! 
-  Assess the color of the solution. If it is not yellow, repeat the addition of HCl until it is.</li>
+      <h3>Part A: Preparation of Antacid Sample</h3>
+      <ol>
+        <li>
+          Choose an antacid and record its name in table 1. With a mortar and
+          pestle, crush one tablet of antacid to as fine a powder as possible.
+        </li>
+        <li>
+          Weigh out between 0.3 – 0.4 g of the powdered antacid into a
+          pre-weighed Erlenmeyer flask (250 mL). Record the mass of the antacid
+          sample to 0.001g.
+        </li>
       </ol>
 
-      
-      <h4>Table 2: Addition of HCl</h4>
-<table>
-  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
-  <tr>
-  <td>Molarity of HCl (M)</td><td><input type="text" class="text" id="HClMolarity1" name="HClMolarity1"/></td><td><input type="text" class="text" id="HClMolarity2" name="HClMolarity2"/></td>
-  </tr>
-  <tr>
-  <td>Initial buret reading (mL)</td><td><input type="number" class="num" id="initialMl1" name="initialMl1" step="any"/></td><td><input type="number" class="num" id="initialMl2" name="initialMl2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Final buret reading (mL)</td><td><input type="number" class="num" id="finalMl1" name="finalMl1" step="any"/></td><td><input type="number" class="num" id="finalMl2" name="finalMl2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Volume of HCl added (mL)</td>
-    <td><input type="number" class="num calc" id="volHCl1" name="volHCl1" step="any" 
-    formula="${finalMl1}-${initialMl1}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volHCl1FB" name="volHCl1FB"></div>
-    </td>
-    <td>
-    <input type="number" class="num calc" id="volHCl2" name="volHCl2" step="any" 
-    formula="${finalMl2}-${initialMl2}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volHCl2FB" name="volHCl2FB"></div>
-    </td>
-  </tr>
-    <tr>
-  <td>Moles of HCl added</td>
-    <td><input type="number" class="num calc" id="molHCl1" name="molHCl1" step="any" 
-    formula="(${volHCl1}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molHCl1FB" name="molHCl1FB"></div>
-    </td>
-    <td>
-    <input type="number" class="num calc" id="molHCl2" name="molHCl2" step="any" 
-    formula="(${volHCl2}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molHCl2FB" name="molHCl2FB"></div>
-    </td>
-  </tr>
+      <h4>Table 1: Mass of Antacid</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>First antacid</th>
+          <th>Second antacid</th>
+        </tr>
+        <tr>
+          <td>Antacid Name</td>
+          <td>
+            <input
+              type="text"
+              class="text num"
+              id="antacidName1"
+              name="antacidName1"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="text num"
+              id="antacidName2"
+              name="antacidName2"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Mass of empty flask (g)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="flaskMass1"
+              name="flaskMass1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="flaskMass2"
+              name="flaskMass2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Mass of flask &amp; antacid (g)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="flaskMass&Antacid1"
+              name="flaskMass&Antacid1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="flaskMass&Antacid2"
+              name="flaskMass&Antacid2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Mass of antacid (g)</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="antacidMass1"
+              name="antacidMass1"
+              step="any"
+              formula="${flaskMass&Antacid1}-${flaskMass1}"
+              help="Subtract the mass of the flask from the mass of the flask & antacid"
+            />
+            <div
+              class="feedback"
+              id="antacidMass1FB"
+              name="antacidMass1FB"
+            ></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="antacidMass2"
+              name="antacidMass2"
+              step="any"
+              formula="${flaskMass&Antacid2}-${flaskMass2}"
+              help="Subtract the mass of the flask from the mass of the flask & antacid"
+            />
+            <div
+              class="feedback"
+              id="antacidMass2FB"
+              name="antacidMass2FB"
+            ></div>
+          </td>
+        </tr>
       </table>
-      
-<h4>Table 3: Addition of more  HCl – only if needed (i.e. if solution is blue after addition of bromophenol blue - enter zeros if no more HCl was added)</h4>
-<table>
-  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
-  <tr>
-  <td>Initial buret reading (mL)</td><td><input type="number" class="num" id="initialMlAdditionalHCl1" name="initialMlAdditionalHCl1" step="any"/></td><td><input type="number" class="num" id="initialMlAdditionalHCl2" name="initialMlAdditionalHCl2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Final buret reading (mL)</td><td><input type="number" class="num" id="finalMlAdditionalHCl1" name="finalMlAdditionalHCl1" step="any"/></td><td><input type="number" class="num" id="finalMlAdditionalHCl2" name="finalMlAdditionalHCl2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Volume of HCl added (mL)</td>
-    <td><input type="number" class="num calc" id="volAdditionalHCl1" name="volAdditionalHCl1" step="any" 
-    formula="${finalMlAdditionalHCl1}-${initialMlAdditionalHCl1}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volAdditionalHCl1FB" name="volAdditionalHCl1FB"></div>
-    </td>
-    <td>
-    <input type="number" class="num calc" id="volAdditionalHCl2" name="volAdditionalHCl2" step="any" 
-    formula="${finalMlAdditionalHCl2}-${initialMlAdditionalHCl2}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volAdditionalHCl2FB" name="volAdditionalHCl2FB"></div>
-    </td>
-  </tr>
-    <tr>
-  <td>Moles of HCl added</td>
-    <td><input type="number" class="num calc" id="molAdditionalHCl1" name="molAdditionalHCl1" step="any" 
-    formula="(${volAdditionalHCl1}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molAdditionalHCl1FB" name="molAdditionalHCl1FB"></div>
-    </td>
-    <td>
-    <input type="number" class="num calc" id="molAdditionalHCl2" name="molAdditionalHCl2" step="any" 
-    formula="(${volAdditionalHCl2}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molAdditionalHCl2FB" name="molAdditionalHCl2FB"></div>
-    </td>
-  </tr>
-      </table>           
-      
-<h3>Part D: Titration of excess  HCl</h3>
- 
-<ol>
-<li>Begin the neutralization of the excess HCl with the addition of standardized NaOH. 
-  Record the initial volume on the NaOH buret to 0.01 mL. Begin the titration by slowly adding the NaOH in 1 mL increments.
-  Mix well between additions by swirling the flask.</li>
-<li>As more and more  NaOH
-  is added, the solution will turn from yellow to green and then finally blue. The titration reaches the end point when the addition of one to three drops of  NaOH
-  turn the solution blue and that color is stable with mixing for at least 20 seconds. Record the final buret reading and calculate the number of  OH−
-  moles added.</li>
-</ol>
-      
- <h4>Table 4: Titration with NaOH</h4>
-<table>
-  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
-  <tr>
-  <td>Molarity of NaOH (M)</td><td><input type="number" class="num" id="NaOHMolarity1" name="NaOHMolarity1" step="any"/></td><td><input type="number" class="num" id="NaOHMolarity2" name="NaOHMolarity2" step="any"/></td>
-  </tr>
-    <tr>
-  <td>Initial buret reading (mL)</td><td><input type="number" class="num" id="initialMlNaOH1" name="initialMlNaOH1" step="any"/></td><td><input type="number" class="num" id="initialMlNaOH2" name="initialMlNaOH2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Final buret reading (mL)</td><td><input type="number" class="num" id="finalMlNaOH1" name="finalMlNaOH1" step="any"/></td><td><input type="number" class="num" id="finalMlNaOH2" name="finalMlNaOH2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Volume of NaOH added (mL)</td>
-    <td><input type="number" class="num calc" id="volNaOH1" name="volNaOH1" step="any" 
-    formula="${finalMlNaOH1}-${initialMlNaOH1}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volNaOH1FB" name="volNaOH1FB"></div>
-    </td>
-    <td>
-    <input type="number" class="num calc" id="volNaOH2" name="volNaOH2" step="any" 
-    formula="${finalMlNaOH2}-${initialMlNaOH2}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volNaOH2FB" name="volNaOH2FB"></div>
-    </td>
-  </tr>
-    <tr>
-  <td>Total moles of  NaOH added to neutralize excess  HCl</td>
-    <td><input type="number" class="num calc" id="molNaOH1" name="molNaOH1" step="any" 
-    formula="(${volNaOH1}/1000)*${NaOHMolarity1}" help="Convert the volume of NaOH to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molNaOH1FB" name="molNaOH1FB"></div>
-    </td>
-    <td><input type="number" class="num calc" id="molNaOH2" name="molNaOH2" step="any" 
-    formula="(${volNaOH2}/1000)*${NaOHMolarity2}" help="Convert the volume of NaOH to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molNaOH2FB" name="molNaOH2FB"></div>
-    </td>
-  </tr>
-      </table>      
-      
-<h3>Part E: Back-Titration-Only necessary if too much NaOH has been added and the end point has been exceeded</h3>
-If your solution is intensely blue – you’ve added too much NaOH! Don’t panic, this error can be corrected. 
-      Add enough of the standardized HCl to make the solution yellow. (About 5 - 8 mL) Record the new total volume of HCl. 
-      Again from the buret, add NaOH slowly until the solution turns blue.
 
- <h4>Table 5: Back Titration with more HCl – only if needed (i.e. if you pass the endpoint when titrating with NaOH
- and need to add more  HCl - if you did not pass the endpoint, then enter zeros)</h4>
-<table>
-  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
-  <tr>
-  <td>Initial buret reading (mL)</td><td><input type="number" class="num" id="initialMlBackHCl1" name="initialMlBackHCl1" step="any"/></td><td><input type="number" class="num" id="initialMlBackHCl2" name="initialMlBackHCl2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Final buret reading (mL)</td><td><input type="number" class="num" id="finalMlBackHCl1" name="finalMlBackHCl1" step="any"/></td><td><input type="number" class="num" id="finalMlBackHCl2" name="finalMlBackHCl2" step="any"/></td>
-  </tr>
-  <tr>
-  <td>Volume of HCl added (mL)</td>
-    <td><input type="number" class="num calc" id="volBackHCl1" name="volBackHCl1" step="any" 
-    formula="${finalMlBackHCl1}-${initialMlBackHCl1}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volBackHCl1FB" name="volBackHCl1FB"></div>
-    </td>
-    <td>
-    <input type="number" class="num calc" id="volBackHCl2" name="volBackHCl2" step="any" 
-    formula="${finalMlBackHCl2}-${initialMlBackHCl2}" help="Subtract the initial buret reading from the final buret reading"/>
-      <div class="feedback" id="volBackHCl2FB" name="volBackHCl2FB"></div>
-    </td>
-  </tr>
-    <tr>
-  <td>Moles of HCl added</td>
-    <td><input type="number" class="num calc" id="molBackHCl1" name="molBackHCl1" step="any" 
-    formula="(${volBackHCl1}/1000)*${HClMolarity1}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molBackHCl1FB" name="molBackHCl1FB"></div>
-    </td>
-    <td>
-    <input type="number" class="num calc" id="molBackHCl2" name="molBackHCl2" step="any" 
-    formula="(${volBackHCl2}/1000)*${HClMolarity2}" help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"/>
-      <div class="feedback" id="molBackHCl2FB" name="molBackHCl2FB"></div>
-    </td>
-  </tr>
-      </table>     
-      
+      <h3>Part B: Preparation of Burets</h3>
+      <ol>
+        <li>
+          <strike
+            >Obtain two burets from the stockroom and, with soap and water, wash
+            them with a brush. Rinse them well with deionized water (When the
+            buret is cleaned properly, there should be no water droplets
+            clinging to the inside of the buret.) One buret will be filled with
+            the standardized HCl and the other with standardized NaOH. Label
+            them accordingly and record their concentrations as indicated on the
+            label.</strike
+          >
+        </li>
+        <li>
+          It is important that the concentration of the acid and base are not
+          diluted with any of the water left over from cleaning. So, before
+          filling the burets, rinse them well with at least two 4-mL portions of
+          either HCl or NaOH depending on which will go into the buret.
+        </li>
+        <li>
+          Using a beaker, fill the burets with HCl and NaOH (respectively). Note
+          that bubbles take up space (volume), so make sure to dislodge any
+          bubbles that might be stuck in the tip of the buret by lightly tapping
+          the tip or by letting a portion of the solution run rapidly through
+          the tip. Record the initial buret readings for both HCl and NaOH.
+        </li>
+      </ol>
+      <h3>Part C: Addition of excess HCl to the antacid</h3>
+      <ol>
+        <!-- originally 40mL and 20mL -->
+        <li>
+          Record the initial volume of HCl in the buret and add approximately 20
+          mL of standardized HCl to the prepared antacid sample (you can add
+          this volume quickly - we will go past the end point regardless).
+          Record the final volume of HCl in the buret to 0.01 mL.
+        </li>
+        <li>
+          In order to dissolve as much as of the antacid as possible and to
+          drive off as much dissolved $\ce{CO2}$ as possible, gently boil the
+          mixture of antacid + HCl for about two minutes. Cool the mixture to
+          room temperature. There may be a significant amount of substances that
+          are not dissolved in your mixture. Because the active ingredients of
+          an antacid are quite water soluble, the solids will not affect the
+          results. The solids are a mixture of inactive ingredients such as the
+          coating and some binding compounds.
+        </li>
+        <li>
+          Add 6 - 8 drops of bromophenol blue indicator solution. The solution
+          should be yellow if there is excess H<sup>+</sup> in solution. If the
+          solution is green, blue, or a mixture of both green and blue, there is
+          excess OH<sup>-</sup>
+          in solution and more HCl must be added
+          <b
+            >only add more HCL if the solution is blue or green, otherwiste skip
+            the rest of this step</b
+          >. From the buret, add about 10 ml of HCl, again recording to 0.01 mL.
+          Make sure there is enough HCl in the buret. Remember, it is not
+          possible to measure the volume of HCl if the level drops below the
+          50.00 mL mark! Assess the color of the solution. If it is not yellow,
+          repeat the addition of HCl until it is.
+        </li>
+      </ol>
+
+      <h4>Table 2: Addition of HCl</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>First antacid</th>
+          <th>Second antacid</th>
+        </tr>
+        <tr>
+          <td>Molarity of HCl (M)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="HClMolarity1"
+              name="HClMolarity1"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="HClMolarity2"
+              name="HClMolarity2"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Initial buret reading (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="initialMl1"
+              name="initialMl1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="initialMl2"
+              name="initialMl2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Final buret reading (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="finalMl1"
+              name="finalMl1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="finalMl2"
+              name="finalMl2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Volume of HCl added (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="volHCl1"
+              name="volHCl1"
+              step="any"
+              formula="${finalMl1}-${initialMl1}"
+              help="Subtract the initial buret reading from the final buret reading"
+            />
+            <div class="feedback" id="volHCl1FB" name="volHCl1FB"></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="volHCl2"
+              name="volHCl2"
+              step="any"
+              formula="${finalMl2}-${initialMl2}"
+              help="Subtract the initial buret reading from the final buret reading"
+            />
+            <div class="feedback" id="volHCl2FB" name="volHCl2FB"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>Moles of HCl added</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="molHCl1"
+              name="molHCl1"
+              step="any"
+              formula="(${volHCl1}/1000)*${HClMolarity1}"
+              help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"
+            />
+            <div class="feedback" id="molHCl1FB" name="molHCl1FB"></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="molHCl2"
+              name="molHCl2"
+              step="any"
+              formula="(${volHCl2}/1000)*${HClMolarity2}"
+              help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"
+            />
+            <div class="feedback" id="molHCl2FB" name="molHCl2FB"></div>
+          </td>
+        </tr>
+      </table>
+
+      <h4>
+        Table 3: Addition of more HCl – only if needed (i.e. if solution is blue
+        after addition of bromophenol blue - enter zeros if no more HCl was
+        added)
+      </h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>First antacid</th>
+          <th>Second antacid</th>
+        </tr>
+        <tr>
+          <td>Initial buret reading (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="initialMlAdditionalHCl1"
+              name="initialMlAdditionalHCl1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="initialMlAdditionalHCl2"
+              name="initialMlAdditionalHCl2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Final buret reading (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="finalMlAdditionalHCl1"
+              name="finalMlAdditionalHCl1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="finalMlAdditionalHCl2"
+              name="finalMlAdditionalHCl2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Volume of HCl added (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="volAdditionalHCl1"
+              name="volAdditionalHCl1"
+              step="any"
+              formula="${finalMlAdditionalHCl1}-${initialMlAdditionalHCl1}"
+              help="Subtract the initial buret reading from the final buret reading"
+            />
+            <div
+              class="feedback"
+              id="volAdditionalHCl1FB"
+              name="volAdditionalHCl1FB"
+            ></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="volAdditionalHCl2"
+              name="volAdditionalHCl2"
+              step="any"
+              formula="${finalMlAdditionalHCl2}-${initialMlAdditionalHCl2}"
+              help="Subtract the initial buret reading from the final buret reading"
+            />
+            <div
+              class="feedback"
+              id="volAdditionalHCl2FB"
+              name="volAdditionalHCl2FB"
+            ></div>
+          </td>
+        </tr>
+        <tr>
+          <td>Moles of HCl added</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="molAdditionalHCl1"
+              name="molAdditionalHCl1"
+              step="any"
+              formula="(${volAdditionalHCl1}/1000)*${HClMolarity1}"
+              help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"
+            />
+            <div
+              class="feedback"
+              id="molAdditionalHCl1FB"
+              name="molAdditionalHCl1FB"
+            ></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="molAdditionalHCl2"
+              name="molAdditionalHCl2"
+              step="any"
+              formula="(${volAdditionalHCl2}/1000)*${HClMolarity2}"
+              help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"
+            />
+            <div
+              class="feedback"
+              id="molAdditionalHCl2FB"
+              name="molAdditionalHCl2FB"
+            ></div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>Part D: Titration of excess HCl</h3>
+
+      <ol>
+        <li>
+          Begin the neutralization of the excess HCl with the addition of
+          standardized NaOH. Record the initial volume on the NaOH buret to 0.01
+          mL. Begin the titration by slowly adding the NaOH in 1 mL increments.
+          Mix well between additions by swirling the flask.
+        </li>
+        <li>
+          As more and more NaOH is added, the solution will turn from yellow to
+          green and then finally blue. The titration reaches the end point when
+          the addition of one to three drops of NaOH turn the solution blue and
+          that color is stable with mixing for at least 20 seconds. Record the
+          final buret reading and calculate the number of OH− moles added.
+        </li>
+      </ol>
+
+      <h4>Table 4: Titration with NaOH</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>First antacid</th>
+          <th>Second antacid</th>
+        </tr>
+        <tr>
+          <td>Molarity of NaOH (M)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="NaOHMolarity1"
+              name="NaOHMolarity1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="NaOHMolarity2"
+              name="NaOHMolarity2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Initial buret reading (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="initialMlNaOH1"
+              name="initialMlNaOH1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="initialMlNaOH2"
+              name="initialMlNaOH2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Final buret reading (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="finalMlNaOH1"
+              name="finalMlNaOH1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="finalMlNaOH2"
+              name="finalMlNaOH2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Volume of NaOH added (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="volNaOH1"
+              name="volNaOH1"
+              step="any"
+              formula="${finalMlNaOH1}-${initialMlNaOH1}"
+              help="Subtract the initial buret reading from the final buret reading"
+            />
+            <div class="feedback" id="volNaOH1FB" name="volNaOH1FB"></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="volNaOH2"
+              name="volNaOH2"
+              step="any"
+              formula="${finalMlNaOH2}-${initialMlNaOH2}"
+              help="Subtract the initial buret reading from the final buret reading"
+            />
+            <div class="feedback" id="volNaOH2FB" name="volNaOH2FB"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>Total moles of NaOH added to neutralize excess HCl</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="molNaOH1"
+              name="molNaOH1"
+              step="any"
+              formula="(${volNaOH1}/1000)*${NaOHMolarity1}"
+              help="Convert the volume of NaOH to liters (by dividing by 1000), then multiply by the molarity"
+            />
+            <div class="feedback" id="molNaOH1FB" name="molNaOH1FB"></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="molNaOH2"
+              name="molNaOH2"
+              step="any"
+              formula="(${volNaOH2}/1000)*${NaOHMolarity2}"
+              help="Convert the volume of NaOH to liters (by dividing by 1000), then multiply by the molarity"
+            />
+            <div class="feedback" id="molNaOH2FB" name="molNaOH2FB"></div>
+          </td>
+        </tr>
+      </table>
+
+      <h3>
+        Part E: Back-Titration-Only necessary if too much NaOH has been added
+        and the end point has been exceeded
+      </h3>
+      If your solution is intensely blue – you’ve added too much NaOH! Don’t
+      panic, this error can be corrected. Add enough of the standardized HCl to
+      make the solution yellow. (About 5 - 8 mL) Record the new total volume of
+      HCl. Again from the buret, add NaOH slowly until the solution turns blue.
+
+      <h4>
+        Table 5: Back Titration with more HCl – only if needed (i.e. if you pass
+        the endpoint when titrating with NaOH and need to add more HCl - if you
+        did not pass the endpoint, then enter zeros)
+      </h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>First antacid</th>
+          <th>Second antacid</th>
+        </tr>
+        <tr>
+          <td>Initial buret reading (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="initialMlBackHCl1"
+              name="initialMlBackHCl1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="initialMlBackHCl2"
+              name="initialMlBackHCl2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Final buret reading (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="finalMlBackHCl1"
+              name="finalMlBackHCl1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="finalMlBackHCl2"
+              name="finalMlBackHCl2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Volume of HCl added (mL)</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="volBackHCl1"
+              name="volBackHCl1"
+              step="any"
+              formula="${finalMlBackHCl1}-${initialMlBackHCl1}"
+              help="Subtract the initial buret reading from the final buret reading"
+            />
+            <div class="feedback" id="volBackHCl1FB" name="volBackHCl1FB"></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="volBackHCl2"
+              name="volBackHCl2"
+              step="any"
+              formula="${finalMlBackHCl2}-${initialMlBackHCl2}"
+              help="Subtract the initial buret reading from the final buret reading"
+            />
+            <div class="feedback" id="volBackHCl2FB" name="volBackHCl2FB"></div>
+          </td>
+        </tr>
+        <tr>
+          <td>Moles of HCl added</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="molBackHCl1"
+              name="molBackHCl1"
+              step="any"
+              formula="(${volBackHCl1}/1000)*${HClMolarity1}"
+              help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"
+            />
+            <div class="feedback" id="molBackHCl1FB" name="molBackHCl1FB"></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="molBackHCl2"
+              name="molBackHCl2"
+              step="any"
+              formula="(${volBackHCl2}/1000)*${HClMolarity2}"
+              help="Convert the volume of HCl to liters (by dividing by 1000), then multiply by the molarity"
+            />
+            <div class="feedback" id="molBackHCl2FB" name="molBackHCl2FB"></div>
+          </td>
+        </tr>
+      </table>
+
       <h3>Part F: Repeat</h3>
-Repeat the procedure with another brand of antacid. Make every effort to reach an endpoint that has equivalent in its “blueness.”
+      Repeat the procedure with another brand of antacid. Make every effort to
+      reach an endpoint that has equivalent in its “blueness.”
 
-<h4>Clean Up</h4>
-<ul>
-<li>Before returning burets to the stockroom, rinse them thoroughly with deionized water.</li>
-<li>Wash glassware with soap and water and rinse thoroughly with deionized water.</li> 
-</ul>
+      <h4>Clean Up</h4>
+      <ul>
+        <li>
+          Before returning burets to the stockroom, rinse them thoroughly with
+          deionized water.
+        </li>
+        <li>
+          Wash glassware with soap and water and rinse thoroughly with deionized
+          water.
+        </li>
+      </ul>
 
-<h2>Data and Analysis</h2>
+      <h2>Data and Analysis</h2>
 
-   
-<h4>Table 6: Total Moles of Acid</h4>
-<table>
-  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
-    <tr>
-  <td>Total Moles of Acid (sum moles of HCl from tables 2, 3, &amp; 5)</td>
-    <td><input type="number" class="num calc" id="totalMolHCl1" name="totalMolHCl1" step="any" 
-    formula="${molHCl1}+${molAdditionalHCl1}+${molBackHCl1}" help="Sum moles of HCl from tables 2, 3, & 5"/>
-      <div class="feedback" id="totalMolHCl1FB" name="totalMolHCl1FB"></div>
-    </td>
-    <td><input type="number" class="num calc" id="totalMolHCl2" name="totalMolHCl2" step="any" 
-    formula="${molHCl2}+${molAdditionalHCl2}+${molBackHCl2}" help="Sum moles of HCl from tables 2, 3, & 5"/>
-      <div class="feedback" id="totalMolHCl2FB" name="totalMolHCl2FB"></div>
-    </td>
-  </tr>
-      </table>       
-      
+      <h4>Table 6: Total Moles of Acid</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>First antacid</th>
+          <th>Second antacid</th>
+        </tr>
+        <tr>
+          <td>
+            Total Moles of Acid (sum moles of HCl from tables 2, 3, &amp; 5)
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="totalMolHCl1"
+              name="totalMolHCl1"
+              step="any"
+              formula="${molHCl1}+${molAdditionalHCl1}+${molBackHCl1}"
+              help="Sum moles of HCl from tables 2, 3, & 5"
+            />
+            <div
+              class="feedback"
+              id="totalMolHCl1FB"
+              name="totalMolHCl1FB"
+            ></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="totalMolHCl2"
+              name="totalMolHCl2"
+              step="any"
+              formula="${molHCl2}+${molAdditionalHCl2}+${molBackHCl2}"
+              help="Sum moles of HCl from tables 2, 3, & 5"
+            />
+            <div
+              class="feedback"
+              id="totalMolHCl2FB"
+              name="totalMolHCl2FB"
+            ></div>
+          </td>
+        </tr>
+      </table>
 
-<h4>Table 7: Additional Data (provided by instructor)</h4>
-<table>
-  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
-  <tr>
-  <td>Cost of antacid per package ($)</td><td><input type="number" class="num" id="costAntacid1" name="costAntacid1" step="any"/></td><td><input type="number" class="num" id="costAntacid2" name="costAntacid2" step="any"/></td>
-  </tr>
-    <tr>
-  <td>Mass of antacid per package (g)</td><td><input type="number" class="num" id="massPackage1" name="massPackage1" step="any"/></td><td><input type="number" class="num" id="massPackage2" name="massPackage2" step="any"/></td>
-  </tr>
-    <tr>
-  <td>Cost of antacid per gram ($/g)</td>
-<td><input type="number" class="num calc" id="costPerGram1" name="costPerGram1" step="any" 
-    formula="${costAntacid1}/${massPackage1}" help="Divide the cost of antacid per pacage by the mass of antacid per package"/>
-      <div class="feedback" id="costPerGram1FB" name="costPerGram1FB"></div>
-    </td>
-    <td><input type="number" class="num calc" id="costPerGram2" name="costPerGram2" step="any" 
-    formula="${costAntacid2}/${massPackage2}" help="Divide the cost of antacid per pacage by the mass of antacid per package"/>
-      <div class="feedback" id="costPerGram2FB" name="costPerGram2FB"></div>
-    </td>     
-  </tr>
-</table>
-      
-<h4>Table 8: Calculations</h4>
-<table>
-  <tr><th></th><th>First antacid</th><th>Second antacid</th></tr>
-    <tr>
-  <td>Moles of H<sup>+</sup> neutralized by the antacid sample (total mol of HCl minus total mol of NaOH)</td>
-    <td><input type="number" class="num calc" id="finalMolHCl1" name="finalMolHCl1" step="any" 
-    formula="${totalMolHCl1}-${molNaOH1}" help="Total mol of HCl minus total mol of NaOH"/>
-      <div class="feedback" id="finalMolHCl1FB" name="finalMolHCl1FB"></div>
-    </td>
-    <td><input type="number" class="num calc" id="finalMolHCl2" name="finalMolHCl2" step="any" 
-    formula="${totalMolHCl2}-${molNaOH2}" help="Total mol of HCl minus total mol of NaOH"/>
-      <div class="feedback" id="finalMolHCl2FB" name="finalMolHCl2FB"></div>
-    </td>
-  </tr>
-  
-  <tr>
-  <td>Equivalents of antacid in sample analyzed</td>
-    <td><input type="number" class="num calc" id="equivalents1" name="equivalents1" step="any" 
-    formula="${finalMolHCl1}" help="Total equivalent of antacid = total mole of H+ neutralized"/>
-      <div class="feedback" id="equivalents1FB" name="equivalents1FB"></div>
-    </td>
-     <td><input type="number" class="num calc" id="equivalents2" name="equivalents2" step="any" 
-    formula="${finalMolHCl2}" help="Total equivalent of antacid = total mole of H+ neutralized"/>
-      <div class="feedback" id="equivalents2FB" name="equivalents2FB"></div>
-    </td>
-  </tr>
-  
-  <tr>
-  <td>Equivalents per gram of antacid (in eq/gram)</td>
-    <td><input type="number" class="num calc" id="eqPerGram1" name="eqPerGram1" step="any" 
-    formula="${equivalents1}/${antacidMass1}" help="Divide the equivalents (table 7) by the mass of your sample (table 1)"/>
-      <div class="feedback" id="eqPerGram1FB" name="eqPerGram1FB"></div>
-    </td>
-     <td><input type="number" class="num calc" id="eqPerGram2" name="eqPerGram2" step="any" 
-    formula="${equivalents2}/${antacidMass2}" help="Divide the equivalents (table 7) by the mass of your sample (table 1)"/>
-      <div class="feedback" id="eqPerGram2FB" name="eqPerGram2FB"></div>
-    </td>
-  </tr>
-  
-  <tr>
-  <td>Cost of antacid per equivalent (in $/eq)</td>
-    <td><input type="number" class="num calc" id="costPerEq1" name="costPerEq1" step="any" 
-    formula="${costPerGram1}/${eqPerGram1}" help="Divide the cost per gram (table 7) by the equivalents per gram (table 8)"/>
-      <div class="feedback" id="costPerEq1FB" name="costPerEq1FB"></div>
-    </td>
-    <td><input type="number" class="num calc" id="costPerEq2" name="costPerEq2" step="any" 
-    formula="${costPerGram2}/${eqPerGram2}" help="Divide the cost per gram (table 7) by the equivalents per gram (table 8)"/>
-      <div class="feedback" id="costPerEq2FB" name="costPerEq2FB"></div>
-    </td>
-  </tr>  
-</table>
-      
-Which antacid is the most cost effective? 
-<input type="text" class="num calc" id="best" name="best" formula="(${costPerEq1} <= ${costPerEq2}) ? '${antacidName1}' : '${antacidName2}'" help="Type in the name of the antacid that had a lower cost per equivalent.  If they are equal, then type in the name of the first antacid."/>
+      <h4>Table 7: Additional Data (provided by instructor)</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>First antacid</th>
+          <th>Second antacid</th>
+        </tr>
+        <tr>
+          <td>Cost of antacid per package ($)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="costAntacid1"
+              name="costAntacid1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="costAntacid2"
+              name="costAntacid2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Mass of antacid per package (g)</td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="massPackage1"
+              name="massPackage1"
+              step="any"
+            />
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num"
+              id="massPackage2"
+              name="massPackage2"
+              step="any"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td>Cost of antacid per gram ($/g)</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="costPerGram1"
+              name="costPerGram1"
+              step="any"
+              formula="${costAntacid1}/${massPackage1}"
+              help="Divide the cost of antacid per pacage by the mass of antacid per package"
+            />
+            <div
+              class="feedback"
+              id="costPerGram1FB"
+              name="costPerGram1FB"
+            ></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="costPerGram2"
+              name="costPerGram2"
+              step="any"
+              formula="${costAntacid2}/${massPackage2}"
+              help="Divide the cost of antacid per pacage by the mass of antacid per package"
+            />
+            <div
+              class="feedback"
+              id="costPerGram2FB"
+              name="costPerGram2FB"
+            ></div>
+          </td>
+        </tr>
+      </table>
+
+      <h4>Table 8: Calculations</h4>
+      <table>
+        <tr>
+          <th></th>
+          <th>First antacid</th>
+          <th>Second antacid</th>
+        </tr>
+        <tr>
+          <td>
+            Moles of H<sup>+</sup> neutralized by the antacid sample (total mol
+            of HCl minus total mol of NaOH)
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="finalMolHCl1"
+              name="finalMolHCl1"
+              step="any"
+              formula="${totalMolHCl1}-${molNaOH1}"
+              help="Total mol of HCl minus total mol of NaOH"
+            />
+            <div
+              class="feedback"
+              id="finalMolHCl1FB"
+              name="finalMolHCl1FB"
+            ></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="finalMolHCl2"
+              name="finalMolHCl2"
+              step="any"
+              formula="${totalMolHCl2}-${molNaOH2}"
+              help="Total mol of HCl minus total mol of NaOH"
+            />
+            <div
+              class="feedback"
+              id="finalMolHCl2FB"
+              name="finalMolHCl2FB"
+            ></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Equivalents of antacid in sample analyzed</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="equivalents1"
+              name="equivalents1"
+              step="any"
+              formula="${finalMolHCl1}"
+              help="Total equivalent of antacid = total mole of H+ neutralized"
+            />
+            <div
+              class="feedback"
+              id="equivalents1FB"
+              name="equivalents1FB"
+            ></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="equivalents2"
+              name="equivalents2"
+              step="any"
+              formula="${finalMolHCl2}"
+              help="Total equivalent of antacid = total mole of H+ neutralized"
+            />
+            <div
+              class="feedback"
+              id="equivalents2FB"
+              name="equivalents2FB"
+            ></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Equivalents per gram of antacid (in eq/gram)</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="eqPerGram1"
+              name="eqPerGram1"
+              step="any"
+              formula="${equivalents1}/${antacidMass1}"
+              help="Divide the equivalents (table 7) by the mass of your sample (table 1)"
+            />
+            <div class="feedback" id="eqPerGram1FB" name="eqPerGram1FB"></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="eqPerGram2"
+              name="eqPerGram2"
+              step="any"
+              formula="${equivalents2}/${antacidMass2}"
+              help="Divide the equivalents (table 7) by the mass of your sample (table 1)"
+            />
+            <div class="feedback" id="eqPerGram2FB" name="eqPerGram2FB"></div>
+          </td>
+        </tr>
+
+        <tr>
+          <td>Cost of antacid per equivalent (in $/eq)</td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="costPerEq1"
+              name="costPerEq1"
+              step="any"
+              formula="${costPerGram1}/${eqPerGram1}"
+              help="Divide the cost per gram (table 7) by the equivalents per gram (table 8)"
+            />
+            <div class="feedback" id="costPerEq1FB" name="costPerEq1FB"></div>
+          </td>
+          <td>
+            <input
+              type="number"
+              class="num calc"
+              id="costPerEq2"
+              name="costPerEq2"
+              step="any"
+              formula="${costPerGram2}/${eqPerGram2}"
+              help="Divide the cost per gram (table 7) by the equivalents per gram (table 8)"
+            />
+            <div class="feedback" id="costPerEq2FB" name="costPerEq2FB"></div>
+          </td>
+        </tr>
+      </table>
+
+      Which antacid is the most cost effective?
+      <input
+        type="text"
+        class="num calc"
+        id="best"
+        name="best"
+        formula="(${costPerEq1} <= ${costPerEq2}) ? '${antacidName1}' : '${antacidName2}'"
+        help="Type in the name of the antacid that had a lower cost per equivalent.  If they are equal, then type in the name of the first antacid."
+      />
       <div class="feedback" id="bestFB" name="bestFB"></div>
-      
-      
-<br><br>
-<a href="https://chem.libretexts.org/Ancillary_Materials/Laboratory_Experiments/Wet_Lab_Experiments/General_Chemistry_Labs/Online_Chemistry_Lab_Manual/Chem_11_Experiments/09%3A_Evaluating_the_Cost-Effectiveness_of_Antacids_(Experiment)">9: Evaluating the Cost-Effectiveness of Antacids (Experiment)</a> is shared under a CC BY-NC license and was authored, remixed, and/or curated by Santa Monica College.
-      
- 
+
+      <br /><br />
+      <a
+        href="https://chem.libretexts.org/Ancillary_Materials/Laboratory_Experiments/Wet_Lab_Experiments/General_Chemistry_Labs/Online_Chemistry_Lab_Manual/Chem_11_Experiments/09%3A_Evaluating_the_Cost-Effectiveness_of_Antacids_(Experiment)"
+        >9: Evaluating the Cost-Effectiveness of Antacids (Experiment)</a
+      >
+      is shared under a CC BY-NC license and was authored, remixed, and/or
+      curated by Santa Monica College.
+
       <p></p>
 
-      <div class="footer">Evaluating the Cost-Effectiveness of Antacids Lab</div>
+      <div class="footer">
+        Evaluating the Cost-Effectiveness of Antacids Lab
+      </div>
       <!-- title -->
       <div id="button_bar">
         <button
@@ -458,7 +1152,6 @@ Which antacid is the most cost effective?
           %
         </div>
       </div>
-
     </form>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.5.1/math.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
