@@ -11,8 +11,8 @@ import { basicSetup } from "https://esm.sh/codemirror";
 
 import { html } from "https://esm.sh/@codemirror/lang-html";
 
-import prettier from "https://esm.sh/prettier@3.2.5/standalone";
-import parserHtml from "https://esm.sh/prettier@3.2.5/plugins/html";
+// import prettier from "https://esm.sh/prettier@3.2.5/standalone";
+// import parserHtml from "https://esm.sh/prettier@3.2.5/plugins/html";
 
 import { linter } from "https://esm.sh/@codemirror/lint";
 
