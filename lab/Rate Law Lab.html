@@ -213,9 +213,10 @@
         <li>Plastic transfer pipets</li>
         <li>8 × Cuvettes</li>
         <li>0.020 M KI solution (~100 mL)</li>
-        <li>0.020 M FeCl₃ solution (~100 mL)</li>
+        <li>0.020 M FeCl₃ solution (~100 mL) <b>in 0.10 M HCl</b></li>
+        <li>0.020 M (0.040 N) Iodine solution (~50 mL)</li>
         <li>Distilled water (~60 mL)</li>
-        <li>2 × 10 mL graduated cylinders</li>
+        <li>3 × 10 mL graduated pipets</li>
       </ul>
 
       <hr />
@@ -224,23 +225,32 @@
 
       <h3>Part 1: Setup</h3>
       <ol>
-        <li>Put on goggles.</li>
+        <li>Put on goggles and nitril gloves.</li>
         <li>Obtain all materials.</li>
+        <li>Label the 3 graduated pipets as follows:
+        <ul>
+          <li>H<sub>2</sub>O</li>
+          <li>FeCL<sub>3</sub></li>
+          <li>KI</li>
+        </ul>
+        </li>
+        <li>Only use each graduated pipet for it's labeled solution to prevent cross contamination.</li>
         <li>Connect the SpectroVis Plus to the LabQuest 3 using USB.</li>
         <li>Tap <b>File → New</b>.</li>
+      </ol>
 
         <h3>Part 2: Preparing an Absorbance vs. Concentration Curve.</h3>
         <h3>Preparing Standard Solutions</h3>
 
         <p>
-          Use the provided stock solution to prepare the following standards.
+          Use the provided stock Iodine solution to prepare the following standards.
           Each solution should have a total volume of 10.0 mL.
         </p>
 
         <table border="1" cellpadding="5">
           <tr>
             <th>Solution</th>
-            <th>0.0200 M Stock Solution (mL)</th>
+            <th>0.0200 M Stock Iodine Solution (mL)</th>
             <th>Distilled Water (mL)</th>
             <th>Concentration (M)</th>
           </tr>
@@ -280,6 +290,48 @@
           The stock solution has a concentration of $0.0200\ \text{M}\ (0.0400 \
           \text{N})$.
         </p>
+
+        <h3>Part 3: Calibration and Wavelength Selection</h3>
+      <ol>
+        <li>Fill a cuvette ¾ full with distilled water (blank).</li>
+        <li>Select <b>Sensors → Calibrate → Spectrometer</b></li>
+          <li>Click OK to take a dark sample (with no cuvette in the spectrophotometer)</li>
+      <li>Wait 90 seconds for the lamp to warm up or skip if the spctrophotometer has been on for a long time</li>
+      <li>Place the blank cuvette in the spectrophotometer with the clear side pointing towards the arrow</li>
+      <li>Click Finish Calibration then click OK</li>
+    </ol>
+        <li>
+          Determine $\lambda_{max}$:
+          <ol>
+            <li>Fill a cuvette 3/4 full of 0.0200 M Iodine stock solution</li>
+            <li>Wipe the clear sides with a Kimwipe</li>
+            <li>Place the cuvette in the spectrophotometer with the clear side facing the arrow.</li>
+            <li>Tap the <b>Collect</b> button (green arrow)</li>
+            <li>Identify the peak wavelength</li>
+            <li>
+              Record $\lambda_{max}$ (wavelength with the maximum absorbance)
+              below
+            </li>
+            $\lambda_{max} =$
+            <input type="text" class="num" id="wavelength" name="wavelength" />
+            nm
+          </ol>
+        </li>
+          Set the wavelength:
+          <ol>
+            <li>Click the red portion of the meter screen and select <b>Change Wavelength...</b> </li>
+            <li>Switch to absorbance mode</li>
+            <li>Enter $\lambda_{max}$ so only that wavelength is measured</li>
+            <li>
+              For each Iodine solution:
+              <ul>
+                <li>Use a plastic pipet to fill a curvette 3/4 full</li>
+                <li>Wipe the clear sides of the cuvette with a Kimwipe</li>
+                <li>Place the cuvette in the spectrophotometer with the clear side facing the arrow</li>
+                <li>Record the absorbance for each sample</li>
+              </ul>
+            </li>
+          </ol>
 
         <h3>Calibration Measurements</h3>
 
@@ -413,40 +465,19 @@
         </div>
         <br />
 
-        <h3>Part 3: Calibration and Wavelength Selection</h3>
-        <li>Fill a cuvette ¾ full with distilled water (blank).</li>
-        <li>
-          Select <b>Sensors → Calibrate → Spectrometer</b> and complete
-          calibration.
-        </li>
-        <li>
-          Determine $\lambda_{max}$:
-          <ul>
-            <li>Insert FeCl₃ solution</li>
-            <li>Tap the <b>Collect</b> button (green arrow)</li>
-            <li>Identify the peak wavelength</li>
-            <li>
-              Record $\lambda_{max}$ (wavelength with the maximum absorbance)
-              below
-            </li>
-            $\lambda_{max} =$
-            <input type="text" class="num" id="wavelength" name="wavelength" />
-            nm
-          </ul>
-        </li>
-        <li>
-          Set the wavelength:
-          <ul>
-            <li>Switch to absorbance mode</li>
-            <li>Enter $\lambda_{max}$ so only that wavelength is measured</li>
-          </ul>
-        </li>
+        
         <li>
           Set time-based collection:
+          <ol>
+            <li>Click where it says Mode: Full Spectrum on your Labquest</li>
+            <li>Change Full Spectrum to Time Based</li>
+            <li> Set the rate and duration:
           <ul>
-            <li>Rate: 1 sample/second</li>
-            <li>Duration: 200 seconds</li>
+            <li>Rate: 1 sample/second (hardware limits may limit the actual duration to 2.8 s/sample</li>
+            <li>Duration: 120 seconds</li>
           </ul>
+          </li>
+            </ol>
         </li>
 
         <h3>Part 3: Reaction Trials</h3>
@@ -479,7 +510,9 @@
         </table>
 
         <h3>Part 4: Collecting Data</h3>
-        <li>Measure KI, FeCl₃, and water.</li>
+        For each of the reaction trials in the chart above, do all of the following:
+      <ol>
+        <li>Measure the volume of KI, FeCl₃, and water for the trial shown in the chart above using a 25-50 mL graduated cylinder</li>
         <li>Add water (if used) to KI first.</li>
         <li>Prepare the cuvette and LabQuest.</li>
         <li>Add FeCl₃ to KI and swirl.</li>
@@ -498,15 +531,17 @@
           Select an early linear region of the graph by dragging across it.
         </li>
         <li>
-          Tap <b>Analyze → Curve Fit</b><br />
+          Tap <b>Analyze → Curve Fit</b> (select the absorbance)<br />
           Select <b>Linear</b>
         </li>
         <li>The slope of the line is the Δ Absorbance/s.</li>
+        <li>Record the absorbance for each sample in the table below</li>
         <li>Use the same time interval for all trials.</li>
         <li>
           Use your Absorbance vs. Concentration best fit line equation to
-          convert from Δ Absorbance/s (Y) to Δ M/s (X).
+          convert from Δ Absorbance/s (Y/s) to Δ M/s (X/s).
         </li>
+        </ol>
 
         <hr />
 
@@ -607,30 +642,32 @@
           What are the reaction orders for KI and FeCl<sub>3</sub> .
           <ul>
             <li>
-              Order of reaction with respect to FeCl<sub>3</sub>:
+              Order of reaction with respect to FeCl<sub>3</sub> (rounded to the nearest whole number):
               <input
                 type="number"
                 class="num calc"
                 id="ORFeCl3"
                 name="ORFeCl3"
                 step="any"
-                formula="log(${t1rate}/${t3rate})/log(2)"
-                help="Divide the rate law for the first reaction by the rate law of the third reaction and solve for the order of the reaction with respect to FeCl<sub>3</sub>."
-                range="50%"
+                sigfigs="1"
+                formula="round(log(${t1rate}/${t3rate})/log(2), 0)"
+                help="Divide the rate law for the first reaction by the rate law of the third reaction and solve for the order of the reaction with respect to FeCl<sub>3</sub>, then round to the nearest whole number."
+                range="10%"
               />
               <div class="feedback" id="ORFeCl3FB" name="ORFeCl3FB"></div>
             </li>
             <li>
-              Order of reaction with respect to KI:
+              Order of reaction with respect to KI (rounded to the nearest whole number):
               <input
                 type="number"
                 class="num calc"
                 id="ORKI"
                 name="ORKI"
                 step="any"
+                sigfigs="1"
                 formula="log(${t1rate}/${t2rate})/log(2)"
-                help="Divide the rate law for the first reaction by the rate law of the second reaction and solve for the order of the reaction with respect to KI."
-                range="50%"
+                help="Divide the rate law for the first reaction by the rate law of the second reaction and solve for the order of the reaction with respect to KI, then round to the nearest whole number."
+                range="10%"
               />
               <div class="feedback" id="ORKIFB" name="ORKIFB"></div>
             </li>
