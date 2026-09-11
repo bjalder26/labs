@@ -893,7 +893,7 @@ if (matches) {
           if (trimmedValue === "") {
             // Handle empty input explicitly
           elementFB.title = "No answer";
-          elementFB.innerHTML = '<img src="/images/incorrect.svg">';
+          elementFB.innerHTML = '<img src="/images/incorrect.svg" alt="incorrect">';
           } else {
               if (isNaN(answer)) {
 
@@ -919,13 +919,13 @@ if (matches) {
 
             if (!closeOrCorrect) {
               elementFB.title = this.getAttribute("help");
-              elementFB.innerHTML = '<img src="/images/incorrect.svg">';
+              elementFB.innerHTML = '<img src="/images/incorrect.svg" alt="incorrect">';
             } else if (requiredSigFigs && !correctSigFigs) {
               elementFB.title = "Incorrect number of significant figures";
-              elementFB.innerHTML = '<img src="/images/incorrectSF.svg">';
+              elementFB.innerHTML = '<img src="/images/incorrectSF.svg" alt="incorrect signficant figures" title="incorrect signficant figures">';
             } else {
               elementFB.title = "correct";
-              elementFB.innerHTML = '<img src="/images/correct.svg">';
+              elementFB.innerHTML = '<img src="/images/correct.svg" alt="correct">';
              }
             }
         }
@@ -1392,12 +1392,12 @@ if (isAnyChecked) {
     // Update the feedback based on whether the checkbox's value matches the expected answer
     if (checkBoxChecked === checkBoxAnswer) {
       elementFB.innerHTML =
-        '<img src="/images/correct.svg">';
+        '<img src="/images/correct.svg" alt="correct">';
       elementFB.title = "correct";
     } else {
       elementFB.title = checkBox.getAttribute("help");
       elementFB.innerHTML =
-        '<img src="/images/incorrect.svg">';
+        '<img src="/images/incorrect.svg" alt="incorrect">';
     }
   }
 } 

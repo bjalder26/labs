@@ -97,3 +97,9 @@ html, body {
 #button-group button {
   white-space: nowrap;
 }
+
+.cm-editor .my-error-underline {
+  text-decoration: underline wavy red;
+  text-decoration-thickness: 2px;
+}
+

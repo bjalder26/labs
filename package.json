@@ -1,11 +1,12 @@
 {
-  "name": "NodejsStarterApp",
+  "name": "labs",
   "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
+    "@bjalder26/lti-core": "github:bjalder26/lti-core",
     "archiver": "^7.0.1",
     "body-parser": "*",
     "cfenv": "^1.2.4",
@@ -13,11 +14,13 @@
     "dotenv": "^17.3.1",
     "express": "^4.18.2",
     "ims-lti": "^3.0.2",
+    "js-base64": "^3.7.5",
+    "jsonwebtoken": "^9.0.3",
     "multer": "^2.0.1",
-    "rimraf": "^5.0.10",
-    "uuid4": "^2.0.3",
     "node-fetch": "^2.6.9",
-    "js-base64": "^3.7.5"
+    "oauth-sign": "^0.9.0",
+    "rimraf": "^5.0.10",
+    "uuid4": "^2.0.3"
   },
   "repository": {},
   "engines": {

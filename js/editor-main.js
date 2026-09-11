@@ -11,13 +11,13 @@ import { basicSetup } from "https://esm.sh/codemirror";
 
 import { html } from "https://esm.sh/@codemirror/lang-html";
 
+// import prettier from "https://esm.sh/prettier@3.2.5/standalone";
+// import parserHtml from "https://esm.sh/prettier@3.2.5/plugins/html";
 
-/*
-import { EditorView, basicSetup, ViewPlugin, ViewUpdate } from "https://esm.sh/codemirror";
-import { html } from "https://esm.sh/@codemirror/lang-html";
-import { EditorState, StateField } from "https://esm.sh/@codemirror/state";
-import { Decoration, DecorationSet} from "https://esm.sh";
-*/
+import { linter } from "https://esm.sh/@codemirror/lint";
+
+import { bracketMatching } from "https://esm.sh/@codemirror/language";
+
 let editor;
 let lastVerifiedContent = "";
 let duplicateGroups = {};
@@ -46,6 +46,7 @@ export function startEditor() {
     'insert-linear-graph-system': showLinearGraphForm,
     'insert-image': showImageUploadForm,
     'insert-random-display': showRandomDisplayForm,
+    'format-html': formatHTML,
     'verify-html': verifyHTML
   };
 
@@ -92,13 +93,33 @@ document.querySelectorAll("button[data-action], #save-file, #new-file, #commit")
       }
     });
   });
-
-
-
-
-
-
 }
+
+function buildRuntimeParams(html) {
+  const match = html.match(/<title>(.*?)<\/title>/i);
+  let pageTitle = match ? match[1] : '';
+  pageTitle = pageTitle.trim();
+  return `
+const userName = "student";
+const labName = "${pageTitle}";
+const dataFile = {};
+`;
+}
+
+
+function injectParams(html, params) {
+  const marker = "//PARAMS**GO**HERE";
+
+  if (!html.includes(marker)) {
+    const errorMessage = "❌ Missing '//PARAMS**GO**HERE' block in lab HTML.";
+
+    console.error(errorMessage);
+    throw new Error(errorMessage);
+  }
+
+  return html.replace(marker, params);
+}
+
 
 function showTableForm() {
   const form = document.createElement("form");
@@ -179,7 +200,7 @@ function updatePreview() {
     const previewFrame = document.getElementById("preview-frame");
     const prevDoc = previewFrame.contentDocument;
 
-    // ✅ Save scroll position BEFORE reload
+    // Save scroll
     if (prevDoc) {
       lastScrollY = prevDoc.documentElement.scrollTop || prevDoc.body.scrollTop;
       lastScrollX = prevDoc.documentElement.scrollLeft || prevDoc.body.scrollLeft;
@@ -187,30 +208,26 @@ function updatePreview() {
 
     let html = editor.state.doc.toString();
 
-    const runtimeShim = `
-      <script>
-        window.dataFile = window.dataFile || {};
-      </script>
-    `;
+    // ✅ Build params (controlled injection)
+    const params = buildRuntimeParams(html);
+
+    // ✅ Inject params cleanly
+    const finalHtml = injectParams(html, params);
 
     previewFrame.onload = () => {
-      console.log("iframe loaded ✅");
-
       const doc = previewFrame.contentDocument;
 
-      // ✅ Restore scroll AFTER load
+      // Restore scroll
       doc.documentElement.scrollTop = lastScrollY;
       doc.documentElement.scrollLeft = lastScrollX;
-      doc.body.scrollTop = lastScrollY;
-      doc.body.scrollLeft = lastScrollX;
 
-      // ✅ Block forms
+      // Block form submits
       doc.addEventListener("submit", (e) => {
         e.preventDefault();
         e.stopImmediatePropagation();
       }, true);
 
-      // ✅ Hover ID tooltip
+      // Hover ID label
       doc.addEventListener("mouseover", (event) => {
         const el = event.target;
 
@@ -224,9 +241,10 @@ function updatePreview() {
       });
     };
 
-    previewFrame.srcdoc = runtimeShim + html;
+    // ✅ Load preview
+    previewFrame.srcdoc = finalHtml;
 
-  }, 500); 
+  }, 300);
 }
 
 function initEditor() {
@@ -239,6 +257,8 @@ function initEditor() {
         extensions: [
           basicSetup,
           html(),
+          htmlLinter(),
+          bracketMatching(),
           EditorView.lineWrapping,
           EditorView.updateListener.of((update) => {
             if (update.docChanged) {
@@ -456,6 +476,7 @@ function commit() {
       if (!response.ok) throw new Error("Failed to load snippet");
       const snippet = await response.text();
       insertTextAtCursor(snippet);
+      formatHTML();
     } catch (err) {
       console.error(`Error inserting snippet ${name}:`, err);
     }
@@ -1002,7 +1023,7 @@ function showLookupForm() {
 <input
   type="number"
   step="any"
-  class="lookupValue"
+  class="lookupValue num"
   id="${baseId}LV"
   name="${baseId}LV"
   tableID="${tableId}"
@@ -1209,7 +1230,7 @@ function showImageUploadForm() {
 
     if (data.success) {
       const altText = formData.get("altText").replace(/"/g, '&quot;');
-      const imgTag = `<img src="/images/${data.fileName}" alt="${altText}">\n`;
+      const imgTag = `<img src="/images/${data.fileName}" alt="${altText}" height="100px">\n`;
       insertTextAtCursor(imgTag);
       form.remove();
     } else {
@@ -1624,6 +1645,8 @@ function checkInvalidCalcFormulas(doc) {
       });
     }
   });
+  return issues;
+}
 
   function checkMissingAltText(doc) {
   const images = doc.querySelectorAll("img");
@@ -1671,5 +1694,69 @@ function checkInvalidCalcFormulas(doc) {
 
   return issues;
 }
-  return issues;
+
+async function formatHTML() {
+  try {
+    const state = editor.state;
+    const originalLength = state.doc.length;
+    const doc = state.doc.toString();
+
+    const formatted = await prettier.format(doc, {
+      parser: "html",
+      plugins: [parserHtml]
+    });
+
+    editor.dispatch({
+      changes: {
+        from: 0,
+        to: originalLength,
+        insert: formatted
+      }
+    });
+
+  } catch (err) {
+    console.error(err);
+  }
 }
+
+function htmlLinter() {
+  return linter(view => {
+    const text = view.state.doc.toString();
+
+    return prettier.format(text, {
+      parser: "html",
+      plugins: [parserHtml]
+    })
+    .then(() => []) // ✅ no errors
+    .catch(err => {
+      const diagnostics = [];
+
+      if (err.message) {
+        const firstLine = err.message.split("\n")[0];
+        const match = err.message.match(/\((\d+):(\d+)\)/);
+
+        if (match) {
+          const lineNum = Number(match[1]);
+          const colNum = Number(match[2]);
+
+          const line = view.state.doc.line(lineNum);
+          const pos = line.from + colNum - 1;
+
+          diagnostics.push({
+            from: pos,
+            to: line.to,
+            severity: "error",
+            message: firstLine,
+            class: "my-error-underline"
+          });
+        }
+      }
+
+      return diagnostics;
+    });
+  });
+}
+
+
+
+
