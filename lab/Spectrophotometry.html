@@ -937,8 +937,6 @@
               <th>Hydrogen</th>
               <th>Nitrogen</th>
               <th>Argon</th>
-              <th>Carbon dioxide</th>
-              <th>Air</th>
             </tr>
             <tr>
               <td>
@@ -950,13 +948,24 @@
               <td>
                 <img src="/images/argon.png" height="200" alt="argon emission spectra"/>
               </td>
-              <td>
+            </tr>
+          <tr>
+            <th>Carbon dioxide</th>
+              <th>Air</th>
+            <th>Helium</th>
+          </tr>
+          <tr>
+            <td>
                 <img src="/images/carbon dioxide.png" height="200" alt="carbon dioxide emission spectra"/>
               </td>
               <td>
                 <img src="/images/air.png" height="200" alt="air emission spectra" />
               </td>
-            </tr>         
+            <td>
+              <img src="/images/helium.png" height="200" alt="helium emission spectra" height="100px">
+
+            </td>
+          </tr>
         </table>
 
                 <table>
@@ -975,6 +984,7 @@
                 help="Compare your results to the emission spectrums in the table above."
               >
                 <option value="">Choose a gas</option>
+                <option value="Helium">Helium</option>
                 <option value="Hydrogen">Hydrogen</option>
                 <option value="Nitrogen">Nitrogen</option>
                 <option value="Argon">Argon</option>
@@ -996,6 +1006,7 @@
                 help="Compare your results to the emission spectrums in the table above."
               >
                 <option value="">Choose a gas</option>
+                <option value="Helium">Helium</option>
                 <option value="Hydrogen">Hydrogen</option>
                 <option value="Nitrogen">Nitrogen</option>
                 <option value="Argon">Argon</option>
@@ -1017,6 +1028,7 @@
                 help="Compare your results to the emission spectrums in the table above."
               >
                 <option value="">Choose a gas</option>
+                <option value="Helium">Helium</option>
                 <option value="Hydrogen">Hydrogen</option>
                 <option value="Nitrogen">Nitrogen</option>
                 <option value="Argon">Argon</option>
@@ -1038,6 +1050,7 @@
                 help="Compare your results to the emission spectrums in the table above."
               >
                 <option value="">Choose a gas</option>
+                <option value="Helium">Helium</option>
                 <option value="Hydrogen">Hydrogen</option>
                 <option value="Nitrogen">Nitrogen</option>
                 <option value="Argon">Argon</option>
@@ -1059,6 +1072,28 @@
                 help="Compare your results to the emission spectrums in the table above."
               >
                 <option value="">Choose a gas</option>
+                <option value="Helium">Helium</option>
+                <option value="Hydrogen">Hydrogen</option>
+                <option value="Nitrogen">Nitrogen</option>
+                <option value="Argon">Argon</option>
+                <option value="Carbon Dioxide">Carbon Dioxide</option>
+                <option value="Air">Air</option>
+              </select>
+              <div class="feedback" id="gasEFB" name="gasEFB"></div>
+            </td>
+          </tr>
+                  <tr>
+            <td>E</td>
+            <td>
+              <select
+                name="gasF"
+                id="gasF"
+                class="calc"
+                formula="Helium"
+                help="Compare your results to the emission spectrums in the table above."
+              >
+                <option value="">Choose a gas</option>
+                <option value="Helium">Helium</option>
                 <option value="Hydrogen">Hydrogen</option>
                 <option value="Nitrogen">Nitrogen</option>
                 <option value="Argon">Argon</option>
