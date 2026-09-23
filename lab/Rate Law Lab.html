@@ -496,10 +496,9 @@
         <h3>Part 5: Collecting Data</h3>
         For each of the reaction trials in the chart above, do all of the following:
       <ol>
-        <li>Measure the volume of KI, FeCl₃, and water for the trial shown in the chart above using a 25-50 mL graduated cylinder</li>
+        <li>Measure (don't mix yet) the volumes of KI, FeCl₃, and water for the trial shown in the chart above using 25-50 mL graduated cylinders</li>
         <li>Add water (if used) to KI first.</li>
         <li>Prepare the cuvette (whipe down the sides) and LabQuest.</li>
-        <li>The reaction begins as soon as FeCl₃ and KI are mixed. Work as quickly and consistently as possible for all trials.</li>
         <li>Add FeCl₃ to KI and swirl.</li>
         <li>
           Immediately:
@@ -650,7 +649,7 @@
                 name="ORKI"
                 step="any"
                 sigfigs="1"
-                formula="log(${t1rate}/${t2rate})/log(2)"
+                formula="round(log(${t1rate}/${t2rate})/log(2), 0)"
                 help="Divide the rate law for the first reaction by the rate law of the second reaction and solve for the order of the reaction with respect to KI, then round to the nearest whole number."
                 range="10%"
               />
