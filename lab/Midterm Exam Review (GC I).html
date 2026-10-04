@@ -602,7 +602,7 @@ significant figures.
 
 <br><br>
 
-3.2 has
+3.3 has
 
 <select
   id="14sf2"
@@ -622,7 +622,9 @@ significant figures.
 
 <br><br>
 
-12.45 × 3.2 =
+12.45 × 3.3 =
+  <br>
+  (don't round yet)
 
 <input
   type="number"
@@ -630,8 +632,9 @@ significant figures.
   id="14raw"
   name="14raw"
   step="any"
-  formula="39.84"
-  help="Multiply the two numbers."
+  formula="41.085"
+  range="0"
+  help="Multiply the two numbers but don't round yet."
 />
 <div class="feedback" id="14rawFB" name="14rawFB"></div>
 
@@ -645,7 +648,9 @@ Rounded to the correct number of significant figures:
   id="14final"
   name="14final"
   step="any"
-  formula="40"
+  formula="41"
+  range="0"
+  sigfigs="2"
   help="The answer must have the same number of significant figures as the value with the fewest significant figures."
 />
 <div class="feedback" id="14finalFB" name="14finalFB"></div>
@@ -675,13 +680,15 @@ significant figures.
 <br><br>
 
 5.670 × 2.33 =
-
+<br>
+  (don't round yet)
 <input
   type="number"
   class="calc"
   id="15raw"
   name="15raw"
   step="any"
+  range="0"
   formula="13.2111"
   help="Multiply the numbers before rounding."
 />
@@ -698,6 +705,8 @@ Correctly rounded answer =
   name="15final"
   step="any"
   formula="13.2"
+  range="0"
+  sigfigs="3"
   help="Round to 3 significant figures."
 />
 <div class="feedback" id="15finalFB" name="15finalFB"></div>
@@ -722,6 +731,8 @@ Answer =
   id="16answer"
   name="16answer"
   step="any"
+  range="0"
+  sigfigs="2"
   formula="11"
   help="Multiply first, then round to the correct number of significant figures."
 />
@@ -797,6 +808,8 @@ decimal place(s).
 <br><br>
 
 15.234 - 2.6 =
+  <br>
+  (don't round yet)
 
 <input
   type="number"
@@ -804,6 +817,7 @@ decimal place(s).
   id="17raw"
   name="17raw"
   step="any"
+  range="0"
   formula="12.634"
   help="Subtract the numbers without rounding first."
 />
@@ -820,6 +834,8 @@ Rounded to the correct number of decimal places:
   name="17final"
   step="any"
   formula="12.6"
+  range="0"
+  sigfigs="3"
   help="For addition and subtraction, round to the fewest decimal places."
 />
 <div class="feedback" id="17finalFB" name="17finalFB"></div>
@@ -829,13 +845,15 @@ Rounded to the correct number of decimal places:
 <h5>Example 2</h5>
 
 42.81 - 18.735 =
-
+<br>
+  (don't round yet)
 <input
   type="number"
   class="calc"
   id="18raw"
   name="18raw"
   step="any"
+  range="0"
   formula="24.075"
   help="Subtract the numbers."
 />
@@ -872,6 +890,8 @@ Correctly rounded answer:
   name="18final"
   step="any"
   formula="24.08"
+  range="0"
+  sigfigs="4"
   help="Round the answer to 2 decimal places."
 />
 <div class="feedback" id="18finalFB" name="18finalFB"></div>
@@ -897,6 +917,8 @@ Answer:
   name="19answer"
   step="any"
   formula="837.34"
+  range="0"
+  sigfigs="5"
   help="Subtract first, then round to the correct number of decimal places."
 />
 <div class="feedback" id="19answerFB" name="19answerFB"></div>
@@ -924,7 +946,7 @@ proper number of decimal places.
 <h5>Use these ideas in your reasoning:</h5>
 
 <ul>
-  <li>Accurate results are close to the accepted (known) value.</li>
+  <li>Accurate results will have an average close to the accepted (known) value.</li>
   <li>Precise results are close to one another.</li>
   <li>To determine accuracy, compare the measurements to the accepted value.</li>
   <li>To determine precision, compare the measurements to each other.</li>
@@ -961,14 +983,14 @@ The measurements are close to each other.
 
 <br><br>
 
-The measurements are close to the accepted value.
+The measurement's average is close to the accepted value.
 
 <select
   id="20accurate"
   name="20accurate"
   class="calc"
   formula="Yes"
-  help="Accurate measurements are close to the accepted value."
+  help="Accurate measurements will have an average close to the accepted value."
 >
   <option value="">Choose an option</option>
   <option value="Yes">Yes</option>
@@ -1036,7 +1058,7 @@ These results are
   An experiment to determine the density of a salt solution garners the following results:
   <br><br>
 
-  1.34 g/mL, 1.29 g/mL, 1.37 g/mL, 1.31 g/mL
+  1.34 g/mL, 1.09 g/mL, 1.57 g/mL, 1.31 g/mL
 
   <br><br>
 
@@ -1080,7 +1102,7 @@ These results are
 Accuracy describes how close a measurement is to the accepted or known
 value. Precision describes how close repeated measurements are to one
 another. If measurements are tightly grouped together, they are precise.
-If measurements are close to the accepted value, they are accurate.
+If measurements have an average close to the accepted value, they are accurate.
 Measurements can be accurate and precise, accurate but not precise,
 precise but not accurate, or neither accurate nor precise.
 </p>
@@ -1225,6 +1247,7 @@ examples of heterogeneous mixtures.
   <li>Use the equation c = λν.</li>
   <li>Solve for frequency: ν = c/λ.</li>
   <li>Use c = 3.00 × 10<sup>8</sup> m/s.</li>
+  <li>Note: you can use scientific notation like this 3.00e10</li>
 </ol>
 
 <h5>Example 1</h5>
@@ -1733,10 +1756,10 @@ An atom or ion with 10 electrons is
   help="Na has 11 electrons when neutral. Na+ has lost one electron, leaving 10."
 >
   <option value="">Choose an option</option>
-  <option value="F-">F<sup>-</sup></option>
-  <option value="Na+">Na<sup>+</sup></option>
-  <option value="Mg2+">Mg<sup>2+</sup></option>
-  <option value="Ne">Ne</option>
+  <option value="F">F</option>
+  <option value="Na+">Na⁺</option>
+  <option value="Mg">Mg></option>
+  <option value="Ne+">Ne⁺</option>
 </select>
 <div class="feedback" id="36answerFB" name="36answerFB"></div>
 
@@ -2441,7 +2464,8 @@ energy level.
 
 <br><br>
 
-The energy change should be
+The energy change should be<br>
+  (remember that you can use scientific notation following this format: -1.43e-18)
 
 <select
   id="54sign"
@@ -2516,7 +2540,7 @@ J
   class="calc"
   id="56answer"
   name="56answer"
-  formula="-5.23e-19"
+  formula="-4.58e-19"
   help="Use ΔE = -2.18×10^-18 J (1/nf^2 - 1/ni^2). Enter scientific notation as e notation (example: 3.63e-19)."
  />
 
