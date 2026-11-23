@@ -400,6 +400,8 @@
               <td>Group 6</td>
               <td>Group 7</td>
               <td>Group 8</td>
+              <td>Group 9</td>
+              <td>Group 10</td>
               <td>Average</td>
             </tr>
             <tr>
@@ -479,11 +481,29 @@
               <td>
                 <input
                   type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG9"
+                  name="MNaOHG9"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MNaOHG10"
+                  name="MNaOHG10"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
                   class="calc num"
                   step="any"
                   id="MNaOHAve"
                   name="MNaOHAve"
-                  formula="mean(filter('${MNaOHG1}', '${MNaOHG2}', '${MNaOHG3}', '${MNaOHG4}', '${MNaOHG5}', '${MNaOHG6}', '${MNaOHG7}', '${MNaOHG8}'))"
+                  formula="mean(filter('${MNaOHG1}', '${MNaOHG2}', '${MNaOHG3}', '${MNaOHG4}', '${MNaOHG5}', '${MNaOHG6}', '${MNaOHG7}', '${MNaOHG8}', '${MNaOHG9}', '${MNaOHG10}'))"
                   help="Add the molarities from each group, then divide by the number of groups"
                 />
                 <div class="feedback" id="MNaOHAveFB" name="MNaOHAveFB"></div>
@@ -638,10 +658,10 @@
         <div class="feedback" id="vVolNaOH2FB" name="vVolNaOH2FB"></div>
         x $\frac{1\;L}{1000\;mL}$ x
         <table
-          style="display: inline-block; border: none; vertical-align: middle"
+          style="display: inline-block; border: none; vertical-align: middle; background: none;"
         >
           <tr>
-            <td style="border: none">
+            <td style="border: none; border-bottom: 1px solid #000">
               <input
                 type="number"
                 class="calc num"
@@ -655,8 +675,8 @@
               <div class="feedback" id="MNaOHAve2FB" name="MNaOHAve2FB"></div>
             </td>
           </tr>
-          <tr>
-            <td style="border-width: 1px 0 0 0">1 L NaOH}</td>
+          <tr style="background: none;">
+            <td style="border-width: 1px 0 0 0">1 L NaOH</td>
           </tr>
         </table>
         x $\frac{1\;mol\;acetic\;acid}{1\;mol\;NaOH}$ =
@@ -727,6 +747,8 @@
               <td>Group 6</td>
               <td>Group 7</td>
               <td>Group 8</td>
+              <td>Group 9</td>
+              <td>Group 10</td>
               <td>Average</td>
             </tr>
 
@@ -807,11 +829,29 @@
               <td>
                 <input
                   type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG9"
+                  name="MAAG9"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
+                  step="any"
+                  class="num"
+                  id="MAAG10"
+                  name="MAAG10"
+                />
+              </td>
+              <td>
+                <input
+                  type="number"
                   class="calc"
                   step="any"
                   id="MAAAve"
                   name="MAAAve"
-                  formula="mean(filter('${MAAG1}', '${MAAG2}', '${MAAG3}', '${MAAG4}', '${MAAG5}', '${MAAG6}', '${MAAG7}', '${MAAG8}'))"
+                  formula="mean(filter('${MAAG1}', '${MAAG2}', '${MAAG3}', '${MAAG4}', '${MAAG5}', '${MAAG6}', '${MAAG7}', '${MAAG8}', '${MAAG9}', '${MAAG10}'))"
                   help="Add the molarities from each group, then divide by the number of groups"
                 />
                 <div class="feedback" id="MAAAveFB" name="MAAAveFB"></div>
